@@ -58,7 +58,7 @@
   - 便當 ㄅㄧㄢˋ ˙ㄉㄤ
   - 朋友 ㄆㄥˊ ㄧㄡˇ
 
-- spans flagged for a listen (longer than expected): 2 - 3222, 1308
+- spans flagged for a listen (longer than expected): 0
 
 ## Data
 
@@ -75,54 +75,18 @@ Verifier: 261 Zhuyin strings checked, 0 failures, 1 warnings ⚑
   ⚑ zhuyin/contrasts.json/contrasts[8]/sets[0][1]: 樂 ㄌㄜˋ  — matches 簡編本 alt reading, not the first-listed one
 Syllable grid: 405 bases, 1222 toned syllables with MOE audio
 Audio ...
-  audio: 1305 MOE clips wanted, 1056 not cached, downloading 400 this run (priority order)
-    fetched 25/400
-    fetched 50/400
-    fetched 75/400
-    fetched 100/400
-    fetched 125/400
-    fetched 150/400
-    fetched 175/400
-    fetched 200/400
-    fetched 225/400
-    fetched 250/400
-    fetched 275/400
-    fetched 300/400
-    fetched 325/400
-    fetched 350/400
-    fetched 375/400
-    fetched 400/400
+  audio: 1305 MOE clips wanted, 657 not cached, downloading 0 this run (priority order)
     50/1305
     100/1305
     150/1305
     200/1305
-    downloaded 25/400
     250/1305
-    downloaded 50/400
-    downloaded 75/400
     300/1305
-    downloaded 100/400
-    downloaded 125/400
     350/1305
-    downloaded 150/400
-    downloaded 175/400
     400/1305
-    downloaded 200/400
-    downloaded 225/400
     450/1305
-    downloaded 250/400
-    downloaded 275/400
     500/1305
-    downloaded 300/400
     550/1305
-    downloaded 325/400
-    downloaded 350/400
     600/1305
-    downloaded 375/400
-    downloaded 400/400
-  contours: 219 cached, 401 to compute
-    100/401
-    200/401
-    300/401
-    400/401
+  contours: 611 cached, 9 to compute
 ```

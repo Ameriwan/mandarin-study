@@ -20,7 +20,7 @@ import moe  # noqa: E402
 MOE_CACHE = moe.CACHE / "moe-audio"
 JUYIN_CACHE = moe.CACHE / "moe-juyin"
 TTS_CACHE = moe.CACHE / "tts"
-SPANS_FILE = MOE_CACHE / "spans-v2.json"   # v2: 0.15 s pauses + syllable-count floor
+SPANS_FILE = MOE_CACHE / "spans-v3.json"   # v3: multi-threshold silencedetect + plausibility window
 OUT = moe.DOCS / "audio"
 CDN = "https://r2-assets.moedict.tw/audio/a/{id}.ogg"
 UA = "Mozilla/5.0 (mandarin-study build; personal study project; ~1 request/s)"
@@ -77,10 +77,7 @@ def save_spans(spans):
     json.dump(spans, open(SPANS_FILE, "w", encoding="utf-8"), indent=0, sort_keys=True)
 
 
-def detect_span(path, nsyl=1, noise_db=-35, min_pause=0.15, pad=0.05):
-    """Headword span (§7.3): speech from the start up to the first pause of >= min_pause seconds that comes
-    after a floor of ~0.15 s per syllable. The announcer's pause after a headword is often only ~0.2 s
-    (知 0.47→0.76 s), while pauses between syllables of a word are shorter than 0.15 s."""
+def _silences(path, noise_db, min_pause):
     r = run_ffmpeg(["-i", str(path), "-af", f"silencedetect=noise={noise_db}dB:d={min_pause}", "-f", "null", "-"])
     text = r.stderr
     dur = 0.0
@@ -89,22 +86,43 @@ def detect_span(path, nsyl=1, noise_db=-35, min_pause=0.15, pad=0.05):
         dur = int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3))
     starts = [float(x) for x in re.findall(r"silence_start: ([\d.]+)", text)]
     ends = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", text)]
-    silences = []
-    for s in starts:
-        e = next((x for x in ends if x > s), dur)
-        silences.append((s, e))
-    speech_start = 0.0
-    if silences and silences[0][0] <= 0.05:  # file opens with silence
-        speech_start = silences[0][1]
-        silences = silences[1:]
-    floor = speech_start + 0.15 * max(1, nsyl)   # neutral-tone syllables (的 ˙ㄉㄜ) end by ~0.19 s
-    speech_end = next((s0 for s0, _ in silences if s0 >= floor), dur)
-    end = min(dur, speech_end + pad)
-    flag = (end - speech_start) > 0.9 * max(1, nsyl) + 0.6   # suspiciously long: listed in the report
-    out = {"start": round(speech_start, 3), "end": round(end, 3), "dur": round(dur, 2)}
-    if flag:
-        out["check"] = True
-    return out
+    sil = []
+    for s0 in starts:
+        e = next((x for x in ends if x > s0), dur)
+        sil.append((s0, e))
+    return dur, sil
+
+
+THRESHOLDS = (-35, -30, -25, -40, -45, -50)
+
+
+def detect_span(path, nsyl=1, min_pause=0.15, pad=0.05):
+    """Headword span (§7.3): speech from the start up to the first pause of >= min_pause seconds.
+
+    MOE recordings vary a lot in level (叫 peaks near -38 dB, 懂 has breath noise near -28 dB in its first pause),
+    so one threshold is not enough: thresholds are tried in order and the first that yields a plausible headword
+    length (0.18-0.85 s per syllable + 0.3 s) wins. If none does, the -35 dB result is kept and flagged `check`.
+    """
+    n = max(1, nsyl)
+    lo, hi = 0.18 * n, 0.85 * n + 0.3
+    fallback = None
+    for db in THRESHOLDS:
+        dur, sil = _silences(path, db, min_pause)
+        speech_start = 0.0
+        if sil and sil[0][0] <= 0.05:  # file opens with silence
+            speech_start = sil[0][1]
+            sil = sil[1:]
+        floor = speech_start + 0.15 * n
+        speech_end = next((s0 for s0, _ in sil if s0 >= floor), dur)
+        out = {"start": round(speech_start, 3), "end": round(min(dur, speech_end + pad), 3), "dur": round(dur, 2)}
+        if lo <= out["end"] - out["start"] <= hi:
+            if db != THRESHOLDS[0]:
+                out["db"] = db
+            return out
+        if fallback is None:
+            fallback = out
+    fallback["check"] = True
+    return fallback
 
 
 def publish_moe(aid, spans, nsyl=1):
