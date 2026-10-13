@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Downloaded reference data (TBCL/TOCFL are "all rights reserved"; MOE bulk data is large)
+.cache/
+
+# My progress exports for WEEKLY (private)
+progress/
+
+# Build scratch
+build-report.md.tmp
+docs/audio/_probe.*
+
+# OS
+.DS_Store
+Thumbs.db

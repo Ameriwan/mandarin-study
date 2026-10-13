@@ -1,0 +1,8 @@
+# Build tools for mandarin-study. Install ONLY into the project venv (.venv), never the default python.
+gTTS==2.5.4            # MIT  - zh-TW sentence audio (working default)
+edge-tts>=7.2.8        # LGPLv3 - Microsoft zh-TW voices (403 as of 2026-10; probed at build)
+imageio-ffmpeg>=0.5.1  # bundles an ffmpeg binary for silencedetect + format conversion
+librosa>=0.10.2,<1.0   # ISC - pyin pitch contours (1.0 needs Python 3.12; venv is 3.11)
+soundfile>=0.12.1      # read ogg/wav for contour analysis
+numpy>=1.26,<3
+openpyxl>=3.1          # read the TBCL xlsx lists
