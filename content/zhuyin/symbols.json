@@ -232,7 +232,7 @@
    "ipa": "f",
    "how": "As in English.",
    "error": "",
-   "notes": "Taiwan colloquial speech sometimes weakens ㄈ toward [ɸ] or ㄏ: understand it when you hear it, but don't copy it.",
+   "notes": "In Taiwan colloquial speech ㄈ can become [ɸ] or ㄏ: understand it, but don't copy it.",
    "examples": [
     {
      "zh": "飛機",
@@ -302,7 +302,7 @@
   {
    "symbol": "ㄋ",
    "ipa": "n",
-   "how": "As in English.",
+   "how": "",
    "error": "Mixing up n and l.",
    "notes": "",
    "examples": [
@@ -399,8 +399,8 @@
    "symbol": "ㄏ",
    "ipa": "x ~ h",
    "how": "Light friction at the soft palate.",
-   "error": "A harsh \"loch\" scrape; a lighter [h] is normal in Taiwan.",
-   "notes": "",
+   "error": "A harsh \"loch\" scrape.",
+   "notes": "A lighter [h] is normal in Taiwan (this point is still uncertain).",
    "examples": [
     {
      "zh": "很",
@@ -511,7 +511,7 @@
    "ipa": "ʈʂ",
    "how": "Tongue tip up, just behind the gum ridge, lips neutral.",
    "error": "English j, or merging it into ㄗ.",
-   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄓ ㄔ ㄕ ㄖ it is [ɻ̩]: hold the ㄖ position and voice it. Error: saying \"ee\" or adding a schwa.",
+   "notes": "Written with no final, this symbol carries the empty rhyme ㄭ, which is never written. After ㄓ ㄔ ㄕ ㄖ it is [ɻ̩]: hold the ㄖ position and voice it. Error: saying \"ee\" (reading pinyin shi as \"she\") or adding a schwa.",
    "examples": [
     {
      "zh": "中國",
@@ -540,7 +540,7 @@
    "ipa": "ʈʂʰ",
    "how": "ㄓ position plus a strong puff of air, lips neutral.",
    "error": "English ch, or merging it into ㄘ.",
-   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄓ ㄔ ㄕ ㄖ it is [ɻ̩]: hold the ㄖ position and voice it. Error: saying \"ee\" or adding a schwa.",
+   "notes": "Written with no final, this symbol carries the empty rhyme ㄭ, which is never written. After ㄓ ㄔ ㄕ ㄖ it is [ɻ̩]: hold the ㄖ position and voice it. Error: saying \"ee\" (reading pinyin shi as \"she\") or adding a schwa.",
    "examples": [
     {
      "zh": "吃飯",
@@ -569,7 +569,7 @@
    "ipa": "ʂ",
    "how": "ㄓ position, but no stop, lips neutral.",
    "error": "English sh, or merging it into ㄙ.",
-   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄓ ㄔ ㄕ ㄖ it is [ɻ̩]: hold the ㄖ position and voice it. Error: saying \"ee\" or adding a schwa.",
+   "notes": "Written with no final, this symbol carries the empty rhyme ㄭ, which is never written. After ㄓ ㄔ ㄕ ㄖ it is [ɻ̩]: hold the ㄖ position and voice it. Error: saying \"ee\" (reading pinyin shi as \"she\") or adding a schwa.",
    "examples": [
     {
      "zh": "老師",
@@ -598,7 +598,7 @@
    "ipa": "ʐ ~ ɻ",
    "how": "The ㄕ position plus voice, with little friction and no lip rounding.",
    "error": "English rounded r [ɹʷ].",
-   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄓ ㄔ ㄕ ㄖ it is [ɻ̩]: hold the ㄖ position and voice it. Error: saying \"ee\" or adding a schwa.",
+   "notes": "Written with no final, this symbol carries the empty rhyme ㄭ, which is never written. After ㄓ ㄔ ㄕ ㄖ it is [ɻ̩]: hold the ㄖ position and voice it. Error: saying \"ee\" (reading pinyin shi as \"she\") or adding a schwa.",
    "examples": [
     {
      "zh": "日本",
@@ -627,7 +627,7 @@
    "ipa": "ts",
    "how": "\"ts\" as in \"cats\", voiceless.",
    "error": "Voicing ㄗ into English z.",
-   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄗ ㄘ ㄙ it is [ɹ̩ ~ z̩]: buzz in the ㄙ position. Error: saying \"ee\" or adding a schwa.",
+   "notes": "Written with no final, this symbol carries the empty rhyme ㄭ, which is never written. After ㄗ ㄘ ㄙ it is [ɹ̩ ~ z̩]: buzz in the ㄙ position. Error: saying \"ee\" or adding a schwa.",
    "examples": [
     {
      "zh": "再見",
@@ -655,8 +655,8 @@
    "symbol": "ㄘ",
    "ipa": "tsʰ",
    "how": "\"ts\" with a strong puff of air.",
-   "error": "Puff too weak, so it sounds like ㄗ.",
-   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄗ ㄘ ㄙ it is [ɹ̩ ~ z̩]: buzz in the ㄙ position. Error: saying \"ee\" or adding a schwa.",
+   "error": "",
+   "notes": "Written with no final, this symbol carries the empty rhyme ㄭ, which is never written. After ㄗ ㄘ ㄙ it is [ɹ̩ ~ z̩]: buzz in the ㄙ position. Error: saying \"ee\" or adding a schwa.",
    "examples": [
     {
      "zh": "菜",
@@ -685,7 +685,7 @@
    "ipa": "s",
    "how": "A plain s.",
    "error": "",
-   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄗ ㄘ ㄙ it is [ɹ̩ ~ z̩]: buzz in the ㄙ position. Error: saying \"ee\" or adding a schwa.",
+   "notes": "Written with no final, this symbol carries the empty rhyme ㄭ, which is never written. After ㄗ ㄘ ㄙ it is [ɹ̩ ~ z̩]: buzz in the ㄙ position. Error: saying \"ee\" or adding a schwa.",
    "examples": [
     {
      "zh": "三",
@@ -713,7 +713,7 @@
    "symbol": "ㄧ",
    "ipa": "i (j)",
    "how": "A tense \"ee\".",
-   "error": "A lax \"i\".",
+   "error": "",
    "notes": "",
    "examples": [
     {
@@ -815,7 +815,7 @@
    "ipa": "o ~ ɔ",
    "how": "A steady rounded o with no glide.",
    "error": "English \"oh\" [oʊ], which sounds like ㄡ.",
-   "notes": "In ㄅㄛ ㄆㄛ ㄇㄛ ㄈㄛ the standard writes no ㄨ, but a brief rounded on-glide is normal. Teach [po] with only a light glide.",
+   "notes": "In ㄅㄛ ㄆㄛ ㄇㄛ ㄈㄛ the standard writes no ㄨ, but a brief rounded on-glide [pʷo] is normal (this point is still uncertain). Say [po] with only a light glide. Taiwan colloquial speech often turns it into a full ㄅㄨㄛ (博 said as ㄅㄨㄛˊ): understand that, but don't copy it.",
    "examples": [
     {
      "zh": "我",
@@ -916,7 +916,7 @@
    "ipa": "ei",
    "how": "\"ay\".",
    "error": "",
-   "notes": "ㄨㄟ is [wei]; learners tend to say \"wee\".",
+   "notes": "ㄨㄟ is [wei] (pinyin -ui, which learners say as \"wee\").",
    "examples": [
     {
      "zh": "飛機",
@@ -964,7 +964,7 @@
    "ipa": "ou",
    "how": "\"oh\".",
    "error": "Merging ㄡ with ㄛ.",
-   "notes": "ㄧㄡ is [jou]; the o is clearest on tones 3 and 4.",
+   "notes": "ㄧㄡ is [jou] (pinyin -iu); the o is clearest on tones 3 and 4.",
    "examples": [
     {
      "zh": "朋友",
@@ -1012,7 +1012,7 @@
    "ipa": "ən",
    "how": "Close with the tongue tip.",
    "error": "Merging it with ㄥ.",
-   "notes": "ㄨㄣ is [wən]; learners tend to say \"oon\". ㄧㄣ [in] closes with the tongue tip.",
+   "notes": "ㄨㄣ is [wən] (pinyin -un, which learners say as \"oon\"). ㄧㄣ [in] closes with the tongue tip.",
    "examples": [
     {
      "zh": "很",
@@ -1065,7 +1065,7 @@
    "ipa": "əŋ",
    "how": "Close with the back of the tongue.",
    "error": "Merging it with ㄣ.",
-   "notes": "ㄨㄥ is [ʊŋ] after a consonant and [wəŋ] on its own (翁); it is not English \"-ong\". ㄧㄥ [iŋ] closes with the back of the tongue, while ㄧㄣ [in] closes with the tongue tip.",
+   "notes": "ㄨㄥ is [ʊŋ] after a consonant and [wəŋ] on its own (翁); it is not English \"-ong\". ㄧㄥ [iŋ] (often with a slight [ᵊ] glide) closes with the back of the tongue, while ㄧㄣ [in] closes with the tongue tip.",
    "examples": [
     {
      "zh": "朋友",

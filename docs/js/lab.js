@@ -1,7 +1,7 @@
 // 注音 Zhuyin Lab: symbol chart, syllable grid, contrast drills (HVPT), dictation with the standard Zhuyin keyboard,
 // and mouth guides. Tone/syllable audio here is MOE human audio only (MASTER_PROMPT §5.2, §7).
-import { h, $, clear, mountShell, toast, store, loadJSON, shuffle, pick, ruby, playButton, playMoe, stopAudio, audioInfo,
-  recordWidget, syllables, toneOf, baseOf, withTone, TONE_NAMES, TONE_GLYPH, INITIALS, trackTime } from "./app.js";
+import { h, $, clear, mountShell, toast, store, loadJSON, shuffle, pick, ruby, playButton, playMoe, stopAudio, stopRecorders, audioInfo,
+  recordWidget, syllables, toneOf, baseOf, withTone, TONE_NAMES, TONE_GLYPH, INITIALS, trackTime, today } from "./app.js";
 
 mountShell("lab");
 trackTime("lab");
@@ -10,23 +10,56 @@ if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catc
 const TABS = [["chart", "符號表", "Symbols"], ["grid", "音節表", "Syllables"], ["contrasts", "對比練習", "Contrasts"], ["dictation", "聽寫", "Dictation"], ["mouth", "口型", "Mouth"]];
 const app = $("#app");
 let data = {};
+let teardown = null; // undoes the current view's document-level listeners
+
+// Call before a view's panel is cleared: drops its listeners and stops audio and recording.
+function leaveView() {
+  teardown?.();
+  teardown = null;
+  stopAudio();
+}
+
+// English text whose Zhuyin/Chinese runs stay lang="zh-Hant-TW" (ground rule 2).
+const ZH_RUN = /([\p{sc=Han}\p{sc=Bopomofo}ˇˊˋ˙]+(?:\s+[\p{sc=Han}\p{sc=Bopomofo}ˇˊˋ˙]+)*)/u;
+const enText = (text, attrs = {}) => h("span", { lang: "en", ...attrs }, String(text).split(ZH_RUN).map((part, i) => i % 2 ? h("span", { lang: "zh-Hant-TW" }, part) : part));
+// "中文 English" label: the Chinese stays in the page language, the English gets lang="en"
+const bi = (zh, en) => [zh, " ", enText(en)];
 
 async function main() {
   const [symbols, grid, contrasts, audio] = await Promise.all([loadJSON("symbols"), loadJSON("syllables"), loadJSON("contrasts"), loadJSON("audio")]);
   data = { symbols, grid, contrasts, audio };
   clear(app);
-  app.append(h("div", { class: "page-head" }, h("h1", {}, h("span", { lang: "zh-Hant-TW" }, "注音實驗室"), h("span", { class: "en" }, "Zhuyin Lab")),
-    h("p", { class: "muted small", style: "margin:0" }, "符號、音節、聲調的聲音都是教育部真人錄音（標示 MOE）。Symbol, syllable and tone audio here is MOE human audio; nothing synthetic.")));
-  const tabs = h("div", { class: "tabs", role: "tablist" });
-  const panel = h("section", { role: "tabpanel" });
+  app.append(h("div", { class: "page-head" }, h("h1", {}, h("span", { lang: "zh-Hant-TW" }, "注音實驗室"), h("span", { class: "en", lang: "en" }, "Zhuyin Lab")),
+    h("p", { class: "muted small", style: "margin:0" }, "符號、音節、聲調的聲音都是教育部真人錄音（標示 MOE）。", h("span", { lang: "en" }, "Symbol, syllable and tone audio here is MOE human audio; nothing synthetic."))));
+  // ARIA tabs pattern: one shared panel, roving tabindex, arrows/Home/End move and activate.
+  const tabs = h("div", { class: "tabs", role: "tablist", "aria-label": "注音實驗室 Zhuyin Lab" });
+  const panel = h("section", { role: "tabpanel", id: "lab-panel", tabindex: "0" });
   const show = id => {
-    for (const b of tabs.children) b.setAttribute("aria-selected", b.dataset.id === id ? "true" : "false");
-    stopAudio();
+    for (const b of tabs.children) {
+      const on = b.dataset.id === id;
+      b.setAttribute("aria-selected", String(on));
+      b.tabIndex = on ? 0 : -1;
+    }
+    panel.setAttribute("aria-labelledby", `tab-${id}`);
+    leaveView();
     clear(panel);
     history.replaceState(null, "", "#" + id);
     ({ chart: renderChart, grid: renderGrid, contrasts: renderContrasts, dictation: renderDictation, mouth: renderMouth })[id](panel);
   };
-  for (const [id, zh, en] of TABS) tabs.append(h("button", { type: "button", role: "tab", "data-id": id, "aria-selected": "false", onclick: () => show(id) }, zh, " ", h("span", { class: "muted small" }, en)));
+  for (const [id, zh, en] of TABS) {
+    tabs.append(h("button", { type: "button", role: "tab", id: `tab-${id}`, "aria-controls": "lab-panel", "data-id": id, "aria-selected": "false", tabindex: "-1", onclick: () => show(id) },
+      zh, " ", h("span", { class: "muted small", lang: "en" }, en)));
+  }
+  tabs.addEventListener("keydown", e => {
+    const list = [...tabs.children];
+    const i = list.indexOf(e.target);
+    const j = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: list.length - 1 }[e.key];
+    if (i < 0 || j === undefined || e.altKey || e.ctrlKey || e.metaKey) return;
+    e.preventDefault();
+    const b = list[(j + list.length) % list.length];
+    b.focus();
+    show(b.dataset.id);
+  });
   app.append(tabs, panel);
   const start = location.hash.slice(1);
   show(TABS.some(t => t[0] === start) ? start : "chart");
@@ -46,6 +79,7 @@ function renderChart(panel) {
       const btn = h("button", { type: "button", class: "sym", "aria-pressed": "false", "aria-label": `${s.symbol} ${s.ipa}`, lang: "zh-Hant-TW",
         onclick: () => {
           const same = open === btn;
+          if (open) stopAudio(); // releases the open detail's audio and any recording in progress
           document.querySelectorAll(".sym[aria-pressed='true']").forEach(b => b.setAttribute("aria-pressed", "false"));
           document.querySelectorAll(".detail").forEach(d => d.remove());
           open = null;
@@ -56,7 +90,7 @@ function renderChart(panel) {
         } }, h("span", { class: "glyph" }, s.symbol), h("span", { class: "ipa" }, s.ipa));
       chart.append(btn);
     }
-    panel.append(h("div", { class: "chart-group" }, h("h3", {}, h("span", { lang: "zh-Hant-TW" }, g.zh), h("span", { class: "en" }, g.en)), chart, detail));
+    panel.append(h("div", { class: "chart-group" }, h("h3", {}, h("span", { lang: "zh-Hant-TW" }, g.zh), enText(g.en, { class: "en" })), chart, detail));
   }
 }
 
@@ -64,21 +98,30 @@ function symbolDetail(s) {
   const d = h("div", { class: "detail", lang: "zh-Hant-TW" });
   d.append(h("div", { class: "head" }, h("span", { class: "glyph" }, s.symbol), h("span", { class: "ipa" }, "[", s.ipa, "]"),
     h("span", { style: "margin-left:auto" }, playButton({ audio: s.audio, zh: s.symbol }, { label: "🔊 符號" }))));
-  const kv = h("dl", { class: "kv", lang: "en" });
-  kv.append(h("dt", {}, "怎麼發 How"), h("dd", {}, s.how));
-  if (s.error) kv.append(h("dt", {}, "常見錯誤 Typical error"), h("dd", {}, s.error));
-  if (s.notes) kv.append(h("dt", {}, "注意 Note"), h("dd", {}, s.notes));
-  d.append(kv);
+  // dt labels stay zh-Hant-TW (inherited) with an English half; empty fields render nothing.
+  const kv = h("dl", { class: "kv" });
+  for (const [key, zh, en] of [["how", "怎麼發", "How"], ["error", "常見錯誤", "Typical error"], ["notes", "注意", "Note"]]) {
+    if (s[key]?.trim()) kv.append(h("dt", {}, zh, " ", h("span", { lang: "en" }, en)), h("dd", {}, enText(s[key])));
+  }
+  if (kv.children.length) d.append(kv);
   const ex = h("div", { class: "examples" });
   for (const e of s.examples) {
     ex.append(h("div", { class: "example" }, ruby(e.zh, e.zhuyin), h("span", { class: "en", lang: "en" }, e.en), playButton(e)));
   }
-  d.append(h("h3", { style: "margin-top:14px" }, "例詞 Examples"), ex);
-  d.append(h("div", { class: "row", style: "margin-top:12px" }, h("span", { class: "muted small" }, "先聽符號，再錄自己的：Listen, then record yourself:"), recordWidget({ key: `sym:${s.symbol}` })));
+  d.append(h("h3", { style: "margin-top:14px" }, bi("例詞", "Examples")), ex);
+  d.append(h("div", { class: "row", style: "margin-top:12px" }, h("span", { class: "muted small" }, ...bi("先聽符號，再錄自己的：", "Listen, then record yourself:")), recordWidget({ key: `sym:${s.symbol}` })));
   return d;
 }
 
 // ------------------------------------------------------------------ 2. syllable grid
+// The build marks a tone cell common:false when no common character has that reading (§5.2: grey it out).
+// Rare cells stay playable: grey text with a dashed border in every view. "No recording" is faded with "—"
+// (or a hatched table cell) and solid, so the two states never look alike.
+const isCommon = c => c.common !== false;
+const hasCommon = cell => Object.values(cell).some(isCommon);
+const RARE_STYLE = "color:var(--muted);border-style:dashed"; // .sym / .tone-cell keep their own border colour (hover, pressed)
+const RARE_TABLE_STYLE = "color:var(--muted);border:1px dashed var(--muted)"; // table buttons have no border of their own
+
 function renderGrid(panel) {
   const { grid } = data;
   const cells = grid.cells;
@@ -88,12 +131,15 @@ function renderGrid(panel) {
   const toneRow = h("div");
   const mode = store.get("lab.gridMode", "picker");
   const seg = h("div", { class: "seg", role: "group", "aria-label": "view" },
-    h("button", { type: "button", "aria-pressed": mode === "picker", onclick: () => { store.set("lab.gridMode", "picker"); renderGrid(clear(panel)); } }, "挑選 Pick"),
-    h("button", { type: "button", "aria-pressed": mode === "table", onclick: () => { store.set("lab.gridMode", "table"); renderGrid(clear(panel)); } }, "表格 Table"));
+    h("button", { type: "button", "aria-pressed": String(mode === "picker"), onclick: () => { store.set("lab.gridMode", "picker"); leaveView(); renderGrid(clear(panel)); } }, "挑選 Pick"),
+    h("button", { type: "button", "aria-pressed": String(mode === "table"), onclick: () => { store.set("lab.gridMode", "table"); leaveView(); renderGrid(clear(panel)); } }, "表格 Table"));
   panel.append(h("div", { class: "row", style: "justify-content:space-between" },
-    h("p", { class: "muted small", style: "margin:0;max-width:60ch" }, `${grid.counts.toned} 個有聲音節 syllable-tone combinations with an MOE recording. 點一格，再點聲調。Tap a syllable, then a tone. Grey = no common character.`), seg));
+    h("p", { class: "muted small", style: "margin:0;max-width:60ch" }, `${grid.counts.toned} 個有聲音節 `, h("span", { lang: "en" }, "syllable-tone combinations with an MOE recording."),
+      " 點一格，再點聲調。灰字虛線＝沒有常用字（仍可播放）；淡色「—」或斜線格＝沒有教育部錄音（不能播放）。",
+      h("span", { lang: "en" }, "Tap a syllable, then a tone. Grey text, dashed border = no common character (still plays); faded — or hatched = no MOE recording (nothing to play).")), seg));
 
   const showTones = base => {
+    stopAudio(); // the tone row about to go may hold a playing cell or a recording in progress
     clear(toneRow);
     const cell = cells[base] || {};
     toneRow.append(h("h3", { style: "margin-top:14px" }, h("span", { class: "zhuyin", lang: "zh-Hant-TW", style: "font-size:26px" }, base)));
@@ -101,25 +147,29 @@ function renderGrid(panel) {
     for (let t = 1; t <= 5; t++) {
       const c = cell[String(t)];
       const syl = withTone(base, t);
-      if (!c) { row.append(h("div", { class: "tone-cell empty", "aria-disabled": "true" }, h("span", { class: "t" }, syl), h("span", { class: "c" }, "—"), h("span", { class: "l" }, t === 5 ? "無常用輕聲" : "無常用字"))); continue; }
-      const btn = h("button", { type: "button", class: "tone-cell", lang: "zh-Hant-TW", "aria-label": `${syl} ${c.zh} ${TONE_NAMES[t]} MOE`, onclick: async () => {
+      // No single-character MOE clip for this tone (the syllable may still be common, e.g. 個 ˙ㄍㄜ).
+      if (!c) { row.append(h("div", { class: "tone-cell empty", style: "border-style:solid", "aria-disabled": "true" }, h("span", { class: "t" }, syl), h("span", { class: "c" }, "—"), h("span", { class: "l" }, "無錄音 ", h("span", { lang: "en" }, "no clip")))); continue; }
+      const rare = !isCommon(c);
+      const btn = h("button", { type: "button", class: "tone-cell", lang: "zh-Hant-TW", style: rare ? RARE_STYLE : null, "aria-label": `${syl} ${c.zh} ${TONE_NAMES[t]}${rare ? " 少用字 rare" : ""} MOE`, onclick: async () => {
+        stopRecorders(); // end a take before the model plays, so it is not recorded into it
         btn.classList.add("is-playing");
         try { await playMoe(c.id); } catch { toast("還沒有這個音檔 clip not built yet"); }
         btn.classList.remove("is-playing");
         detail(base, t, c);
-      } }, h("span", { class: "t" }, syl), h("span", { class: "c" }, c.zh), h("span", { class: "l" }, TONE_NAMES[t], c.level ? ` · ${c.level.replace("第", "L").replace("級", "")}` : ""));
+      } }, h("span", { class: "t" }, syl), h("span", { class: "c" }, c.zh), h("span", { class: "l" }, TONE_NAMES[t], c.level ? ` · ${c.level.replace("第", "L").replace("級", "")}` : "", rare ? " · 少用" : ""));
       row.append(btn);
     }
-    toneRow.append(row, h("p", { class: "muted small", style: "margin:8px 0 0" }, "每格播放該字的教育部真人錄音（只播詞頭）。Each cell plays the MOE announcer saying that character (headword span only)."));
+    toneRow.append(row, h("p", { class: "muted small", style: "margin:8px 0 0" }, ...bi("每格播放該字的教育部真人錄音（只播詞頭）。", "Each cell plays the MOE announcer saying that character (headword span only).")));
     const detailBox = h("div");
     toneRow.append(detailBox);
     function detail(base, t, c) {
+      stopRecorders(); // not stopAudio(): a cell tapped meanwhile may already be playing
       clear(detailBox);
       const syl = withTone(base, t);
       detailBox.append(h("div", { class: "card", style: "margin-top:12px" },
         h("div", { class: "row" }, h("span", { class: "big-zh", lang: "zh-Hant-TW" }, ruby(c.zh, syl, { cls: "" })), playButton({ id: c.id, zh: c.zh }),
           h("span", { class: "muted small" }, c.alts?.length ? "其他字 also: " + c.alts.join("、") : "")),
-        h("div", { class: "row", style: "margin-top:8px" }, h("span", { class: "muted small" }, "跟著說，錄下來比較 Say it after the model, record and compare:"), recordWidget({ key: `syl:${syl}` }))));
+        h("div", { class: "row", style: "margin-top:8px" }, h("span", { class: "muted small" }, ...bi("跟著說，錄下來比較", "Say it after the model, record and compare:")), recordWidget({ key: `syl:${syl}` }))));
     }
     toneRow.scrollIntoView({ block: "nearest", behavior: "smooth" });
   };
@@ -135,7 +185,8 @@ function renderGrid(panel) {
       for (const f of finals) {
         const base = ini + f;
         if (!cells[base] || !base) { tr.append(h("td", { class: "empty" })); continue; }
-        tr.append(h("td", {}, h("button", { type: "button", "aria-label": base, "aria-pressed": "false", onclick: e => { table.querySelectorAll("[aria-pressed='true']").forEach(b => b.setAttribute("aria-pressed", "false")); e.currentTarget.setAttribute("aria-pressed", "true"); showTones(base); } }, base)));
+        const rare = !hasCommon(cells[base]);
+        tr.append(h("td", {}, h("button", { type: "button", "aria-label": base + (rare ? " 少用字 rare" : ""), style: rare ? RARE_TABLE_STYLE : null, "aria-pressed": "false", onclick: e => { table.querySelectorAll("[aria-pressed='true']").forEach(b => b.setAttribute("aria-pressed", "false")); e.currentTarget.setAttribute("aria-pressed", "true"); showTones(base); } }, base)));
       }
       body.append(tr);
     }
@@ -151,14 +202,15 @@ function renderGrid(panel) {
   const pickIni = ini => {
     currentIni = ini; store.set("lab.gridIni", ini);
     for (const b of chips.children) b.setAttribute("aria-pressed", b.dataset.ini === ini ? "true" : "false");
-    clear(tiles); clear(toneRow);
+    stopAudio(); clear(tiles); clear(toneRow);
     for (const f of finals) {
       const base = ini + f;
       if (!base) continue;
       const c = cells[base];
       const n = c ? Object.keys(c).length : 0;
-      tiles.append(h("button", { type: "button", class: "sym", disabled: !c, lang: "zh-Hant-TW", "aria-label": `${base}${c ? "" : " 無常用字"}`, style: n ? "" : "opacity:.35",
-        onclick: () => { tiles.querySelectorAll("[aria-pressed='true']").forEach(b => b.setAttribute("aria-pressed", "false")); showTones(base); },
+      const rare = n && !hasCommon(c);
+      tiles.append(h("button", { type: "button", class: "sym", disabled: !c, lang: "zh-Hant-TW", "aria-label": `${base}${c ? (rare ? " 少用字 rare" : "") : " 無錄音 no MOE recording"}`, style: n ? (rare ? RARE_STYLE : "") : "opacity:.35",
+        onclick: e => { tiles.querySelectorAll("[aria-pressed='true']").forEach(b => b.setAttribute("aria-pressed", "false")); e.currentTarget.setAttribute("aria-pressed", "true"); showTones(base); },
         "aria-pressed": "false" }, h("span", { class: "glyph", style: "font-size:24px" }, base), h("span", { class: "ipa" }, n ? `${n} 聲` : "—")));
     }
   };
@@ -175,43 +227,43 @@ function recordTrial(id, ok) {
   const all = statsAll(); const s = all[id] || { n: 0, correct: 0, recent: [], days: {} };
   s.n++; if (ok) s.correct++;
   s.recent = [...s.recent, ok ? 1 : 0].slice(-30);
-  const d = new Date().toISOString().slice(0, 10); s.days[d] = s.days[d] || { n: 0, correct: 0 }; s.days[d].n++; if (ok) s.days[d].correct++;
+  const d = today(); s.days[d] = s.days[d] || { n: 0, correct: 0 }; s.days[d].n++; if (ok) s.days[d].correct++;
   all[id] = s; store.set(STATS_KEY, all);
 }
 export function recentAccuracy(s) { return s.recent.length ? Math.round(100 * s.recent.reduce((a, b) => a + b, 0) / s.recent.length) : null; }
 
 function renderContrasts(panel) {
   const { contrasts } = data;
-  panel.append(h("p", { class: "muted small" }, "聽一個詞，選你聽到的。只用聽的，不要跟著唸（聽與說分開練習，Baese-Berk & Samuel 2016）。Listen and choose; immediate feedback with A/B replay. Keep this block listening-only. Weak contrasts come back automatically."));
+  panel.append(h("p", { class: "muted small" }, "聽一個詞，選你聽到的。只用聽的，不要跟著唸（聽與說分開練習，", enText("Baese-Berk & Samuel 2016"), "）。", enText("Listen and choose; immediate feedback with A/B replay. Keep this block listening-only. Weak contrasts come back automatically.")));
   const list = h("div", { class: "contrast-list" });
   for (const c of contrasts) {
     const s = statFor(c.id); const acc = recentAccuracy(s);
     const playable = c.sets.map(set => set.filter(w => w.id)).filter(set => set.length >= 2);
     list.append(h("div", { class: "card", style: "padding:8px 12px" }, h("button", { type: "button", class: "btn", style: "border:0;background:none;padding:8px 0", onclick: () => startDrill(panel, c, playable),
       "aria-label": `${c.rank}. ${c.zh} ${c.en}, accuracy ${acc == null ? "none yet" : acc + "%"}` },
-      h("span", {}, h("span", { class: "muted" }, c.rank, ". "), h("span", { lang: "zh-Hant-TW", style: "font-size:19px" }, c.zh), " ", h("span", { class: "muted small" }, c.en)),
+      h("span", {}, h("span", { class: "muted" }, c.rank, ". "), h("span", { lang: "zh-Hant-TW", style: "font-size:19px" }, c.zh), " ", enText(c.en, { class: "muted small" })),
       h("span", { class: "small", style: acc != null && acc < 80 ? "color:var(--bad)" : "" }, acc == null ? "尚未練習" : `${acc}%`, h("span", { class: "muted" }, s.n ? ` · ${s.n} 題` : "")))));
   }
-  panel.append(list, h("p", { class: "muted small" }, "目前只有一位教育部播音員的聲音；多聲音（HVPT）會在有更多真人語料時加入。Only one Taiwan voice (the MOE announcer) exists so far; more voices are added when accuracy passes ~70% and more human audio is available."));
+  panel.append(list, h("p", { class: "muted small" }, ...bi("目前只有一位教育部播音員的聲音；多聲音（HVPT）會在有更多真人語料時加入。", "Only one Taiwan voice (the MOE announcer) exists so far; more voices are added when accuracy passes ~70% and more human audio is available.")));
 }
 
 function startDrill(panel, c, sets) {
   clear(panel);
   const N = 10;
   let i = 0, correct = 0;
-  const head = h("div", { class: "row", style: "justify-content:space-between" }, h("h2", { style: "margin:0" }, h("span", { lang: "zh-Hant-TW" }, c.zh), " ", h("span", { class: "muted small" }, c.en)),
-    h("button", { type: "button", class: "btn small", onclick: () => { stopAudio(); renderContrasts(clear(panel)); } }, "← 回列表 Back"));
+  const head = h("div", { class: "row", style: "justify-content:space-between" }, h("h2", { style: "margin:0" }, h("span", { lang: "zh-Hant-TW" }, c.zh), " ", enText(c.en, { class: "muted small" })),
+    h("button", { type: "button", class: "btn small", onclick: () => { stopAudio(); renderContrasts(clear(panel)); } }, "← ", ...bi("回列表", "Back")));
   const prog = h("div", { class: "progress", style: "margin:10px 0" }, h("i", { style: "width:0%" }));
   const stage = h("div");
   panel.append(head, prog, stage);
-  if (!sets.length) { stage.append(h("p", {}, "這組還沒有可用的音檔。No clips built for this contrast yet.")); return; }
+  if (!sets.length) { stage.append(h("p", {}, ...bi("這組還沒有可用的音檔。", "No clips built for this contrast yet."))); return; }
 
   function trial() {
     clear(stage);
     if (i >= N) {
       const acc = Math.round(100 * correct / N);
-      stage.append(h("div", { class: "card" }, h("h3", {}, `本輪 ${correct}/${N}（${acc}%）`), h("p", { class: "muted small" }, acc >= 85 ? "很好。Keep it in rotation." : "低於 85%：Today 會把它排進每日練習。Below 85%: this contrast joins your daily focus."),
-        h("div", { class: "row" }, h("button", { type: "button", class: "btn primary", onclick: () => { i = 0; correct = 0; trial(); } }, "再一輪 Another round"), h("button", { type: "button", class: "btn", onclick: () => renderContrasts(clear(panel)) }, "回列表 Back"))));
+      stage.append(h("div", { class: "card" }, h("h3", {}, `本輪 ${correct}/${N}（${acc}%）`), h("p", { class: "muted small" }, ...(acc >= 85 ? bi("很好。", "Keep it in rotation.") : bi("低於 85%：今天的練習會把它排進來。", "Below 85%: this contrast joins your daily focus."))),
+        h("div", { class: "row" }, h("button", { type: "button", class: "btn primary", onclick: () => { i = 0; correct = 0; trial(); } }, ...bi("再一輪", "Another round")), h("button", { type: "button", class: "btn", onclick: () => renderContrasts(clear(panel)) }, ...bi("回列表", "Back")))));
       return;
     }
     prog.firstChild.style.width = `${100 * i / N}%`;
@@ -219,10 +271,10 @@ function startDrill(panel, c, sets) {
     const target = pick(set);
     const options = shuffle(set);
     let answered = false;
-    const play = h("button", { type: "button", class: "btn primary", onclick: () => playMoe(target.id).catch(() => toast("音檔尚未建置 clip not built yet")) }, "🔊 再聽一次 Play again");
+    const play = h("button", { type: "button", class: "btn primary", onclick: () => playMoe(target.id).catch(() => toast("音檔尚未建置 clip not built yet")) }, "🔊 ", ...bi("再聽一次", "Play again"));
     const fb = h("p", { class: "feedback", "aria-live": "polite" });
     const choices = h("div", { class: "choices" });
-    const next = h("button", { type: "button", class: "btn", disabled: true, onclick: () => { i++; trial(); } }, "下一題 Next →");
+    const next = h("button", { type: "button", class: "btn", disabled: true, onclick: () => { i++; trial(); } }, ...bi("下一題", "Next →"));
     for (const w of options) {
       const b = h("button", { type: "button", class: "choice", lang: "zh-Hant-TW", "aria-label": `${w.zh} ${w.zhuyin}, ${w.en}`, onclick: () => {
         if (answered) { playMoe(w.id); return; }
@@ -239,7 +291,7 @@ function startDrill(panel, c, sets) {
       b._w = w;
       choices.append(b);
     }
-    stage.append(h("p", { class: "muted small" }, `第 ${i + 1} / ${N} 題 · 聽到哪一個？Which one did you hear?`), play, choices, fb, h("div", { class: "row" }, next));
+    stage.append(h("p", { class: "muted small" }, `第 ${i + 1} / ${N} 題 · 聽到哪一個？`, enText("Which one did you hear?")), play, choices, fb, h("div", { class: "row" }, next));
     playMoe(target.id).catch(() => toast("音檔尚未建置 clip not built yet"));
   }
   trial();
@@ -257,26 +309,34 @@ const DICT_KEY = "lab.dictation";
 
 function renderDictation(panel) {
   const { grid, contrasts } = data;
+  const hasClip = id => !!(id && audioInfo(id)); // only items whose MOE clip was published
   const sylItems = [];
-  for (const [base, cell] of Object.entries(grid.cells)) for (const [t, c] of Object.entries(cell)) sylItems.push({ zh: c.zh, zhuyin: withTone(base, Number(t)), id: c.id });
-  const wordItems = contrasts.flatMap(c => c.sets.flat()).filter(w => w.id && syllables(w.zhuyin).length >= 2);
-  let mode = store.get("lab.dictMode", "syl");
+  for (const [base, cell] of Object.entries(grid.cells)) for (const [t, c] of Object.entries(cell)) if (hasClip(c.id)) sylItems.push({ zh: c.zh, zhuyin: withTone(base, Number(t)), id: c.id });
+  const wordItems = contrasts.flatMap(c => c.sets.flat()).filter(w => hasClip(w.id) && syllables(w.zhuyin).length >= 2);
+  const mode = store.get("lab.dictMode", "syl");
+  const pool = mode === "word" ? wordItems : sylItems;
   const stats = store.get(DICT_KEY, { n: 0, correct: 0, parts: {} });
+  const setMode = m => { store.set("lab.dictMode", m); leaveView(); renderDictation(clear(panel)); };
   const seg = h("div", { class: "seg" },
-    h("button", { type: "button", "aria-pressed": mode === "syl", onclick: () => { mode = "syl"; store.set("lab.dictMode", mode); renderDictation(clear(panel)); } }, "單音節 Syllables"),
-    h("button", { type: "button", "aria-pressed": mode === "word", onclick: () => { mode = "word"; store.set("lab.dictMode", mode); renderDictation(clear(panel)); } }, "詞 Words"));
-  panel.append(h("div", { class: "row", style: "justify-content:space-between" }, h("p", { class: "muted small", style: "margin:0;max-width:56ch" }, "聽，然後用標準注音鍵盤打出注音和聲調（空白鍵＝一聲，6 ˊ 3 ˇ 4 ˋ 7 ˙）。Hear it, type the Zhuyin and tone. Physical keys follow the standard layout."), seg),
+    h("button", { type: "button", "aria-pressed": String(mode !== "word"), onclick: () => setMode("syl") }, "單音節 Syllables"),
+    h("button", { type: "button", "aria-pressed": String(mode === "word"), onclick: () => setMode("word") }, "詞 Words"));
+  panel.append(h("div", { class: "row", style: "justify-content:space-between" }, h("p", { class: "muted small", style: "margin:0;max-width:56ch" }, "聽，然後用標準注音鍵盤打出注音和聲調（空白鍵＝一聲，6 ˊ 3 ˇ 4 ˋ 7 ˙）。", h("span", { lang: "en" }, "Hear it, type the Zhuyin and tone. Physical keys follow the standard layout.")), seg),
     h("p", { class: "stat-row" }, h("span", {}, "累計 ", h("b", {}, stats.n), " 題"), h("span", {}, "正確 ", h("b", {}, stats.n ? Math.round(100 * stats.correct / stats.n) : 0, "%")),
       Object.keys(stats.parts).length ? h("span", {}, "常錯 weak: ", h("b", {}, Object.entries(stats.parts).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([k, v]) => `${k} ×${v}`).join("、"))) : null));
-  const stage = h("div");
+  // The stage is the typing area: physical keys type while it (or the page body) has focus.
+  // After a mouse/touch click on one of its buttons (detail > 0; keyboard clicks have 0) focus returns
+  // to the stage, so Space and Enter keep typing instead of re-pressing that button.
+  const stage = h("div", { tabindex: "0", role: "group", "aria-label": "聽寫作答 Dictation: type the Zhuyin, Enter to check",
+    onclick: e => { if (e.detail && e.target.closest("button")) stage.focus({ preventScroll: true }); } });
   panel.append(stage);
+  if (!pool.length) { stage.append(h("p", {}, ...bi("還沒有可用的音檔。", "No clips built yet."))); return; }
 
   let item, typed = [], buf = "", answered = false;
-  const target = h("div", { class: "dict-target", lang: "zh-Hant-TW", "aria-live": "polite" });
-  const fb = h("p", { class: "feedback" });
-  const playBtn = h("button", { type: "button", class: "btn primary", onclick: () => playMoe(item.id).catch(() => toast("音檔尚未建置 clip not built yet")) }, "🔊 聽 Play");
-  const nextBtn = h("button", { type: "button", class: "btn", onclick: newItem }, "下一題 Next →");
-  const showBtn = h("button", { type: "button", class: "btn small", onclick: () => { fb.textContent = `${item.zh} ${item.zhuyin}`; fb.className = "feedback muted"; } }, "看答案 Show");
+  const target = h("div", { class: "dict-target", lang: "zh-Hant-TW" });
+  const fb = h("p", { class: "feedback", "aria-live": "polite", "aria-atomic": "true" }); // verdict and Show answer are announced; keystrokes are not
+  const playBtn = h("button", { type: "button", class: "btn primary", onclick: () => playMoe(item.id).catch(() => toast("音檔尚未建置 clip not built yet")) }, "🔊 ", ...bi("聽", "Play"));
+  const nextBtn = h("button", { type: "button", class: "btn", onclick: newItem }, ...bi("下一題", "Next →"));
+  const showBtn = h("button", { type: "button", class: "btn small", onclick: () => { fb.textContent = `${item.zh} ${item.zhuyin}`; fb.className = "feedback muted"; } }, ...bi("看答案", "Show"));
 
   function draw() {
     clear(target);
@@ -321,30 +381,44 @@ function renderDictation(panel) {
     s.n++; if (ok) s.correct++;
     for (const p of Object.keys(parts)) s.parts[p] = (s.parts[p] || 0) + 1;
     store.set(DICT_KEY, s);
-    fb.textContent = ok ? `對了 ✓ ${item.zh}` : `${item.zh} ${item.zhuyin} — 紅色是錯的部分 red = what differs`;
+    fb.textContent = ok ? `對了 ✓ ${item.zh} ${item.zhuyin}` : `不對 ✗ 正確是 ${item.zh} ${item.zhuyin} — 紅色是錯的部分 red = what differs`;
     fb.className = "feedback " + (ok ? "good" : "bad");
-    nextBtn.classList.add("primary"); nextBtn.focus();
+    nextBtn.classList.add("primary"); nextBtn.focus(); // text first, so the live region speaks after the focus change
   }
   function newItem() {
-    item = pick(mode === "syl" ? sylItems : wordItems);
+    item = pick(pool);
     typed = []; buf = ""; answered = false; fb.textContent = ""; fb.className = "feedback"; nextBtn.classList.remove("primary");
     draw();
     playMoe(item.id).catch(() => toast("音檔尚未建置 clip not built yet"));
   }
-  const kbd = h("div", { class: "kbd", "aria-label": "標準注音鍵盤 Standard Zhuyin keyboard" });
+  const kbd = h("div", { class: "kbd", role: "group", "aria-label": "標準注音鍵盤 Standard Zhuyin keyboard" });
   KEY_ROWS.forEach((row, r) => kbd.append(h("div", { class: `kbd-row r${r + 1}` }, row.map(([k, z]) => h("button", { type: "button", class: "key" + ("ˊˇˋ˙".includes(z) ? " tone" : ""), lang: "zh-Hant-TW", "aria-label": z, onclick: () => input(z) }, z, h("small", {}, k))))));
   kbd.append(h("div", { class: "kbd-bottom" }, h("button", { type: "button", class: "key", onclick: backspace, "aria-label": "刪除 Backspace" }, "⌫"),
     h("button", { type: "button", class: "key tone", onclick: () => input(" ") }, "一聲 ␣ Tone 1 / next syllable"), h("button", { type: "button", class: "key", onclick: check }, "檢查 ↵")));
   stage.append(h("div", { class: "row" }, playBtn, showBtn, nextBtn), target, fb, kbd);
+  // Physical keys. Enter/Space act only when the stage, the panel or the page body has focus, so a focused button keeps
+  // its own Enter/Space. Zhuyin keys and Backspace typed on another lab control move focus to the stage first.
+  // Nav bars, dialogs and text fields are never touched.
   const onKey = e => {
-    if (e.ctrlKey || e.metaKey || e.altKey || !panel.isConnected) { if (!panel.isConnected) document.removeEventListener("keydown", onKey); return; }
-    if (e.key === "Enter") { e.preventDefault(); answered ? newItem() : check(); return; }
-    if (e.key === "Backspace") { e.preventDefault(); backspace(); return; }
-    if (e.key === " ") { e.preventDefault(); input(" "); return; }
-    const z = KEYMAP[e.key.toLowerCase()];
-    if (z) { e.preventDefault(); input(z); }
+    if (e.defaultPrevented || e.isComposing || e.ctrlKey || e.metaKey || e.altKey) return;
+    const el = e.target;
+    const free = el === stage || el === panel || el === document.body || el === document.documentElement;
+    if (!free && (!app.contains(el) || el.closest("input, textarea, select, [contenteditable]"))) return;
+    if (e.key === "Enter" || e.key === " ") {
+      if (!free) return;
+      e.preventDefault();
+      if (e.key === " ") input(" "); else if (answered) newItem(); else check();
+      return;
+    }
+    const z = e.key === "Backspace" ? e.key : KEYMAP[e.key?.toLowerCase()];
+    if (!z) return;
+    e.preventDefault();
+    if (!free) stage.focus({ preventScroll: true });
+    if (z === "Backspace") backspace(); else input(z);
   };
+  teardown?.();
   document.addEventListener("keydown", onKey);
+  teardown = () => document.removeEventListener("keydown", onKey);
   newItem();
 }
 function splitBase(b) {
@@ -386,7 +460,7 @@ function renderMouth(panel) {
       tongue: "M72 150 C 76 120, 110 86, 150 78 C 200 76, 240 104, 262 142 L 266 165 L 74 165 Z", tip: null, mark: [18, 160, "圓唇 round"] },
   ];
   const grid = h("div", { class: "mouth-grid" });
-  for (const f of figs) grid.append(h("figure", { html: mouthSVG(f) }, h("figcaption", {}, h("b", { lang: "zh-Hant-TW" }, f.zh), " — ", h("span", { lang: "en" }, f.en))));
+  for (const f of figs) grid.append(h("figure", { html: mouthSVG(f) }, h("figcaption", {}, h("b", { lang: "zh-Hant-TW" }, f.zh), " — ", enText(f.en))));
   panel.append(grid);
 }
 

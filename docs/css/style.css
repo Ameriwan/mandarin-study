@@ -14,7 +14,7 @@
   --warn: #9a6b00;
   --human: #1d6b73;         /* MOE human-voice badge */
   --tts: #6b7280;           /* TTS badge */
-  --focus: #f2a93b;
+  --focus: #b45309;         /* >= 4.1:1 against bg, surface, surface-2 and accent-soft (WCAG 1.4.11 needs 3:1) */
   --radius: 10px;
   --gutter: 16px;
   --maxw: 780px;
@@ -25,13 +25,13 @@
   :root:not([data-theme="light"]) {
     --bg: #0f151c; --surface: #18212b; --surface-2: #1f2a36; --ink: #e9eef3; --muted: #9eabba; --line: #2c3947;
     --accent: #6fc7cf; --accent-ink: #0f151c; --accent-soft: #1b3338; --good: #6fcf97; --bad: #f0876f; --warn: #e2b857;
-    --human: #6fc7cf; --tts: #9aa5b1;
+    --human: #6fc7cf; --tts: #9aa5b1; --focus: #f2a93b;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0f151c; --surface: #18212b; --surface-2: #1f2a36; --ink: #e9eef3; --muted: #9eabba; --line: #2c3947;
   --accent: #6fc7cf; --accent-ink: #0f151c; --accent-soft: #1b3338; --good: #6fcf97; --bad: #f0876f; --warn: #e2b857;
-  --human: #6fc7cf; --tts: #9aa5b1;
+  --human: #6fc7cf; --tts: #9aa5b1; --focus: #f2a93b;
 }
 
 * { box-sizing: border-box; }
@@ -52,6 +52,9 @@ p { margin: 0 0 .9em; max-width: 66ch; }
 .muted { color: var(--muted); }
 .small { font-size: 14px; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+/* inside clipping containers (overflow) the ring goes on the inside so it stays visible */
+.seg button:focus-visible, .tabs button:focus-visible, table.grid td button:focus-visible { outline-offset: -3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 
 /* ---------- shell */
@@ -76,6 +79,9 @@ p { margin: 0 0 .9em; max-width: 66ch; }
   padding: 12px var(--gutter) calc(80px + env(safe-area-inset-bottom)); z-index: 30; box-shadow: 0 -8px 30px rgba(0,0,0,.15); }
 .more-sheet a { display: block; padding: 12px 4px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line); font-size: 17px; }
 .more-sheet a:last-child { border-bottom: 0; }
+.more-sheet:focus-visible { outline: none; } /* focus lands on the sheet itself only when no entry is a link yet */
+.topnav a.soon, .tabbar a.soon, .more-sheet a.soon { opacity: .55; cursor: default; }
+.topnav a.soon:hover { color: var(--muted); }
 .backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 25; }
 
 main { max-width: var(--maxw); margin: 0 auto; padding: 18px var(--gutter) 24px; }

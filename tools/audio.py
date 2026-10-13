@@ -20,7 +20,7 @@ import moe  # noqa: E402
 MOE_CACHE = moe.CACHE / "moe-audio"
 JUYIN_CACHE = moe.CACHE / "moe-juyin"
 TTS_CACHE = moe.CACHE / "tts"
-SPANS_FILE = MOE_CACHE / "spans-v3.json"   # v3: multi-threshold silencedetect + plausibility window
+SPANS_FILE = MOE_CACHE / "spans-v4.json"   # v4: words need a >= 0.45 s pause (v3 cut 垃圾/私人 after one syllable)
 OUT = moe.DOCS / "audio"
 CDN = "https://r2-assets.moedict.tw/audio/a/{id}.ogg"
 UA = "Mozilla/5.0 (mandarin-study build; personal study project; ~1 request/s)"
@@ -94,17 +94,24 @@ def _silences(path, noise_db, min_pause):
 
 
 THRESHOLDS = (-35, -30, -25, -40, -45, -50)
+CHAR_PAUSE, WORD_PAUSE = 0.15, 0.45
 
 
-def detect_span(path, nsyl=1, min_pause=0.15, pad=0.05):
+def detect_span(path, nsyl=1, min_pause=None, pad=0.05):
     """Headword span (§7.3): speech from the start up to the first pause of >= min_pause seconds.
 
+    Single characters: the announcer's pause after a lone syllable can be as short as ~0.2 s (知), so 0.15 s counts.
+    Words: a quiet initial inside the word (垃圾 ㄙ, 私人 ㄖ, 喜歡 ㄏ) leaves a gap of up to ~0.3 s while the pause
+    after the headword is ~1 s, so only >= 0.45 s counts and the lower bound is higher (0.22 s per syllable).
     MOE recordings vary a lot in level (叫 peaks near -38 dB, 懂 has breath noise near -28 dB in its first pause),
     so one threshold is not enough: thresholds are tried in order and the first that yields a plausible headword
-    length (0.18-0.85 s per syllable + 0.3 s) wins. If none does, the -35 dB result is kept and flagged `check`.
+    length (lower bound to 0.85 s per syllable + 0.3 s) wins. If none does, the -35 dB result is kept and flagged
+    `check` (a word cut after its first syllable lands here as too short).
     """
     n = max(1, nsyl)
-    lo, hi = 0.18 * n, 0.85 * n + 0.3
+    if min_pause is None:
+        min_pause = CHAR_PAUSE if n == 1 else WORD_PAUSE
+    lo, hi = (0.18 if n == 1 else 0.22) * n, 0.85 * n + 0.3
     fallback = None
     for db in THRESHOLDS:
         dur, sil = _silences(path, db, min_pause)

@@ -19,7 +19,9 @@ export const BUILT = ["home", "lab"]; // pages that exist so far (others show "c
 export function h(tag, attrs = {}, ...kids) {
   const el = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs || {})) {
-    if (v == null || v === false) continue;
+    if (v == null) continue;
+    if (k.startsWith("aria-") && typeof v === "boolean") { el.setAttribute(k, String(v)); continue; } // ARIA wants "true"/"false"
+    if (v === false) continue;
     if (k.startsWith("on") && typeof v === "function") el.addEventListener(k.slice(2), v);
     else if (k === "class") el.className = v;
     else if (k === "html") el.innerHTML = v;
@@ -36,30 +38,38 @@ export const $ = (sel, root = document) => root.querySelector(sel);
 export function clear(el) { el.replaceChildren(); return el; }
 
 // ---------- layout
+const SOON = "尚未建置 coming soon";
+const soonText = () => ["（", h("span", { lang: "zh-Hant-TW" }, "尚未建置"), " ", h("span", { lang: "en" }, "coming soon"), "）"];
+const soonNote = () => h("span", { class: "muted small" }, "　", soonText());
+// A NAV entry as a link, or, for a page not built yet, a disabled link with no href (same as the home page cards).
+function navLink(n, active, kids, note) {
+  if (!BUILT.includes(n.id)) return h("a", { role: "link", "aria-disabled": "true", class: "soon", title: SOON }, kids, note || h("span", { class: "sr-only" }, soonText()));
+  return h("a", { href: n.href, class: n.id === active ? "active" : "", "aria-current": n.id === active ? "page" : null }, kids);
+}
 export function mountShell(active) {
-  const link = n => h("a", { href: n.href, class: (n.id === active ? "active" : "") + (BUILT.includes(n.id) ? "" : " soon") }, h("span", { lang: "zh-Hant-TW" }, n.zh), " ", h("span", { class: "en" }, n.en));
+  const label = n => [h("span", { lang: "zh-Hant-TW" }, n.zh), " ", h("span", { class: "en", lang: "en" }, n.en)];
   const top = h("header", { class: "topbar" },
     h("div", { class: "topbar-inner" },
       h("a", { class: "brand", href: "index.html", lang: "zh-Hant-TW" }, h("span", { class: "brand-mark", "aria-hidden": "true" }, "ㄅ"), "國語自學"),
-      h("nav", { class: "topnav", "aria-label": "Main" }, NAV.map(link))));
+      h("nav", { class: "topnav", "aria-label": "Main" }, NAV.map(n => navLink(n, active, label(n))))));
   const more = NAV.filter(n => !PRIMARY.includes(n.id));
   const moreBtn = h("button", { type: "button", class: more.some(n => n.id === active) ? "active" : "", "aria-haspopup": "true", "aria-expanded": "false",
     onclick: () => openMore(more, active, moreBtn) }, h("span", { class: "ico", "aria-hidden": "true" }, "⋯"), "更多");
   const bar = h("nav", { class: "tabbar", "aria-label": "Main" },
-    NAV.filter(n => PRIMARY.includes(n.id)).map(n => h("a", { href: n.href, class: n.id === active ? "active" : "" },
-      h("span", { class: "ico", "aria-hidden": "true" }, n.ico), n.zh)), moreBtn);
+    NAV.filter(n => PRIMARY.includes(n.id)).map(n => navLink(n, active, [h("span", { class: "ico", "aria-hidden": "true" }, n.ico), n.zh])), moreBtn);
   document.body.prepend(top);
   document.body.append(bar);
 }
 function openMore(items, active, btn) {
-  const close = () => { sheet.remove(); back.remove(); btn.setAttribute("aria-expanded", "false"); btn.focus(); };
+  const esc = e => { if (e.key === "Escape") close(); };
+  const close = () => { sheet.remove(); back.remove(); document.removeEventListener("keydown", esc); btn.setAttribute("aria-expanded", "false"); btn.focus(); };
   const back = h("div", { class: "backdrop", onclick: close });
-  const sheet = h("div", { class: "more-sheet", role: "dialog", "aria-label": "更多 More pages" },
-    items.map(n => h("a", { href: n.href, class: n.id === active ? "active" : "" }, `${n.zh} ${n.en}`, BUILT.includes(n.id) ? "" : h("span", { class: "muted small" }, "　（尚未建置 coming soon）"))));
+  const sheet = h("div", { class: "more-sheet", role: "dialog", "aria-label": "更多 More pages", tabindex: "-1" },
+    items.map(n => navLink(n, active, [h("span", { lang: "zh-Hant-TW" }, n.zh), " ", h("span", { lang: "en" }, n.en)], soonNote())));
   document.body.append(back, sheet);
   btn.setAttribute("aria-expanded", "true");
-  sheet.querySelector("a").focus();
-  document.addEventListener("keydown", function esc(e) { if (e.key === "Escape") { close(); document.removeEventListener("keydown", esc); } });
+  (sheet.querySelector("a[href]") || sheet).focus(); // unbuilt entries are not focusable
+  document.addEventListener("keydown", esc);
 }
 
 export function toast(msg, ms = 2400) {
@@ -161,21 +171,27 @@ export const moeUrl = id => `audio/moe/${id}.${canOgg ? "ogg" : "mp3"}`;
 const buffers = new Map();
 async function decode(url) {
   if (!buffers.has(url)) {
-    buffers.set(url, fetch(url).then(r => { if (!r.ok) throw new Error(url); return r.arrayBuffer(); }).then(b => audioContext().decodeAudioData(b)));
+    buffers.set(url, fetch(url).then(r => { if (!r.ok) throw new Error(url); return r.arrayBuffer(); }).then(b => audioContext().decodeAudioData(b))
+      .catch(err => { buffers.delete(url); throw err; })); // a failed load (offline, 404) is retried next time
   }
   return buffers.get(url);
 }
 let current = null; // {stop()}
-export function stopAudio() {
+function stopPlayback() {
   if (current) { try { current.stop(); } catch { /* ignore */ } current = null; }
   if ("speechSynthesis" in window) speechSynthesis.cancel();
+}
+// Stop everything audible and release the microphone. Call it before removing a view (tab change, closing a detail).
+export function stopAudio() {
+  stopPlayback();
+  stopRecorders();
 }
 // Play the headword span of an MOE clip with exact edges. Resolves when it ends.
 export async function playMoe(id, { rate = 1, span = true } = {}) {
   await ready;
   const info = audioIndex[id];
   if (!info) throw new Error("no clip " + id);
-  stopAudio();
+  stopPlayback();
   const buf = await decode(moeUrl(id));
   const c = audioContext();
   const src = c.createBufferSource();
@@ -192,7 +208,7 @@ export async function playMoe(id, { rate = 1, span = true } = {}) {
   });
 }
 export async function playFile(path, { rate = 1 } = {}) {
-  stopAudio();
+  stopPlayback();
   const a = new Audio(path);
   a.playbackRate = rate; a.preservesPitch = true;
   const me = { stop: () => a.pause() };
@@ -206,7 +222,7 @@ function pickVoice() {
 export const hasTwVoice = () => "speechSynthesis" in window && !!pickVoice();
 export function speak(text, { rate = 0.9 } = {}) {
   if (!("speechSynthesis" in window)) return Promise.resolve();
-  stopAudio();
+  stopPlayback();
   return new Promise(resolve => {
     const u = new SpeechSynthesisUtterance(text);
     u.lang = "zh-TW"; u.rate = rate;
@@ -273,10 +289,21 @@ export async function listRecordings() {
   });
 }
 
+const liveRecorders = new Set(); // recorders holding the microphone (or waiting for permission)
+export function stopRecorders() { for (const r of [...liveRecorders]) r.stop(); }
+
 export class Recorder {
   // Records with MediaRecorder and, in parallel, streams samples to onFrame(Float32Array, sampleRate) for pitch.
+  // Resolves true when recording started, false when stop() ran while the permission prompt was open.
+  // onstopped(blob), if set, runs however the recording ends (own Stop button or stopRecorders()).
+  get recording() { return !!this.rec; }
   async start({ onFrame } = {}) {
-    this.stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+    liveRecorders.add(this);
+    let stream;
+    try { stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } }); }
+    catch (err) { liveRecorders.delete(this); throw err; }
+    if (!liveRecorders.has(this)) { stream.getTracks().forEach(t => t.stop()); return false; }
+    this.stream = stream;
     this.chunks = [];
     this.rec = new MediaRecorder(this.stream);
     this.rec.ondataavailable = e => e.data.size && this.chunks.push(e.data);
@@ -291,16 +318,19 @@ export class Recorder {
       const tick = () => { if (!this.rec || this.rec.state !== "recording") return; this.an.getFloatTimeDomainData(buf); onFrame(buf, c.sampleRate, (performance.now() - this.t0) / 1000); this.raf = requestAnimationFrame(tick); };
       this.raf = requestAnimationFrame(tick);
     }
+    return true;
   }
   stop() {
-    return new Promise(resolve => {
-      if (!this.rec) return resolve(null);
+    liveRecorders.delete(this);
+    if (!this.rec) return Promise.resolve(null);
+    return this.stopping ||= new Promise(resolve => {
       cancelAnimationFrame(this.raf);
       this.rec.onstop = () => {
         this.stream.getTracks().forEach(t => t.stop());
         try { this.src && this.src.disconnect(); } catch { /* ignore */ }
         const blob = new Blob(this.chunks, { type: this.rec.mimeType || "audio/webm" });
-        this.rec = null;
+        this.rec = null; this.stopping = null;
+        if (this.onstopped) this.onstopped(blob);
         resolve(blob);
       };
       this.rec.stop();
@@ -309,35 +339,52 @@ export class Recorder {
 }
 
 // Record / play-back pair with optional save key. Returns a <span class="rec">.
+// A take cut short by stopAudio() (tab change, detail closed) or by the widget leaving the page is kept
+// like one stopped with the button.
 export function recordWidget({ key, label = "錄音 Record", onDone } = {}) {
-  if (!canRecord) return h("span", { class: "muted small" }, "此瀏覽器不能錄音 Recording not supported here");
+  if (!canRecord) return h("span", { class: "muted small" }, h("span", { lang: "zh-Hant-TW" }, "此瀏覽器不能錄音"), " ", h("span", { lang: "en" }, "Recording not supported here"));
   const rec = new Recorder();
-  let blob = null, url = null, recording = false;
+  let url = null, starting = false, watch = null;
   const play = h("button", { class: "btn small", type: "button", disabled: true, onclick: () => { if (url) playFile(url); } }, "▶ 我的 Mine");
   const btn = h("button", { class: "btn small", type: "button", "aria-pressed": "false", onclick: async () => {
-    if (!recording) {
-      try { await rec.start(); } catch { toast("需要麥克風權限 Microphone permission needed"); return; }
-      recording = true; btn.textContent = "■ 停止 Stop"; btn.classList.add("recording"); btn.setAttribute("aria-pressed", "true");
-    } else {
-      blob = await rec.stop(); recording = false;
-      btn.textContent = label; btn.classList.remove("recording"); btn.setAttribute("aria-pressed", "false");
-      if (url) URL.revokeObjectURL(url);
-      url = URL.createObjectURL(blob); play.disabled = false;
-      if (key) saveRecording(key, blob).catch(() => {});
-      onDone && onDone(blob, url);
-    }
+    if (rec.recording) { rec.stop(); return; }
+    if (starting) return; // permission prompt still open
+    starting = true;
+    watchDetach();
+    try { if (await rec.start()) setRecording(true); else unwatch(); } catch { unwatch(); toast("需要麥克風權限 Microphone permission needed"); }
+    starting = false;
   } }, label);
-  if (key) loadRecording(key).then(r => { if (r && r.blob) { blob = r.blob; url = URL.createObjectURL(blob); play.disabled = false; } }).catch(() => {});
-  return h("span", { class: "rec" }, btn, play);
+  const wrap = h("span", { class: "rec" }, btn, play);
+  // From Record until the take ends: if a view is cleared without stopAudio(), the detached widget stops its own recorder.
+  const unwatch = () => { if (watch) { watch.disconnect(); watch = null; } };
+  const watchDetach = () => {
+    if (watch || typeof MutationObserver === "undefined") return;
+    watch = new MutationObserver(() => { if (!wrap.isConnected) { unwatch(); rec.stop(); } });
+    watch.observe(document, { childList: true, subtree: true });
+  };
+  const setRecording = on => { btn.textContent = on ? "■ 停止 Stop" : label; btn.classList.toggle("recording", on); btn.setAttribute("aria-pressed", String(on)); };
+  rec.onstopped = blob => {
+    unwatch();
+    setRecording(false);
+    if (!blob.size) return;
+    if (url) URL.revokeObjectURL(url);
+    url = URL.createObjectURL(blob); play.disabled = false;
+    if (key) saveRecording(key, blob).catch(() => {});
+    onDone && onDone(blob, url);
+  };
+  if (key) loadRecording(key).then(r => { if (r && r.blob && !url) { url = URL.createObjectURL(r.blob); play.disabled = false; } }).catch(() => {});
+  return wrap;
 }
 
-// ---------- time on page (minutes studied), flushed while the tab is visible
+// ---------- time on page (minutes studied): only spans during which the tab was visible count
 export function trackTime(block) {
-  let last = performance.now();
+  let last = performance.now(), wasVisible = document.visibilityState === "visible";
   const flush = () => {
     const now = performance.now();
-    if (document.visibilityState === "visible") logMinutes(block, (now - last) / 60000);
+    // A tick is 30 s; a longer visible span means the machine slept without a visibilitychange, so cap it.
+    if (wasVisible) logMinutes(block, Math.min(now - last, 60000) / 60000);
     last = now;
+    wasVisible = document.visibilityState === "visible";
   };
   setInterval(flush, 30000);
   document.addEventListener("visibilitychange", flush);

@@ -31,8 +31,9 @@ def squash(z):
 
 
 def norm(z):
-    """Canonical content form: single spaces, ˙ before its syllable, no stray marks."""
+    """Canonical content form: single spaces, ˙ before its syllable, 兒化 ㄦ as its own syllable."""
     z = re.sub(r"[\s\u3000]+", " ", (z or "").strip())
+    z = re.sub(r"(?<=[ㄅ-ㄩˊˇˋ])ㄦ", " ㄦ", z)  # MOE attaches 兒化 (ㄓㄜˋㄦ); one syllable per 兒
     out = []
     for syl in z.split(" "):
         if syl.endswith("˙") and len(syl) > 1:   # TBCL writes ㄉㄜ˙
@@ -103,9 +104,37 @@ def audio_id(word, zhuyin):
     return audio_map().get(word, {}).get(squash(zhuyin))
 
 
+def tbcl_parts(cell):
+    """The '/'-separated readings of a TBCL bopomofo cell, cleaned of (一) sense markers, CJK 一 typed for ㄧ
+    and syllables run together after a tone mark (ㄉㄧˊㄅㄨˊ)."""
+    cell = re.sub(r"[(（][一二三四五六七八九十][)）]", "", str(cell or "")).replace("一", "ㄧ")
+    cell = re.sub(r"([ˊˇˋ])(?=[ㄅ-ㄩ˙])", r"\1 ", cell)
+    return [p for p in (norm(x) for x in cell.split("/")) if p]
+
+
+def _fits(form, z):
+    """z has one syllable per character of form, with ㄦ exactly where the form has 兒."""
+    syl = syllables(z)
+    return len(syl) == len(form) and all((c == "兒") == (base(s) == "ㄦ") for c, s in zip(form, syl))
+
+
+def _form_readings(forms, parts, i):
+    """Readings of forms[i] in a '爸爸/爸' row: the i-th part when the cell lists one per form, else every
+    part that fits the form (cells like 那裡/那裏/那兒 → ㄋㄚˋ ㄌㄧˇ / ㄋㄚˋ ㄦ are not parallel).
+    A form with no part of its length (剛 in 剛剛/剛 → ㄍㄤ ㄍㄤ) gets no TBCL reading."""
+    form = forms[i]
+    if len(forms) == len(parts) and len(syllables(parts[i])) == len(form):
+        return [parts[i]]
+    return [p for p in parts if _fits(form, p)] or [p for p in parts if len(syllables(p)) == len(form)]
+
+
 @lru_cache(maxsize=None)
 def tbcl_words():
-    """{word: {zhuyin, pinyin, level, band, situation, wfreq, sfreq}} from the NAER 詞語表 (cache only)."""
+    """{word: {zhuyin, readings, pinyin, level, band, situation, wfreq, sfreq}} from the NAER 詞語表 (cache only).
+
+    `readings` lists every TBCL reading of that spelled form; numbered rows (得1/得2/得3) are merged and
+    `zhuyin` is the same list joined with '/'. The other fields come from the form's first row.
+    """
     import openpyxl
     p = CACHE / "tbcl" / "14452詞語表202504.xlsx"
     ws = openpyxl.load_workbook(p, read_only=True).worksheets[0]
@@ -117,14 +146,17 @@ def tbcl_words():
         w = r[H["word"]]
         if not w:
             continue
-        entry = {"zhuyin": norm(r[H["bopomofo"]]), "pinyin": (r[H["pinyin"]] or "").strip(), "level": r[H["ji"]],
-                 "band": r[H["deng"]], "situation": r[H["situation"]] or "", "wfreq": int(r[H["wfreq"]] or 0),
-                 "sfreq": int(r[H["sfreq"]] or 0)}
-        # "爸爸/爸" and "和1" style entries: register every spelled form
-        for form in re.split(r"/", str(w)):
-            form = re.sub(r"\d+$", "", form).strip()
-            if form and form not in out:
-                out[form] = dict(entry)
+        forms = [f for f in (re.sub(r"\d+$", "", x).strip() for x in str(w).split("/")) if f]
+        parts = tbcl_parts(r[H["bopomofo"]])
+        for i, form in enumerate(forms):
+            e = out.setdefault(form, {
+                "readings": [], "pinyin": (r[H["pinyin"]] or "").strip(), "level": r[H["ji"]],
+                "band": r[H["deng"]], "situation": r[H["situation"]] or "", "wfreq": int(r[H["wfreq"]] or 0),
+                "sfreq": int(r[H["sfreq"]] or 0)})
+            for z in _form_readings(forms, parts, i):
+                if z not in e["readings"]:
+                    e["readings"].append(z)
+            e["zhuyin"] = "/".join(e["readings"])
     return out
 
 
@@ -146,23 +178,23 @@ def level_rank(level):
     return TBCL_LEVELS.index(level) if level in TBCL_LEVELS else 99
 
 
+VARIANT_NOTE = re.compile(r"[之的](又音|語音|讀音|或讀)。")  # a later entry glossed "(一)之讀音。"
+
+
 def word_readings(word):
     """All known readings of a word, in priority order, as [(zhuyin, source, kind)].
 
-    kind: 'main' for the first-listed reading of a source, 'alt' for later 多音 entries,
-    or the MOE variant label (又音 / 語音 / 讀音 / 或讀 / 變).
+    kind: 'main' for every TBCL reading (TBCL does not rank 和1/和2 or slash forms) and for the
+    first-listed reading of an MOE source, 'alt' for later MOE 多音 entries, or the MOE variant label
+    (又音 / 語音 / 讀音 / 或讀 / 變), also for a later entry whose gloss says it is one.
     Sources in order: TBCL, MOE 簡編本, MOE 修訂本 (MASTER_PROMPT §9.3).
     """
-    out = []
     t = tbcl_words().get(word)
-    if t and t["zhuyin"]:
-        for i, z in enumerate(t["zhuyin"].split("/")):
-            z = norm(z)
-            if z:
-                out.append((z, "TBCL", "main" if i == 0 else "alt"))
+    out = [(z, "TBCL", "main") for z in (t["readings"] if t else [])]
     for src, label in (("concised", "簡編本"), ("revised", "修訂本")):
         for i, e in enumerate(readings()[src].get(word, [])):
-            out.append((norm(e["z"]), label, "main" if i == 0 else "alt"))
+            note = VARIANT_NOTE.search(e.get("pos") or "") if i else None
+            out.append((norm(e["z"]), label, note.group(1) if note else "alt" if i else "main"))
             if e.get("v"):
                 out.append((norm(e["v"]["z"]), label, e["v"]["type"]))
     return out
@@ -175,11 +207,15 @@ def lexicon():
     return words
 
 
+def match_lengths(text, i, longest=8):
+    """Lengths of the lexicon words that start at text[i], longest first, always ending with 1."""
+    lex = lexicon()
+    return [n for n in range(min(longest, len(text) - i), 1, -1) if text[i:i + n] in lex] + [1]
+
+
 def segment(text):
     """Longest-match segmentation of a Chinese string into lexicon words (single chars as fallback).
     Punctuation and non-CJK runs come back as their own tokens with kind 'skip'."""
-    lex = lexicon()
-    longest = 8
     out, i = [], 0
     while i < len(text):
         c = text[i]
@@ -187,12 +223,9 @@ def segment(text):
             out.append((c, "skip"))
             i += 1
             continue
-        for n in range(min(longest, len(text) - i), 0, -1):
-            cand = text[i:i + n]
-            if n == 1 or cand in lex:
-                out.append((cand, "word"))
-                i += n
-                break
+        n = match_lengths(text, i)[0]
+        out.append((text[i:i + n], "word"))
+        i += n
     return out
 
 
