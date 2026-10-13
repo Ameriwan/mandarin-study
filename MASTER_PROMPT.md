@@ -226,7 +226,7 @@ Each track is a ladder that unlocks by level. External links go in `content/reso
    2. The same texts with ruby only on words I haven't marked "known".
    3. No ruby, with tap-to-look-up in the Library.
    4. MOE dictionary entry texts (§7.3).
-   5. Authentic text: 國語日報 https://www.mdnkids.com (A2–B2; headlines free, check whether the online version has Zhuyin), then 公視新聞網 https://news.pts.org.tw (B2+, free text and video).
+   5. Authentic text: 國語日報 https://www.mdnkids.com/news.asp (A2–B2; web articles are free and in full Traditional text but have **no Zhuyin online**, and only the paid print paper is annotated, so the app's tap-to-look-up does the job), then 公視新聞網 https://news.pts.org.tw (B2+, free text and video).
    6. TOCFL mock reading.
 2. **Listening ladder**
    1. Unit dialogues.
@@ -235,7 +235,14 @@ Each track is a ladder that unlocks by level. External links go in `content/reso
    4. **Talk Talk Mandarin 說說話** podcast with Taiwanese hosts (B1+; transcripts via linktr.ee/ttmctw; still active in Oct 2026).
    5. 公視新聞 video (B2+).
    6. A **"real Taiwan speech"** set that trains me to *understand* the colloquial features in §6.6.
-   - Not verified yet; check before adding: 中央廣播電臺 Rti learner programmes, 全球華文網 HuayuWorld, and MOE learning portals.
+   - Beginner listening: TaiwanPlus *Legit Mando* (https://www.taiwanplus.com/shows/mandarin-learning/all/523/legit-mando). These are free short skits on everyday Taiwan phrases, with Traditional on-screen text. Check the subtitles and episode dates before linking.
+   - Not verified yet; check before adding:
+     - 中央廣播電臺 Rti: its homepage has no learner section, only live native radio and 央廣學院 at academy.rti.org.tw.
+     - 全球華文網 HuayuWorld: needs JavaScript to load; reportedly hosts the 《學華語向前走》 series.
+     - The Taiwan-hosted podcasts "Learn Taiwanese Mandarin With Miss Lin" and 台味中文.
+     - PTS children's shows.
+     - MOE learning portals.
+   - Mandarin Corner, Chinese Zero to Hero and Slow Chinese are Mainland-oriented, so don't list them as Taiwan sources.
    - TaiwanPlus's "Mandarin Speakers" is an English-language advice series, not lessons.
 3. **Grammar depth**
    - TBCL's 496 grammar points (levels 1–5), each with my own English explanation, 3+ examples, audio and a "common mistake" line.

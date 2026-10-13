@@ -20,7 +20,7 @@ import moe  # noqa: E402
 MOE_CACHE = moe.CACHE / "moe-audio"
 JUYIN_CACHE = moe.CACHE / "moe-juyin"
 TTS_CACHE = moe.CACHE / "tts"
-SPANS_FILE = MOE_CACHE / "spans.json"
+SPANS_FILE = MOE_CACHE / "spans-v2.json"   # v2: 0.15 s pauses + syllable-count floor
 OUT = moe.DOCS / "audio"
 CDN = "https://r2-assets.moedict.tw/audio/a/{id}.ogg"
 UA = "Mozilla/5.0 (mandarin-study build; personal study project; ~1 request/s)"
@@ -77,8 +77,10 @@ def save_spans(spans):
     json.dump(spans, open(SPANS_FILE, "w", encoding="utf-8"), indent=0, sort_keys=True)
 
 
-def detect_span(path, noise_db=-35, min_pause=0.3, pad=0.05):
-    """Headword span (§7.3): the first speech segment, up to the first pause of >= min_pause seconds."""
+def detect_span(path, nsyl=1, noise_db=-35, min_pause=0.15, pad=0.05):
+    """Headword span (§7.3): speech from the start up to the first pause of >= min_pause seconds that comes
+    after a floor of ~0.22 s per syllable. The announcer's pause after a headword is often only ~0.2 s
+    (知 0.47→0.76 s), while pauses between syllables of a word are shorter than 0.15 s."""
     r = run_ffmpeg(["-i", str(path), "-af", f"silencedetect=noise={noise_db}dB:d={min_pause}", "-f", "null", "-"])
     text = r.stderr
     dur = 0.0
@@ -95,12 +97,17 @@ def detect_span(path, noise_db=-35, min_pause=0.3, pad=0.05):
     if silences and silences[0][0] <= 0.05:  # file opens with silence
         speech_start = silences[0][1]
         silences = silences[1:]
-    speech_end = silences[0][0] if silences else dur
+    floor = speech_start + 0.22 * max(1, nsyl)
+    speech_end = next((s0 for s0, _ in silences if s0 >= floor), dur)
     end = min(dur, speech_end + pad)
-    return {"start": round(speech_start, 3), "end": round(end, 3), "dur": round(dur, 2)}
+    flag = (end - speech_start) > 0.9 * max(1, nsyl) + 0.6   # suspiciously long: listed in the report
+    out = {"start": round(speech_start, 3), "end": round(end, 3), "dur": round(dur, 2)}
+    if flag:
+        out["check"] = True
+    return out
 
 
-def publish_moe(aid, spans):
+def publish_moe(aid, spans, nsyl=1):
     """Cache -> docs/audio/moe/<id>.ogg + .mp3, and compute the span once. Returns the audio.json entry or None."""
     src = fetch_moe(aid)
     if not src:
@@ -113,7 +120,7 @@ def publish_moe(aid, spans):
     if not mp3.exists() or mp3.stat().st_size < 500:
         run_ffmpeg(["-i", str(src), "-vn", "-ac", "1", "-ar", "22050", "-codec:a", "libmp3lame", "-b:a", "40k", str(mp3)])
     if aid not in spans:
-        spans[aid] = detect_span(src)
+        spans[aid] = detect_span(src, nsyl=nsyl)
     return {"src": "moe", **spans[aid]}
 
 
@@ -162,17 +169,20 @@ class AudioBank:
     def __init__(self):
         self.moe_ids = set()
         self.priority = {}
+        self.nsyl = {}
         self.juyin = set()
         self.tts = {}
         self.index = {}
         self.missing = []
 
-    def want_moe(self, aid, priority=5):
-        """priority: 0 = content words (symbols, contrasts, pairs), 1.. = grid cells by TBCL level; lower downloads first."""
+    def want_moe(self, aid, priority=5, nsyl=1):
+        """priority: 0 = content words (symbols, contrasts, pairs), 1.. = grid cells by TBCL level; lower downloads first.
+        nsyl: syllables in the headword (sets the floor for the span detector)."""
         if aid:
             aid = str(aid)
             self.moe_ids.add(aid)
             self.priority[aid] = min(priority, self.priority.get(aid, 99))
+            self.nsyl[aid] = max(nsyl, self.nsyl.get(aid, 1))
         return aid
 
     def want_juyin(self, symbol):
@@ -190,6 +200,15 @@ class AudioBank:
             log(f"  audio: {len(new)} MOE clips not cached (--no-audio); they will be missing")
         allowed = set(new if max_new is None else new[:max_new])
         log(f"  audio: {len(todo)} MOE clips wanted, {len(new)} not cached, downloading {len(allowed) if download else 0} this run (priority order)")
+        # Prefetch with a few parallel connections: this network is latency-bound (~20-30 s per 30 KB clip),
+        # so 3 workers still stay far below one request per second.
+        if download and allowed:
+            from concurrent.futures import ThreadPoolExecutor
+            ordered = [a for a in todo if a in allowed]
+            with ThreadPoolExecutor(max_workers=3) as ex:
+                for n, _ in enumerate(ex.map(fetch_moe, ordered), 1):
+                    if n % 25 == 0:
+                        log(f"    fetched {n}/{len(ordered)}")
         done_new = 0
         for i, aid in enumerate(todo, 1):
             if aid in new and (not download or aid not in allowed):
@@ -199,7 +218,7 @@ class AudioBank:
                 done_new += 1
                 if done_new % 25 == 0:
                     log(f"    downloaded {done_new}/{len(allowed)}")
-            entry = publish_moe(aid, spans)
+            entry = publish_moe(aid, spans, self.nsyl.get(aid, 1))
             if entry:
                 self.index[aid] = entry
             else:

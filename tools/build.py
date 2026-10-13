@@ -94,7 +94,7 @@ def word_entry(w, bank):
     """Attach the MOE audio id (if the exact reading has one) to a {zh, zhuyin, en} item."""
     aid = moe.audio_id(w["zh"], w["zhuyin"])
     e = dict(w)
-    e["id"] = bank.want_moe(aid, priority=0) if aid else None
+    e["id"] = bank.want_moe(aid, priority=0, nsyl=len(moe.syllables(w["zhuyin"]))) if aid else None
     t = moe.tbcl_words().get(w["zh"])
     if t:
         e["level"] = t["level"]
@@ -213,6 +213,8 @@ def write_report(res, index, bank, extra, failed=False):
                   f"- content words without an exact-reading MOE clip (browser voice, labelled): {len(extra['no_audio_words'])}"]
         for w in extra["no_audio_words"][:40]:
             lines.append(f"  - {w}")
+        flagged = [k for k, e in index.items() if e.get("check")]
+        lines += ["", f"- spans flagged for a listen (longer than expected): {len(flagged)}" + (" - " + ", ".join(flagged[:30]) if flagged else "")]
         lines += ["", "## Data", "", f"- syllable grid: {extra['grid']['bases']} bases / {extra['grid']['toned']} toned syllables",
                   f"- model contours: {extra['contours']}",
                   f"- docs/ size: {extra['size_mb']:.1f} MB (budget {SIZE_BUDGET_MB} MB)"]

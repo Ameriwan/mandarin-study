@@ -5,7 +5,7 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 | # | Milestone | Status | Done when |
 |---|---|---|---|
 | M0 | **SETUP** (folders, venv, git, data cache, tool checks) | ✅ 2026-10-13 | Data cached, tools probed, settings filled in |
-| M1 | SETUP + audio pipeline + Zhuyin Lab (symbols, syllable grid, contrasts, dictation) | ⬜ | Tap any syllable → correct MOE audio in all tones; contrast drills work |
+| M1 | SETUP + audio pipeline + Zhuyin Lab (symbols, syllable grid, contrasts, dictation) | 🟡 built 2026-10-13, audio downloads in progress | Tap any syllable → correct MOE audio in all tones; contrast drills work |
 | M2 | Tone Gym (ID, tone pairs, pitch mirror, sandhi, Taiwan readings) + Today (pronunciation block) | ⬜ | Pitch overlay works on phone and laptop |
 | M3 | Shadowing (player, protocol, MOE dictionary readings, native-check hand-off) | ⬜ | A full 10-minute session runs |
 | M4 | Plan + placement check + Library (TBCL L1–3, grammar, Taiwan vocab) | ⬜ | Placement gives a level and a starting unit |
@@ -47,3 +47,13 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 - No network-dependent tool is needed for BUILD except TTS and the moedict CDN.
 
 **Next:** `BUILD` to start M1 (audio pipeline + Zhuyin Lab). iPhone means every self-hosted clip needs an mp3 twin (format conversion only) chosen with `canPlayType`.
+
+### 2026-10-13 · BUILD (M1)
+- **Pipeline:** `tools/moe.py` (readings cache, audio-id map, TBCL lists, segmentation), `tools/verify.py` (§9.3: TBCL → 簡編本 → 修訂本; tone-only / 又音 / 語音 / 讀音 → ⚑ warnings; anything else fails), `tools/audio.py` (MOE ogg whole files + mp3 twins, silencedetect headword spans, 37 handbook WAVs → mp3, gTTS for sentences), `tools/contours.py` (yin/pyin + RMS gate, semitones vs. speaker median, 40 points), `tools/build.py` (→ `docs/data/*.json`, `build-report.md`, size check).
+- **Content:** `content/zhuyin/symbols.json` (37 symbols from §6.1, 91 verified example words, written by a subagent and verified), `content/zhuyin/contrasts.json` (10 contrasts, §6.2), `content/tones/pairs.csv` (20 words, §6.4). Verifier: 261 strings, 0 failures, 1 warning (樂 ㄌㄜˋ is the 簡編本's second heteronym; correct).
+- **Syllable grid:** 405 base syllables / 1,222 toned syllables have a single-character MOE recording. Representative character = first-listed reading, then lowest TBCL level, then frequency.
+- **Pages:** `docs/index.html` (Today placeholder: streak, week minutes, page map), `docs/lab.html` + `js/lab.js` (symbol chart → detail with handbook audio, IPA, how/error/notes, examples, record; syllable picker + full table view; contrast drills with per-contrast history in localStorage; dictation with the standard Zhuyin keyboard, physical-key mapping, syllable diff; mouth guides). `js/app.js` shared shell/store/audio (Web Audio span playback, ogg→mp3 by canPlayType, browser-voice fallback labelled), IndexedDB recordings, pitchy hook for M2. PWA: manifest, icons, `sw.js` (shell network-first, data network-first, audio cache-on-first-play).
+- **Design:** one family (Noto Sans TC), cool slate background, deep-teal accent, dark mode via prefers-color-scheme; the 37-symbol chart is the hero. Tone colours off (not built yet). Bottom tab bar on phone (今天 / 注音 / 聲調 / 跟讀 / 更多), full nav on desktop.
+- **Tested in the built-in browser** at 375 px and desktop: no console errors; handbook audio plays (`audio/juyin/F1.mp3` 200); contrast drill feedback/compare/next flow works; dictation keyboard and physical keys (a 8 3 → ㄇㄚˇ) work; hash deep links switch tabs.
+- **Audio download is slow on this connection** (20–30 s per 30 KB clip). The build now downloads in priority order (content words first, then grid cells by TBCL level) with `--max-new N` per run and 3 parallel connections; rerun `BUILD` to continue filling the 1,305 clips. Cells without a clip show "clip not built yet".
+- **Not yet verified:** mic recording in the browser pane (permission prompt), the 20-span spot-listen (§10.4) — needs Amadeus's ears.

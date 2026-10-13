@@ -6,21 +6,16 @@
 
 - checked: 261
 - failures: 0
-- warnings: 6
+- warnings: 1
 
 - WARN `zhuyin/contrasts.json/contrasts[8]/sets[0][1]`: 樂 `ㄌㄜˋ` - matches 簡編本 alt reading, not the first-listed one
-- WARN `zhuyin/symbols.json/symbols[0]/examples[2]`: 便當 `ㄅㄧㄢˋ ㄉㄤ` - matches TBCL, but MOE writes ㄅㄧㄢˋ ˙ㄉㄤ; store the base tone (§6.4)
-- WARN `zhuyin/symbols.json/symbols[4]/examples[1]`: 東西 `ㄉㄨㄥ ˙ㄒㄧ` - matches TBCL, but MOE writes ㄉㄨㄥ ㄒㄧ; store the base tone (§6.4)
-- WARN `zhuyin/symbols.json/symbols[32]/examples[1]`: 便當 `ㄅㄧㄢˋ ㄉㄤ` - matches TBCL, but MOE writes ㄅㄧㄢˋ ˙ㄉㄤ; store the base tone (§6.4)
-- WARN `zhuyin/symbols.json/symbols[34]/examples[0]`: 便當 `ㄅㄧㄢˋ ㄉㄤ` - matches TBCL, but MOE writes ㄅㄧㄢˋ ˙ㄉㄤ; store the base tone (§6.4)
-- WARN `zhuyin/symbols.json/symbols[35]/examples[2]`: 東西 `ㄉㄨㄥ ˙ㄒㄧ` - matches TBCL, but MOE writes ㄉㄨㄥ ㄒㄧ; store the base tone (§6.4)
 
 ## Audio coverage
 
-- MOE human clips: 2
+- MOE human clips: 249
 - MOE handbook symbol clips: 37
 - TTS clips: 0
-- missing / failed: 1307 - 0001, 0012, 0015, 0018, 001800001, 0023, 0030, 0034, 0053, 0055, 0059, 0060, 0061, 0065, 0069, 0077, 0082, 0089, 0095, 0100
+- missing / failed: 1056 - 1306, 1350, 1475, 1488, 1501, 1560, 1583, 1585, 1593, 1595, 1630, 1634, 1679, 1694, 1732, 1792, 1973, 2034, 2225, 2236
 - content words without an exact-reading MOE clip (browser voice, labelled): 40
   - 粗布 ㄘㄨ ㄅㄨˋ
   - 人民 ㄖㄣˊ ㄇㄧㄣˊ
@@ -33,7 +28,7 @@
   - 明天 ㄇㄧㄥˊ ㄊㄧㄢ
   - 蘋果 ㄆㄧㄥˊ ㄍㄨㄛˇ
   - 不要 ㄅㄨˋ ㄧㄠˋ
-  - 便當 ㄅㄧㄢˋ ㄉㄤ
+  - 便當 ㄅㄧㄢˋ ˙ㄉㄤ
   - 朋友 ㄆㄥˊ ㄧㄡˇ
   - 蘋果 ㄆㄧㄥˊ ㄍㄨㄛˇ
   - 媽媽 ㄇㄚ ˙ㄇㄚ
@@ -58,31 +53,33 @@
   - 朋友 ㄆㄥˊ ㄧㄡˇ
   - 手機 ㄕㄡˇ ㄐㄧ
   - 吃飯 ㄔ ㄈㄢˋ
-  - 便當 ㄅㄧㄢˋ ㄉㄤ
+  - 便當 ㄅㄧㄢˋ ˙ㄉㄤ
   - 認識 ㄖㄣˋ ˙ㄕ
-  - 便當 ㄅㄧㄢˋ ㄉㄤ
+  - 便當 ㄅㄧㄢˋ ˙ㄉㄤ
   - 朋友 ㄆㄥˊ ㄧㄡˇ
+
+- spans flagged for a listen (longer than expected): 2 - 0579, 1020
 
 ## Data
 
 - syllable grid: 405 bases / 1222 toned syllables
-- model contours: 0
-- docs/ size: 0.5 MB (budget 600 MB)
+- model contours: 219
+- docs/ size: 52.3 MB (budget 600 MB)
 
 ## Log
 
 ```
 Build 2026-10-13
 Verifying content/ ...
-Verifier: 261 Zhuyin strings checked, 0 failures, 6 warnings ⚑
+Verifier: 261 Zhuyin strings checked, 0 failures, 1 warnings ⚑
   ⚑ zhuyin/contrasts.json/contrasts[8]/sets[0][1]: 樂 ㄌㄜˋ  — matches 簡編本 alt reading, not the first-listed one
-  ⚑ zhuyin/symbols.json/symbols[0]/examples[2]: 便當 ㄅㄧㄢˋ ㄉㄤ  — matches TBCL, but MOE writes ㄅㄧㄢˋ ˙ㄉㄤ; store the base tone (§6.4)
-  ⚑ zhuyin/symbols.json/symbols[4]/examples[1]: 東西 ㄉㄨㄥ ˙ㄒㄧ  — matches TBCL, but MOE writes ㄉㄨㄥ ㄒㄧ; store the base tone (§6.4)
-  ⚑ zhuyin/symbols.json/symbols[32]/examples[1]: 便當 ㄅㄧㄢˋ ㄉㄤ  — matches TBCL, but MOE writes ㄅㄧㄢˋ ˙ㄉㄤ; store the base tone (§6.4)
-  ⚑ zhuyin/symbols.json/symbols[34]/examples[0]: 便當 ㄅㄧㄢˋ ㄉㄤ  — matches TBCL, but MOE writes ㄅㄧㄢˋ ˙ㄉㄤ; store the base tone (§6.4)
-  ⚑ zhuyin/symbols.json/symbols[35]/examples[2]: 東西 ㄉㄨㄥ ˙ㄒㄧ  — matches TBCL, but MOE writes ㄉㄨㄥ ㄒㄧ; store the base tone (§6.4)
 Syllable grid: 405 bases, 1222 toned syllables with MOE audio
 Audio ...
-  audio: 1307 MOE clips not cached (--no-audio); they will be missing
-  audio: 1309 MOE clips wanted, 1307 to download
+  audio: 1305 MOE clips wanted, 1056 not cached, downloading 0 this run (priority order)
+    50/1305
+    100/1305
+    150/1305
+    200/1305
+    350/1305
+  contours: 186 cached, 35 to compute
 ```
