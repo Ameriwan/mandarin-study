@@ -22,15 +22,15 @@ SITE_URL:             https://ameriwan.github.io/mandarin-study/
 PROJECT_FOLDER:       C:\Users\Amadeus\mandarin-study
 WHAT_I_KNOW:          I learned all of Zhuyin (ㄅㄆㄇㄈ), but my pronunciation and tones are slipping
 CURRENT_LEVEL:        unknown            # the app's placement check sets this
-GOAL:                 ______             # e.g. everyday life in Pingtung, read menus/signs, then TOCFL Band B
+GOAL:                 TOCFL Band B as fast as possible   # prioritise vocab/grammar coverage; units still set in Pingtung daily life
 DAILY_MINUTES:        30
 STUDY_DAYS_PER_WEEK:  6
-PHONE:                ______             # iPhone or Android (affects audio format + mic testing)
+PHONE:                iPhone             # Safari/iOS: ship mp3 alongside MOE ogg, test mic on iOS
 ROMANIZATION:         zhuyin             # pinyin hidden by default, toggle in Settings
 ANKI:                 I already have my own decks → NO flashcard / SRS / deck-export features
-PUBLIC_REPO_OK:       ask me             # free GitHub Pages needs a public repo
+PUBLIC_REPO_OK:       yes                # public repo OK; create at PUBLISH, nothing pushed until I say so
 NATIVE_CHECKER:       ______             # optional: a Taiwanese friend who can rate my recordings
-OBSIDIAN_EXPORT:      ask me             # optional weekly notes into C:\Users\Amadeus\Desktop\Hermes Vault\Mandarin\
+OBSIDIAN_EXPORT:      yes                # WEEKLY writes a note into C:\Users\Amadeus\Desktop\Hermes Vault\Mandarin\
 ```
 
 If a setting is blank when a command needs it, ask me. Don't guess.

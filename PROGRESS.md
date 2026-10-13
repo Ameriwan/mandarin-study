@@ -4,7 +4,7 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 
 | # | Milestone | Status | Done when |
 |---|---|---|---|
-| M0 | **SETUP** (folders, venv, git, data cache, tool checks) | ✅ 2026-10-13 (settings still to fill in) | Data cached, tools probed, settings filled in |
+| M0 | **SETUP** (folders, venv, git, data cache, tool checks) | ✅ 2026-10-13 | Data cached, tools probed, settings filled in |
 | M1 | SETUP + audio pipeline + Zhuyin Lab (symbols, syllable grid, contrasts, dictation) | ⬜ | Tap any syllable → correct MOE audio in all tones; contrast drills work |
 | M2 | Tone Gym (ID, tone pairs, pitch mirror, sandhi, Taiwan readings) + Today (pronunciation block) | ⬜ | Pitch overlay works on phone and laptop |
 | M3 | Shadowing (player, protocol, MOE dictionary readings, native-check hand-off) | ⬜ | A full 10-minute session runs |
@@ -13,9 +13,10 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 | M6 | Advanced tracks + resources + immersion mode | ⬜ | Links checked; reading ladder works |
 | M7 | Polish + accessibility + PUBLISH (ask first) | ⬜ | Live site works on my phone |
 
-## Open settings (blank in §0 — ask Amadeus)
+## Settings
 
-- `GOAL`, `PHONE`, `NATIVE_CHECKER` (optional), `PUBLIC_REPO_OK`, `OBSIDIAN_EXPORT`
+- Filled in 2026-10-13: GOAL = TOCFL Band B as fast as possible · PHONE = iPhone · PUBLIC_REPO_OK = yes · OBSIDIAN_EXPORT = yes
+- Still blank (optional): `NATIVE_CHECKER`
 
 ## Open issues
 
@@ -45,4 +46,4 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 - Python 3.11 venv (uv-managed CPython; no Python 3.12 on this PC), so `librosa<1.0` (0.11.0 installed). `openpyxl` 3.1.5 reads all MOE/TBCL xlsx files.
 - No network-dependent tool is needed for BUILD except TTS and the moedict CDN.
 
-**Next:** fill in §0 settings (GOAL, PHONE, PUBLIC_REPO_OK, OBSIDIAN_EXPORT, optional NATIVE_CHECKER), then `BUILD` to start M1.
+**Next:** `BUILD` to start M1 (audio pipeline + Zhuyin Lab). iPhone means every self-hosted clip needs an mp3 twin (format conversion only) chosen with `canPlayType`.
