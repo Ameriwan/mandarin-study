@@ -57,3 +57,8 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 - **Tested in the built-in browser** at 375 px and desktop: no console errors; handbook audio plays (`audio/juyin/F1.mp3` 200); contrast drill feedback/compare/next flow works; dictation keyboard and physical keys (a 8 3 → ㄇㄚˇ) work; hash deep links switch tabs.
 - **Audio download is slow on this connection** (20–30 s per 30 KB clip). The build now downloads in priority order (content words first, then grid cells by TBCL level) with `--max-new N` per run and 3 parallel connections; rerun `BUILD` to continue filling the 1,305 clips. Cells without a clip show "clip not built yet".
 - **Not yet verified:** mic recording in the browser pane (permission prompt), the 20-span spot-listen (§10.4) — needs Amadeus's ears.
+
+### 2026-10-13 · BUILD (2nd run)
+- 648 / 1,305 MOE clips published (565 / 1,222 grid cells), 615 contours, docs/ 178 MB. Remaining 657 clips are grid cells for TBCL L4+ characters; projected full set ≈ 300 MB (ogg 86 KB + mp3 142 KB median per clip, because the whole file is shipped).
+- Span detector v3: silencedetect at -35 dB first, then -30 / -25 / -40 / -45 / -50 dB until the headword length is plausible (0.18–0.85 s per syllable + 0.3 s). Fixed 叫 (quiet file, 0.37 s) and 懂 (breath noise in the pause, 0.62 s). 0 flagged spans. Cache: `.cache/moe-audio/spans-v3.json`.
+- Pages reload clean after the rebuild (only the blocked Google Fonts request logs in the pane).
