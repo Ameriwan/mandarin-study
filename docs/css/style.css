@@ -131,6 +131,7 @@ ruby { ruby-position: over; }
 rt { font-size: .5em; letter-spacing: .05em; color: var(--muted); font-weight: 400; white-space: nowrap; }
 ruby { white-space: nowrap; }
 .hide-ruby rt { visibility: hidden; }
+rt.sandhi { color: var(--warn); font-weight: 500; }
 .zhuyin { letter-spacing: .06em; }
 .big-zh { font-size: 40px; line-height: 1.2; }
 .big-zh rt { font-size: 15px; }

@@ -13,7 +13,7 @@ const NAV = [
   { id: "settings", href: "settings.html", ico: "設", zh: "設定", en: "Settings" },
 ];
 const PRIMARY = ["home", "lab", "tones", "shadow"];
-export const BUILT = ["home", "lab"]; // pages that exist so far (others show "coming soon")
+export const BUILT = ["home", "lab", "tones"]; // pages that exist so far (others show "coming soon")
 
 // ---------- tiny DOM builder: h("div", {class: "x", onclick}, "text", child)
 export function h(tag, attrs = {}, ...kids) {
@@ -88,8 +88,20 @@ export const store = {
   remove(key) { try { localStorage.removeItem(PREFIX + key); } catch { /* ignore */ } },
   keys() { try { return Object.keys(localStorage).filter(k => k.startsWith(PREFIX)).map(k => k.slice(PREFIX.length)); } catch { return []; } },
 };
-export const settings = () => ({ ruby: "always", pinyin: false, english: true, sandhi: false, toneColours: false, speed: 1, ...store.get("settings", {}) });
+export const settings = () => ({ ruby: "always", pinyin: false, english: true, sandhi: false, toneColours: false, speed: 1, dailyMinutes: 30, ...store.get("settings", {}) });
 export function setSetting(k, v) { store.set("settings", { ...settings(), [k]: v }); }
+
+// The day the learner first opened the app (YYYY-MM-DD): Phase 0 "sound reset" runs its first 4 weeks (§8.1, §8.3).
+export function startDate() {
+  let d = store.get("startDate");
+  if (!d) { d = today(); store.set("startDate", d); }
+  return d;
+}
+export function daysSinceStart() {
+  const [y, m, d] = startDate().split("-").map(Number);
+  const now = new Date();
+  return Math.floor((new Date(now.getFullYear(), now.getMonth(), now.getDate()) - new Date(y, m - 1, d)) / 86400000);
+}
 
 export function today() {
   const d = new Date();
@@ -139,17 +151,29 @@ export const withTone = (b, t) => t === 5 ? "˙" + b : b + ["", "", "ˊ", "ˇ", 
 export const TONE_NAMES = { 1: "一聲", 2: "二聲", 3: "三聲", 4: "四聲", 5: "輕聲" };
 export const TONE_GLYPH = { 1: "ˉ", 2: "ˊ", 3: "ˇ", 4: "ˋ", 5: "˙" };
 
+// English text whose Zhuyin/Chinese runs stay lang="zh-Hant-TW" (ground rule 2).
+const ZH_RUN = /([\p{sc=Han}\p{sc=Bopomofo}ˇˊˋ˙]+(?:\s+[\p{sc=Han}\p{sc=Bopomofo}ˇˊˋ˙]+)*)/u;
+export const enText = (text, attrs = {}) => h("span", { lang: "en", ...attrs }, String(text).split(ZH_RUN).map((part, i) => i % 2 ? h("span", { lang: "zh-Hant-TW" }, part) : part));
+// "中文 English" label: the Chinese stays in the page language, the English gets lang="en". Spread it: h("p", {}, ...bi(a, b))
+export const bi = (zh, en) => [zh, " ", enText(en)];
+
 // <ruby>字<rt>ㄗˋ</rt></ruby> per character; zhuyin has one syllable per Chinese character.
-export function ruby(zh, zhuyin, { cls = "zh" } = {}) {
+// spoken: the same word with tone sandhi applied (from the build). When the "show sandhi" setting is on (or
+// opts.sandhi is true), each syllable whose spoken tone differs shows the spoken form, marked with class "sandhi"
+// and the written (base) form in its title (§6.4: store the base tone, overlay the spoken one).
+export function ruby(zh, zhuyin, { cls = "zh", spoken = null, sandhi = null } = {}) {
   const el = h("span", { class: cls, lang: "zh-Hant-TW" });
   const syls = zhuyin ? syllables(zhuyin) : [];
   const chars = [...zh];
   const cjk = chars.filter(c => /[㐀-鿿豈-﫿]/.test(c));
   if (!syls.length || cjk.length !== syls.length) { el.textContent = zh; return el; }
+  const said = spoken && (sandhi ?? settings().sandhi) ? syllables(spoken) : null;
   let i = 0;
   for (const c of chars) {
     if (/[㐀-鿿豈-﫿]/.test(c)) {
-      el.append(h("ruby", {}, c, h("rp", {}, "("), h("rt", {}, syls[i++]), h("rp", {}, ")")));
+      const base = syls[i], alt = said && said[i] !== base ? said[i] : null;
+      el.append(h("ruby", {}, c, h("rp", {}, "("), alt ? h("rt", { class: "sandhi", title: `寫作 written ${base}` }, alt) : h("rt", {}, base), h("rp", {}, ")")));
+      i++;
     } else el.append(c);
   }
   return el;
