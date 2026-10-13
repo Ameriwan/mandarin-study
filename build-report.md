@@ -58,7 +58,7 @@
   - 便當 ㄅㄧㄢˋ ˙ㄉㄤ
   - 朋友 ㄆㄥˊ ㄧㄡˇ
 
-- spans flagged for a listen (longer than expected): 2 - 0579, 1020
+- spans flagged for a listen (longer than expected): 0
 
 ## Data
 
@@ -81,5 +81,5 @@ Audio ...
     150/1305
     200/1305
     350/1305
-  contours: 186 cached, 35 to compute
+  contours: 218 cached, 3 to compute
 ```

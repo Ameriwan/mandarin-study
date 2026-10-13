@@ -1,5 +1,5 @@
 // Service worker: app shell cached on install, data network-first, audio cached on first play (cache-first).
-const VERSION = "v2";
+const VERSION = "v3";
 const SHELL = `shell-${VERSION}`, DATA = `data-${VERSION}`, AUDIO = `audio-${VERSION}`;
 const SHELL_FILES = ["./", "./index.html", "./lab.html", "./css/style.css", "./js/app.js", "./js/lab.js", "./js/home.js", "./manifest.webmanifest", "./icon.svg"];
 
@@ -24,14 +24,14 @@ self.addEventListener("fetch", e => {
   }
   if (url.pathname.includes("/data/")) {
     e.respondWith(caches.open(DATA).then(async c => {
-      try { const res = await fetch(e.request); if (res.ok) c.put(e.request, res.clone()); return res; }
+      try { const res = await fetch(e.request, { cache: "no-cache" }); if (res.ok) c.put(e.request, res.clone()); return res; }
       catch { return (await c.match(e.request)) || Response.error(); }
     }));
     return;
   }
   // app shell: network first (so updates arrive immediately), cache fallback when offline
   e.respondWith(caches.open(SHELL).then(async c => {
-    try { const res = await fetch(e.request); if (res.ok) c.put(e.request, res.clone()); return res; }
+    try { const res = await fetch(e.request, { cache: "no-cache" }); if (res.ok) c.put(e.request, res.clone()); return res; }
     catch { return (await c.match(e.request, { ignoreSearch: true })) || Response.error(); }
   }));
 });

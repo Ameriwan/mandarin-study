@@ -79,7 +79,7 @@ def save_spans(spans):
 
 def detect_span(path, nsyl=1, noise_db=-35, min_pause=0.15, pad=0.05):
     """Headword span (§7.3): speech from the start up to the first pause of >= min_pause seconds that comes
-    after a floor of ~0.22 s per syllable. The announcer's pause after a headword is often only ~0.2 s
+    after a floor of ~0.15 s per syllable. The announcer's pause after a headword is often only ~0.2 s
     (知 0.47→0.76 s), while pauses between syllables of a word are shorter than 0.15 s."""
     r = run_ffmpeg(["-i", str(path), "-af", f"silencedetect=noise={noise_db}dB:d={min_pause}", "-f", "null", "-"])
     text = r.stderr
@@ -97,7 +97,7 @@ def detect_span(path, nsyl=1, noise_db=-35, min_pause=0.15, pad=0.05):
     if silences and silences[0][0] <= 0.05:  # file opens with silence
         speech_start = silences[0][1]
         silences = silences[1:]
-    floor = speech_start + 0.22 * max(1, nsyl)
+    floor = speech_start + 0.15 * max(1, nsyl)   # neutral-tone syllables (的 ˙ㄉㄜ) end by ~0.19 s
     speech_end = next((s0 for s0, _ in silences if s0 >= floor), dur)
     end = min(dur, speech_end + pad)
     flag = (end - speech_start) > 0.9 * max(1, nsyl) + 0.6   # suspiciously long: listed in the report
