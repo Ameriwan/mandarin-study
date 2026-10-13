@@ -1,0 +1,1117 @@
+{
+ "order": [
+  "ㄅ",
+  "ㄆ",
+  "ㄇ",
+  "ㄈ",
+  "ㄉ",
+  "ㄊ",
+  "ㄋ",
+  "ㄌ",
+  "ㄍ",
+  "ㄎ",
+  "ㄏ",
+  "ㄐ",
+  "ㄑ",
+  "ㄒ",
+  "ㄓ",
+  "ㄔ",
+  "ㄕ",
+  "ㄖ",
+  "ㄗ",
+  "ㄘ",
+  "ㄙ",
+  "ㄧ",
+  "ㄨ",
+  "ㄩ",
+  "ㄚ",
+  "ㄛ",
+  "ㄜ",
+  "ㄝ",
+  "ㄞ",
+  "ㄟ",
+  "ㄠ",
+  "ㄡ",
+  "ㄢ",
+  "ㄣ",
+  "ㄤ",
+  "ㄥ",
+  "ㄦ"
+ ],
+ "groups": [
+  {
+   "id": "lips",
+   "zh": "雙唇音・唇齒音",
+   "en": "Lips",
+   "symbols": [
+    "ㄅ",
+    "ㄆ",
+    "ㄇ",
+    "ㄈ"
+   ]
+  },
+  {
+   "id": "tongue-tip",
+   "zh": "舌尖音",
+   "en": "Tongue tip",
+   "symbols": [
+    "ㄉ",
+    "ㄊ",
+    "ㄋ",
+    "ㄌ"
+   ]
+  },
+  {
+   "id": "back",
+   "zh": "舌根音",
+   "en": "Back of tongue",
+   "symbols": [
+    "ㄍ",
+    "ㄎ",
+    "ㄏ"
+   ]
+  },
+  {
+   "id": "palatal",
+   "zh": "舌面音",
+   "en": "Tongue blade (tip down)",
+   "symbols": [
+    "ㄐ",
+    "ㄑ",
+    "ㄒ"
+   ]
+  },
+  {
+   "id": "retroflex",
+   "zh": "翹舌音",
+   "en": "Tip up",
+   "symbols": [
+    "ㄓ",
+    "ㄔ",
+    "ㄕ",
+    "ㄖ"
+   ]
+  },
+  {
+   "id": "dental",
+   "zh": "平舌音",
+   "en": "At the teeth",
+   "symbols": [
+    "ㄗ",
+    "ㄘ",
+    "ㄙ"
+   ]
+  },
+  {
+   "id": "medials",
+   "zh": "介音",
+   "en": "Medials",
+   "symbols": [
+    "ㄧ",
+    "ㄨ",
+    "ㄩ"
+   ]
+  },
+  {
+   "id": "single",
+   "zh": "單韻母",
+   "en": "Single finals",
+   "symbols": [
+    "ㄚ",
+    "ㄛ",
+    "ㄜ",
+    "ㄝ"
+   ]
+  },
+  {
+   "id": "compound",
+   "zh": "複韻母",
+   "en": "Compound finals",
+   "symbols": [
+    "ㄞ",
+    "ㄟ",
+    "ㄠ",
+    "ㄡ"
+   ]
+  },
+  {
+   "id": "nasal",
+   "zh": "聲隨韻母",
+   "en": "Nasal finals",
+   "symbols": [
+    "ㄢ",
+    "ㄣ",
+    "ㄤ",
+    "ㄥ"
+   ]
+  },
+  {
+   "id": "er",
+   "zh": "捲舌韻母",
+   "en": "Retroflex final",
+   "symbols": [
+    "ㄦ"
+   ]
+  }
+ ],
+ "symbols": [
+  {
+   "symbol": "ㄅ",
+   "ipa": "p",
+   "how": "p as in \"spin\": no puff of air.",
+   "error": "Voicing it into English b.",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "爸爸",
+     "zhuyin": "ㄅㄚˋ ˙ㄅㄚ",
+     "en": "dad"
+    },
+    {
+     "zh": "不要",
+     "zhuyin": "ㄅㄨˋ ㄧㄠˋ",
+     "en": "don't want; don't"
+    },
+    {
+     "zh": "便當",
+     "zhuyin": "ㄅㄧㄢˋ ˙ㄉㄤ",
+     "en": "lunch box"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄆ",
+   "ipa": "pʰ",
+   "how": "A strong puff of air: a paper strip held in front of your lips flutters.",
+   "error": "Puff too weak, so it sounds like ㄅ.",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "朋友",
+     "zhuyin": "ㄆㄥˊ ㄧㄡˇ",
+     "en": "friend"
+    },
+    {
+     "zh": "蘋果",
+     "zhuyin": "ㄆㄧㄥˊ ㄍㄨㄛˇ",
+     "en": "apple"
+    },
+    {
+     "zh": "跑步",
+     "zhuyin": "ㄆㄠˇ ㄅㄨˋ",
+     "en": "to run; jogging"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄇ",
+   "ipa": "m",
+   "how": "As in English.",
+   "error": "",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "媽媽",
+     "zhuyin": "ㄇㄚ ˙ㄇㄚ",
+     "en": "mom"
+    },
+    {
+     "zh": "沒有",
+     "zhuyin": "ㄇㄟˊ ㄧㄡˇ",
+     "en": "don't have; there isn't"
+    },
+    {
+     "zh": "明天",
+     "zhuyin": "ㄇㄧㄥˊ ㄊㄧㄢ",
+     "en": "tomorrow"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄈ",
+   "ipa": "f",
+   "how": "As in English.",
+   "error": "",
+   "notes": "Taiwan colloquial speech sometimes weakens ㄈ toward [ɸ] or ㄏ: understand it when you hear it, but don't copy it.",
+   "examples": [
+    {
+     "zh": "飛機",
+     "zhuyin": "ㄈㄟ ㄐㄧ",
+     "en": "airplane"
+    },
+    {
+     "zh": "吃飯",
+     "zhuyin": "ㄔ ㄈㄢˋ",
+     "en": "to eat (a meal)"
+    },
+    {
+     "zh": "法國",
+     "zhuyin": "ㄈㄚˇ ㄍㄨㄛˊ",
+     "en": "France"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄉ",
+   "ipa": "t",
+   "how": "Tongue tip on the ridge behind the upper teeth, no puff of air.",
+   "error": "",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "電腦",
+     "zhuyin": "ㄉㄧㄢˋ ㄋㄠˇ",
+     "en": "computer"
+    },
+    {
+     "zh": "東西",
+     "zhuyin": "ㄉㄨㄥ ˙ㄒㄧ",
+     "en": "thing; stuff"
+    },
+    {
+     "zh": "弟弟",
+     "zhuyin": "ㄉㄧˋ ˙ㄉㄧ",
+     "en": "younger brother"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄊ",
+   "ipa": "tʰ",
+   "how": "ㄉ plus a strong puff of air.",
+   "error": "Using the American flap between vowels (as in \"butter\").",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "他",
+     "zhuyin": "ㄊㄚ",
+     "en": "he; him"
+    },
+    {
+     "zh": "頭髮",
+     "zhuyin": "ㄊㄡˊ ㄈㄚˇ",
+     "en": "hair (on the head)"
+    },
+    {
+     "zh": "天氣",
+     "zhuyin": "ㄊㄧㄢ ㄑㄧˋ",
+     "en": "weather"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄋ",
+   "ipa": "n",
+   "how": "As in English.",
+   "error": "Mixing up n and l.",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "你",
+     "zhuyin": "ㄋㄧˇ",
+     "en": "you"
+    },
+    {
+     "zh": "牛奶",
+     "zhuyin": "ㄋㄧㄡˊ ㄋㄞˇ",
+     "en": "milk"
+    },
+    {
+     "zh": "女生",
+     "zhuyin": "ㄋㄩˇ ㄕㄥ",
+     "en": "girl; female student"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄌ",
+   "ipa": "l",
+   "how": "A clear l (in Taiwan the l can be close to a tap [ɾ]).",
+   "error": "A dark l; mixing up n and l.",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "老師",
+     "zhuyin": "ㄌㄠˇ ㄕ",
+     "en": "teacher"
+    },
+    {
+     "zh": "垃圾",
+     "zhuyin": "ㄌㄜˋ ㄙㄜˋ",
+     "en": "garbage"
+    },
+    {
+     "zh": "來",
+     "zhuyin": "ㄌㄞˊ",
+     "en": "to come"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄍ",
+   "ipa": "k",
+   "how": "k as in \"skin\".",
+   "error": "",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "哥哥",
+     "zhuyin": "ㄍㄜ ˙ㄍㄜ",
+     "en": "older brother"
+    },
+    {
+     "zh": "狗",
+     "zhuyin": "ㄍㄡˇ",
+     "en": "dog"
+    },
+    {
+     "zh": "水果",
+     "zhuyin": "ㄕㄨㄟˇ ㄍㄨㄛˇ",
+     "en": "fruit"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄎ",
+   "ipa": "kʰ",
+   "how": "k plus a strong puff of air.",
+   "error": "Weak puff on ㄎ.",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "可以",
+     "zhuyin": "ㄎㄜˇ ㄧˇ",
+     "en": "can; may"
+    },
+    {
+     "zh": "咖啡",
+     "zhuyin": "ㄎㄚ ㄈㄟ",
+     "en": "coffee"
+    },
+    {
+     "zh": "看",
+     "zhuyin": "ㄎㄢˋ",
+     "en": "to look; to watch"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄏ",
+   "ipa": "x ~ h",
+   "how": "Light friction at the soft palate.",
+   "error": "A harsh \"loch\" scrape; a lighter [h] is normal in Taiwan.",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "很",
+     "zhuyin": "ㄏㄣˇ",
+     "en": "very"
+    },
+    {
+     "zh": "喝",
+     "zhuyin": "ㄏㄜ",
+     "en": "to drink"
+    },
+    {
+     "zh": "火車",
+     "zhuyin": "ㄏㄨㄛˇ ㄔㄜ",
+     "en": "train"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄐ",
+   "ipa": "tɕ",
+   "how": "Tongue tip down behind the lower teeth, blade raised to the hard palate, lips spread as in a smile.",
+   "error": "English j with rounded lips.",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "捷運",
+     "zhuyin": "ㄐㄧㄝˊ ㄩㄣˋ",
+     "en": "MRT (metro)"
+    },
+    {
+     "zh": "機車",
+     "zhuyin": "ㄐㄧ ㄔㄜ",
+     "en": "scooter"
+    },
+    {
+     "zh": "再見",
+     "zhuyin": "ㄗㄞˋ ㄐㄧㄢˋ",
+     "en": "goodbye"
+    },
+    {
+     "zh": "今天",
+     "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ",
+     "en": "today"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄑ",
+   "ipa": "tɕʰ",
+   "how": "Same position as ㄐ plus a strong puff of air, lips spread.",
+   "error": "English ch with rounded lips.",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "請",
+     "zhuyin": "ㄑㄧㄥˇ",
+     "en": "please"
+    },
+    {
+     "zh": "錢",
+     "zhuyin": "ㄑㄧㄢˊ",
+     "en": "money"
+    },
+    {
+     "zh": "汽車",
+     "zhuyin": "ㄑㄧˋ ㄔㄜ",
+     "en": "car"
+    },
+    {
+     "zh": "星期",
+     "zhuyin": "ㄒㄧㄥ ㄑㄧˊ",
+     "en": "week"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄒ",
+   "ipa": "ɕ",
+   "how": "Same position as ㄐ, but no stop, lips spread.",
+   "error": "English sh with rounded lips.",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "謝謝",
+     "zhuyin": "ㄒㄧㄝˋ ˙ㄒㄧㄝ",
+     "en": "thanks"
+    },
+    {
+     "zh": "學生",
+     "zhuyin": "ㄒㄩㄝˊ ㄕㄥ",
+     "en": "student"
+    },
+    {
+     "zh": "喜歡",
+     "zhuyin": "ㄒㄧˇ ㄏㄨㄢ",
+     "en": "to like"
+    },
+    {
+     "zh": "小",
+     "zhuyin": "ㄒㄧㄠˇ",
+     "en": "small"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄓ",
+   "ipa": "ʈʂ",
+   "how": "Tongue tip up, just behind the gum ridge, lips neutral.",
+   "error": "English j, or merging it into ㄗ.",
+   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄓ ㄔ ㄕ ㄖ it is [ɻ̩]: hold the ㄖ position and voice it. Error: saying \"ee\" or adding a schwa.",
+   "examples": [
+    {
+     "zh": "中國",
+     "zhuyin": "ㄓㄨㄥ ㄍㄨㄛˊ",
+     "en": "China"
+    },
+    {
+     "zh": "這",
+     "zhuyin": "ㄓㄜˋ",
+     "en": "this"
+    },
+    {
+     "zh": "知道",
+     "zhuyin": "ㄓ ㄉㄠˋ",
+     "en": "to know"
+    },
+    {
+     "zh": "桌子",
+     "zhuyin": "ㄓㄨㄛ ˙ㄗ",
+     "en": "table"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄔ",
+   "ipa": "ʈʂʰ",
+   "how": "ㄓ position plus a strong puff of air, lips neutral.",
+   "error": "English ch, or merging it into ㄘ.",
+   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄓ ㄔ ㄕ ㄖ it is [ɻ̩]: hold the ㄖ position and voice it. Error: saying \"ee\" or adding a schwa.",
+   "examples": [
+    {
+     "zh": "吃飯",
+     "zhuyin": "ㄔ ㄈㄢˋ",
+     "en": "to eat (a meal)"
+    },
+    {
+     "zh": "車",
+     "zhuyin": "ㄔㄜ",
+     "en": "car; vehicle"
+    },
+    {
+     "zh": "出去",
+     "zhuyin": "ㄔㄨ ㄑㄩˋ",
+     "en": "to go out"
+    },
+    {
+     "zh": "茶",
+     "zhuyin": "ㄔㄚˊ",
+     "en": "tea"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄕ",
+   "ipa": "ʂ",
+   "how": "ㄓ position, but no stop, lips neutral.",
+   "error": "English sh, or merging it into ㄙ.",
+   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄓ ㄔ ㄕ ㄖ it is [ɻ̩]: hold the ㄖ position and voice it. Error: saying \"ee\" or adding a schwa.",
+   "examples": [
+    {
+     "zh": "老師",
+     "zhuyin": "ㄌㄠˇ ㄕ",
+     "en": "teacher"
+    },
+    {
+     "zh": "是",
+     "zhuyin": "ㄕˋ",
+     "en": "to be; yes"
+    },
+    {
+     "zh": "手機",
+     "zhuyin": "ㄕㄡˇ ㄐㄧ",
+     "en": "mobile phone"
+    },
+    {
+     "zh": "時候",
+     "zhuyin": "ㄕˊ ㄏㄡˋ",
+     "en": "time; moment"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄖ",
+   "ipa": "ʐ ~ ɻ",
+   "how": "The ㄕ position plus voice, with little friction and no lip rounding.",
+   "error": "English rounded r [ɹʷ].",
+   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄓ ㄔ ㄕ ㄖ it is [ɻ̩]: hold the ㄖ position and voice it. Error: saying \"ee\" or adding a schwa.",
+   "examples": [
+    {
+     "zh": "日本",
+     "zhuyin": "ㄖˋ ㄅㄣˇ",
+     "en": "Japan"
+    },
+    {
+     "zh": "認識",
+     "zhuyin": "ㄖㄣˋ ˙ㄕ",
+     "en": "to know (a person)"
+    },
+    {
+     "zh": "熱",
+     "zhuyin": "ㄖㄜˋ",
+     "en": "hot"
+    },
+    {
+     "zh": "人",
+     "zhuyin": "ㄖㄣˊ",
+     "en": "person"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄗ",
+   "ipa": "ts",
+   "how": "\"ts\" as in \"cats\", voiceless.",
+   "error": "Voicing ㄗ into English z.",
+   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄗ ㄘ ㄙ it is [ɹ̩ ~ z̩]: buzz in the ㄙ position. Error: saying \"ee\" or adding a schwa.",
+   "examples": [
+    {
+     "zh": "再見",
+     "zhuyin": "ㄗㄞˋ ㄐㄧㄢˋ",
+     "en": "goodbye"
+    },
+    {
+     "zh": "字",
+     "zhuyin": "ㄗˋ",
+     "en": "character; word"
+    },
+    {
+     "zh": "昨天",
+     "zhuyin": "ㄗㄨㄛˊ ㄊㄧㄢ",
+     "en": "yesterday"
+    },
+    {
+     "zh": "自己",
+     "zhuyin": "ㄗˋ ㄐㄧˇ",
+     "en": "oneself"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄘ",
+   "ipa": "tsʰ",
+   "how": "\"ts\" with a strong puff of air.",
+   "error": "Puff too weak, so it sounds like ㄗ.",
+   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄗ ㄘ ㄙ it is [ɹ̩ ~ z̩]: buzz in the ㄙ position. Error: saying \"ee\" or adding a schwa.",
+   "examples": [
+    {
+     "zh": "菜",
+     "zhuyin": "ㄘㄞˋ",
+     "en": "dish; vegetable"
+    },
+    {
+     "zh": "廁所",
+     "zhuyin": "ㄘㄜˋ ㄙㄨㄛˇ",
+     "en": "toilet; restroom"
+    },
+    {
+     "zh": "詞",
+     "zhuyin": "ㄘˊ",
+     "en": "word"
+    },
+    {
+     "zh": "錯",
+     "zhuyin": "ㄘㄨㄛˋ",
+     "en": "wrong"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄙ",
+   "ipa": "s",
+   "how": "A plain s.",
+   "error": "",
+   "notes": "The empty rhyme (written as nothing) follows this symbol. After ㄗ ㄘ ㄙ it is [ɹ̩ ~ z̩]: buzz in the ㄙ position. Error: saying \"ee\" or adding a schwa.",
+   "examples": [
+    {
+     "zh": "三",
+     "zhuyin": "ㄙㄢ",
+     "en": "three"
+    },
+    {
+     "zh": "四",
+     "zhuyin": "ㄙˋ",
+     "en": "four"
+    },
+    {
+     "zh": "宿舍",
+     "zhuyin": "ㄙㄨˋ ㄕㄜˋ",
+     "en": "dormitory"
+    },
+    {
+     "zh": "垃圾",
+     "zhuyin": "ㄌㄜˋ ㄙㄜˋ",
+     "en": "garbage"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄧ",
+   "ipa": "i (j)",
+   "how": "A tense \"ee\".",
+   "error": "A lax \"i\".",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "一",
+     "zhuyin": "ㄧ",
+     "en": "one"
+    },
+    {
+     "zh": "衣服",
+     "zhuyin": "ㄧ ˙ㄈㄨ",
+     "en": "clothes"
+    },
+    {
+     "zh": "醫生",
+     "zhuyin": "ㄧ ㄕㄥ",
+     "en": "doctor"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄨ",
+   "ipa": "u (w)",
+   "how": "A tight-lipped \"oo\".",
+   "error": "A lax or too-forward \"oo\".",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "我",
+     "zhuyin": "ㄨㄛˇ",
+     "en": "I; me"
+    },
+    {
+     "zh": "五",
+     "zhuyin": "ㄨˇ",
+     "en": "five"
+    },
+    {
+     "zh": "臺灣",
+     "zhuyin": "ㄊㄞˊ ㄨㄢ",
+     "en": "Taiwan"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄩ",
+   "ipa": "y (ɥ)",
+   "how": "Hold \"ee\", then round the lips without moving the tongue.",
+   "error": "Saying \"yoo\" [ju], or a plain ㄧ.",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "魚",
+     "zhuyin": "ㄩˊ",
+     "en": "fish"
+    },
+    {
+     "zh": "綠",
+     "zhuyin": "ㄌㄩˋ",
+     "en": "green"
+    },
+    {
+     "zh": "去",
+     "zhuyin": "ㄑㄩˋ",
+     "en": "to go"
+    },
+    {
+     "zh": "學生",
+     "zhuyin": "ㄒㄩㄝˊ ㄕㄥ",
+     "en": "student"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄚ",
+   "ipa": "a (ɑ in ㄠ ㄤ; ɛ in ㄧㄢ ㄩㄢ)",
+   "how": "\"ah\".",
+   "error": "",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "爸爸",
+     "zhuyin": "ㄅㄚˋ ˙ㄅㄚ",
+     "en": "dad"
+    },
+    {
+     "zh": "媽媽",
+     "zhuyin": "ㄇㄚ ˙ㄇㄚ",
+     "en": "mom"
+    },
+    {
+     "zh": "他",
+     "zhuyin": "ㄊㄚ",
+     "en": "he; him"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄛ",
+   "ipa": "o ~ ɔ",
+   "how": "A steady rounded o with no glide.",
+   "error": "English \"oh\" [oʊ], which sounds like ㄡ.",
+   "notes": "In ㄅㄛ ㄆㄛ ㄇㄛ ㄈㄛ the standard writes no ㄨ, but a brief rounded on-glide is normal. Teach [po] with only a light glide.",
+   "examples": [
+    {
+     "zh": "我",
+     "zhuyin": "ㄨㄛˇ",
+     "en": "I; me"
+    },
+    {
+     "zh": "火車",
+     "zhuyin": "ㄏㄨㄛˇ ㄔㄜ",
+     "en": "train"
+    },
+    {
+     "zh": "水果",
+     "zhuyin": "ㄕㄨㄟˇ ㄍㄨㄛˇ",
+     "en": "fruit"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄜ",
+   "ipa": "ɤ",
+   "how": "Tongue placed as for \"oh\", but with the lips spread.",
+   "error": "English \"uh\" [ʌ] or \"er\".",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "喝",
+     "zhuyin": "ㄏㄜ",
+     "en": "to drink"
+    },
+    {
+     "zh": "哥哥",
+     "zhuyin": "ㄍㄜ ˙ㄍㄜ",
+     "en": "older brother"
+    },
+    {
+     "zh": "這",
+     "zhuyin": "ㄓㄜˋ",
+     "en": "this"
+    },
+    {
+     "zh": "垃圾",
+     "zhuyin": "ㄌㄜˋ ㄙㄜˋ",
+     "en": "garbage"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄝ",
+   "ipa": "e ~ ɛ",
+   "how": "A steady e as in \"bet\" (appears in ㄧㄝ and ㄩㄝ).",
+   "error": "Gliding into \"ay\".",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "謝謝",
+     "zhuyin": "ㄒㄧㄝˋ ˙ㄒㄧㄝ",
+     "en": "thanks"
+    },
+    {
+     "zh": "爺爺",
+     "zhuyin": "ㄧㄝˊ ˙ㄧㄝ",
+     "en": "grandpa (father's father)"
+    },
+    {
+     "zh": "月",
+     "zhuyin": "ㄩㄝˋ",
+     "en": "month; moon"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄞ",
+   "ipa": "ai",
+   "how": "\"eye\".",
+   "error": "",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "再見",
+     "zhuyin": "ㄗㄞˋ ㄐㄧㄢˋ",
+     "en": "goodbye"
+    },
+    {
+     "zh": "買",
+     "zhuyin": "ㄇㄞˇ",
+     "en": "to buy"
+    },
+    {
+     "zh": "愛",
+     "zhuyin": "ㄞˋ",
+     "en": "to love"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄟ",
+   "ipa": "ei",
+   "how": "\"ay\".",
+   "error": "",
+   "notes": "ㄨㄟ is [wei]; learners tend to say \"wee\".",
+   "examples": [
+    {
+     "zh": "飛機",
+     "zhuyin": "ㄈㄟ ㄐㄧ",
+     "en": "airplane"
+    },
+    {
+     "zh": "沒有",
+     "zhuyin": "ㄇㄟˊ ㄧㄡˇ",
+     "en": "don't have; there isn't"
+    },
+    {
+     "zh": "對",
+     "zhuyin": "ㄉㄨㄟˋ",
+     "en": "right; correct"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄠ",
+   "ipa": "ɑu",
+   "how": "\"ow\".",
+   "error": "",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "老師",
+     "zhuyin": "ㄌㄠˇ ㄕ",
+     "en": "teacher"
+    },
+    {
+     "zh": "好",
+     "zhuyin": "ㄏㄠˇ",
+     "en": "good"
+    },
+    {
+     "zh": "要",
+     "zhuyin": "ㄧㄠˋ",
+     "en": "to want"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄡ",
+   "ipa": "ou",
+   "how": "\"oh\".",
+   "error": "Merging ㄡ with ㄛ.",
+   "notes": "ㄧㄡ is [jou]; the o is clearest on tones 3 and 4.",
+   "examples": [
+    {
+     "zh": "朋友",
+     "zhuyin": "ㄆㄥˊ ㄧㄡˇ",
+     "en": "friend"
+    },
+    {
+     "zh": "手機",
+     "zhuyin": "ㄕㄡˇ ㄐㄧ",
+     "en": "mobile phone"
+    },
+    {
+     "zh": "狗",
+     "zhuyin": "ㄍㄡˇ",
+     "en": "dog"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄢ",
+   "ipa": "an",
+   "how": "An open \"ahn\", ending with the tongue tip on the ridge.",
+   "error": "\"ban\" [æn].",
+   "notes": "ㄧㄢ is [jɛn] (\"yen\", not \"yahn\"); ㄩㄢ is [ɥɛn] (not \"wan\").",
+   "examples": [
+    {
+     "zh": "吃飯",
+     "zhuyin": "ㄔ ㄈㄢˋ",
+     "en": "to eat (a meal)"
+    },
+    {
+     "zh": "便當",
+     "zhuyin": "ㄅㄧㄢˋ ˙ㄉㄤ",
+     "en": "lunch box"
+    },
+    {
+     "zh": "三",
+     "zhuyin": "ㄙㄢ",
+     "en": "three"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄣ",
+   "ipa": "ən",
+   "how": "Close with the tongue tip.",
+   "error": "Merging it with ㄥ.",
+   "notes": "ㄨㄣ is [wən]; learners tend to say \"oon\". ㄧㄣ [in] closes with the tongue tip.",
+   "examples": [
+    {
+     "zh": "很",
+     "zhuyin": "ㄏㄣˇ",
+     "en": "very"
+    },
+    {
+     "zh": "人",
+     "zhuyin": "ㄖㄣˊ",
+     "en": "person"
+    },
+    {
+     "zh": "問",
+     "zhuyin": "ㄨㄣˋ",
+     "en": "to ask"
+    },
+    {
+     "zh": "認識",
+     "zhuyin": "ㄖㄣˋ ˙ㄕ",
+     "en": "to know (a person)"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄤ",
+   "ipa": "ɑŋ",
+   "how": "\"ahng\".",
+   "error": "\"bang\" [æŋ].",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "便當",
+     "zhuyin": "ㄅㄧㄢˋ ˙ㄉㄤ",
+     "en": "lunch box"
+    },
+    {
+     "zh": "上",
+     "zhuyin": "ㄕㄤˋ",
+     "en": "up; on"
+    },
+    {
+     "zh": "忙",
+     "zhuyin": "ㄇㄤˊ",
+     "en": "busy"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄥ",
+   "ipa": "əŋ",
+   "how": "Close with the back of the tongue.",
+   "error": "Merging it with ㄣ.",
+   "notes": "ㄨㄥ is [ʊŋ] after a consonant and [wəŋ] on its own (翁); it is not English \"-ong\". ㄧㄥ [iŋ] closes with the back of the tongue, while ㄧㄣ [in] closes with the tongue tip.",
+   "examples": [
+    {
+     "zh": "朋友",
+     "zhuyin": "ㄆㄥˊ ㄧㄡˇ",
+     "en": "friend"
+    },
+    {
+     "zh": "學生",
+     "zhuyin": "ㄒㄩㄝˊ ㄕㄥ",
+     "en": "student"
+    },
+    {
+     "zh": "東西",
+     "zhuyin": "ㄉㄨㄥ ˙ㄒㄧ",
+     "en": "thing; stuff"
+    },
+    {
+     "zh": "星期",
+     "zhuyin": "ㄒㄧㄥ ㄑㄧˊ",
+     "en": "week"
+    }
+   ]
+  },
+  {
+   "symbol": "ㄦ",
+   "ipa": "ɚ (Taiwan)",
+   "how": "An American \"er\".",
+   "error": "",
+   "notes": "",
+   "examples": [
+    {
+     "zh": "二",
+     "zhuyin": "ㄦˋ",
+     "en": "two"
+    },
+    {
+     "zh": "兒子",
+     "zhuyin": "ㄦˊ ˙ㄗ",
+     "en": "son"
+    },
+    {
+     "zh": "女兒",
+     "zhuyin": "ㄋㄩˇ ㄦˊ",
+     "en": "daughter"
+    }
+   ]
+  }
+ ]
+}

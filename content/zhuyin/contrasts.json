@@ -1,0 +1,87 @@
+{
+ "_note": "The 10 hardest contrasts for English speakers (MASTER_PROMPT §6.2, MOE-verified). Ranking is a synthesis. Each pair lists words that differ only in the contrast; the drill plays one and asks which. Never use 綠/路 (MOE gives 綠 the 讀音 ㄌㄨˋ).",
+ "contrasts": [
+  {"id": "tones", "rank": 1, "zh": "聲調", "en": "Tones (T2/T3 and T1/T4 first)", "lab_only": false,
+   "sets": [
+    [{"zh": "湯", "zhuyin": "ㄊㄤ", "en": "soup"}, {"zh": "糖", "zhuyin": "ㄊㄤˊ", "en": "sugar"}, {"zh": "躺", "zhuyin": "ㄊㄤˇ", "en": "to lie down"}, {"zh": "燙", "zhuyin": "ㄊㄤˋ", "en": "scalding hot"}],
+    [{"zh": "埋", "zhuyin": "ㄇㄞˊ", "en": "to bury"}, {"zh": "買", "zhuyin": "ㄇㄞˇ", "en": "to buy"}, {"zh": "賣", "zhuyin": "ㄇㄞˋ", "en": "to sell"}],
+    [{"zh": "魚", "zhuyin": "ㄩˊ", "en": "fish"}, {"zh": "雨", "zhuyin": "ㄩˇ", "en": "rain"}],
+    [{"zh": "湖", "zhuyin": "ㄏㄨˊ", "en": "lake"}, {"zh": "虎", "zhuyin": "ㄏㄨˇ", "en": "tiger"}],
+    [{"zh": "物理", "zhuyin": "ㄨˋ ㄌㄧˇ", "en": "physics"}, {"zh": "無理", "zhuyin": "ㄨˊ ㄌㄧˇ", "en": "unreasonable"}],
+    [{"zh": "睡覺", "zhuyin": "ㄕㄨㄟˋ ㄐㄧㄠˋ", "en": "to sleep"}, {"zh": "水餃", "zhuyin": "ㄕㄨㄟˇ ㄐㄧㄠˇ", "en": "boiled dumplings"}]
+   ]},
+  {"id": "j-zh-z", "rank": 2, "zh": "ㄐ／ㄓ／ㄗ", "en": "ㄐ vs ㄓ vs ㄗ",
+   "sets": [
+    [{"zh": "雞", "zhuyin": "ㄐㄧ", "en": "chicken"}, {"zh": "知", "zhuyin": "ㄓ", "en": "to know"}, {"zh": "資", "zhuyin": "ㄗ", "en": "resources"}],
+    [{"zh": "居", "zhuyin": "ㄐㄩ", "en": "to reside"}, {"zh": "豬", "zhuyin": "ㄓㄨ", "en": "pig"}, {"zh": "租", "zhuyin": "ㄗㄨ", "en": "to rent"}],
+    [{"zh": "主力", "zhuyin": "ㄓㄨˇ ㄌㄧˋ", "en": "main force"}, {"zh": "阻力", "zhuyin": "ㄗㄨˇ ㄌㄧˋ", "en": "resistance"}],
+    [{"zh": "支援", "zhuyin": "ㄓ ㄩㄢˊ", "en": "to support"}, {"zh": "資源", "zhuyin": "ㄗ ㄩㄢˊ", "en": "resources"}]
+   ]},
+  {"id": "q-ch-c", "rank": 3, "zh": "ㄑ／ㄔ／ㄘ", "en": "ㄑ vs ㄔ vs ㄘ",
+   "sets": [
+    [{"zh": "期", "zhuyin": "ㄑㄧˊ", "en": "period"}, {"zh": "池", "zhuyin": "ㄔˊ", "en": "pool"}, {"zh": "詞", "zhuyin": "ㄘˊ", "en": "word"}],
+    [{"zh": "區", "zhuyin": "ㄑㄩ", "en": "district"}, {"zh": "出", "zhuyin": "ㄔㄨ", "en": "to go out"}, {"zh": "粗", "zhuyin": "ㄘㄨ", "en": "coarse"}],
+    [{"zh": "初步", "zhuyin": "ㄔㄨ ㄅㄨˋ", "en": "preliminary"}, {"zh": "粗布", "zhuyin": "ㄘㄨ ㄅㄨˋ", "en": "coarse cloth"}],
+    [{"zh": "炒", "zhuyin": "ㄔㄠˇ", "en": "to stir-fry"}, {"zh": "草", "zhuyin": "ㄘㄠˇ", "en": "grass"}],
+    [{"zh": "春", "zhuyin": "ㄔㄨㄣ", "en": "spring"}, {"zh": "村", "zhuyin": "ㄘㄨㄣ", "en": "village"}]
+   ]},
+  {"id": "x-sh-s", "rank": 4, "zh": "ㄒ／ㄕ／ㄙ", "en": "ㄒ vs ㄕ vs ㄙ",
+   "sets": [
+    [{"zh": "西", "zhuyin": "ㄒㄧ", "en": "west"}, {"zh": "師", "zhuyin": "ㄕ", "en": "teacher"}, {"zh": "絲", "zhuyin": "ㄙ", "en": "silk"}],
+    [{"zh": "需", "zhuyin": "ㄒㄩ", "en": "to need"}, {"zh": "書", "zhuyin": "ㄕㄨ", "en": "book"}, {"zh": "蘇", "zhuyin": "ㄙㄨ", "en": "to revive (a surname)"}],
+    [{"zh": "詩人", "zhuyin": "ㄕ ㄖㄣˊ", "en": "poet"}, {"zh": "私人", "zhuyin": "ㄙ ㄖㄣˊ", "en": "private"}],
+    [{"zh": "山", "zhuyin": "ㄕㄢ", "en": "mountain"}, {"zh": "三", "zhuyin": "ㄙㄢ", "en": "three"}]
+   ]},
+  {"id": "yu-i-u", "rank": 5, "zh": "ㄩ／ㄧ／ㄨ", "en": "ㄩ vs ㄧ vs ㄨ",
+   "sets": [
+    [{"zh": "魚", "zhuyin": "ㄩˊ", "en": "fish"}, {"zh": "姨", "zhuyin": "ㄧˊ", "en": "aunt"}, {"zh": "無", "zhuyin": "ㄨˊ", "en": "without"}],
+    [{"zh": "女", "zhuyin": "ㄋㄩˇ", "en": "female"}, {"zh": "你", "zhuyin": "ㄋㄧˇ", "en": "you"}, {"zh": "努", "zhuyin": "ㄋㄨˇ", "en": "to exert"}],
+    [{"zh": "旅", "zhuyin": "ㄌㄩˇ", "en": "to travel"}, {"zh": "李", "zhuyin": "ㄌㄧˇ", "en": "plum (a surname)"}, {"zh": "魯", "zhuyin": "ㄌㄨˇ", "en": "crude"}],
+    [{"zh": "去", "zhuyin": "ㄑㄩˋ", "en": "to go"}, {"zh": "氣", "zhuyin": "ㄑㄧˋ", "en": "air"}],
+    [{"zh": "下雨", "zhuyin": "ㄒㄧㄚˋ ㄩˇ", "en": "to rain"}, {"zh": "下午", "zhuyin": "ㄒㄧㄚˋ ㄨˇ", "en": "afternoon"}]
+   ]},
+  {"id": "en-eng", "rank": 6, "zh": "ㄣ／ㄥ", "en": "ㄣ vs ㄥ",
+   "sets": [
+    [{"zh": "人民", "zhuyin": "ㄖㄣˊ ㄇㄧㄣˊ", "en": "the people"}, {"zh": "人名", "zhuyin": "ㄖㄣˊ ㄇㄧㄥˊ", "en": "a person's name"}],
+    [{"zh": "親近", "zhuyin": "ㄑㄧㄣ ㄐㄧㄣˋ", "en": "close to"}, {"zh": "清靜", "zhuyin": "ㄑㄧㄥ ㄐㄧㄥˋ", "en": "quiet"}],
+    [{"zh": "信", "zhuyin": "ㄒㄧㄣˋ", "en": "letter"}, {"zh": "姓", "zhuyin": "ㄒㄧㄥˋ", "en": "surname"}],
+    [{"zh": "陳", "zhuyin": "ㄔㄣˊ", "en": "Chen (a surname)"}, {"zh": "成", "zhuyin": "ㄔㄥˊ", "en": "to become"}],
+    [{"zh": "分", "zhuyin": "ㄈㄣ", "en": "minute"}, {"zh": "風", "zhuyin": "ㄈㄥ", "en": "wind"}],
+    [{"zh": "金", "zhuyin": "ㄐㄧㄣ", "en": "gold"}, {"zh": "經", "zhuyin": "ㄐㄧㄥ", "en": "to pass through"}]
+   ]},
+  {"id": "e-uo-a", "rank": 7, "zh": "ㄜ／ㄨㄛ／ㄚ", "en": "ㄜ vs \"uh\"; ㄨㄛ; ㄚ",
+   "sets": [
+    [{"zh": "哥", "zhuyin": "ㄍㄜ", "en": "older brother"}, {"zh": "鍋", "zhuyin": "ㄍㄨㄛ", "en": "pot"}],
+    [{"zh": "河", "zhuyin": "ㄏㄜˊ", "en": "river"}, {"zh": "活", "zhuyin": "ㄏㄨㄛˊ", "en": "to live"}],
+    [{"zh": "課", "zhuyin": "ㄎㄜˋ", "en": "lesson"}, {"zh": "闊", "zhuyin": "ㄎㄨㄛˋ", "en": "wide"}],
+    [{"zh": "喝", "zhuyin": "ㄏㄜ", "en": "to drink"}, {"zh": "哈", "zhuyin": "ㄏㄚ", "en": "ha"}],
+    [{"zh": "餓", "zhuyin": "ㄜˋ", "en": "hungry"}, {"zh": "二", "zhuyin": "ㄦˋ", "en": "two"}]
+   ]},
+  {"id": "an-ang", "rank": 8, "zh": "ㄢ／ㄤ", "en": "ㄢ vs ㄤ",
+   "sets": [
+    [{"zh": "擔心", "zhuyin": "ㄉㄢ ㄒㄧㄣ", "en": "to worry"}, {"zh": "當心", "zhuyin": "ㄉㄤ ㄒㄧㄣ", "en": "to take care"}],
+    [{"zh": "開飯", "zhuyin": "ㄎㄞ ㄈㄢˋ", "en": "to serve the meal"}, {"zh": "開放", "zhuyin": "ㄎㄞ ㄈㄤˋ", "en": "to open up"}],
+    [{"zh": "船", "zhuyin": "ㄔㄨㄢˊ", "en": "boat"}, {"zh": "床", "zhuyin": "ㄔㄨㄤˊ", "en": "bed"}],
+    [{"zh": "山", "zhuyin": "ㄕㄢ", "en": "mountain"}, {"zh": "商", "zhuyin": "ㄕㄤ", "en": "commerce"}],
+    [{"zh": "反", "zhuyin": "ㄈㄢˇ", "en": "to oppose"}, {"zh": "訪", "zhuyin": "ㄈㄤˇ", "en": "to visit"}]
+   ]},
+  {"id": "r-l", "rank": 9, "zh": "ㄖ／ㄌ", "en": "ㄖ vs English r and ㄌ",
+   "sets": [
+    [{"zh": "熱", "zhuyin": "ㄖㄜˋ", "en": "hot"}, {"zh": "樂", "zhuyin": "ㄌㄜˋ", "en": "happy"}],
+    [{"zh": "入", "zhuyin": "ㄖㄨˋ", "en": "to enter"}, {"zh": "路", "zhuyin": "ㄌㄨˋ", "en": "road"}],
+    [{"zh": "讓", "zhuyin": "ㄖㄤˋ", "en": "to let"}, {"zh": "浪", "zhuyin": "ㄌㄤˋ", "en": "wave"}],
+    [{"zh": "容", "zhuyin": "ㄖㄨㄥˊ", "en": "to contain"}, {"zh": "龍", "zhuyin": "ㄌㄨㄥˊ", "en": "dragon"}],
+    [{"zh": "肉", "zhuyin": "ㄖㄡˋ", "en": "meat"}, {"zh": "漏", "zhuyin": "ㄌㄡˋ", "en": "to leak"}],
+    [{"zh": "日", "zhuyin": "ㄖˋ", "en": "sun; day"}, {"zh": "二", "zhuyin": "ㄦˋ", "en": "two"}]
+   ]},
+  {"id": "aspiration", "rank": 10, "zh": "送氣", "en": "Aspiration",
+   "sets": [
+    [{"zh": "肚子", "zhuyin": "ㄉㄨˋ ˙ㄗ", "en": "belly"}, {"zh": "兔子", "zhuyin": "ㄊㄨˋ ˙ㄗ", "en": "rabbit"}],
+    [{"zh": "讀書", "zhuyin": "ㄉㄨˊ ㄕㄨ", "en": "to study"}, {"zh": "圖書", "zhuyin": "ㄊㄨˊ ㄕㄨ", "en": "books"}],
+    [{"zh": "擔心", "zhuyin": "ㄉㄢ ㄒㄧㄣ", "en": "to worry"}, {"zh": "貪心", "zhuyin": "ㄊㄢ ㄒㄧㄣ", "en": "greedy"}],
+    [{"zh": "爸", "zhuyin": "ㄅㄚˋ", "en": "dad"}, {"zh": "怕", "zhuyin": "ㄆㄚˋ", "en": "to fear"}],
+    [{"zh": "抱", "zhuyin": "ㄅㄠˋ", "en": "to hug"}, {"zh": "泡", "zhuyin": "ㄆㄠˋ", "en": "to soak"}],
+    [{"zh": "在", "zhuyin": "ㄗㄞˋ", "en": "at"}, {"zh": "菜", "zhuyin": "ㄘㄞˋ", "en": "vegetable; dish"}]
+   ]}
+ ]
+}
