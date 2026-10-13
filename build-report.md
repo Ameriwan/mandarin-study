@@ -12,10 +12,10 @@
 
 ## Audio coverage
 
-- MOE human clips: 648
+- MOE human clips: 1299
 - MOE handbook symbol clips: 37
 - TTS clips: 0
-- missing / failed: 657 - 5964, 2153, 2230, 2334, 2672, 2716, 3142, 3506, 3594, 3597, 3598, 3675, 3767, 4398, 4414, 4484, 4516, 4642, 4989, 5060
+- missing / failed: 6 - 5964, 5082, 1854, 1624, 2110, 2169
 - content words without an exact-reading MOE clip (browser voice, labelled): 40
   - 粗布 ㄘㄨ ㄅㄨˋ
   - 人民 ㄖㄣˊ ㄇㄧㄣˊ
@@ -63,8 +63,8 @@
 ## Data
 
 - syllable grid: 405 bases / 1222 toned syllables
-- model contours: 615
-- docs/ size: 178.1 MB (budget 600 MB)
+- model contours: 1248
+- docs/ size: 313.9 MB (budget 600 MB)
 
 ## Log
 
@@ -75,7 +75,33 @@ Verifier: 261 Zhuyin strings checked, 0 failures, 1 warnings ⚑
   ⚑ zhuyin/contrasts.json/contrasts[8]/sets[0][1]: 樂 ㄌㄜˋ  — matches 簡編本 alt reading, not the first-listed one
 Syllable grid: 405 bases, 1222 toned syllables with MOE audio
 Audio ...
-  audio: 1305 MOE clips wanted, 657 not cached, downloading 0 this run (priority order)
+  audio: 1305 MOE clips wanted, 657 not cached, downloading 657 this run (priority order)
+    fetched 25/657
+    fetched 50/657
+    fetched 75/657
+    fetched 100/657
+    fetched 125/657
+    fetched 150/657
+    fetched 175/657
+    fetched 200/657
+    fetched 225/657
+    fetched 250/657
+    fetched 275/657
+    fetched 300/657
+    fetched 325/657
+    fetched 350/657
+    fetched 375/657
+    fetched 400/657
+    fetched 425/657
+    fetched 450/657
+    fetched 475/657
+    fetched 500/657
+    fetched 525/657
+    fetched 550/657
+    fetched 575/657
+    fetched 600/657
+    fetched 625/657
+    fetched 650/657
     50/1305
     100/1305
     150/1305
@@ -88,5 +114,51 @@ Audio ...
     500/1305
     550/1305
     600/1305
-  contours: 611 cached, 9 to compute
+    650/1305
+    downloaded 25/657
+    downloaded 50/657
+    700/1305
+    downloaded 75/657
+    downloaded 100/657
+    750/1305
+    downloaded 125/657
+    downloaded 150/657
+    800/1305
+    downloaded 175/657
+    downloaded 200/657
+    850/1305
+    downloaded 225/657
+    downloaded 250/657
+    900/1305
+    downloaded 275/657
+    downloaded 300/657
+    950/1305
+    downloaded 325/657
+    downloaded 350/657
+    1000/1305
+    downloaded 375/657
+    downloaded 400/657
+    1050/1305
+    downloaded 425/657
+    downloaded 450/657
+    1100/1305
+    downloaded 475/657
+    downloaded 500/657
+    1150/1305
+    downloaded 525/657
+    downloaded 550/657
+    1200/1305
+    downloaded 575/657
+    downloaded 600/657
+    1250/1305
+    downloaded 625/657
+    downloaded 650/657
+    1300/1305
+  contours: 615 cached, 656 to compute
+    100/656
+    200/656
+    300/656
+    400/656
+    500/656
+    600/656
 ```
