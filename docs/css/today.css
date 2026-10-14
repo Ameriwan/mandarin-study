@@ -1,0 +1,138 @@
+/* 今天 Today (js/home.js): the phase line, the stat strip, the pronunciation session (the centre of the page: the
+   start card, the runner with its step indicator and countdowns, the end summary), the routine list, outside-time
+   logging and a smaller page map. Tokens (colours, radius, tap size) come from style.css and drill styles from
+   drills.css; nothing is redefined here. */
+
+/* ---------- head: phase line */
+.today-phase { display: flex; align-items: center; gap: 6px 10px; flex-wrap: wrap; margin: 0; color: var(--muted); font-size: 15px; }
+.week-dots { display: inline-flex; gap: 4px; }
+.week-dots i { display: block; width: 18px; height: 6px; border-radius: 3px; background: var(--line); }
+.week-dots i.on { background: var(--accent); }
+
+/* ---------- stat strip */
+.today-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 16px; }
+@media (min-width: 640px) { .today-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.stat { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.stat .k { font-size: 13px; color: var(--muted); }
+.stat .v { font-size: 22px; font-weight: 500; line-height: 1.25; font-variant-numeric: tabular-nums; }
+.stat .v.t { font-size: 16px; line-height: 1.4; }
+.stat .v small { font-size: 13px; font-weight: 400; color: var(--muted); }
+.stat .x { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ---------- the pronunciation session (start card, runner, summary) */
+.session { border-color: var(--accent); padding: 18px var(--gutter) 16px; scroll-margin-top: 72px; }
+.session h2 { margin: 0; font-size: 21px; }
+.session h2:focus { outline: none; } /* focus is moved to the heading only so screen readers read the new step */
+.session-head { display: flex; align-items: baseline; justify-content: space-between; gap: 4px 12px; flex-wrap: wrap; }
+.session-mins { font-size: 15px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.session-steps { list-style: none; margin: 10px 0 14px; padding: 0; }
+.session-steps li { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline; padding: 10px 0; border-top: 1px solid var(--line); }
+.session-steps li:first-child { border-top: 0; }
+.step-num { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.step-name { font-weight: 500; }
+.step-min { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.step-detail { grid-column: 2 / 4; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 14px; color: var(--muted); }
+.mode-tag { display: inline-block; font-size: 11.5px; line-height: 1; padding: 4px 7px; border-radius: 6px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.mode-tag.speak { border-color: var(--accent); color: var(--accent); }
+.session-start { width: 100%; min-height: 56px; margin: 14px 0 4px; font-size: 19px; }
+@media (min-width: 640px) { .session-start { width: auto; min-width: 260px; } }
+.session-note { margin: 10px 0 0; }
+.session-done { display: flex; align-items: baseline; gap: 4px 10px; flex-wrap: wrap; margin: 8px 0 2px; color: var(--good); font-weight: 500; }
+
+/* runner: a four-part step indicator whose current part fills with the step's time */
+.step-pills { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.step-pill { min-width: 0; font-size: 13px; line-height: 1.3; color: var(--muted); }
+.step-bar { display: block; height: 6px; margin-bottom: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.step-bar > i { display: block; height: 100%; width: 0; background: var(--accent); }
+.step-pill.done .step-bar > i, .step-pill.partial .step-bar > i { background: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+.step-pill.skipped .step-bar > i, .step-pill.na .step-bar > i, .step-pill.error .step-bar > i { background: repeating-linear-gradient(45deg, var(--muted) 0 2px, transparent 2px 6px); opacity: .55; }
+.step-pill.error .step-bar > i { background: repeating-linear-gradient(45deg, var(--bad) 0 2px, transparent 2px 6px); }
+.step-pill.now { color: var(--ink); font-weight: 500; }
+.step-pill .lbl { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.step-pill .lbl b { font-weight: 700; }
+.step-pill .tick { color: var(--good); }
+.step-pill .short { display: block; font-size: 11.5px; font-weight: 400; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.step-head { display: flex; align-items: center; justify-content: space-between; gap: 6px 12px; flex-wrap: wrap; }
+.step-head h2 { font-size: 20px; }
+.step-head .of { color: var(--muted); font-weight: 400; font-variant-numeric: tabular-nums; }
+.session .drill-timer { font-size: 15px; min-height: 32px; padding: 2px 12px; }
+.session .drill-timer b { font-weight: 500; color: var(--ink); }
+.session .drill-timer.low b { color: inherit; }
+.session .drill-timer[hidden] { display: none; }
+.step-sub { margin: 4px 0 8px; font-size: 14px; color: var(--muted); max-width: none; }
+.timeup-note { margin: 0 0 8px; font-size: 14px; color: var(--warn); }
+.timeup-note[hidden] { display: none; }
+.session-overall { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.session-overall .progress { flex: 1; height: 4px; }
+.session-stage { border-top: 1px solid var(--line); padding-top: 12px; min-height: 120px; }
+.session-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+.session-foot .btn[hidden] { display: none; } /* "End early" is hidden on the last step */
+/* a long label ("Skip and finish session") breaks between its Chinese and its English, never inside a word */
+.session-foot .btn { flex-wrap: wrap; row-gap: 0; text-align: center; }
+.session-empty { color: var(--muted); }
+/* a step that could not start (drills.js assertMoeOnly: MOE human recordings only) */
+.session-error { border-left: 3px solid var(--bad); padding: 2px 0 2px 12px; font-size: 15px; }
+.session-error p { margin: 0 0 6px; }
+.session-error-msg { font-size: 13px; color: var(--muted); overflow-wrap: anywhere; }
+
+/* summary: one line per step */
+.summary-list { list-style: none; margin: 8px 0 12px; padding: 0; }
+.summary-list li { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline; padding: 8px 0; border-top: 1px solid var(--line); }
+.summary-list li:first-child { border-top: 0; }
+.summary-val { font-weight: 500; font-variant-numeric: tabular-nums; text-align: right; }
+.summary-val.none { font-weight: 400; color: var(--muted); }
+.summary-meta { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
+.summary-rule { margin: -4px 0 12px; font-size: 14px; color: var(--muted); }
+.summary-what { display: block; font-size: 14px; color: var(--muted); }
+
+/* ---------- the routine (time boxes that add up to the daily minutes) */
+.timebar { display: flex; gap: 3px; height: 8px; margin: 6px 0 4px; }
+.timebar i { display: block; min-width: 6px; border-radius: 3px; background: var(--line); }
+.timebar i.pron { background: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+.timebar i.pron.done { background: var(--accent); }
+.timebar i.soon { background: repeating-linear-gradient(45deg, var(--line) 0 3px, transparent 3px 6px); box-shadow: inset 0 0 0 1px var(--line); }
+.routine { list-style: none; margin: 8px 0 0; padding: 0; }
+.routine li { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 2px 10px; align-items: center; min-height: 52px; padding: 6px 0; border-top: 1px solid var(--line); }
+.routine li:first-child { border-top: 0; }
+.rt-min { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rt-name { min-width: 0; }
+.rt-name .muted { font-size: 13px; }
+.rt-status { font-size: 13px; color: var(--muted); text-align: right; }
+.rt-status.ok { color: var(--good); font-weight: 500; }
+.routine li.soon .rt-name { color: var(--muted); }
+.routine li.wide .rt-name, .routine li .rt-act { grid-column: 2 / 4; }
+.routine li .rt-act { justify-self: start; }
+.rt-soon { display: block; font-size: 12.5px; color: var(--muted); }
+.check { display: inline-flex; align-items: center; gap: 10px; min-height: var(--tap); cursor: pointer; }
+.check input { width: 22px; height: 22px; margin: 0; accent-color: var(--accent); flex: none; }
+
+/* ---------- outside time (§8.2) */
+.outside-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.outside-head h2 { margin: 0; font-size: 19px; }
+.outside-form { display: grid; gap: 14px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+.outside-form[hidden] { display: none; }
+.outside-form fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.outside-form legend, .outside-form label.lab { display: block; padding: 0; margin: 0 0 6px; font-size: 14px; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { position: relative; display: inline-flex; }
+.chip input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.chip > span { display: inline-flex; align-items: center; gap: 5px; min-height: var(--tap); padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: 15px; }
+.chip input:checked + span { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); font-weight: 500; }
+.chip input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 2px; }
+.min-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.min-row input { width: 96px; min-height: var(--tap); padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font: inherit; font-size: 17px; font-variant-numeric: tabular-nums; }
+.min-row .btn.small { min-height: var(--tap); min-width: var(--tap); } /* two digits alone are under 44 px wide */
+.outside-status { min-height: 1.5em; margin: 10px 0 0; font-size: 14px; }
+.outside-status:empty { display: none; }
+.outside-status.bad { color: var(--bad); }
+.outside-today { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
+
+/* ---------- page map, smaller than in M1 */
+.today-pages h2 { font-size: 17px; color: var(--muted); font-weight: 500; }
+.home-nav.compact { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.home-nav.compact a { padding: 10px 12px; min-height: var(--tap); }
+.home-nav.compact .t { font-size: 16px; }
+.home-nav.compact .d { font-size: 12px; }
+
+/* every target on this page is at least 44 px (style.css's .btn.small is 36 px) */
+.routine-card .btn.small, .outside-card .btn.small, .session .btn.small { min-height: var(--tap); min-width: var(--tap); }

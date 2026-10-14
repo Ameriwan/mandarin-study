@@ -1,0 +1,257 @@
+/* 聲調館 Tone Gym (js/tones.js). The tone cards on Basics and the pitch overlays are the page's signature; everything
+   else (tables, lists, the sandhi and readings views) stays quiet. Tokens (colours, radius, tap size) come from
+   style.css and the drill styles from drills.css; nothing is redefined here. Tone colours stay off (§5, §6.7):
+   tones are told apart by contour and Chao number only. */
+
+/* ---------- shared bits */
+.tg-panel:focus-visible { outline-offset: 4px; }
+.tg-lede { margin: 0 0 14px; max-width: 66ch; }
+.tg-notice { margin: 0 0 14px; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--warn);
+  border-radius: var(--radius); font-size: 14.5px; max-width: none; }
+.tg-section { margin: 26px 0 0; }
+.tg-section > h2, .tg-section > h3 { display: flex; align-items: baseline; gap: 4px 8px; flex-wrap: wrap; }
+.tg-section > h2 { font-size: 19px; margin: 0 0 10px; }
+.tg-section > h3 { font-size: 15px; font-weight: 500; margin: 16px 0 8px; }
+.tg-sources { margin: 8px 0 0; }
+.tg-panel .seg button { min-height: var(--tap); } /* 44 px targets; style.css's .seg is 36 px */
+.tg-table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.tg-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.tg-table th, .tg-table td { padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.tg-table thead th { background: var(--surface-2); font-size: 13px; font-weight: 500; color: var(--muted); line-height: 1.35; }
+.tg-table thead .en { font-weight: 400; }
+.tg-table tbody tr:last-child > * { border-bottom: 0; }
+.tg-drill-head { justify-content: space-between; margin: 0 0 6px; }
+.tg-drill-title { display: flex; align-items: baseline; gap: 4px 8px; flex-wrap: wrap; margin: 0; font-size: 19px; }
+.syl { white-space: nowrap; } /* one Zhuyin syllable (tones.js zy): never split before its tone mark */
+.tg-pill { display: inline-block; margin-left: 4px; padding: 1px 8px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line);
+  font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ---------- 1. Basics: the tone cards (the hero) */
+.tone-cards { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+@media (min-width: 680px) {
+  .tone-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tone-card-neutral { grid-column: 1 / -1; }
+}
+.tone-card { display: flex; flex-direction: column; gap: 10px; min-width: 0; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 14px; padding: 14px var(--gutter) 14px; }
+.tc-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; }
+.tc-icon { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); }
+.tc-icon svg { display: block; }
+.tc-title h3 { display: flex; align-items: baseline; gap: 4px 8px; flex-wrap: wrap; margin: 0; font-size: 22px; }
+.tc-en { font-size: 15px; font-weight: 400; color: var(--muted); }
+.tc-shape { margin: 2px 0 0; font-size: 14.5px; color: var(--muted); }
+.tc-chao { display: flex; flex-direction: column; align-items: flex-end; margin: 0; line-height: 1; }
+.tc-chao .n { font-size: 36px; font-weight: 700; letter-spacing: .06em; font-variant-numeric: tabular-nums; color: var(--ink); }
+.tc-chao .l { margin-top: 5px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.tone-card-neutral .tc-chao .n { color: var(--muted); }
+.tc-plot { min-height: 140px; }
+.tc-plot svg { display: block; width: 100%; height: auto; margin: 0 auto; }
+.tc-noplot { display: grid; place-items: center; min-height: 140px; margin: 0; padding: 12px; text-align: center;
+  background: var(--surface-2); border: 1px dashed var(--line); border-radius: var(--radius); }
+.tc-ex { display: flex; align-items: center; gap: 6px 12px; flex-wrap: wrap; }
+.tc-zh { font-size: 32px; line-height: 1.25; }
+.tc-zh rt { font-size: 13px; }
+.tc-gloss { flex: 1 1 auto; font-size: 14px; color: var(--muted); }
+.tc-play { margin-left: auto; }
+.tc-note { margin: 0; padding-top: 10px; border-top: 1px solid var(--line); font-size: 14.5px; max-width: none; }
+
+/* §6.4 table: textbook vs typical Taiwan vs what the app teaches */
+.tw-table th[scope="row"] { white-space: nowrap; font-weight: 500; }
+.tw-table .en { color: var(--muted); font-weight: 400; font-size: 13px; }
+.tw-ico { display: inline-block; vertical-align: -5px; margin-right: 6px; color: var(--accent); line-height: 0; }
+.tw-table .num { font-size: 17px; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tw-table tr.emph > th { box-shadow: inset 3px 0 0 var(--accent); }
+@media (max-width: 599px) {
+  /* stacked rows on a phone; the explicit ARIA roles in tones.js keep the table semantics */
+  .tw-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .tw-table, .tw-table tbody, .tw-table tr, .tw-table th, .tw-table td { display: block; }
+  .tw-table tr { padding: 10px 14px 8px; border-bottom: 1px solid var(--line); }
+  .tw-table tbody tr:last-child { border-bottom: 0; }
+  .tw-table th, .tw-table td { padding: 2px 0; border: 0; }
+  .tw-table th[scope="row"] { padding-bottom: 6px; font-size: 16px; }
+  .tw-table td { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 8px; align-items: baseline; }
+  .tw-table td::before { content: attr(data-label); font-size: 12.5px; color: var(--muted); }
+  .tw-table tr.emph > th { box-shadow: none; }
+  .tw-table tr.emph { box-shadow: inset 3px 0 0 var(--accent); }
+}
+
+/* the neutral tone in Taiwan */
+.tg-bullets { margin: 0 0 4px; padding-left: 1.2em; }
+.tg-bullets li { margin: 0 0 4px; }
+.word-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; }
+.word-chips li { display: inline-flex; align-items: center; gap: 2px; min-height: var(--tap); padding: 2px 4px 2px 12px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 999px; }
+.word-chips li:not(:has(button)) { padding-right: 12px; }
+.chip-zh { font-size: 19px; line-height: 1.6; }
+.chip-zh rt { font-size: 10.5px; }
+.word-chips .btn.icon { border: 0; background: none; font-size: 16px; }
+.word-chips .btn.icon:hover { background: var(--surface-2); }
+.tg-policy { margin: 14px 0 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--accent); max-width: none; }
+
+/* ---------- 2. Tone ID: start card and the confusion matrix */
+.tg-start p { margin: 0 0 10px; }
+.tg-matrix { margin-top: 18px; }
+.tg-callout { display: flex; align-items: center; gap: 12px; margin: 0 0 10px; padding: 10px 14px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius); font-size: 15px; max-width: none; }
+.tg-callout-icons { display: inline-flex; gap: 2px; flex: 0 0 auto; color: var(--accent); line-height: 0; }
+.tg-matrix .tg-table-wrap { display: inline-block; max-width: 100%; vertical-align: top; }
+.tg-matrix .tg-table-wrap + p { margin-top: 8px; }
+.cm-table { border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+.cm-table th, .cm-table td { min-width: 52px; height: 44px; padding: 4px 10px; text-align: center; border-bottom: 1px solid var(--line); }
+.cm-table thead th { background: var(--surface-2); font-size: 13px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+.cm-table tbody th { font-weight: 500; text-align: left; white-space: nowrap; background: var(--surface-2); }
+.cm-table tbody tr:last-child > * { border-bottom: 0; }
+.cm-ico { display: inline-block; vertical-align: -4px; margin-right: 4px; color: var(--accent); line-height: 0; }
+.cm-table td.diag { background: var(--accent-soft); font-weight: 700; }
+.cm-table td.hot { background: color-mix(in srgb, var(--bad) 14%, var(--surface)); color: var(--bad); font-weight: 700; }
+.cm-table td.zero { color: var(--muted); } /* no opacity: muted on surface is 5.8:1 light, 7.0:1 dark (at .6 it was 2.5:1) */
+.cm-table td.acc { color: var(--muted); border-left: 1px solid var(--line); }
+.cm-table .corner { font-size: 12px; }
+
+/* ---------- 3. Tone pairs: the 4 x 5 grid of the core words, then the two blocks */
+.tp-wrap { overflow-x: auto; overflow-y: hidden; margin: 0 0 8px; }
+.tp-grid { width: 100%; min-width: 320px; border-collapse: separate; border-spacing: 4px; table-layout: fixed; }
+.tp-grid th { font-size: 13px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+.tp-grid thead th { padding: 0 0 2px; }
+.tp-grid thead th:first-child, .tp-grid tbody th { width: 34px; }
+.tp-grid tbody th { text-align: center; padding: 0; }
+.tp-ico { display: block; margin: 0 auto; color: var(--accent); line-height: 0; }
+.tp-ico svg { margin: 0 auto; }
+.tp-corner { font-size: 11px; vertical-align: bottom; }
+.tp-grid td { padding: 0; }
+.tp-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; width: 100%; min-height: 76px; padding: 6px 2px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; font: inherit; color: var(--ink); cursor: pointer; touch-action: manipulation; }
+.tp-cell:hover { border-color: var(--accent); }
+.tp-zh { font-size: 18px; line-height: 1.25; }
+.tp-z { font-size: 10.5px; line-height: 1.35; color: var(--muted); letter-spacing: .02em; }
+.tp-z > span { display: block; } /* one syllable per line in a narrow cell */
+.tp-acc { font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tp-cell.weak { border-color: color-mix(in srgb, var(--bad) 55%, var(--line)); }
+.tp-cell.weak .tp-acc { color: var(--bad); font-weight: 700; }
+/* "no clip": a dashed border dark enough to see (3.4:1 against the page light, 5.5:1 dark) */
+.tp-cell.noclip { border-style: dashed; border-color: color-mix(in srgb, var(--muted) 75%, var(--line)); color: var(--muted); }
+.tp-empty { color: var(--muted); text-align: center; }
+@media (min-width: 560px) {
+  .tp-z > span { display: inline; }
+  .tp-zh { font-size: 20px; }
+}
+.tp-detail:empty { display: none; }
+.tp-detail-in { display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; margin: 6px 0 4px; padding: 10px 14px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius); }
+.tp-detail-in .big-zh { font-size: 34px; }
+.tp-detail-text { display: flex; flex-direction: column; flex: 1 1 160px; gap: 2px; }
+.tp-pat { font-weight: 700; font-variant-numeric: tabular-nums; }
+.tp-said { color: var(--warn); }
+.tg-blocks { display: grid; gap: 12px; margin-top: 18px; }
+.tg-block { margin: 0; }
+.tg-block > p { margin: 6px 0 10px; }
+.tg-block-head { display: flex; align-items: center; justify-content: space-between; gap: 6px 10px; flex-wrap: wrap; }
+.tg-block-head h2 { display: flex; align-items: baseline; gap: 4px 8px; flex-wrap: wrap; margin: 0; font-size: 19px; }
+.tg-step { display: inline-grid; place-items: center; align-self: center; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--accent);
+  color: var(--accent); font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tg-kind { display: inline-block; font-size: 12px; line-height: 1; padding: 5px 8px; border-radius: 6px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.tg-kind.speak { border-color: var(--accent); color: var(--accent); }
+.tg-block-body:not(:empty) { margin-top: 12px; padding-top: 4px; border-top: 1px solid var(--line); }
+
+/* ---------- 4. Pitch mirror: search, groups, the word tiles */
+.tg-search-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 6px; }
+/* >= 16 px: no zoom on iOS. The border marks the field: >= 3:1 against the page and the field (3.4 / 3.8 light). */
+.tg-search { flex: 1 1 220px; min-width: 0; min-height: var(--tap); padding: 6px 16px; border: 1px solid color-mix(in srgb, var(--muted) 75%, var(--line));
+  border-radius: 999px; background: var(--surface); color: var(--ink); font: inherit; font-size: 17px; }
+.tg-search::placeholder { color: var(--muted); opacity: 1; } /* opacity 1: Firefox dims placeholders by default */
+.tg-search-row .seg { flex: 0 1 auto; max-width: 100%; overflow-x: auto; }
+.tg-search-row .seg button { white-space: nowrap; }
+.tg-search-row .seg button[disabled] { opacity: .45; cursor: default; }
+.seg-n { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+@media (max-width: 479px) { .seg-en { display: none; } }
+.tg-count-row { justify-content: space-between; margin: 4px 0 10px; }
+.tg-count { margin: 0; }
+.tg-words { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(136px, 1fr)); gap: 8px; margin: 0 0 12px; padding: 0; }
+.tg-word { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; height: 100%; min-height: 104px; padding: 8px 12px 10px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); font: inherit; color: var(--ink); text-align: left; cursor: pointer; }
+.tg-word:hover { border-color: var(--accent); }
+.tg-word-zh { font-size: 26px; line-height: 1.5; }
+.tg-word-zh rt { font-size: 11px; }
+.tg-word-en { font-size: 13px; color: var(--muted); line-height: 1.35; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.tg-best { margin-top: auto; padding-top: 4px; font-size: 12.5px; color: var(--muted); }
+.tg-best b { color: var(--ink); font-size: 15px; font-variant-numeric: tabular-nums; }
+/* .tg-best.none ("no score", "—") keeps plain muted (5.8:1): no opacity on text */
+
+/* ---------- 5. Sandhi: rule picker, the "show sandhi" switch, the lists, the listening check */
+.tg-sandhi-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin: 0 0 6px; }
+.tg-rule-seg button { font-size: 16px; padding: 6px 16px; }
+.tg-switch { display: inline-flex; align-items: center; gap: 10px; min-height: var(--tap); padding: 4px 4px 4px 0; background: none; border: 0;
+  font: inherit; font-size: 15px; color: var(--ink); cursor: pointer; }
+/* Off: an outlined track with a muted knob on the left; on: a filled teal track with the knob on the right. Every part
+   is >= 3:1 against what it sits on (WCAG 1.4.11), light / dark: off track border vs page 5.1 / 7.9, off knob vs track
+   5.8 / 7.0; on track vs page 5.4 / 9.4, on knob vs track 6.2 / 9.4. */
+.tg-switch-track { position: relative; flex: 0 0 auto; box-sizing: border-box; width: 44px; height: 26px; border-radius: 13px;
+  background: var(--surface); border: 2px solid var(--muted); transition: background-color .15s, border-color .15s; }
+.tg-switch-knob { position: absolute; top: 0; bottom: 0; left: 3px; width: 16px; height: 16px; margin: auto 0; border-radius: 50%; background: var(--muted);
+  transition: left .15s, background-color .15s; } /* centred in the track whatever the border rounds to */
+.tg-switch[aria-checked="true"] .tg-switch-track { background: var(--accent); border-color: var(--accent); }
+.tg-switch[aria-checked="true"] .tg-switch-knob { background: var(--accent-ink); left: calc(100% - 19px); }
+@media (forced-colors: active) {
+  .tg-switch-track { forced-color-adjust: none; background: Canvas; border-color: CanvasText; }
+  .tg-switch-knob { background: CanvasText; }
+  .tg-switch[aria-checked="true"] .tg-switch-track { background: Highlight; border-color: Highlight; }
+  .tg-switch[aria-checked="true"] .tg-switch-knob { background: HighlightText; }
+}
+.sd-title { display: flex; align-items: baseline; gap: 4px 10px; flex-wrap: wrap; margin: 18px 0 8px; }
+.tg-rule > p { max-width: 66ch; }
+.tg-rule-actions { margin: 4px 0 6px; }
+.tg-rule-hint { margin: 0 0 6px; }
+.tg-rule h3 { margin: 20px 0 8px; font-size: 15px; font-weight: 500; }
+.sd-list { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.sd-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 4px 14px; padding: 8px 8px 8px 14px; border-bottom: 1px solid var(--line); }
+.sd-item:last-child { border-bottom: 0; }
+.sd-zh { font-size: 24px; line-height: 1.6; }
+.sd-zh rt { font-size: 11.5px; }
+.sd-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; font-size: 14px; min-width: 0; }
+.sd-en { color: var(--muted); }
+.sd-other { flex-basis: 100%; color: var(--muted); font-size: 13px; }
+.sd-other .zhuyin { font-size: 14px; letter-spacing: .04em; }
+.sd-other.said .zhuyin { color: var(--warn); font-weight: 500; } /* the spoken tone, as rt.sandhi in style.css */
+.sd-tag { display: inline-block; font-size: 11.5px; line-height: 1; padding: 3px 6px; border-radius: 5px; border: 1px solid currentColor; color: var(--warn); white-space: nowrap; }
+.sd-tag.same { color: var(--muted); }
+.sd-play { justify-self: end; }
+/* a sentence: the line on its own row, then the gloss and the play button */
+.sd-item.sd-sent { grid-template-columns: minmax(0, 1fr) auto; }
+.sd-item.sd-sent .sd-zh { grid-column: 1 / -1; grid-row: 1; font-size: 21px; line-height: 2; }
+.sd-item.sd-sent .sd-meta { grid-column: 1; grid-row: 2; }
+.sd-item.sd-sent .sd-play { grid-column: 2; grid-row: 2; }
+@media (max-width: 479px) {
+  .sd-item { grid-template-columns: minmax(0, 1fr) auto; }
+  .sd-item .sd-zh { grid-column: 1; grid-row: 1; }
+  .sd-item .sd-meta { grid-column: 1; grid-row: 2; }
+  .sd-item .sd-play { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+  .sd-item.sd-sent .sd-zh { grid-column: 1 / -1; }
+  .sd-item.sd-sent .sd-play { grid-row: 2; }
+}
+.tg-check-word { display: flex; align-items: baseline; gap: 6px 14px; flex-wrap: wrap; margin: 6px 0 2px; }
+.tg-check-word .big-zh { font-size: 44px; }
+ruby.tg-target { text-decoration-line: underline; text-decoration-thickness: 3px; text-decoration-color: var(--accent); text-underline-offset: 8px; }
+ruby.tg-target rt { color: var(--ink); font-weight: 500; }
+
+/* ---------- 6. Taiwan readings */
+.rd-table th[scope="row"] { font-weight: 400; }
+.rd-zh { font-size: 20px; white-space: nowrap; }
+.rd-z { font-size: 16px; white-space: nowrap; }
+.rd-py { color: var(--muted); white-space: nowrap; }
+.rd-table td, .rd-table th { vertical-align: middle; }
+.rd-table .rd-play { width: 1%; padding: 2px 8px; text-align: right; }
+.rd-table tr.has-note > * { border-bottom: 0; }
+.rd-note-row td { padding: 0 12px 10px; font-size: 13px; color: var(--muted); }
+.tg-noclip { display: inline-grid; place-items: center; min-width: var(--tap); min-height: var(--tap); color: var(--muted); cursor: default; }
+@media (max-width: 479px) {
+  /* fit 375 px: headers wrap, and a long Zhuyin breaks between its syllables */
+  .rd-table thead th { white-space: normal; line-height: 1.3; }
+  .rd-table th, .rd-table td { padding: 8px 6px; }
+  .rd-table th:first-child, .rd-table td:first-child { padding-left: 12px; }
+  .rd-table .rd-play { padding: 2px 6px 2px 0; }
+  .rd-note-row td { padding: 0 12px 10px; }
+  .rd-zh { font-size: 19px; }
+  .rd-z { font-size: 15px; white-space: normal; }
+}
+
+.sd-clipnote { display: block; margin-top: 2px; }

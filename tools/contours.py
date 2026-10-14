@@ -29,7 +29,8 @@ import moe  # noqa: E402
 CACHE_FILE = moe.CACHE / "moe-audio" / "contours-v2.json"
 N_POINTS = 40
 PARAMS = {  # every value goes into the cache key; bump "algo" when the code changes what it computes
-    "algo": "cmndf-viterbi-3",  # 3: _trim_creak_tail (quiet upturns; any upturn ending a single T4)
+    "algo": "cmndf-viterbi-4",  # 3: _trim_creak_tail (quiet upturns; any upturn ending a single T4)
+                                # 4: words keep a syllable that follows a consonant gap (_continuity word_*)
     "fmin": 60, "fmax": 500,        # search range in Hz
     "frame_s": 0.0465, "hop": 0.25,  # analysis frame in seconds, hop as a share of it
     "click_s": 0.003,               # zeroed at the start of each file (see contour)
@@ -47,6 +48,7 @@ PARAMS = {  # every value goes into the cache key; bump "algo" when the code cha
     "max_jump": 5, "max_jump_word": 7,  # larger than this many st (words: allows a voiced consonant between
     "fold_tol": 1.5,                # syllables) is folded back if within fold_tol st of an octave, else dropped
     "break_st": 8, "break_share": 0.3,  # unless it is a strong piece close by (a creak break, see _continuity)
+    "word_gap": 3, "word_piece": 6, "word_share": 0.05,  # words: or a new syllable after a gap (see _continuity)
     "tail_db": -15, "tail_rise": 2.0,   # _trim_creak_tail: a tail quieter than this that rises this many st is cut
     "n_points": N_POINTS,
 }
@@ -154,14 +156,18 @@ def _lowpass(y, sr):
     return np.fft.irfft(np.fft.rfft(y, n) / (1 + (f / P["lowpass"]) ** 8), n)[:len(y)]
 
 
-def _continuity(f0, db, max_jump):
+def _continuity(f0, db, max_jump, word=False):
     """Octave-continuity rule. Voiced frames less than max_gap frames apart form a chain, split into pieces
     wherever the pitch jumps by more than max_jump st. The piece with the most energy is kept; walking outwards,
     a piece one octave off is folded back, a strong piece (break_share of the main piece's energy) at most
     break_st away is kept as it is (creak at a T3 turning point breaks the pitch, e.g. 只 4253, 臉 1995), and
     anything else is dropped with the rest of the chain on that side. On the MOE clips those other jumps are
     creak or an F1 harmonic in a quiet tail (checked against the harmonic spacing in the spectrum), so folding
-    them would invent pitch."""
+    them would invent pitch.
+    In a word (word=True) a piece that starts after an unvoiced gap of at least word_gap frames and lasts at least
+    word_piece frames is the next syllable after a consonant, and a big step there is real (T1 -> T3 in 中午,
+    T2 -> T4 in 一共 said ㄧˊ, T4 -> T1 in 麵包): it is kept, unless it carries under word_share of the main piece's
+    energy. Before this rule those three model contours lost a whole syllable (integration check, M2)."""
     out, st = f0.copy(), 12 * np.log2(f0)
     idx = np.where(~np.isnan(f0))[0]
     for chain in np.split(idx, np.where(np.diff(idx) > P["max_gap"] + 1)[0] + 1):
@@ -173,12 +179,15 @@ def _continuity(f0, db, max_jump):
             while 0 <= k < len(pieces):
                 p = pieces[k]
                 jump = st[p[-1]] - st[ref[0]] if step < 0 else st[p[0]] - st[ref[-1]]
+                gap = ref[0] - p[-1] - 1 if step < 0 else p[0] - ref[-1] - 1  # unvoiced frames between them
                 octs = round(jump / 12)
+                syllable = (word and gap >= P["word_gap"] and len(p) >= P["word_piece"]
+                            and energy[k] >= P["word_share"] * energy[a])
                 if abs(jump) > max_jump and octs and abs(jump - 12 * octs) <= P["fold_tol"]:
                     out[p] /= 2.0 ** octs
                     st[p] -= 12 * octs
-                elif abs(jump) > max_jump and not (abs(jump) <= P["break_st"]
-                                                   and energy[k] >= P["break_share"] * energy[a]):
+                elif abs(jump) > max_jump and not syllable and not (abs(jump) <= P["break_st"]
+                                                                    and energy[k] >= P["break_share"] * energy[a]):
                     for q in (pieces[k:] if step > 0 else pieces[:k + 1]):
                         out[q] = np.nan
                     break
@@ -215,7 +224,7 @@ def track(y, sr, syllables=1, tone=None):
     """Frame-level pitch: (f0 Hz with nan where unvoiced, hop in samples)."""
     f0, db, hop = _raw_track(y, sr, syllables)
     f0[~_drop_short_runs(~np.isnan(f0), P["min_run"])] = np.nan
-    f0 = _continuity(f0, db, P["max_jump"] if syllables == 1 else P["max_jump_word"])
+    f0 = _continuity(f0, db, P["max_jump"] if syllables == 1 else P["max_jump_word"], word=syllables > 1)
     f0[~_drop_short_runs(~np.isnan(f0), P["min_run"])] = np.nan
     f0 = _trim_creak_tail(f0, db, tone if syllables == 1 else None)
     return f0, hop

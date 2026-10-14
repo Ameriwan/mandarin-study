@@ -6,7 +6,7 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 |---|---|---|---|
 | M0 | **SETUP** (folders, venv, git, data cache, tool checks) | ✅ 2026-10-13 | Data cached, tools probed, settings filled in |
 | M1 | SETUP + audio pipeline + Zhuyin Lab (symbols, syllable grid, contrasts, dictation) | ✅ built and QA'd 2026-10-13 (waiting on Amadeus's spot-listen and phone test) | Tap any syllable → correct MOE audio in all tones; contrast drills work |
-| M2 | Tone Gym (ID, tone pairs, pitch mirror, sandhi, Taiwan readings) + Today (pronunciation block) | ⬜ | Pitch overlay works on phone and laptop |
+| M2 | Tone Gym (ID, tone pairs, pitch mirror, sandhi, Taiwan readings) + Today (pronunciation block) | ✅ built and QA'd 2026-10-13 (waiting on the iPhone + laptop mic test) | Pitch overlay works on phone and laptop |
 | M3 | Shadowing (player, protocol, MOE dictionary readings, native-check hand-off) | ⬜ | A full 10-minute session runs |
 | M4 | Plan + placement check + Library (TBCL L1–3, grammar, Taiwan vocab) | ⬜ | Placement gives a level and a starting unit |
 | M5 | Units for my level and the next (subagents, verified) | ⬜ | Units released per the plan |
@@ -80,3 +80,12 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 - **Content:** ㄧ error, ㄘ error and ㄋ how were set to empty because §6.1 gives nothing for them (my subagent brief had invented them); four §6.1 special-case details were restored.
 - **Known, accepted:** 18 grid cells use a common character in a less usual reading (挑 ㄊㄧㄠˇ, 便 ㄆㄧㄢˊ, 寧 ㄋㄧㄥˋ, 殺 ㄕㄞˋ …); the audio is that reading, so it is correct, but the label can surprise. 寧 1706 and 處 4823 are flagged for range: real T4 falls into creak.
 - **Still needs Amadeus:** spot-listen (§10.4) a few grid cells and the ㄅ examples; test recording and offline playback on the iPhone.
+
+### 2026-10-13 · M2 Tone Gym + Today (built by a multi-agent workflow, reviewed, fixed)
+- **Built:** `docs/tones.html` + `js/tones.js` (Basics with Taiwan tone targets and model curves, Tone ID with confusion matrix, tone-pair grid with separate identify and produce blocks, pitch mirror, sandhi rules with listening checks and a "show sandhi" switch, Taiwan readings), `js/pitch.js` (pitchy 4.1.0, live and offline pitch, normalization identical to contours.py, per-syllable scoring, overlay), `js/drills.js` (contrast / tone ID / pair ID / mirror / shadow-line drills, shared by Lab, Tone Gym and Today), Today (`js/home.js`: Phase 0 routine, four-step timed pronunciation session, Anki checkbox, log outside time). Content: `content/tones/sandhi.json` (85 items), `taiwan-readings.csv` (38 rows from §6.5), `pairs.csv` (119 words, 20 core). Build: `docs/data/tones.json`, `moe.spoken()` (§6.4 sandhi), `tools/test_spoken.py` (169 cases).
+- **Data:** 1442 MOE clips, Tone ID pool 527 syllables, docs/ 340 MB of 600 MB.
+- **Review:** 7 reviewers, 3 skeptics per finding; 33 findings confirmed (some duplicates), all fixed by file group with independent checks. Main fixes: the mirror score now separates wrong tones (wrong-tone medians 0–41 vs right 90–96; it was 74–86 vs 87–95); the Tone ID pool skips characters read in a rare way (沒→末, 的→弟, 個→各, 給→幾); daily focus follows §8.6 (in below 80 %, out at 85 %); MOE-only audio is asserted in code (§10 item 5); focus and contrast fixes; 一 at the end of 之一 / 統一 keeps its tone, 同一個 takes sandhi.
+- **一 / 不 recordings:** the build measures whether each 一 / 不 word's MOE recording says the taught tone. The announcer reads 一 level before T1/T2/T3 in 一天 一些 一般 一時 一起 一點 (not the ㄧˋ of §6.4), and 不 is unclear in 撐不住 行不通 小不點; those stay on the page as examples with a note and are left out of the listening checks and the mirror (一 check: 7 words, 不 check: 12).
+- **Only one human voice exists** (the MOE announcer), so §6.7's adaptive variability cannot switch voices yet; the Today and Lab contrast drills say so.
+- **Known limits:** creaky low T3s score lower in both trackers (水果 ~62 for a perfect copy); 弟弟's model curve is wrong (self-test 15); the browser pane cannot use the microphone or register the service worker, so the mic path was tested with a fake stream of MOE clips.
+- **Still needs Amadeus:** the pitch mirror on the iPhone and the laptop (M2's done-when), and the §10.4 spot-listen.

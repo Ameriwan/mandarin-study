@@ -1,0 +1,96 @@
+/* 練習 Drills (js/drills.js): contrast, tone ID, tone pairs, pitch mirror, shadowing. Used by the Lab, the Tone Gym
+   and Today. Tokens (colours, radius, tap size) come from style.css; nothing is redefined here. */
+
+.drill { margin: 0 0 12px; }
+.drill-progress { margin: 10px 0; }
+.drill-meta { margin: 0 0 8px; }
+.drill-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 4px 0 4px; }
+.drill-play { min-width: 168px; }
+.drill-actions { margin-top: 12px; }
+.drill-status { min-height: 1.6em; margin: 8px 0 4px; font-weight: 500; }
+/* every target inside a drill is at least 44 px (style.css's .btn.small and .seg are 36 px) */
+.drill .btn.small, .drill .seg button { min-height: var(--tap); }
+.drill .seg button { padding: 6px 14px; }
+.drill-voice-note { margin: 0 0 4px; }
+/* a drill that did not start (its input failed the MOE-only check) */
+.drill-error { border-left: 3px solid var(--bad); padding: 2px 0 2px 12px; margin: 8px 0; }
+.drill-error p { margin: 0 0 6px; }
+.drill-error p.small { overflow-wrap: anywhere; }
+
+/* Warning-coloured text (the "said" line, the low timer, sandhi ruby) is --warn darkened toward --ink: plain --warn
+   is only 3.9-4.4:1 on the answered-option tints and on surface-2 / bg in light mode. Mixed 75/25 with --ink it is
+   at least 5.4:1 there (light) and at least 7.6:1 (dark, where --ink is light and the mix gets lighter). */
+.pattern-said, .drill-timer.low, .drill rt.sandhi { color: var(--warn); color: color-mix(in srgb, var(--warn) 75%, var(--ink)); }
+
+/* a countdown chip for a timed step (Today); tabular digits so it does not jitter */
+.drill-timer { display: inline-flex; align-items: center; gap: 6px; min-height: 28px; padding: 2px 10px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface-2); color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
+.drill-timer.low { border-color: currentColor; }
+
+/* ---------- answer reveal and end card */
+.drill-reveal { display: flex; align-items: center; gap: 10px 14px; flex-wrap: wrap; margin: 0 0 10px; }
+.drill-reveal:empty { display: none; }
+.drill-reveal .big-zh { line-height: 1.15; }
+.drill-gloss { color: var(--muted); font-size: 15px; max-width: 32ch; }
+.drill-summary h3 { margin-bottom: 6px; }
+.drill-summary p { margin: 0 0 6px; }
+.drill-scores li { padding: 6px 0; }
+.compare-hint { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* ---------- tone choices (1-4) and tone-pattern choices: big buttons with the taught contour */
+.tone-choices, .pattern-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+@media (min-width: 560px) { .tone-choices, .pattern-choices { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.tone-choice, .pattern-choice { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  min-height: 108px; padding: 12px 6px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  font: inherit; color: var(--ink); cursor: pointer; text-align: center; touch-action: manipulation; }
+.tone-choice:hover, .pattern-choice:hover { border-color: var(--accent); }
+.tone-choice.correct, .pattern-choice.correct { border-color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--surface)); }
+.tone-choice.wrong, .pattern-choice.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 12%, var(--surface)); }
+.tone-icon, .pattern-icons { color: var(--accent); line-height: 0; }
+.tone-icon svg, .pattern-icons svg { display: block; }
+.pattern-icons { display: flex; gap: 2px; }
+.tone-syl { font-size: 22px; line-height: 1.25; letter-spacing: .04em; }
+.tone-name { font-size: 12.5px; color: var(--muted); }
+.pattern-nums { font-size: 21px; font-weight: 500; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.pattern-said { font-size: 12.5px; }
+.key-hint { position: absolute; top: 5px; left: 8px; font-size: 11px; line-height: 1; color: var(--muted); }
+@media (hover: none) { .key-hint { display: none; } }
+
+/* ---------- pitch mirror */
+.mirror-word { display: flex; align-items: baseline; gap: 6px 14px; flex-wrap: wrap; margin: 2px 0 4px; }
+.mirror-word .big-zh { font-size: 44px; line-height: 1.15; }
+.mirror-sandhi { color: var(--muted); margin: 0 0 6px; }
+.overlay-box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin: 8px 0 4px; min-height: 120px; }
+.overlay-box[hidden] { display: none; }
+.overlay-box svg { display: block; width: 100%; height: auto; }
+.mirror-shape { margin: 0 0 6px; min-height: 1.4em; }
+.mirror-score { min-height: 44px; margin: 6px 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 4px; }
+.mirror-score .num { font-size: 36px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; color: var(--ink); }
+.mirror-score .of { color: var(--muted); font-size: 15px; margin-right: 8px; }
+.mirror-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 8px 0; }
+.mirror-nomic { color: var(--muted); border-left: 3px solid var(--warn); padding: 4px 0 4px 10px; margin: 6px 0; }
+.rec-btn { min-width: 128px; }
+.rec-btn.recording { background: var(--bad); border-color: var(--bad); color: var(--bg); }
+.rec-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: currentColor; animation: rec-pulse 1.2s ease-in-out infinite; }
+@keyframes rec-pulse { 50% { opacity: .35; } }
+
+/* ---------- shadowing */
+.shadow-src { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0 0 6px; }
+.shadow-line { font-size: 28px; line-height: 2; margin: 4px 0 2px; max-width: none; }
+.shadow-line rt { font-size: 13px; }
+.shadow-steps { list-style: none; counter-reset: step; padding: 0; margin: 10px 0 6px; display: grid; gap: 6px; }
+.shadow-steps li { counter-increment: step; display: flex; align-items: baseline; gap: 10px; padding: 8px 12px; border: 1px solid var(--line);
+  border-radius: var(--radius); background: var(--surface); color: var(--muted); font-size: 15px; }
+.shadow-steps li::before { content: counter(step); min-width: 1.2em; font-weight: 700; color: var(--muted); }
+.shadow-steps li.current { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); }
+.shadow-steps li.current::before { color: var(--accent); }
+.shadow-steps li.done::before { content: "✓"; color: var(--good); }
+.shadow-controls { margin: 6px 0; }
+.pause-bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; margin: 4px 0 8px; }
+.pause-bar:empty { visibility: hidden; }
+.pause-bar > i { display: block; height: 100%; width: 0; background: var(--accent); }
+
+/* ---------- Zhuyin Lab (lab.html loads this file): every target there is at least 44 px tall too */
+#lab-panel .btn.small, #lab-panel .seg button { min-height: var(--tap); }
+#lab-panel table.grid td button { height: var(--tap); }
+.contrast-focus { color: var(--bad); }

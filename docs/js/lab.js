@@ -1,7 +1,8 @@
 // 注音 Zhuyin Lab: symbol chart, syllable grid, contrast drills (HVPT), dictation with the standard Zhuyin keyboard,
 // and mouth guides. Tone/syllable audio here is MOE human audio only (MASTER_PROMPT §5.2, §7).
-import { h, $, clear, mountShell, toast, store, loadJSON, shuffle, pick, ruby, playButton, playMoe, stopAudio, stopRecorders, audioInfo,
-  recordWidget, syllables, toneOf, baseOf, withTone, TONE_NAMES, TONE_GLYPH, INITIALS, trackTime, today } from "./app.js";
+import { h, $, clear, mountShell, toast, store, loadJSON, pick, ruby, playButton, playMoe, stopAudio, stopRecorders, audioInfo,
+  recordWidget, syllables, toneOf, baseOf, withTone, TONE_NAMES, TONE_GLYPH, INITIALS, trackTime } from "./app.js";
+import { contrastDrill, contrastStats, recentAccuracy, focusContrasts } from "./drills.js";
 
 mountShell("lab");
 trackTime("lab");
@@ -220,81 +221,41 @@ function renderGrid(panel) {
 }
 
 // ------------------------------------------------------------------ 3. contrast drills (listening only; feedback + A/B replay)
-const STATS_KEY = "lab.contrasts";
-const statsAll = () => store.get(STATS_KEY, {});
-function statFor(id) { const s = statsAll()[id] || { n: 0, correct: 0, recent: [], days: {} }; return s; }
-function recordTrial(id, ok) {
-  const all = statsAll(); const s = all[id] || { n: 0, correct: 0, recent: [], days: {} };
-  s.n++; if (ok) s.correct++;
-  s.recent = [...s.recent, ok ? 1 : 0].slice(-30);
-  const d = today(); s.days[d] = s.days[d] || { n: 0, correct: 0 }; s.days[d].n++; if (ok) s.days[d].correct++;
-  all[id] = s; store.set(STATS_KEY, all);
-}
-export function recentAccuracy(s) { return s.recent.length ? Math.round(100 * s.recent.reduce((a, b) => a + b, 0) / s.recent.length) : null; }
+// The drill itself is drills.js contrastDrill (shared with Today); its stats stay under "lab.contrasts".
+const statFor = id => contrastStats()[id] || { n: 0, correct: 0, recent: [], days: {} };
 
-function renderContrasts(panel) {
+// focusId: back from that contrast's drill, its row takes focus (the Back button that had it is gone).
+function renderContrasts(panel, focusId = null) {
   const { contrasts } = data;
   panel.append(h("p", { class: "muted small" }, "聽一個詞，選你聽到的。只用聽的，不要跟著唸（聽與說分開練習，", enText("Baese-Berk & Samuel 2016"), "）。", enText("Listen and choose; immediate feedback with A/B replay. Keep this block listening-only. Weak contrasts come back automatically.")));
   const list = h("div", { class: "contrast-list" });
+  const focus = focusContrasts(); // the daily focus (drills.js): joins below 80% recent accuracy, leaves at 85%
   for (const c of contrasts) {
-    const s = statFor(c.id); const acc = recentAccuracy(s);
-    const playable = c.sets.map(set => set.filter(w => w.id)).filter(set => set.length >= 2);
-    list.append(h("div", { class: "card", style: "padding:8px 12px" }, h("button", { type: "button", class: "btn", style: "border:0;background:none;padding:8px 0", onclick: () => startDrill(panel, c, playable),
-      "aria-label": `${c.rank}. ${c.zh} ${c.en}, accuracy ${acc == null ? "none yet" : acc + "%"}` },
+    const s = statFor(c.id); const acc = recentAccuracy(s); const inFocus = !!focus[c.id];
+    list.append(h("div", { class: "card", style: "padding:8px 12px" }, h("button", { type: "button", class: "btn", style: "border:0;background:none;padding:8px 0", "data-id": c.id, onclick: () => startDrill(panel, c),
+      "aria-label": `${c.rank}. ${c.zh} ${c.en}, accuracy ${acc == null ? "none yet" : acc + "%"}${inFocus ? ", 每日重點 in the daily focus" : ""}` },
       h("span", {}, h("span", { class: "muted" }, c.rank, ". "), h("span", { lang: "zh-Hant-TW", style: "font-size:19px" }, c.zh), " ", enText(c.en, { class: "muted small" })),
-      h("span", { class: "small", style: acc != null && acc < 80 ? "color:var(--bad)" : "" }, acc == null ? "尚未練習" : `${acc}%`, h("span", { class: "muted" }, s.n ? ` · ${s.n} 題` : "")))));
+      h("span", { class: inFocus ? "small contrast-focus" : "small" }, acc == null ? "尚未練習" : `${acc}%`, inFocus ? [" · 每日重點 ", enText("daily focus")] : "", h("span", { class: "muted" }, s.n ? ` · ${s.n} 題` : "")))));
   }
-  panel.append(list, h("p", { class: "muted small" }, ...bi("目前只有一位教育部播音員的聲音；多聲音（HVPT）會在有更多真人語料時加入。", "Only one Taiwan voice (the MOE announcer) exists so far; more voices are added when accuracy passes ~70% and more human audio is available.")));
+  panel.append(list,
+    h("p", { class: "muted small" }, ...bi("最近正確率低於 80%（至少 5 題）的對比會加入每日重點，到 85% 才離開；「今天」練重點裡最弱的一組。", "A contrast joins the daily focus when its recent accuracy is below 80% (at least 5 recent trials) and stays until it reaches 85%; Today drills the weakest one in focus.")),
+    // the same words as the drill's one-voice note (drills.js voiceNote, shown in Today's listening step)
+    h("p", { class: "muted small" }, ...bi("目前只有一位真人聲音（教育部播音員）；有更多臺灣錄音後，正確率超過 70% 會混合不同的聲音。",
+      "One human voice so far (the MOE announcer). When more Taiwan recordings exist, voices are mixed once you pass 70%.")));
+  const row = focusId != null && [...list.querySelectorAll("button[data-id]")].find(b => b.dataset.id === String(focusId));
+  if (row) row.focus();
 }
 
-function startDrill(panel, c, sets) {
+// A contrast drill under its title and Back button. Leaving the tab (leaveView: stopAudio + clear) ends the drill:
+// it notices its view is gone. The end card's "Another round" restarts it in place; "Back" returns to the list.
+function startDrill(panel, c) {
   clear(panel);
-  const N = 10;
-  let i = 0, correct = 0;
+  const backToList = () => { stopAudio(); renderContrasts(clear(panel), c.id); };
   const head = h("div", { class: "row", style: "justify-content:space-between" }, h("h2", { style: "margin:0" }, h("span", { lang: "zh-Hant-TW" }, c.zh), " ", enText(c.en, { class: "muted small" })),
-    h("button", { type: "button", class: "btn small", onclick: () => { stopAudio(); renderContrasts(clear(panel)); } }, "← ", ...bi("回列表", "Back")));
-  const prog = h("div", { class: "progress", style: "margin:10px 0" }, h("i", { style: "width:0%" }));
-  const stage = h("div");
-  panel.append(head, prog, stage);
-  if (!sets.length) { stage.append(h("p", {}, ...bi("這組還沒有可用的音檔。", "No clips built for this contrast yet."))); return; }
-
-  function trial() {
-    clear(stage);
-    if (i >= N) {
-      const acc = Math.round(100 * correct / N);
-      stage.append(h("div", { class: "card" }, h("h3", {}, `本輪 ${correct}/${N}（${acc}%）`), h("p", { class: "muted small" }, ...(acc >= 85 ? bi("很好。", "Keep it in rotation.") : bi("低於 85%：今天的練習會把它排進來。", "Below 85%: this contrast joins your daily focus."))),
-        h("div", { class: "row" }, h("button", { type: "button", class: "btn primary", onclick: () => { i = 0; correct = 0; trial(); } }, ...bi("再一輪", "Another round")), h("button", { type: "button", class: "btn", onclick: () => renderContrasts(clear(panel)) }, ...bi("回列表", "Back")))));
-      return;
-    }
-    prog.firstChild.style.width = `${100 * i / N}%`;
-    const set = pick(sets);
-    const target = pick(set);
-    const options = shuffle(set);
-    let answered = false;
-    const play = h("button", { type: "button", class: "btn primary", onclick: () => playMoe(target.id).catch(() => toast("音檔尚未建置 clip not built yet")) }, "🔊 ", ...bi("再聽一次", "Play again"));
-    const fb = h("p", { class: "feedback", "aria-live": "polite" });
-    const choices = h("div", { class: "choices" });
-    const next = h("button", { type: "button", class: "btn", disabled: true, onclick: () => { i++; trial(); } }, ...bi("下一題", "Next →"));
-    for (const w of options) {
-      const b = h("button", { type: "button", class: "choice", lang: "zh-Hant-TW", "aria-label": `${w.zh} ${w.zhuyin}, ${w.en}`, onclick: () => {
-        if (answered) { playMoe(w.id); return; }
-        answered = true;
-        const ok = w === target;
-        if (ok) correct++;
-        recordTrial(c.id, ok);
-        b.classList.add(ok ? "correct" : "wrong");
-        for (const cb of choices.children) { if (cb._w === target) cb.classList.add("correct"); cb.append(h("span", { class: "small muted", style: "display:block;margin-top:6px" }, "🔊 比較 compare")); }
-        fb.textContent = ok ? "對了 ✓ Correct" : `不對 ✗ — 正確是 ${target.zh} ${target.zhuyin}`;
-        fb.className = "feedback " + (ok ? "good" : "bad");
-        next.disabled = false; next.classList.add("primary"); next.focus();
-      } }, h("span", { class: "zh" }, h("ruby", {}, w.zh, h("rt", {}, w.zhuyin))), h("span", { class: "en", lang: "en" }, w.en));
-      b._w = w;
-      choices.append(b);
-    }
-    stage.append(h("p", { class: "muted small" }, `第 ${i + 1} / ${N} 題 · 聽到哪一個？`, enText("Which one did you hear?")), play, choices, fb, h("div", { class: "row" }, next));
-    playMoe(target.id).catch(() => toast("音檔尚未建置 clip not built yet"));
-  }
-  trial();
+    h("button", { type: "button", class: "btn", onclick: backToList }, "← ", ...bi("回列表", "Back"))); // a full-size target (44 px), like the end card's
+  const box = h("div");
+  panel.append(head, box);
+  contrastDrill(box, c, { n: 10, again: true, actions: () => [h("button", { type: "button", class: "btn", onclick: backToList }, ...bi("回列表", "Back"))] });
 }
 
 // ------------------------------------------------------------------ 4. dictation with the standard Zhuyin keyboard
@@ -334,7 +295,7 @@ function renderDictation(panel) {
   let item, typed = [], buf = "", answered = false;
   const target = h("div", { class: "dict-target", lang: "zh-Hant-TW" });
   const fb = h("p", { class: "feedback", "aria-live": "polite", "aria-atomic": "true" }); // verdict and Show answer are announced; keystrokes are not
-  const playBtn = h("button", { type: "button", class: "btn primary", onclick: () => playMoe(item.id).catch(() => toast("音檔尚未建置 clip not built yet")) }, "🔊 ", ...bi("聽", "Play"));
+  const playBtn = h("button", { type: "button", class: "btn primary", onclick: () => playMoe(item.id).catch(() => toast("音檔尚未建置 clip not built yet")) }, "🔊 ", ...bi("播放", "Play"));
   const nextBtn = h("button", { type: "button", class: "btn", onclick: newItem }, ...bi("下一題", "Next →"));
   const showBtn = h("button", { type: "button", class: "btn small", onclick: () => { fb.textContent = `${item.zh} ${item.zhuyin}`; fb.className = "feedback muted"; } }, ...bi("看答案", "Show"));
 

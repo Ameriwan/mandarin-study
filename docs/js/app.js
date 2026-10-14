@@ -336,7 +336,9 @@ export class Recorder {
     if (onFrame) {
       const c = audioContext();
       this.src = c.createMediaStreamSource(this.stream);
-      this.an = c.createAnalyser(); this.an.fftSize = 2048;
+      this.an = c.createAnalyser();
+      // window long enough for a low voice at the device rate: 2048 at 44.1/48 kHz, 4096 at 96 kHz ... (pitch.js frameSize)
+      this.an.fftSize = Math.min(32768, 2048 * 2 ** Math.max(0, Math.round(Math.log2(c.sampleRate / 48000))));
       this.src.connect(this.an);
       const buf = new Float32Array(this.an.fftSize);
       const tick = () => { if (!this.rec || this.rec.state !== "recording") return; this.an.getFloatTimeDomainData(buf); onFrame(buf, c.sampleRate, (performance.now() - this.t0) / 1000); this.raf = requestAnimationFrame(tick); };
