@@ -13,7 +13,7 @@ const NAV = [
   { id: "settings", href: "settings.html", ico: "設", zh: "設定", en: "Settings" },
 ];
 const PRIMARY = ["home", "lab", "tones", "shadow"];
-export const BUILT = ["home", "lab", "tones"]; // pages that exist so far (others show "coming soon")
+export const BUILT = ["home", "lab", "tones", "shadow"]; // pages that exist so far (others show "coming soon")
 
 // ---------- tiny DOM builder: h("div", {class: "x", onclick}, "text", child)
 export function h(tag, attrs = {}, ...kids) {
