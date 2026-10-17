@@ -35,7 +35,7 @@
    "right_zhuyin": "ㄨㄛˇ ㄧˇ ㄐㄧㄥ ㄔ ㄍㄨㄛˋ ㄨˇ ㄘㄢ ˙ㄌㄜ",
    "why_en": "已經 needs a completion marker: add 過 after the verb and 了 at the end."
   },
-  "taiwan_note": "Around mealtimes, Taiwanese people often greet each other with 你吃飽了沒？ It works like 'How are you?' rather than a real question about food."
+  "taiwan_note": "Around mealtimes, Taiwanese people often greet each other with 吃飽沒？ The usual reply is 吃過了 or 吃飽了. The greeting works like 'How are you?' rather than a real question about food."
  },
  {
   "id": "G109",
@@ -95,9 +95,9 @@
     "en": "The concert tickets were too hard to get; I didn't manage to buy one."
    },
    {
-    "zh": "晚上在墾丁看得到很多星星。",
-    "zhuyin": "ㄨㄢˇ ㄕㄤˋ ㄗㄞˋ ㄎㄣˇ ㄉㄧㄥ ㄎㄢˋ ㄉㄜˊ ㄉㄠˋ ㄏㄣˇ ㄉㄨㄛ ㄒㄧㄥ ˙ㄒㄧㄥ",
-    "en": "At night in Kenting you can see lots of stars."
+    "zh": "在臺北晚上幾乎看不到星星。",
+    "zhuyin": "ㄗㄞˋ ㄊㄞˊ ㄅㄟˇ ㄨㄢˇ ㄕㄤˋ ㄐㄧ ㄏㄨ ㄎㄢˋ ㄅㄨˋ ㄉㄠˋ ㄒㄧㄥ ˙ㄒㄧㄥ",
+    "en": "In Taipei you can hardly see any stars at night."
    },
    {
     "zh": "我打了三次電話，都沒找到他。",
@@ -205,7 +205,7 @@
    },
    {
     "zh": "屏東的天氣太熱了，讓我每天都想喝冰的。",
-    "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄊㄧㄢ ㄑㄧˋ ㄊㄞˋ ㄖㄜˋ ˙ㄌㄜ ㄖㄤˋ ㄨㄛˇ ㄇㄟˇ ㄊㄧㄢ ㄉㄨ ㄒㄧㄤˇ ㄏㄜ ㄅㄧㄥ ˙ㄉㄜ",
+    "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄊㄧㄢ ㄑㄧˋ ㄊㄞˋ ㄖㄜˋ ˙ㄌㄜ ㄖㄤˋ ㄨㄛˇ ㄇㄟˇ ㄊㄧㄢ ㄉㄡ ㄒㄧㄤˇ ㄏㄜ ㄅㄧㄥ ˙ㄉㄜ",
     "en": "Pingtung's weather is so hot that it makes me want something cold to drink every day."
    },
    {
@@ -379,9 +379,9 @@
   "structure": "S V(了/過) (O) 沒(有)？",
   "examples": [
    {
-    "zh": "你吃飽了沒？",
-    "zhuyin": "ㄋㄧˇ ㄔ ㄅㄠˇ ˙ㄌㄜ ㄇㄟˊ",
-    "en": "Have you eaten yet?"
+    "zh": "你功課寫好了沒？",
+    "zhuyin": "ㄋㄧˇ ㄍㄨㄥ ㄎㄜˋ ㄒㄧㄝˇ ㄏㄠˇ ˙ㄌㄜ ㄇㄟˊ",
+    "en": "Have you finished your homework yet?"
    },
    {
     "zh": "你們去過墾丁沒有？",
@@ -1358,9 +1358,9 @@
     "en": "I'm so happy for you that you got in!"
    },
    {
-    "zh": "你可以替我去郵局拿包裹嗎？",
-    "zhuyin": "ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄊㄧˋ ㄨㄛˇ ㄑㄩˋ ㄧㄡˊ ㄐㄩˊ ㄋㄚˊ ㄅㄠ ㄍㄨㄛˇ ˙ㄇㄚ",
-    "en": "Could you go to the post office and pick up the parcel for me?"
+    "zh": "我明天不在家，你可以替我收包裹嗎？",
+    "zhuyin": "ㄨㄛˇ ㄇㄧㄥˊ ㄊㄧㄢ ㄅㄨˋ ㄗㄞˋ ㄐㄧㄚ ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄊㄧˋ ㄨㄛˇ ㄕㄡ ㄅㄠ ㄍㄨㄛˇ ˙ㄇㄚ",
+    "en": "I won't be home tomorrow. Could you take in the parcel for me?"
    }
   ],
   "mistake": {
@@ -1519,7 +1519,7 @@
   "pattern": "狀態動詞重疊做狀語",
   "level": "第3級",
   "title_en": "Reduplicated adjective before a verb (AA地 + V)",
-  "explanation_en": "A repeated adjective can describe how an action is done. It goes before the verb, often followed by 地 (pronounced ˙ㄉㄜ): 慢慢地走, 輕輕地關門. With one-syllable AA forms 地 is often dropped (慢慢吃, 好好準備). It gives instructions a gentle, caring tone.",
+  "explanation_en": "A repeated adjective can describe how an action is done. It goes before the verb, often followed by 地 (pronounced ˙ㄉㄜ): 輕輕地關門, 高高興興地回家. With one-syllable AA forms 地 is often dropped (慢慢吃, 好好準備). It gives instructions a gentle, caring tone.",
   "structure": "AA(地) / AABB地 + V",
   "examples": [
    {
@@ -1557,7 +1557,7 @@
   "pattern": "VV看",
   "level": "第3級",
   "title_en": "VV看: 'try doing and see'",
-  "explanation_en": "VV看 means 'try doing it and see': 吃吃看 'have a taste', 試試看 'give it a try'. 看 here no longer means 'look'; it means 'and see how it goes'. The object usually comes first as the topic (這個你吃吃看).",
+  "explanation_en": "VV看 means 'try doing it and see': 吃吃看 'have a taste', 試試看 'give it a try'. 看 here no longer means 'look'; it means 'and see how it goes'. The object usually comes first as the topic (這件外套你穿穿看).",
   "structure": "(O) + VV看 ; V看看",
   "examples": [
    {
@@ -1582,10 +1582,10 @@
    }
   ],
   "mistake": {
-   "wrong": "你吃看這個。",
-   "right": "這個你吃吃看。",
-   "right_zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄋㄧˇ ㄔ ㄔ ㄎㄢˋ",
-   "why_en": "Double the verb before 看 (吃吃看), and put the object first as the topic."
+   "wrong": "你喝看這杯茶。",
+   "right": "這杯茶你喝喝看。",
+   "right_zhuyin": "ㄓㄜˋ ㄅㄟ ㄔㄚˊ ㄋㄧˇ ㄏㄜ ㄏㄜ ㄎㄢˋ",
+   "why_en": "Double the verb before 看 (喝喝看), and put the object first as the topic."
   },
   "taiwan_note": "Taiwan speakers also use V看看 a lot, especially with two-syllable verbs: 考慮看看, 想看看."
  },

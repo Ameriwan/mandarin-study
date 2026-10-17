@@ -6,7 +6,9 @@
 Rules
 - Sources in order: TBCL 詞語表 Zhuyin, MOE 簡編本, MOE 修訂本.
 - OK      the whole word (or every segment of a sentence) matches a first-listed reading. Every TBCL reading
-          counts, unless MOE lists it only as a 變 / 又音 / 語音 / 讀音 variant.
+          counts, unless MOE lists it only as a 變 / 又音 / 語音 / 讀音 variant. In a sentence, a function word
+          standing as its own segment may take its listed neutral-tone reading (FUNCTION_WORDS: 了 ˙ㄌㄜ, 著 ˙ㄓㄜ,
+          子 ˙ㄗ ...), even where MOE lists it after another reading.
 - WARN ⚑  it matches only a 又音 / 語音 / 讀音 / 或讀 / 變 reading or a later 多音 entry; TBCL and MOE disagree;
           a tone differs from a listed reading only in a §6.4 way (the character's own full tone for ˙,
           一/不 sandhi, 3+3 sandhi); or a sentence fits only when a longest-match word gives up its tail
@@ -14,6 +16,16 @@ Rules
 - FAIL    some syllable matches no listed reading at all; any other tone difference fails too.
           The build stops on any FAIL.
 Content is fixed, never the verifier.
+
+Segmentation (check_run): longest match over TBCL + 簡編本 + 修訂本, except that a rare word (MOE-only, or TBCL
+第6級 / 第7級) whose reading does not fit gives way to shorter words and single characters (每天都 is not 每|天都,
+要買 ㄧㄠ ㄇㄞˇ is not the 要買 of 我要買); a TBCL 第1級-第5級 word is never split, so a wrong reading inside it
+still fails (銀行 ㄧㄣˊ ㄒㄧㄥˊ).
+
+Every Zhuyin field in content/ is checked (pairs_in): "zhuyin" with zh / word / text / char / symbol_word / idiom /
+chengyu / hanzi / headword, and any "<x>_zhuyin" with "<x>_zh" or "<x>" (right / right_zhuyin, example_zh /
+example_zhuyin, taiwan / taiwan_zhuyin, model_zh / model_zhuyin ...). A Zhuyin field with no Chinese text next to it
+fails.
 """
 import json
 import sys
@@ -22,14 +34,22 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import moe  # noqa: E402
 
-# (zh field, zhuyin field) pairs we look for in JSON objects and CSV rows
-PAIRS = [("zh", "zhuyin"), ("word", "zhuyin"), ("text", "zhuyin"), ("char", "zhuyin"), ("symbol_word", "zhuyin")]
+# (zh field, zhuyin field) pairs we look for in JSON objects and CSV rows: a plain "zhuyin" field goes with the
+# first of these Chinese fields; any other "<x>_zhuyin" field with "<x>_zh" or "<x>" (pairs_in)
+PAIRS = [("zh", "zhuyin"), ("word", "zhuyin"), ("text", "zhuyin"), ("char", "zhuyin"), ("symbol_word", "zhuyin"),
+         ("idiom", "zhuyin"), ("chengyu", "zhuyin"), ("hanzi", "zhuyin"), ("headword", "zhuyin")]
+# Function words whose neutral-tone reading MOE lists after another one (了 ㄌㄧㄠˇ first, ˙ㄌㄜ later): standing as
+# their own segment in a sentence, this reading is ok, not a ⚑ (every other later 多音 choice still warns: that
+# warning caught the 便當 error). Only when a source lists it (main or later 多音): 過 ˙ㄍㄨㄛ is listed nowhere.
+FUNCTION_WORDS = {"了": "˙ㄌㄜ", "著": "˙ㄓㄜ", "的": "˙ㄉㄜ", "得": "˙ㄉㄜ", "地": "˙ㄉㄜ", "過": "˙ㄍㄨㄛ", "個": "˙ㄍㄜ",
+                  "嗎": "˙ㄇㄚ", "呢": "˙ㄋㄜ", "吧": "˙ㄅㄚ", "們": "˙ㄇㄣ", "子": "˙ㄗ"}
 ONE, BU = "ㄧ", "ㄅㄨˋ"                 # base tones of 一 and 不
 SANDHI_ONE = {"ㄧˊ", "ㄧˋ"}            # 一: ㄧˊ before T4, ㄧˋ before T1-T3
 ONE_BEFORE = {1: "ㄧˋ", 2: "ㄧˋ", 3: "ㄧˋ", 4: "ㄧˊ"}
 SANDHI_BU = {"ㄅㄨˊ"}                  # 不: ㄅㄨˊ before T4
 KIND_NAME = {"alt": "later 多音", "變": "變 (sandhi)"}
 SPELL_AS_MOE = "spell it as MOE does, with base tones (§6.4)"
+CORE_LEVEL = "第5級"                   # TBCL words up to this level are kept whole by the segmenter (check_run)
 
 
 class Result:
@@ -158,9 +178,19 @@ def check_chars(piece, syls, after):
     return st, "; ".join(notes)
 
 
+def function_word_ok(ch, syl):
+    """True when `syl` is the FUNCTION_WORDS reading of `ch` and some source lists it as a main or later 多音
+    reading (not only as a 變 / 又音 / 語音 / 讀音 variant)."""
+    return (FUNCTION_WORDS.get(ch) == moe.norm(syl)
+            and any(z == FUNCTION_WORDS[ch] and kind in ("main", "alt") for z, _, kind in moe.word_readings(ch)))
+
+
 def check_at(text, syls, after, k, n):
-    """check_word() on the piece text[k:k+n] of a run; a piece no source has goes character by character."""
+    """check_word() on the piece text[k:k+n] of a run; a piece no source has goes character by character.
+    A function word on its own takes its listed neutral reading as ok (FUNCTION_WORDS)."""
     end = k + n
+    if n == 1 and function_word_ok(text[k], syls[k]):
+        return "ok", ""
     nxt = as_listed(text[end], syls[end]) if end < len(text) else after
     st, why = check_word(text[k:end], " ".join(syls[k:end]), nxt)
     if st is None:
@@ -171,12 +201,13 @@ def check_at(text, syls, after, k, n):
 def resplit(text, syls, after, k, n):
     """Another split for the failing word text[k:k+n]: a shorter piece at k, then a lexicon word that runs
     past the old boundary (他|會計|算 → 他|會|計算), both passing. Returns (why, length covered) or None.
-    Taking a word apart with nothing crossing its edge (銀|行 for 銀行 ㄒㄧㄥˊ) is no other split: it fails."""
+    Taking a word apart with nothing crossing its edge (銀|行 for 銀行 ㄒㄧㄥˊ) is no other split: it fails. The
+    crossing word must be a core TBCL word (core_word): a rare one does not break a word (銀|行在 for 銀行在 ㄒㄧㄥˊ)."""
     for m in range(n - 1, 0, -1):
         if m > 1 and text[k:k + m] not in moe.lexicon():
             continue
         for n2 in moe.match_lengths(text, k + m):
-            if n2 < 2 or m + n2 <= n:
+            if n2 < 2 or m + n2 <= n or not core_word(text[k + m:k + m + n2]):
                 continue
             got = [(text[k:k + m], check_at(text, syls, after, k, m)),
                    (text[k + m:k + m + n2], check_at(text, syls, after, k + m, n2))]
@@ -186,25 +217,67 @@ def resplit(text, syls, after, k, n):
     return None
 
 
-def check_run(text, syls, after):
-    """Check a run of characters (no punctuation) word by word, longest match first. Returns (status, why)."""
-    worst, notes, k = "ok", [], 0
-    while k < len(text):
-        n = moe.match_lengths(text, k)[0]
-        piece, part = text[k:k + n], " ".join(syls[k:k + n])
-        st, why = check_at(text, syls, after, k, n)
-        alt = resplit(text, syls, after, k, n) if st == "fail" and n > 1 else None
-        if alt:
-            (how, n), st = alt, "warn"
-            why = f"word-level mismatch ({piece} {part}: {why}); {how}"
-            piece = text[k:k + n]
-        if st == "fail":
-            return "fail", f"{piece} {part}: {why}"
-        if st == "warn":
-            worst = "warn"
-            notes.append(f"{piece}: {why}")
-        k += n
-    return worst, "; ".join(notes)
+def core_word(w):
+    """A TBCL word of 第1級-第5級 (CORE_LEVEL): the segmenter never gives it up for shorter pieces."""
+    t = moe.tbcl_words().get(w)
+    return bool(t) and moe.level_rank(t["level"]) <= moe.level_rank(CORE_LEVEL)
+
+
+def tbcl_char_ok(ch, syl):
+    """A single character in TBCL's first reading of it as a word of its own (要 ㄧㄠˋ, 都 ㄉㄡ), or in its
+    FUNCTION_WORDS reading: what may stand in for a rare word the segmenter gives up. A polyphone in another
+    reading may not (中|國 for 中國 ㄓㄨㄥˋ ㄍㄨㄛˊ: TBCL lists 中 ㄓㄨㄥ first)."""
+    t = moe.tbcl_words().get(ch)
+    return function_word_ok(ch, syl) or bool(t and t["readings"] and moe.norm(syl) == t["readings"][0])
+
+
+def check_run(text, syls, after, whole=False):
+    """Check a run of characters (no punctuation) word by word, longest match first. Returns (status, why).
+
+    A rare longest match (a word of two or more characters that is no core TBCL word: MOE-only, or TBCL 第6級 /
+    第7級) gives way to the next shorter word, or to its first character read as TBCL reads it alone
+    (tbcl_char_ok), when its reading does not fit or the rest of the run cannot be read after it: 我每|天都 →
+    我每|天|都, 要買 ㄧㄠ ㄇㄞˇ → 要|買, 都會 ㄉㄨ ㄏㄨㄟˋ → 都|會, 的是 ㄉㄧˊ ㄕˋ → 的|是, 我家|裡 ˙ㄌㄧ → 我|家裡.
+    That choice of segmentation is no ⚑. A core word is never split (銀行 ㄧㄣˊ ㄒㄧㄥˊ fails); a failing word may
+    still give up its tail to a core word crossing its edge (resplit, a ⚑), which is tried first. `whole`: the run
+    is the whole text, so a word that covers it stands on its own and is not re-segmented (會計 ㄏㄨㄟˋ ㄐㄧˋ fails)."""
+    memo = {}
+
+    def solve(k):
+        """('ok'|'warn', [notes]) for text[k:], or ('fail', why) of the longest-match reading."""
+        if k == len(text):
+            return "ok", []
+        if k in memo:
+            return memo[k]
+        first = None
+        for i, n in enumerate(moe.match_lengths(text, k)):
+            if i and n == 1 and not tbcl_char_ok(text[k], syls[k]):
+                break
+            piece, part = text[k:k + n], " ".join(syls[k:k + n])
+            st, why = check_at(text, syls, after, k, n)
+            m = n
+            alt = resplit(text, syls, after, k, n) if st == "fail" and n > 1 else None
+            if alt:
+                (how, m), st = alt, "warn"
+                why = f"word-level mismatch ({piece} {part}: {why}); {how}"
+                piece = text[k:k + m]
+            if st == "fail":
+                got = ("fail", f"{piece} {part}: {why}")
+            else:
+                rest = solve(k + m)
+                got = rest if rest[0] == "fail" else (
+                    "warn" if "warn" in (st, rest[0]) else "ok", ([f"{piece}: {why}"] if st == "warn" else []) + rest[1])
+            if got[0] != "fail":
+                memo[k] = got
+                return got
+            first = first or got
+            if n == 1 or core_word(text[k:k + n]) or (whole and n == len(text)):
+                break
+        memo[k] = first
+        return first
+
+    st, notes = solve(0)
+    return (st, notes) if st == "fail" else (st, "; ".join(notes))
 
 
 def word_runs(zh):
@@ -240,7 +313,7 @@ def check(zh, zhuyin):
         end = i + len(run)
         # runs are split at punctuation, and tone sandhi (3+3, 一/不) never crosses a phrase or
         # sentence break, so each run is checked with no following syllable
-        st, why = check_run(run, syls[i:end], None)
+        st, why = check_run(run, syls[i:end], None, whole=len(runs) == 1)
         if st == "fail":
             return st, why
         if st == "warn":
@@ -250,12 +323,41 @@ def check(zh, zhuyin):
     return worst, "; ".join(notes)
 
 
+def pairs_in(obj):
+    """[(Chinese field or None, Zhuyin field)] of a JSON object or CSV row: "zhuyin" with the first PAIRS field
+    present, every "<x>_zhuyin" with "<x>_zh", else "<x>" (also "<x>_text", "<x>_word")."""
+    out = []
+    for k in obj:
+        if k == "zhuyin":
+            zf = next((z for z, p in PAIRS if p == k and z in obj), None)
+        elif isinstance(k, str) and k.endswith("_zhuyin") and len(k) > len("_zhuyin"):
+            x = k[:-len("_zhuyin")]
+            zf = next((f for f in (f"{x}_zh", x, f"{x}_text", f"{x}_word") if f in obj), None)
+        else:
+            continue
+        out.append((zf, k))
+    return out
+
+
+def record_pairs(res, where, obj, sep):
+    """record() every Zhuyin field of `obj` (pairs_in) that has text; `where` gets `sep` + the Chinese field's name
+    for any pair but the plain zh / zhuyin one. A Zhuyin field with no Chinese text next to it is a failure."""
+    for zf, pf in pairs_in(obj):
+        z = obj.get(pf)
+        if not isinstance(z, str) or not z.strip():
+            continue
+        at = where if pf == "zhuyin" else f"{where}{sep}{zf or pf}"
+        zh = obj.get(zf) if zf else None
+        if not isinstance(zh, str) or not zh.strip():
+            res.checked += 1
+            res.failures.append((at, "", z, f"{pf} has no Chinese text next to it ({zf or 'no Chinese field'})"))
+            continue
+        record(res, at, zh, z)
+
+
 def walk_json(obj, where, res):
     if isinstance(obj, dict):
-        for zf, pf in PAIRS:
-            if zf in obj and pf in obj and isinstance(obj.get(pf), str) and isinstance(obj.get(zf), str):
-                record(res, where, obj[zf], obj[pf])
-                break
+        record_pairs(res, where, obj, "/")
         for k, v in obj.items():
             walk_json(v, f"{where}/{k}", res)
     elif isinstance(obj, list):
@@ -285,10 +387,7 @@ def verify_content(content_dir=moe.CONTENT):
             walk_json(data, rel, res)
         elif path.suffix == ".csv":
             for n, row in enumerate(moe.read_csv(path), start=2):
-                for zf, pf in PAIRS:
-                    if row.get(zf) and row.get(pf):
-                        record(res, f"{rel}:{n}", row[zf], row[pf])
-                        break
+                record_pairs(res, f"{rel}:{n}", row, " ")
     return res
 
 

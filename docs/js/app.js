@@ -13,7 +13,8 @@ const NAV = [
   { id: "settings", href: "settings.html", ico: "設", zh: "設定", en: "Settings" },
 ];
 const PRIMARY = ["home", "lab", "tones", "shadow"];
-export const BUILT = ["home", "lab", "tones", "shadow"]; // pages that exist so far (others show "coming soon")
+// pages that exist so far (others show "coming soon")
+export const BUILT = ["home", "lab", "tones", "shadow", "units", "library", "plan", "advanced", "settings"];
 
 // ---------- tiny DOM builder: h("div", {class: "x", onclick}, "text", child)
 export function h(tag, attrs = {}, ...kids) {
@@ -47,6 +48,8 @@ function navLink(n, active, kids, note) {
   return h("a", { href: n.href, class: n.id === active ? "active" : "", "aria-current": n.id === active ? "page" : null }, kids);
 }
 export function mountShell(active) {
+  document.documentElement.dataset.page = active; // style.css scopes the display settings by page (html[data-page])
+  applyDisplay();
   const label = n => [h("span", { lang: "zh-Hant-TW" }, n.zh), " ", h("span", { class: "en", lang: "en" }, n.en)];
   const top = h("header", { class: "topbar" },
     h("div", { class: "topbar-inner" },
@@ -88,8 +91,133 @@ export const store = {
   remove(key) { try { localStorage.removeItem(PREFIX + key); } catch { /* ignore */ } },
   keys() { try { return Object.keys(localStorage).filter(k => k.startsWith(PREFIX)).map(k => k.slice(PREFIX.length)); } catch { return []; } },
 };
-export const settings = () => ({ ruby: "always", pinyin: false, english: true, sandhi: false, toneColours: false, speed: 1, dailyMinutes: 30, ...store.get("settings", {}) });
-export function setSetting(k, v) { store.set("settings", { ...settings(), [k]: v }); }
+export const settings = () => ({ ruby: "always", pinyin: false, english: true, sandhi: false, toneColours: false, immersion: false, speed: 1,
+  dailyMinutes: 30, ...store.get("settings", {}) });
+export function setSetting(k, v) { store.set("settings", { ...settings(), [k]: v }); applyDisplay(); }
+// Settings › Default speed (0.75 / 0.9 / 1.0): what playMoe, playFile, playButton and speak start at when the caller
+// passes no rate (pages with their own speed control pass theirs, and start it from this).
+export const defaultRate = (s = settings()) => { const r = Number(s && s.speed); return r >= 0.5 && r <= 2 ? r : 1; };
+
+// ---------- display settings (§5 display rules, §5.9; M6 design): one place decides, every page follows.
+// applyDisplay() runs when this module loads, in mountShell, after setSetting and when another tab changes the
+// settings. It sets classes on <html> that style.css acts on:
+//   immersion          Chinese-only interface: interface English runs ([lang="en"]) are hidden; learning-content
+//                      translations stay and follow the English switch; a control never loses its visible name
+//                      (keepNames below gives back the English of a control that has nothing else to show)
+//   set-ruby-off/new   Zhuyin off / only on words not marked "known" in the Library, for every ruby() made with the
+//                      setting (pages and widgets that run their own Zhuyin switch are exempt in style.css)
+//   set-no-en          English translations of learning content hidden (pages with their own English switch read
+//                      showEnglish() as its default)
+//   set-pinyin         pinyin aids shown (off by default)
+//   set-tone-colours   Zhuyin coloured by tone (off by default; ruby() tags every syllable t1..t5)
+//   set-sandhi         the spoken-tone overlay is on (ruby() draws it)
+// Zhuyin mode of the setting: "always" | "new" | "off" (older or page-local spellings are accepted).
+export function rubyMode(s = settings()) {
+  const r = String(s && s.ruby);
+  if (s && s.ruby === false) return "off";
+  if (/^(off|never|none|hide)$/i.test(r)) return "off";
+  if (/^new/i.test(r)) return "new";
+  return "always";
+}
+export const showEnglish = (s = settings()) => !s || s.english !== false;
+export const showPinyin = (s = settings()) => !!(s && s.pinyin);
+export function applyDisplay(s = settings()) {
+  if (typeof document === "undefined") return;
+  const root = document.documentElement, mode = rubyMode(s);
+  const set = (cls, on) => root.classList.toggle(cls, !!on);
+  set("immersion", s.immersion);
+  set("set-ruby-off", mode === "off");
+  set("set-ruby-new", mode === "new");
+  set("set-no-en", !showEnglish(s));
+  set("set-pinyin", showPinyin(s));
+  set("set-tone-colours", s.toneColours);
+  set("set-sandhi", s.sandhi);
+  if (s.immersion) startKeepNames(); else stopKeepNames();
+}
+
+// Immersion: hide interface English but never leave a control or a label without a visible name. A button, link,
+// label, heading … whose visible text would be English only (an English-only answer option, "Anki", a link named by
+// its site) keeps its English runs (class "imm-keep"). Runs on the page and on everything added later.
+const NAMED = "button, a, label, summary, legend, caption, th, dt, h1, h2, h3, h4, [role=button], [role=link], [role=tab], [role=switch], "
+  + "[role=checkbox], [role=radio], [role=menuitem], [role=option], [role=columnheader], [role=rowheader]";
+// English that immersion leaves alone: kept names, and learning-content English (class "lc-en": translations, glosses,
+// quiz questions and answer options, lesson explanations; older page classes below), which follows only the English
+// switch. Keep this list in step with the immersion rule in style.css.
+export const IMM_SHOWN = ".imm-keep, .lc-en, .adv-name, .gloss, .tr, .lib-gloss, .lib-row-en, .lib-ex-en, .tc-gloss, .tg-word-en, .sd-en, "
+  + ".drill-gloss, .example > .en, .choice > .en, .un-line-en, .un-v-en, .un-g-en, .un-sh-en, .un-task-en, .sh-en, .sh-row-en";
+const LETTER = /[\p{L}\p{N}]/u;
+function hiddenInImmersion(node, stop) {
+  for (let a = node; a && a !== stop; a = a.parentElement) {
+    if (a.matches(".sr-only, [hidden]")) return true; // not visible in any mode
+    if (a.matches('[lang="en"]') && !a.closest(IMM_SHOWN)) return true;
+  }
+  return false;
+}
+function keepName(el) {
+  const self = el.matches('[lang="en"]'); // a control that is itself marked English (its whole name is English)
+  if (!self && !el.querySelector('[lang="en"]')) return;
+  const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  for (let n = w.nextNode(); n; n = w.nextNode()) {
+    if (LETTER.test(n.data) && !hiddenInImmersion(n.parentElement, el.parentElement)) return; // a visible name: fine
+  }
+  if (self) el.classList.add("imm-keep");
+  for (const x of el.querySelectorAll('[lang="en"]')) if (!x.closest(".sr-only")) x.classList.add("imm-keep");
+}
+// The controls to check after nodes were added under `parent`: the control around them and the controls inside them.
+function collectNamed(parent, added, into) {
+  const t = parent && (parent.nodeType === 1 ? parent : parent.parentElement);
+  const up = t && t.closest(NAMED);
+  if (up) into.add(up);
+  for (const n of added) {
+    if (n.nodeType !== 1) continue;
+    if (n.matches(NAMED)) into.add(n);
+    for (const el of n.querySelectorAll(NAMED)) into.add(el);
+  }
+  return into;
+}
+let namesObserver = null;
+function startKeepNames() {
+  if (namesObserver || typeof MutationObserver === "undefined" || !document.body) return;
+  for (const el of collectNamed(null, [document.body], new Set())) keepName(el);
+  namesObserver = new MutationObserver(recs => {
+    const todo = new Set();
+    for (const r of recs) if (r.addedNodes.length) collectNamed(r.target, r.addedNodes, todo);
+    for (const el of todo) if (el.isConnected) keepName(el);
+  });
+  namesObserver.observe(document.body, { childList: true, subtree: true });
+}
+function stopKeepNames() { if (namesObserver) { namesObserver.disconnect(); namesObserver = null; } }
+if (typeof window !== "undefined" && typeof document !== "undefined") {
+  window.addEventListener("storage", e => { if (!e.key || e.key === PREFIX + "settings") applyDisplay(); });
+  if (document.body) applyDisplay(); else document.addEventListener("DOMContentLoaded", () => applyDisplay());
+}
+
+// ---------- the learner's level and phase (§8.1, §8.3; M4 design §5)
+// level: the TBCL level studied now, a number 1-7 (store "level", set by the Plan page's placement and passed level
+// checks), else the last placement's (store "plan.placement".level); null when not placed yet.
+// phase: 0 "sound reset" during the first 28 days (it runs alongside everything), then the phase of the level
+// (§8.1: L1-2 → 1, L3 → 2, L4 → 3, L5 → 4, L6-7 → 5; 1 when not placed). levelPhase: the level's own phase.
+// placedAt: the date of the last placement ("YYYY-MM-DD") or null. week: the Phase 0 week (1-4) or null.
+export const PHASE0_DAYS = 28;
+export const phaseOfLevel = n => (n >= 6 ? 5 : n === 5 ? 4 : n === 4 ? 3 : n === 3 ? 2 : 1);
+export const PHASE_NAMES = { 0: ["聲音重置", "Sound reset"], 1: ["生存", "Survival"], 2: ["日常生活", "Daily life"], 3: ["獨立", "Independent"],
+  4: ["中高級", "Upper-intermediate"], 5: ["高級", "Advanced"] };
+const levelNumber = x => {
+  if (x && typeof x === "object") return levelNumber(x.level ?? x.tbcl ?? null);
+  if (typeof x === "number") return Number.isFinite(x) && x >= 1 && x <= 7 ? Math.floor(x) : null;
+  const m = String(x ?? "").match(/[1-7]/);
+  return m ? Number(m[0]) : null;
+};
+export function levelState() {
+  const p = store.get("plan.placement", null);
+  const placed = p && typeof p === "object" ? p : null;
+  const level = levelNumber(store.get("level", null)) ?? levelNumber(placed && placed.level);
+  const days = Math.max(0, daysSinceStart());
+  const phase0 = days < PHASE0_DAYS;
+  const levelPhase = level ? phaseOfLevel(level) : null;
+  return { level, phase: phase0 ? 0 : levelPhase ?? 1, placedAt: placed && placed.date ? String(placed.date) : null,
+    levelPhase, phase0, week: phase0 ? Math.floor(days / 7) + 1 : null };
+}
 
 // The day the learner first opened the app (YYYY-MM-DD): Phase 0 "sound reset" runs its first 4 weeks (§8.1, §8.3).
 export function startDate() {
@@ -161,22 +289,83 @@ export const bi = (zh, en) => [zh, " ", enText(en)];
 // spoken: the same word with tone sandhi applied (from the build). When the "show sandhi" setting is on (or
 // opts.sandhi is true), each syllable whose spoken tone differs shows the spoken form, marked with class "sandhi"
 // and the written (base) form in its title (§6.4: store the base tone, overlay the spoken one).
-export function ruby(zh, zhuyin, { cls = "zh", spoken = null, sandhi = null } = {}) {
+// Display settings (applyDisplay above): every <ruby> carries the tone of the syllable it shows (t1..t5, for the tone
+// colours option). mode: the Zhuyin mode; by default the learner's setting, applied through style.css (class "rb"),
+// so a page or widget that runs its own Zhuyin switch can be exempted there. A caller may pass mode "always" (Zhuyin
+// whatever the setting), "off" (plain characters) or "new" (no Zhuyin on words marked known in the Library).
+const HAN = /[㐀-鿿豈-﫿]/;
+export function ruby(zh, zhuyin, { cls = "zh", spoken = null, sandhi = null, mode = null } = {}) {
   const el = h("span", { class: cls, lang: "zh-Hant-TW" });
-  const syls = zhuyin ? syllables(zhuyin) : [];
+  zh = String(zh ?? "");
+  const syls = zhuyin ? syllables(String(zhuyin)) : [];
   const chars = [...zh];
-  const cjk = chars.filter(c => /[㐀-鿿豈-﫿]/.test(c));
-  if (!syls.length || cjk.length !== syls.length) { el.textContent = zh; return el; }
-  const said = spoken && (sandhi ?? settings().sandhi) ? syllables(spoken) : null;
+  const cjk = chars.filter(c => HAN.test(c));
+  if (!syls.length || cjk.length !== syls.length || mode === "off") { el.textContent = zh; return el; }
+  const said = spoken && (sandhi ?? settings().sandhi) ? syllables(String(spoken)) : null;
+  const m = mode || rubyMode();
+  const known = m === "new" ? knownMask(chars, syls) : null;
+  if (!mode) el.classList.add("rb");
+  else if (mode === "new") el.classList.add("rb-new");
   let i = 0;
   for (const c of chars) {
-    if (/[㐀-鿿豈-﫿]/.test(c)) {
-      const base = syls[i], alt = said && said[i] !== base ? said[i] : null;
-      el.append(h("ruby", {}, c, h("rp", {}, "("), alt ? h("rt", { class: "sandhi", title: `寫作 written ${base}` }, alt) : h("rt", {}, base), h("rp", {}, ")")));
+    if (HAN.test(c)) {
+      const base = syls[i], alt = said && said[i] && said[i] !== base ? said[i] : null;
+      const cl = [`t${toneOf(alt || base)}`, known && known[i] ? "rb-known" : ""].filter(Boolean).join(" ");
+      el.append(h("ruby", { class: cl }, c, h("rp", {}, "("), alt ? h("rt", { class: "sandhi", title: `寫作 written ${base}` }, alt) : h("rt", {}, base), h("rp", {}, ")")));
       i++;
     } else el.append(c);
   }
   return el;
+}
+
+// Words marked "known" in the Library (store "lib.status", library.js: {"<type>:<key>": "known"}; a word's key is its
+// characters, plus "|<Zhuyin without spaces>" for a homograph): characters -> the readings known ("" = any reading).
+// Read again only when the stored text changes.
+let knownCache = { raw: undefined, map: new Map() };
+function knownWords() {
+  let raw = null;
+  try { raw = localStorage.getItem(PREFIX + "lib.status"); } catch { /* private mode */ }
+  if (raw === knownCache.raw) return knownCache.map;
+  const map = new Map();
+  try {
+    for (const [k, v] of Object.entries(JSON.parse(raw || "{}") || {})) {
+      if (v !== "known") continue;
+      const i = k.indexOf(":"), type = k.slice(0, i), key = k.slice(i + 1);
+      if (i < 0 || !["word", "taiwan", "measure", "reading", "phrase"].includes(type)) continue;
+      const j = key.indexOf("|"), w = j < 0 ? key : key.slice(0, j), reading = j < 0 ? "" : key.slice(j + 1);
+      if (!w || ![...w].every(c => HAN.test(c))) continue;
+      if (!map.has(w)) map.set(w, new Set());
+      map.get(w).add(/^\d+$/.test(reading) ? "" : reading.replace(/[\sˉ]+/g, "")); // "|<n>" only tells two rows apart
+    }
+  } catch { /* not JSON: nothing known */ }
+  knownCache = { raw, map };
+  return map;
+}
+// One flag per Han character: inside a known word (longest match first, never across punctuation or Latin text; the
+// word's reading is checked when its Library key has one).
+function knownMask(chars, syls) {
+  const map = knownWords();
+  const mask = new Array(syls.length).fill(false);
+  if (!map.size) return mask;
+  const runs = [];
+  let run = [], k = 0;
+  for (const c of chars) {
+    if (HAN.test(c)) run.push([c, k++]);
+    else if (run.length) { runs.push(run); run = []; }
+  }
+  if (run.length) runs.push(run);
+  for (const r of runs) {
+    for (let a = 0; a < r.length;) {
+      let len = Math.min(8, r.length - a);
+      for (; len > 0; len--) {
+        const readings = map.get(r.slice(a, a + len).map(x => x[0]).join(""));
+        if (!readings) continue;
+        if (readings.has("") || readings.has(syls.slice(r[a][1], r[a][1] + len).join(""))) break;
+      }
+      if (len > 0) { for (let b = a; b < a + len; b++) mask[r[b][1]] = true; a += len; } else a++;
+    }
+  }
+  return mask;
 }
 
 // ---------- audio
@@ -210,12 +399,15 @@ export function stopAudio() {
   stopPlayback();
   stopRecorders();
 }
-// Play the headword span of an MOE clip with exact edges. Resolves when it ends.
-export async function playMoe(id, { rate = 1, span = true } = {}) {
+// Play the headword span of an MOE clip with exact edges. Resolves when it ends. rate: Settings' default speed when
+// not given; a slowed clip plays through an <audio> element so it keeps its pitch (a buffer source at another rate
+// would shift the voice, and with it the tone's register).
+export async function playMoe(id, { rate = defaultRate(), span = true } = {}) {
   await ready;
   const info = audioIndex[id];
   if (!info) throw new Error("no clip " + id);
   stopPlayback();
+  if (Math.abs(rate - 1) > 0.001) return playSlowMoe(moeUrl(id), info, rate, span);
   const buf = await decode(moeUrl(id));
   const c = audioContext();
   const src = c.createBufferSource();
@@ -231,7 +423,28 @@ export async function playMoe(id, { rate = 1, span = true } = {}) {
     src.start(0, start, dur);
   });
 }
-export async function playFile(path, { rate = 1 } = {}) {
+function playSlowMoe(url, info, rate, span) {
+  const a = new Audio(url);
+  a.preload = "auto"; a.preservesPitch = true; a.playbackRate = rate;
+  return new Promise(resolve => {
+    let timer = null, over = false;
+    const done = () => { if (over) return; over = true; clearTimeout(timer); a.pause(); if (current === me) current = null; resolve(); };
+    const me = { stop: done };
+    current = me;
+    a.onended = a.onerror = done;
+    const go = () => {
+      if (over) return;
+      if (span) a.currentTime = info.start;
+      a.playbackRate = rate;
+      a.play().then(() => {
+        if (span && !over) timer = setTimeout(done, Math.max(50, ((info.end - info.start) / rate) * 1000));
+      }).catch(done);
+    };
+    if (a.readyState >= 1) go(); else a.addEventListener("loadedmetadata", go, { once: true });
+  });
+}
+// path: a file, or a blob: / data: URL (the learner's own take: it plays at 1× unless a rate is given)
+export async function playFile(path, { rate = /^(blob|data):/.test(String(path)) ? 1 : defaultRate() } = {}) {
   stopPlayback();
   const a = new Audio(path);
   a.playbackRate = rate; a.preservesPitch = true;
@@ -239,12 +452,15 @@ export async function playFile(path, { rate = 1 } = {}) {
   current = me;
   return new Promise(resolve => { a.onended = a.onerror = () => { if (current === me) current = null; resolve(); }; a.play().catch(() => resolve()); });
 }
+// The Taiwan voice for TTS: Settings › Browser voice (a voice name) when this device has it, else the best guess.
 function pickVoice() {
   const voices = speechSynthesis.getVoices().filter(v => /^(zh[-_](TW|Hant)|cmn[-_]TW)/i.test(v.lang) || /zh-TW|臺灣|台灣|Taiwan/i.test(v.name + v.lang));
-  return voices.find(v => /natural|online|hsiao|yunjhe|meijia|google/i.test(v.name)) || voices[0] || null;
+  const want = settings().voice;
+  return (want && voices.find(v => v.name === want)) || voices.find(v => /natural|online|hsiao|yunjhe|meijia|google/i.test(v.name)) || voices[0] || null;
 }
 export const hasTwVoice = () => "speechSynthesis" in window && !!pickVoice();
-export function speak(text, { rate = 0.9 } = {}) {
+// The browser voice runs at 0.9 × the speed (it is fast at 1.0); rate defaults to 0.9 × Settings' default speed.
+export function speak(text, { rate = 0.9 * defaultRate() } = {}) {
   if (!("speechSynthesis" in window)) return Promise.resolve();
   stopPlayback();
   return new Promise(resolve => {
@@ -258,18 +474,20 @@ export function speak(text, { rate = 0.9 } = {}) {
 if ("speechSynthesis" in window) speechSynthesis.getVoices();
 
 // One play button + its source badge. item: {id?, zh, audio?} — id = MOE clip, audio = "juyin:ㄅ" or a tts path.
-export function playButton(item, { label = "🔊", rate = 1, badge = true, cls = "btn icon" } = {}) {
+// rate: fixed by the caller, else Settings' default speed at the time of the click.
+export function playButton(item, { label = "🔊", rate = null, badge = true, cls = "btn icon" } = {}) {
   const src = item.id ? "moe" : item.audio && audioIndex[item.audio] ? audioIndex[item.audio].src : item.audio?.startsWith("audio/tts/") ? "tts" : "voice";
   const names = { moe: "MOE human voice · 教育部真人發音", juyin: "MOE handbook · 教育部注音符號手冊", tts: "TTS (Google zh-TW)", voice: "Browser voice (no MOE clip)" };
   const btn = h("button", { class: cls, type: "button", title: names[src], "aria-label": `播放 Play ${item.zh || ""} — ${names[src]}`,
     onclick: async e => {
       e.stopPropagation();
       btn.classList.add("is-playing");
+      const r = Number(rate) > 0 ? Number(rate) : defaultRate();
       try {
-        if (item.id) await playMoe(item.id, { rate });
-        else if (item.audio && audioIndex[item.audio]) await playFile(audioIndex[item.audio].path, { rate });
-        else if (item.audio?.startsWith("audio/")) await playFile(item.audio, { rate });
-        else await speak(item.zh, { rate: rate * 0.9 });
+        if (item.id) await playMoe(item.id, { rate: r });
+        else if (item.audio && audioIndex[item.audio]) await playFile(audioIndex[item.audio].path, { rate: r });
+        else if (item.audio?.startsWith("audio/")) await playFile(item.audio, { rate: r });
+        else await speak(item.zh, { rate: r * 0.9 });
       } catch (err) { toast("無法播放 Could not play: " + (err.message || err)); }
       btn.classList.remove("is-playing");
     } }, label);
@@ -367,11 +585,13 @@ export class Recorder {
 // Record / play-back pair with optional save key. Returns a <span class="rec">.
 // A take cut short by stopAudio() (tab change, detail closed) or by the widget leaving the page is kept
 // like one stopped with the button.
+// "● 錄音 Record" -> ["● 錄音", " ", <span lang="en">Record</span>]: the English part is interface English (immersion hides it)
+const splitLabel = s => { const m = /^(.*\p{sc=Han}.*?)\s+([A-Za-z].*)$/u.exec(String(s)); return m ? [m[1], " ", enText(m[2])] : [String(s)]; };
 export function recordWidget({ key, label = "錄音 Record", onDone } = {}) {
   if (!canRecord) return h("span", { class: "muted small" }, h("span", { lang: "zh-Hant-TW" }, "此瀏覽器不能錄音"), " ", h("span", { lang: "en" }, "Recording not supported here"));
   const rec = new Recorder();
   let url = null, starting = false, watch = null;
-  const play = h("button", { class: "btn small", type: "button", disabled: true, onclick: () => { if (url) playFile(url); } }, "▶ 我的 Mine");
+  const play = h("button", { class: "btn small", type: "button", disabled: true, onclick: () => { if (url) playFile(url); } }, ...splitLabel("▶ 我的 Mine"));
   const btn = h("button", { class: "btn small", type: "button", "aria-pressed": "false", onclick: async () => {
     if (rec.recording) { rec.stop(); return; }
     if (starting) return; // permission prompt still open
@@ -379,7 +599,7 @@ export function recordWidget({ key, label = "錄音 Record", onDone } = {}) {
     watchDetach();
     try { if (await rec.start()) setRecording(true); else unwatch(); } catch { unwatch(); toast("需要麥克風權限 Microphone permission needed"); }
     starting = false;
-  } }, label);
+  } }, ...splitLabel(label));
   const wrap = h("span", { class: "rec" }, btn, play);
   // From Record until the take ends: if a view is cleared without stopAudio(), the detached widget stops its own recorder.
   const unwatch = () => { if (watch) { watch.disconnect(); watch = null; } };
@@ -388,7 +608,7 @@ export function recordWidget({ key, label = "錄音 Record", onDone } = {}) {
     watch = new MutationObserver(() => { if (!wrap.isConnected) { unwatch(); rec.stop(); } });
     watch.observe(document, { childList: true, subtree: true });
   };
-  const setRecording = on => { btn.textContent = on ? "■ 停止 Stop" : label; btn.classList.toggle("recording", on); btn.setAttribute("aria-pressed", String(on)); };
+  const setRecording = on => { btn.replaceChildren(...splitLabel(on ? "■ 停止 Stop" : label)); btn.classList.toggle("recording", on); btn.setAttribute("aria-pressed", String(on)); };
   rec.onstopped = blob => {
     unwatch();
     setRecording(false);

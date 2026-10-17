@@ -3,6 +3,10 @@
 MOE files are shipped whole (CC BY-ND 3.0 TW: never trimmed). The headword span {start, end} is found at build
 time with ffmpeg silencedetect and the page plays only that span. An .mp3 twin (format conversion only, mono
 ~40 kbps) is added for Safari/iOS, chosen by canPlayType at runtime.
+Library word clips (M4) are not published: the page streams them from the moedict CDN, and the build downloads them
+into the cache only to measure the headword span (span_only / stream_spans, publish_moe(publish=False)).
+A clip the CDN answers 404 for is recorded (NOT_FOUND_FILE, known_missing) and not asked for again for a while; the
+build publishes no such id, nor the id of a clip whose download failed (the page then uses the labelled browser voice).
 """
 import hashlib
 import json
@@ -10,7 +14,9 @@ import re
 import shutil
 import subprocess
 import sys
+import threading
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -21,6 +27,8 @@ MOE_CACHE = moe.CACHE / "moe-audio"
 JUYIN_CACHE = moe.CACHE / "moe-juyin"
 TTS_CACHE = moe.CACHE / "tts"
 SPANS_FILE = MOE_CACHE / "spans-v4.json"   # v4: words need a >= 0.45 s pause (v3 cut 垃圾/私人 after one syllable)
+NOT_FOUND_FILE = MOE_CACHE / "not-found-v1.json"   # {id: date}: clips the moedict CDN answered 404 / 410 for
+NOT_FOUND_RECHECK_DAYS = 30                        # such a clip is asked for again after this many days
 OUT = moe.DOCS / "audio"
 CDN = "https://r2-assets.moedict.tw/audio/a/{id}.ogg"
 UA = "Mozilla/5.0 (mandarin-study build; personal study project; ~1 request/s)"
@@ -45,13 +53,61 @@ def run_ffmpeg(args):
                           encoding="utf-8", errors="replace")
 
 
+_not_found = None
+_not_found_lock = threading.Lock()
+
+
+def not_found():
+    """{MOE id: date} of the clips the moedict CDN answered 404 / 410 for (cached in NOT_FOUND_FILE)."""
+    global _not_found
+    if _not_found is None:
+        try:
+            with open(NOT_FOUND_FILE, encoding="utf-8") as f:
+                _not_found = json.load(f)
+        except (OSError, ValueError):
+            _not_found = {}
+    return _not_found
+
+
+def _set_not_found(aid, missing):
+    with _not_found_lock:
+        nf = not_found()
+        if missing:
+            nf[str(aid)] = time.strftime("%Y-%m-%d")
+        elif nf.pop(str(aid), None) is None:
+            return
+        MOE_CACHE.mkdir(parents=True, exist_ok=True)
+        with open(NOT_FOUND_FILE, "w", encoding="utf-8") as f:
+            json.dump(nf, f, indent=0, sort_keys=True)
+
+
+def known_missing(aid):
+    """True when the CDN answered 404 / 410 for clip `aid` less than NOT_FOUND_RECHECK_DAYS days ago (and the clip
+    is not cached): fetch_moe does not ask again, and the build publishes the id nowhere."""
+    d = not_found().get(str(aid))
+    if not d or (MOE_CACHE / f"{aid}.ogg").exists():
+        return False
+    try:
+        return time.time() - time.mktime(time.strptime(d, "%Y-%m-%d")) < NOT_FOUND_RECHECK_DAYS * 86400
+    except ValueError:
+        return False
+
+
+def missing_clips():
+    """{id: why} of the clips known to be missing on the CDN, for library.drop_clips / lessons.drop_clips."""
+    return {a: "404 on the moedict CDN" for a in list(not_found()) if known_missing(a)}
+
+
 def fetch_moe(aid):
-    """Download one MOE ogg into the cache (throttled, resumable across builds). Returns the path or None."""
+    """Download one MOE ogg into the cache (throttled, resumable across builds). Returns the path or None.
+    A 404 / 410 is recorded (known_missing) and not retried; other errors are retried a few times."""
     global _last_fetch
     MOE_CACHE.mkdir(parents=True, exist_ok=True)
     dest = MOE_CACHE / f"{aid}.ogg"
     if dest.exists() and dest.stat().st_size > 1000:
         return dest
+    if known_missing(aid):
+        return None
     for attempt in range(4):
         wait = 1.0 - (time.time() - _last_fetch)
         if wait > 0:
@@ -63,7 +119,13 @@ def fetch_moe(aid):
                 data = r.read()
             if data[:4] == b"OggS" and len(data) > 1000:
                 dest.write_bytes(data)
+                _set_not_found(aid, False)
                 return dest
+        except urllib.error.HTTPError as e:
+            if e.code in (404, 410):   # the CDN has no such clip: permanent until the recheck
+                _set_not_found(aid, True)
+                return None
+            time.sleep(2 * (attempt + 1))
         except Exception:
             time.sleep(2 * (attempt + 1))
     return None
@@ -217,8 +279,77 @@ def detect_segments(path, min_pause=WORD_PAUSE, nsyl=None, cache=None):
     return segment_info(path, min_pause, nsyl, cache)["segments"]
 
 
-def publish_moe(aid, spans, nsyl=1):
-    """Cache -> docs/audio/moe/<id>.ogg + .mp3, and compute the span once. Returns the audio.json entry or None."""
+def span_only(aid, spans, nsyl=1, download=True):
+    """The cache-only path (publish=False, M4): a clip the page streams from the moedict CDN (Library words, §7.6
+    size budget) is downloaded into .cache/moe-audio/ only to measure its headword span; nothing goes to docs/.
+    Returns the span entry ({start, end, dur, ...}) or None when the clip is not cached and cannot be fetched."""
+    aid = str(aid)
+    if aid in spans:
+        return spans[aid]
+    src = MOE_CACHE / f"{aid}.ogg"
+    if not (src.exists() and src.stat().st_size > 1000):
+        src = fetch_moe(aid) if download else None
+    if not src:
+        return None
+    spans[aid] = detect_span(src, nsyl=nsyl)
+    return spans[aid]
+
+
+def stream_spans(wanted, max_new=None, download=True, log=print, on_batch=None, batch=30):
+    """Headword spans of streamed clips. `wanted`: {MOE id: syllables}, in priority order. Clips already in the
+    cache are measured first (no network), then at most `max_new` are downloaded (3 parallel connections, each
+    throttled like fetch_moe) in batches of `batch`; after each batch the span file is saved and on_batch(spans) is
+    called, so an interrupted build keeps what it measured and the next build continues (resumable).
+    Clips the CDN answered 404 for (now or within NOT_FOUND_RECHECK_DAYS, known_missing) are not asked for again.
+    Returns {"measured", "downloaded", "failed", "left", "unavailable": [ids with a 404 on the CDN],
+    "failed_ids": [ids whose download failed otherwise this run]}: the build publishes neither kind of id."""
+    spans = load_spans()
+    todo = [str(a) for a in wanted if str(a) not in spans]
+    nsyl = {str(a): n for a, n in wanted.items()}
+    cached = [a for a in todo if (MOE_CACHE / f"{a}.ogg").exists()]
+    measured = sum(1 for a in cached if span_only(a, spans, nsyl[a], download=False))
+    if cached:
+        save_spans(spans)
+        if on_batch:
+            on_batch(spans)
+    have = set(cached)
+    unavailable = [a for a in todo if a not in have and known_missing(a)]
+    have |= set(unavailable)
+    new = [a for a in todo if a not in have]
+    allowed = [] if not download else new if max_new is None else new[:max(0, max_new)]
+    log(f"  streamed clips: {len(wanted)} wanted, {len(wanted) - len(todo)} spans known, {measured} measured from the "
+        f"cache, {len(unavailable)} known to be missing on the CDN (404), {len(new)} not cached, downloading "
+        f"{len(allowed)} this run")
+    done, failed_ids, n_known = 0, [], len(unavailable)
+    if allowed:
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=3) as ex:
+            for i in range(0, len(allowed), batch):
+                chunk = allowed[i:i + batch]
+                for aid, path in zip(chunk, ex.map(fetch_moe, chunk)):
+                    if path:
+                        spans[aid] = detect_span(path, nsyl=nsyl[aid])
+                        done += 1
+                    elif known_missing(aid):
+                        unavailable.append(aid)
+                    else:
+                        failed_ids.append(aid)
+                save_spans(spans)
+                if on_batch:
+                    on_batch(spans)
+                log(f"    streamed clips: {i + len(chunk)}/{len(allowed)} fetched ({len(failed_ids)} failed, "
+                    f"{len(unavailable) - n_known} 404)")
+    new_404 = len(unavailable) - n_known
+    return {"measured": measured + done, "downloaded": done, "failed": len(failed_ids) + new_404,
+            "left": len(new) - done - new_404, "unavailable": unavailable, "failed_ids": failed_ids}
+
+
+def publish_moe(aid, spans, nsyl=1, publish=True):
+    """Cache -> docs/audio/moe/<id>.ogg + .mp3, and compute the span once. Returns the audio.json entry or None.
+    publish=False: cache only (span_only), for clips the page streams; returns {"src": "stream", ...span}."""
+    if not publish:
+        e = span_only(aid, spans, nsyl)
+        return {"src": "stream", **e} if e else None
     src = fetch_moe(aid)
     if not src:
         return None
@@ -252,18 +383,38 @@ def tts_name(text):
     return "tts_" + hashlib.sha1(moe.norm(text).encode("utf-8")).hexdigest()[:12] + ".mp3"
 
 
+def tts_cached(text):
+    p = TTS_CACHE / tts_name(text)
+    return p.exists() and p.stat().st_size >= 500
+
+
+TTS_GAP = 1.0          # seconds between gTTS requests (about 1 request/s)
+TTS_FAIL_STREAK = 8    # this many failures in a row = rate-limited: request no more TTS this build
+_last_tts = 0.0
+
+
 def publish_tts(text, enabled=True):
-    """gTTS zh-TW sentence audio (sentences only, §7.6). Returns the docs path or None."""
+    """gTTS zh-TW sentence audio (sentences only, §7.6), throttled to TTS_GAP s between requests and cached.
+    Returns the docs path or None."""
+    global _last_tts
     TTS_CACHE.mkdir(parents=True, exist_ok=True)
     name = tts_name(text)
     cached = TTS_CACHE / name
     if not cached.exists() or cached.stat().st_size < 500:
         if not enabled:
             return None
+        wait = TTS_GAP - (time.time() - _last_tts)
+        if wait > 0:
+            time.sleep(wait)
+        _last_tts = time.time()
         try:
             from gtts import gTTS
             gTTS(text, lang=TTS_LANG).save(str(cached))
         except Exception:
+            cached.unlink(missing_ok=True)
+            return None
+        if cached.stat().st_size < 500:
+            cached.unlink(missing_ok=True)
             return None
     out = OUT / "tts"
     out.mkdir(parents=True, exist_ok=True)
@@ -284,6 +435,9 @@ class AudioBank:
         self.tts = {}
         self.index = {}
         self.missing = []
+        self.moe_missing = {}    # {MOE id: why} of the wanted MOE clips not published (404, failed, not downloaded yet)
+        self.downloaded = 0      # new MOE clips this run (render), so a later cache-only step can share --max-new
+        self.tts_stats = {}
 
     def want_moe(self, aid, priority=5, nsyl=1):
         """priority: 0 = content words (symbols, contrasts, pairs), 1.. = grid cells by TBCL level; lower downloads first.
@@ -302,14 +456,21 @@ class AudioBank:
         self.tts[moe.norm(text)] = text
         return tts_name(text)
 
-    def render(self, download=True, max_new=None, log=print):
+    def render(self, download=True, max_new=None, log=print, max_tts=None):
+        """Publish everything wanted. max_new caps new MOE downloads, max_tts new gTTS requests (in the order the
+        sentences were wanted; the rest stay missing until a later build, and the pages fall back to a labelled
+        browser voice). After TTS_FAIL_STREAK failures in a row (a rate limit) no more TTS is requested."""
         spans = load_spans()
         todo = sorted(self.moe_ids, key=lambda a: (self.priority.get(a, 99), a))
         new = [a for a in todo if not (MOE_CACHE / f"{a}.ogg").exists()]
         if new and not download:
             log(f"  audio: {len(new)} MOE clips not cached (--no-audio); they will be missing")
-        allowed = set(new if max_new is None else new[:max_new])
-        log(f"  audio: {len(todo)} MOE clips wanted, {len(new)} not cached, downloading {len(allowed) if download else 0} this run (priority order)")
+        gone = {a for a in new if known_missing(a)}   # 404 on the CDN lately: not asked for again (see known_missing)
+        fetchable = [a for a in new if a not in gone]
+        allowed = set(fetchable if max_new is None else fetchable[:max_new])
+        self.downloaded = len(allowed) if download else 0
+        log(f"  audio: {len(todo)} MOE clips wanted, {len(new)} not cached ({len(gone)} known to be missing on the CDN), "
+            f"downloading {len(allowed) if download else 0} this run (priority order)")
         # Prefetch with a few parallel connections: this network is latency-bound (~20-30 s per 30 KB clip),
         # so 3 workers still stay far below one request per second.
         if download and allowed:
@@ -323,6 +484,7 @@ class AudioBank:
         for i, aid in enumerate(todo, 1):
             if aid in new and (not download or aid not in allowed):
                 self.missing.append(aid)
+                self.moe_missing[aid] = "404 on the moedict CDN" if aid in gone else "not downloaded yet"
                 continue
             if aid in new:
                 done_new += 1
@@ -333,6 +495,7 @@ class AudioBank:
                 self.index[aid] = entry
             else:
                 self.missing.append(aid)
+                self.moe_missing[aid] = "404 on the moedict CDN" if known_missing(aid) else "download failed"
             if i % 50 == 0:
                 save_spans(spans)
                 log(f"    {i}/{len(todo)}")
@@ -343,10 +506,29 @@ class AudioBank:
                 self.index[f"juyin:{s}"] = {"src": "juyin", "path": p}
             else:
                 self.missing.append(f"juyin:{s}")
+        st = {"wanted": len(self.tts), "cached": 0, "requested": 0, "failed": 0, "deferred": 0}
+        streak = 0
         for key, text in self.tts.items():
-            p = publish_tts(text, enabled=download)
+            cached = tts_cached(text)
+            ask = (not cached and download and (max_tts is None or st["requested"] < max_tts)
+                   and streak < TTS_FAIL_STREAK)
+            st["cached"] += cached
+            st["requested"] += ask
+            p = publish_tts(text, enabled=ask or cached)
+            if ask:
+                streak = 0 if p else streak + 1
+                st["failed"] += not p
+                if streak == TTS_FAIL_STREAK:
+                    log(f"  TTS: {streak} failures in a row (rate limit?): no more requests this build")
+                if st["requested"] % 50 == 0:
+                    log(f"    TTS requested {st['requested']} ({st['failed']} failed)")
+            elif not cached:
+                st["deferred"] += 1
             if p:
                 self.index[tts_name(text)] = {"src": "tts", "path": p, "label": TTS_LABEL}
             else:
                 self.missing.append(f"tts:{text[:20]}")
+        self.tts_stats = st
+        log(f"  TTS: {st['wanted']} sentences, {st['cached']} cached, {st['requested']} requested "
+            f"({st['failed']} failed), {st['deferred']} left for a later build (--max-tts / rate limit / --no-audio)")
         return self.index

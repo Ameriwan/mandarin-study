@@ -111,11 +111,54 @@
 .shadow-block .shadow-rate .btn { min-width: 96px; }
 .shadow-block .shadow-nooverlay { margin: 6px 0; }
 
+/* ---------- the Current-unit block (M5): the unit, its goal, Start opens it on the Units page with the timer */
+.unit-block { scroll-margin-top: 72px; }
+.unit-block h2 { margin: 0; font-size: 21px; }
+.unit-block h2:focus, .review-block h2:focus { outline: none; }
+.unit-kicker { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; margin: 10px 0 2px; font-size: 13.5px; color: var(--muted); }
+.unit-status { font-size: 12px; line-height: 1; padding: 3px 7px; border-radius: 6px; border: 1px solid var(--line); color: var(--ink); }
+.unit-status.st-review { border-color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, var(--surface)); }
+.unit-status.st-progress { border-color: var(--accent); }
+.unit-name { margin: 0 0 4px; font-size: 22px; font-weight: 700; }
+.unit-name .muted { font-size: 15px; font-weight: 400; }
+.unit-cando { margin: 0 0 6px; font-size: 14.5px; }
+.unit-today { margin: 0 0 6px; }
+.unit-actions { margin: 10px 0 0; }
+.unit-start { width: 100%; min-height: 52px; font-size: 18px; }
+@media (min-width: 640px) { .unit-start { width: auto; min-width: 240px; } }
+
+/* ---------- the Review block: trouble items as recall cards, or the unit's speaking task */
+.review-block:not(.running) { border-color: var(--line); }
+.review-what { margin: 10px 0 6px; font-size: 15px; }
+.review-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 4px; padding: 0; }
+.review-chips a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--surface-2); color: var(--ink); text-decoration: none; font-size: 17px; }
+.review-chips a:hover { border-color: var(--accent); }
+.review-chips li.muted { align-self: center; font-size: 14px; }
+.review-prompt { margin: 0 0 6px; font-size: 18px; }
+.review-start { width: 100%; min-height: 52px; margin: 12px 0 4px; font-size: 18px; }
+@media (min-width: 640px) { .review-start { width: auto; min-width: 240px; } }
+.review-word { margin: 6px 0 4px; font-size: 40px; line-height: 1.6; }
+.review-word rt { font-size: 15px; }
+.review-count { margin: 0; }
+.review-en { font-size: 17px; margin: 10px 0; }
+.review-en[hidden], .review-rate[hidden] { display: none; }
+.review-rate { gap: 8px; margin: 8px 0; }
+.review-rate .btn { min-width: 108px; }
+.review-reveal { margin: 8px 0; }
+.review-open { margin: 12px 0 0; }
+.review-open a { display: inline-flex; align-items: center; min-height: var(--tap); }
+.review-rec { margin: 10px 0; }
+.review-rec .btn.small { min-height: var(--tap); }
+.review-checklist { border: 0; margin: 10px 0 0; padding: 0; min-width: 0; }
+.review-checklist legend { padding: 0; margin: 0 0 4px; font-size: 14px; color: var(--muted); }
+.review-checklist ul { list-style: none; margin: 0; padding: 0; }
+
 /* ---------- the routine (time boxes that add up to the daily minutes) */
 .timebar { display: flex; gap: 3px; height: 8px; margin: 6px 0 4px; }
 .timebar i { display: block; min-width: 6px; border-radius: 3px; background: var(--line); }
-.timebar i.pron, .timebar i.shadow { background: color-mix(in srgb, var(--accent) 40%, var(--line)); }
-.timebar i.pron.done, .timebar i.shadow.done { background: var(--accent); }
+.timebar i.pron, .timebar i.shadow, .timebar i.unit, .timebar i.review { background: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+.timebar i.pron.done, .timebar i.shadow.done, .timebar i.unit.done, .timebar i.review.done { background: var(--accent); }
 .timebar i.soon { background: repeating-linear-gradient(45deg, var(--line) 0 3px, transparent 3px 6px); box-shadow: inset 0 0 0 1px var(--line); }
 .routine { list-style: none; margin: 8px 0 0; padding: 0; }
 .routine li { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 2px 10px; align-items: center; min-height: 52px; padding: 6px 0; border-top: 1px solid var(--line); }
@@ -174,5 +217,6 @@
 .home-nav.compact .d { font-size: 12px; }
 
 /* every target on this page is at least 44 px (style.css's .btn.small is 36 px) */
-.routine-card .btn.small, .outside-card .btn.small, .session .btn.small { min-height: var(--tap); min-width: var(--tap); }
+.routine-card .btn.small, .outside-card .btn.small, .session .btn.small, .unit-block .btn.small { min-height: var(--tap); min-width: var(--tap); }
+.stat .v a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .dose-link { text-decoration: none; }

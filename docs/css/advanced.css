@@ -15,6 +15,7 @@
 .adv-h-en, .adv-rung-en { font-weight: 400; color: var(--muted); font-size: .85em; }
 .adv-sub { font-size: 15px; font-weight: 500; margin: 18px 0 8px; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
 .adv-in { display: inline-flex; align-items: center; min-height: var(--tap); text-underline-offset: 3px; }
+.adv-panel .btn.small { min-height: var(--tap); } /* 44 px targets; style.css's .btn.small is 36 px */
 
 /* ---------- level box + "show all" switch */
 .adv-level { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px var(--gutter); margin: 0 0 14px; }
@@ -45,7 +46,7 @@
 .adv-lv { display: inline-flex; align-items: baseline; gap: 4px; font-size: 12.5px; line-height: 1.2; padding: 3px 8px; border-radius: 999px;
   background: var(--surface-2); border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
 .adv-lv-en { font-size: 11.5px; }
-.adv-ahead { font-size: 12.5px; color: var(--warn); }
+.adv-ahead { font-size: 12.5px; color: color-mix(in srgb, var(--warn) 75%, var(--ink)); } /* plain --warn is 4.14:1 on --bg */
 .adv-lock { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 4px; margin: 4px 0 0; font-size: 14px; color: var(--muted); }
 span.adv-lock { display: inline-flex; margin-left: 6px; }
 .adv-lock-ico { flex: 0 0 auto; align-self: center; color: var(--muted); }
@@ -57,7 +58,9 @@ span.adv-lock { display: inline-flex; margin-left: 6px; }
 .adv-ext { line-height: 1.6; }
 .adv-ext a { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0 4px; min-height: var(--tap); text-underline-offset: 3px; }
 .adv-ext-note { display: block; }
-.adv-chk { display: inline-block; font-size: 12px; line-height: 1.2; padding: 3px 7px; border-radius: 6px; border: 1px solid currentColor; vertical-align: middle; white-space: nowrap; }
+/* on --surface: --good / --warn are 4.45 / 4.14:1 on --bg but 5.05 / 4.69:1 on --surface (12 px text needs 4.5:1) */
+.adv-chk { display: inline-block; font-size: 12px; line-height: 1.2; padding: 3px 7px; border-radius: 6px; border: 1px solid currentColor; vertical-align: middle; white-space: nowrap;
+  background: var(--surface); }
 .adv-chk.ok { color: var(--good); }
 .adv-chk.no { color: var(--warn); border-style: dashed; }
 summary .adv-chk { margin-left: 8px; }
@@ -145,14 +148,16 @@ summary .adv-chk { margin-left: 8px; }
 
 /* ---------- listening: real Taiwan speech */
 .adv-real .adv-table td:first-child { white-space: nowrap; line-height: 2.2; }
+.adv-real > p > a { display: inline-flex; align-items: center; min-height: var(--tap); }
 
 /* ---------- grammar */
 .adv-glist { list-style: none; margin: 0; padding: 0; }
-.adv-glist li { padding: 8px 0; border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
+.adv-glist li { padding: 2px 0; border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
 .adv-glist li:last-child { border-bottom: 0; }
 .adv-glist a { text-underline-offset: 3px; }
+.adv-glist li > a:first-child { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0 6px; min-height: var(--tap); } /* 44 px targets */
 .adv-g-zh { font-weight: 500; }
-.adv-g-cgw { margin-left: auto; display: inline-flex; align-items: center; min-height: 32px; padding: 0 6px; }
+.adv-g-cgw { margin-left: auto; display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 8px; }
 .adv-feat { margin: 0 0 8px; padding-left: 1.2em; }
 .adv-feat li { padding: 2px 0; }
 

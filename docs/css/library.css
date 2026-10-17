@@ -164,6 +164,20 @@ a.lib-chip:hover { background: var(--accent-soft); }
 .lib-say-what rt { font-size: 11.5px; }
 .lib-say { gap: 10px 14px; }
 .lib-say .rec .btn { min-height: var(--tap); }
+/* a source badge on the page background: --tts is 4.26:1 on --bg, 4.83:1 on --surface (small text needs 4.5:1) */
+.lib-say .badge { background: var(--surface); }
+
+/* 成語 (MOE 成語典, shown as written: line breaks kept) and 部首 */
+.lib-cy-zy { margin: 0; font-size: 20px; letter-spacing: .04em; max-width: none; }
+.lib-cy-t { white-space: pre-line; line-height: 1.75; }
+.lib-cy-list { margin: 0; padding-left: 1.3em; line-height: 1.75; }
+.lib-cy-list li { padding: 2px 0; }
+.lib-credit { margin: 14px 0 0; max-width: 66ch; }
+.lib-credit a { display: inline-flex; align-items: center; min-height: var(--tap); }
+.lib-rad-chars { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.lib-rad-char { display: inline-grid; place-items: center; min-width: var(--tap); min-height: var(--tap); padding: 0 6px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--surface); color: var(--ink); font-size: 22px; text-decoration: none; }
+.lib-rad-char:hover { border-color: var(--accent); background: var(--accent-soft); }
 
 /* units, dictionaries */
 .lib-units { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 14px; }

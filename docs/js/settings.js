@@ -31,6 +31,8 @@ export const LS_PREFIX = "gy.";
 const DB_NAME = "guoyu", REC_STORE = "rec"; // app.js db()
 const MOE_LICENSE_TXT = "data/moe-license-concised.txt";
 const MOE_LICENSE_PDF = "https://language.moe.gov.tw/001/Upload/Files/site_content/M0001/respub/conciseddict_10312.pdf";
+const MOE_IDIOMS_TXT = "data/moe-license-idioms.txt"; // tools/chengyu.py publishes it with chengyu.json
+const MOE_IDIOMS_URL = "https://dict.idioms.moe.edu.tw/";
 // sample sentence for the preview, the voice test and the mic test (verify.check ok); spoken = 3+3 sandhi on 水果 (§6.4)
 const SAMPLE = { zh: "我們去水果攤吧。", zhuyin: "ㄨㄛˇ ˙ㄇㄣ ㄑㄩˋ ㄕㄨㄟˇ ㄍㄨㄛˇ ㄊㄢ ˙ㄅㄚ", spoken: "ㄨㄛˇ ˙ㄇㄣ ㄑㄩˋ ㄕㄨㄟˊ ㄍㄨㄛˇ ㄊㄢ ˙ㄅㄚ",
   en: "Let's go to the fruit stand." };
@@ -91,8 +93,13 @@ export const CREDITS = [
   { id: "cedict", zh: "CC-CEDICT（MDBG）", en: "CC-CEDICT English glosses",
     licenses: [L.bySa4], url: "https://www.mdbg.net/chinese/dictionary?page=cc-cedict",
     attribution: "English glosses from CC-CEDICT (MDBG), CC BY-SA 4.0",
-    useZh: "資料庫的英文解釋；data/library-words.json 因此也以 CC BY-SA 4.0 分享。大陸讀音只拿來比較，從不當注音來源。",
-    useEn: "English glosses in the Library, so data/library-words.json is shared under CC BY-SA 4.0 too. Its Mainland readings are used for comparison only, never as a Zhuyin source." },
+    useZh: "資料庫、搜尋、程度測驗和部首表的英文解釋。這些解釋經過修改：挑選並重新排列義項，刪去簡體字和拼音，太長的截短。大陸讀音只拿來比較，從不當注音來源。",
+    useEn: "English glosses in the Library, search, the placement check and the radicals list. The glosses were modified: senses picked and reordered, simplified forms and pinyin removed, long ones trimmed. Its Mainland readings are used for comparison only, never as a Zhuyin source.",
+    // the published files that carry the (modified) glosses, so they are shared under CC BY-SA 4.0 too
+    files: ["data/library-words.json", "data/search.json", "data/placement.json", "data/characters.json"],
+    filesZh: "所以這些檔案也以 CC BY-SA 4.0 分享：", filesEn: "So these files are shared under CC BY-SA 4.0 too:",
+    // CC-CEDICT's own notice (unchanged) and the note of what was changed, written by the build
+    notice: "data/cedict-license.txt", noticeZh: "CC-CEDICT 的授權聲明和修改說明：", noticeEn: "CC-CEDICT's notice and the list of changes:" },
 ];
 // Software and fonts. where: "site" (runs in the page), "build" (used to make files, not shipped).
 export const SOFTWARE = [
@@ -741,11 +748,18 @@ function dataCard(panel) {
     h("div", { class: "row" }, pick, fileIn), preview, out,
     h("h3", {}, ...bi("重設", "Reset")), reset);
 }
-// re-render the settings after an import or reset (new values), keeping the result message and the Data section in view
+// re-render the settings after an import or reset (new values), keeping the result message and the Data section in view.
+// The button that was used is gone, so focus moves to the message (else the Data heading), never to <body>.
 function rerenderKeep(panel, msg) {
   rerender(panel);
   const out = panel.querySelector(".st-out");
-  if (out) { out.replaceChildren(...[...msg.childNodes]); out.scrollIntoView({ block: "center" }); }
+  if (out) out.replaceChildren(...[...msg.childNodes]);
+  const target = (out && out.firstElementChild) || panel.querySelector("#st-data-h");
+  if (target) {
+    target.tabIndex = -1;
+    target.focus({ preventScroll: true });
+    (out || target).scrollIntoView({ block: "center" });
+  }
 }
 
 // ---------- credits
@@ -766,11 +780,18 @@ function renderCredits(panel) {
           h("h3", { id: `cr-${c.id}` }, h("span", { lang: "zh-Hant-TW" }, c.zh), " ", h("span", { class: "st-credit-en", lang: "en" }, c.en)),
           h("p", { class: "st-lic" }, ...licenseChips(c.licenses), c.url ? h("a", { href: c.url, rel: "noopener", class: "small" }, host(c.url)) : null),
           h("p", { class: "small" }, ...bi(c.useZh, c.useEn)),
-          q ? h("p", { class: "st-attr-l small muted" }, ...bi("出處標示", "Attribution")) : null, q);
+          c.files ? h("p", { class: "small st-files-l", id: `cr-${c.id}-files` }, ...bi(c.filesZh, c.filesEn)) : null,
+          c.files ? h("ul", { class: "st-files small", "aria-labelledby": `cr-${c.id}-files` }, c.files.map(f => h("li", {}, h("code", { lang: "en" }, f)))) : null,
+          c.notice ? h("p", { class: "small st-notice" }, ...bi(c.noticeZh, c.noticeEn), " ",
+            h("a", { href: c.notice, class: "st-notice-a", type: "text/plain" }, h("code", { lang: "en" }, c.notice))) : null,
+          q ?h("p", { class: "st-attr-l small muted" }, ...bi("出處標示", "Attribution")) : null, q);
       })),
     section("st-moe-h", "教育部《國語辭典簡編本》公眾授權使用說明", "MOE terms of use (unmodified)",
       h("p", { class: "small muted" }, ...bi("依授權要求完整保留，一字不改。", "Kept complete and unmodified, as the license requires.")),
       moeTerms()),
+    section("st-moe-idioms-h", "教育部《成語典》公眾授權使用說明", "MOE idioms dictionary terms of use (unmodified)",
+      h("p", { class: "small muted" }, ...bi("進階頁的成語資料來自《成語典》，這份說明跟著資料一起發布。", "The Advanced page's idioms come from the 成語典; these terms are published with that data.")),
+      moeTerms(MOE_IDIOMS_TXT, MOE_IDIOMS_URL, "dict.idioms.moe.edu.tw", "教育部成語典使用說明 MOE idioms terms of use")),
     section("st-sw-h", "程式與字型", "Software and fonts",
       h("div", { class: "st-table-wrap" }, h("table", { class: "st-table" },
         h("thead", {}, h("tr", {}, h("th", { scope: "col" }, ...bi("名稱", "Name")), h("th", { scope: "col" }, ...bi("授權", "License")), h("th", { scope: "col" }, ...bi("用途", "Use")))),
@@ -790,13 +811,13 @@ function renderCredits(panel) {
   // the attribution line the build wrote into the data (tones.json license), so text and version always match
   loadJSON("tones").then(d => { const a = d && d.license && d.license.attribution; if (a && attrs.get("moe-concised")) attrs.get("moe-concised").textContent = a; }).catch(() => {});
 }
-function moeTerms() {
-  const pre = h("pre", { class: "st-license", lang: "zh-Hant-TW", tabindex: "0", "aria-label": "教育部使用說明 MOE terms of use" }, "載入中… Loading…");
-  fetch(MOE_LICENSE_TXT, { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error(String(r.status)); return r.text(); })
+function moeTerms(txt = MOE_LICENSE_TXT, original = MOE_LICENSE_PDF, originalName = "conciseddict_10312.pdf", label = "教育部使用說明 MOE terms of use") {
+  const pre = h("pre", { class: "st-license", lang: "zh-Hant-TW", tabindex: "0", "aria-label": label }, "載入中… Loading…");
+  fetch(txt, { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error(String(r.status)); return r.text(); })
     .then(t => { pre.textContent = t; })
     .catch(() => {
       pre.replaceWith(h("p", { class: "st-warn small", role: "alert" }, ...bi("使用說明載入不了（離線？）。原文：", "The terms could not be loaded (offline?). The original: "),
-        h("a", { href: MOE_LICENSE_PDF, rel: "noopener" }, "conciseddict_10312.pdf")));
+        h("a", { href: original, rel: "noopener" }, originalName)));
     });
   return pre;
 }

@@ -8,9 +8,9 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 | M1 | SETUP + audio pipeline + Zhuyin Lab (symbols, syllable grid, contrasts, dictation) | ✅ built and QA'd 2026-10-13 (waiting on Amadeus's spot-listen and phone test) | Tap any syllable → correct MOE audio in all tones; contrast drills work |
 | M2 | Tone Gym (ID, tone pairs, pitch mirror, sandhi, Taiwan readings) + Today (pronunciation block) | ✅ built and QA'd 2026-10-13 (waiting on the iPhone + laptop mic test) | Pitch overlay works on phone and laptop |
 | M3 | Shadowing (player, protocol, MOE dictionary readings, native-check hand-off) | ✅ built and QA'd 2026-10-16 (waiting on a real-mic session) | A full 10-minute session runs |
-| M4 | Plan + placement check + Library (TBCL L1–3, grammar, Taiwan vocab) | ⬜ | Placement gives a level and a starting unit |
-| M5 | Units for my level and the next (subagents, verified) | ⬜ | Units released per the plan |
-| M6 | Advanced tracks + resources + immersion mode | ⬜ | Links checked; reading ladder works |
+| M4 | Plan + placement check + Library (TBCL L1–3, grammar, Taiwan vocab) | ✅ built and QA'd 2026-10-17 (Library seeded with TBCL L1–4 words for the Band B goal) | Placement gives a level and a starting unit |
+| M5 | Units for my level and the next (subagents, verified) | ✅ 16 units for TBCL L1–L2 (placement not taken yet; LEVEL-UP adds the next level) | Units released per the plan |
+| M6 | Advanced tracks + resources + immersion mode | ✅ built and QA'd 2026-10-17 (+ Settings and Credits) | Links checked; reading ladder works |
 | M7 | Polish + accessibility + PUBLISH (ask first) | ⬜ | Live site works on my phone |
 
 ## Settings
@@ -95,3 +95,10 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 - **Measured:** range ends within 22 ms, slowed playback keeps pitch, a full 10-minute session runs at 375 px and desktop.
 - **Review fixes:** native check follows the newest take; 便當 (lunch box) is ㄅㄧㄢˋ ㄉㄤ everywhere (˙ㄉㄤ is the "convenient" sense); 6 readings whose recordings do not read their displayed example were replaced; weekly dose = sessions of ≥ 10 min WITH self-recording on both pages; screen readers hear each step once, not every play; one set of step names; 44 px controls; a segment pitch curve is published only if it passes a sanity gate (36 of 422 dropped).
 - **Still needs Amadeus:** one real-microphone shadowing session on the iPhone.
+
+### 2026-10-16/17 · M4 Plan + Library, M5 Units, M6 Advanced + Settings (parallel workflows, one combined review)
+- **Built:** Library (`library.html`: TBCL L1–4 words with CC-CEDICT glosses and streamed MOE audio, grammar G001–G241 written in our own words with 3+ examples and a common mistake each, patterns, measure words, Taiwan vs Mainland (§5.8 pairs only), phrasebook, 成語, radicals, notes, mistakes; search by characters, Zhuyin with or without tones, pinyin, English), Plan (`plan.html`: roadmap, hours and pace, the placement check with a pronunciation diagnostic, level checks), Units (`units.html`: 16 units L1-01–L2-08 set in Pingtung), Advanced (`advanced.html`: reading and listening ladders, grammar depth, characters, output tasks with monthly monologue, register and 成語, TOCFL prep), Settings and Credits (`settings.html`: display options applied app-wide, immersion mode, voice and speed, mic test, export / import / reset, credits with the MOE 使用說明 and the CC-CEDICT notice). Today now runs the unit and review blocks.
+- **Data:** 2889 library words, grammar 241, units 16; docs/ 412 MB of 600 MB; build verifier 3,466 strings, 0 failures.
+- **Verifier:** walks every zh/zhuyin field shape; particle readings in sentences are ok; sentence segmentation prefers TBCL words over rare MOE-only ones (每天都, 我要買 pass; 銀行 ㄒㄧㄥˊ still fails). 過 ˙ㄍㄨㄛ stays a failure (no source lists it; nothing uses it).
+- **Review:** 29 findings confirmed (two skeptics each), all fixed: wrong readings from mis-split words, 便當 again, 累 ㄌㄟˋ, near-copies of TBCL example sentences rewritten (24 → 0), immersion no longer hides learning content (class `lc-en`), voice / speed / study-days settings applied, license notices and a build-time license check for every published file, unplayable MOE ids published as null (labelled browser voice).
+- **Known:** 6 MOE clips and 9 streamed clips are not on the moedict CDN; their entries use the labelled browser voice.

@@ -47,9 +47,9 @@
     "structure": "S + 才 + V1 (+ time / amount)，(S) + 就 + V2 (+ 了)",
     "examples": [
       {
-        "zh": "我才出門五分鐘，就開始下雨了。",
-        "zhuyin": "ㄨㄛˇ ㄘㄞˊ ㄔㄨ ㄇㄣˊ ㄨˇ ㄈㄣ ㄓㄨㄥ ㄐㄧㄡˋ ㄎㄞ ㄕˇ ㄒㄧㄚˋ ㄩˇ ˙ㄌㄜ",
-        "en": "I'd only been out for five minutes when it started to rain."
+        "zh": "我才到家十分鐘，他就打電話來了。",
+        "zhuyin": "ㄨㄛˇ ㄘㄞˊ ㄉㄠˋ ㄐㄧㄚ ㄕˊ ㄈㄣ ㄓㄨㄥ ㄊㄚ ㄐㄧㄡˋ ㄉㄚˇ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄌㄞˊ ˙ㄌㄜ",
+        "en": "I'd only been home ten minutes when he called."
       },
       {
         "zh": "他才喝一杯，臉就紅了。",
@@ -63,14 +63,14 @@
       },
       {
         "zh": "弟弟才吃了一口便當，就說吃飽了。",
-        "zhuyin": "ㄉㄧˋ ˙ㄉㄧ ㄘㄞˊ ㄔ ˙ㄌㄜ ㄧ ㄎㄡˇ ㄅㄧㄢˋ ˙ㄉㄤ ㄐㄧㄡˋ ㄕㄨㄛ ㄔ ㄅㄠˇ ˙ㄌㄜ",
+        "zhuyin": "ㄉㄧˋ ˙ㄉㄧ ㄘㄞˊ ㄔ ˙ㄌㄜ ㄧ ㄎㄡˇ ㄅㄧㄢˋ ㄉㄤ ㄐㄧㄡˋ ㄕㄨㄛ ㄔ ㄅㄠˇ ˙ㄌㄜ",
         "en": "My little brother took just one bite of his bento and said he was full."
       }
     ],
     "mistake": {
-      "wrong": "我才出門五分鐘，開始下雨了。",
-      "right": "我才出門五分鐘，就開始下雨了。",
-      "right_zhuyin": "ㄨㄛˇ ㄘㄞˊ ㄔㄨ ㄇㄣˊ ㄨˇ ㄈㄣ ㄓㄨㄥ ㄐㄧㄡˋ ㄎㄞ ㄕˇ ㄒㄧㄚˋ ㄩˇ ˙ㄌㄜ",
+      "wrong": "我才到家十分鐘，他打電話來了。",
+      "right": "我才到家十分鐘，他就打電話來了。",
+      "right_zhuyin": "ㄨㄛˇ ㄘㄞˊ ㄉㄠˋ ㄐㄧㄚ ㄕˊ ㄈㄣ ㄓㄨㄥ ㄊㄚ ㄐㄧㄡˋ ㄉㄚˇ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄌㄞˊ ˙ㄌㄜ",
       "why_en": "When the first clause has 才, the second clause needs 就 before its verb to show how soon the second event came."
     },
     "taiwan_note": "支 is the usual measure word for a mobile phone in Taiwan (一支手機)."
@@ -204,9 +204,9 @@
         "en": "I can tell you're tired today."
       },
       {
-        "zh": "這是什麼魚？我吃不出來。",
-        "zhuyin": "ㄓㄜˋ ㄕˋ ㄕㄣˊ ˙ㄇㄜ ㄩˊ ㄨㄛˇ ㄔ ㄅㄨˋ ㄔㄨ ㄌㄞˊ",
-        "en": "What fish is this? I can't tell by the taste."
+        "zh": "這是哪種魚？我吃不出來。",
+        "zhuyin": "ㄓㄜˋ ㄕˋ ㄋㄚˇ ㄓㄨㄥˇ ㄩˊ ㄨㄛˇ ㄔ ㄅㄨˋ ㄔㄨ ㄌㄞˊ",
+        "en": "What kind of fish is this? I can't tell by the taste."
       },
       {
         "zh": "這杯是無糖的嗎？我喝不出來。",
@@ -313,9 +313,9 @@
         "en": "This case of water is too heavy; I can't move it by myself."
       },
       {
-        "zh": "你拿得動嗎？我幫你拿。",
-        "zhuyin": "ㄋㄧˇ ㄋㄚˊ ˙ㄉㄜ ㄉㄨㄥˋ ˙ㄇㄚ ㄨㄛˇ ㄅㄤ ㄋㄧˇ ㄋㄚˊ",
-        "en": "Can you carry it? Let me help you."
+        "zh": "行李拿得動嗎？我幫你拿吧。",
+        "zhuyin": "ㄒㄧㄥˊ ㄌㄧˇ ㄋㄚˊ ˙ㄉㄜ ㄉㄨㄥˋ ˙ㄇㄚ ㄨㄛˇ ㄅㄤ ㄋㄧˇ ㄋㄚˊ ˙ㄅㄚ",
+        "en": "Can you manage the luggage? Let me carry it for you."
       },
       {
         "zh": "爬了三個小時的山，我已經走不動了。",
@@ -395,7 +395,7 @@
       },
       {
         "zh": "便當放太久了，丟掉吧。",
-        "zhuyin": "ㄅㄧㄢˋ ˙ㄉㄤ ㄈㄤˋ ㄊㄞˋ ㄐㄧㄡˇ ˙ㄌㄜ ㄉㄧㄡ ㄉㄧㄠˋ ˙ㄅㄚ",
+        "zhuyin": "ㄅㄧㄢˋ ㄉㄤ ㄈㄤˋ ㄊㄞˋ ㄐㄧㄡˇ ˙ㄌㄜ ㄉㄧㄡ ㄉㄧㄠˋ ˙ㄅㄚ",
         "en": "The bento has been sitting out too long; throw it away."
       },
       {
@@ -494,7 +494,7 @@
     "examples": [
       {
         "zh": "桌上放著兩個便當。",
-        "zhuyin": "ㄓㄨㄛ ㄕㄤˋ ㄈㄤˋ ˙ㄓㄜ ㄌㄧㄤˇ ㄍㄜˋ ㄅㄧㄢˋ ˙ㄉㄤ",
+        "zhuyin": "ㄓㄨㄛ ㄕㄤˋ ㄈㄤˋ ˙ㄓㄜ ㄌㄧㄤˇ ㄍㄜˋ ㄅㄧㄢˋ ㄉㄤ",
         "en": "There are two bentos on the table."
       },
       {
@@ -516,7 +516,7 @@
     "mistake": {
       "wrong": "兩個便當放著在桌上。",
       "right": "桌上放著兩個便當。",
-      "right_zhuyin": "ㄓㄨㄛ ㄕㄤˋ ㄈㄤˋ ˙ㄓㄜ ㄌㄧㄤˇ ㄍㄜˋ ㄅㄧㄢˋ ˙ㄉㄤ",
+      "right_zhuyin": "ㄓㄨㄛ ㄕㄤˋ ㄈㄤˋ ˙ㄓㄜ ㄌㄧㄤˇ ㄍㄜˋ ㄅㄧㄢˋ ㄉㄤ",
       "why_en": "English starts with the thing (\"two bentos are on the table\"), but this Mandarin pattern starts with the place and puts the new thing after the verb."
     },
     "taiwan_note": ""
@@ -570,7 +570,7 @@
     "examples": [
       {
         "zh": "我今天忙到一口水都沒喝。",
-        "zhuyin": "ㄨㄛˇ ㄐㄧㄣ ㄊㄧㄢ ㄇㄤˊ ㄉㄠˋ ㄧ ㄎㄡˇ ㄕㄨㄟˇ ㄉㄨ ㄇㄟˊ ㄏㄜ",
+        "zhuyin": "ㄨㄛˇ ㄐㄧㄣ ㄊㄧㄢ ㄇㄤˊ ㄉㄠˋ ㄧ ㄎㄡˇ ㄕㄨㄟˇ ㄉㄡ ㄇㄟˊ ㄏㄜ",
         "en": "I was so busy today I didn't drink a single sip of water."
       },
       {
@@ -592,7 +592,7 @@
     "mistake": {
       "wrong": "我今天沒喝一口水。",
       "right": "我今天忙到一口水都沒喝。",
-      "right_zhuyin": "ㄨㄛˇ ㄐㄧㄣ ㄊㄧㄢ ㄇㄤˊ ㄉㄠˋ ㄧ ㄎㄡˇ ㄕㄨㄟˇ ㄉㄨ ㄇㄟˊ ㄏㄜ",
+      "right_zhuyin": "ㄨㄛˇ ㄐㄧㄣ ㄊㄧㄢ ㄇㄤˊ ㄉㄠˋ ㄧ ㄎㄡˇ ㄕㄨㄟˇ ㄉㄡ ㄇㄟˊ ㄏㄜ",
       "why_en": "English keeps the object after the verb (\"didn't drink a single sip\"), but for \"not even one\" Mandarin moves 一 + measure + noun in front of 都 / 也 + the negative."
     },
     "taiwan_note": "臺語 (Taiwanese Hokkien) is widely spoken in Pingtung alongside Mandarin."
@@ -759,9 +759,9 @@
         "en": "This bowl of braised pork rice isn't expensive at all."
       },
       {
-        "zh": "我一點都不累，我們再走一下吧。",
-        "zhuyin": "ㄨㄛˇ ㄧ ㄉㄧㄢˇ ㄉㄡ ㄅㄨˋ ㄌㄟˋ ㄨㄛˇ ˙ㄇㄣ ㄗㄞˋ ㄗㄡˇ ㄧ ㄒㄧㄚˋ ˙ㄅㄚ",
-        "en": "I'm not tired at all; let's walk a bit more."
+        "zh": "我一點都不餓，你們先吃吧。",
+        "zhuyin": "ㄨㄛˇ ㄧ ㄉㄧㄢˇ ㄉㄡ ㄅㄨˋ ㄜˋ ㄋㄧˇ ˙ㄇㄣ ㄒㄧㄢ ㄔ ˙ㄅㄚ",
+        "en": "I'm not hungry at all; you go ahead and eat."
       },
       {
         "zh": "十年了，你一點都沒變！",
@@ -775,9 +775,9 @@
       }
     ],
     "mistake": {
-      "wrong": "我不累一點。",
-      "right": "我一點都不累。",
-      "right_zhuyin": "ㄨㄛˇ ㄧ ㄉㄧㄢˇ ㄉㄡ ㄅㄨˋ ㄌㄟˋ",
+      "wrong": "我不餓一點。",
+      "right": "我一點都不餓。",
+      "right_zhuyin": "ㄨㄛˇ ㄧ ㄉㄧㄢˇ ㄉㄡ ㄅㄨˋ ㄜˋ",
       "why_en": "\"At all\" follows the adjective in English, but 一點都 / 一點也 must come before 不 + the adjective."
     },
     "taiwan_note": "滷肉飯 (braised pork rice) is one of the cheapest everyday meals in Taiwan."
@@ -950,7 +950,7 @@
       },
       {
         "zh": "這家店的飲料我都喝過，其中最好喝的是紅茶拿鐵。",
-        "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ㄉㄧㄢˋ ˙ㄉㄜ ㄧㄣˇ ㄌㄧㄠˋ ㄨㄛˇ ㄉㄡ ㄏㄜ ㄍㄨㄛˋ ㄑㄧˊ ㄓㄨㄥ ㄗㄨㄟˋ ㄏㄠˇ ㄏㄜ ㄉㄧˊ ㄕˋ ㄏㄨㄥˊ ㄔㄚˊ ㄋㄚˊ ㄊㄧㄝˇ",
+        "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ㄉㄧㄢˋ ˙ㄉㄜ ㄧㄣˇ ㄌㄧㄠˋ ㄨㄛˇ ㄉㄡ ㄏㄜ ㄍㄨㄛˋ ㄑㄧˊ ㄓㄨㄥ ㄗㄨㄟˋ ㄏㄠˇ ㄏㄜ ˙ㄉㄜ ㄕˋ ㄏㄨㄥˊ ㄔㄚˊ ㄋㄚˊ ㄊㄧㄝˇ",
         "en": "I've tried all this shop's drinks, and the best of them is the black tea latte."
       },
       {
@@ -1211,7 +1211,7 @@
       },
       {
         "zh": "這個便當是那個的兩倍大。",
-        "zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄅㄧㄢˋ ˙ㄉㄤ ㄕˋ ㄋㄚˋ ˙ㄍㄜ ˙ㄉㄜ ㄌㄧㄤˇ ㄅㄟˋ ㄉㄚˋ",
+        "zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄅㄧㄢˋ ㄉㄤ ㄕˋ ㄋㄚˋ ˙ㄍㄜ ˙ㄉㄜ ㄌㄧㄤˇ ㄅㄟˋ ㄉㄚˋ",
         "en": "This bento is twice as big as that one."
       }
     ],
@@ -1234,7 +1234,7 @@
     "examples": [
       {
         "zh": "我只吃了三分之一的便當。",
-        "zhuyin": "ㄨㄛˇ ㄓˇ ㄔ ˙ㄌㄜ ㄙㄢ ㄈㄣ ㄓ ㄧ ˙ㄉㄜ ㄅㄧㄢˋ ˙ㄉㄤ",
+        "zhuyin": "ㄨㄛˇ ㄓˇ ㄔ ˙ㄌㄜ ㄙㄢ ㄈㄣ ㄓ ㄧ ˙ㄉㄜ ㄅㄧㄢˋ ㄉㄤ",
         "en": "I only ate a third of the bento."
       },
       {
@@ -1251,7 +1251,7 @@
     "mistake": {
       "wrong": "我只吃了一分之三的便當。",
       "right": "我只吃了三分之一的便當。",
-      "right_zhuyin": "ㄨㄛˇ ㄓˇ ㄔ ˙ㄌㄜ ㄙㄢ ㄈㄣ ㄓ ㄧ ˙ㄉㄜ ㄅㄧㄢˋ ˙ㄉㄤ",
+      "right_zhuyin": "ㄨㄛˇ ㄓˇ ㄔ ˙ㄌㄜ ㄙㄢ ㄈㄣ ㄓ ㄧ ˙ㄉㄜ ㄅㄧㄢˋ ㄉㄤ",
       "why_en": "English says the part first (\"one third\"), but Mandarin says the whole first: 三分之一, \"of three parts, one\"."
     },
     "taiwan_note": ""
@@ -1300,7 +1300,7 @@
     "pattern": "小數點",
     "level": "第3*級",
     "title_en": "Decimals: …點…",
-    "explanation_en": "The decimal point is read 點, and the digits after it are read one by one: 3.25 is 三點二五, not 三點二十五. The part before the point is read as a normal number (12.5 = 十二點五), and zero is 零 (0.5 = 零點五).",
+    "explanation_en": "The decimal point is read 點, and the digits after it are read one by one: 1.68 is 一點六八, not 一點六十八. The part before the point is read as a normal number (12.5 = 十二點五), and zero is 零 (0.5 = 零點五).",
     "structure": "Num + 點 + digit + digit …",
     "examples": [
       {
@@ -1343,7 +1343,7 @@
     "examples": [
       {
         "zh": "我最想吃的是芒果冰。",
-        "zhuyin": "ㄨㄛˇ ㄗㄨㄟˋ ㄒㄧㄤˇ ㄔ ㄉㄧˊ ㄕˋ ㄇㄤˊ ㄍㄨㄛˇ ㄅㄧㄥ",
+        "zhuyin": "ㄨㄛˇ ㄗㄨㄟˋ ㄒㄧㄤˇ ㄔ ˙ㄉㄜ ㄕˋ ㄇㄤˊ ㄍㄨㄛˇ ㄅㄧㄥ",
         "en": "What I want to eat most is mango shaved ice."
       },
       {
@@ -1365,7 +1365,7 @@
     "mistake": {
       "wrong": "我最想吃是芒果冰。",
       "right": "我最想吃的是芒果冰。",
-      "right_zhuyin": "ㄨㄛˇ ㄗㄨㄟˋ ㄒㄧㄤˇ ㄔ ㄉㄧˊ ㄕˋ ㄇㄤˊ ㄍㄨㄛˇ ㄅㄧㄥ",
+      "right_zhuyin": "ㄨㄛˇ ㄗㄨㄟˋ ㄒㄧㄤˇ ㄔ ˙ㄉㄜ ㄕˋ ㄇㄤˊ ㄍㄨㄛˇ ㄅㄧㄥ",
       "why_en": "Without 的, 我最想吃 is just a verb phrase; 的 turns it into \"what I most want to eat\", which 是 can then link."
     },
     "taiwan_note": "阿姨 is the friendly everyday way to address or talk about a middle-aged woman, such as a shop owner, in Taiwan."

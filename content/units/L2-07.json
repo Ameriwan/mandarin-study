@@ -4,7 +4,7 @@
   "can_do_en": "I can view a room for rent, ask about the rent, the deposit and the bills, ask whether it's noisy and where to park, and ask for a lower price.",
   "dialogue": [
     {"speaker": "房東", "zh": "你們好！你就是昨天打電話來的馬克喔？我姓陳。", "zhuyin": "ㄋㄧˇ ˙ㄇㄣ ㄏㄠˇ ㄋㄧˇ ㄐㄧㄡˋ ㄕˋ ㄗㄨㄛˊ ㄊㄧㄢ ㄉㄚˇ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄌㄞˊ ˙ㄉㄜ ㄇㄚˇ ㄎㄜˋ ㄛ ㄨㄛˇ ㄒㄧㄥˋ ㄔㄣˊ", "en": "Hello! You must be Mark, who called yesterday? My surname is Chen."},
-    {"speaker": "馬克", "zh": "陳太太好！對，我是馬克。這是我的朋友阿芳。", "zhuyin": "ㄔㄣˊ ㄊㄞˋ ˙ㄊㄞ ㄏㄠˇ ㄉㄨㄟˋ ㄨㄛˇ ㄕˋ ㄇㄚˇ ㄎㄜˋ ㄓㄜˋ ㄕˋ ㄨㄛˇ ˙ㄉㄜ ㄆㄥˊ ㄧㄡˇ ㄚ ㄈㄤ", "en": "Hello, Mrs. Chen! Yes, I'm Mark. This is my friend A-Fang."},
+    {"speaker": "馬克", "zh": "陳小姐好！對，我是馬克。這是我的朋友阿芳。", "zhuyin": "ㄔㄣˊ ㄒㄧㄠˇ ㄐㄧㄝˇ ㄏㄠˇ ㄉㄨㄟˋ ㄨㄛˇ ㄕˋ ㄇㄚˇ ㄎㄜˋ ㄓㄜˋ ㄕˋ ㄨㄛˇ ˙ㄉㄜ ㄆㄥˊ ㄧㄡˇ ㄚ ㄈㄤ", "en": "Hello, Ms. Chen! Yes, I'm Mark. This is my friend A-Fang."},
     {"speaker": "房東", "zh": "房間在三樓，我帶你們上去看。", "zhuyin": "ㄈㄤˊ ㄐㄧㄢ ㄗㄞˋ ㄙㄢ ㄌㄡˊ ㄨㄛˇ ㄉㄞˋ ㄋㄧˇ ˙ㄇㄣ ㄕㄤˋ ㄑㄩˋ ㄎㄢˋ", "en": "The room is on the third floor. I'll take you up to see it."},
     {"speaker": "阿芳", "zh": "哇，這間套房又大又乾淨，還有冷氣！", "zhuyin": "ㄨㄚ ㄓㄜˋ ㄐㄧㄢ ㄊㄠˋ ㄈㄤˊ ㄧㄡˋ ㄉㄚˋ ㄧㄡˋ ㄍㄢ ㄐㄧㄥˋ ㄏㄞˊ ㄧㄡˇ ㄌㄥˇ ㄑㄧˋ", "en": "Wow, this studio is big and clean, and it has air conditioning too!"},
     {"speaker": "馬克", "zh": "床和桌子也都很新。房租一個月多少？", "zhuyin": "ㄔㄨㄤˊ ㄏㄜˊ ㄓㄨㄛ ˙ㄗ ㄧㄝˇ ㄉㄡ ㄏㄣˇ ㄒㄧㄣ ㄈㄤˊ ㄗㄨ ㄧ ˙ㄍㄜ ㄩㄝˋ ㄉㄨㄛ ㄕㄠˇ", "en": "The bed and the desk are new, too. How much is the rent a month?"},

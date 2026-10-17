@@ -61,23 +61,23 @@
     "examples": [
       {"zh": "明天會下雨，記得帶傘。", "zhuyin": "ㄇㄧㄥˊ ㄊㄧㄢ ㄏㄨㄟˋ ㄒㄧㄚˋ ㄩˇ ㄐㄧˋ ˙ㄉㄜ ㄉㄞˋ ㄙㄢˇ", "en": "It's going to rain tomorrow; remember to bring an umbrella."},
       {"zh": "他今天晚上會來嗎？", "zhuyin": "ㄊㄚ ㄐㄧㄣ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄏㄨㄟˋ ㄌㄞˊ ˙ㄇㄚ", "en": "Will he come tonight?"},
-      {"zh": "外面風很大，你會不會冷？", "zhuyin": "ㄨㄞˋ ㄇㄧㄢˋ ㄈㄥ ㄏㄣˇ ㄉㄚˋ ㄋㄧˇ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄌㄥˇ", "en": "It's very windy outside. Are you cold?"},
+      {"zh": "外面風很大，你穿這樣會不會冷？", "zhuyin": "ㄨㄞˋ ㄇㄧㄢˋ ㄈㄥ ㄏㄣˇ ㄉㄚˋ ㄋㄧˇ ㄔㄨㄢ ㄓㄜˋ ㄧㄤˋ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄌㄥˇ", "en": "It's very windy outside. Won't you be cold dressed like that?"},
       {"zh": "別擔心，我不會忘記。", "zhuyin": "ㄅㄧㄝˊ ㄉㄢ ㄒㄧㄣ ㄨㄛˇ ㄅㄨˋ ㄏㄨㄟˋ ㄨㄤˋ ㄐㄧˋ", "en": "Don't worry, I won't forget."}
     ],
     "mistake": {"wrong": "明天我會是很忙。", "right": "明天我會很忙。", "right_zhuyin": "ㄇㄧㄥˊ ㄊㄧㄢ ㄨㄛˇ ㄏㄨㄟˋ ㄏㄣˇ ㄇㄤˊ", "why_en": "'Will be' + adjective is just 會 + adjective; 是 is not used before adjectives."},
-    "taiwan_note": "Two Taiwan habits: 會 for a plain future question (他會來嗎？), and 會 + adjective in questions about how someone feels (你會不會冷？ 'Are you cold?')."
+    "taiwan_note": "Two Taiwan habits: 會 for a plain future question (他會來嗎？), and 會 + adjective in questions about how someone feels (你穿這樣會不會冷？ 'Won't you be cold dressed like that?')."
   },
   {
     "id": "G021", "tbcl": 21, "pattern": "V著1", "level": "第2級",
     "title_en": "V + 著: an ongoing state",
-    "explanation_en": "著 after a verb shows that the state left by an action continues: 門開著 'the door is open', 他戴著帽子 'he is wearing a cap'. It describes how someone or something is, not an action in progress (that is 在 + verb). Common verbs are 開, 關, 戴, 穿, 坐, 站, 拿 and 掛.",
+    "explanation_en": "著 after a verb shows that the state left by an action continues: 冷氣開著 'the air conditioning is on', 她戴著口罩 'she is wearing a mask'. It describes how someone or something is, not an action in progress (that is 在 + verb). Common verbs are 開, 關, 戴, 穿, 坐, 站, 拿 and 掛.",
     "structure": "S + V + 著 (+ O)",
     "examples": [
-      {"zh": "他戴著一頂黑色的帽子。", "zhuyin": "ㄊㄚ ㄉㄞˋ ˙ㄓㄜ ㄧ ㄉㄧㄥˇ ㄏㄟ ㄙㄜˋ ˙ㄉㄜ ㄇㄠˋ ˙ㄗ", "en": "He's wearing a black cap."},
+      {"zh": "弟弟戴著一頂黑色的棒球帽。", "zhuyin": "ㄉㄧˋ ˙ㄉㄧ ㄉㄞˋ ˙ㄓㄜ ㄧ ㄉㄧㄥˇ ㄏㄟ ㄙㄜˋ ˙ㄉㄜ ㄅㄤˋ ㄑㄧㄡˊ ㄇㄠˋ", "en": "My younger brother is wearing a black baseball cap."},
       {"zh": "冷氣開著，請關門。", "zhuyin": "ㄌㄥˇ ㄑㄧˋ ㄎㄞ ˙ㄓㄜ ㄑㄧㄥˇ ㄍㄨㄢ ㄇㄣˊ", "en": "The air conditioning is on, please close the door."},
       {"zh": "媽媽手上拿著一杯冰咖啡。", "zhuyin": "ㄇㄚ ˙ㄇㄚ ㄕㄡˇ ㄕㄤˋ ㄋㄚˊ ˙ㄓㄜ ㄧ ㄅㄟ ㄅㄧㄥ ㄎㄚ ㄈㄟ", "en": "Mom is holding an iced coffee."}
     ],
-    "mistake": {"wrong": "他在戴安全帽。", "right": "他戴著安全帽。", "right_zhuyin": "ㄊㄚ ㄉㄞˋ ˙ㄓㄜ ㄢ ㄑㄩㄢˊ ㄇㄠˋ", "why_en": "在 + 戴 means he is in the middle of putting it on. For 'is wearing' (a state), use 著."},
+    "mistake": {"wrong": "她在戴口罩。", "right": "她戴著口罩。", "right_zhuyin": "ㄊㄚ ㄉㄞˋ ˙ㄓㄜ ㄎㄡˇ ㄓㄠˋ", "why_en": "在 + 戴 means she is in the middle of putting it on. For 'is wearing' (a state), use 著."},
     "taiwan_note": ""
   },
   {
@@ -86,7 +86,7 @@
     "explanation_en": "Put 第 before a number to make an ordinal: 第一, 第二, 第三. Before a noun, a measure word follows the number: 第一次, 第三站, 第一個人. Ordinals always use 二, never 兩. In 第一 the 一 keeps its base first tone, because it is an ordinal.",
     "structure": "第 + Num + M (+ N)",
     "examples": [
-      {"zh": "這是我第一次來屏東。", "zhuyin": "ㄓㄜˋ ㄕˋ ㄨㄛˇ ㄉㄧˋ ㄧ ㄘˋ ㄌㄞˊ ㄆㄧㄥˊ ㄉㄨㄥ", "en": "This is my first time in Pingtung."},
+      {"zh": "我第一次吃臭豆腐是在夜市。", "zhuyin": "ㄨㄛˇ ㄉㄧˋ ㄧ ㄘˋ ㄔ ㄔㄡˋ ㄉㄡˋ ㄈㄨˇ ㄕˋ ㄗㄞˋ ㄧㄝˋ ㄕˋ", "en": "The first time I ate stinky tofu was at a night market."},
       {"zh": "坐公車要在第三站下車。", "zhuyin": "ㄗㄨㄛˋ ㄍㄨㄥ ㄔㄜ ㄧㄠˋ ㄗㄞˋ ㄉㄧˋ ㄙㄢ ㄓㄢˋ ㄒㄧㄚˋ ㄔㄜ", "en": "On the bus, get off at the third stop."},
       {"zh": "他每天第一個到公司。", "zhuyin": "ㄊㄚ ㄇㄟˇ ㄊㄧㄢ ㄉㄧˋ ㄧ ˙ㄍㄜ ㄉㄠˋ ㄍㄨㄥ ㄙ", "en": "He's the first one to arrive at the office every day."}
     ],
@@ -99,11 +99,11 @@
     "explanation_en": "如果 introduces a condition. The 如果 clause comes first and the result follows, often with 就 before the verb. Unlike English, the 'if' clause does not normally go second. Adding 的話 at the end of the condition sounds more spoken: 如果颱風來的話.",
     "structure": "如果 + condition (的話)，(S +) 就 + result",
     "examples": [
-      {"zh": "如果下雨，我們就不去墾丁了。", "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄒㄧㄚˋ ㄩˇ ㄨㄛˇ ˙ㄇㄣ ㄐㄧㄡˋ ㄅㄨˋ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ ˙ㄌㄜ", "en": "If it rains, we won't go to Kenting."},
+      {"zh": "如果明天天氣好，我們就去墾丁。", "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄇㄧㄥˊ ㄊㄧㄢ ㄊㄧㄢ ㄑㄧˋ ㄏㄠˇ ㄨㄛˇ ˙ㄇㄣ ㄐㄧㄡˋ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ", "en": "If the weather is nice tomorrow, we'll go to Kenting."},
       {"zh": "如果你不舒服，就去看醫生。", "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄋㄧˇ ㄅㄨˋ ㄕㄨ ˙ㄈㄨ ㄐㄧㄡˋ ㄑㄩˋ ㄎㄢˋ ㄧ ㄕㄥ", "en": "If you don't feel well, go see a doctor."},
       {"zh": "如果颱風來的話，學校可能會放假。", "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄊㄞˊ ㄈㄥ ㄌㄞˊ ˙ㄉㄜ ㄏㄨㄚˋ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄎㄜˇ ㄋㄥˊ ㄏㄨㄟˋ ㄈㄤˋ ㄐㄧㄚˋ", "en": "If a typhoon comes, school may be cancelled."}
     ],
-    "mistake": {"wrong": "我們不去，如果下雨。", "right": "如果下雨，我們就不去。", "right_zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄒㄧㄚˋ ㄩˇ ㄨㄛˇ ˙ㄇㄣ ㄐㄧㄡˋ ㄅㄨˋ ㄑㄩˋ", "why_en": "The 如果 clause comes first; the result comes second, usually with 就."},
+    "mistake": {"wrong": "我們去墾丁，如果天氣好。", "right": "如果天氣好，我們就去墾丁。", "right_zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄊㄧㄢ ㄑㄧˋ ㄏㄠˇ ㄨㄛˇ ˙ㄇㄣ ㄐㄧㄡˋ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ", "why_en": "The 如果 clause comes first; the result comes second, usually with 就."},
     "taiwan_note": ""
   },
   {
@@ -113,7 +113,7 @@
     "structure": "S + 可以 + V (嗎)？ ; S + 不可以 + V",
     "examples": [
       {"zh": "請問，我可以坐這裡嗎？", "zhuyin": "ㄑㄧㄥˇ ㄨㄣˋ ㄨㄛˇ ㄎㄜˇ ㄧˇ ㄗㄨㄛˋ ㄓㄜˋ ㄌㄧˇ ˙ㄇㄚ", "en": "Excuse me, may I sit here?"},
-      {"zh": "捷運上不可以吃東西。", "zhuyin": "ㄐㄧㄝˊ ㄩㄣˋ ㄕㄤˋ ㄅㄨˋ ㄎㄜˇ ㄧˇ ㄔ ㄉㄨㄥ ˙ㄒㄧ", "en": "You're not allowed to eat on the MRT."},
+      {"zh": "這裡不可以停機車。", "zhuyin": "ㄓㄜˋ ㄌㄧˇ ㄅㄨˋ ㄎㄜˇ ㄧˇ ㄊㄧㄥˊ ㄐㄧ ㄔㄜ", "en": "You can't park scooters here."},
       {"zh": "這裡可以用手機付錢嗎？", "zhuyin": "ㄓㄜˋ ㄌㄧˇ ㄎㄜˇ ㄧˇ ㄩㄥˋ ㄕㄡˇ ㄐㄧ ㄈㄨˋ ㄑㄧㄢˊ ˙ㄇㄚ", "en": "Can I pay with my phone here?"}
     ],
     "mistake": {"wrong": "我會用洗手間嗎？", "right": "我可以用洗手間嗎？", "right_zhuyin": "ㄨㄛˇ ㄎㄜˇ ㄧˇ ㄩㄥˋ ㄒㄧˇ ㄕㄡˇ ㄐㄧㄢ ˙ㄇㄚ", "why_en": "English 'can' has several Chinese equivalents. For permission use 可以; 會 means 'know how to' or 'will'."},
@@ -220,7 +220,7 @@
     "examples": [
       {"zh": "這支手機是你的嗎？", "zhuyin": "ㄓㄜˋ ㄓ ㄕㄡˇ ㄐㄧ ㄕˋ ㄋㄧˇ ˙ㄉㄜ ˙ㄇㄚ", "en": "Is this phone yours?"},
       {"zh": "便當有大的和小的，你要哪一種？", "zhuyin": "ㄅㄧㄢˋ ㄉㄤ ㄧㄡˇ ㄉㄚˋ ˙ㄉㄜ ㄏㄜˊ ㄒㄧㄠˇ ˙ㄉㄜ ㄋㄧˇ ㄧㄠˋ ㄋㄚˇ ㄧ ㄓㄨㄥˇ", "en": "The bento comes in big and small. Which one do you want?"},
-      {"zh": "我不喜歡辣的，我要不辣的。", "zhuyin": "ㄨㄛˇ ㄅㄨˋ ㄒㄧˇ ㄏㄨㄢ ㄌㄚˋ ˙ㄉㄜ ㄨㄛˇ ㄧㄠˋ ㄅㄨˋ ㄌㄚˋ ˙ㄉㄜ", "en": "I don't like spicy food; I'll have the non-spicy one."},
+      {"zh": "辣的我不敢吃，給我不辣的。", "zhuyin": "ㄌㄚˋ ˙ㄉㄜ ㄨㄛˇ ㄅㄨˋ ㄍㄢˇ ㄔ ㄍㄟˇ ㄨㄛˇ ㄅㄨˋ ㄌㄚˋ ˙ㄉㄜ", "en": "Spicy ones are too much for me; give me the non-spicy one."},
       {"zh": "這件外套是我昨天買的。", "zhuyin": "ㄓㄜˋ ㄐㄧㄢˋ ㄨㄞˋ ㄊㄠˋ ㄕˋ ㄨㄛˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄇㄞˇ ˙ㄉㄜ", "en": "This jacket is the one I bought yesterday."}
     ],
     "mistake": {"wrong": "我要紅的一個。", "right": "我要紅的。", "right_zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄏㄨㄥˊ ˙ㄉㄜ", "why_en": "English says 'the red one', but Chinese needs nothing after 的; there is no word for 'one' here."},
@@ -234,7 +234,7 @@
     "examples": [
       {"zh": "你會騎機車嗎？", "zhuyin": "ㄋㄧˇ ㄏㄨㄟˋ ㄑㄧˊ ㄐㄧ ㄔㄜ ˙ㄇㄚ", "en": "Can you ride a scooter?"},
       {"zh": "我不會游泳，可是想學。", "zhuyin": "ㄨㄛˇ ㄅㄨˋ ㄏㄨㄟˋ ㄧㄡˊ ㄩㄥˇ ㄎㄜˇ ㄕˋ ㄒㄧㄤˇ ㄒㄩㄝˊ", "en": "I can't swim, but I want to learn."},
-      {"zh": "他會說中文，也會說一點台語。", "zhuyin": "ㄊㄚ ㄏㄨㄟˋ ㄕㄨㄛ ㄓㄨㄥ ㄨㄣˊ ㄧㄝˇ ㄏㄨㄟˋ ㄕㄨㄛ ㄧ ㄉㄧㄢˇ ㄊㄞˊ ㄩˇ", "en": "He speaks Mandarin, and a little Taiwanese too."}
+      {"zh": "我奶奶會說臺語，可是不會說英文。", "zhuyin": "ㄨㄛˇ ㄋㄞˇ ˙ㄋㄞ ㄏㄨㄟˋ ㄕㄨㄛ ㄊㄞˊ ㄩˇ ㄎㄜˇ ㄕˋ ㄅㄨˋ ㄏㄨㄟˋ ㄕㄨㄛ ㄧㄥ ㄨㄣˊ", "en": "My grandma speaks Taiwanese, but she can't speak English."}
     ],
     "mistake": {"wrong": "我可以游泳。", "right": "我會游泳。", "right_zhuyin": "ㄨㄛˇ ㄏㄨㄟˋ ㄧㄡˊ ㄩㄥˇ", "why_en": "For a learned skill use 會. 我可以游泳 sounds like 'I'm allowed to swim (here, now)'."},
     "taiwan_note": ""
@@ -287,7 +287,7 @@
     "structure": "S + V + Vs (+ 了) ; S + 沒(有) + V + Vs",
     "examples": [
       {"zh": "我吃飽了，謝謝。", "zhuyin": "ㄨㄛˇ ㄔ ㄅㄠˇ ˙ㄌㄜ ㄒㄧㄝˋ ˙ㄒㄧㄝ", "en": "I'm full, thank you."},
-      {"zh": "我沒聽清楚，你可以再說一次嗎？", "zhuyin": "ㄨㄛˇ ㄇㄟˊ ㄊㄧㄥ ㄑㄧㄥ ㄔㄨˇ ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄗㄞˋ ㄕㄨㄛ ㄧ ㄘˋ ˙ㄇㄚ", "en": "I didn't catch that. Could you say it again?"},
+      {"zh": "我沒聽清楚，你能不能再講一次？", "zhuyin": "ㄨㄛˇ ㄇㄟˊ ㄊㄧㄥ ㄑㄧㄥ ㄔㄨˇ ㄋㄧˇ ㄋㄥˊ ㄅㄨˋ ㄋㄥˊ ㄗㄞˋ ㄐㄧㄤˇ ㄧ ㄘˋ", "en": "I didn't catch that. Could you say it again?"},
       {"zh": "碗都洗乾淨了。", "zhuyin": "ㄨㄢˇ ㄉㄡ ㄒㄧˇ ㄍㄢ ㄐㄧㄥˋ ˙ㄌㄜ", "en": "The bowls are all washed clean."},
       {"zh": "我寫錯了一個字。", "zhuyin": "ㄨㄛˇ ㄒㄧㄝˇ ㄘㄨㄛˋ ˙ㄌㄜ ㄧ ˙ㄍㄜ ㄗˋ", "en": "I wrote a character wrong."}
     ],
@@ -340,17 +340,17 @@
     "explanation_en": "從 marks a starting point in space or time: 從屏東來, 從九點開始. The 從 phrase goes before the verb. It often pairs with 到 to give a range: 從早上到晚上, 從我家到車站.",
     "structure": "S + 從 + place/time + V ; 從 A 到 B",
     "examples": [
-      {"zh": "我從美國來，現在住在屏東。", "zhuyin": "ㄨㄛˇ ㄘㄨㄥˊ ㄇㄟˇ ㄍㄨㄛˊ ㄌㄞˊ ㄒㄧㄢˋ ㄗㄞˋ ㄓㄨˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ", "en": "I'm from the US, and now I live in Pingtung."},
+      {"zh": "我從加拿大來，現在住在屏東。", "zhuyin": "ㄨㄛˇ ㄘㄨㄥˊ ㄐㄧㄚ ㄋㄚˊ ㄉㄚˋ ㄌㄞˊ ㄒㄧㄢˋ ㄗㄞˋ ㄓㄨˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ", "en": "I'm from Canada, and now I live in Pingtung."},
       {"zh": "從我家到火車站要十分鐘。", "zhuyin": "ㄘㄨㄥˊ ㄨㄛˇ ㄐㄧㄚ ㄉㄠˋ ㄏㄨㄛˇ ㄔㄜ ㄓㄢˋ ㄧㄠˋ ㄕˊ ㄈㄣ ㄓㄨㄥ", "en": "It takes ten minutes from my place to the train station."},
       {"zh": "我從早上九點工作到晚上六點。", "zhuyin": "ㄨㄛˇ ㄘㄨㄥˊ ㄗㄠˇ ㄕㄤˋ ㄐㄧㄡˇ ㄉㄧㄢˇ ㄍㄨㄥ ㄗㄨㄛˋ ㄉㄠˋ ㄨㄢˇ ㄕㄤˋ ㄌㄧㄡˋ ㄉㄧㄢˇ", "en": "I work from nine in the morning to six in the evening."}
     ],
-    "mistake": {"wrong": "我來從美國。", "right": "我從美國來。", "right_zhuyin": "ㄨㄛˇ ㄘㄨㄥˊ ㄇㄟˇ ㄍㄨㄛˊ ㄌㄞˊ", "why_en": "從 + place comes before the verb 來, not after it as in English 'come from'."},
+    "mistake": {"wrong": "他來從日本。", "right": "他從日本來。", "right_zhuyin": "ㄊㄚ ㄘㄨㄥˊ ㄖˋ ㄅㄣˇ ㄌㄞˊ", "why_en": "從 + place comes before the verb 來, not after it as in English 'come from'."},
     "taiwan_note": ""
   },
   {
     "id": "G042", "tbcl": 42, "pattern": "用", "level": "第2級",
     "title_en": "用: 'use', 'with (a tool or means)'",
-    "explanation_en": "用 means 'to use'. Before another verb it marks the tool or means of the action: 用筷子吃飯 'eat with chopsticks'. The 用 phrase comes before the main verb. It also works for languages and ways of paying: 用中文說, 用手機付錢.",
+    "explanation_en": "用 means 'to use'. Before another verb it marks the tool or means of the action: 用電腦工作 'work on a computer'. The 用 phrase comes before the main verb. It also works for languages and ways of paying: 用中文說, 用手機付錢.",
     "structure": "S + 用 + tool/means + V (+ O)",
     "examples": [
       {"zh": "我常用手機付錢。", "zhuyin": "ㄨㄛˇ ㄔㄤˊ ㄩㄥˋ ㄕㄡˇ ㄐㄧ ㄈㄨˋ ㄑㄧㄢˊ", "en": "I often pay with my phone."},
@@ -385,7 +385,7 @@
       {"zh": "我的安全帽呢？", "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄢ ㄑㄩㄢˊ ㄇㄠˋ ˙ㄋㄜ", "en": "Where's my helmet?"},
       {"zh": "今天很熱，明天呢？", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄏㄣˇ ㄖㄜˋ ㄇㄧㄥˊ ㄊㄧㄢ ˙ㄋㄜ", "en": "It's hot today. What about tomorrow?"}
     ],
-    "mistake": {"wrong": "我是學生，你呢嗎？", "right": "我是學生，你呢？", "right_zhuyin": "ㄨㄛˇ ㄕˋ ㄒㄩㄝˊ ㄕㄥ ㄋㄧˇ ˙ㄋㄜ", "why_en": "呢 already makes the question; do not add 嗎."},
+    "mistake": {"wrong": "我喜歡吃辣，你呢嗎？", "right": "我喜歡吃辣，你呢？", "right_zhuyin": "ㄨㄛˇ ㄒㄧˇ ㄏㄨㄢ ㄔ ㄌㄚˋ ㄋㄧˇ ˙ㄋㄜ", "why_en": "呢 already makes the question; do not add 嗎."},
     "taiwan_note": ""
   },
   {
@@ -407,7 +407,7 @@
     "explanation_en": "們 is added to pronouns (我們, 你們, 他們) and to some nouns for people (同學們, 老師們, 小朋友們) to mark a group. It is not used for things, and never together with a number or a quantity word: 很多朋友, not 很多朋友們. Most of the time Chinese nouns carry no plural marker at all.",
     "structure": "person noun + 們",
     "examples": [
-      {"zh": "同學們，我們開始上課吧。", "zhuyin": "ㄊㄨㄥˊ ㄒㄩㄝˊ ˙ㄇㄣ ㄨㄛˇ ˙ㄇㄣ ㄎㄞ ㄕˇ ㄕㄤˋ ㄎㄜˋ ˙ㄅㄚ", "en": "OK everyone, let's start class."},
+      {"zh": "同學們，今天我們上第五課。", "zhuyin": "ㄊㄨㄥˊ ㄒㄩㄝˊ ˙ㄇㄣ ㄐㄧㄣ ㄊㄧㄢ ㄨㄛˇ ˙ㄇㄣ ㄕㄤˋ ㄉㄧˋ ㄨˇ ㄎㄜˋ", "en": "Class, today we're on Lesson 5."},
       {"zh": "小朋友們在廟口玩。", "zhuyin": "ㄒㄧㄠˇ ㄆㄥˊ ㄧㄡˇ ˙ㄇㄣ ㄗㄞˋ ㄇㄧㄠˋ ㄎㄡˇ ㄨㄢˊ", "en": "The kids are playing in front of the temple."},
       {"zh": "老師們今天晚上要一起吃飯。", "zhuyin": "ㄌㄠˇ ㄕ ˙ㄇㄣ ㄐㄧㄣ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄧㄠˋ ㄧ ㄑㄧˇ ㄔ ㄈㄢˋ", "en": "The teachers are having dinner together tonight."}
     ],
@@ -464,7 +464,7 @@
       {"zh": "你今天為什麼這麼累？", "zhuyin": "ㄋㄧˇ ㄐㄧㄣ ㄊㄧㄢ ㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ ㄓㄜˋ ˙ㄇㄜ ㄌㄟˋ", "en": "Why are you so tired today?"},
       {"zh": "他為什麼沒來？因為他生病了。", "zhuyin": "ㄊㄚ ㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ ㄇㄟˊ ㄌㄞˊ ㄧㄣ ㄨㄟˋ ㄊㄚ ㄕㄥ ㄅㄧㄥˋ ˙ㄌㄜ", "en": "Why didn't he come? Because he's sick."}
     ],
-    "mistake": {"wrong": "為什麼你不來嗎？", "right": "你為什麼不來？", "right_zhuyin": "ㄋㄧˇ ㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ ㄅㄨˋ ㄌㄞˊ", "why_en": "A 為什麼 question is already a question, so 嗎 is not added."},
+    "mistake": {"wrong": "你今天為什麼沒來嗎？", "right": "你今天為什麼沒來？", "right_zhuyin": "ㄋㄧˇ ㄐㄧㄣ ㄊㄧㄢ ㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ ㄇㄟˊ ㄌㄞˊ", "why_en": "A 為什麼 question is already a question, so 嗎 is not added."},
     "taiwan_note": ""
   },
   {
@@ -545,7 +545,7 @@
       {"zh": "請坐，請喝茶。", "zhuyin": "ㄑㄧㄥˇ ㄗㄨㄛˋ ㄑㄧㄥˇ ㄏㄜ ㄔㄚˊ", "en": "Please have a seat, and have some tea."},
       {"zh": "請你在這裡等一下。", "zhuyin": "ㄑㄧㄥˇ ㄋㄧˇ ㄗㄞˋ ㄓㄜˋ ㄌㄧˇ ㄉㄥˇ ㄧ ㄒㄧㄚˋ", "en": "Please wait here a moment."},
       {"zh": "今天我請你吃晚餐。", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄨㄛˇ ㄑㄧㄥˇ ㄋㄧˇ ㄔ ㄨㄢˇ ㄘㄢ", "en": "Dinner's on me today."},
-      {"zh": "請問，郵局在哪裡？", "zhuyin": "ㄑㄧㄥˇ ㄨㄣˋ ㄧㄡˊ ㄐㄩˊ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ", "en": "Excuse me, where's the post office?"}
+      {"zh": "請問，洗手間在哪裡？", "zhuyin": "ㄑㄧㄥˇ ㄨㄣˋ ㄒㄧˇ ㄕㄡˇ ㄐㄧㄢ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ", "en": "Excuse me, where's the restroom?"}
     ],
     "mistake": {"wrong": "你坐，請。", "right": "請坐。", "right_zhuyin": "ㄑㄧㄥˇ ㄗㄨㄛˋ", "why_en": "請 always comes at the beginning of the request, not at the end like English 'please'."},
     "taiwan_note": ""
@@ -586,7 +586,7 @@
     "examples": [
       {"zh": "吃飯以前要洗手。", "zhuyin": "ㄔ ㄈㄢˋ ㄧˇ ㄑㄧㄢˊ ㄧㄠˋ ㄒㄧˇ ㄕㄡˇ", "en": "Wash your hands before eating."},
       {"zh": "我以前住在臺北，現在住在屏東。", "zhuyin": "ㄨㄛˇ ㄧˇ ㄑㄧㄢˊ ㄓㄨˋ ㄗㄞˋ ㄊㄞˊ ㄅㄟˇ ㄒㄧㄢˋ ㄗㄞˋ ㄓㄨˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ", "en": "I used to live in Taipei; now I live in Pingtung."},
-      {"zh": "我兩年以前第一次來臺灣。", "zhuyin": "ㄨㄛˇ ㄌㄧㄤˇ ㄋㄧㄢˊ ㄧˇ ㄑㄧㄢˊ ㄉㄧˋ ㄧ ㄘˋ ㄌㄞˊ ㄊㄞˊ ㄨㄢ", "en": "I first came to Taiwan two years ago."}
+      {"zh": "我三年以前開始學中文。", "zhuyin": "ㄨㄛˇ ㄙㄢ ㄋㄧㄢˊ ㄧˇ ㄑㄧㄢˊ ㄎㄞ ㄕˇ ㄒㄩㄝˊ ㄓㄨㄥ ㄨㄣˊ", "en": "I started learning Chinese three years ago."}
     ],
     "mistake": {"wrong": "以前洗澡，我先運動。", "right": "洗澡以前，我先運動。", "right_zhuyin": "ㄒㄧˇ ㄗㄠˇ ㄧˇ ㄑㄧㄢˊ ㄨㄛˇ ㄒㄧㄢ ㄩㄣˋ ㄉㄨㄥˋ", "why_en": "以前 follows the action it refers to: 'before showering' is 洗澡以前."},
     "taiwan_note": ""

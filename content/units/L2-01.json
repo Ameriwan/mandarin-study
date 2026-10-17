@@ -3,13 +3,13 @@
  "topic": "便當店 and 小吃", "title_zh": "在便當店吃午餐", "title_en": "Lunch at the bento shop",
  "can_do_en": "I can order a bento for here or to go, ask for an extra item, say how the food is, and ask the owner to pack up what I can't finish.",
  "dialogue": [
-  {"speaker": "小美", "zh": "馬克，這家便當店在屏東很有名，又便宜又好吃。", "zhuyin": "ㄇㄚˇ ㄎㄜˋ ㄓㄜˋ ㄐㄧㄚ ㄅㄧㄢˋ ˙ㄉㄤ ㄉㄧㄢˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄏㄣˇ ㄧㄡˇ ㄇㄧㄥˊ ㄧㄡˋ ㄆㄧㄢˊ ㄧˊ ㄧㄡˋ ㄏㄠˇ ㄔ", "en": "Mark, this bento shop is well known in Pingtung. It's cheap and tasty."},
+  {"speaker": "小美", "zh": "馬克，這家便當店在屏東很有名，又便宜又好吃。", "zhuyin": "ㄇㄚˇ ㄎㄜˋ ㄓㄜˋ ㄐㄧㄚ ㄅㄧㄢˋ ㄉㄤ ㄉㄧㄢˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄏㄣˇ ㄧㄡˇ ㄇㄧㄥˊ ㄧㄡˋ ㄆㄧㄢˊ ㄧˊ ㄧㄡˋ ㄏㄠˇ ㄔ", "en": "Mark, this bento shop is well known in Pingtung. It's cheap and tasty."},
   {"speaker": "老闆", "zh": "歡迎光臨！內用還是外帶？", "zhuyin": "ㄏㄨㄢ ㄧㄥˊ ㄍㄨㄤ ㄌㄧㄣˊ ㄋㄟˋ ㄩㄥˋ ㄏㄞˊ ㄕˋ ㄨㄞˋ ㄉㄞˋ", "en": "Welcome! For here or to go?"},
-  {"speaker": "小美", "zh": "內用。馬克，菜單在上面。你要雞腿便當還是排骨便當？", "zhuyin": "ㄋㄟˋ ㄩㄥˋ ㄇㄚˇ ㄎㄜˋ ㄘㄞˋ ㄉㄢ ㄗㄞˋ ㄕㄤˋ ˙ㄇㄧㄢ ㄋㄧˇ ㄧㄠˋ ㄐㄧ ㄊㄨㄟˇ ㄅㄧㄢˋ ˙ㄉㄤ ㄏㄞˊ ㄕˋ ㄆㄞˊ ㄍㄨˇ ㄅㄧㄢˋ ˙ㄉㄤ", "en": "For here. Mark, the menu is up there. Do you want the chicken-leg bento or the pork-chop bento?"},
+  {"speaker": "小美", "zh": "內用。馬克，菜單在上面。你要雞腿便當還是排骨便當？", "zhuyin": "ㄋㄟˋ ㄩㄥˋ ㄇㄚˇ ㄎㄜˋ ㄘㄞˋ ㄉㄢ ㄗㄞˋ ㄕㄤˋ ˙ㄇㄧㄢ ㄋㄧˇ ㄧㄠˋ ㄐㄧ ㄊㄨㄟˇ ㄅㄧㄢˋ ㄉㄤ ㄏㄞˊ ㄕˋ ㄆㄞˊ ㄍㄨˇ ㄅㄧㄢˋ ㄉㄤ", "en": "For here. Mark, the menu is up there. Do you want the chicken-leg bento or the pork-chop bento?"},
   {"speaker": "馬克", "zh": "老闆，雞腿是炸的嗎？", "zhuyin": "ㄌㄠˇ ㄅㄢˇ ㄐㄧ ㄊㄨㄟˇ ㄕˋ ㄓㄚˊ ˙ㄉㄜ ˙ㄇㄚ", "en": "Excuse me, is the chicken leg fried?"},
   {"speaker": "老闆", "zh": "對，炸的，很香喔！要不要加滷蛋？一顆十塊。", "zhuyin": "ㄉㄨㄟˋ ㄓㄚˊ ˙ㄉㄜ ㄏㄣˇ ㄒㄧㄤ ㄛ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄐㄧㄚ ㄌㄨˇ ㄉㄢˋ ㄧ ㄎㄜ ㄕˊ ㄎㄨㄞˋ", "en": "Yes, fried, and it smells great! Do you want to add a braised egg? They're ten dollars each."},
-  {"speaker": "馬克", "zh": "好，我要雞腿便當。麻煩幫我加一顆滷蛋。", "zhuyin": "ㄏㄠˇ ㄨㄛˇ ㄧㄠˋ ㄐㄧ ㄊㄨㄟˇ ㄅㄧㄢˋ ˙ㄉㄤ ㄇㄚˊ ˙ㄈㄢ ㄅㄤ ㄨㄛˇ ㄐㄧㄚ ㄧ ㄎㄜ ㄌㄨˇ ㄉㄢˋ", "en": "OK, I'll have the chicken-leg bento. Please add a braised egg for me."},
-  {"speaker": "小美", "zh": "我要一個排骨便當，飯少一點。今天我請你！", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄧ ˙ㄍㄜ ㄆㄞˊ ㄍㄨˇ ㄅㄧㄢˋ ˙ㄉㄤ ㄈㄢˋ ㄕㄠˇ ㄧ ㄉㄧㄢˇ ㄐㄧㄣ ㄊㄧㄢ ㄨㄛˇ ㄑㄧㄥˇ ㄋㄧˇ", "en": "I'll have a pork-chop bento with a bit less rice. Today it's my treat!"},
+  {"speaker": "馬克", "zh": "好，我要雞腿便當。麻煩幫我加一顆滷蛋。", "zhuyin": "ㄏㄠˇ ㄨㄛˇ ㄧㄠˋ ㄐㄧ ㄊㄨㄟˇ ㄅㄧㄢˋ ㄉㄤ ㄇㄚˊ ˙ㄈㄢ ㄅㄤ ㄨㄛˇ ㄐㄧㄚ ㄧ ㄎㄜ ㄌㄨˇ ㄉㄢˋ", "en": "OK, I'll have the chicken-leg bento. Please add a braised egg for me."},
+  {"speaker": "小美", "zh": "我要一個排骨便當，飯少一點。今天我請你！", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄧ ˙ㄍㄜ ㄆㄞˊ ㄍㄨˇ ㄅㄧㄢˋ ㄉㄤ ㄈㄢˋ ㄕㄠˇ ㄧ ㄉㄧㄢˇ ㄐㄧㄣ ㄊㄧㄢ ㄨㄛˇ ㄑㄧㄥˇ ㄋㄧˇ", "en": "I'll have a pork-chop bento with a bit less rice. Today it's my treat!"},
   {"speaker": "老闆", "zh": "好，一共一百八十塊。湯在那邊，自己拿喔。", "zhuyin": "ㄏㄠˇ ㄧ ㄍㄨㄥˋ ㄧ ㄅㄞˇ ㄅㄚ ㄕˊ ㄎㄨㄞˋ ㄊㄤ ㄗㄞˋ ㄋㄚˋ ㄅㄧㄢ ㄗˋ ㄐㄧˇ ㄋㄚˊ ㄛ", "en": "OK, that's 180 dollars altogether. The soup is over there; help yourselves."},
   {"speaker": "馬克", "zh": "哇，這個雞腿又大又香！", "zhuyin": "ㄨㄚ ㄓㄜˋ ˙ㄍㄜ ㄐㄧ ㄊㄨㄟˇ ㄧㄡˋ ㄉㄚˋ ㄧㄡˋ ㄒㄧㄤ", "en": "Wow, this chicken leg is big and smells so good!"},
   {"speaker": "小美", "zh": "不錯吃吧？你有吃飽嗎？", "zhuyin": "ㄅㄨˋ ㄘㄨㄛˋ ㄔ ˙ㄅㄚ ㄋㄧˇ ㄧㄡˇ ㄔ ㄅㄠˇ ˙ㄇㄚ", "en": "Pretty tasty, right? Did you get enough to eat?"},
@@ -19,7 +19,7 @@
   {"speaker": "小美", "zh": "好啊！那我們星期五晚上去吧。", "zhuyin": "ㄏㄠˇ ˙ㄚ ㄋㄚˋ ㄨㄛˇ ˙ㄇㄣ ㄒㄧㄥ ㄑㄧˊ ㄨˇ ㄨㄢˇ ㄕㄤˋ ㄑㄩˋ ˙ㄅㄚ", "en": "Great! Then let's go on Friday night."}
  ],
  "vocab": [
-  {"zh": "便當", "zhuyin": "ㄅㄧㄢˋ ˙ㄉㄤ", "en": "boxed meal, bento (rice with a main dish and sides)", "pos": "n", "measure": "個", "level": "第3級"},
+  {"zh": "便當", "zhuyin": "ㄅㄧㄢˋ ㄉㄤ", "en": "boxed meal, bento (rice with a main dish and sides)", "pos": "n", "measure": "個", "level": "第3級"},
   {"zh": "菜單", "zhuyin": "ㄘㄞˋ ㄉㄢ", "en": "menu", "pos": "n", "measure": "張", "level": "第2*級"},
   {"zh": "雞腿", "zhuyin": "ㄐㄧ ㄊㄨㄟˇ", "en": "chicken leg (drumstick)", "pos": "n", "measure": "隻", "level": null},
   {"zh": "排骨", "zhuyin": "ㄆㄞˊ ㄍㄨˇ", "en": "pork chop, spare rib", "pos": "n", "measure": "塊", "level": null},
@@ -44,9 +44,9 @@
  "pronunciation": {"contrast": "j-zh-z", "tone_pair": "33", "note_en": "ㄐ, ㄓ and ㄗ all come up here: 雞 ㄐㄧ, 炸 ㄓㄚˊ, 自己 ㄗˋ ㄐㄧˇ, 在 ㄗㄞˋ. In relaxed Taiwan speech ㄓ often drifts toward ㄗ (炸 can sound like ㄗㄚˊ): understand both, but say ㄓ with the tongue tip curled back. Tone pair 3+3: 老闆 ㄌㄠˇ ㄅㄢˇ and 小美 ㄒㄧㄠˇ ㄇㄟˇ are said 2+3, the same shape as 排骨 ㄆㄞˊ ㄍㄨˇ."},
  "shadowing": [
   {"zh": "內用還是外帶？", "zhuyin": "ㄋㄟˋ ㄩㄥˋ ㄏㄞˊ ㄕˋ ㄨㄞˋ ㄉㄞˋ", "en": "For here or to go?"},
-  {"zh": "你要雞腿便當還是排骨便當？", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄐㄧ ㄊㄨㄟˇ ㄅㄧㄢˋ ˙ㄉㄤ ㄏㄞˊ ㄕˋ ㄆㄞˊ ㄍㄨˇ ㄅㄧㄢˋ ˙ㄉㄤ", "en": "Do you want the chicken-leg bento or the pork-chop bento?"},
+  {"zh": "你要雞腿便當還是排骨便當？", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄐㄧ ㄊㄨㄟˇ ㄅㄧㄢˋ ㄉㄤ ㄏㄞˊ ㄕˋ ㄆㄞˊ ㄍㄨˇ ㄅㄧㄢˋ ㄉㄤ", "en": "Do you want the chicken-leg bento or the pork-chop bento?"},
   {"zh": "麻煩幫我加一顆滷蛋。", "zhuyin": "ㄇㄚˊ ˙ㄈㄢ ㄅㄤ ㄨㄛˇ ㄐㄧㄚ ㄧ ㄎㄜ ㄌㄨˇ ㄉㄢˋ", "en": "Please add a braised egg for me."},
-  {"zh": "我要一個排骨便當，飯少一點。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄧ ˙ㄍㄜ ㄆㄞˊ ㄍㄨˇ ㄅㄧㄢˋ ˙ㄉㄤ ㄈㄢˋ ㄕㄠˇ ㄧ ㄉㄧㄢˇ", "en": "I'll have a pork-chop bento with a bit less rice."},
+  {"zh": "我要一個排骨便當，飯少一點。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄧ ˙ㄍㄜ ㄆㄞˊ ㄍㄨˇ ㄅㄧㄢˋ ㄉㄤ ㄈㄢˋ ㄕㄠˇ ㄧ ㄉㄧㄢˇ", "en": "I'll have a pork-chop bento with a bit less rice."},
   {"zh": "這個雞腿又大又香！", "zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄐㄧ ㄊㄨㄟˇ ㄧㄡˋ ㄉㄚˋ ㄧㄡˋ ㄒㄧㄤ", "en": "This chicken leg is big and smells so good!"},
   {"zh": "不錯吃吧？你有吃飽嗎？", "zhuyin": "ㄅㄨˋ ㄘㄨㄛˋ ㄔ ˙ㄅㄚ ㄋㄧˇ ㄧㄡˇ ㄔ ㄅㄠˇ ˙ㄇㄚ", "en": "Pretty tasty, right? Did you get enough to eat?"},
   {"zh": "老闆，可以幫我包起來嗎？", "zhuyin": "ㄌㄠˇ ㄅㄢˇ ㄎㄜˇ ㄧˇ ㄅㄤ ㄨㄛˇ ㄅㄠ ㄑㄧˇ ㄌㄞˊ ˙ㄇㄚ", "en": "Excuse me, could you pack it up for me?"}
@@ -67,7 +67,7 @@
   "prompt_en": "Write 3 or 4 sentences about a bento shop or snack stall you like: where it is, what you usually order, for here or to go, and what it's like (use 又…又…).",
   "prompt_zh": "寫三、四個句子，介紹一家你喜歡的便當店或小吃：在哪裡？你常吃什麼？內用還是外帶？味道怎麼樣？",
   "model_zh": "我家附近有一家便當店，又便宜又好吃。我常常外帶一個排骨便當，飯少一點。老闆人很好，常常幫我多加一點青菜。",
-  "model_zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄈㄨˋ ㄐㄧㄣˋ ㄧㄡˇ ㄧ ㄐㄧㄚ ㄅㄧㄢˋ ˙ㄉㄤ ㄉㄧㄢˋ ㄧㄡˋ ㄆㄧㄢˊ ㄧˊ ㄧㄡˋ ㄏㄠˇ ㄔ ㄨㄛˇ ㄔㄤˊ ㄔㄤˊ ㄨㄞˋ ㄉㄞˋ ㄧ ˙ㄍㄜ ㄆㄞˊ ㄍㄨˇ ㄅㄧㄢˋ ˙ㄉㄤ ㄈㄢˋ ㄕㄠˇ ㄧ ㄉㄧㄢˇ ㄌㄠˇ ㄅㄢˇ ㄖㄣˊ ㄏㄣˇ ㄏㄠˇ ㄔㄤˊ ㄔㄤˊ ㄅㄤ ㄨㄛˇ ㄉㄨㄛ ㄐㄧㄚ ㄧ ㄉㄧㄢˇ ㄑㄧㄥ ㄘㄞˋ"
+  "model_zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄈㄨˋ ㄐㄧㄣˋ ㄧㄡˇ ㄧ ㄐㄧㄚ ㄅㄧㄢˋ ㄉㄤ ㄉㄧㄢˋ ㄧㄡˋ ㄆㄧㄢˊ ㄧˊ ㄧㄡˋ ㄏㄠˇ ㄔ ㄨㄛˇ ㄔㄤˊ ㄔㄤˊ ㄨㄞˋ ㄉㄞˋ ㄧ ˙ㄍㄜ ㄆㄞˊ ㄍㄨˇ ㄅㄧㄢˋ ㄉㄤ ㄈㄢˋ ㄕㄠˇ ㄧ ㄉㄧㄢˇ ㄌㄠˇ ㄅㄢˇ ㄖㄣˊ ㄏㄣˇ ㄏㄠˇ ㄔㄤˊ ㄔㄤˊ ㄅㄤ ㄨㄛˇ ㄉㄨㄛ ㄐㄧㄚ ㄧ ㄉㄧㄢˇ ㄑㄧㄥ ㄘㄞˋ"
  },
  "culture_en": "便當 comes from the Japanese word bentō and is Taiwan's everyday boxed meal: rice with one main dish, such as a fried chicken leg (雞腿) or a pork chop (排骨), and a few side dishes. Shops ask 內用還是外帶 ('for here or to go?'), and you call the person running a small shop 老闆 (a woman who runs it is often called 老闆娘). 不錯吃 ('pretty tasty') and 有 + verb (你有吃飽嗎？) are everyday Taiwan Mandarin."
 }

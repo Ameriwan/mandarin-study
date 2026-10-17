@@ -78,12 +78,14 @@
 .pl-legend-line { display: inline-block; width: 22px; border-top: 1.5px dashed var(--muted); }
 .pl-legend-part { display: inline-block; width: 12px; height: 12px; margin-left: 10px; border: 1.5px dashed var(--accent); border-bottom: 0;
   border-radius: 3px 3px 0 0; background: color-mix(in srgb, var(--accent) 35%, var(--surface)); }
-.pl-bar { position: relative; height: 100%; display: flex; align-items: flex-end; justify-content: center; padding: 0; margin: 0; border: 0;
-  background: none; cursor: pointer; font: inherit; color: var(--ink); }
-.pl-bar:focus-visible { outline-offset: -3px; }
+/* the plot is one slider (plan.js renderHours): the whole 150 px-tall plot is the target, a column picks a week */
+.pl-plot[role="slider"] { cursor: pointer; touch-action: pan-y; }
+.pl-plot[role="slider"]:focus-visible { outline-offset: 4px; }
+.pl-bar { position: relative; height: 100%; display: flex; align-items: flex-end; justify-content: center; border-radius: 6px 6px 0 0; }
+.pl-bar.is-on { background: color-mix(in srgb, var(--accent-soft) 70%, transparent); }
 .pl-bar-fill { display: block; width: min(24px, 62%); border-radius: 4px 4px 0 0; background: var(--accent); }
 .pl-bar.is-partial .pl-bar-fill { background: color-mix(in srgb, var(--accent) 35%, var(--surface)); border: 1.5px dashed var(--accent); border-bottom: 0; }
-.pl-bar:hover .pl-bar-fill { filter: brightness(1.12); }
+.pl-bar.is-on .pl-bar-fill { filter: brightness(1.12); }
 .pl-bar-val { position: absolute; left: 0; right: 0; margin-bottom: 3px; font-size: 12px; line-height: 1; text-align: center; color: var(--ink); font-variant-numeric: tabular-nums; pointer-events: none; }
 .pl-axis { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); margin-top: 4px; font-size: 12px; color: var(--muted); text-align: center; font-variant-numeric: tabular-nums; }
 .pl-readout { min-height: 1.6em; margin: 8px 0 0; }
@@ -91,7 +93,7 @@
 .pl-details summary { cursor: pointer; min-height: var(--tap); display: flex; align-items: center; color: var(--accent); }
 
 .pl-form { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 12px; align-items: center; margin: 6px 0 10px; max-width: 420px; }
-.pl-input { min-height: var(--tap); padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink);
+.pl-input { min-height: var(--tap); padding: 6px 10px; border: 1px solid color-mix(in srgb, var(--muted) 70%, var(--line)); /* >= 3:1 */ border-radius: 8px; background: var(--surface); color: var(--ink);
   font: inherit; font-size: 16px; width: 100%; color-scheme: light dark; }
 .pl-goal-out p { margin: 0 0 6px; }
 .pl-warn-t { color: color-mix(in srgb, var(--warn) 75%, var(--ink)); font-weight: 500; }

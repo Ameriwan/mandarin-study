@@ -21,8 +21,17 @@
 // routine card shows the weekly dose next to it (drills.js shadowDose: shadowing minutes this week, Monday to today
 // as on the Shadowing page, and sessions of 10+ min against 4 × 10 min, §6.7).
 // ?fast=1 (testing only, M3 design §6) divides every time box on this page by 20.
-import { h, $, clear, mountShell, store, streak, loadJSON, BUILT, settings, daysSinceStart, today, logMinutes,
-  audioContext, enText, bi, ruby, syllables, baseOf, withTone, canRecord } from "./app.js";
+// M4–M6 (M4 design §5, M5 design "Today"): the header shows app.js levelState() (the placed TBCL level; Phase 0
+// during the first 28 days, then the level's phase) and the next milestone (the placement check, else the level
+// check of the current level with its units done against the 90 % that unlocks it, §8.4). The Current unit block
+// (12 min at 30 min/day, 7 in Phase 0) opens units.js currentUnit() on the Units page with its timer (?min=N; the
+// Units page counts the visible time and writes today.routine[date].unit, 80 % = done). The Review block (3 min) runs
+// here with its own countdown (block "review"): the Library items marked "trouble" (library.js troubleEntries) as
+// recall cards whose rating updates their status, or, when there are none, the current unit's speaking task (the
+// Units page's recording key and checklist). units.js and library.js are imported on demand, so Today still works
+// when either is missing or fails.
+import { h, $, clear, mountShell, store, streak, loadJSON, BUILT, settings, today, logMinutes, levelState, PHASE_NAMES,
+  audioContext, enText, bi, ruby, syllables, baseOf, withTone, canRecord, recordWidget } from "./app.js";
 import { contrastDrill, pairIdDrill, mirrorDrill, shadowLine, weakestContrast, weightedPairs, contrastStats,
   recentAccuracy, stopAll, shadowRatings, ratedOn, shadowDose, logShadowSession } from "./drills.js";
 
@@ -33,7 +42,6 @@ const en = (text, attrs) => enText(text, attrs); // English runs inside the zh-H
 // {"YYYY-MM-DD": {anki: bool, pron: {done, minutes, at, steps: [...]}, shadow: {done, minutes, at, runs, key, ...}}}
 const ROUTINE_KEY = "today.routine";
 const FAST = (() => { try { return new URLSearchParams(location.search).get("fast") === "1" ? 20 : 1; } catch { return 1; } })();
-const PHASE0_DAYS = 28;              // Phase 0 "sound reset": the first 4 weeks (§8.1, §8.3)
 const STEPS = [                      // §6.7, in this order: the listening steps never ask to speak
   { key: "listen", zh: "聽辨", en: "Listening ID", short: "Listen", speak: false },
   { key: "pairs", zh: "雙字聲調", en: "Tone-pair ID", short: "Pairs", speak: false },
@@ -114,14 +122,43 @@ function unlog({ date, block, minutes }) {
 function routinePlan() {
   const daily = Math.min(240, Math.max(5, Number(settings().dailyMinutes) || 30));
   const f = daily / 30;
-  const days = Math.max(0, daysSinceStart());
-  const phase0 = days < PHASE0_DAYS;
+  const ls = levelState(); // Phase 0 "sound reset": the first 28 days (§8.1, §8.3)
+  const phase0 = ls.phase0;
   const steps = (phase0 ? STEP_MIN.phase0 : STEP_MIN.after).map(m => Math.max(1, half(m * f)));
   const pron = steps.reduce((a, b) => a + b, 0);
   const shadow = half(5 * f), review = half(3 * f);
-  const unit = Math.max(0, half(daily - pron - shadow - review));
-  return { daily, phase0, week: Math.min(4, Math.floor(days / 7) + 1), steps, pron, unit, shadow, review };
+  const unit = Math.max(0, half(daily - pron - shadow - review)); // 12 at 30 min/day, 7 in Phase 0
+  return { daily, phase0, week: Math.min(4, ls.week || 4), steps, pron, unit, shadow, review, ls };
 }
+
+// The Current-unit and Review blocks' data: units.js (current unit, the level's units), the Library's "trouble"
+// items (library.js is loaded only when the store has any). Every part is optional.
+async function loadStudy(ls) {
+  const s = { U: null, L: null, unit: null, full: null, levelUnits: [], unitsMissing: true, trouble: [] };
+  try { s.U = await import("./units.js"); } catch (err) { console.error("units.js:", err); }
+  if (s.U) {
+    try {
+      const all = await s.U.loadUnits();
+      s.unitsMissing = !all.list.length;
+      s.unit = await s.U.currentUnit(ls.level);
+      s.full = s.unit && all.byId.get(s.unit.id) || null;
+      s.levelUnits = all.list.filter(u => u._level === (ls.level || 1));
+    } catch (err) { console.error(err); }
+  }
+  const st = store.get("lib.status", {}) || {};
+  if (Object.values(st).includes("trouble")) {
+    try { s.L = await import("./library.js"); s.trouble = await s.L.troubleEntries(); } catch (err) { console.error("library.js:", err); }
+  }
+  return s;
+}
+const speakTask = u => {
+  const t = u && u.speaking && typeof u.speaking === "object" ? u.speaking : null;
+  return t && (String(t.prompt_zh || "").trim() || String(t.prompt_en || "").trim()) ? t : null;
+};
+// el.append() without the empty parts (the DOM's own append turns null into the text "null")
+const put = (el, ...kids) => { el.append(...kids.flat(Infinity).filter(k => k != null && k !== false)); return el; };
+// What the Review block practises today: the Library's trouble items, else the current unit's speaking task.
+const reviewMode = () => (ui.study.trouble.length ? "trouble" : speakTask(ui.study.full) ? "speak" : null);
 
 async function loadData() {
   const [contrasts, tones, meta, audio, shadowing] = await Promise.all([
@@ -246,22 +283,30 @@ function stepWork(st, r) {
 }
 
 // ------------------------------------------------------------------ page
-const ui = { plan: null, picks: null, data: null, running: false, rest: [], els: {} };
+const ui = { plan: null, picks: null, data: null, study: null, running: false, rest: [], els: {} };
 
 async function render() {
   const app = $("#app");
-  const data = await loadData();
-  ui.data = data;
   ui.plan = routinePlan();
+  const [data, study] = await Promise.all([loadData(), loadStudy(ui.plan.ls)]);
+  ui.data = data;
+  ui.study = study;
   const line = todaysLine(data.sandhi, data.pairs);
   ui.picks = { contrast: todaysContrast(data.contrasts), line, shadow: todaysShadow(data.sentences, data.sandhi, line && line.item.zh) };
   const { plan } = ui;
+  const ls = plan.ls;
   const weekDots = h("span", { class: "week-dots", "aria-hidden": "true" }, [1, 2, 3, 4].map(w => h("i", { class: w <= plan.week ? "on" : "" })));
+  // Phase 0 runs alongside the level's phase (§8.1): during it, the level's phase is named after it
+  const lp = ls.levelPhase || 1, lpName = PHASE_NAMES[lp] || PHASE_NAMES[1];
+  const levelPart = ls.level ? [`・第 ${ls.level} 級 `, en(`· TBCL level ${ls.level}`)] : [];
   const phase = plan.phase0
-    ? [h("span", {}, "第 0 階段・聲音重置 "), en(`Phase 0 · sound reset, week ${plan.week} of 4`), weekDots]
-    : [h("span", {}, "第 1 階段 "), en("Phase 1")];
+    ? [h("span", {}, "第 0 階段・聲音重置 "), en(`Phase 0 · sound reset, week ${plan.week} of 4`), weekDots,
+      h("span", {}, `（同時：第 ${lp} 階段 ${lpName[0]}`, ...levelPart, "）")]
+    : [h("span", {}, `第 ${lp} 階段・${lpName[0]} `), en(`Phase ${lp} · ${lpName[1]}`), ls.level ? h("span", {}, ...levelPart) : null];
   ui.els.stats = h("div", { class: "card" });
   ui.els.session = h("section", { class: "card session", id: "session", "aria-labelledby": "session-title" });
+  ui.els.unit = plan.unit > 0 ? h("section", { class: "card unit-block", id: "unit", "aria-labelledby": "unit-title" }) : null;
+  ui.els.review = plan.review > 0 ? h("section", { class: "card session review-block", id: "review", "aria-labelledby": "review-title" }) : null;
   ui.els.shadow = h("section", { class: "card session shadow-block", id: "shadowing", "aria-labelledby": "shadow-title" });
   ui.els.routine = h("section", { class: "card routine-card", "aria-labelledby": "routine-title" });
   ui.els.outside = h("section", { class: "card outside-card", "aria-labelledby": "outside-title" });
@@ -277,7 +322,8 @@ async function render() {
   const meta = data.meta && data.meta.counts
     ? h("p", { class: "muted small", style: "margin-top:16px" }, "資料建置 ", en(`data built ${data.meta.built} · ${data.meta.counts.moe_clips} MOE human clips · ${data.meta.counts.syllables} syllables`))
     : null;
-  ui.rest = [ui.els.shadow, ui.els.routine, ui.els.outside, pages, meta].filter(Boolean);
+  // the blocks in the routine's order (§5.1): pronunciation → current unit → shadowing → review
+  ui.rest = [ui.els.unit, ui.els.shadow, ui.els.review, ui.els.routine, ui.els.outside, pages, meta].filter(Boolean);
   clear(app).append(
     h("div", { class: "page-head" }, h("h1", {}, h("span", { lang: "zh-Hant-TW" }, "今天"), h("span", { class: "en", lang: "en" }, "Today")),
       h("p", { class: "today-phase" }, phase),
@@ -285,21 +331,296 @@ async function render() {
     ui.els.stats, ui.els.session, ...ui.rest);
   paintStats();
   startCard();
+  unitCard();
   shadowCard();
+  reviewCard();
   paintRoutine();
   outsideCard();
 }
 
+// The next milestone (§8.4): the placement check while not placed, else the level check of the current level, which
+// unlocks at 90 % of the level's units done (units.done, as the Plan page counts them).
+function milestone() {
+  const { ls } = ui.plan, st = ui.study;
+  if (!ls.level) return { zh: "程度測驗", en: "Placement check", href: "plan.html#placement", note: null };
+  const n = ls.level;
+  const list = st.levelUnits || [];
+  const doneMap = store.get("units.done", {}) || {};
+  const done = list.filter(u => doneMap[u.id]).length;
+  const note = !list.length ? ["這一級還沒有單元 ", en("no units for this level yet")]
+    : done / list.length >= 0.9 ? ["已解鎖 ", en(`unlocked · ${done}/${list.length} units`)]
+      : [`單元 ${done}/${list.length} `, en(`units done, 90% unlocks it`)];
+  return { zh: `第 ${n} 級檢查`, en: `Level ${n} check`, href: "plan.html#checks", note };
+}
 function paintStats() {
   const w = weekStats();
-  const level = store.get("level", null);
+  const { ls } = ui.plan;
+  const m = milestone();
   const stat = (zh, enK, v, cls = "v", extra = null) => h("div", { class: "stat" }, h("span", { class: "k" }, zh, " ", en(enK)), h("span", { class: cls }, v), extra);
   clear(ui.els.stats).append(h("div", { class: "today-stats" },
     stat("連續", "streak", [streak(), h("small", {}, " 天 ", en("days"))]),
     stat("本週", "this week", [w.total, h("small", {}, " 分鐘 ", en("min"))], "v",
-      w.outside ? h("span", { class: "x" }, en("App"), ` ${w.app} · 課外 `, en("outside"), ` ${w.outside}`) : null),
-    stat("程度", "level", level != null ? String(level) : ["未測 ", en("not placed yet")], level != null ? "v" : "v t"),
-    stat("里程碑", "next milestone", ["程度測驗 ", en("Placement check")], "v t")));
+      w.outside ? h("span", { class: "x" }, en("App", { class: "imm-keep" }), ` ${w.app} · 課外 `, en("outside"), ` ${w.outside}`) : null),
+    stat("程度", "level", ls.level ? [`第 ${ls.level} 級`, h("small", {}, " ", en(`TBCL ${ls.level}`))]
+      : h("a", { href: "plan.html#placement" }, "未測 ", en("not placed yet")), ls.level ? "v" : "v t",
+    ls.placedAt ? h("span", { class: "x" }, `測驗 ${ls.placedAt} `, en("placed")) : null),
+    stat("里程碑", "next milestone", h("a", { href: m.href }, m.zh, " ", en(m.en)), "v t", m.note ? h("span", { class: "x" }, m.note) : null)));
+}
+
+// ------------------------------------------------------------------ the Current-unit block (§8.3; M5 design "Today")
+// The unit opens on the Units page with this block's timer (?min=N); that page logs the time and today's result.
+function unitCard() {
+  if (!ui.els.unit) return;
+  const { plan, study } = ui;
+  const card = clear(ui.els.unit);
+  const entry = todayEntry().unit || null;
+  card.append(h("div", { class: "session-head" },
+    h("h2", { id: "unit-title", tabindex: "-1" }, "目前單元 ", en("Current unit")),
+    h("span", { class: "session-mins" }, `${fmtMin(plan.unit)} 分鐘 `, en("min"))));
+  const u = study.unit, n = plan.ls.level || 1;
+  const toUnits = h("a", { href: "units.html", class: "btn small" }, "所有單元 ", en("All units"), " →");
+  if (!study.U) {
+    card.append(h("p", { class: "muted" }, "單元頁沒有載入。", en(" The Units page could not load.")), toUnits);
+    return;
+  }
+  if (study.unitsMissing) {
+    card.append(h("p", { class: "muted" }, "還沒有建置單元資料。", en(" No unit data built yet.")), toUnits);
+    return;
+  }
+  if (!u && !(study.levelUnits || []).length) { // placed at a level whose units are not written yet (16 units: Levels 1-2)
+    card.append(h("p", {}, `第 ${n} 級的單元還沒寫好：先在資料庫學這一級的詞和語法，或複習之前的單元。`,
+      en(` Level ${n}'s units aren't written yet: study its words and grammar in the Library, or review earlier units.`)),
+    h("div", { class: "row" }, h("a", { href: "library.html", class: "btn primary unit-start" }, "資料庫 ", en("Library"), " →"), toUnits));
+    return;
+  }
+  if (!u) {
+    card.append(h("p", {}, `第 ${n} 級的單元都做完了：可以做第 ${n} 級檢查。`, en(` Every released Level ${n} unit is done: the Level ${n} check is next.`)),
+      h("div", { class: "row" }, h("a", { href: "plan.html#checks", class: "btn primary unit-start" }, "等級檢查 ", en("Level checks"), " →"), toUnits));
+    return;
+  }
+  const status = (study.U.UNIT_STATUSES || []).find(x => x[0] === u.status);
+  const todayLine = entry && entry.id === u.id && !entry.done && half(Number(entry.minutes) || 0) > 0
+    ? h("p", { class: "muted small unit-today" }, `今天 ${fmtMin(entry.minutes)} / ${fmtMin(entry.planned || plan.unit)} 分鐘`, en(` ${fmtMin(entry.minutes)} of ${fmtMin(entry.planned || plan.unit)} min today`)) : null;
+  put(card,
+    h("p", { class: "unit-kicker" }, h("span", { lang: "zh-Hant-TW" }, u.levelLabel || `第${n}級`), u.order ? ` ・第 ${u.order} 課 ` : " ",
+      u.order ? en(`unit ${u.order}`) : null,
+      status && u.status !== "new" ? h("span", { class: `unit-status st-${u.status}` }, status[1], " ", en(status[2])) : null), // not "progress": style.css's bar
+    h("h3", { class: "unit-name" }, h("span", { lang: "zh-Hant-TW" }, u.title_zh || u.id), u.title_en ? [" ", en(u.title_en, { class: "muted" })] : null),
+    // the goal is learning content (lc-en: immersion keeps it, the English switch decides); "Goal:" is interface
+    u.can_do_en ? h("p", { class: "unit-cando" }, "目標 ", en("Goal: "), en(u.can_do_en, { class: "lc-en" })) : null,
+    todayLine,
+    entry && entry.done ? h("p", { class: "session-done" }, "✓ 今天的單元時間完成 ", en(entry.minutes > 0 ? `Unit time done today · ${fmtMin(entry.minutes)} min` : "Unit time done today")) : null,
+    h("div", { class: "row unit-actions" },
+      h("a", { href: study.U.unitHref(u.id, { minutes: plan.unit / FAST }), class: `btn unit-start${entry && entry.done ? "" : " primary"}` },
+        "▶ ", ...bi(entry && entry.done ? "繼續這一課" : "開始這一課", entry && entry.done ? "Continue the unit" : "Start the unit")),
+      toUnits),
+    h("p", { class: "muted small session-note" }, `單元頁會倒數 ${fmtMin(plan.unit)} 分鐘，只算畫面開著的時間；做到八成，今天的單元就算完成。`,
+      en(` The unit page counts down ${fmtMin(plan.unit)} min of visible time; 80% of it marks today's unit block done.`)));
+}
+
+// ------------------------------------------------------------------ the Review block (§8.3: 3 min at 30 min/day)
+function reviewCard() {
+  if (!ui.els.review) return;
+  const { plan, study } = ui;
+  const card = clear(ui.els.review);
+  card.classList.remove("running");
+  const mode = reviewMode();
+  const entry = todayEntry().review || null;
+  card.append(h("div", { class: "session-head" },
+    h("h2", { id: "review-title", tabindex: "-1" }, "複習 ", en("Review")),
+    h("span", { class: "session-mins" }, `${fmtMin(plan.review)} 分鐘 `, en("min"))));
+  if (!mode) {
+    put(card, h("p", { class: "muted" }, "資料庫裡沒有標成「困難」的項目，目前的單元也沒有口說任務。", en(" Nothing is marked “trouble” in the Library, and there is no unit speaking task yet.")),
+      BUILT.includes("library") ? h("a", { href: "library.html", class: "btn small" }, "資料庫 ", en("Library"), " →") : null);
+    return;
+  }
+  if (mode === "trouble") {
+    const items = study.trouble;
+    card.append(h("p", { class: "review-what" }, `資料庫裡標成「困難」的有 ${items.length} 個：`, en(` ${items.length} Library item${items.length === 1 ? "" : "s"} marked trouble:`)),
+      h("ul", { class: "review-chips" }, items.slice(0, 12).map(e => h("li", {}, h("a", { href: e.href, lang: "zh-Hant-TW" }, e.zh))),
+        items.length > 12 ? h("li", { class: "muted" }, `…＋${items.length - 12}`) : null));
+  } else {
+    const t = speakTask(study.full);
+    put(card, h("p", { class: "review-what" }, "資料庫裡沒有標成「困難」的項目：今天複習這一課的口說任務。", en(" Nothing is marked “trouble” in the Library: today's review is the unit's speaking task.")),
+      t.prompt_zh ? h("p", { class: "review-prompt", lang: "zh-Hant-TW" }, String(t.prompt_zh)) : null);
+  }
+  if (entry && entry.done) {
+    card.append(h("p", { class: "session-done" }, "✓ 今天已完成 ", en(entry.minutes > 0 ? `Done today · ${entry.minutes} min` : "Done today")),
+      h("button", { type: "button", class: "btn review-start", onclick: runReview }, "↻ ", ...bi("再練一次", "Practise again")));
+  } else {
+    card.append(h("button", { type: "button", class: "btn review-start", onclick: runReview }, "▶ ", ...bi("開始複習", "Start the review")));
+  }
+}
+
+// Runs the Review block for its time box with a countdown; visible time only is logged ("review"), in pieces of at
+// least 30 s and the rest at the end. Trouble items: recall the meaning, say it, check, rate (the rating sets the
+// Library status: 還是困難 keeps "trouble" and comes back later in the round, 好一點了 "learning", 會了 "known").
+// Speaking task: the prompt, a recording (the Units page's key) and its checklist. Done for today: some practice and
+// 80 % of the box, or the whole round done (every item rated; a take of the speaking task).
+function runReview() {
+  if (ui.running) return;
+  const mode = reviewMode();
+  if (!mode) return;
+  try { audioContext(); } catch { /* no Web Audio */ }
+  ui.running = true;
+  const sec = ui.plan.review * 60 / FAST;
+  const others = [ui.els.session, ...ui.rest.filter(el => el !== ui.els.review)];
+  for (const el of others) el.hidden = true;
+  const card = clear(ui.els.review);
+  card.classList.add("running");
+  const t0 = performance.now();
+  let ended = false, spent = 0, timeUpSaid = false, complete = false, worked = false;
+  const time = { last: t0, visible: document.visibilityState === "visible", pending: 0, total: 0 };
+  const tick = () => {
+    const now = performance.now(), dt = now - time.last;
+    time.last = now;
+    if (time.visible && dt < 15000) { time.pending += dt; time.total += dt; if (!ended) spent += dt / 1000; }
+    time.visible = document.visibilityState === "visible";
+  };
+  const flush = (final = false) => {
+    tick();
+    if (time.pending >= (final ? 1000 : 30000)) { logMinutes("review", time.pending / 60000); time.pending = 0; }
+  };
+  const flushAll = () => flush(true);
+  const onVis = () => { if (document.visibilityState === "hidden") flushAll(); else tick(); };
+  document.addEventListener("visibilitychange", onVis);
+  window.addEventListener("pagehide", flushAll);
+
+  const title = h("h2", { id: "review-title", tabindex: "-1" }, "複習 ", en(mode === "trouble" ? "Review: trouble items" : "Review: speaking task", { class: "muted small" }));
+  const timeLeft = h("b");
+  const timer = h("span", { class: "drill-timer", role: "timer" }, h("span", { class: "sr-only" }, "剩下 ", en("time left"), " "), timeLeft);
+  const timeupNote = h("p", { class: "timeup-note", hidden: true }, "時間到：做完這一個就可以結束。", en(" Time's up: finish this one and end the block."));
+  const overallText = h("span");
+  const overallBar = h("div", { class: "progress", "aria-hidden": "true" }, h("i", { style: "width:0%" }));
+  const live = h("p", { class: "sr-only", "aria-live": "polite" });
+  const stage = h("div", { class: "session-stage review-stage" });
+  const endBtn = h("button", { type: "button", class: "btn", onclick: () => finish() });
+  card.append(h("div", { class: "step-head" }, title, timer), timeupNote,
+    h("div", { class: "session-overall" }, overallText, overallBar), live, stage, h("div", { class: "session-foot" }, endBtn));
+  const setEnd = () => {
+    const over = complete || (performance.now() - t0) / 1000 >= sec;
+    endBtn.className = over ? "btn primary" : "btn";
+    endBtn.replaceChildren(...(over ? ["✓ ", ...bi("完成複習", "Finish the review")] : ["■ ", ...bi("提早結束", "End early")]));
+  };
+  function paint() {
+    if (ended) return;
+    flush();
+    const el = (performance.now() - t0) / 1000, left = sec - el;
+    overallText.replaceChildren("總計 ", en("total"), ` ${mmss(el)} / ${mmss(sec)}`);
+    overallBar.firstChild.style.width = pct(el / sec);
+    timer.classList.toggle("low", left <= 30);
+    timeLeft.textContent = mmss(left);
+    if (left <= 0 && !timeUpSaid) {
+      timeUpSaid = true;
+      timeupNote.hidden = false;
+      live.replaceChildren("時間到。", en(" Time's up."));
+    }
+    setEnd();
+  }
+
+  // ---- trouble items as recall cards
+  const total = ui.study.trouble.length;
+  const queue = ui.study.trouble.slice();
+  const rated = new Map(); // "type:key" -> the last rating
+  const RATINGS = [["trouble", "還是困難", "Still hard"], ["learning", "好一點了", "Better"], ["known", "會了", "Known"]];
+  function nextCard() {
+    if (!queue.length) {
+      complete = true;
+      stage.replaceChildren(h("p", { class: "session-done" }, "✓ 都複習過了。", en(" Every item reviewed.")));
+      live.replaceChildren("都複習過了。", en(" Every item reviewed."));
+      setEnd();
+      endBtn.focus({ preventScroll: true });
+      return;
+    }
+    const e = queue.shift();
+    // the card's answer: shown even with English translations off (class "tr", not "gloss" or "lc-en": style.css hides
+    // those with the English switch), kept in immersion
+    const meaning = h("p", { class: "review-en", hidden: true }, e.en ? enText(e.en, { class: "tr" }) : h("span", { class: "muted" }, "（沒有英文解釋）", en(" (no gloss)")));
+    const rateRow = h("div", { class: "row review-rate", role: "group", "aria-label": "評分 Rate", hidden: true },
+      RATINGS.map(([s, zh, e2]) => h("button", { type: "button", class: "btn", onclick: () => rate(e, s) }, ...bi(zh, e2))));
+    const reveal = h("button", { type: "button", class: "btn primary review-reveal", onclick: () => {
+      meaning.hidden = false; rateRow.hidden = false; reveal.remove();
+      rateRow.querySelector("button").focus({ preventScroll: true });
+    } }, ...bi("看意思", "Show the meaning"));
+    stage.replaceChildren(
+      h("p", { class: "muted small review-count" }, `${rated.size} / ${total} 已評分 `, en(`${rated.size} of ${total} rated`)),
+      h("p", { class: "review-word" }, e.zhuyin ? ruby(e.zh, e.zhuyin, { cls: "" }) : h("span", { lang: "zh-Hant-TW" }, e.zh)),
+      h("p", { class: "muted small" }, "先想意思，大聲說一次，再看答案。", en(" Recall the meaning and say it aloud, then check.")),
+      reveal, meaning, rateRow,
+      h("p", { class: "small review-open" }, h("a", { href: e.href, target: "_blank", rel: "noopener" }, "在資料庫打開（聽發音） ", en("Open in the Library (audio)"), " ↗")));
+    reveal.focus({ preventScroll: true });
+  }
+  function rate(e, s) {
+    try { ui.study.L.setStatus(e, s); } catch (err) { console.error(err); }
+    worked = true;
+    rated.set(`${e.type}:${e.key}`, s);
+    if (s === "trouble") queue.push(e); // back at the end of the round
+    else ui.study.trouble = ui.study.trouble.filter(x => !(x.type === e.type && x.key === e.key));
+    if (rated.size >= total) complete = true; // the whole round: every item rated once (a "still hard" one comes back)
+    live.replaceChildren(...bi("已評分。", "Rated."));
+    nextCard();
+  }
+
+  // ---- the unit's speaking task
+  let took = false;
+  function speakView() {
+    const u = ui.study.full, t = speakTask(u);
+    const items = (Array.isArray(t.checklist_en) ? t.checklist_en : []).map(String).filter(x => x.trim());
+    const saved = ((store.get("units.checklist", {}) || {})[u.id]) || [];
+    const boxes = items.map((_, i) => h("input", { type: "checkbox", checked: !!saved[i], onchange: () => {
+      const m = { ...(store.get("units.checklist", {}) || {}) };
+      m[u.id] = boxes.map(b => b.checked);
+      store.set("units.checklist", m);
+      worked = true;
+      if (!canRecord && boxes.every(b => b.checked)) { complete = true; setEnd(); }
+    } }));
+    put(clear(stage),
+      h("p", { class: "unit-kicker" }, h("span", { lang: "zh-Hant-TW" }, u.title_zh || u.id), u.title_en ? [" ", en(u.title_en, { class: "muted" })] : null),
+      t.prompt_zh ? h("p", { class: "review-prompt", lang: "zh-Hant-TW" }, String(t.prompt_zh)) : null,
+      t.prompt_en ? h("p", { class: "review-en" }, enText(String(t.prompt_en), { class: "gloss lc-en" })) : null,
+      h("p", { class: "muted small" }, "想一想，大聲說出來並錄音，聽一次，再勾選做到的。錄音只存在這台裝置。",
+        en(" Plan it, say it out loud and record it, listen back, then tick what you did. Recordings stay on this device.")),
+      h("div", { class: "review-rec" }, recordWidget({ key: `unit:${u.id}:speak`, label: "● 錄音 Record", onDone: () => { took = true; worked = true; complete = true; setEnd(); } })),
+      items.length ? h("fieldset", { class: "review-checklist" }, h("legend", {}, "自我檢查 ", en("Self-check")),
+        h("ul", {}, items.map((x, i) => h("li", {}, h("label", { class: "check" }, boxes[i], h("span", {}, enText(x, { class: "lc-en tr" }))))))) : null,
+      h("p", { class: "small" }, h("a", { href: ui.study.U.unitHref(u.id, { section: "speak" }) }, "在單元頁打開 ", en("Open on the Units page"), " →")));
+  }
+
+  function finish() {
+    if (ended) return;
+    flush(true);
+    ended = true;
+    clearInterval(timerId);
+    document.removeEventListener("visibilitychange", onVis);
+    window.removeEventListener("pagehide", flushAll);
+    stopAll();
+    const credit = worked ? (complete ? sec : Math.min(sec, spent)) : 0;
+    const done = worked && credit >= DONE_SHARE * sec - 1;
+    const minutes = Math.round(time.total / 6000) / 10;
+    const summary = { done, mode, minutes, at: Date.now(), rated: rated.size, items: total, took,
+      credit: tenths(credit / 60, Math.floor), planned: tenths(sec / 60) };
+    const prev = todayEntry().review;
+    if (done || !(prev && prev.done)) saveDay({ review: summary }); // a later run that falls short keeps today's "done"
+    ui.running = false;
+    for (const el of others) el.hidden = false;
+    reviewCard();
+    const rc = ui.els.review;
+    if (!done) {
+      const got = String(summary.credit), planned = String(summary.planned), need = String(tenths(DONE_SHARE * summary.planned, Math.ceil));
+      rc.insertBefore(h("p", { class: "summary-rule" }, `這次做到 ${planned} 分鐘裡的 ${got} 分鐘；做到 ${need} 分鐘（八成）或整輪做完，今天才算完成。`,
+        en(` Covered ${got} of ${planned} min; the block counts as done at ${need} min (80%) or a whole round.`)), rc.querySelector(".review-start"));
+    }
+    paintStats();
+    paintRoutine();
+    rc.scrollIntoView({ block: "start", behavior: smooth() });
+    $("#review-title").focus({ preventScroll: true });
+  }
+
+  const timerId = setInterval(paint, 250);
+  if (mode === "trouble") nextCard(); else speakView();
+  paint();
+  card.scrollIntoView({ block: "start", behavior: smooth() });
+  title.focus({ preventScroll: true });
 }
 
 // ------------------------------------------------------------------ the pronunciation session: start card
@@ -309,7 +630,7 @@ function stepDetail(st) {
     const p = picks.contrast;
     if (!p) return [h("span", {}, "還沒有對比資料 ", en("no contrast data yet"))];
     return [h("span", { lang: "zh-Hant-TW" }, p.contrast.zh),
-      p.weak ? h("span", {}, "每日重點 ", en(`daily focus, ${p.acc}%`)) : h("span", {}, "今天輪到 ", en("today's turn"))];
+      p.weak ? h("span", {}, "每日重點 ", en(p.acc == null ? "daily focus (from the placement check)" : `daily focus, ${p.acc}%`)) : h("span", {}, "今天輪到 ", en("today's turn"))];
   }
   if (st.key === "pairs") {
     return data.pairs.length ? [h("span", {}, "弱的組合優先 ", en("weak patterns first"))]
@@ -506,7 +827,7 @@ function runSession() {
     if (st.key === "listen") {
       const p = picks.contrast;
       return p ? ["今天的對比 ", en("Today's contrast"), "：", h("span", { lang: "zh-Hant-TW" }, p.contrast.zh),
-        p.weak ? ["・每日重點 ", en(`daily focus, ${p.acc}%`)] : null, "　只用聽的。", en(" Listening only.")] : [];
+        p.weak ? ["・每日重點 ", en(p.acc == null ? "daily focus" : `daily focus, ${p.acc}%`)] : null, "　只用聽的。", en(" Listening only.")] : [];
     }
     if (st.key === "pairs") return ["聽雙字詞，選它的聲調組合。只用聽的。", en(" Hear a word, choose its tone pattern. Listening only.")];
     if (st.key === "mirror") return ["現在開口：聽示範，錄自己的，比較曲線。", en(" Now you speak: listen, record yourself, compare the curves.")];
@@ -733,7 +1054,7 @@ function linePreview(line) {
     h("p", { class: "shadow-today-line" }, ruby(it.zh, it.zhuyin, { cls: "", spoken: it.spoken })),
     h("p", { class: "shadow-today-meta" },
       h("span", { class: "badge tts", title: "TTS (Google zh-TW)" }, "TTS"), " ", en("Google zh-TW", { class: "muted small" }),
-      it.en ? [" · ", en(it.en)] : null,
+      it.en ? [" · ", en(it.en, { class: "gloss lc-en" })] : null, // a translation: follows the English switch, kept in immersion
       focus ? [" · 重點 ", en("focus"), "：", focus] : null));
 }
 function protocolList() {
@@ -970,12 +1291,15 @@ function paintRoutine() {
     card.scrollIntoView({ block: "start", behavior: smooth() });
     if (b) b.focus({ preventScroll: true });
   };
+  const { study } = ui;
   const blocks = [
     { key: "pron", min: plan.pron, zh: "發音", en: "Pronunciation", done: !!(entry.pron && entry.pron.done), go: toCard(ui.els.session, ".session-start") },
-    { key: "unit", min: plan.unit, zh: "單元", en: "Current unit", soon: true },
+    { key: "unit", min: plan.unit, zh: "單元", en: "Current unit", done: !!(entry.unit && entry.unit.done), go: ui.els.unit && toCard(ui.els.unit, ".unit-start"),
+      none: !study.unit && !(study.U && !study.unitsMissing) },
     { key: "shadow", min: plan.shadow, zh: "跟讀", en: "Shadowing", done: !!(entry.shadow && entry.shadow.done), go: toCard(ui.els.shadow, ".shadow-start"),
       none: !ui.picks.shadow },
-    { key: "review", min: plan.review, zh: "複習", en: "Review", soon: true },
+    { key: "review", min: plan.review, zh: "複習", en: "Review", done: !!(entry.review && entry.review.done), go: ui.els.review && toCard(ui.els.review, ".review-start"),
+      none: !reviewMode(), noneText: ["沒有要複習的 ", en("nothing to review")] },
   ].filter(b => b.min > 0);
   const anki = h("input", { type: "checkbox", checked: !!entry.anki, onchange: e => saveDay({ anki: e.target.checked }) });
   // Rows without a control on the right let their name span both columns; a row's own control sits under its name.
@@ -985,11 +1309,11 @@ function paintRoutine() {
       b.soon ? h("span", { class: "rt-soon" }, "尚未建置 ", en("coming soon")) : null),
     b.soon ? null
       : b.done ? h("span", { class: "rt-status ok" }, "✓ 完成 ", en("done"))
-        : b.none ? h("span", { class: "rt-status" }, "沒有資料 ", en("no data"))
+        : b.none ? h("span", { class: "rt-status" }, ...(b.noneText || ["沒有資料 ", en("no data")]))
           : h("button", { type: "button", class: "btn small", "aria-label": `開始 Start ↑ ${b.zh} ${b.en}`, onclick: b.go }, ...bi("開始", "Start"), " ↑")));
   rows.push(
     h("li", { class: "wide" }, h("span", { class: "rt-min" }, "課外"),
-      h("label", { class: "check rt-name" }, anki, h("span", {}, en("Anki"), "（我的牌組）", en("my decks", { class: "muted" }))),
+      h("label", { class: "check rt-name" }, anki, h("span", {}, en("Anki", { class: "imm-keep" }), "（我的牌組）", en("my decks", { class: "muted" }))),
       h("button", { type: "button", class: "btn small rt-act", onclick: () => openOutside("anki") }, "＋ ", ...bi("記錄時間", "Log Anki time"))),
     h("li", { class: "wide" }, h("span", { class: "rt-min" }, "選做"),
       h("span", { class: "rt-name" }, "母語聽力 ", en("native listening (optional)", { class: "muted" })),
@@ -1012,7 +1336,7 @@ function outsideCard() {
   const minutes = h("input", { type: "number", id: "outside-min", inputmode: "numeric", min: "1", max: "600", step: "1", placeholder: "30", required: true });
   const radios = OUTSIDE.map(([k, zh, e], i) => h("label", { class: "chip" },
     h("input", { type: "radio", name: "outside-kind", value: k, checked: i === 0 }),
-    h("span", {}, zh === e ? h("span", { lang: "en" }, e) : [zh, " ", en(e, { class: "muted small" })])));
+    h("span", {}, zh === e ? h("span", { lang: "en", class: "imm-keep" }, e) : [zh, " ", en(e, { class: "muted small" })]))); // Anki, Podcast: names
   // The number is the visible label; the unit is screen-reader text, so the English keeps lang="en".
   const presets = [10, 15, 30, 60].map(m => h("button", { type: "button", class: "btn small preset", onclick: () => { minutes.value = String(m); minutes.focus(); } },
     m, h("span", { class: "sr-only" }, " 分鐘 ", en("minutes"))));
@@ -1032,7 +1356,7 @@ function outsideCard() {
     const day = (store.get("days", {}) || {})[today()] || {};
     const parts = OUTSIDE.map(([k, zh, e]) => [k, zh, e, Number(day[`outside:${k}`]) || 0]).filter(x => x[3] > 0);
     todayLine.replaceChildren(...(parts.length ? ["今天課外 ", en("Outside today"), "：",
-      ...parts.flatMap(([, zh, e, m], i) => [i ? "・" : "", zh === e ? en(e) : zh, ` ${Math.round(m)} 分`])] : []));
+      ...parts.flatMap(([, zh, e, m], i) => [i ? "・" : "", zh === e ? en(e, { class: "imm-keep" }) : zh, ` ${Math.round(m)} 分`])] : []));
   }
   function submit() {
     const m = Math.round(Number(minutes.value));
@@ -1067,7 +1391,7 @@ function outsideCard() {
     setOpen(true);
   };
   sec.append(h("div", { class: "outside-head" }, h("h2", { id: "outside-title" }, "課外時間 ", en("Outside time")), toggle),
-    h("p", { class: "muted small", style: "margin:6px 0 0" }, en("Anki"), "、對話、電視、", en("Podcast"), " 都算，會加進本週分鐘。", en(" Anki, conversations, TV, podcasts: it all counts toward this week's minutes.")),
+    h("p", { class: "muted small", style: "margin:6px 0 0" }, en("Anki", { class: "imm-keep" }), "、對話、電視、", en("Podcast", { class: "imm-keep" }), " 都算，會加進本週分鐘。", en(" Anki, conversations, TV, podcasts: it all counts toward this week's minutes.")),
     form, status, todayLine);
   paintToday();
 }

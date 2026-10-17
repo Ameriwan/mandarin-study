@@ -154,6 +154,79 @@ expect("fail", "好。好。", "ㄏㄠˊ ㄏㄠˇ")
 expect("fail", "我想，好。", "ㄨㄛˇ ㄒㄧㄤˊ ㄏㄠˇ")
 expect("warn", "我很好。", "ㄨㄛˇ ㄏㄣˊ ㄏㄠˇ")                                   # within a phrase it is sandhi, a ⚑
 
+# ---- #6 (M4) a function word standing as its own segment in a sentence takes its listed neutral reading as ok
+for zh, z in [("我吃了。", "ㄨㄛˇ ㄔ ˙ㄌㄜ"), ("他看著我。", "ㄊㄚ ㄎㄢˋ ˙ㄓㄜ ㄨㄛˇ"), ("門開著呢。", "ㄇㄣˊ ㄎㄞ ˙ㄓㄜ ˙ㄋㄜ"),
+              ("我買了兩個包子。", "ㄨㄛˇ ㄇㄞˇ ˙ㄌㄜ ㄌㄧㄤˇ ˙ㄍㄜ ㄅㄠ ˙ㄗ"), ("我吃過了。", "ㄨㄛˇ ㄔ ㄍㄨㄛˋ ˙ㄌㄜ"),
+              ("我吃了。", "ㄨㄛˇ ㄔ ㄌㄧㄠˇ"), ("他坐著。", "ㄊㄚ ㄗㄨㄛˋ ㄓㄨㄛˊ")]:
+    expect("ok", zh, z)
+for ch, z in verify.FUNCTION_WORDS.items():
+    if verify.function_word_ok(ch, z) != (ch != "過"):
+        errors.append(f"function_word_ok({ch}, {z}) should be {ch != '過'}")
+expect("fail", "我去過。", "ㄨㄛˇ ㄑㄩˋ ˙ㄍㄨㄛ")       # 過 ˙ㄍㄨㄛ is listed by no source: still a failure
+cases("fail", "我吃了。 ㄨㄛˇ ㄔ ˙ㄌㄧㄠ|他走了。 ㄊㄚ ㄗㄡˇ ˙ㄌㄚ")          # only the listed reading itself
+expect("warn", "他很樂。", "ㄊㄚ ㄏㄣˇ ㄌㄜˋ", has="later 多音")    # any other later 多音 choice still warns
+expect("warn", "了", "˙ㄌㄜ", has="later 多音")                  # a word on its own: the word rules, unchanged
+expect("warn", "我買了一個便當。", "ㄨㄛˇ ㄇㄞˇ ˙ㄌㄜ ㄧ ˙ㄍㄜ ㄅㄧㄢˋ ㄉㄤˋ", has="便當")   # the 便當 ⚑ is kept
+
+# ---- #7 (M4) every Zhuyin field shape is checked; a Zhuyin field with no Chinese text next to it fails
+if verify.pairs_in({"zh": "", "zhuyin": "", "en": "", "example_zh": "", "example_zhuyin": "", "example_en": ""}) != [
+        ("zh", "zhuyin"), ("example_zh", "example_zhuyin")]:
+    errors.append("pairs_in: zh/zhuyin + example_zh/example_zhuyin")
+if verify.pairs_in({"taiwan": "", "taiwan_zhuyin": "", "mainland": ""}) != [("taiwan", "taiwan_zhuyin")]:
+    errors.append("pairs_in: taiwan/taiwan_zhuyin")
+if verify.pairs_in({"wrong": "", "right": "", "right_zhuyin": ""}) != [("right", "right_zhuyin")]:
+    errors.append("pairs_in: right/right_zhuyin")
+if verify.pairs_in({"prompt_zh": "", "model_zh": "", "model_zhuyin": ""}) != [("model_zh", "model_zhuyin")]:
+    errors.append("pairs_in: model_zh/model_zhuyin")
+if verify.pairs_in({"written": "", "written_zhuyin": "", "spoken": "", "spoken_zhuyin": "", "en": ""}) != [
+        ("written", "written_zhuyin"), ("spoken", "spoken_zhuyin")]:
+    errors.append("pairs_in: written/written_zhuyin + spoken/spoken_zhuyin")
+res = verify.Result()
+verify.walk_json({"title": {"zh": "我住在屏東", "zhuyin": "ㄨㄛˇ ㄓㄨˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ"},
+                  "pairs": [{"written": "於", "written_zhuyin": "ㄩˊ", "spoken": "在", "spoken_zhuyin": "ㄗㄞ"}]}, "r.json", res)
+if res.checked != 3 or [f[0] for f in res.failures] != ["r.json/pairs[0]/spoken"]:
+    errors.append(f"walk_json: title + written + spoken, want 3 checked and the spoken pair failing, got {res.checked} {res.failures}")
+res = verify.Result()
+verify.walk_json([{"examples": [{"zh": "我是學生。", "zhuyin": "ㄨㄛˇ ㄕˋ ㄒㄩㄝˊ ㄕㄥ"}],
+                   "mistake": {"wrong": "她是很漂亮。", "right": "她很漂亮。", "right_zhuyin": "ㄊㄚ ㄏㄣˇ ㄆㄧㄠˋ ˙ㄌㄧㄤ"},
+                   "writing": {"prompt_zh": "介紹你自己。", "model_zh": "水果", "model_zhuyin": "ㄕㄨㄟˋ ㄍㄨㄛˊ"}}], "g.json", res)
+if res.checked != 3 or [f[0] for f in res.failures] != ["g.json[0]/writing/model_zh"]:
+    errors.append(f"walk_json: want 3 checked and model_zh failing, got {res.checked} {res.failures}")
+res = verify.Result()
+verify.record_pairs(res, "m.csv:2", {"zh": "杯", "zhuyin": "ㄅㄟ", "example_zh": "我要一杯茶。",
+                                     "example_zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄧ ㄅㄟ ㄔㄚˋ"}, " ")
+verify.record_pairs(res, "t.csv:3", {"taiwan": "捷運", "taiwan_zhuyin": "ㄐㄧㄝˊ ㄩㄣˋ", "mainland": "地鐵",
+                                     "example_zh": "", "example_zhuyin": ""}, " ")
+verify.record_pairs(res, "x.csv:4", {"idiom": "人山人海", "zhuyin": "ㄖㄣˊ ㄕㄢ ㄖㄣˊ ㄏㄞˇ"}, " ")
+verify.record_pairs(res, "y.csv:5", {"answer_zhuyin": "ㄋㄧˇ ㄏㄠˇ", "answer": ""}, " ")
+if res.checked != 5 or [f[0] for f in res.failures] != ["m.csv:2 example_zh", "y.csv:5 answer"]:
+    errors.append(f"record_pairs: want 5 checked, example_zh and the lone answer_zhuyin failing, got "
+                  f"{res.checked} {[f[:2] for f in res.failures]}")
+
+# ---- #8 (M4) segmentation prefers core TBCL words and single characters to a rare word whose reading does not fit
+for zh, z in [("我每天都喝咖啡。", "ㄨㄛˇ ㄇㄟˇ ㄊㄧㄢ ㄉㄡ ㄏㄜ ㄎㄚ ㄈㄟ"),            # not 我每|天都 ㄊㄧㄢ ㄉㄨ
+              ("我要買這個。", "ㄨㄛˇ ㄧㄠˋ ㄇㄞˇ ㄓㄜˋ ˙ㄍㄜ"),                      # not 要買 ㄧㄠ ㄇㄞˇ
+              ("他都會來。", "ㄊㄚ ㄉㄡ ㄏㄨㄟˋ ㄌㄞˊ"),                            # not 都會 ㄉㄨ ㄏㄨㄟˋ (TBCL 第7級)
+              ("我們每天都會見面。", "ㄨㄛˇ ˙ㄇㄣ ㄇㄟˇ ㄊㄧㄢ ㄉㄡ ㄏㄨㄟˋ ㄐㄧㄢˋ ㄇㄧㄢˋ"),
+              ("我要的是這個。", "ㄨㄛˇ ㄧㄠˋ ˙ㄉㄜ ㄕˋ ㄓㄜˋ ˙ㄍㄜ"),                  # not 的是 ㄉㄧˊ ㄕˋ
+              ("我家裡有貓。", "ㄨㄛˇ ㄐㄧㄚ ˙ㄌㄧ ㄧㄡˇ ㄇㄠ"),                       # 我|家裡 as MOE writes 家裡
+              ("我家裡有貓。", "ㄨㄛˇ ㄐㄧㄚ ㄌㄧˇ ㄧㄡˇ ㄇㄠ")]:                      # 我家|裡, unchanged
+    expect("ok", zh, z)
+expect("fail", "我去銀行。", "ㄨㄛˇ ㄑㄩˋ ㄧㄣˊ ㄒㄧㄥˊ", has="銀行")          # a core TBCL word is never split
+expect("fail", "銀行在哪裡？", "ㄧㄣˊ ㄒㄧㄥˊ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ", has="銀行")
+expect("fail", "他都會來。", "ㄊㄚ ㄉㄡ ㄏㄨㄟˊ ㄌㄞˊ", has="都會")             # still a wrong tone: the first reading's error
+expect("fail", "我每天都喝咖啡。", "ㄨㄛˇ ㄇㄟˇ ㄊㄧㄢˊ ㄉㄡ ㄏㄜ ㄎㄚ ㄈㄟ")
+expect("fail", "我要買這個。", "ㄨㄛˇ ㄧㄠˋ ㄇㄞˋ ㄓㄜˋ ˙ㄍㄜ")
+expect("fail", "都會", "ㄉㄡ ㄏㄨㄟˋ")                                      # a word on its own is not re-segmented
+expect("fail", "要買", "ㄧㄠˋ ㄇㄞˇ")
+expect("warn", "我買了一個便當。", "ㄨㄛˇ ㄇㄞˇ ˙ㄌㄜ ㄧ ˙ㄍㄜ ㄅㄧㄢˋ ㄉㄤˋ", has="便當")   # 便當 is not split into 便|當
+if not verify.core_word("銀行") or verify.core_word("都會") or verify.core_word("要買") or verify.core_word("會計"):
+    errors.append("core_word: 銀行 (第2級) is core; 都會 (第7級), 會計 (第6級), 要買 (修訂本 only) are not")
+if not (verify.tbcl_char_ok("都", "ㄉㄡ") and verify.tbcl_char_ok("的", "˙ㄉㄜ") and verify.tbcl_char_ok("了", "˙ㄌㄜ")
+        and not verify.tbcl_char_ok("中", "ㄓㄨㄥˋ") and not verify.tbcl_char_ok("要", "ㄧㄠ")):
+    errors.append("tbcl_char_ok: TBCL's first reading or a function-word reading only")
+expect("fail", "中國很大。", "ㄓㄨㄥˋ ㄍㄨㄛˊ ㄏㄣˇ ㄉㄚˋ", has="中國")         # 中國 (修訂本 only) is not 中|國 with 中 ㄓㄨㄥˋ
+
 for e in errors:
     print("FAIL", e)
 print(f"test_verify: {len(errors)} failing case(s)")

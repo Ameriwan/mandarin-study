@@ -5,7 +5,7 @@
     "explanation_en": "是 links a subject to a noun that says who or what it is: A 是 B means 'A is B'. It is used with nouns, not with adjectives; for 'is busy' or 'is pretty' you put 很 or another adverb straight before the adjective. 是 never changes for person or tense, and its negative is 不是.",
     "structure": "A 是 B (noun)",
     "examples": [
-      {"zh": "我是大學生。", "zhuyin": "ㄨㄛˇ ㄕˋ ㄉㄚˋ ㄒㄩㄝˊ ㄕㄥ", "en": "I am a university student."},
+      {"zh": "我哥哥是警察。", "zhuyin": "ㄨㄛˇ ㄍㄜ ˙ㄍㄜ ㄕˋ ㄐㄧㄥˇ ㄔㄚˊ", "en": "My older brother is a police officer."},
       {"zh": "她是我的老師。", "zhuyin": "ㄊㄚ ㄕˋ ㄨㄛˇ ˙ㄉㄜ ㄌㄠˇ ㄕ", "en": "She is my teacher."},
       {"zh": "我們是屏東人。", "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄕˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄖㄣˊ", "en": "We are from Pingtung."},
       {"zh": "這是便當。", "zhuyin": "ㄓㄜˋ ㄕˋ ㄅㄧㄢˋ ㄉㄤ", "en": "This is a boxed lunch (bento)."}
@@ -61,7 +61,7 @@
     "explanation_en": "這 points to something near the speaker, 那 to something farther away, and 哪 asks 'which'. They can stand alone as the subject (這是我的 'this is mine'), but before a noun they need a measure word: 這本書, 那個人, 哪一杯. A number can go between them and the measure word: 這兩個. Because 哪 already asks a question, do not add 嗎.",
     "structure": "這/那/哪 + (number) + measure word + noun",
     "examples": [
-      {"zh": "那個人是誰？", "zhuyin": "ㄋㄚˋ ˙ㄍㄜ ㄖㄣˊ ㄕˋ ㄕㄟˊ", "en": "Who is that person?"},
+      {"zh": "那兩位是我的同學。", "zhuyin": "ㄋㄚˋ ㄌㄧㄤˇ ㄨㄟˋ ㄕˋ ㄨㄛˇ ˙ㄉㄜ ㄊㄨㄥˊ ㄒㄩㄝˊ", "en": "Those two are my classmates."},
       {"zh": "這本書很好看。", "zhuyin": "ㄓㄜˋ ㄅㄣˇ ㄕㄨ ㄏㄣˇ ㄏㄠˇ ㄎㄢˋ", "en": "This book is really good."},
       {"zh": "你要哪一杯？", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄋㄚˇ ㄧ ㄅㄟ", "en": "Which cup do you want?"},
       {"zh": "那是我的機車。", "zhuyin": "ㄋㄚˋ ㄕˋ ㄨㄛˇ ˙ㄉㄜ ㄐㄧ ㄔㄜ", "en": "That's my scooter."}
@@ -76,11 +76,11 @@
     "structure": "Subject + Verb + 什麼 (+ Noun)？",
     "examples": [
       {"zh": "你要喝什麼？", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄏㄜ ㄕㄣˊ ˙ㄇㄜ", "en": "What would you like to drink?"},
-      {"zh": "這是什麼菜？", "zhuyin": "ㄓㄜˋ ㄕˋ ㄕㄣˊ ˙ㄇㄜ ㄘㄞˋ", "en": "What dish is this?"},
-      {"zh": "你叫什麼名字？", "zhuyin": "ㄋㄧˇ ㄐㄧㄠˋ ㄕㄣˊ ˙ㄇㄜ ㄇㄧㄥˊ ˙ㄗ", "en": "What's your name?"},
+      {"zh": "你在看什麼書？", "zhuyin": "ㄋㄧˇ ㄗㄞˋ ㄎㄢˋ ㄕㄣˊ ˙ㄇㄜ ㄕㄨ", "en": "What book are you reading?"},
+      {"zh": "這種水果叫什麼？", "zhuyin": "ㄓㄜˋ ㄓㄨㄥˇ ㄕㄨㄟˇ ㄍㄨㄛˇ ㄐㄧㄠˋ ㄕㄣˊ ˙ㄇㄜ", "en": "What is this fruit called?"},
       {"zh": "早餐你想吃什麼？", "zhuyin": "ㄗㄠˇ ㄘㄢ ㄋㄧˇ ㄒㄧㄤˇ ㄔ ㄕㄣˊ ˙ㄇㄜ", "en": "What do you want for breakfast?"}
     ],
-    "mistake": {"wrong": "什麼你想吃？", "right": "你想吃什麼？", "right_zhuyin": "ㄋㄧˇ ㄒㄧㄤˇ ㄔ ㄕㄣˊ ˙ㄇㄜ", "why_en": "English moves 'what' to the front, but Chinese leaves 什麼 in the object slot, where the answer goes."},
+    "mistake": {"wrong": "什麼你想買？", "right": "你想買什麼？", "right_zhuyin": "ㄋㄧˇ ㄒㄧㄤˇ ㄇㄞˇ ㄕㄣˊ ˙ㄇㄜ", "why_en": "English moves 'what' to the front, but Chinese leaves 什麼 in the object slot, where the answer goes."},
     "taiwan_note": ""
   },
   {
@@ -204,10 +204,10 @@
       {"zh": "你忙不忙？", "zhuyin": "ㄋㄧˇ ㄇㄤˊ ㄅㄨˋ ㄇㄤˊ", "en": "Are you busy?"},
       {"zh": "你要不要喝水？", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄏㄜ ㄕㄨㄟˇ", "en": "Do you want some water?"},
       {"zh": "這家的滷肉飯好不好吃？", "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ˙ㄉㄜ ㄌㄨˇ ㄖㄡˋ ㄈㄢˋ ㄏㄠˇ ㄅㄨˋ ㄏㄠˇ ㄔ", "en": "Is the braised pork rice at this place good?"},
-      {"zh": "你會不會冷？", "zhuyin": "ㄋㄧˇ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄌㄥˇ", "en": "Are you cold?"},
+      {"zh": "坐在這裡會不會冷？", "zhuyin": "ㄗㄨㄛˋ ㄗㄞˋ ㄓㄜˋ ㄌㄧˇ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄌㄥˇ", "en": "Are you cold sitting here?"},
       {"zh": "明天你有沒有空？", "zhuyin": "ㄇㄧㄥˊ ㄊㄧㄢ ㄋㄧˇ ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄎㄨㄥˋ", "en": "Are you free tomorrow?"}
     ],
     "mistake": {"wrong": "你忙不忙嗎？", "right": "你忙不忙？", "right_zhuyin": "ㄋㄧˇ ㄇㄤˊ ㄅㄨˋ ㄇㄤˊ", "why_en": "The A-not-A form is already a question, so adding 嗎 is wrong."},
-    "taiwan_note": "In Taiwan, 會不會 + adjective is a common way to ask how someone feels: 你會不會冷？ 'Are you cold?' 有沒有 + verb asks whether something happened: 你有沒有吃早餐？"
+    "taiwan_note": "In Taiwan, 會不會 + adjective is a common way to ask how someone feels: 坐在這裡會不會冷？ 'Are you cold sitting here?' 有沒有 + verb asks whether something happened: 你有沒有吃早餐？"
   }
 ]

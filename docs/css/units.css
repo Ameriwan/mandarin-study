@@ -20,7 +20,7 @@
 .un-st-done { background: var(--good); }
 .un-st-review { border: 2.5px solid var(--bad); }
 .un-st-mark { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); white-space: nowrap; }
-.un-st-mark.st-done { color: var(--good); }
+.un-st-mark.st-done { color: color-mix(in srgb, var(--good) 75%, var(--ink)); } /* plain --good is 4.45:1 on --bg */
 .un-st-mark.st-review { color: var(--bad); }
 .un-st-en { margin-left: 4px; }
 
@@ -121,6 +121,7 @@
 .un-playall { min-width: 150px; }
 .un-src { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin: 0 0 2px; color: var(--ink); max-width: none; }
 .un-src-note { margin: 0 0 8px; }
+.un-src .badge { background: var(--surface); } /* --tts on --bg is 4.26:1; on --surface 4.83:1 (small text needs 4.5:1) */
 .un-dlg-opts { display: flex; flex-wrap: wrap; align-items: center; gap: 0 16px; margin: 0 0 12px; padding: 2px 0; border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line); }
 .un-ruby-opt { display: inline-flex; align-items: center; gap: 8px; min-height: var(--tap); }
@@ -243,7 +244,7 @@
 .un-opt-mark { flex: 0 0 auto; font-size: 13.5px; font-weight: 500; white-space: nowrap; }
 .un-opt-mark:empty { display: none; }
 .un-opt.is-right { border-color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--surface)); }
-.un-opt.is-right .un-opt-mark { color: var(--good); }
+.un-opt.is-right .un-opt-mark { color: color-mix(in srgb, var(--good) 75%, var(--ink)); } /* --good on its 12% tint is 4.3:1 */
 .un-opt.is-wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 12%, var(--surface)); }
 .un-opt.is-wrong .un-opt-mark { color: var(--bad); }
 .un-opt:has(input:disabled) { cursor: default; }

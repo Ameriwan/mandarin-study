@@ -1,0 +1,45 @@
+The English glosses on this site come from CC-CEDICT and are shared under the Creative Commons
+Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0): https://creativecommons.org/licenses/by-sa/4.0/
+
+Attribution: CC-CEDICT, Community maintained free Chinese-English dictionary, published by MDBG (https://www.mdbg.net/chinese/dictionary?page=cc-cedict); referenced work: CEDICT - Copyright (C) 1997, 1998 Paul Andrew Denisowski
+
+CC-CEDICT's own notice, unchanged from the header of the release used (cedict_1_0_ts_utf-8_mdbg.zip):
+
+# CC-CEDICT
+# Community maintained free Chinese-English dictionary.
+# 
+# Published by MDBG
+# 
+# License:
+# Creative Commons Attribution-ShareAlike 4.0 International License
+# https://creativecommons.org/licenses/by-sa/4.0/
+# 
+# Referenced works:
+# CEDICT - Copyright (C) 1997, 1998 Paul Andrew Denisowski
+# 
+# CC-CEDICT can be downloaded from:
+# https://www.mdbg.net/chinese/dictionary?page=cc-cedict
+# 
+# Additions and corrections can be sent through:
+# https://cc-cedict.org/editor/editor.php
+# 
+# For more information about CC-CEDICT see:
+# https://cc-cedict.org/wiki/
+# 
+#! version=1
+#! subversion=0
+#! format=ts
+#! charset=UTF-8
+#! entries=125263
+#! publisher=MDBG
+#! license=https://creativecommons.org/licenses/by-sa/4.0/
+#! date=2026-10-12T08:13:53Z
+#! time=1791792833
+
+Changes (CC BY-SA 4.0, section 3(a)(1)(B)): the glosses are modified for this app: for each word the CC-CEDICT entries that match its Taiwan reading are chosen; senses are selected and reordered (Taiwan senses first, classical ones last, 3 to 6 of them); simplified forms, pinyin and CL: lists are removed from the senses (CL: measure words are kept apart, traditional characters only); long senses and glosses are cut short with '…'; search.json lowercases them; a radical's meaning in characters.json is its character's gloss, cut to 48 characters.
+
+Files that carry these modified glosses, shared under CC BY-SA 4.0 (their `license` field says so and credits their other sources):
+  data/library-words.json: words[].en (English glosses), words[].cl (measure words from CL: lists)
+  data/search.json: the last column of each row (the English gloss, lowercased)
+  data/placement.json: vocab_l5[].en
+  data/characters.json: radicals[].meaning

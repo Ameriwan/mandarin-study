@@ -259,7 +259,7 @@ function toneCard(t, ex, plots, range = null) {
         h("span", { class: "l", lang: "en", "aria-hidden": "true" }, t === 5 ? "light" : "Chao"),
         h("span", { class: "sr-only", lang: "en" }, t === 5 ? "light, no fixed pitch number" : `Chao ${CHAO[t].split("").join(" ")}`))),
     plot,
-    ex ? h("div", { class: "tc-ex" }, ruby(ex.zh, ex.zhuyin, { cls: "tc-zh" }), ex.en ? h("span", { class: "tc-gloss", lang: "en" }, ex.en) : null,
+    ex ? h("div", { class: "tc-ex" }, ruby(ex.zh, ex.zhuyin, { cls: "tc-zh" }), ex.en ? h("span", { class: "tc-gloss lc-en", lang: "en" }, ex.en) : null,
       h("span", { class: "tc-play" }, playMoeBtn(ex))) : null,
     h("p", { class: "tc-note" }, NOTES[t][0], " ", enText(NOTES[t][1], { class: "muted" })));
   plots.push((height = 167) => {
@@ -419,7 +419,7 @@ function pairGrid(core, detail) {
     clear(detail).append(h("div", { class: "tp-detail-in" },
       h("span", { class: "big-zh" }, ruby(p.zh, p.zhuyin, { cls: "", spoken: p.spoken })),
       h("span", { class: "tp-detail-text" },
-        h("span", { class: "tp-pat" }, `${toneShort(p.t1)} + ${toneShort(p.t2)}`), p.en ? [" ", enText(p.en)] : null,
+        h("span", { class: "tp-pat" }, `${toneShort(p.t1)} + ${toneShort(p.t2)}`), p.en ? [" ", enText(p.en, { class: "lc-en" })] : null,
         said ? h("span", { class: "small tp-said" }, `說成 ${said}`, enText(` said ${said}`)) : null,
         p.note && !said ? h("span", { class: "small muted" }, enText(p.note)) : null),
       playMoeBtn(p)));
@@ -549,7 +549,7 @@ function renderMirror(panel) {
         "aria-label": `${it.zh} ${it.zhuyin}${it.en ? ", " + it.en : ""}; ${best != null ? `best score ${best}` : "not practised yet"}${scored ? "" : "; no model curve, so no score"}. 練習 Practise`,
         onclick: () => practise(panel, [it], ["鏡子 ", enText("Pitch mirror", { class: "muted" })]) },
       h("span", { class: "tg-word-zh" }, ruby(it.zh, it.zhuyin, { cls: "", spoken: it.spoken })),
-      it.en ? h("span", { class: "tg-word-en", lang: "en" }, it.en) : h("span", { class: "tg-word-en" }),
+      it.en ? h("span", { class: "tg-word-en lc-en", lang: "en" }, it.en) : h("span", { class: "tg-word-en" }),
       h("span", { class: "tg-best" + (best != null ? "" : " none") }, best != null ? ["最佳 ", h("span", { lang: "en" }, "best"), " ", h("b", {}, best)] : scored ? "—" : ["不評分 ", h("span", { lang: "en" }, "no score")]))));
     }
     clear(more);
@@ -680,7 +680,7 @@ function ruleView(box, rule, focusOn = null) {
     h("h2", { class: "sd-title" }, h("span", { lang: "zh-Hant-TW" }, rule.zh), " ",
       enText(/[A-Za-z0-9]/.test(rule.en || "") ? arrows(rule.en) : `Tone sandhi of ${rule.en || rule.id}`, { class: "muted" })),
     rule.explain_zh ? h("p", { lang: "zh-Hant-TW" }, rule.explain_zh) : "", // "" not null: append() would print "null"
-    rule.explain_en ? h("p", { class: "muted" }, enText(rule.explain_en)) : "",
+    rule.explain_en ? h("p", { class: "muted" }, enText(rule.explain_en, { class: "lc-en" })) : "",
     h("div", { class: "row tg-rule-actions" },
       h("button", { type: "button", class: "btn", "data-drill": "check", disabled: !checkOk,
         onclick: () => openDrill("check", ["聽力檢查 ", enText("Listening check", { class: "muted" })], stage => sandhiCheck(stage, rule.id, checkPool, { actions: () => [backBtn()] })) },
@@ -712,7 +712,7 @@ function sdItem(e, sandhiOn) {
     h("span", { class: "zhuyin", lang: "zh-Hant-TW" }, z));
   return h("li", { class: "sd-item" + (sent ? " sd-sent" : "") },
     h("span", { class: "sd-zh" }, ruby(e.zh, e.zhuyin, { cls: "", spoken: e.spoken })),
-    h("span", { class: "sd-meta" }, e.en ? enText(e.en, { class: "sd-en" }) : null, tag, other,
+    h("span", { class: "sd-meta" }, e.en ? enText(e.en, { class: "sd-en lc-en" }) : null, tag, other,
       (e.said_ok || []).includes(false) ? h("span", { class: "sd-clipnote small muted" },
         ...bi("教育部錄音這裡唸原調，所以不放進練習", "The MOE recording keeps the written tone here, so it is left out of the drills")) : null),
     h("span", { class: "sd-play" }, play));
@@ -830,7 +830,7 @@ function sandhiCheck(container, ruleId, pool, opts = {}) {
       fb.className = "feedback " + (ok ? "good" : "bad");
       play.setAttribute("aria-label", `再聽一次 Play again: ${e.zh} ${e.zhuyin} — ${MOE_NAME}`);
       reveal.append(h("span", { class: "big-zh" }, ruby(e.zh, e.zhuyin, { cls: "", spoken: e.spoken, sandhi: true })),
-        h("span", { class: "drill-gloss" }, e.en ? enText(e.en) : null,
+        h("span", { class: "drill-gloss" }, e.en ? enText(e.en, { class: "lc-en" }) : null,
           h("span", { class: "small", style: "display:block" }, ...(item.base === item.said
             ? [`不變：寫作、說成都是 ${item.base}。`, enText(` No change: written and said ${item.base}.`)]
             : [`寫作 ${item.base}，說成 ${item.said}。`, enText(` Written ${item.base}, said ${item.said}.`)]))));
@@ -849,7 +849,7 @@ function sandhiCheck(container, ruleId, pool, opts = {}) {
     }
     cur = answer;
     stage.append(h("p", { class: "muted small drill-meta" }, `第 ${k + 1} / ${n} 題 · ${question[0]}`, " ", enText(question[1])),
-      h("div", { class: "tg-check-word" }, h("span", { class: "big-zh" }, word), e.en ? enText(e.en, { class: "muted small" }) : null),
+      h("div", { class: "tg-check-word" }, h("span", { class: "big-zh" }, word), e.en ? enText(e.en, { class: "muted small lc-en" }) : null),
       h("div", { class: "drill-top" }, play, moeBadge()), choices, fb, reveal, h("div", { class: "row" }, next));
     // also on the first trial (a check starts only from a button, which is gone now): the keys 1–4 work at once
     play.focus({ preventScroll: !first });
@@ -907,7 +907,7 @@ function renderReadings(panel) {
       h("p", { class: "small muted" }, "這些詞兩岸讀音一樣，不是差異：照教育部唸就對了。", enText("These are not Taiwan–Mainland differences: read them as MOE writes them.")),
       h("ul", { class: "sd-list" }, same.map(r => h("li", { class: "sd-item" },
         h("span", { class: "sd-zh" }, ruby(r.zh, r.zhuyin, { cls: "" })),
-        h("span", { class: "sd-meta" }, r.note ? enText(r.note, { class: "sd-en" }) : null),
+        h("span", { class: "sd-meta" }, r.note ? enText(r.note, { class: "sd-en lc-en" }) : null),
         h("span", { class: "sd-play" }, playMoeBtn(r)))))));
   }
   panel.append(h("p", { class: "small" }, h("a", { href: "#basics" }, "臺灣的輕聲 ", h("span", { lang: "en" }, "The neutral tone in Taiwan")), " → ", ...bi("在「基礎」。", "is on the Basics tab.")));

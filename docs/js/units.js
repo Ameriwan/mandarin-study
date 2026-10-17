@@ -309,7 +309,9 @@ function prefs() {
   const s = settings();
   const r = String(s.ruby ?? "always");
   const ruby0 = /off|never|none/i.test(r) ? "off" : /new/i.test(r) ? "new" : "all";
-  const p = { ruby: ruby0, en: s.english !== false, text: true, rate: 1, protocol: "short", ...obj(store.get(KEYS.prefs, {})) };
+  // The dialogue starts at Settings › Default speed (when it is one of this page's speeds); a saved page pref wins.
+  const rate0 = RATES.includes(Number(s.speed)) ? Number(s.speed) : 1;
+  const p = { ruby: ruby0, en: s.english !== false, text: true, rate: rate0, protocol: "short", ...obj(store.get(KEYS.prefs, {})) };
   if (!["all", "new", "off"].includes(p.ruby)) p.ruby = ruby0;
   return p;
 }
@@ -584,13 +586,20 @@ function currentCard(u, statuses, placed) {
     h("p", { class: "un-current-k", id: "un-cur-k" }, "目前這一課 ", enText("Current unit"), ` · ${levelName(u._level)}`,
       placed == null ? h("span", { class: "muted" }, "（", enText("not placed yet: starting at Level 1"), "）") : null),
     h("p", { class: "un-current-t" }, h("span", { lang: "zh-Hant-TW" }, str(u.title_zh) || u.id), " ", h("span", { class: "en", lang: "en" }, str(u.title_en))),
-    u.can_do_en ? h("p", { class: "un-current-goal" }, enText(u.can_do_en)) : null,
+    u.can_do_en ? h("p", { class: "un-current-goal" }, enText(u.can_do_en, { class: "lc-en" })) : null,
     st === "review" ? h("p", { class: "un-current-note small" }, ...bi("上次理解測驗低於 70%：先複習這一課，再開始新的一課。", "The last comprehension check was below 70%: review this unit before starting a new one.")) : null,
     h("div", { class: "row" }, h("a", { class: "btn primary", href: `#${encodeURIComponent(u.id)}` }, ...bi(vz, ve), h("span", { "aria-hidden": "true" }, " →")), statusMark(st)));
 }
+// A unit's topic mixes Chinese and English ("夜市 and prices", "打招呼/自我介紹 (greetings, …)"): the English runs get
+// lang="en" so immersion mode hides them; a topic with no Chinese at all is English as a whole. Capitals (ATM, LINE) stay.
+export function topicRun(s) {
+  s = str(s);
+  if (!/\p{sc=Han}/u.test(s)) return enText(s);
+  return h("span", { lang: "zh-Hant-TW" }, s.split(/(\(?[a-z][a-z ,&'/-]*[a-z]\)?)/).map((part, i) => (i % 2 ? h("span", { lang: "en" }, part) : part)));
+}
 function unitRow(u, st, q, current) {
   const rel = isReleased(u.id, D.released);
-  const sub = [u.topic ? h("span", { lang: "zh-Hant-TW" }, str(u.topic)) : null,
+  const sub = [u.topic ? topicRun(u.topic) : null,
     q.last != null ? h("span", {}, "測驗 ", h("span", { lang: "en" }, "quiz"), ` ${q.last}%`) : null,
     current ? h("span", { class: "un-row-cur" }, "目前 ", h("span", { lang: "en" }, "current")) : null,
     !rel ? h("span", {}, "尚未開放 ", h("span", { lang: "en" }, "not released yet")) : null].filter(Boolean);
@@ -612,10 +621,11 @@ function renderUnit(u, { section = "", initial = false } = {}) {
   const present = SECTIONS.filter(([id]) => hasSection(u, id));
   const minutes = timedMinutes();
   if (minutes && unitStatus(u.id) === "new") setUnitStatus(u.id, "progress");
-  const eyebrow = [u._level != null ? levelName(u._level) : null, u._order ? `第 ${u._order} 課` : null, str(u.topic) || null].filter(Boolean).join(" · ");
+  const eyebrow = [u._level != null ? levelName(u._level) : null, u._order ? `第 ${u._order} 課` : null, str(u.topic) ? topicRun(u.topic) : null]
+    .filter(Boolean).flatMap((x, i) => (i ? [" · ", x] : [x]));
   const head = h("header", { class: "un-head" },
     h("a", { class: "un-back", href: "#" }, h("span", { "aria-hidden": "true" }, "← "), ...bi("所有課程", "All units")),
-    h("p", { class: "un-eyebrow" }, eyebrow, u._level != null ? ["｜", h("span", { class: "un-eyebrow-en", lang: "en" }, `Level ${u._level}${u._order ? `, Unit ${u._order}` : ""}`)] : null),
+    h("p", { class: "un-eyebrow" }, ...eyebrow, u._level != null ? ["｜", h("span", { class: "un-eyebrow-en", lang: "en" }, `Level ${u._level}${u._order ? `, Unit ${u._order}` : ""}`)] : null),
     h("h1", { id: "un-title", class: "un-title", tabindex: "-1" }, h("span", { lang: "zh-Hant-TW" }, str(u.title_zh) || u.id),
       u.title_en ? h("span", { class: "en", lang: "en" }, str(u.title_en)) : null),
     statusControl(u),
@@ -726,7 +736,7 @@ function unitTimer(u, minutes) {
 
 // ---------- 1. can-do goal
 function goalSection(sec, u) {
-  sec.append(h("div", { class: "un-goal" }, h("p", { class: "un-goal-k" }, "學完這一課，", enText("after this unit:")), h("p", { class: "un-goal-t" }, enText(u.can_do_en))));
+  sec.append(h("div", { class: "un-goal" }, h("p", { class: "un-goal-k" }, "學完這一課，", enText("after this unit:")), h("p", { class: "un-goal-t" }, enText(u.can_do_en, { class: "lc-en" }))));
 }
 
 // ---------- 2. dialogue (the signature): speakers on one thread, play all / per line, display switches
@@ -754,7 +764,7 @@ function dialogueSection(sec, u) {
       onclick: () => (playing && !playing.all && playing.i === i ? stop() : playLines(i, i)) }, h("span", { "aria-hidden": "true" }, "▶"));
     return h("li", { class: `un-line sp${k}${cont ? " cont" : ""}` },
       h("span", { class: "un-avatar", "aria-hidden": "true" }, [...who][0] || "·"),
-      h("div", { class: "un-say" }, h("p", { class: "un-who" }, who || "—"), zhEl, l.en ? h("p", { class: "un-line-en" }, enText(l.en)) : null),
+      h("div", { class: "un-say" }, h("p", { class: "un-who" }, who || "—"), zhEl, l.en ? h("p", { class: "un-line-en" }, enText(l.en, { class: "lc-en" })) : null),
       btn);
   });
   list.append(...rows);
@@ -882,15 +892,17 @@ function vocabSection(sec, u) {
     const draw = () => word.replaceChildren(ruby(str(v.zh), str(v.zhuyin), { cls: "", spoken: v.spoken || null }));
     view.redraw.add(draw);
     draw();
-    const cell = h("div", { class: "un-v-word" }, word);
+    // pinyin aid: style.css shows .py-aid only when the pinyin setting is on (off by default)
+    const py = v.p ? h("span", { class: "py-aid small muted", lang: "zh-Latn-pinyin" }, " ", str(v.p)) : null;
+    const cell = h("div", { class: "un-v-word" }, word, py);
     const sel = h("select", { class: "un-vstatus", "aria-label": `資料庫狀態 Library status: ${v.zh}`, disabled: true }, h("option", { value: "" }, "…"));
     const ms = (Array.isArray(v.measure) ? v.measure : [v.measure]).map(str).filter(Boolean);
     const meta = [v.pos ? chip(h("span", { lang: "en" }, POS[v.pos] || str(v.pos)), "part of speech 詞性") : null,
       ms.length ? chip(["量詞 ", ms.join("、")], "measure word 量詞") : null, levelChip(v.level)].filter(Boolean);
     ul.append(h("li", { class: "un-v" }, cell,
-      h("div", { class: "un-v-body" }, v.en ? h("p", { class: "un-v-en" }, enText(v.en)) : null, h("div", { class: "un-v-meta" }, meta, sel)),
+      h("div", { class: "un-v-body" }, v.en ? h("p", { class: "un-v-en" }, enText(v.en, { class: "lc-en" })) : null, h("div", { class: "un-v-meta" }, meta, sel)),
       h("div", { class: "un-v-play" }, vocabAudio(v))));
-    rows.push({ v, sel, cell, word, entry: null });
+    rows.push({ v, sel, cell, word, py, entry: null });
   }
   sec.append(ul);
   library().then(L => {
@@ -902,13 +914,18 @@ function vocabSection(sec, u) {
       const zk = m.zhuyinKey(r.v.zhuyin);
       const found = m.resolve(lib.lookup, "word", r.v.zh, r.v.zh, r.v.zhuyin);
       const same = found && (!found.zhuyin || m.zhuyinKey(found.zhuyin) === zk) ? found : null;
-      // not in the Library (or only another reading): the key the Library would give this word
-      r.entry = same || { type: "word", key: found ? `${r.v.zh}|${zk}` : r.v.zh, zh: r.v.zh, zhuyin: r.v.zhuyin };
+      // not in the Library (or only another reading): the key the Library would give this word, and what the unit
+      // knows of it (library.js keeps it with the status: the word then reaches Today's Review and the Library)
+      const v = r.v;
+      r.entry = same || { type: "word", key: found ? `${v.zh}|${zk}` : v.zh, zh: v.zh, zhuyin: v.zhuyin,
+        extra: { zh: str(v.zh), zhuyin: str(v.zhuyin), spoken: v.spoken || null, en: str(v.en), p: str(v.p), id: v.id || null, s: Array.isArray(v.s) ? v.s : null, unit: str(u.id) } };
+      const st = m.statusOf(r.entry);
+      if (!same && st !== "new") m.setStatus(r.entry, st); // a status saved before the word was kept: keep it now
       r.sel.replaceChildren(...m.STATUSES.map(([k, zh, en]) => h("option", { value: k }, `${zh} ${en}`)));
-      r.sel.value = m.statusOf(r.entry);
+      r.sel.value = st;
       r.sel.disabled = false;
       r.sel.addEventListener("change", () => m.setStatus(r.entry, r.sel.value));
-      if (same) r.cell.replaceChildren(h("a", { class: "un-v-link", href: m.entryHref(same), "aria-label": `${r.v.zh} — 在資料庫看 Open in the Library` }, r.word));
+      if (same) r.cell.replaceChildren(h("a", { class: "un-v-link", href: m.entryHref(same), "aria-label": `${r.v.zh} — 在資料庫看 Open in the Library` }, r.word), r.py || "");
     }
     bulk.disabled = !rows.length;
   });
@@ -924,7 +941,7 @@ function grammarSection(sec, u) {
     const sub = h("p", { class: "un-g-sub" });
     const link = h("a", { class: "un-g-link", href: `library.html#e/grammar/${encodeURIComponent(id)}`, "aria-label": `${id} — 在資料庫看 Open in the Library` },
       ...bi("完整說明和例句", "Full notes and examples"), h("span", { "aria-hidden": "true" }, " →"));
-    ul.append(h("li", { class: "un-g" }, title, sub, g.note_en ? h("p", { class: "un-g-note" }, enText(g.note_en)) : null, link));
+    ul.append(h("li", { class: "un-g" }, title, sub, g.note_en ? h("p", { class: "un-g-note" }, enText(g.note_en, { class: "lc-en" })) : null, link));
     fills.push({ id, title, sub, link });
   }
   sec.append(ul);
@@ -933,10 +950,10 @@ function grammarSection(sec, u) {
     for (const f of fills) {
       const e = L.m.resolve(L.lib.lookup, "grammar", f.id);
       if (!e) continue;
-      f.title.replaceChildren(...[h("span", { class: "un-g-zh", lang: "zh-Hant-TW" }, e.zh), e.en ? h("span", { class: "un-g-en", lang: "en" }, e.en) : null,
+      f.title.replaceChildren(...[h("span", { class: "un-g-zh", lang: "zh-Hant-TW" }, e.zh), e.en ? h("span", { class: "un-g-en lc-en", lang: "en" }, e.en) : null,
         e.level ? levelChip(`第${e.level}級`) : null].filter(Boolean)); // replaceChildren would print a null
       const r = obj(e.raw);
-      if (r.structure) f.sub.replaceChildren(h("span", { class: "un-g-k" }, "句型 ", h("span", { lang: "en" }, "Structure")), " ", enText(r.structure));
+      if (r.structure) f.sub.replaceChildren(h("span", { class: "un-g-k" }, "句型 ", h("span", { lang: "en" }, "Structure")), " ", enText(r.structure, { class: "lc-en" }));
       f.link.href = L.m.entryHref(e);
       f.link.setAttribute("aria-label", `${e.zh} — 在資料庫看 Open in the Library`);
     }
@@ -946,7 +963,7 @@ function grammarSection(sec, u) {
 // ---------- 5. pronunciation focus: the contrast (Lab) and the tone pair (Tone Gym); listening only here
 function pronSection(sec, u) {
   const p = obj(u.pronunciation);
-  if (str(p.note_en).trim()) sec.append(h("p", { class: "un-pron-note" }, enText(p.note_en)));
+  if (str(p.note_en).trim()) sec.append(h("p", { class: "un-pron-note" }, enText(p.note_en, { class: "lc-en" })));
   const cards = h("div", { class: "un-pcards" });
   if (p.contrast) cards.append(contrastCard(String(p.contrast)));
   if (p.tone_pair) cards.append(pairCard(String(p.tone_pair), u));
@@ -969,7 +986,7 @@ function contrastCard(id) {
   loadJSON("contrasts").then(list => {
     c = arr(list).find(x => x && x.id === id) || null;
     if (!c) { start.hidden = true; acc.replaceChildren(...bi("這個對比還沒建置。", "This contrast isn't in contrasts.json.")); return; }
-    name.replaceChildren(h("span", { lang: "zh-Hant-TW" }, str(c.zh)), " ", enText(str(c.en), { class: "un-pcard-en" }));
+    name.replaceChildren(h("span", { lang: "zh-Hant-TW" }, str(c.zh)), " ", enText(str(c.en), { class: "un-pcard-en lc-en" }));
     paintAcc();
     start.disabled = false;
   }).catch(() => { start.hidden = true; });
@@ -1046,7 +1063,7 @@ function shadowSection(sec, u) {
       btn.replaceChildren(...label(true));
     }
     ol.append(h("li", { class: "un-sh" }, h("div", { class: "un-sh-row" },
-      h("div", { class: "un-sh-text" }, zhEl, l.en ? h("p", { class: "un-sh-en" }, enText(l.en)) : null), btn), host));
+      h("div", { class: "un-sh-text" }, zhEl, l.en ? h("p", { class: "un-sh-en" }, enText(l.en, { class: "lc-en" })) : null), btn), host));
   });
   sec.append(ol, h("p", { class: "small un-sh-more" }, h("a", { href: "shadow.html" }, "跟讀頁 ", h("span", { lang: "en" }, "Shadowing page")), " ",
     enText("has the full player (A–B loop, loops, more lines).")));
@@ -1066,9 +1083,9 @@ function checkSection(sec, u) {
     const opts = arr(q.options_en).map((o, j) => {
       const input = h("input", { type: "radio", name: `un-q${i}`, value: String(j) });
       const mark = h("span", { class: "un-opt-mark" });
-      return { label: h("label", { class: "un-opt" }, input, h("span", { class: "un-opt-t" }, enText(o)), mark), input, mark };
+      return { label: h("label", { class: "un-opt" }, input, h("span", { class: "un-opt-t" }, enText(o, { class: "lc-en tr" })), mark), input, mark };
     });
-    const fs = h("fieldset", { class: "un-q" }, h("legend", {}, h("span", { class: "un-q-n" }, `${i + 1}.`), " ", enText(q.question_en)), opts.map(o => o.label));
+    const fs = h("fieldset", { class: "un-q" }, h("legend", {}, h("span", { class: "un-q-n" }, `${i + 1}.`), " ", enText(q.question_en, { class: "lc-en tr" })), opts.map(o => o.label));
     return { q, fs, opts };
   });
   const out = h("div", { class: "un-quiz-out", "aria-live": "polite" });
@@ -1121,7 +1138,9 @@ function resultCard(u, r, st) {
     const doneBtn = h("button", { type: "button", class: "btn small", onclick: () => {
       setUnitStatus(u.id, "done");
       paintStatus();
-      doneBtn.replaceWith(h("span", { class: "feedback good" }, "✓ 完成 ", enText("Done")));
+      const ok = h("span", { class: "feedback good", tabindex: "-1" }, "✓ 完成 ", enText("Done"));
+      doneBtn.replaceWith(ok);
+      ok.focus({ preventScroll: true }); // the button is gone: keep focus here, not on <body>
       toast("這一課完成了 ✓ Unit marked done");
     } }, ...bi("標成完成", "Mark the unit done"));
     return h("div", { class: "un-result pass" },
@@ -1142,7 +1161,7 @@ function speakSection(sec, u) {
   const items = arr(s.checklist_en).map(str).filter(x => x.trim());
   sec.append(h("div", { class: "un-task" },
     s.prompt_zh ? h("p", { class: "un-task-zh", lang: "zh-Hant-TW" }, str(s.prompt_zh)) : null,
-    s.prompt_en ? h("p", { class: "un-task-en" }, enText(s.prompt_en)) : null),
+    s.prompt_en ? h("p", { class: "un-task-en" }, enText(s.prompt_en, { class: "lc-en" })) : null),
   h("p", { class: "muted small" }, ...bi("先想一想，再大聲說出來並錄音。聽自己的錄音，然後勾選做到的。錄音只存在這台裝置上。",
     "Plan it, say it out loud and record it. Listen back, then tick what you did. Recordings stay on this device.")),
   h("div", { class: "un-rec" }, recordWidget({ key: `unit:${u.id}:speak`, label: "● 錄音 Record" })));
@@ -1161,7 +1180,7 @@ function speakSection(sec, u) {
     paint();
   });
   sec.append(h("fieldset", { class: "un-checklist" }, h("legend", {}, "自我檢查 ", enText("Self-check")),
-    h("ul", {}, items.map((t, i) => h("li", {}, h("label", { class: "un-check" }, boxes[i], h("span", {}, enText(t))))))), sum);
+    h("ul", {}, items.map((t, i) => h("li", {}, h("label", { class: "un-check" }, boxes[i], h("span", {}, enText(t, { class: "lc-en tr" }))))))), sum);
   paint();
 }
 
@@ -1170,7 +1189,7 @@ function writeSection(sec, u) {
   const w = obj(u.writing);
   sec.append(h("div", { class: "un-task" },
     w.prompt_zh ? h("p", { class: "un-task-zh", lang: "zh-Hant-TW" }, str(w.prompt_zh)) : null,
-    w.prompt_en ? h("p", { class: "un-task-en" }, enText(w.prompt_en)) : null));
+    w.prompt_en ? h("p", { class: "un-task-en" }, enText(w.prompt_en, { class: "lc-en" })) : null));
   const taId = `un-write-${u.id}`;
   const ta = h("textarea", { id: taId, class: "un-write", lang: "zh-Hant-TW", rows: "5", spellcheck: "false", autocomplete: "off", autocapitalize: "off" });
   ta.value = str(mapOf(KEYS.writing)[u.id]);
@@ -1258,7 +1277,7 @@ function zhuyinKeyboard(ta, after) {
 
 // ---------- 10. culture note
 function cultureSection(sec, u) {
-  sec.append(h("div", { class: "un-culture" }, h("p", { class: "un-culture-k" }, "臺灣小知識 ", enText("Taiwan note")), h("p", {}, enText(u.culture_en))));
+  sec.append(h("div", { class: "un-culture" }, h("p", { class: "un-culture-k" }, "臺灣小知識 ", enText("Taiwan note")), h("p", {}, enText(u.culture_en, { class: "lc-en" }))));
 }
 
 if (app) boot().catch(err => { console.error(err); app.append(h("p", { class: "feedback bad" }, "載入失敗 Could not load the units: ", String(err && err.message || err))); });

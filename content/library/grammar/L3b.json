@@ -151,9 +151,9 @@
  "structure": "(把 + Object) + 收 / 存 / 藏 / 包 + 起來",
  "examples": [
   {
-   "zh": "天氣變熱了，我把厚外套收起來了。",
-   "zhuyin": "ㄊㄧㄢ ㄑㄧˋ ㄅㄧㄢˋ ㄖㄜˋ ˙ㄌㄜ ㄨㄛˇ ㄅㄚˇ ㄏㄡˋ ㄨㄞˋ ㄊㄠˋ ㄕㄡ ㄑㄧˇ ㄌㄞˊ ˙ㄌㄜ",
-   "en": "The weather has warmed up, so I put my heavy jacket away."
+   "zh": "夏天到了，我把厚外套收起來了。",
+   "zhuyin": "ㄒㄧㄚˋ ㄊㄧㄢ ㄉㄠˋ ˙ㄌㄜ ㄨㄛˇ ㄅㄚˇ ㄏㄡˋ ㄨㄞˋ ㄊㄠˋ ㄕㄡ ㄑㄧˇ ㄌㄞˊ ˙ㄌㄜ",
+   "en": "Summer's here, so I put my heavy jacket away."
   },
   {
    "zh": "他每個月把一半的薪水存起來。",
@@ -172,9 +172,9 @@
   }
  ],
  "mistake": {
-  "wrong": "天氣變熱了，我把厚外套放走了。",
-  "right": "天氣變熱了，我把厚外套收起來了。",
-  "right_zhuyin": "ㄊㄧㄢ ㄑㄧˋ ㄅㄧㄢˋ ㄖㄜˋ ˙ㄌㄜ ㄨㄛˇ ㄅㄚˇ ㄏㄡˋ ㄨㄞˋ ㄊㄠˋ ㄕㄡ ㄑㄧˇ ㄌㄞˊ ˙ㄌㄜ",
+  "wrong": "夏天到了，我把厚外套放走了。",
+  "right": "夏天到了，我把厚外套收起來了。",
+  "right_zhuyin": "ㄒㄧㄚˋ ㄊㄧㄢ ㄉㄠˋ ˙ㄌㄜ ㄨㄛˇ ㄅㄚˇ ㄏㄡˋ ㄨㄞˋ ㄊㄠˋ ㄕㄡ ㄑㄧˇ ㄌㄞˊ ˙ㄌㄜ",
   "why_en": "'Put away' (store) is 收起來. 放走 means 'let go, release', as when you let a bird go."
  },
  "taiwan_note": ""
@@ -237,8 +237,8 @@
    "en": "You have to register first before you can see the doctor."
   },
   {
-   "zh": "這家早餐店要早點去，才買得到蛋餅。",
-   "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ㄗㄠˇ ㄘㄢ ㄉㄧㄢˋ ㄧㄠˋ ㄗㄠˇ ㄉㄧㄢˇ ㄑㄩˋ ㄘㄞˊ ㄇㄞˇ ㄉㄜˊ ㄉㄠˋ ㄉㄢˋ ㄅㄧㄥˇ",
+   "zh": "這家早餐店要早點去，才能買到蛋餅。",
+   "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ㄗㄠˇ ㄘㄢ ㄉㄧㄢˋ ㄧㄠˋ ㄗㄠˇ ㄉㄧㄢˇ ㄑㄩˋ ㄘㄞˊ ㄋㄥˊ ㄇㄞˇ ㄉㄠˋ ㄉㄢˋ ㄅㄧㄥˇ",
    "en": "You have to go to this breakfast shop early if you want to get an egg crepe."
   }
  ],
@@ -305,7 +305,7 @@
   {
    "zh": "我們家人很多，光表哥就有六個。",
    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄐㄧㄚ ㄖㄣˊ ㄏㄣˇ ㄉㄨㄛ ㄍㄨㄤ ㄅㄧㄠˇ ㄍㄜ ㄐㄧㄡˋ ㄧㄡˇ ㄌㄧㄡˋ ˙ㄍㄜ",
-   "en": "We have a big family: I have six older male cousins on my mother's side alone."
+   "en": "We have a big family: I have six older male cousins (表哥, through my mother or my father's sisters) alone."
   }
  ],
  "mistake": {
@@ -435,8 +435,8 @@
    "en": "Only by listening and speaking a lot will your Chinese improve."
   },
   {
-   "zh": "這種藥只有在藥局才買得到。",
-   "zhuyin": "ㄓㄜˋ ㄓㄨㄥˇ ㄧㄠˋ ㄓˇ ㄧㄡˇ ㄗㄞˋ ㄧㄠˋ ㄐㄩˊ ㄘㄞˊ ㄇㄞˇ ㄉㄜˊ ㄉㄠˋ",
+   "zh": "這種藥只有在藥局才能買到。",
+   "zhuyin": "ㄓㄜˋ ㄓㄨㄥˇ ㄧㄠˋ ㄓˇ ㄧㄡˇ ㄗㄞˋ ㄧㄠˋ ㄐㄩˊ ㄘㄞˊ ㄋㄥˊ ㄇㄞˇ ㄉㄠˋ",
    "en": "You can only buy this medicine at a pharmacy."
   }
  ],
@@ -836,9 +836,9 @@
  "structure": "Adjective / Feeling verb + 死了",
  "examples": [
   {
-   "zh": "你會不會熱？我快熱死了。",
-   "zhuyin": "ㄋㄧˇ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄖㄜˋ ㄨㄛˇ ㄎㄨㄞˋ ㄖㄜˋ ㄙˇ ˙ㄌㄜ",
-   "en": "Are you hot? I'm dying of heat."
+   "zh": "你坐那邊會不會熱？我快熱死了。",
+   "zhuyin": "ㄋㄧˇ ㄗㄨㄛˋ ㄋㄚˋ ㄅㄧㄢ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄖㄜˋ ㄨㄛˇ ㄎㄨㄞˋ ㄖㄜˋ ㄙˇ ˙ㄌㄜ",
+   "en": "Are you hot sitting over there? I'm dying of heat."
   },
   {
    "zh": "下班以後還要去打工，我累死了。",
@@ -862,7 +862,7 @@
   "right_zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄖㄜˋ ㄙˇ ˙ㄌㄜ",
   "why_en": "死了 already makes it extreme, so 很 is not added."
  },
- "taiwan_note": "你會不會熱？ uses 會 + adjective to ask how someone feels, a common Taiwan question."
+ "taiwan_note": "你坐那邊會不會熱？ uses 會不會 + adjective to ask how someone feels, a common Taiwan question."
 },
 {
  "id": "G191",
@@ -969,7 +969,7 @@
  "pattern": "把 O V到......（來/去）",
  "level": "第3*級",
  "title_en": "把 + object + V到 + place (+ 來/去): moving something somewhere",
- "explanation_en": "This pattern says an action moves the object to a place: 把車開到停車場 'drive the car to the parking lot'. The place follows 到 right after the verb, and 來 or 去 can be added at the end to show movement toward or away from the speaker. The verbs are verbs of moving or carrying, such as 開, 騎, 搬, 拿, 送 and 寄.",
+ "explanation_en": "This pattern says an action moves the object to a place: 把舊沙發搬到樓下 'move the old sofa downstairs'. The place follows 到 right after the verb, and 來 or 去 can be added at the end to show movement toward or away from the speaker. The verbs are verbs of moving or carrying, such as 開, 騎, 搬, 拿, 送 and 寄.",
  "structure": "把 + Object + Verb + 到 + Place (+ 來 / 去)",
  "examples": [
   {
@@ -1073,7 +1073,7 @@
  "pattern": "把 O V-在 PW",
  "level": "第3*級",
  "title_en": "把 + object + V在 + place: putting something somewhere",
- "explanation_en": "To say where something is put and ends up, use 把 + object + verb + 在 + place: 把書放在桌上 'put the book on the table'. Typical verbs are 放, 停, 掛, 貼, 寫 and 忘. The place comes after the verb because it is where the object ends up; 在 + place before the verb would only say where the action happens.",
+ "explanation_en": "To say where something is put and ends up, use 把 + object + verb + 在 + place: 把機車停在門口 'park the scooter by the door'. Typical verbs are 放, 停, 掛, 貼, 寫 and 忘. The place comes after the verb because it is where the object ends up; 在 + place before the verb would only say where the action happens.",
  "structure": "把 + Object + Verb + 在 + Place",
  "examples": [
   {

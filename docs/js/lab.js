@@ -102,12 +102,12 @@ function symbolDetail(s) {
   // dt labels stay zh-Hant-TW (inherited) with an English half; empty fields render nothing.
   const kv = h("dl", { class: "kv" });
   for (const [key, zh, en] of [["how", "怎麼發", "How"], ["error", "常見錯誤", "Typical error"], ["notes", "注意", "Note"]]) {
-    if (s[key]?.trim()) kv.append(h("dt", {}, zh, " ", h("span", { lang: "en" }, en)), h("dd", {}, enText(s[key])));
+    if (s[key]?.trim()) kv.append(h("dt", {}, zh, " ", h("span", { lang: "en" }, en)), h("dd", {}, enText(s[key], { class: "lc-en" })));
   }
   if (kv.children.length) d.append(kv);
   const ex = h("div", { class: "examples" });
   for (const e of s.examples) {
-    ex.append(h("div", { class: "example" }, ruby(e.zh, e.zhuyin), h("span", { class: "en", lang: "en" }, e.en), playButton(e)));
+    ex.append(h("div", { class: "example" }, ruby(e.zh, e.zhuyin), h("span", { class: "en lc-en", lang: "en" }, e.en), playButton(e)));
   }
   d.append(h("h3", { style: "margin-top:14px" }, bi("例詞", "Examples")), ex);
   d.append(h("div", { class: "row", style: "margin-top:12px" }, h("span", { class: "muted small" }, ...bi("先聽符號，再錄自己的：", "Listen, then record yourself:")), recordWidget({ key: `sym:${s.symbol}` })));
@@ -421,7 +421,7 @@ function renderMouth(panel) {
       tongue: "M72 150 C 76 120, 110 86, 150 78 C 200 76, 240 104, 262 142 L 266 165 L 74 165 Z", tip: null, mark: [18, 160, "圓唇 round"] },
   ];
   const grid = h("div", { class: "mouth-grid" });
-  for (const f of figs) grid.append(h("figure", { html: mouthSVG(f) }, h("figcaption", {}, h("b", { lang: "zh-Hant-TW" }, f.zh), " — ", enText(f.en))));
+  for (const f of figs) grid.append(h("figure", { html: mouthSVG(f) }, h("figcaption", {}, h("b", { lang: "zh-Hant-TW" }, f.zh), " — ", enText(f.en, { class: "lc-en" }))));
   panel.append(grid);
 }
 

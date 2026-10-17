@@ -33,7 +33,7 @@ import { ShadowPlayer, stopPlayers, RATES } from "./player.js";
 // Stops everything audible: app.js playback and recordings, and every player.js player.
 export function stopAll() { stopAudio(); stopPlayers(); }
 
-const KEYS = { contrasts: "lab.contrasts", focus: "focus.contrasts", confusion: "tones.confusion", pairs: "tones.pairs", mirror: "tones.mirror" };
+const KEYS = { contrasts: "lab.contrasts", focus: "focus.contrasts", confusion: "tones.confusion", weak: "tones.weak", pairs: "tones.pairs", mirror: "tones.mirror" };
 const MOE_NAME = "MOE human voice · 教育部真人發音";
 const TONE_EXAMPLE_ZH = { 1: "媽", 2: "麻", 3: "馬", 4: "罵" }; // the characters of tones.json tone_examples
 const PARTNER = { 1: 4, 4: 1, 2: 3, 3: 2 }; // the confusable pairs T1/T4 and T2/T3 get double weight (§5.3, §6.7)
@@ -218,14 +218,16 @@ function syncFocus(stats = contrastStats()) {
   return f;
 }
 export const focusContrasts = () => syncFocus();
-// The contrast in the daily focus with the lowest recent accuracy (Today's listening step), else null.
+// The contrast in the daily focus with the lowest recent accuracy (Today's listening step), else null. A focus
+// contrast with no recent trials yet (the placement check adds the ✗ contrasts that way) comes first.
 export function weakestContrast(contrasts) {
   const stats = contrastStats(), f = syncFocus(stats);
   let worst = null, low = Infinity;
   for (const c of contrasts || []) {
     if (!c || !f[c.id]) continue;
     const acc = recentAccuracy(stats[c.id]);
-    if (acc != null && acc < low) { worst = c; low = acc; }
+    const rank = acc == null ? -1 : acc;
+    if (rank < low) { worst = c; low = rank; }
   }
   return worst;
 }
@@ -252,17 +254,27 @@ function addConfusion(truth, answered) {
   row[answered] = (row[answered] || 0) + 1;
   store.set(KEYS.confusion, c);
 }
+// "tones.weak": {"<tone>": {since, from}}: tones the Plan page's placement diagnostic found weak (M4 design §4.3).
+// setWeakTones replaces the set (a new placement's diagnostic supersedes the last); the matrix above stays the
+// learner's own Tone ID answers.
+export const weakTones = () => { const w = store.get(KEYS.weak, {}); return w && typeof w === "object" ? w : {}; };
+export function setWeakTones(tones, from = "placement", day = today()) {
+  const out = {};
+  for (const t of [].concat(tones || []).map(Number)) if (t >= 1 && t <= 4) out[t] = { since: day, from };
+  store.set(KEYS.weak, out);
+  return Object.keys(out).map(Number);
+}
+const WEAK_BONUS = 1.5, WEAK_FADE = 20; // a weak tone's prior, gone once 20 of its Tone ID answers are in
 // Draw weight per tone 1-4: 1 plus its error rates (smoothed), errors within T1/T4 and T2/T3 counted double, and
-// half weight for being the answer given to another tone (a confusion goes both ways).
-export function toneWeights(c = confusion()) {
-  const rate = (t, a) => {
-    const row = c[t] || {};
-    const total = Object.values(row).reduce((x, y) => x + (Number(y) || 0), 0);
-    return (Number(row[a]) || 0) / (total + 3);
-  };
+// half weight for being the answer given to another tone (a confusion goes both ways). A weak tone from placement
+// adds a prior (half of it to its partner tone) that fades as that tone's own answers come in.
+export function toneWeights(c = confusion(), weak = weakTones()) {
+  const heard = t => Object.values(c[t] || {}).reduce((x, y) => x + (Number(y) || 0), 0);
+  const rate = (t, a) => (Number((c[t] || {})[a]) || 0) / (heard(t) + 3);
+  const prior = t => (weak && weak[t] ? WEAK_BONUS * Math.max(0, 1 - heard(t) / WEAK_FADE) : 0);
   const w = {};
   for (let t = 1; t <= 4; t++) {
-    let x = 1;
+    let x = 1 + prior(t) + 0.5 * prior(PARTNER[t]);
     for (let a = 1; a <= 4; a++) if (a !== t) x += 3 * (PARTNER[t] === a ? 2 : 1) * (rate(t, a) + 0.5 * rate(a, t));
     w[t] = x;
   }
@@ -390,7 +402,7 @@ export function contrastDrill(container, contrast, opts = {}) {
         play.setAttribute("aria-label", `再聽一次 Play again: ${target.zh} — ${MOE_NAME}`);
         if (s.n >= n || s.timeUp()) next.replaceChildren(...bi("完成", "Finish"));
         next.disabled = false; next.classList.add("primary"); next.focus();
-      } }, ruby(w.zh, w.zhuyin, { cls: "zh", spoken: w.spoken }), h("span", { class: "en", lang: "en" }, w.en));
+      } }, ruby(w.zh, w.zhuyin, { cls: "zh", spoken: w.spoken }), h("span", { class: "en lc-en", lang: "en" }, w.en));
       b._w = w; b._name = name;
       choices.append(b);
     }
@@ -640,7 +652,7 @@ export function pairIdDrill(container, pairs, opts = {}) {
       play.setAttribute("aria-label", `再聽一次 Play again: ${w.zh} ${w.zhuyin} — ${MOE_NAME}`);
       const sandhi = patKey(item.heard) !== cell;
       reveal.append(h("span", { class: "big-zh" }, ruby(w.zh, w.zhuyin, { cls: "", spoken: w.spoken })),
-        h("span", { class: "drill-gloss" }, w.en ? enText(w.en) : null,
+        h("span", { class: "drill-gloss" }, w.en ? enText(w.en, { class: "lc-en" }) : null,
           sandhi ? h("span", { class: "small muted", style: "display:block" }, `變調：寫作 ${right}，說成 ${toneLabel(item.heard[0])} + ${toneLabel(item.heard[1])}。`,
             enText(`Sandhi: written ${item.written.join("+")}, said ${item.heard.join("+")}.`)) : null,
           w.note ? h("span", { class: "small muted", style: "display:block" }, enText(w.note)) : null),
@@ -928,7 +940,7 @@ export function mirrorDrill(container, items, opts = {}) {
     stage.append(
       h("p", { class: "muted small drill-meta" }, `第 ${k + 1} / ${list.length} 題 · 先聽示範，再錄自己的，比較曲線。`, enText("Listen, record yourself, compare the curves.")),
       h("div", { class: "mirror-word" }, h("span", { class: "big-zh" }, ruby(it.zh, it.zhuyin, { cls: "", spoken: it.spoken, sandhi: true })),
-        it.en ? enText(it.en, { class: "muted" }) : null),
+        it.en ? enText(it.en, { class: "muted lc-en" }) : null),
       said !== it.zhuyin ? h("p", { class: "small mirror-sandhi" }, `變調：寫作 ${it.zhuyin}，說成 ${said}。`, enText(` Tone sandhi: written ${it.zhuyin}, said ${said}.`)) : "",
       box, shapeLine,
       noMic ? micMessage(noMic) : scoreBox,
@@ -957,7 +969,7 @@ export function mirrorDrill(container, items, opts = {}) {
 //     (清楚 clear / 還好 OK / 再練 again).
 // opts.saveKey (default item.key): the take is saved as "shadow:<key>" with {zh, zhuyin, spoken, line, title, src,
 //   model, rating} (the Shadowing page's fields), saved again once rated; the rating goes to "shadow.lines"
-//   (rateShadowLine). Without a key nothing is stored. opts.rate: the starting speed (one of RATES; default 1.0).
+//   (rateShadowLine). Without a key nothing is stored. opts.rate: the starting speed (one of RATES; default: Settings › Default speed, else 1.0).
 // No score for sentences; the pitch overlay appears only for an MOE clip with a model contour, and a line without
 // one says why (a TTS voice's intonation is not a model, §6.3). "Skip this part" skips the rest of the current part.
 // A timed run (timeLimit) with time left offers another round or Finish after each run, and ends by itself when the
@@ -969,7 +981,7 @@ export function shadowLine(container, item, opts = {}) {
   const it = item || {};
   const full = opts.protocol === "full";
   const key = opts.saveKey ?? it.key ?? null;
-  let rate = RATES.includes(Number(opts.rate)) ? Number(opts.rate) : 1;
+  let rate = [opts.rate, settings().speed, 1].map(Number).find(r => RATES.includes(r));
   let runs = 0, recorded = false, rating = null, running = false, skip = false, take = null, recBusy = false;
   let noMic = canRecord ? "" : "unsupported";
   const waiters = new Set();
@@ -1036,7 +1048,7 @@ export function shadowLine(container, item, opts = {}) {
       : bi("這一句沒有示範曲線，用耳朵比較。", "No model contour for this line: compare by ear.")));
     const endBox = h("div");
     const lineEl = h("p", { class: "shadow-line" }, ruby(it.zh || "", it.zhuyin || "", { cls: "", spoken: it.spoken, sandhi: true }));
-    const enEl = it.en ? h("p", { class: "muted small" }, enText(it.en)) : null;
+    const enEl = it.en ? h("p", { class: "muted small" }, enText(it.en, { class: "lc-en" })) : null;
     // the blind part hides the line; this keeps its place so nothing below jumps
     const hiddenEl = h("p", { class: "muted shadow-hidden", hidden: true, style: "min-height:56px;margin:4px 0 2px" },
       "（文字藏起來了：只靠耳朵跟讀）", enText(" Text hidden: shadow by ear."));

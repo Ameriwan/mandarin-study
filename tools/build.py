@@ -5,15 +5,28 @@
     .venv\\Scripts\\python.exe tools\\build.py --no-contours   compute no new model contours: reuse the ones computed
                                                          before (contour cache, else the old contours.json /
                                                          shadowing.json)
+    --max-new N / --max-tts N   at most N new MOE downloads / gTTS requests this run (priority order); rerun to continue
+
+Library and placement (M4, tools/library.py): library-words.json, grammar.json, patterns.json, measure-words.json,
+taiwan-vs-mainland.json, phrasebook.json, placement.json, search.json. The headword spans of the streamed Library
+clips are measured last, from cache-only downloads (audio.stream_spans): everything else is written before that.
 
 Writes docs/data/*.json (tones.json: the Tone Gym, M2; shadowing.json: the Shadowing page, M3), the MOE 使用說明
-docs/data/moe-license-concised.txt (§7.5; both files' `license` field points to it), docs/audio/**, and
-build-report.md. The build FAILS on any verifier failure, on a missing 使用說明, and on a content/tones/sandhi.json
-item whose spoken form (moe.spoken, §6.4) does not show its rule, changes when marked no_change, or (half-third)
-changes at all.
+docs/data/moe-license-concised.txt (§7.5; both files' `license` field points to it), CC-CEDICT's notice
+docs/data/cedict-license.txt (the BY-SA glosses' files point to it), docs/audio/**, and build-report.md. The build
+FAILS on any verifier failure, on a missing 使用說明 or CC-CEDICT notice, on a content/tones/sandhi.json item whose
+spoken form (moe.spoken, §6.4) does not show its rule, changes when marked no_change, or (half-third) changes at
+all, and on a file under docs/data/ or a folder under docs/audio/ with no license entry (PUBLISHED, and its row in
+content/sources.md; §7.5 "the build must check that every redistributed file has a license entry"). The size budget
+and license failures exit only after the streamed step, so its 404 handling always runs.
+
+A MOE clip that is not published (404 on the moedict CDN, a failed download, or not downloaded yet) never keeps
+its id in the data: the id becomes null (the pages then use the labelled browser voice) and the report lists it;
+the same for a streamed clip that answers 404 or whose download failed.
 """
 import argparse
 import datetime as dt
+import fnmatch
 import json
 import re
 import sys
@@ -27,6 +40,8 @@ import verify  # noqa: E402
 import audio  # noqa: E402
 import contours  # noqa: E402
 import entries  # noqa: E402
+import library  # noqa: E402
+import lessons  # noqa: E402
 
 DATA = moe.DOCS / "data"
 SIZE_BUDGET_MB = 600
@@ -740,6 +755,155 @@ def publish_license():
     return None
 
 
+# ---------------------------------------------------------------- license entries (§7.5: the repo is public)
+
+SOURCES_MD = moe.CONTENT / "sources.md"
+_NAER = "TBCL fields credited to NAER (臺灣華語文能力基準, only the fields the app needs)"
+_SA = "CC BY-SA 4.0 (CC-CEDICT glosses, modified; notice in data/cedict-license.txt)"
+_ND = "CC BY-ND 3.0 TW, unmodified, with data/moe-license-concised.txt"
+# Every file the site redistributes under docs/data/ and every folder under docs/audio/ (paths relative to docs/,
+# fnmatch patterns allowed): (source, license). check_licenses() fails the build on a published file or folder
+# with no row here, and on a row whose file content/sources.md ("Published files" table) does not list.
+PUBLISHED = {
+    "data/moe-license-concised.txt": ("MOE 國語辭典簡編本 使用說明 (content/moe-license-concised.txt, byte for byte)",
+                                      "MOE's own terms, unmodified"),
+    "data/moe-license-idioms.txt": ("MOE 成語典 使用說明 idiomsdict_10409 (as text)", "MOE's own terms, unmodified"),
+    "data/cedict-license.txt": ("CC-CEDICT's header notice (unchanged) + our note of the changes made",
+                                "CC BY-SA 4.0 notice"),
+    "data/chengyu.json": ("MOE 成語典 entries (content/library/chengyu.csv selection)",
+                          "CC BY-ND 3.0 TW, unmodified, with data/moe-license-idioms.txt"),
+    "data/library-words.json": ("TBCL words, levels, topics; MOE/TBCL Zhuyin; CC-CEDICT glosses", f"{_SA}; {_NAER}"),
+    "data/search.json": ("search index of the Library entries (CC-CEDICT glosses)", f"{_SA}; {_NAER}"),
+    "data/placement.json": ("our questions and diagnostic; TBCL level-5 words with CC-CEDICT glosses",
+                            f"{_SA}; {_NAER}; MOE clips {_ND}"),
+    "data/characters.json": ("TBCL 漢字表 character + level; MOE 簡編本 部首字 and strokes; CC-CEDICT radical meanings",
+                             f"{_SA}; {_NAER}"),
+    "data/grammar.json": ("TBCL 語法點表 point name + level; our explanations and examples", f"our writing; {_NAER}"),
+    "data/patterns.json": ("content/library/patterns.csv", "our writing"),
+    "data/measure-words.json": ("content/library/measure-words.csv", "our writing; streamed MOE clips (ids only)"),
+    "data/taiwan-vs-mainland.json": ("content/library/taiwan-vs-mainland.csv", "our writing; streamed MOE clips (ids only)"),
+    "data/phrasebook.json": ("content/library/phrasebook.csv", "our writing"),
+    "data/my-mistakes.json": ("content/library/my-mistakes.csv (the learner's CORRECT log)", "our writing"),
+    "data/units.json": ("content/units/*.json", f"our writing; {_NAER}; TTS labelled (gTTS)"),
+    "data/units-index.json": ("content/units/*.json (unit list, word and grammar keys)", f"our writing; {_NAER}"),
+    "data/plan.json": ("content/plan.json", "our writing; TBCL / TOCFL level names credited to NAER / SC-TOP"),
+    "data/reading.json": ("content/reading/*.json", "our writing; TTS labelled (gTTS)"),
+    "data/advanced.json": ("content/advanced/*.json", "our writing; TTS labelled (gTTS)"),
+    "data/resources.json": ("content/resources.json (links, check dates, HTTP status)", "links only, nothing copied"),
+    "data/meta.json": ("build date, MOE export version and counts", "our own build metadata"),
+    "data/tones.json": ("Tone Gym: MOE readings and clip ids, our pairs and sandhi items, Mainland readings",
+                        f"{_ND}; Mainland readings from CC-CEDICT, CC BY-SA 4.0; our writing"),
+    "data/shadowing.json": ("our sentences; MOE 簡編本 entry text and readings", _ND),
+    "data/audio.json": ("index of the published clips (spans, paths, labels)", f"{_ND}; handbook CC BY 4.0; TTS labelled"),
+    "data/contours.json": ("pitch contours measured from the MOE clips", _ND),
+    "data/contrasts.json": ("content/zhuyin/contrasts.json + MOE clip ids", f"our writing; {_ND}"),
+    "data/pairs.json": ("content/tones/pairs.csv + MOE clip ids", f"our writing; {_ND}"),
+    "data/symbols.json": ("content/zhuyin/symbols.json + handbook / MOE clip ids", f"our writing; {_ND}; handbook CC BY 4.0"),
+    "data/syllables.json": ("syllable grid: MOE clip ids, TBCL character levels", f"{_ND}; {_NAER}"),
+    "audio/moe/": ("MOE 國語辭典簡編本 announcer recordings, whole files (+ mp3 format conversion)", _ND),
+    "audio/juyin/": ("MOE 國語注音符號手冊 recordings (mp3 format conversion)", "CC BY 4.0, 教育部"),
+    "audio/tts/": ("gTTS zh-TW sentence audio", "gTTS output, labelled TTS (edge-tts output is never published)"),
+}
+
+
+def published_items(docs=None):
+    """Every file under docs/data/ and every folder (or loose file) under docs/audio/, relative to docs/."""
+    docs = moe.DOCS if docs is None else Path(docs)
+    out = sorted(f.relative_to(docs).as_posix() for f in (docs / "data").rglob("*") if f.is_file())
+    if (docs / "audio").is_dir():
+        out += sorted(f"audio/{p.name}/" if p.is_dir() else f"audio/{p.name}" for p in (docs / "audio").iterdir())
+    return out
+
+
+def listed_in_sources(item, tokens):
+    """Does the 'Published files' table of content/sources.md name `item` (in backticks: `chengyu.json`,
+    `docs/data/chengyu.json`, `docs/audio/moe/*` ...)?"""
+    if item.startswith("audio/") and item.endswith("/"):
+        return any(t.startswith(item) or t.startswith("docs/" + item) for t in tokens)
+    name = item.removeprefix("data/")
+    return any(t in (item, name, "docs/" + item) for t in tokens)
+
+
+def check_licenses(docs=None, sources=None):
+    """§7.5 (the repo is public, so the build must check that every redistributed file has a license entry): each
+    file under docs/data/ and each folder under docs/audio/ needs a PUBLISHED row, and content/sources.md must list
+    it in its 'Published files' table. Returns the problems (the build fails on any) and the number checked."""
+    src = Path(sources) if sources else SOURCES_MD
+    text = src.read_text(encoding="utf-8") if src.exists() else ""
+    m = re.search(r"^## Published files.*?(?=^## |\Z)", text, re.S | re.M)
+    tokens = set(re.findall(r"`([^`\n]+)`", m.group(0))) if m else set()
+    items, problems = published_items(docs), []
+    if not m:
+        problems.append(f"{src.name} has no 'Published files' table")
+    for it in items:
+        if not any(fnmatch.fnmatchcase(it, pat) for pat in PUBLISHED):
+            problems.append(f"docs/{it} is published but has no license entry (build.py PUBLISHED)")
+        elif m and not listed_in_sources(it, tokens):
+            problems.append(f"docs/{it} is not listed in the 'Published files' table of content/sources.md")
+    return problems, len(items)
+
+
+# ---------------------------------------------------------------- Library and placement data (M4)
+
+def write_library(lib, readings, index, cont):
+    """Write the Library and placement files (library.build after library.finish) and search.json. Returns notes
+    for the report: placement / diagnostic clips that are not published or have no model contour."""
+    notes = []
+    library.apply_spans(lib, audio.load_spans())
+    no_tts = []
+    for q in lib["placement"]["questions"]:
+        if q.get("id") and (index.get(q["id"]) or {}).get("src") != "moe":
+            notes.append(f"placement listening item {q['zh']}: MOE clip {q['id']} not published (not downloaded yet?)")
+        if q.get("skill") == "listening" and not q.get("id") and not q.get("audio"):
+            no_tts.append(q["zh"])
+    if no_tts:
+        notes.append(f"{len(no_tts)} placement listening items have no TTS yet (browser voice, labelled): "
+                     + " ".join(no_tts[:8]) + (" …" if len(no_tts) > 8 else ""))
+    for d in lib["placement"]["diagnostic"]:
+        if d.get("id") and (index.get(d["id"]) or {}).get("src") != "moe":
+            notes.append(f"diagnostic {d['zh']}: MOE clip {d['id']} not published (not downloaded yet?)")
+        elif d.get("id") and d["id"] not in cont:
+            notes.append(f"diagnostic {d['zh']}: no model contour for clip {d['id']}")
+    write_json("library-words", library.words_file(lib))
+    write_json("grammar", lib["grammar"])
+    write_json("patterns", lib["patterns"])
+    write_json("measure-words", lib["measure"])
+    write_json("taiwan-vs-mainland", lib["taiwan"])
+    write_json("phrasebook", lib["phrasebook"])
+    write_json("placement", lib["placement"])
+    write_json("my-mistakes", library.build_mistakes())
+    lib["search"] = library.search_rows(lib, readings)
+    write_json("search", library.search_file(lib["search"]))
+    for n in notes:
+        log(f"  ⚑ {n}")
+    return notes
+
+
+def write_lessons(less):
+    """Write the M5 / M6 files (lessons.py): units, units-index, plan, reading, advanced, chengyu, resources,
+    characters. A file whose source is missing (chengyu without the MOE data, resources) is not written."""
+    write_json("units", {"units": less["units"]})
+    write_json("units-index", less["index"])
+    write_json("plan", less["plan"])
+    write_json("reading", less["reading"])
+    write_json("advanced", less["advanced"])
+    for name in ("chengyu", "resources", "characters"):
+        if less.get(name) is not None:
+            write_json(name, less[name])
+
+
+def library_counts(lib):
+    """meta.json counts of the Library and the placement check."""
+    pl = lib["placement"]
+    return {"library_words": len(lib["words"]), "library_forms": len({w["w"] for w in lib["words"]}),
+            "library_word_audio": sum(1 for w in lib["words"] if w["id"]), "grammar_points": len(lib["grammar"]),
+            "patterns": len(lib["patterns"]), "measure_words": len(lib["measure"]),
+            "taiwan_vs_mainland": len(lib["taiwan"]), "phrases": len(lib["phrasebook"]),
+            "placement_questions": len(pl["questions"]), "diagnostic_words": len(pl["diagnostic"]),
+            "vocab_l5": len(pl["vocab_l5"]), "search_rows": len(lib.get("search") or []),
+            "library_word_spans": sum(1 for w in lib["words"] if w.get("s"))}
+
+
 MOE_VOICE = "moe-announcer"   # the one human voice so far (the MOE dictionary's announcer)
 
 
@@ -750,6 +914,30 @@ def tag_voices(index):
         if e.get("src") == "moe":
             e["voice"] = MOE_VOICE
     return index
+
+
+def drop_unpublished(bank, index, *objs):
+    """A self-hosted MOE clip that was not published (404 on the moedict CDN, a failed download, or not downloaded
+    yet: bank.moe_missing) must not look playable: every `id` naming it in `objs` (dicts / lists, walked) becomes
+    None, so the page uses the labelled browser voice instead of a MOE button that fails. Returns
+    ["<zh> <id> (<why>)"] for the report, one per clip."""
+    gone = {a for a in bank.moe_ids if (index.get(a) or {}).get("src") != "moe"}
+    out = {}
+
+    def walk(x):
+        if isinstance(x, dict):
+            aid = x.get("id")
+            if isinstance(aid, str) and aid in gone:
+                out.setdefault(aid, f"{x.get('zh') or ''} {aid} ({bank.moe_missing.get(aid, 'not published')})".strip())
+                x["id"] = None
+            for v in x.values():
+                walk(v)
+        elif isinstance(x, list):
+            for v in x:
+                walk(v)
+    for o in objs:
+        walk(o)
+    return list(out.values())
 
 
 def tones_ids(tones):
@@ -776,6 +964,8 @@ def main():
     ap.add_argument("--no-contours", action="store_true",
                     help="compute no new model contours; reuse the cached / previously published ones")
     ap.add_argument("--max-new", type=int, default=None, help="download at most N new MOE clips this run (priority order); rerun to continue")
+    ap.add_argument("--max-tts", type=int, default=None,
+                    help="request at most N new gTTS sentences this run (priority order); rerun to continue")
     args = ap.parse_args()
 
     log(f"Build {TODAY}")
@@ -805,9 +995,11 @@ def main():
         write_report(res, None, None, None, status="FAILED (sandhi)", tone_notes=sandhi_fail + tone_notes)
         sys.exit(1)
 
-    why = publish_license()
+    why, rule = publish_license(), "the MOE 使用說明 must travel with the redistributed 簡編本 text and audio"
+    if not why:
+        why, rule = library.publish_cedict_license(), "CC-CEDICT's notice must travel with its BY-SA glosses"
     if why:
-        log(f"BUILD FAILED: {why} (§7.5: the MOE 使用說明 must travel with the redistributed 簡編本 text and audio).")
+        log(f"BUILD FAILED: {why} (§7.5: {rule}).")
         write_report(res, None, None, None, status="FAILED (license)", tone_notes=tone_notes)
         sys.exit(1)
 
@@ -819,15 +1011,44 @@ def main():
               "license": entries.license_info()}
     log(f"  sentences {len(sentences)}, MOE readings {len(moe_readings)}")
 
+    log("Library and placement (M4) ...")
+    lib = library.build(bank, log=log)
+
     symbols = build_symbols(bank)
     contr = build_contrasts(bank)
+
+    log("Units, plan, reading, advanced (M5, M6) ...")
+    lnotes = lessons.new_notes()
+    units = lessons.build_units(bank, audio.load_spans(), lnotes, [g["id"] for g in lib["grammar"]], [c["id"] for c in contr])
+    less = {"units": units, "plan": lessons.build_plan(units, lnotes), "reading": lessons.build_reading(bank, lnotes),
+            "advanced": lessons.build_advanced(bank, lnotes), "chengyu": lessons.build_chengyu(lnotes),
+            "resources": lessons.build_resources(lnotes), "characters": lessons.build_characters(lnotes)}
+    less["index"] = lessons.units_index(units, lib["words"])
+    for line in lessons.report_lines(less, lnotes)[:5]:
+        log(f"  {line}")
     grid = build_syllable_grid(bank)
     pool_cands = id_pool_candidates(bank)
     log(f"Syllable grid: {grid['counts']['bases']} bases, {grid['counts']['toned']} toned syllables with MOE audio")
 
     log("Audio ...")
-    index = tag_voices(bank.render(download=not args.no_audio, max_new=args.max_new, log=log))
+    index = tag_voices(bank.render(download=not args.no_audio, max_new=args.max_new, log=log, max_tts=args.max_tts))
+    # A MOE clip that is not published keeps its id nowhere (the pages use the labelled browser voice): the
+    # self-hosted ones not in audio.json, and the streamed ones the CDN answers 404 for (the rest are checked by the
+    # span step at the end).
+    dropped = drop_unpublished(bank, index, symbols, contr, pairs, sandhi, readings, grid,
+                               lib["placement"]["questions"], lib["placement"]["diagnostic"])
+    for k, v in tone_examples.items():
+        if v and (index.get(v) or {}).get("src") != "moe":
+            dropped.append(f"tone example {k} {v} ({bank.moe_missing.get(v, 'not published')})")
+            tone_examples[k] = None
+    streamed_dropped = (library.drop_clips(lib, audio.missing_clips())
+                        + lessons.drop_clips(units, audio.missing_clips()))
+    if dropped or streamed_dropped:
+        log(f"  ! MOE clips not published, id set to null (browser voice, labelled): {len(dropped)} self-hosted, "
+            f"{len(streamed_dropped)} streamed entries (see the report)")
     finish_sandhi_audio(sandhi, index)
+    library.finish(lib, index)
+    lessons.finish(less, index, media_duration)
     shadow_notes += finish_shadowing(shadow, index, no_contours=args.no_contours)
     for line in shadow_notes:
         log(f"  ⚑ {line}")
@@ -838,6 +1059,7 @@ def main():
     model_ids |= {w["id"] for c in contr for s in c["sets"] for w in s if w.get("id")}
     model_ids |= {c["id"] for lst in pool_cands.values() for c in lst}
     model_ids |= tones_ids(tones)
+    model_ids |= {d["id"] for d in lib["placement"]["diagnostic"] if d.get("id")}   # the diagnostic's model contours
     model_ids.discard(None)
     if args.no_contours:
         cont, n_old = reuse_contours(index, sorted(model_ids))
@@ -863,14 +1085,18 @@ def main():
     write_json("audio", index)
     write_json("contours", cont)
     write_json("shadowing", shadow)
-    write_json("meta", {"built": TODAY, "moe_version": "簡編本 2026-09-29 export / 修訂本 2026-09-29 export",
+    lib_notes = write_library(lib, readings, index, cont)
+    write_lessons(less)
+    meta = {"built": TODAY, "moe_version": "簡編本 2026-09-29 export / 修訂本 2026-09-29 export",
                         "counts": {"symbols": len(symbols["symbols"]),
                                    "contrast_words": len({(w["zh"], w["zhuyin"]) for c in contr for s in c["sets"] for w in s}),
                                    "pairs": len(pairs), "syllables": grid["counts"]["toned"],
                                    "moe_clips": sum(1 for e in index.values() if e["src"] == "moe"),
                                    "contours": len(cont), "id_pool": len(tones["id_pool"]),
                                    "sandhi_items": len(sandhi["items"]), "readings": len(readings),
-                                   "sentences": len(shadow["sentences"]), "moe_readings": len(shadow["readings"])}})
+                                   "sentences": len(shadow["sentences"]), "moe_readings": len(shadow["readings"]),
+                                   **library_counts(lib), **lessons.counts(less)}}
+    write_json("meta", meta)
 
     words = ([w for c in contr for s in c["sets"] for w in s] + pairs + [e for s in symbols["symbols"] for e in s["examples"]]
              + [e for e in sandhi["items"] if e.get("kind") != "sentence"] + readings)
@@ -879,23 +1105,74 @@ def main():
     if no_tts:
         log(f"  ! {len(no_tts)} sandhi sentences have no TTS audio (browser voice, labelled): {' '.join(no_tts[:10])}")
     no_contour = sorted(i for i in tones_ids(tones) if i not in cont)
-    size_mb = dir_size(moe.DOCS) / 1e6
-    over = size_mb > SIZE_BUDGET_MB
     shadow_mb = shadowing_size_mb(shadow)
-    log(f"docs/ size: {size_mb:.1f} MB (budget {SIZE_BUDGET_MB} MB; shadowing audio {shadow_mb:.1f} MB)")
     if bank.missing:
         log(f"  ! {len(bank.missing)} wanted clips are missing: {', '.join(bank.missing[:10])}")
-    log("BUILD FAILED: docs/ is over the size budget" if over else "Done.")
-    write_report(res, index, bank, {"no_audio_words": no_audio, "contours": len(cont), "size_mb": size_mb,
-                                    "grid": grid["counts"],
-                                    "tones": {"id_pool": len(tones["id_pool"]), "pairs": len(pairs),
-                                              "core": sum(p["core"] for p in pairs), "sandhi_items": len(sandhi["items"]),
-                                              "sentences_no_tts": no_tts, "readings": len(readings),
-                                              "no_contour": no_contour},
-                                    "shadowing": shadowing_summary(shadow, shadow_mb, shadow_notes)},
-                 status="FAILED (size budget)" if over else "built", tone_notes=tone_notes)
-    if over:
+    extra = {"no_audio_words": no_audio, "contours": len(cont), "size_mb": 0.0, "grid": grid["counts"],
+             "tones": {"id_pool": len(tones["id_pool"]), "pairs": len(pairs), "core": sum(p["core"] for p in pairs),
+                       "sandhi_items": len(sandhi["items"]), "sentences_no_tts": no_tts, "readings": len(readings),
+                       "no_contour": no_contour},
+             "shadowing": shadowing_summary(shadow, shadow_mb, shadow_notes),
+             "library": lambda: library.report_lines(lib) + lib_notes,
+             "lessons": lambda: lessons.report_lines(less, lnotes),
+             "licenses": ([], 0), "dropped": dropped, "streamed_dropped": streamed_dropped}
+
+    def final_checks():
+        """The size budget and the license check (§7.5), stored in `extra` for the report. Returns the failed status,
+        or None. The build exits on a failure only at the very end, after the streamed step below, so a size or
+        license failure never skips the streamed clips' 404 handling (those ids would otherwise ship as playable)."""
+        size = dir_size(moe.DOCS) / 1e6
+        extra["size_mb"], extra["licenses"] = size, check_licenses()
+        return "FAILED (size budget)" if size > SIZE_BUDGET_MB else "FAILED (license)" if extra["licenses"][0] else None
+
+    failed = final_checks()
+    log(f"docs/ size: {extra['size_mb']:.1f} MB (budget {SIZE_BUDGET_MB} MB; shadowing audio {shadow_mb:.1f} MB)")
+    log(f"  ! {failed}: the streamed clips step still runs (ids the CDN does not have become null), then the build "
+        f"exits with an error" if failed else "Site data written.")
+    write_report(res, index, bank, extra, status=f"{failed or 'built'} (Library spans pending)", tone_notes=tone_notes)
+    # Last, as it is long and needs nothing above: the streamed Library clips' headword spans (cache-only
+    # downloads, sharing --max-new with the published clips). Everything is already written, so stopping the build
+    # here loses nothing; library-words.json is rewritten after every batch and the next build continues.
+    log("Library word audio: headword spans of the streamed MOE clips ...")
+    left_new = None if args.max_new is None else max(0, args.max_new - bank.downloaded)
+
+    def write_streamed(spans, gone):
+        """Drop the clips known to be gone (404, failed: their id becomes null), fill the spans, rewrite the files."""
+        streamed_dropped.extend(library.drop_clips(lib, gone) + lessons.drop_clips(units, gone))
+        library.apply_spans(lib, spans)
+        lessons.apply_spans(units, spans)
+        write_json("library-words", library.words_file(lib))
+        write_json("placement", lib["placement"])
+        write_json("measure-words", lib["measure"])
+        write_json("taiwan-vs-mainland", lib["taiwan"])
+        write_json("units", {"units": units})
+
+    wants = library.span_wants(lib)
+    wants.update({k: v for k, v in lessons.span_wants(units).items() if k not in wants})
+    st = audio.stream_spans(wants, max_new=left_new, download=not args.no_audio, log=log,
+                            on_batch=lambda spans: write_streamed(spans, audio.missing_clips()))
+    gone = {**{a: "download failed this build" for a in st["failed_ids"]}, **audio.missing_clips()}
+    write_streamed(audio.load_spans(), gone)
+    n_span = sum(1 for x in lib["words"] + lib["placement"]["vocab_l5"] + lib["measure"] + lib["taiwan"] if x.get("s"))
+    log(f"  streamed clips: {st['measured']} spans measured this run ({st['downloaded']} downloaded, {st['failed']} "
+        f"failed, {len(st['unavailable'])} missing on the CDN); {n_span} streamed entries have a span; "
+        f"{len(streamed_dropped)} streamed entries published without a clip (id null, browser voice); {st['left']} "
+        f"clips still to fetch (rerun the build)")
+    meta["counts"].update(library_counts(lib))
+    meta["counts"].update(lessons.counts(less))
+    write_json("meta", meta)
+    failed = final_checks()   # again: the files above were rewritten
+    for p in extra["licenses"][0]:
+        log(f"  FAIL license: {p}")
+    if failed:
+        log(f"BUILD FAILED: docs/ is over the size budget ({extra['size_mb']:.1f} MB > {SIZE_BUDGET_MB} MB)"
+            if failed == "FAILED (size budget)" else
+            "BUILD FAILED: a published file has no license entry (§7.5: add it to PUBLISHED in tools/build.py and to "
+            "the 'Published files' table of content/sources.md)")
+        write_report(res, index, bank, extra, status=failed, tone_notes=tone_notes)
         sys.exit(1)
+    log("Done.")
+    write_report(res, index, bank, extra, status="built", tone_notes=tone_notes)
 
 
 def write_report(res, index, bank, extra, status="built", tone_notes=()):
@@ -930,8 +1207,24 @@ def write_report(res, index, bank, extra, status="built", tone_notes=()):
                   f"- sandhi sentences without TTS audio: {len(t['sentences_no_tts'])}"
                   + (" - " + " ".join(t["sentences_no_tts"][:10]) if t["sentences_no_tts"] else ""),
                   f"- docs/ size: {extra['size_mb']:.1f} MB (budget {SIZE_BUDGET_MB} MB)"]
+    if extra and (extra.get("dropped") or extra.get("streamed_dropped")):
+        d, sd = extra.get("dropped") or [], extra.get("streamed_dropped") or []
+        lines += ["", "## MOE clips not playable (id published as null: the pages use the labelled browser voice)", "",
+                  f"- self-hosted clips not published (404 on the moedict CDN / download failed / not downloaded yet): "
+                  f"{len(d)}"] + [f"  - {x}" for x in d[:200]] + (["  - …"] if len(d) > 200 else [])
+        lines += [f"- streamed entries whose clip is missing on the CDN (404) or failed to download: {len(sd)}"]
+        lines += [f"  - {x}" for x in sd[:200]] + (["  - …"] if len(sd) > 200 else [])
+    if extra and extra.get("licenses"):
+        problems, checked = extra["licenses"]
+        lines += ["", "## Licenses (§7.5)", "",
+                  f"- published files and audio folders checked against build.py PUBLISHED and content/sources.md: "
+                  f"{checked}, problems: {len(problems)}"] + [f"  - FAIL {p}" for p in problems]
     if extra and extra.get("shadowing"):
         lines += ["", "## Shadowing (shadowing.json, M3)", ""] + [f"- {x}" for x in extra["shadowing"]]
+    if extra and extra.get("library"):
+        lines += ["", "## Library and placement (M4)", ""] + [f"- {x}" for x in extra["library"]()]
+    if extra and extra.get("lessons"):
+        lines += ["", "## Units, plan, reading, advanced (M5, M6)", ""] + [f"- {x}" for x in extra["lessons"]()]
     lines += ["", "## Log", "", "```", *log_lines, "```", ""]
     (moe.ROOT / "build-report.md").write_text("\n".join(lines), encoding="utf-8")
 

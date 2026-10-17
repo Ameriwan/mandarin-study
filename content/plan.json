@@ -1,0 +1,106 @@
+{
+ "about": "The learning plan (MASTER_PROMPT §8.1 levels, §8.3 rhythm, §8.4 checks; numbers checked 2026-10-13). TBCL levels 1-4 are split into N and N* sub-bands (shown as 1 / 1+; the split is inferred, not official). released_units: the units the Units page and Today offer (M5: TBCL levels 1 and 2).",
+ "released_units": ["L1-01", "L1-02", "L1-03", "L1-04", "L1-05", "L1-06", "L1-07", "L1-08",
+  "L2-01", "L2-02", "L2-03", "L2-04", "L2-05", "L2-06", "L2-07", "L2-08"],
+ "checks": {
+  "unlock_units_done": 0.9,
+  "pass": {"listening": 0.8, "reading": 0.8, "vocabulary": 0.85, "red_contrasts": 0},
+  "mock_tests": "https://tocfl.edu.tw/tocfl/index.php/exam/test",
+  "note_en": "An end-of-level check unlocks once 90% of the level's units are done. Use the official free TOCFL mock tests at the end of each phase; the real exam is the learner's decision (mentioned once at Band A and once at Band B)."
+ },
+ "phases": [
+  {
+   "phase": 0, "zh": "聲音重置", "en": "Sound reset",
+   "weeks": [1, 4], "alongside": true,
+   "levels": [],
+   "daily_pronunciation_minutes": 15,
+   "can_do_en": [
+    "I can read and type every Zhuyin symbol and write tones the Taiwan way.",
+    "I can hear and say the four tones and the neutral tone in single syllables and two-syllable words.",
+    "I can tell the hardest contrasts of §6.2 apart by ear (ㄐ/ㄓ/ㄗ, ㄑ/ㄔ/ㄘ, ㄒ/ㄕ/ㄙ, ㄩ/ㄧ/ㄨ, ㄣ/ㄥ, ㄢ/ㄤ, ㄖ/ㄌ, aspiration …) and produce them.",
+    "I can apply the 3+3, 一 and 不 tone changes when I speak."
+   ],
+   "units": [],
+   "milestone": {"kind": "diagnostic", "zh": "發音診斷", "en": "Pronunciation diagnostic (part of the placement check)"}
+  },
+  {
+   "phase": 1, "zh": "生存", "en": "Survival",
+   "levels": [
+    {"tbcl": 1, "tocfl": "準備級一級", "cefr": null, "new_words": 400, "words_cumulative": 400, "characters": 246,
+     "grammar_points": 15, "grammar_levels": ["第1級", "第1*級"],
+     "units": ["L1-01", "L1-02", "L1-03", "L1-04", "L1-05", "L1-06", "L1-07", "L1-08"]},
+    {"tbcl": 2, "tocfl": "準備級二級 → A1", "cefr": "A1", "note_en": "End of Level 2 ≈ A1", "new_words": 406, "words_cumulative": 805,
+     "characters": 258, "grammar_points": 92, "grammar_levels": ["第2級", "第2*級"],
+     "units": ["L2-01", "L2-02", "L2-03", "L2-04", "L2-05", "L2-06", "L2-07", "L2-08"]}
+   ],
+   "can_do_en": [
+    "I can greet people, introduce myself and talk about my family.",
+    "I can buy things at a convenience store, a breakfast shop, a drink stand and a night market, including sugar and ice levels and prices.",
+    "I can ask and tell the time, days and dates, and make a simple plan with someone.",
+    "I can ask for directions and understand a short answer.",
+    "I can order a bento, take the train or a bus, and buy a ticket.",
+    "I can see a doctor with my 健保卡, describe simple symptoms and get medicine at a pharmacy.",
+    "I can post a parcel, use a bank or ATM, call someone or send a LINE message.",
+    "I can ask about a room to rent and follow a typhoon warning and the plans it changes."
+   ],
+   "milestone": {"kind": "level-check", "levels": [1, 2], "zh": "第 1、2 級檢查", "en": "Level 1 and Level 2 checks; the TOCFL 準備級 mock test at the end of the phase"}
+  },
+  {
+   "phase": 2, "zh": "日常生活", "en": "Daily life",
+   "levels": [
+    {"tbcl": 3, "tocfl": "Band A 基礎級", "cefr": "A2", "note_en": "End of Level 3 ≈ A2", "new_words": 463, "words_cumulative": 1265,
+     "characters": 297, "grammar_points": 134, "grammar_levels": ["第3級", "第3*級"], "units": []}
+   ],
+   "can_do_en": [
+    "I can order food and drinks and deal with a small problem with the order.",
+    "I can take transport, including changes and delays, and ask about times and fares.",
+    "I can see a doctor and explain how long and how badly something hurts.",
+    "I can chat with neighbours about family, work, the weather and weekend plans."
+   ],
+   "units_note_en": "Level 3 units come with LEVEL-UP.",
+   "milestone": {"kind": "level-check", "levels": [3], "zh": "第 3 級檢查", "en": "Level 3 check; the TOCFL Band A mock test (the real exam is mentioned once here)"}
+  },
+  {
+   "phase": 3, "zh": "獨立", "en": "Independent",
+   "levels": [
+    {"tbcl": 4, "tocfl": "Band B 進階級", "cefr": "B1", "new_words": 1429, "words_cumulative": 2685, "characters": 499,
+     "grammar_points": 149, "grammar_levels": ["第4級", "第4*級"], "units": []}
+   ],
+   "can_do_en": [
+    "I can handle most everyday situations in Pingtung on my own, including renting, repairs and appointments.",
+    "I can follow the main points of clear speech on familiar topics and of short news items.",
+    "I can tell a story or describe an experience, give reasons and opinions.",
+    "I can write a short message or a simple formal note."
+   ],
+   "units_note_en": "Level 4 units come with LEVEL-UP. Immersion mode is suggested from here (Band B).",
+   "milestone": {"kind": "level-check", "levels": [4], "zh": "第 4 級檢查", "en": "Level 4 check; the TOCFL Band B mock test (the real exam is mentioned once here)"}
+  },
+  {
+   "phase": 4, "zh": "中高級", "en": "Upper-intermediate",
+   "levels": [
+    {"tbcl": 5, "tocfl": "Band B 高階級", "cefr": "B2", "note_en": "B2 sits between Level 5 and Level 6", "new_words": 2641, "words_cumulative": 5320,
+     "characters": 600, "grammar_points": 106, "grammar_levels": ["第5級"], "units": []}
+   ],
+   "can_do_en": [
+    "I can follow news, discussions and longer talks on a wide range of topics.",
+    "I can take part in discussions, explain a viewpoint and weigh up options.",
+    "I can tell written from spoken register (書面語 / 口語) and use common idioms correctly."
+   ],
+   "daily_pronunciation_minutes": 5,
+   "milestone": {"kind": "level-check", "levels": [5], "zh": "第 5 級檢查", "en": "Level 5 check; the TOCFL Band B 高階級 mock test"}
+  },
+  {
+   "phase": 5, "zh": "高級", "en": "Advanced",
+   "levels": [
+    {"tbcl": 6, "tocfl": "Band C 流利級", "cefr": "C1", "new_words": 4135, "words_cumulative": 9470, "characters": 600, "grammar_points": null, "units": []},
+    {"tbcl": 7, "tocfl": "精通級", "cefr": "C2", "new_words": 4978, "words_cumulative": 14450, "characters": 600, "grammar_points": null, "units": []}
+   ],
+   "can_do_en": [
+    "I can understand demanding, longer texts and implicit meaning.",
+    "I can express myself fluently and precisely for social, work and formal purposes."
+   ],
+   "daily_pronunciation_minutes": 5,
+   "milestone": {"kind": "level-check", "levels": [6, 7], "zh": "第 6、7 級檢查", "en": "Level 6 and 7 checks; the TOCFL Band C mock test"}
+  }
+ ]
+}

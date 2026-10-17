@@ -1,6 +1,6 @@
 {
   "about": "External links for the Advanced page (MASTER_PROMPT §5.8, §8). Link only: never copy their content into the app. level_min/level_max are TBCL levels 1-7 (end of L2 = A1, L3 = A2, L4 = B1, L5 = B2, L6 = C1, L7 = C2). url_template: replace {q} with encodeURIComponent(word or character). tools/check_links.py re-tests every URL and rewrites verified, checked, status (and template_status, final_url, tls, error). An entry with a hold reason stays verified: false whatever its HTTP status.",
-  "checked": "2026-10-16",
+  "checked": "2026-10-17",
   "tracks": {
     "reading": {
       "zh": "閱讀",
@@ -57,7 +57,7 @@
       "note_en": "Free news written for students, in full Traditional text. No Zhuyin online (only the paid print paper is annotated): use the app's tap-to-look-up.",
       "note_zh": "專為學生寫的免費新聞，全文正體字。網路版沒有注音（只有付費的紙本有），不懂的詞可以用本站查詢。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -73,7 +73,7 @@
       "note_en": "Public Television news: free articles at native level, with video.",
       "note_zh": "公共電視的新聞網站，文章和影片都免費。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -89,7 +89,7 @@
       "note_en": "PTS news video at native speed. The same reports are on YouTube (@PNNPTS).",
       "note_zh": "公視新聞影片，正常語速。YouTube 上也看得到（@PNNPTS）。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -105,7 +105,7 @@
       "note_en": "The PTS children's channel (since August 2024), with programmes sorted by age, such as the kids' news show 新聞超小號. Some programmes play on 公視+ or YouTube.",
       "note_zh": "公視的兒少頻道，節目依年齡分類，例如兒童新聞節目《新聞超小號》。有些節目要到公視+或 YouTube 看。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -121,7 +121,7 @@
       "note_en": "Two Taiwanese hosts, Jai and Mion, chat about everyday life at natural speed, now and then with some Taiwanese (台語). Still active: 172 episodes, newest 2026-10-04 (feed checked 2026-10-16). Also on Spotify and other apps.",
       "note_zh": "兩位台灣主持人用自然的速度聊日常生活，偶爾會講一點台語。目前還在更新。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200,
       "final_url": "https://podcasts.apple.com/tw/podcast/learn-real-life-taiwanese-mandarin-%E8%81%BD%E6%92%AD%E5%AE%A2%E5%AD%B8%E4%B8%AD%E6%96%87/id1567731121"
     },
@@ -138,7 +138,7 @@
       "note_en": "The show's link page: transcripts for seasons 1 and 2 (Google Drive folders) and the podcast apps.",
       "note_zh": "節目的連結頁：第一、二季的逐字稿（Google 雲端硬碟）和各收聽平台。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -155,7 +155,7 @@
       "note_zh": "用短劇教台灣日常用語，共三季，每集五到七分鐘，2022 年播出。",
       "hold": "§5.8 asks to check subtitles and episode dates before linking. Dates checked (2022-01 to 2022-11, from the page data); the on-screen Traditional text and subtitles have not been checked by a person yet.",
       "verified": false,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -171,7 +171,7 @@
       "note_en": "A Taipei-born teacher talks about life and culture in Taiwan Mandarin, often with guests. Free audio (also on Apple Podcasts, id1568922727); transcripts are paid. Active: newest episode 2026-10-15.",
       "note_zh": "台北出生的老師用台灣華語聊生活和文化，常常有來賓。音檔免費，逐字稿要付費。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -187,7 +187,7 @@
       "note_en": "All-Chinese podcast on speaking the way people do in Taiwan; the site has transcripts, some with Zhuyin. Archive only: 54 episodes, none since May 2023.",
       "note_zh": "全中文的 Podcast，教你用台灣人的方式說話。2023 年 5 月以後就沒有新的集數了。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -203,7 +203,7 @@
       "note_en": "Taiwan's national radio: live and on-demand native broadcasts. Not a learner programme: no learner section was found (checked 2026-10-16), and 央廣學院 (academy.rti.org.tw) is professional media training, not Mandarin lessons.",
       "note_zh": "台灣的國家廣播電台，可以線上收聽。這是一般廣播，不是華語教學節目。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -219,7 +219,7 @@
       "note_en": "Short conversation lessons in 12 everyday situations, from the MOE-backed Taiwan Mandarin Educational Resources Center.",
       "note_zh": "臺灣華語教育資源中心的短對話課，有 12 種生活情境。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -237,7 +237,7 @@
       "url_template": "https://resources.allsetlearning.com/chinese/grammar/index.php?search={q}",
       "template_example": "把",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200,
       "template_status": 200,
       "final_url": "https://resources.allsetlearning.com/chinese/grammar/Main_Page"
@@ -257,7 +257,7 @@
       "url_template": "https://www.moedict.tw/~{q}",
       "template_example": "捷運",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200,
       "template_status": 200
     },
@@ -276,7 +276,7 @@
       "url_template": "https://stroke-order.learningweb.moe.edu.tw/searchW.jsp?WORD={q}",
       "template_example": "永",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200,
       "template_status": 200
     },
@@ -293,7 +293,7 @@
       "note_en": "A small character dictionary for young learners: radical, stroke count and simple definitions.",
       "note_zh": "適合初學者的小字典，可以查部首、筆畫和簡單的解釋。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -311,7 +311,7 @@
       "url_template": "https://dict.idioms.moe.edu.tw/search.jsp?word={q}",
       "template_example": "守株待兔",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200,
       "template_status": 200
     },
@@ -328,7 +328,7 @@
       "note_en": "Free official mock tests, listening and reading, for each band. Start the app's timer, then take the test on their site.",
       "note_zh": "官方免費的模擬試題，各等級的聽力和閱讀都有。先按本站的計時器，再到官網作答。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -344,7 +344,7 @@
       "note_en": "The test bands and the classroom hours SC-TOP suggests for learners outside Taiwan (the source of the Plan page's estimates).",
       "note_zh": "各級測驗的說明，以及華測會建議的學習時數。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -360,7 +360,7 @@
       "note_en": "Free online Zhuyin input practice in the browser.",
       "note_zh": "免費的線上注音輸入練習。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -378,7 +378,7 @@
       "url_template": "https://www.moedict.tw/{q}",
       "template_example": "捷運",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200,
       "template_status": 200
     },
@@ -397,7 +397,7 @@
       "url_template": "https://dict.concised.moe.edu.tw/search.jsp?md=1&word={q}",
       "template_example": "捷運",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200,
       "template_status": 200
     },
@@ -416,7 +416,7 @@
       "url_template": "https://dict.revised.moe.edu.tw/search.jsp?md=1&word={q}",
       "template_example": "捷運",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200,
       "template_status": 200
     },
@@ -433,7 +433,7 @@
       "note_en": "The official handbook of the 37 Zhuyin symbols, each with a recording (the source of the Zhuyin Lab audio).",
       "note_zh": "教育部的注音符號手冊，37 個符號都有錄音，本站注音練習的錄音就是從這裡來的。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -449,7 +449,7 @@
       "note_en": "NAER's word, character and grammar lists by level: the levels this app uses.",
       "note_zh": "國家教育研究院的分級詞語表、漢字表和語法點表，本站的級數就是依照它。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -465,7 +465,7 @@
       "note_en": "The official chart linking TBCL levels to TOCFL bands and CEFR.",
       "note_zh": "TBCL 級數和 TOCFL、CEFR 的官方對照表。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -481,7 +481,7 @@
       "note_en": "The MOE-backed resource center's list of self-study courses (the MOE's own FAQ sends learners here). Some listed courses are only partly free, such as the Coursera ones since August 2025.",
       "note_zh": "臺灣華語教育資源中心整理的線上自學課程，教育部的常見問答也推薦這裡。有些課程只有部分免費。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     },
     {
@@ -497,7 +497,7 @@
       "note_en": "The MOE MOOC platform's Mandarin area: courses from Taiwan university language centres on daily life, travel and work.",
       "note_zh": "教育部磨課師平台的華語專區，有各大學華語中心開的生活、旅遊和職場課程。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200,
       "tls": "certificate chain not verifiable by Python (missing intermediate); status from an unverified retry"
     },
@@ -514,7 +514,7 @@
       "note_en": "The Overseas Community Affairs Council's Mandarin site: free downloads of 《學華語向前走》, a 12-book series for children. The site needs JavaScript.",
       "note_zh": "僑務委員會的華語網站，可以免費下載兒童教材《學華語向前走》（共 12 冊）。",
       "verified": true,
-      "checked": "2026-10-16",
+      "checked": "2026-10-17",
       "status": 200
     }
   ]

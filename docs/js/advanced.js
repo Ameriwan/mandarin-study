@@ -58,6 +58,8 @@ export const LINKS = {
     ids: ["mdnkids", "guoyu-ribao", "mandarin-daily-news"], match: ["mdnkids"] },
   ptsNews: { url: "https://news.pts.org.tw", zh: "公視新聞網", en: "PTS News", band: "B2+", level: 5,
     ids: ["pts-news", "ptsnews", "pts_news"], match: ["news.pts.org.tw"] },
+  ptsVideo: { url: "https://news.pts.org.tw/video", zh: "公視新聞影音", en: "PTS News video", band: "B2+", level: 5,
+    ids: ["pts-news-video", "ptsnews-video", "pts-video"], match: ["news.pts.org.tw/video"] },
   ptsKids: { url: null, zh: "小公視", en: "PTS children's channel", band: "A2–B1", level: 3,
     ids: ["pts-kids", "ptskids", "xiao-gongshi"], match: ["小公視", "kids.pts"] },
   talktalk: { url: "https://linktr.ee/ttmctw", zh: "說說話 Talk Talk Mandarin", en: "podcast with Taiwanese hosts (transcripts)", band: "B1+", level: 4,
@@ -144,7 +146,7 @@ export function normTrack(t) {
 
 // resources.json: an array, {resources | links | items | entries: [...]}, or {<track>: [...]}. Each entry:
 // {id, url | href, zh | title_zh | title | name, en | title_en, track | tracks | category | section | tags,
-//  level | band | levels, verified, checked, status | http_status, note | note_en, license}
+//  level_min | level | band | levels, verified, checked, status | http_status, note | note_en, license}
 export function normResources(raw) {
   const out = [];
   const add = (r, hint) => {
@@ -153,7 +155,7 @@ export function normResources(raw) {
     if (!/^https?:\/\//i.test(url)) return;
     const tr = [first(r, "track", "tracks", "category", "section", "tags", "group"), hint].flat(2).map(normTrack).filter(Boolean);
     out.push({ id: str(first(r, "id", "key", "slug")), url, zh: str(first(r, "zh", "title_zh", "name_zh", "title", "name")), en: str(first(r, "en", "title_en", "name_en")),
-      tracks: [...new Set(tr)], level: levelNum(first(r, "level", "min_level", "levels", "band", "cefr")), band: str(first(r, "band", "cefr", "levels")),
+      tracks: [...new Set(tr)], level: levelNum(first(r, "level_min", "level", "min_level", "levels", "band", "cefr")), band: str(first(r, "band", "cefr", "levels")),
       verified: r.verified === true, checked: str(first(r, "checked", "checked_at", "last_checked", "date")),
       status: str(first(r, "status", "http_status", "http", "code")), note: str(first(r, "note_en", "note", "description", "desc")), license: str(r.license),
       grammar: str(first(r, "grammar", "grammar_id", "point")), used: false });
@@ -509,7 +511,7 @@ let leave = null; // the open view's cleanup (timers)
 const put = (el, ...kids) => { el.append(...kids.flat(Infinity).filter(k => k != null && k !== false && k !== "")); return el; };
 const showEn = () => settings().english !== false;
 // A learning-content translation (follows the English setting; immersion mode leaves it alone: class "tr")
-const tr = (text, cls = "") => (text && showEn() ? enText(text, { class: `tr ${cls}`.trim() }) : null);
+const tr = (text, cls = "") => (text && showEn() ? enText(text, { class: `tr lc-en ${cls}`.trim() }) : null);
 // Chinese with Zhuyin as the display setting says ("off" = no ruby; "always" and "new words" = ruby here).
 function zhRun(zh, zhuyin, spoken = null, cls = "adv-zh") {
   if (!zh) return null;
@@ -518,6 +520,7 @@ function zhRun(zh, zhuyin, spoken = null, cls = "adv-zh") {
 }
 // "中文 English" interface text
 const t2 = (zh, en, attrs = {}) => h("span", attrs, zh, " ", enText(en));
+const FOCUSABLE = "a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), summary, [tabindex]:not([tabindex='-1'])";
 const lib = () => (S.libP ||= loadLibrary().catch(err => { console.error(err); return null; }));
 const notice = (zh, en, role = "note") => h("p", { class: "adv-notice", role }, zh, " ", enText(en));
 const lockIcon = () => {
@@ -721,8 +724,8 @@ function textsSection() {
     sec.append(h("h3", { class: "adv-sub" }, n ? `第 ${n} 級` : "其他", " ", enText(n ? `Level ${n} · ${BANDS[n][1]}` : "Other"), h("span", { class: "muted small" }, ` · ${list.length}`)));
     if (!g.open) { sec.append(lockNote(g)); continue; }
     sec.append(h("ul", { class: "adv-cards" }, list.map(t => h("li", {},
-      h("button", { type: "button", class: "adv-card", onclick: () => openText(t) },
-        h("span", { class: "adv-card-t", lang: "zh-Hant-TW" }, t.title), t.titleEn && showEn() ? enText(t.titleEn, { class: "tr adv-card-en" }) : null,
+      h("button", { type: "button", class: "adv-card", "data-id": String(t.id), onclick: () => openText(t) },
+        h("span", { class: "adv-card-t", lang: "zh-Hant-TW" }, t.title), t.titleEn && showEn() ? enText(t.titleEn, { class: "tr lc-en adv-card-en" }) : null,
         h("span", { class: "adv-card-meta small muted" }, `${t.paras.flat().length} 句`, enText(` sentences`),
           log[t.id] ? [" · ", h("span", { class: "adv-done" }, "✓ 讀過", enText(` read ${log[t.id].date || ""}`))] : null))))));
   }
@@ -750,7 +753,10 @@ function openText(t) {
   leave?.();
   stopAudio();
   clear(panel);
-  const back = h("button", { type: "button", class: "btn small adv-back", onclick: () => show("reading") }, "← 全部短文 ", enText("All texts"));
+  const back = h("button", { type: "button", class: "btn small adv-back", onclick: () => {
+    show("reading");
+    (panel.querySelector(`.adv-card[data-id="${CSS.escape(String(t.id))}"]`) || panel).focus({ preventScroll: false });
+  } }, "← 全部短文 ", enText("All texts"));
   const body = h("div", { class: "adv-text", lang: "zh-Hant-TW" });
   const look = h("div", { class: "adv-look", "aria-live": "polite" });
   const modes = modeSwitch(() => { look.replaceChildren(); draw(); });
@@ -766,7 +772,8 @@ function openText(t) {
     }
     const dict = wordDict(L, t.words);
     const noLib = mode > 1 && (!L || L.missing.has("word"));
-    const nodes = t.paras.map(ss => h("p", { class: "adv-para" }, ss.map(s => sentenceEl(s, mode, noLib ? null : L, dict, tok => lookUp(tok, look, mode, draw)))));
+    const nodes = t.paras.map((ss, pi) => h("p", { class: "adv-para" }, ss.map((s, si) => sentenceEl(s, mode, noLib ? null : L, dict,
+      (tok, k) => lookUp(tok, look, mode, draw, () => body.querySelector(`.adv-w[data-k="${k}"]`)), `${pi}.${si}`))));
     body.replaceChildren(...(noLib ? [notice("資料庫還沒建置：分不出會的詞，查詞只連到搜尋。", "The Library isn't built: known words can't be told apart, and look-up links to a search.", "status")] : []), ...nodes);
   };
   const log = readLog()[t.id];
@@ -804,16 +811,18 @@ export function wordKnown(L, tok) {
   const e = L ? libEntry(L, tok.zh, tok.zhuyin) : null;
   return !!e && statusOf(e) === "known";
 }
-function sentenceEl(s, mode, L, dict, onTap) {
+function sentenceEl(s, mode, L, dict, onTap, at = "") {
   if (mode === 1) return h("span", { class: "adv-s" }, ruby(s.zh, s.zhuyin, { cls: "adv-s-r", spoken: s.spoken }));
-  return h("span", { class: "adv-s" }, segment(s, dict).map(tok => {
+  return h("span", { class: "adv-s" }, segment(s, dict).map((tok, ti) => {
     if (!tok.han) return tok.zh;
     const zy = mode === 2 && tok.zhuyin && !wordKnown(L, tok);
-    return h("button", { type: "button", class: "adv-w", onclick: () => onTap(tok) }, zy ? ruby(tok.zh, tok.zhuyin, { cls: "adv-w-r", spoken: tok.spoken }) : tok.zh);
+    const k = `${at}.${ti}`;
+    return h("button", { type: "button", class: "adv-w", "data-k": k, onclick: () => onTap(tok, k) }, zy ? ruby(tok.zh, tok.zhuyin, { cls: "adv-w-r", spoken: tok.spoken }) : tok.zh);
   }));
 }
 
-async function lookUp(tok, look, mode, redraw) {
+// opener: the word button that asked (found again after a redraw); closing the card gives it focus back.
+async function lookUp(tok, look, mode, redraw, opener = () => null) {
   look.replaceChildren(h("p", { class: "muted small" }, "查詢中… ", enText("Looking up…")));
   let e = null;
   try {
@@ -830,11 +839,12 @@ async function lookUp(tok, look, mode, redraw) {
       for (const b of ev.currentTarget.parentNode.children) b.setAttribute("aria-pressed", String(b === ev.currentTarget));
       if (mode === 2) redraw();
     } }, zh, " ", enText(en, { class: "adv-st-en" })))) : null;
-  look.replaceChildren(h("div", { class: "adv-look-card" },
+  const close = () => { look.replaceChildren(); (opener() || panel).focus({ preventScroll: true }); };
+  look.replaceChildren(h("div", { class: "adv-look-card", onkeydown: ev => { if (ev.key === "Escape") { ev.preventDefault(); close(); } } },
     h("div", { class: "adv-look-head" }, ruby(tok.zh, tok.zhuyin || (e && e.zhuyin) || "", { cls: "adv-look-w", spoken: tok.spoken }),
       e && e.level ? h("span", { class: "adv-lv" }, `第${e.level}級`) : null,
-      h("button", { type: "button", class: "btn icon small adv-look-x", "aria-label": "關閉 Close", onclick: () => look.replaceChildren() }, "✕")),
-    e && e.en ? h("p", { class: "adv-look-en" }, enText(e.en, { class: "tr" })) : null, // a look-up asks for the meaning: shown even with English off
+      h("button", { type: "button", class: "btn icon small adv-look-x", "aria-label": "關閉 Close", onclick: close }, "✕")),
+    e && e.en ? h("p", { class: "adv-look-en" }, enText(e.en, { class: "tr" })) : null, // a look-up asks for the meaning: shown even with English off ("tr", not "lc-en")
     e && settings().pinyin && e.pinyin && e.pinyin[0] ? h("p", { class: "small muted", lang: "zh-Latn-pinyin" }, e.pinyin[0]) : null,
     e ? null : h("p", { class: "small muted" }, "資料庫裡沒有這個詞。", enText(" This word isn't in the Library: search for it there.")),
     statusRow,
@@ -843,7 +853,7 @@ async function lookUp(tok, look, mode, redraw) {
 
 function quiz(qs) {
   return section("理解問題", "Questions", qs.map(q => {
-    const fb = h("p", { class: "feedback", "aria-live": "polite" });
+    const fb = h("p", { class: "feedback", "aria-live": "polite", tabindex: "-1" });
     const opts = h("div", { class: "adv-opts", role: "group", "aria-label": q.zh || q.en }, q.options.map((o, oi) =>
       h("button", { type: "button", class: "choice adv-opt", onclick: ev => {
         const ok = oi === q.answer;
@@ -851,8 +861,9 @@ function quiz(qs) {
         if (ok) for (const b of opts.children) b.disabled = true;
         fb.className = `feedback ${ok ? "good" : "bad"}`;
         fb.replaceChildren(...(ok ? ["對了！", enText(" Correct.")] : ["再想想。", enText(" Not quite: try again.")]));
-      } }, o.zh ? zhRun(o.zh, o.zhuyin) : null, o.en ? (o.zh ? tr(o.en, "adv-opt-en") : enText(o.en)) : null)));
-    return h("div", { class: "adv-q" }, h("p", {}, q.zh ? zhRun(q.zh, q.zhuyin) : null, q.en ? [" ", q.zh ? tr(q.en) : enText(q.en)] : null), opts, fb);
+        if (ok) fb.focus({ preventScroll: true });
+      } }, o.zh ? zhRun(o.zh, o.zhuyin) : null, o.en ? (o.zh ? tr(o.en, "adv-opt-en") : enText(o.en, { class: "tr lc-en" })) : null)));
+    return h("div", { class: "adv-q" }, h("p", {}, q.zh ? zhRun(q.zh, q.zhuyin) : null, q.en ? [" ", q.zh ? tr(q.en) : enText(q.en, { class: "tr" })] : null), opts, fb);
   }));
 }
 
@@ -881,7 +892,7 @@ function viewListening(p) {
       rung("教育部朗讀（原速）", "MOE dictionary readings at full speed", 2, () => h("p", {}, "用 1.0× 聽整條朗讀，不放慢。", enText(" Listen to whole readings at 1.0×, not slowed down. "), inner("shadow.html#moe", "跟讀：教育部朗讀", "Shadowing: MOE readings"))),
       rung("小公視", "PTS children's channel", 3, () => extList([L.ptsKids]), { band: "A2–B1" }),
       rung("說說話 Talk Talk Mandarin", "Podcast with Taiwanese hosts", 4, () => extList([L.talktalk]), { band: "B1+" }),
-      rung("公視新聞影片", "PTS news video", 5, () => extList([L.ptsNews]), { band: "B2+" }),
+      rung("公視新聞影片", "PTS news video", 5, () => extList([L.ptsVideo]), { band: "B2+" }),
       rung("真的臺灣口語", "Real Taiwan speech", 3, realSpeech)),
     extras("listening"));
 }
@@ -893,9 +904,9 @@ function realSpeech() {
       enText(" No synthetic audio here: TTS can't produce these honestly. Listen for them in the native shows below.")),
     h("div", { class: "adv-table-wrap" }, h("table", { class: "adv-table" },
       h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "標準 ", enText("Standard")), h("th", { scope: "col" }, "特點 ", enText("Feature")), h("th", { scope: "col" }, "你可能聽到 ", enText("What you may hear")))),
-      h("tbody", {}, REAL_SPEECH.map(r => h("tr", {}, h("td", {}, ruby(r.zh, r.zhuyin, { cls: "adv-zh" })), h("td", {}, h("span", { lang: "zh-Hant-TW" }, r.f), h("br"), enText(r.fe, { class: "muted small" })),
+      h("tbody", {}, REAL_SPEECH.map(r => h("tr", {}, h("td", {}, ruby(r.zh, r.zhuyin, { cls: "adv-zh" })), h("td", {}, h("span", { lang: "zh-Hant-TW" }, r.f), h("br"), enText(r.fe, { class: "muted small lc-en" })),
         h("td", {}, enText(r.hear, { class: "tr" }))))))),
-    h("p", { class: "small" }, "在這裡聽得到：", enText(" Hear them in: "), [S.links.talktalk, S.links.ptsNews, S.links.ptsKids].filter(x => x && x.url).map((x, i) => [i ? " · " : "",
+    h("p", { class: "small" }, "在這裡聽得到：", enText(" Hear them in: "), [S.links.talktalk, S.links.ptsVideo, S.links.ptsKids].filter(x => x && x.url).map((x, i) => [i ? " · " : "",
       h("a", { href: x.url, target: "_blank", rel: "noopener noreferrer" }, nameRun(x.zh), h("span", { class: "sr-only" }, "（另開分頁 opens in a new tab）"), h("span", { "aria-hidden": "true" }, " ↗"))])));
 }
 
@@ -943,13 +954,13 @@ function viewTaiwan(p) {
     rung("臺灣讀音", "Taiwan readings", 1, () => h("p", {}, inner("library.html#readings", "資料庫：臺灣讀音", "Library: Taiwan readings"), " · ", inner("tones.html#readings", "聲調館：讀音", "Tone Gym: readings"))),
     rung("臺灣的語法特點", "Taiwan grammar features", 2, () => h("div", {},
       h("ul", { class: "adv-feat" },
-        h("li", {}, h("span", { lang: "zh-Hant-TW" }, "有 + 動詞"), " ", enText("for a completed action", { class: "muted" })),
-        h("li", {}, h("span", { lang: "zh-Hant-TW" }, "會"), " ", enText("meaning “will”", { class: "muted" })),
-        h("li", {}, h("span", { lang: "zh-Hant-TW" }, "會不會 + 形容詞"), " ", enText("in questions", { class: "muted" })),
-        h("li", {}, h("span", { lang: "zh-Hant-TW" }, "幫忙 + 受詞"), " ", enText("with an object", { class: "muted" })),
-        h("li", {}, h("span", { lang: "zh-Hant-TW" }, "啦、齁、喔、欸"), " ", enText("particles", { class: "muted" })),
+        h("li", {}, h("span", { lang: "zh-Hant-TW" }, "有 + 動詞"), " ", enText("for a completed action", { class: "muted lc-en" })),
+        h("li", {}, h("span", { lang: "zh-Hant-TW" }, "會"), " ", enText("meaning “will”", { class: "muted lc-en" })),
+        h("li", {}, h("span", { lang: "zh-Hant-TW" }, "會不會 + 形容詞"), " ", enText("in questions", { class: "muted lc-en" })),
+        h("li", {}, h("span", { lang: "zh-Hant-TW" }, "幫忙 + 受詞"), " ", enText("with an object", { class: "muted lc-en" })),
+        h("li", {}, h("span", { lang: "zh-Hant-TW" }, "啦、齁、喔、欸"), " ", enText("particles", { class: "muted lc-en" })),
         h("li", {}, h("span", { lang: "zh-Hant-TW" }, "不錯吃"))),
-      h("p", { class: "small muted" }, "「給」的被動句是大陸的說法，不是臺灣的特點。", enText(" The 給 passive is the Mainland pattern, not a Taiwan feature.")),
+      h("p", { class: "small muted" }, "「給」的被動句是大陸的說法，不是臺灣的特點。", enText(" The 給 passive is the Mainland pattern, not a Taiwan feature.", { class: "lc-en" })),
       h("p", {}, inner("library.html#grammar", "資料庫：語法", "Library: grammar"))))), counts, extras("taiwan"));
   lib().then(L => {
     if (!L || !counts.isConnected) return;
@@ -1068,7 +1079,7 @@ function monologue(topics) {
     const t = pool[ti];
     topicEl.replaceChildren();
     put(topicEl, t ? [h("p", { class: "small muted" }, "這個月的題目 ", enText("This month's topic")), h("p", { class: "adv-mono-q" }, zhRun(t.zh, t.zhuyin, t.spoken), t.en ? [" ", tr(t.en)] : null),
-      pool.length > 1 ? h("button", { type: "button", class: "btn small", onclick: () => { ti = (ti + 1) % pool.length; drawTopic(); } }, "換一個 ", enText("Another topic")) : null]
+      pool.length > 1 ? h("button", { type: "button", class: "btn small", onclick: () => { ti = (ti + 1) % pool.length; drawTopic(); topicEl.querySelector("button")?.focus(); } }, "換一個 ", enText("Another topic")) : null]
       : [h("p", {}, "說一分鐘：你這個月做了什麼？", enText(" Talk for one minute: what did you do this month?"))]);
   };
   drawTopic();
@@ -1144,7 +1155,11 @@ function roleplays(list) {
       let mine = "";
       const draw = () => lines.replaceChildren(...rp.lines.map(l => {
         const hide = mine && l.role === mine;
-        const zh = h("span", { class: "adv-line-zh" }, hide ? h("button", { type: "button", class: "btn small", onclick: ev => ev.currentTarget.replaceWith(zhRun(l.zh, l.zhuyin, l.spoken)) }, "輪到你，說完再看 ", enText("Your line: say it, then show")) : zhRun(l.zh, l.zhuyin, l.spoken));
+        const zh = h("span", { class: "adv-line-zh" }, hide ? h("button", { type: "button", class: "btn small", onclick: ev => {
+          const shown = h("span", { class: "adv-shown", tabindex: "-1" }, zhRun(l.zh, l.zhuyin, l.spoken));
+          ev.currentTarget.replaceWith(shown);
+          shown.focus();
+        } }, "輪到你，說完再看 ", enText("Your line: say it, then show")) : zhRun(l.zh, l.zhuyin, l.spoken));
         return h("li", { class: `adv-line${hide ? " is-mine" : ""}` }, l.role ? h("span", { class: "adv-role", lang: HAN.test(l.role) ? "zh-Hant-TW" : "en" }, l.role) : null,
           h("div", { class: "adv-line-body" }, zh, tr(l.en, "adv-line-en")), playButton({ zh: l.zh, audio: l.audio }, { cls: "btn icon small" }));
       }));
@@ -1265,7 +1280,12 @@ function examNote() {
   const b = examNoteBand(S.L, dis);
   if (!b) return null;
   const box = h("p", { class: "adv-notice" }, "真正的華語文能力測驗要付報名費，考不考由你決定。", enText(" The real TOCFL exam costs money; whether to take it is your call. "),
-    h("button", { type: "button", class: "btn small", onclick: () => { store.set("adv.examNote", { ...dis, [b]: today() }); box.remove(); } }, "知道了 ", enText("Got it")));
+    h("button", { type: "button", class: "btn small", onclick: () => {
+      store.set("adv.examNote", { ...dis, [b]: today() });
+      const next = [...panel.querySelectorAll(FOCUSABLE)].find(x => !box.contains(x) && box.compareDocumentPosition(x) & Node.DOCUMENT_POSITION_FOLLOWING);
+      box.remove();
+      (next || panel).focus({ preventScroll: true });
+    } }, "知道了 ", enText("Got it")));
   return box;
 }
 

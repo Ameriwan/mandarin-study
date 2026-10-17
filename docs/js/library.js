@@ -15,7 +15,7 @@ import { h, $, clear, mountShell, store, loadJSON, ruby, playButton, stopAudio, 
   trackTime, toast, recordWidget, audioInfo } from "./app.js";
 
 // ------------------------------------------------------------------ constants
-export const TYPES = ["word", "grammar", "pattern", "phrase", "measure", "taiwan", "reading"]; // also the result group order
+export const TYPES = ["word", "grammar", "pattern", "phrase", "measure", "taiwan", "reading", "chengyu", "radical"]; // also the result group order
 const INFO = {
   word: { zh: "詞", en: "Words", one: "Word", file: "library-words" },
   grammar: { zh: "語法", en: "Grammar", one: "Grammar point", file: "grammar" },
@@ -24,17 +24,23 @@ const INFO = {
   taiwan: { zh: "臺灣用語", en: "Taiwan vs Mainland", one: "Taiwan usage", file: "taiwan-vs-mainland" },
   reading: { zh: "臺灣讀音", en: "Taiwan readings", one: "Taiwan reading", file: "tones" },
   phrase: { zh: "常用語", en: "Phrasebook", one: "Phrase", file: "phrasebook" },
+  chengyu: { zh: "成語", en: "Idioms", one: "Idiom", file: "chengyu" },
+  radical: { zh: "部首", en: "Radicals", one: "Radical", file: "characters" },
 };
 const info = t => INFO[t] || { zh: t, en: t, one: t, file: t };
 // [tab id, 中文, English, collection type]
 const TABS = [["words", "詞", "Words", "word"], ["grammar", "語法", "Grammar", "grammar"], ["patterns", "句型", "Patterns", "pattern"],
   ["measure", "量詞", "Measure words", "measure"], ["taiwan", "臺灣用語", "Taiwan vs Mainland", "taiwan"],
   ["readings", "臺灣讀音", "Taiwan readings", "reading"], ["phrases", "常用語", "Phrasebook", "phrase"],
+  ["chengyu", "成語", "Idioms", "chengyu"], ["radicals", "部首", "Radicals", "radical"],
   ["notes", "我的筆記", "My notes", null], ["mistakes", "我的錯誤", "My mistakes", null]];
 const tabType = id => (TABS.find(t => t[0] === id) || [])[3] || null;
 export const STATUSES = [["new", "新", "New"], ["learning", "學習中", "Learning"], ["known", "會了", "Known"], ["trouble", "困難", "Trouble"]];
 const STATUS_KEY = "lib.status"; // {"<type>:<key>": "learning" | "known" | "trouble"}; absent = new
 const NOTES_KEY = "lib.notes";   // {"<type>:<key>": "text"}
+// Unit words the Library's collections don't have (units.js stub entries): {"word:<key>": {zh, zhuyin, spoken, en, p, id,
+// s, unit}}, saved with their status so the word is a Library entry everywhere (Today's Review, the status filter).
+const EXTRA_KEY = "lib.extra";
 const PAGE = 50;
 const MOE_STREAM = "https://r2-assets.moedict.tw/audio/a/";
 const UNSPANNED_MAX = 1.2; // s: a streamed clip whose headword span is not measured yet plays at most this long
@@ -50,6 +56,8 @@ const TYPE_ALIASES = {
   taiwan: ["t", "tw", "twm", "taiwan-vs-mainland", "taiwan_vs_mainland", "usage", "taiwan-usage", "vs"],
   reading: ["r", "readings", "taiwan-reading", "taiwan-readings", "taiwan_readings"],
   phrase: ["ph", "phrases", "phrasebook", "phrase-book"],
+  chengyu: ["cy", "idiom", "idioms", "成語"],
+  radical: ["rad", "radicals", "bushou", "部首"],
 };
 export function normType(t) {
   const s = String(t ?? "").toLowerCase().trim();
@@ -68,7 +76,18 @@ export const levelRank = lv => (lv ? Number(lv[0]) * 2 + (lv.endsWith("*") ? 1 :
 const levelLabel = lv => (lv ? `第${lv}級` : "");
 export const zhuyinKey = z => str(z).replace(/[\sˉ]+/g, "");
 export const zhuyinBare = z => zhuyinKey(z).replace(/[ˊˇˋ˙]/g, "");
-const splitTopics = t => (Array.isArray(t) ? t : str(t).split(/[、,;，；]/)).map(s => String(s).trim()).filter(Boolean);
+// The phrasebook / pattern situations and the Taiwan-usage categories are English slugs in the content files: shown
+// (and filtered) under a Chinese name, which also merges them with the TBCL 情境 of the same name (交通, 購物).
+const TOPIC_ZH = { bank: "銀行", bento: "便當店", "breakfast-shop": "早餐店", "convenience-store": "便利商店", directions: "問路",
+  doctor: "看醫生", "drink-shop": "飲料店", family: "家人", festivals: "節日", general: "一般", hobbies: "興趣", neighbours: "鄰居",
+  "night-market": "夜市", pharmacy: "藥局", phone: "電話", "post-office": "郵局", renting: "租房子", shopping: "購物",
+  "small-talk": "聊天", time: "時間", transport: "交通", weather: "天氣", "computers and tech": "電腦科技", food: "食物",
+  grammar: "語法", particles: "語助詞", stationery: "文具", "transport and home": "交通與居家" };
+// The side forms of common Kangxi radicals (氵 is 水 on the left of 海), so a search for the form finds the radical.
+const RADICAL_FORMS = { 人: ["亻"], 刀: ["刂"], 心: ["忄"], 手: ["扌"], 攴: ["攵"], 水: ["氵"], 火: ["灬"], 爪: ["爫"], 牛: ["牜"], 犬: ["犭"],
+  玉: ["王"], 示: ["礻"], 竹: ["⺮"], 糸: ["糹"], 网: ["罒"], 老: ["耂"], 肉: ["⺼"], 艸: ["艹"], 衣: ["衤"], 言: ["訁"], 辵: ["辶"], 邑: ["阝"],
+  金: ["釒"], 阜: ["阝"], 食: ["飠"] };
+const splitTopics = t => (Array.isArray(t) ? t : str(t).split(/[、,;，；]/)).map(s => String(s).trim()).filter(Boolean).map(s => TOPIC_ZH[s] || s);
 const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 // ---------- pinyin: "vowel + tone digit" keys (mǎshàng -> ma3sha4ng), so marks and numbers compare alike
@@ -214,6 +233,11 @@ export function normalize(type, r, i) {
       topics: r.category, alt: [r.mainland, r.example_zh], key: r.taiwan ?? r.zh });
     case "reading": return entry(type, r, { zh: r.zh, zhuyin: r.zhuyin, spoken: r.spoken, en: r.en, level: r.level, pinyin: [r.mainland], key: r.zh });
     case "phrase": return entry(type, r, { zh: r.zh, zhuyin: r.zhuyin, spoken: r.spoken, en: r.en, level: r.level, topics: r.situation, key: r.id ?? r.zh });
+    // 成語 (chengyu.json, MOE 成語典, CC BY-ND: shown unmodified): level is a CEFR band (B1, B2), not a TBCL level
+    case "chengyu": return Object.assign(entry(type, r, { zh: r.zh ?? r.idiom, zhuyin: r.zhuyin, en: "", level: "", key: r.zh ?? r.idiom }), { band: str(r.level) });
+    // 部首 (characters.json radicals): searchable by the radical, its variant form (氵) and its common characters
+    case "radical": return entry(type, r, { zh: r.radical, zhuyin: r.zhuyin, en: r.meaning, level: "", key: r.radical,
+      alt: [...(RADICAL_FORMS[r.radical] || []), ...[...str(r.chars)].filter(c => HAN.test(c))] });
     default: return entry(type, r, { zh: r.zh, zhuyin: r.zhuyin, en: r.en, level: r.level, key: r.id ?? r.key ?? r.zh });
   }
 }
@@ -234,6 +258,8 @@ function assignKeys(list) {
 function sortFor(type, list) {
   if (type === "word") return list.map((e, i) => [e, i]).sort((a, b) => levelRank(a[0].level) - levelRank(b[0].level) || a[1] - b[1]).map(x => x[0]);
   if (type === "grammar") return list.slice().sort((a, b) => (Number(a.raw.tbcl) || 1e9) - (Number(b.raw.tbcl) || 1e9) || levelRank(a.level) - levelRank(b.level));
+  if (type === "chengyu") return list.map((e, i) => [e, i]).sort((a, b) => a[0].band.localeCompare(b[0].band) || a[1] - b[1]).map(x => x[0]);
+  if (type === "radical") return list.slice().sort((a, b) => (Number(a.raw.n) || 1e9) - (Number(b.raw.n) || 1e9));
   return list;
 }
 function addAliases(lookup, e) {
@@ -350,6 +376,38 @@ export function setStatus(e, s) {
   const m = { ...statusMap() };
   if (!s || s === "new") delete m[statusKey(e)]; else m[statusKey(e)] = s;
   store.set(STATUS_KEY, m);
+  if (e && e.extra && typeof e.extra === "object") keepExtra(e, s && s !== "new");
+}
+// A unit word outside the collections (e.extra: what units.js knows of it) is kept while it has a status or a note.
+const extraMap = () => { const m = store.get(EXTRA_KEY, {}); return m && typeof m === "object" ? m : {}; };
+function keepExtra(e, on) {
+  const k = statusKey(e), m = { ...extraMap() };
+  if (on || notesMap()[k]) {
+    const x = e.extra;
+    m[k] = { zh: str(x.zh || e.zh), zhuyin: str(x.zhuyin || e.zhuyin), spoken: x.spoken ? str(x.spoken) : null, en: str(x.en || e.en), p: str(x.p),
+      id: x.id ? String(x.id) : null, s: Array.isArray(x.s) ? x.s : null, unit: str(x.unit) };
+  } else delete m[k];
+  store.set(EXTRA_KEY, m);
+}
+// The kept unit words become word entries of the loaded Library (once each; run again when the store may have changed).
+function addExtras(L) {
+  L.extraKeys ||= new Set();
+  for (const [k, x] of Object.entries(extraMap())) {
+    const i = k.indexOf(":");
+    const type = normType(k.slice(0, i)), key = k.slice(i + 1);
+    if (type !== "word" || !key || !x || typeof x !== "object" || L.extraKeys.has(k)) continue;
+    L.extraKeys.add(k);
+    if (L.lookup.get(type)?.get(key)?.some(e => e.key === key)) continue; // the Library has it now
+    const e = normalize(type, { w: x.zh || key.split("|")[0], z: x.zhuyin, spoken: x.spoken, en: x.en, p: x.p, id: x.id, s: x.s }, 0);
+    if (!e.zh) continue;
+    delete e.k0;
+    Object.assign(e, { key, extra: x, unit: str(x.unit) });
+    L.entries.push(e);
+    (L.byType[type] ||= []).push(e);
+    addAliases(L.lookup, e);
+    L.index.push(indexItem(e, L.index.length));
+  }
+  return L;
 }
 const notesMap = () => { const m = store.get(NOTES_KEY, {}); return m && typeof m === "object" ? m : {}; };
 function saveNote(k, text) {
@@ -372,21 +430,30 @@ let libPromise = null;
 // All collections, the search index and the sentence pool (each file optional). Shared by every caller.
 export function loadLibrary() {
   if (!libPromise) {
-    const files = ["library-words", "grammar", "patterns", "measure-words", "taiwan-vs-mainland", "phrasebook", "tones", "search", "my-mistakes"];
-    libPromise = Promise.all(files.map(f => loadJSON(f).catch(() => null))).then(([word, grammar, pattern, measure, taiwan, phrase, tones, search, mistakes]) =>
-      assemble({ word, grammar, pattern, measure, taiwan, phrase, reading: tones ? listOf(tones.readings) : null }, search, mistakes));
+    const files = ["library-words", "grammar", "patterns", "measure-words", "taiwan-vs-mainland", "phrasebook", "tones", "chengyu", "characters", "search", "my-mistakes"];
+    libPromise = Promise.all(files.map(f => loadJSON(f).catch(() => null))).then(([word, grammar, pattern, measure, taiwan, phrase, tones, chengyu, chars, search, mistakes]) => {
+      const L = assemble({ word, grammar, pattern, measure, taiwan, phrase, reading: tones ? listOf(tones.readings) : null,
+        chengyu, radical: chars ? listOf(chars.radicals) : null }, search, mistakes);
+      // what the 成語 and 部首 entries must credit (CC BY-ND unmodified; CC-CEDICT meanings BY-SA)
+      L.meta = { chengyu: chengyu && typeof chengyu === "object" && !Array.isArray(chengyu) ? chengyu : {}, chars: chars && typeof chars === "object" ? chars.license || {} : {} };
+      return addExtras(L);
+    });
   }
   return libPromise;
 }
 export async function findEntry(type, key) { const lib = await loadLibrary(); return resolve(lib.lookup, type, key); }
-// Library items marked "trouble" (Today's Review block): [{type, key, zh, zhuyin, en, href}]
+// Library items marked "trouble" (Today's Review block): [{type, key, zh, zhuyin, en, href, extra?}]. A unit word the
+// Library doesn't have comes from what units.js kept (lib.extra); a key known nowhere still comes back with its characters.
 export async function troubleEntries() {
-  const lib = await loadLibrary();
+  const lib = addExtras(await loadLibrary());
   const m = statusMap();
   return Object.keys(m).filter(k => m[k] === "trouble").map(k => {
     const i = k.indexOf(":");
-    const e = resolve(lib.lookup, k.slice(0, i), k.slice(i + 1));
-    return e ? { type: e.type, key: e.key, zh: e.zh, zhuyin: e.zhuyin, en: e.en, href: entryHref(e) } : null;
+    const type = k.slice(0, i), key = k.slice(i + 1);
+    const e = resolve(lib.lookup, type, key);
+    if (e) return { type: e.type, key: e.key, zh: e.zh, zhuyin: e.zhuyin, en: e.en, href: entryHref(e), ...(e.extra ? { extra: e.extra } : {}) };
+    const zh = key.split("|")[0];
+    return i > 0 && HAN.test(zh) ? { type, key, zh, zhuyin: "", en: "", href: `library.html?q=${encodeURIComponent(zh)}` } : null;
   }).filter(Boolean);
 }
 
@@ -446,10 +513,12 @@ function playStream(id, span) {
     a.play().catch(err => { if (stream === me) { stream = null; reject(err); } });
   });
 }
-// The word's MOE clip: its own (words, readings), else the Library word with the same characters and reading.
+// The word's MOE clip: its own (words, readings, measure words, Taiwan usage: the build gives each its exact-reading MOE
+// id and headword span), else the Library word with the same characters and reading. (A 成語's id is its 成語典 entry.)
+const OWN_CLIP = new Set(["word", "reading", "measure", "taiwan"]);
 function clipFor(e) {
   let id = null, span = null;
-  if (e.raw && (e.type === "word" || e.type === "reading")) { id = e.raw.id || null; span = spanOf(e.raw.s); }
+  if (e.raw && OWN_CLIP.has(e.type)) { id = e.raw.id || null; span = spanOf(e.raw.s); }
   if (!id && e.zh && e.zhuyin) {
     const zk = zhuyinKey(e.zhuyin);
     const w = (lib.lookup.get("word")?.get(e.zh) || []).find(x => zhuyinKey(x.zhuyin) === zk);
@@ -457,12 +526,13 @@ function clipFor(e) {
   }
   return { id: id ? String(id) : null, span };
 }
-// Play button for a word-like headword: self-hosted MOE, streamed MOE, or the browser voice (each labelled).
-function wordAudio(e) {
+// Play button for a word-like headword: self-hosted MOE, streamed MOE, or the browser voice (each labelled; voice: false
+// gives no button instead of the browser voice, for a radical the voice would only spell out).
+function wordAudio(e, { voice = true } = {}) {
   const { id, span } = clipFor(e);
   const local = id && audioInfo(id);
   if (local && local.src === "moe") return playButton({ id, zh: e.zh });
-  if (!id) return playButton({ zh: e.zh });
+  if (!id) return voice ? playButton({ zh: e.zh }) : null;
   const name = span ? `${MOE_NAME} (streamed from moedict.tw)` : `${MOE_NAME} (streamed; first ${UNSPANNED_MAX} s, the word's exact span is not measured yet)`;
   const btn = h("button", { class: "btn icon lib-stream", type: "button", title: name, "aria-label": `播放 Play ${e.zh} — ${name}`,
     onclick: async ev => {
@@ -490,8 +560,8 @@ async function boot() {
   const allMissing = TYPES.filter(t => t !== "reading").every(t => lib.missing.has(t));
   app.append(...[h("div", { class: "page-head" },
     h("h1", {}, h("span", { lang: "zh-Hant-TW" }, "資料庫"), h("span", { class: "en", lang: "en" }, "Library")),
-    els.intro = h("p", { class: "muted small lib-lede" }, "TBCL 第 1–4* 級的詞、語法、句型、量詞、臺灣用語和常用語。可以用漢字、注音（打不打聲調都可以）、拼音或英文搜尋。",
-      enText(" TBCL level 1–4* words, grammar, patterns, measure words, Taiwan usage and phrases. Search by characters, Zhuyin (with or without tones), pinyin or English."))),
+    els.intro = h("p", { class: "muted small lib-lede" }, "TBCL 第 1–4* 級的詞、語法、句型、量詞、臺灣用語和常用語，還有成語和部首。可以用漢字、注音（打不打聲調都可以）、拼音或英文搜尋。",
+      enText(" TBCL level 1–4* words, grammar, patterns, measure words, Taiwan usage and phrases, plus 成語 (idioms) and radicals. Search by characters, Zhuyin (with or without tones), pinyin or English."))),
   allMissing ? notice("資料庫的資料還沒建置。", "The Library data isn't built yet (docs/data/library-words.json, grammar.json …): run tools/build.py. My notes still work.", "status") : null].filter(Boolean));
 
   els.list = h("div", { class: "lib-listview" });
@@ -678,9 +748,12 @@ function rowBody(e) {
   if (e.type === "pattern" && r.zh && r.pattern) sub.push(h("span", { lang: "zh-Hant-TW" }, r.zh));
   if (e.type === "taiwan" && r.mainland) sub.push(h("span", {}, "大陸 ", h("span", { lang: "en" }, "Mainland"), " ", h("span", { lang: "zh-Hant-TW" }, r.mainland)));
   if (e.type === "reading" && r.mainland) sub.push(h("span", {}, "大陸 ", h("span", { lang: "en" }, "Mainland"), " ", h("span", { lang: "zh-Latn-pinyin" }, r.mainland)));
-  if (e.type === "measure" && r.used_for) sub.push(enText(r.used_for));
+  if (e.type === "measure" && r.used_for) sub.push(enText(r.used_for, { class: "lc-en" }));
+  if (e.type === "radical") sub.push(h("span", {}, r.n ? `第 ${r.n} 部` : "部首", r.strokes ? ` · ${r.strokes} 畫` : "",
+    r.chars ? [" · ", h("span", { lang: "zh-Hant-TW" }, [...str(r.chars)].slice(0, 6).join(""))] : null));
+  if (e.extra) sub.push(h("span", {}, "課程單元的詞", e.unit ? ` · ${e.unit}` : ""));
   if (e.topics.length && e.type !== "taiwan") sub.push(h("span", { lang: "zh-Hant-TW" }, e.topics.join("、")));
-  return [e.en ? enText(e.en, { class: "lib-row-en" }) : null,
+  return [e.en ? enText(e.en, { class: "lib-row-en lc-en" }) : null,
     sub.length ? h("span", { class: "lib-row-sub" }, sub.map((x, i) => [i ? " · " : null, x])) : null];
 }
 const STATUS_NAME = Object.fromEntries(STATUSES.map(([id, zh, en]) => [id, `${zh} ${en}`]));
@@ -690,7 +763,8 @@ function row(e, sm) {
     h("span", { class: "lib-row-zh" }, rowHead(e)),
     h("span", { class: "lib-row-body" }, rowBody(e)),
     h("span", { class: "lib-row-side" },
-      e.level ? h("span", { class: "lib-lv", title: `TBCL ${levelLabel(e.level)}` }, h("span", { "aria-hidden": "true" }, e.level), h("span", { class: "sr-only" }, ` ${levelLabel(e.level)}`)) : null,
+      e.level ? h("span", { class: "lib-lv", title: `TBCL ${levelLabel(e.level)}` }, h("span", { "aria-hidden": "true" }, e.level), h("span", { class: "sr-only" }, ` ${levelLabel(e.level)}`))
+        : e.band ? h("span", { class: "lib-lv", title: `CEFR ${e.band}` }, e.band) : null,
       st !== "new" ? h("span", { class: `lib-st st-${st}`, title: STATUS_NAME[st] }, h("span", { class: "sr-only" }, ` ${STATUS_NAME[st]}`)) : null)));
 }
 // Renders items in pages of 50 into box, with "show more"; state.shown[key] keeps the count across redraws.
@@ -733,6 +807,13 @@ function drawPanel() {
   }
   if (type === "taiwan") {
     panel.append(h("p", { class: "small muted lib-lede" }, "臺灣常用的說法和大陸說法對照。學左邊的。", enText(" Taiwan usage next to the Mainland word: learn the Taiwan one.")));
+  }
+  if (type === "chengyu") {
+    panel.append(h("p", { class: "small muted lib-lede" }, "從 Band B 開始學的成語，內容出自教育部《成語典》，照原文呈現。", enText(" 成語 for Band B and up, from the MOE Dictionary of Chinese Idioms, shown unmodified. ")),
+      chengyuCredit());
+  }
+  if (type === "radical") {
+    panel.append(h("p", { class: "small muted lib-lede" }, "214 個康熙部首，照教育部字典的歸部。用部首和部件認字。", enText(" The 214 Kangxi radicals as the MOE dictionaries file characters: learn characters through their radicals and components.")));
   }
   const f = filt(state.tab);
   const sm = statusMap();
@@ -803,7 +884,7 @@ function mistakeBlock(wrong, right, rightZhuyin, why) {
     wrong ? h("p", { class: "lib-wrong" }, h("span", { class: "lib-mark", "aria-hidden": "true" }, "✗"), h("span", { class: "sr-only" }, "錯 wrong: "), h("span", { lang: "zh-Hant-TW" }, String(wrong))) : null,
     right ? h("p", { class: "lib-right" }, h("span", { class: "lib-mark", "aria-hidden": "true" }, "✓"), h("span", { class: "sr-only" }, "對 right: "), ruby(String(right), rightZhuyin || "", { cls: "" }),
       " ", sentenceAudio(String(right), null)) : null,
-    why ? h("p", { class: "small" }, enText(why)) : null);
+    why ? h("p", { class: "small" }, enText(why, { class: "lc-en" })) : null);
 }
 
 // ------------------------------------------------------------------ entry view
@@ -844,28 +925,30 @@ function exampleList(e, list) {
   return h("ul", { class: "lib-ex" }, list.map(x => h("li", { class: "lib-ex-item" },
     h("span", { class: "lib-ex-zh" }, ruby(x.zh, x.zhuyin, { cls: "", spoken: x.spoken })),
     h("span", { class: "lib-ex-play" }, sentenceAudio(x.zh, x.audio)),
-    x.en ? enText(x.en, { class: "lib-ex-en" }) : null,
+    x.en ? enText(x.en, { class: "lib-ex-en lc-en" }) : null,
     x.from && x.from !== e ? h("a", { class: "lib-ex-from small", href: localHref(x.from) }, info(x.from.type).zh, " ", h("span", { lang: "en" }, info(x.from.type).one), " · ", h("span", { lang: "zh-Hant-TW" }, x.from.zh)) : null)));
 }
 function renderEntry(box, e) {
   const r = e.raw || {};
   const k = statusKey(e);
-  const wordLike = ["word", "measure", "taiwan", "reading"].includes(e.type) || (e.stub && [...e.zh].length <= 4);
+  const wordLike = ["word", "measure", "taiwan", "reading", "chengyu", "radical"].includes(e.type) || (e.stub && [...e.zh].length <= 4);
   // examples on this entry
   let examples = [];
   if (e.type === "grammar") examples = arr(r.examples).filter(x => x && x.zh).map(x => ({ zh: str(x.zh), zhuyin: str(x.zhuyin), spoken: x.spoken || null, en: str(x.en), audio: x.audio || null }));
   else if (e.type === "pattern") examples = r.zh ? [{ zh: str(r.zh), zhuyin: str(r.zhuyin), spoken: r.spoken || null, en: str(r.en), audio: r.audio || null }] : [];
   else if ((e.type === "measure" || e.type === "taiwan") && r.example_zh) examples = [{ zh: str(r.example_zh), zhuyin: str(r.example_zhuyin), spoken: r.example_spoken || null, en: str(r.example_en), audio: r.example_audio || null }];
-  const borrowed = e.type === "word" || (wordLike && !examples.length) ? examplesFor(lib.pool, e) : [];
+  const borrowed = e.type === "word" || (wordLike && !examples.length && e.type !== "radical") ? examplesFor(lib.pool, e) : [];
 
   // the plate: kind, level seal, the headword with its ruby, pinyin and gloss, audio, status
   const head = h("h2", { class: "lib-head" + (sentenceLike(e) && e.type !== "grammar" ? " sent" : ""), id: "lib-head-id", tabindex: "-1" },
     e.type === "grammar" || (e.type === "pattern" && !e.zhuyin) ? h("span", { lang: "zh-Hant-TW" }, e.zh) : ruby(e.zh, e.zhuyin, { cls: "", spoken: e.spoken }));
   const sub = [];
   if (e.pinyin[0] && e.type === "word") sub.push(h("span", { class: "lib-py", lang: "zh-Latn-pinyin" }, e.pinyin[0]));
-  if (e.type !== "pattern" && e.en) sub.push(enText(e.en, { class: "lib-gloss" }));
+  if (e.type !== "pattern" && e.en) sub.push(enText(e.en, { class: "lib-gloss lc-en" }));
   const chips = [];
   for (const t of e.topics) chips.push(h("span", { class: "lib-chip", lang: "zh-Hant-TW", title: e.type === "word" ? "TBCL 情境 topic" : "情境 situation" }, t));
+  if (e.band) chips.push(h("span", { class: "lib-chip", title: "CEFR" }, e.band));
+  if (e.type === "radical" && r.strokes) chips.push(h("span", { class: "lib-chip" }, `${r.strokes} 畫 `, h("span", { lang: "en" }, "strokes")));
   if (e.type === "word") {
     const cls = (Array.isArray(r.cl) ? r.cl : str(r.cl).split(/[,，、;\s]+/)).map(String).filter(Boolean);
     for (const c of cls) {
@@ -874,7 +957,7 @@ function renderEntry(box, e) {
         : h("span", { class: "lib-chip" }, "量詞 ", h("span", { lang: "en" }, "MW"), " ", h("span", { lang: "zh-Hant-TW" }, c)));
     }
   }
-  const audio = wordLike ? wordAudio(e) : e.type === "phrase" ? sentenceAudio(e.zh, r.audio) : null;
+  const audio = wordLike ? wordAudio(e, { voice: e.type !== "radical" }) : e.type === "phrase" ? sentenceAudio(e.zh, r.audio) : null;
   const live = h("p", { class: "sr-only", "aria-live": "polite" });
   const cur = statusOf(e);
   const seg = h("div", { class: "lib-status", role: "group", "aria-label": "狀態 Status" }, STATUSES.map(([id, zh, en]) => h("button", { type: "button", "data-s": id, "aria-pressed": String(cur === id),
@@ -896,24 +979,26 @@ function renderEntry(box, e) {
     h("div", { class: "lib-plate-actions" }, audio ? h("span", { class: "lib-audio" }, audio) : null, seg),
     sandhiShown ? sandhiSwitch(e) : null,
     live,
-    e.stub ? h("p", { class: "small muted" }, enText("Only the search index has this entry; its collection file isn't built yet.")) : null));
+    e.stub ? h("p", { class: "small muted" }, enText("Only the search index has this entry; its collection file isn't built yet.")) : null,
+    e.extra ? h("p", { class: "small muted" }, "課程單元裡的詞，TBCL 詞表沒有。", enText(" A unit word that isn't in the TBCL word list. "),
+      e.unit ? h("a", { href: `units.html#${encodeURIComponent(e.unit)}` }, "單元 ", h("span", { lang: "en" }, "Unit"), ` ${e.unit}`) : null) : null));
 
   // type-specific body
   if (e.type === "grammar") {
     box.append(section("sec-exp", "說明", "Explanation",
       r.structure ? h("p", { class: "lib-structure" }, h("span", { class: "lib-structure-l" }, "結構 ", h("span", { lang: "en" }, "Structure")), h("span", { lang: "zh-Hant-TW" }, str(r.structure))) : null,
-      r.explanation_en ? h("p", {}, enText(r.explanation_en)) : null));
+      r.explanation_en ? h("p", {}, enText(r.explanation_en, { class: "lc-en" })) : null));
     if (examples.length) box.append(section("sec-ex", "例句", "Examples", exampleList(e, examples)));
     const m = r.mistake;
     if (m && (m.wrong || m.right)) {
       const rz = m.right_zhuyin || (examples.find(x => x.zh === m.right) || {}).zhuyin || "";
       box.append(section("sec-mis", "常見錯誤", "Common mistake", mistakeBlock(m.wrong, m.right, rz, m.why_en)));
     }
-    if (r.taiwan_note) box.append(section("sec-tw", "臺灣用法", "In Taiwan", h("p", {}, enText(r.taiwan_note))));
+    if (r.taiwan_note) box.append(section("sec-tw", "臺灣用法", "In Taiwan", h("p", {}, enText(r.taiwan_note, { class: "lc-en" }))));
   } else if (e.type === "pattern") {
     if (examples.length) box.append(section("sec-ex", "例句", "Example", exampleList(e, examples)));
   } else if (e.type === "measure") {
-    if (r.used_for) box.append(section("sec-use", "用於", "Used for", h("p", {}, enText(r.used_for))));
+    if (r.used_for) box.append(section("sec-use", "用於", "Used for", h("p", {}, enText(r.used_for, { class: "lc-en" }))));
     if (examples.length) box.append(section("sec-ex", "例句", "Example", exampleList(e, examples)));
   } else if (e.type === "taiwan") {
     box.append(section("sec-vs", "臺灣和大陸", "Taiwan and Mainland", h("dl", { class: "kv lib-kv" },
@@ -924,10 +1009,14 @@ function renderEntry(box, e) {
     box.append(section("sec-rd", "讀音", "Readings", h("dl", { class: "kv lib-kv" },
       h("dt", {}, "教育部 ", h("span", { lang: "en" }, "MOE (Taiwan)")), h("dd", { class: "zhuyin", lang: "zh-Hant-TW" }, e.zhuyin),
       r.mainland ? [h("dt", {}, "大陸 ", h("span", { lang: "en" }, "Mainland")), h("dd", { lang: "zh-Latn-pinyin" }, str(r.mainland))] : null),
-    r.note ? h("p", { class: "small" }, enText(r.note)) : null,
+    r.note ? h("p", { class: "small" }, enText(r.note, { class: "lc-en" })) : null,
     h("p", { class: "small" }, h("a", { href: "tones.html#readings" }, "到聲調館練習臺灣讀音 ", h("span", { lang: "en" }, "Practise the Taiwan readings in the Tone Gym"), " →"))));
   } else if (e.type === "phrase" && r.note) {
-    box.append(section("sec-note", "說明", "Note", h("p", {}, enText(r.note))));
+    box.append(section("sec-note", "說明", "Note", h("p", {}, enText(r.note, { class: "lc-en" }))));
+  } else if (e.type === "chengyu") {
+    chengyuBody(box, r);
+  } else if (e.type === "radical") {
+    radicalBody(box, e, r);
   }
   if (borrowed.length) {
     box.append(section("sec-borrowed", "例句", "Examples", h("p", { class: "small muted" }, `資料庫裡有「${e.zh}」的句子。`, enText(` Sentences in the Library that contain ${e.zh}.`)), exampleList(e, borrowed)));
@@ -945,14 +1034,18 @@ function renderEntry(box, e) {
   ta.value = notesMap()[k] || "";
   const saved = h("span", { class: "small muted lib-saved", "aria-live": "polite" });
   let timer = 0;
-  const save = () => { clearTimeout(timer); timer = 0; saveNote(k, ta.value); saved.replaceChildren("已儲存 ", h("span", { lang: "en" }, "Saved")); };
+  const save = () => {
+    clearTimeout(timer); timer = 0; saveNote(k, ta.value);
+    if (e.extra) keepExtra(e, statusOf(e) !== "new"); // a unit word stays in the Library while it has a note
+    saved.replaceChildren("已儲存 ", h("span", { lang: "en" }, "Saved"));
+  };
   ta.addEventListener("input", () => { clearTimeout(timer); saved.replaceChildren(); timer = setTimeout(save, 600); });
   ta.addEventListener("blur", () => { if (timer) save(); });
   teardown = () => { if (timer) save(); };
   box.append(section("sec-note-h", "我的筆記", "My note", ta, h("div", { class: "row lib-note-row" }, saved, h("span", { class: "small muted" }, "只存在這台裝置 ", h("span", { lang: "en" }, "Stays on this device")))));
 
   // say it: the model, then my take (kept in IndexedDB on this device)
-  const model = wordLike ? wordAudio(e) : e.type === "phrase" ? sentenceAudio(e.zh, r.audio) : examples[0] ? sentenceAudio(examples[0].zh, examples[0].audio) : null;
+  const model = wordLike ? wordAudio(e, { voice: e.type !== "radical" }) : e.type === "phrase" ? sentenceAudio(e.zh, r.audio) : examples[0] ? sentenceAudio(examples[0].zh, examples[0].audio) : null;
   const sayWhat = !wordLike && e.type !== "phrase" && examples[0] ? h("p", { class: "lib-say-what" }, ruby(examples[0].zh, examples[0].zhuyin, { cls: "", spoken: examples[0].spoken })) : null;
   box.append(section("sec-say", "說說看", "Say it",
     h("p", { class: "small muted" }, "先聽示範，再錄自己的聲音比一比。", enText(" Hear the model, then record yourself and compare.")),
@@ -975,6 +1068,7 @@ function renderEntry(box, e) {
     const ext = (href, zh, en) => h("a", { href, target: "_blank", rel: "noopener" }, zh, " ", h("span", { lang: "en", class: "muted" }, en), h("span", { class: "sr-only" }, " (opens in a new tab)"), h("span", { "aria-hidden": "true" }, " ↗"));
     const chars = [...new Set([...e.zh].filter(c => HAN.test(c)))];
     box.append(section("sec-dict", "查字典", "Dictionaries", h("ul", { class: "lib-links" },
+      e.type === "chengyu" ? h("li", {}, ext(`https://dict.idioms.moe.edu.tw/search.jsp?word=${w}`, "教育部《成語典》", "MOE Dictionary of Chinese Idioms")) : null,
       h("li", {}, ext(`https://dict.concised.moe.edu.tw/search.jsp?md=1&word=${w}`, "教育部《國語辭典簡編本》", "MOE Concise Dictionary")),
       h("li", {}, ext(`https://dict.revised.moe.edu.tw/search.jsp?md=1&word=${w}`, "教育部《重編國語辭典修訂本》", "MOE Revised Dictionary")),
       h("li", {}, ext(`https://www.moedict.tw/${w}`, "萌典", "moedict")),
@@ -983,6 +1077,52 @@ function renderEntry(box, e) {
           "aria-label": `${c} 筆順 stroke order (MOE, opens in a new tab)` }, h("span", { lang: "zh-Hant-TW" }, c), h("span", { "aria-hidden": "true" }, " ↗"))])) : null)));
   }
 }
+// ---------- 成語 and 部首 entries
+// The MOE 成語典 fields as the MOE wrote them (CC BY-ND: no changes), each under its MOE heading, then the credit.
+const CY_FIELDS = [[["meaning", "definition", "釋義"], "釋義", "Meaning"], [["story", "allusion", "典故說明"], "典故說明", "The story"],
+  [["source_text", "source", "典源"], "典源", "Source text"], [["usage", "semantics", "語義說明"], "語義說明", "Usage"],
+  [["usage_type", "使用類別"], "使用類別", "Used for"], [["examples", "example", "例句"], "例句", "Examples"],
+  [["quotes", "citations", "書證"], "書證", "Citations"], [["synonyms", "近義"], "近義", "Similar idioms"],
+  [["antonyms", "反義"], "反義", "Opposite idioms"], [["distinction", "辨識"], "辨識", "Telling them apart"]];
+function chengyuBody(box, r) {
+  const zy = str(r.moe_zhuyin || r.zhuyin);
+  if (zy) box.append(section("sec-cy-zy", "教育部注音", "MOE reading", h("p", { class: "lib-cy-zy", lang: "zh-Hant-TW" }, zy)));
+  CY_FIELDS.forEach(([keys, zh, en], i) => {
+    const k = keys.find(x => r[x] != null && r[x] !== "");
+    if (!k) return;
+    const parts = (Array.isArray(r[k]) ? r[k] : [r[k]]).map(p => (p && typeof p === "object" ? str(p.zh ?? p.text) : str(p))).filter(s => s.trim());
+    if (!parts.length) return;
+    box.append(section(`sec-cy-${i}`, zh, en, keys[0] === "examples" && parts.length > 1
+      ? h("ul", { class: "lib-cy-list" }, parts.map(t => h("li", { lang: "zh-Hant-TW" }, t)))
+      : parts.map(t => h("p", { class: "lib-cy-t", lang: "zh-Hant-TW" }, t))));
+  });
+  box.append(chengyuCredit());
+}
+// The attribution chengyu.json carries (MOE 成語典, CC BY-ND 3.0 TW), with the license text the build ships.
+function chengyuCredit() {
+  const m = (lib && lib.meta && lib.meta.chengyu) || {};
+  const lic = m.license && typeof m.license === "object" ? m.license : {};
+  const attribution = str(m.attribution || lic.attribution) || "中華民國教育部（Ministry of Education, R.O.C.）。《成語典》。";
+  const name = str(lic.name || (typeof m.license === "string" ? m.license : "")) || "CC BY-ND 3.0 TW";
+  return h("p", { class: "small muted lib-credit" }, h("span", { lang: "zh-Hant-TW" }, attribution), " ",
+    lic.path ? h("a", { href: str(lic.path) }, name) : name, "。內容未經修改。", enText(" Shown unmodified."));
+}
+function radicalBody(box, e, r) {
+  const forms = RADICAL_FORMS[e.zh] || [];
+  const chars = [...new Set([...str(r.chars)].filter(c => HAN.test(c)))];
+  const lic = (lib && lib.meta && lib.meta.chars) || {};
+  const kv = (zh, en, dd) => [h("dt", {}, zh, " ", h("span", { lang: "en" }, en)), dd];
+  box.append(section("sec-rad", "部首", "Radical",
+    h("dl", { class: "kv lib-kv" },
+      r.n ? kv("康熙部首", "Kangxi no.", h("dd", {}, String(r.n))) : null,
+      r.strokes ? kv("筆畫", "Strokes", h("dd", {}, String(r.strokes))) : null,
+      forms.length ? kv("當偏旁", "As a component", h("dd", { lang: "zh-Hant-TW" }, forms.join("、"))) : null),
+    chars.length ? h("p", { class: "small" }, "用這個部首的常見字（點一個字，在資料庫搜尋）：", enText(" Common characters with this radical (tap one to search the Library):")) : null,
+    chars.length ? h("ul", { class: "lib-rad-chars" }, chars.map(c => h("li", {},
+      h("a", { class: "lib-rad-char", href: `library.html?q=${encodeURIComponent(c)}`, lang: "zh-Hant-TW", "aria-label": `${c} 在資料庫搜尋 Search the Library` }, c)))) : null,
+    lic.radicals || lic.meanings ? h("p", { class: "small muted lib-credit" }, enText([lic.radicals, lic.meanings].filter(Boolean).map(str).join(" · "), { class: "imm-keep" })) : null));
+}
+
 // "Show sandhi" (§5 display toggle, as on the Tone Gym): spoken tones over the written ones in every ruby.
 function sandhiSwitch(e) {
   const on = !!settings().sandhi;

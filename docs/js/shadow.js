@@ -33,7 +33,7 @@
 //   session's minutes are counted ×20 (simulated), so a full 10-minute session runs in 30 s and counts as one.
 import { h, $, clear, mountShell, store, loadJSON, shuffle, pick, ruby, settings, setSetting, syllables, toneOf, baseOf, INITIALS,
   TONE_NAMES, enText, bi, toast, today, logMinutes, stopAudio, Recorder, canRecord, saveRecording, listRecordings, audioContext,
-  playMoe, playFile, speak } from "./app.js";
+  playMoe, playFile, speak, defaultRate } from "./app.js";
 import { ShadowPlayer, playerControls, stopPlayers, RATES } from "./player.js";
 import { loadPitchy, LivePitch, analyzeSamples, normalize, compare, overlay, describeContour } from "./pitch.js";
 
@@ -74,8 +74,12 @@ const focusLost = () => { const a = document.activeElement; return !a || a === d
 const put = (el, ...kids) => { el.replaceChildren(...kids.flat(Infinity).filter(k => k != null && k !== false)); return el; };
 
 // ------------------------------------------------------------------ preferences and stats
-const prefs = () => ({ minutes: 10, level: "all", rate: 1, text: true, zhuyin: true, en: true, reading: null, ...(store.get(KEY.prefs, {}) || {}) });
-const setPref = (k, v) => store.set(KEY.prefs, { ...prefs(), [k]: v });
+// The speed and the English switch start from Settings (Default speed, English translations) until the learner sets
+// them here; setPref stores only what was set on this page, so the rest keeps following Settings.
+const ownPrefs = () => { const p = store.get(KEY.prefs, {}); return p && typeof p === "object" ? p : {}; };
+const prefs = () => { const s = settings(), sp = Number(s.speed);
+  return { minutes: 10, level: "all", rate: RATES.includes(sp) ? sp : 1, text: true, zhuyin: true, en: s.english !== false, reading: null, ...ownPrefs() }; };
+const setPref = (k, v) => store.set(KEY.prefs, { ...ownPrefs(), [k]: v });
 const lineStats = () => store.get(KEY.lines, {}) || {};
 function recordLineStat(line, rating) {
   const all = lineStats();
@@ -409,7 +413,7 @@ function renderSession(panel) {
     card.append(h("div", { class: "sh-chosen" },
       h("p", { class: "small muted sh-chosen-lbl" }, "選好的句子 ", en("Chosen line")),
       h("p", { class: "sh-chosen-line" }, lineRuby(chosen, { cls: "" }), chosen.type === "moe" ? h("span", { class: "small muted" }, ` · ${lineTitle(chosen).split(" · ")[1]} `, en(lineTitleEn(chosen))) : null),
-      chosen.en ? h("p", { class: "small muted" }, en(chosen.en)) : null, srcBadge(chosen.src),
+      chosen.en && prefs().en ? h("p", { class: "small muted" }, en(chosen.en, { class: "lc-en" })) : null, srcBadge(chosen.src),
       h("div", { class: "row sh-chosen-btns" },
         h("button", { type: "button", class: "btn primary", onclick: () => startProtocol(panel, { first: [chosen], single: true }) }, "▶ ", ...bi("只練這一句", "Practise this line")),
         h("button", { type: "button", class: "btn", onclick: () => startProtocol(panel, { first: [chosen], minutes: prefs().minutes, level: prefs().level }) },
@@ -619,7 +623,7 @@ function startProtocol(panel, { first = [], single = false, minutes = null, leve
     const line = S.line, p = prefs();
     clear(textIn);
     textIn.append(h("p", { class: "sh-big" }, lineRuby(line, { zhuyin: p.zhuyin })));
-    if (line.en && p.en) textIn.append(h("p", { class: "sh-en" }, en(line.en)));
+    if (line.en && p.en) textIn.append(h("p", { class: "sh-en" }, en(line.en, { class: "lc-en" })));
     if (line.type === "moe" && line.seg !== 0) {
       // the script of a chunk is the entry text: the chunks are cut at pauses and do not line up with it exactly
       textIn.append(h("div", { class: "sh-script", lang: "zh-Hant-TW" }, line.reading.text.split("\n").map(t => h("p", {}, t))),
@@ -1175,7 +1179,7 @@ function renderBank(panel) {
     const btn = h("button", { type: "button", class: "sh-row-btn", "aria-expanded": "false", "aria-controls": `sh-d-${l.key}`, onclick: () => toggle(),
       "aria-label": `${l.zh}${l.en ? `, ${l.en}` : ""} — ${SRC[l.src].label}${st && st.rating ? `; last rated ${st.rating}` : ""}` },
       h("span", { class: "sh-row-zh" }, lineRuby(l)),
-      prefs().en && l.en ? h("span", { class: "sh-row-en", lang: "en" }, l.en) : null,
+      prefs().en && l.en ? h("span", { class: "sh-row-en lc-en", lang: "en" }, l.en) : null,
       h("span", { class: "sh-row-close", "aria-hidden": "true" }, "▲ 收起 ", h("span", { lang: "en" }, "Close")), // open: the detail shows the text
       h("span", { class: "sh-row-meta" }, srcBadge(l.src, { label: false }),
         st && st.rating ? h("span", { class: `sh-pill r-${st.rating}` }, RATINGS.find(x => x[0] === st.rating)[1], h("span", { class: "sr-only", lang: "en" }, ` last rated ${st.rating}`)) : null));
@@ -1198,7 +1202,7 @@ function renderBank(panel) {
     const drawText = () => {
       const p = prefs();
       put(textBox, p.text ? h("p", { class: "sh-big" }, lineRuby(l, { zhuyin: p.zhuyin })) : h("p", { class: "sh-hidden-msg" }, "文字藏起來了 ", en("Text hidden")),
-        p.en && l.en ? h("p", { class: "sh-en" }, en(l.en)) : null);
+        p.en && l.en ? h("p", { class: "sh-en" }, en(l.en, { class: "lc-en" })) : null);
     };
     drawText();
     box.append(h("div", { class: "sh-detail-top" }, srcBadge(l.src),
@@ -1418,7 +1422,8 @@ function nativeCheck(box, items, L, it) {
     if (m.src === "span") { playMoe(m.id).catch(() => toast("無法播放 Could not play")); return; }
     if (m.src === "file") { playFile(m.path); return; }
     if (m.src === "voice") { speak(m.text || it.zh); return; }
-    if (!modelPlayer) modelPlayer = watchPlaying(new ShadowPlayer({ src: m.src === "tts" ? m.path : null, id: m.src === "moe" ? m.id : null, start: m.start || 0, end: m.end ?? null, owner: box, keepMic: true }));
+    // Same speed as the span/file/voice models above (playMoe/playFile/speak default to Settings › Default speed)
+    if (!modelPlayer) modelPlayer = watchPlaying(new ShadowPlayer({ src: m.src === "tts" ? m.path : null, id: m.src === "moe" ? m.id : null, start: m.start || 0, end: m.end ?? null, rate: defaultRate(), owner: box, keepMic: true }));
     modelPlayer.play().catch(() => toast("無法播放 Could not play"));
   };
   const [kzh, ken] = KINDS[it.kind] || [it.kind, it.kind];

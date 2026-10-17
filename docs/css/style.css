@@ -130,11 +130,56 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 18px var(--gutter) 24px;
 ruby { ruby-position: over; }
 rt { font-size: .5em; letter-spacing: .05em; color: var(--muted); font-weight: 400; white-space: nowrap; }
 ruby { white-space: nowrap; }
+/* a long ruby run (one <ruby> per character, nowrap) must still wrap between characters on a narrow screen */
+.rb { overflow-wrap: anywhere; }
 .hide-ruby rt { visibility: hidden; }
 rt.sandhi { color: var(--warn); font-weight: 500; }
 .zhuyin { letter-spacing: .06em; }
 .big-zh { font-size: 40px; line-height: 1.2; }
 .big-zh rt { font-size: 15px; }
+
+/* ---------- display settings (§5, §5.9; M6 design). app.js applyDisplay() puts the classes on <html> on every page;
+   ruby() marks what it draws with the setting (span.rb; ruby.t1..t5 = the tone shown; ruby.rb-known = a word marked
+   known in the Library). */
+/* Zhuyin off / only on new words. Exempt: what teaches the sound itself or runs its own Zhuyin switch: the Zhuyin
+   Lab, the Tone Gym and the Shadowing page, every drill (.drill: contrast choices differ only in their Zhuyin), the
+   pitch mirror word, the Units dialogue and shadowing lines (their own all / new / off switch), the Advanced reading
+   ladder's steps, the Plan page's checks (their own Zhuyin switch), the Settings preview and anything in .ruby-own. */
+html.set-ruby-off:not([data-page="lab"], [data-page="tones"], [data-page="shadow"])
+  .rb:not(:is(.drill, .mirror-word, .un-line-zh, .un-sh-zh, .adv-s, .pl-run, .pl-big, .pl-word-zh, .pl-reading, .st-preview, .ruby-own),
+    :is(.drill, .mirror-word, .un-line-zh, .un-sh-zh, .adv-s, .pl-run, .pl-big, .pl-word-zh, .pl-reading, .st-preview, .ruby-own) *) rt { display: none; }
+html.set-ruby-new:not([data-page="lab"], [data-page="tones"], [data-page="shadow"])
+  .rb:not(:is(.drill, .mirror-word, .un-line-zh, .un-sh-zh, .adv-s, .pl-run, .pl-big, .pl-word-zh, .pl-reading, .st-preview, .ruby-own),
+    :is(.drill, .mirror-word, .un-line-zh, .un-sh-zh, .adv-s, .pl-run, .pl-big, .pl-word-zh, .pl-reading, .st-preview, .ruby-own) *) ruby.rb-known rt,
+.rb-new ruby.rb-known rt { visibility: hidden; } /* a known word keeps the line's ruby band, so lines stay even */
+/* English translations of learning content off (pages with their own English switch start it from the setting).
+   Learning-content English is marked lc-en by every page (translations, glosses, quiz questions and answer options,
+   placement options, lesson explanations): it follows only this switch, never immersion. What sits in a control or a
+   heading stays even with English off (an answer option or a question in English must stay answerable), and the
+   pages with their own English switch (Units dialogues, Shadowing) apply it themselves. */
+html.set-no-en:not([data-page="units"], [data-page="shadow"]) .lc-en:not(:is(button, label, legend, summary, h1, h2, h3, h4, [role=button], [role=radio], [role=option], [role=checkbox]),
+  :is(button, label, legend, summary, h1, h2, h3, h4, [role=button], [role=radio], [role=option], [role=checkbox]) *) { display: none; }
+html.set-no-en :is(.gloss, .lib-gloss, .lib-row-en, .lib-ex-en, .tc-gloss, .tg-word-en, .sd-en, .drill-gloss > .lc-en, .example > .en, .choice > .en, .un-v-en) { display: none; }
+/* pinyin aids only when pinyin is on (off by default, Zhuyin first); Mainland readings in comparisons are content */
+html:not(.set-pinyin) :is(.py-aid, .lib-py) { display: none; }
+/* tone colours (off by default, §6.7): the Zhuyin only, never the character, so a drill that hides the Zhuyin still
+   gives nothing away; sandhi syllables keep a dotted underline as their mark */
+:root { --tone-1: #c62828; --tone-2: #9a5800; --tone-3: #2e7d32; --tone-4: #1565c0; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --tone-1: #ff8a80; --tone-2: #f2b25c; --tone-3: #7fcf86; --tone-4: #79b8f3; }
+}
+:root[data-theme="dark"] { --tone-1: #ff8a80; --tone-2: #f2b25c; --tone-3: #7fcf86; --tone-4: #79b8f3; }
+html.set-tone-colours ruby.t1 > rt { color: var(--tone-1); }
+html.set-tone-colours ruby.t2 > rt { color: var(--tone-2); }
+html.set-tone-colours ruby.t3 > rt { color: var(--tone-3); }
+html.set-tone-colours ruby.t4 > rt { color: var(--tone-4); }
+html.set-tone-colours rt.sandhi { text-decoration: underline dotted; text-underline-offset: 2px; }
+/* immersion: a Chinese-only interface. Interface English ([lang="en"] runs) is hidden; learning-content English (.lc-en,
+   and the older translation classes) stays (it follows the English switch), and so do names kept by app.js (.imm-keep: a control or label whose visible
+   name would otherwise be English only) and proper names (.adv-name). Keep the list in step with app.js IMM_SHOWN. */
+html.immersion [lang="en"]:not(option, input, textarea, select,
+  :is(.imm-keep, .lc-en, .adv-name, .gloss, .tr, .lib-gloss, .lib-row-en, .lib-ex-en, .tc-gloss, .tg-word-en, .sd-en, .drill-gloss, .example > .en, .choice > .en, .un-line-en, .un-v-en, .un-g-en, .un-sh-en, .un-task-en, .sh-en, .sh-row-en),
+  :is(.imm-keep, .lc-en, .adv-name, .gloss, .tr, .lib-gloss, .lib-row-en, .lib-ex-en, .tc-gloss, .tg-word-en, .sd-en, .drill-gloss, .example > .en, .choice > .en, .un-line-en, .un-v-en, .un-g-en, .un-sh-en, .un-task-en, .sh-en, .sh-row-en) *) { display: none; }
 
 /* ---------- Lab: symbol chart (the hero) */
 .chart-group { margin: 0 0 18px; }

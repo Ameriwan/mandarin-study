@@ -13,6 +13,8 @@
 //   plan.goal        {date: "YYYY-MM-DD", band: "A1"|"A2"|"B1"|"B2"}
 //   plan.run.placement / plan.run.check   a check in progress (plain JSON), so it can be paused and resumed
 //   focus.contrasts, lab.contrasts        weak contrasts go to the daily focus (drills.js has no setter: see addFocusContrasts)
+//   tones.weak                            weak tones of the diagnostic (drills.js setWeakTones; toneWeights reads them)
+// Settings read: dailyMinutes and studyDays (the weekly target and the goal-date advice).
 // Listening and speaking stay separate blocks (§6.7): vocabulary → listening → reading → pronunciation. The diagnostic
 // plays MOE human audio only (ground rule 5); listening items play MOE, TTS or the browser voice, always labelled.
 import { h, $, clear, mountShell, store, loadJSON, ruby, playButton, playMoe, playFile, stopAudio, toast, today, logMinutes,
@@ -22,7 +24,9 @@ import * as pitch from "./pitch.js";
 import * as drills from "./drills.js";
 
 // ------------------------------------------------------------------ constants (§8.1, §8.2, §8.4)
-const STUDY_DAYS = 6;          // §0 STUDY_DAYS_PER_WEEK
+const STUDY_DAYS = 6;          // §0 STUDY_DAYS_PER_WEEK (the default; Settings › Study days a week overrides it)
+// Settings "studyDays" (1-7, saved by settings.js), else STUDY_DAYS.
+export const studyDaysSetting = (s = settings()) => { const n = Math.round(Number(s && s.studyDays)); return n >= 1 && n <= 7 ? n : STUDY_DAYS; };
 const PHASE0_DAYS = 28;        // Phase 0 sound reset: the first 4 weeks (§8.1)
 const GOAL_LEVEL = 4;          // §0 GOAL: TOCFL Band B as fast as possible (Band B starts at TBCL 4, B1)
 export const TH = { vocabPlace: 60, skillPlace: 50, vocabStop: 40, skillStop: 50, passVocab: 85, passSkill: 80 };
@@ -517,9 +521,19 @@ function boot() {
     viewToken++;
     clear(panel);
     history.replaceState(null, "", "#" + id);
-    ({ roadmap: renderRoadmap, hours: renderHours, placement: renderPlacement, checks: renderChecks })[id](panel);
+    return ({ roadmap: renderRoadmap, hours: renderHours, placement: renderPlacement, checks: renderChecks })[id](panel);
   };
-  showTab = (id, focusTab = false) => { show(id); if (focusTab) tabs.querySelector(`[data-id="${id}"]`)?.focus(); };
+  // focus: true = the tab; a selector = that control in the new panel once it has rendered (the tab when it is
+  // missing or disabled), so focus never falls to <body> when the control that was used goes away.
+  showTab = (id, focus = false) => {
+    const done = Promise.resolve(show(id)), tok = viewToken, tab = tabs.querySelector(`[data-id="${id}"]`);
+    if (focus === true) tab?.focus();
+    else if (typeof focus === "string") done.catch(() => {}).then(() => {
+      if (tok !== viewToken) return;
+      const el = panel.querySelector(focus);
+      (el && !el.disabled ? el : tab)?.focus();
+    });
+  };
   for (const [id, zh, en] of TABS) {
     tabs.append(h("button", { type: "button", role: "tab", id: `tab-${id}`, "aria-controls": "plan-panel", "data-id": id, "aria-selected": "false", tabindex: "-1", onclick: () => show(id) },
       zh, " ", h("span", { class: "muted small", lang: "en" }, en)));
@@ -614,14 +628,15 @@ function renderHours(panel) {
   const days = store.get("days", {}) || {};
   const now = new Date();
   const t = totals(days), weeks = weekly(days, now, 8), perWeek = pacePerWeek(days, now);
-  const target = (settings().dailyMinutes * STUDY_DAYS) / 60;
+  const studyDays = studyDaysSetting();
+  const target = (settings().dailyMinutes * studyDays) / 60;
   const L = levelInfo();
   const tile = (zh, en, value, unit, sub) => h("div", { class: "pl-tile" }, h("p", { class: "pl-tile-l" }, zh, " ", enText(en)),
     h("p", { class: "pl-tile-v" }, value, h("small", {}, ` ${unit}`)), sub ? h("p", { class: "pl-tile-s muted small" }, sub) : null);
   panel.append(h("div", { class: "pl-tiles" },
     tile("總時數", "Logged", fmtH(t.hours), "h", [`App ${fmtH(t.app / 60)} · 課外 ${fmtH(t.outside / 60)}`]),
     tile("近 4 週", "Last 4 weeks", fmtH(perWeek), "h/週", enText("a week, average")),
-    tile("目標", "Target", fmtH(target), "h/週", enText(`${settings().dailyMinutes} min × ${STUDY_DAYS}`))));
+    tile("目標", "Target", fmtH(target), "h/週", enText(`${settings().dailyMinutes} min × ${studyDays} days`))));
 
   // weekly bars (dataviz: one series, thin 4px-capped columns from one baseline, recessive target line, table view)
   const max = Math.max(target * 1.2, ...weeks.map(w => w.hours), 0.5);
@@ -630,15 +645,37 @@ function renderHours(panel) {
   const readout = h("p", { class: "pl-readout small", "aria-hidden": "true" });
   const say = w => readout.replaceChildren(h("b", {}, `${fmtH(w.hours)} h`), " ", enText(`${weekEn(w)}`), h("span", { class: "muted" }, ` · app ${fmtH(w.app)} · outside ${fmtH(w.outside)}`));
   const best = weeks.reduce((a, w) => (w.hours > a.hours ? w : a), weeks[0]);
-  const plot = h("div", { class: "pl-plot" },
-    h("div", { class: "pl-target", style: `bottom:${(target / max) * 100}%`, "aria-hidden": "true" }),
-    weeks.map(w => h("button", { type: "button", class: "pl-bar" + (w.partial ? " is-partial" : ""),
-      "aria-label": `${weekEn(w)}: ${fmtH(w.hours)} hours (app ${fmtH(w.app)}, outside ${fmtH(w.outside)})`,
-      onpointerenter: () => say(w), onfocus: () => say(w), onclick: () => say(w) },
+  const valText = w => `${weekEn(w)}: ${fmtH(w.hours)} hours (app ${fmtH(w.app)}, outside ${fmtH(w.outside)})`;
+  // The whole plot is one slider (8 separate bar buttons can't each be 44 px wide on a phone): arrows / Home / End,
+  // or a tap, drag or hover over a column, pick the week the readout shows. The table below has every number too.
+  const bars = weeks.map(w => h("span", { class: "pl-bar" + (w.partial ? " is-partial" : ""), "aria-hidden": "true" },
     h("span", { class: "pl-bar-fill", style: `height:${(w.hours / max) * 100}%` }),
-    (w === best && w.hours > 0) || w.partial ? h("span", { class: "pl-bar-val", style: `bottom:${(w.hours / max) * 100}%`, "aria-hidden": "true" }, fmtH(w.hours)) : null)));
+    (w === best && w.hours > 0) || w.partial ? h("span", { class: "pl-bar-val", style: `bottom:${(w.hours / max) * 100}%` }, fmtH(w.hours)) : null));
+  let cur = -1;
+  const pick = i => {
+    i = Math.max(0, Math.min(weeks.length - 1, i));
+    if (i === cur) return;
+    cur = i;
+    say(weeks[i]);
+    bars.forEach((b, j) => b.classList.toggle("is-on", j === i));
+    plot.setAttribute("aria-valuenow", String(i + 1));
+    plot.setAttribute("aria-valuetext", valText(weeks[i]));
+  };
+  const colAt = e => { const r = plot.getBoundingClientRect(); return r.width > 0 ? Math.floor(((e.clientX - r.left) / r.width) * weeks.length) : cur; };
+  const plot = h("div", { class: "pl-plot", role: "slider", tabindex: "0", "aria-labelledby": "pl-chart-h", "aria-orientation": "horizontal",
+    "aria-valuemin": "1", "aria-valuemax": String(weeks.length),
+    onpointerdown: e => pick(colAt(e)),
+    onpointermove: e => { if (e.pointerType === "mouse" || e.buttons) pick(colAt(e)); },
+    onkeydown: e => {
+      const j = { ArrowLeft: cur - 1, ArrowDown: cur - 1, ArrowRight: cur + 1, ArrowUp: cur + 1, Home: 0, End: weeks.length - 1 }[e.key];
+      if (j === undefined || e.altKey || e.ctrlKey || e.metaKey) return;
+      e.preventDefault();
+      pick(j);
+    } },
+    h("div", { class: "pl-target", style: `bottom:${(target / max) * 100}%`, "aria-hidden": "true" }),
+    bars);
   const axis = h("div", { class: "pl-axis", "aria-hidden": "true" }, weeks.map(w => h("span", {}, label(w))));
-  say(weeks[weeks.length - 1]);
+  pick(weeks.length - 1);
   const table = h("table", { class: "pl-table" },
     h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "週 ", enText("Week of")), h("th", { scope: "col" }, enText("Hours")), h("th", { scope: "col" }, "App"), h("th", { scope: "col" }, "課外 ", enText("Outside")))),
     h("tbody", {}, weeks.map(w => h("tr", {}, h("th", { scope: "row" }, w.start, w.partial ? enText(" (so far)") : ""), h("td", {}, fmtH(w.hours)), h("td", {}, fmtH(w.app)), h("td", {}, fmtH(w.outside))))));
@@ -655,12 +692,15 @@ function renderHours(panel) {
   const from = BANDS.indexOf(nb);
   const rows = BANDS.slice(from, Math.max(from, goalIdx) + 1);
   const nw = s => h("span", { class: "pl-nw", lang: "en" }, s);
-  const when = o => o.reached ? enText("reached") : !o.dateLo ? enText("no pace yet") : o.inRange
-    ? [nw("in range now –"), " ", nw(monthEn(o.dateHi))] : [nw(`${monthEn(o.dateLo)} –`), " ", nw(monthEn(o.dateHi))];
+  // with no recent pace a band already entered has a start (today) but no end date
+  const when = o => o.reached ? enText("reached") : o.inRange
+    ? (o.dateHi ? [nw("in range now –"), " ", nw(monthEn(o.dateHi))] : [nw("in range now"), " ", enText("(no pace for the high end)")])
+    : !o.dateLo || !o.dateHi ? enText("no pace yet") : [nw(`${monthEn(o.dateLo)} –`), " ", nw(monthEn(o.dateHi))];
   const sec = h("section", { class: "pl-section", "aria-labelledby": "pl-pace-h" },
     h("h2", { id: "pl-pace-h" }, "照目前的速度 ", enText("At this pace")),
     h("p", { class: "small" }, ...(perWeek > 0
       ? bi(`以近 4 週平均每週 ${fmtH(perWeek)} 小時計算，日期是 TOCFL 時數範圍的兩端。`, `At your last-4-weeks average of ${fmtH(perWeek)} h a week; the dates are the two ends of the TOCFL hour range.`)
+      : t.hours > 0 ? bi("近 4 週沒有記錄到學習時間，所以算不出速度。", "No study time logged in the last 4 weeks, so there is no pace to project.")
       : bi("還沒有記錄到學習時間，所以算不出速度。", "No study time logged yet, so there is no pace to project."))),
     h("div", { class: "pl-table-wrap" }, h("table", { class: "pl-table" },
       h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "等級 ", enText("Band")), h("th", { scope: "col" }, "時數 ", enText("Hours")), h("th", { scope: "col" }, "還差 ", enText("To go")), h("th", { scope: "col" }, "大約 ", enText("Around")))),
@@ -682,8 +722,8 @@ function renderHours(panel) {
     const band = BANDS.find(b => b.id === goal.band) || BANDS[2];
     clear(out);
     if (!goal.date) { out.append(h("p", { class: "muted small" }, ...bi("選一個日期，看看目前的速度來不來得及。", "Pick a date to see whether this pace gets there."))); return; }
-    const a = goalAdvice(t.hours, perWeek, band, goal.date, now);
-    const need = () => h("p", {}, ...bi(`需要每天 ${a.needLo}–${a.needHi} 分鐘（每週 ${STUDY_DAYS} 天）。`, `That needs ${a.needLo}–${a.needHi} minutes a day, ${STUDY_DAYS} days a week (low and high end of the estimate).`),
+    const a = goalAdvice(t.hours, perWeek, band, goal.date, now, studyDays);
+    const need = () => h("p", {}, ...bi(`需要每天 ${a.needLo}–${a.needHi} 分鐘（每週 ${studyDays} 天）。`, `That needs ${a.needLo}–${a.needHi} minutes a day, ${studyDays} days a week (low and high end of the estimate).`),
       a.needLo > 240 ? h("span", { class: "muted" }, " ", ...bi("一天超過 4 小時：考慮晚一點的日期。", "That's over 4 hours a day: consider a later date.")) : null);
     const msg = {
       invalid: () => [h("p", {}, ...bi("日期看不懂。", "That date can't be read."))],
@@ -743,7 +783,7 @@ async function renderPlacement(panel) {
   const start = () => { const run = newRun("placement"); runView(panel, run); };
   const actions = h("div", { class: "row pl-actions" });
   if (saved && saved.kind === "placement" && saved.stage !== "done") {
-    actions.append(h("button", { type: "button", class: "btn primary", disabled: !ready, onclick: () => runView(panel, saved) }, "繼續 ", enText(`Resume (started ${saved.date})`)),
+    actions.append(h("button", { type: "button", class: "btn primary", "data-resume": "", disabled: !ready, onclick: () => runView(panel, saved) }, "繼續 ", enText(`Resume (started ${saved.date})`)),
       h("button", { type: "button", class: "btn", disabled: !ready, onclick: () => { store.remove(RUN_KEY("placement")); start(); } }, "重新開始 ", enText("Start over")));
   } else {
     actions.append(h("button", { type: "button", class: "btn primary", disabled: !ready, onclick: start }, last ? "再做一次 " : "開始 ", enText(last ? "Run it again" : "Start")));
@@ -771,8 +811,8 @@ async function renderChecks(panel) {
   const ready = !D.missing.placement && !D.missing.words;
   if (saved && saved.kind === "check" && saved.stage !== "done") {
     panel.append(h("div", { class: "card pl-resume" }, h("p", {}, `第 ${saved.level} 級檢查進行中 `, enText(`A Level ${saved.level} check is in progress (started ${saved.date}${saved.practice ? ", practice" : ""}).`)),
-      h("div", { class: "row" }, h("button", { type: "button", class: "btn primary", disabled: !ready, onclick: () => runView(panel, saved) }, "繼續 ", enText("Resume")),
-        h("button", { type: "button", class: "btn", onclick: () => { store.remove(RUN_KEY("check")); showTab("checks"); } }, "放棄 ", enText("Discard")))));
+      h("div", { class: "row" }, h("button", { type: "button", class: "btn primary", "data-resume": "", disabled: !ready, onclick: () => runView(panel, saved) }, "繼續 ", enText("Resume")),
+        h("button", { type: "button", class: "btn", onclick: () => { store.remove(RUN_KEY("check")); showTab("checks", true); } }, "放棄 ", enText("Discard")))));
   }
   const list = h("div", { class: "pl-checks" });
   for (const n of [1, 2, 3, 4, 5]) {
@@ -784,7 +824,7 @@ async function renderChecks(panel) {
     list.append(h("section", { class: "card pl-check" + (L && L.level === n ? " is-current" : ""), "aria-labelledby": `pl-ck-${n}` },
       h("h3", { id: `pl-ck-${n}`, class: "pl-check-h" }, ...levelName(n), h("span", { class: "pl-band" }, enText(lv.band))),
       h("p", { class: "small" }, unlocked ? ["🔓 ", ...bi("已解鎖。", "Unlocked.")]
-        : ["🔒 ", ...(share == null ? bi("課程還沒建置（M5），所以還鎖著。", "Locked: units arrive in M5.")
+        : ["🔒 ", ...(share == null ? bi("這一級的課程還沒寫好，所以還鎖著。", "Locked: this level's units aren't written yet.")
           : bi(`已完成 ${Math.round(share * 100)}% 的課程，要 90%。`, `${Math.round(share * 100)}% of the units done; 90% unlocks it.`))]),
       r ? h("p", { class: "small" }, r.passed ? h("span", { class: "feedback good" }, "✓ 通過 ", enText("Passed")) : h("span", {}, "未通過 ", enText("Not yet")),
         ` · ${r.date}`, r.practice ? h("span", { class: "muted" }, " · ", enText("practice")) : null) : null,
@@ -813,7 +853,7 @@ function runView(panel, run) {
     save,
     onDown: f => stepDown.push(f),
     act(fn) { logActive(); fn(); redraw(); },
-    pause() { save(); showTab(run.kind === "check" ? "checks" : "placement"); },
+    pause() { save(); showTab(run.kind === "check" ? "checks" : "placement", "[data-resume]"); },  // focus: its Resume button
   };
   function redraw() {
     settle(run, D);
@@ -859,7 +899,8 @@ function zhuyinToggle(run, target, ctx) {
   return b;
 }
 const optionButtons = (options, onPick, { dontKnow = true, skip = null } = {}) => h("div", { class: "pl-opts", role: "group", "aria-label": "選項 Options" },
-  options.map((o, j) => h("button", { type: "button", class: "pl-opt", lang: "en", onclick: () => onPick(j) }, h("span", { class: "pl-opt-k", "aria-hidden": "true" }, "ABCDEFG"[j]), o)),
+  // the options are learning content (lc-en): immersion never hides them
+  options.map((o, j) => h("button", { type: "button", class: "pl-opt", onclick: () => onPick(j) }, h("span", { class: "pl-opt-k", "aria-hidden": "true" }, "ABCDEFG"[j]), enText(o, { class: "lc-en" }))),
   dontKnow ? h("button", { type: "button", class: "pl-opt pl-opt-dk", onclick: () => onPick(-1) }, "不知道 ", enText("I don't know")) : null,
   skip ? h("button", { type: "button", class: "pl-opt pl-opt-dk", onclick: skip }, "播不出來，跳過 ", enText("Can't play it: skip (not counted)")) : null);
 
@@ -908,7 +949,7 @@ function drawSkill(stage, run, ctx) {
     const text = h("p", { class: "pl-reading" }, ruby(q.zh, q.zhuyin, { cls: "", spoken: q.spoken }));
     stage.append(h("div", { class: "pl-reading-box" }, text, h("div", { class: "row" }, zhuyinToggle(run, text, ctx))));
   }
-  stage.append(h("h3", { class: "pl-q", tabindex: "-1", "data-focus": listening ? null : "" }, enText(q.question || (listening ? "What did you hear?" : "What does it say?"))),
+  stage.append(h("h3", { class: "pl-q", tabindex: "-1", "data-focus": listening ? null : "" }, enText(q.question || (listening ? "What did you hear?" : "What does it say?"), { class: "lc-en" })),
     optionButtons(q.options, j => ctx.act(() => answerSkill(run, skill, j)), { skip: listening ? () => ctx.act(() => answerSkill(run, skill, null)) : null }),
     h("div", { class: "row pl-actions" }, h("button", { type: "button", class: "btn small pl-giveup", onclick: () => ctx.act(() => giveUpSkill(run, skill)) },
       listening ? "太難了，結束聽力 " : "太難了，結束閱讀 ", enText(listening ? "Too hard: end the listening part" : "Too hard: end the reading part"))));
@@ -1060,7 +1101,7 @@ function drawDiag(stage, run, ctx) {
   sync();
   stage.append(...[
     h("p", { class: "muted small pl-meta" }, `第 ${d.i + 1} / ${d.items.length} 個 `, enText(`Word ${d.i + 1} of ${d.items.length} · listen, ${d.noMic ? "say it aloud" : "record yourself"}, then judge it`)),
-    h("div", { class: "mirror-word" }, h("span", { class: "big-zh" }, ruby(it.zh, it.zhuyin, { cls: "", spoken: it.spoken, sandhi: true })), it.en ? enText(it.en, { class: "muted" }) : null),
+    h("div", { class: "mirror-word" }, h("span", { class: "big-zh" }, ruby(it.zh, it.zhuyin, { cls: "", spoken: it.spoken, sandhi: true })), it.en ? enText(it.en, { class: "muted lc-en" }) : null),
     said !== it.zhuyin ? h("p", { class: "small mirror-sandhi" }, `變調：寫作 ${it.zhuyin}，說成 ${said}。`, enText(` Tone sandhi: written ${it.zhuyin}, said ${said}.`)) : null,
     d.noMic ? null : box, d.noMic ? null : shapeLine,
     d.noMic ? h("p", { class: "small mirror-nomic", role: "note" }, d.noMic === "denied" ? "沒有麥克風權限。" : "這裡不能錄音。", "聽示範，大聲說幾次，再自己判斷。",
@@ -1085,6 +1126,10 @@ function applyResult(run) {
   const hist = arr(store.get("plan.history", []));
   if (run.kind === "placement") {
     r.focus = addFocusContrasts(r.diagnostic.weakContrasts);
+    // weak tones bias the Tone ID draw (drills.js toneWeights), replacing an earlier placement's; skipped diagnostic: kept
+    if (r.diagnostic && r.diagnostic.judged > 0) {
+      try { drills.setWeakTones(arr(r.diagnostic.weakTones), "placement"); } catch (err) { console.error(err); }
+    }
     store.set("plan.placement", r);
     store.set("level", r.level);
     hist.push({ date: r.date, kind: "placement", level: r.level });
@@ -1120,7 +1165,7 @@ function resultView(r, { fresh = false } = {}) {
     out.append(h("p", { class: "pl-result-h" }, `從第 ${r.level} 級開始 `, enText(`Start at TBCL Level ${r.level}`)),
       h("p", {}, ...phaseName(r.phase || phaseOf(r.level))),
       h("p", { class: "small" }, r.startUnit ? ["第一課 ", enText("First unit: "), h("a", { href: `units.html#${encodeURIComponent(r.startUnit.id)}` }, r.startUnit.title)]
-        : bi(`課程在 M5 才會有：先從第 ${r.level} 級的詞和語法開始（在資料庫裡）。`, `Units arrive in M5: start with Level ${r.level}'s words and grammar in the Library.`),
+        : bi(`第 ${r.level} 級的課程還沒寫好：先從這一級的詞和語法開始（在資料庫裡）。`, `Level ${r.level}'s units aren't written yet: start with its words and grammar in the Library.`),
         r.startUnit ? null : [" ", h("a", { href: "library.html" }, enText("Library"))]));
   }
   out.append(h("div", { class: "pl-table-wrap" }, h("table", { class: "pl-table pl-result-table" },
