@@ -1,0 +1,1151 @@
+{
+ "_note": "Register track (MASTER_PROMPT §5.8 item 7, Band B+). 書面語 vs 口語 pairs, news vocabulary, and one situation written as a formal letter and as a LINE message. Every zhuyin is the MOE/TBCL base tone (§6.4); levels are TBCL levels where the word is in the TBCL list, else null.",
+ "band": "B",
+ "title_zh": "書面語與口語",
+ "title_en": "Written and spoken register",
+ "pairs": [
+  {
+   "id": "R01",
+   "written": "於",
+   "written_zhuyin": "ㄩˊ",
+   "spoken": "在",
+   "spoken_zhuyin": "ㄗㄞˋ",
+   "en": "at, in (place or time)",
+   "example_zh": "本次說明會於縣政府大禮堂舉行。",
+   "example_zhuyin": "ㄅㄣˇ ㄘˋ ㄕㄨㄛ ㄇㄧㄥˊ ㄏㄨㄟˋ ㄩˊ ㄒㄧㄢˋ ㄓㄥˋ ㄈㄨˇ ㄉㄚˋ ㄌㄧˇ ㄊㄤˊ ㄐㄩˇ ㄒㄧㄥˊ",
+   "example_en": "This briefing will be held in the auditorium of the County Government."
+  },
+  {
+   "id": "R02",
+   "written": "自",
+   "written_zhuyin": "ㄗˋ",
+   "spoken": "從",
+   "spoken_zhuyin": "ㄘㄨㄥˊ",
+   "en": "from (a place or time)",
+   "example_zh": "本店營業時間自上午十點至晚上九點。",
+   "example_zhuyin": "ㄅㄣˇ ㄉㄧㄢˋ ㄧㄥˊ ㄧㄝˋ ㄕˊ ㄐㄧㄢ ㄗˋ ㄕㄤˋ ㄨˇ ㄕˊ ㄉㄧㄢˇ ㄓˋ ㄨㄢˇ ㄕㄤˋ ㄐㄧㄡˇ ㄉㄧㄢˇ",
+   "example_en": "Our opening hours are from 10 a.m. to 9 p.m."
+  },
+  {
+   "id": "R03",
+   "written": "至",
+   "written_zhuyin": "ㄓˋ",
+   "spoken": "到",
+   "spoken_zhuyin": "ㄉㄠˋ",
+   "en": "to, until",
+   "example_zh": "報名時間至本月三十日為止。",
+   "example_zhuyin": "ㄅㄠˋ ㄇㄧㄥˊ ㄕˊ ㄐㄧㄢ ㄓˋ ㄅㄣˇ ㄩㄝˋ ㄙㄢ ㄕˊ ㄖˋ ㄨㄟˊ ㄓˇ",
+   "example_en": "Registration is open until the 30th of this month."
+  },
+  {
+   "id": "R04",
+   "written": "與",
+   "written_zhuyin": "ㄩˇ",
+   "spoken": "跟",
+   "spoken_zhuyin": "ㄍㄣ",
+   "en": "and, with",
+   "example_zh": "本中心與屏東大學合作開設華語課程。",
+   "example_zhuyin": "ㄅㄣˇ ㄓㄨㄥ ㄒㄧㄣ ㄩˇ ㄆㄧㄥˊ ㄉㄨㄥ ㄉㄚˋ ㄒㄩㄝˊ ㄏㄜˊ ㄗㄨㄛˋ ㄎㄞ ㄕㄜˋ ㄏㄨㄚˊ ㄩˇ ㄎㄜˋ ㄔㄥˊ",
+   "example_en": "Our center offers Mandarin courses together with National Pingtung University."
+  },
+  {
+   "id": "R05",
+   "written": "因",
+   "written_zhuyin": "ㄧㄣ",
+   "spoken": "因為",
+   "spoken_zhuyin": "ㄧㄣ ㄨㄟˋ",
+   "en": "because",
+   "example_zh": "因颱風來襲，屏東縣明日停止上班上課。",
+   "example_zhuyin": "ㄧㄣ ㄊㄞˊ ㄈㄥ ㄌㄞˊ ㄒㄧˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄒㄧㄢˋ ㄇㄧㄥˊ ㄖˋ ㄊㄧㄥˊ ㄓˇ ㄕㄤˋ ㄅㄢ ㄕㄤˋ ㄎㄜˋ",
+   "example_en": "Because a typhoon is approaching, Pingtung County will suspend work and classes tomorrow."
+  },
+  {
+   "id": "R06",
+   "written": "故",
+   "written_zhuyin": "ㄍㄨˋ",
+   "spoken": "所以",
+   "spoken_zhuyin": "ㄙㄨㄛˇ ㄧˇ",
+   "en": "so, therefore",
+   "example_zh": "由於天候不佳，故活動延期舉行。",
+   "example_zhuyin": "ㄧㄡˊ ㄩˊ ㄊㄧㄢ ㄏㄡˋ ㄅㄨˋ ㄐㄧㄚ ㄍㄨˋ ㄏㄨㄛˊ ㄉㄨㄥˋ ㄧㄢˊ ㄑㄧˊ ㄐㄩˇ ㄒㄧㄥˊ",
+   "example_en": "Because of bad weather, the event has been postponed."
+  },
+  {
+   "id": "R07",
+   "written": "若",
+   "written_zhuyin": "ㄖㄨㄛˋ",
+   "spoken": "如果",
+   "spoken_zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ",
+   "en": "if",
+   "example_zh": "若有任何問題，請與本中心聯絡。",
+   "example_zhuyin": "ㄖㄨㄛˋ ㄧㄡˇ ㄖㄣˋ ㄏㄜˊ ㄨㄣˋ ㄊㄧˊ ㄑㄧㄥˇ ㄩˇ ㄅㄣˇ ㄓㄨㄥ ㄒㄧㄣ ㄌㄧㄢˊ ㄌㄨㄛˋ",
+   "example_en": "If you have any questions, please contact our center."
+  },
+  {
+   "id": "R08",
+   "written": "然而",
+   "written_zhuyin": "ㄖㄢˊ ㄦˊ",
+   "spoken": "可是",
+   "spoken_zhuyin": "ㄎㄜˇ ㄕˋ",
+   "en": "however",
+   "example_zh": "這項政策立意良好，然而執行上仍有困難。",
+   "example_zhuyin": "ㄓㄜˋ ㄒㄧㄤˋ ㄓㄥˋ ㄘㄜˋ ㄌㄧˋ ㄧˋ ㄌㄧㄤˊ ㄏㄠˇ ㄖㄢˊ ㄦˊ ㄓˊ ㄒㄧㄥˊ ㄕㄤˋ ㄖㄥˊ ㄧㄡˇ ㄎㄨㄣˋ ㄋㄢˊ",
+   "example_en": "This policy is well-intentioned; however, carrying it out is still difficult."
+  },
+  {
+   "id": "R09",
+   "written": "亦",
+   "written_zhuyin": "ㄧˋ",
+   "spoken": "也",
+   "spoken_zhuyin": "ㄧㄝˇ",
+   "en": "also",
+   "example_zh": "本館亦提供英語導覽服務。",
+   "example_zhuyin": "ㄅㄣˇ ㄍㄨㄢˇ ㄧˋ ㄊㄧˊ ㄍㄨㄥ ㄧㄥ ㄩˇ ㄉㄠˇ ㄌㄢˇ ㄈㄨˊ ㄨˋ",
+   "example_en": "The museum also offers guided tours in English."
+  },
+  {
+   "id": "R10",
+   "written": "皆",
+   "written_zhuyin": "ㄐㄧㄝ",
+   "spoken": "都",
+   "spoken_zhuyin": "ㄉㄡ",
+   "en": "all, every one",
+   "example_zh": "參加者皆可獲得一份紀念品。",
+   "example_zhuyin": "ㄘㄢ ㄐㄧㄚ ㄓㄜˇ ㄐㄧㄝ ㄎㄜˇ ㄏㄨㄛˋ ㄉㄜˊ ㄧ ㄈㄣˋ ㄐㄧˋ ㄋㄧㄢˋ ㄆㄧㄣˇ",
+   "example_en": "Every participant will receive a souvenir."
+  },
+  {
+   "id": "R11",
+   "written": "僅",
+   "written_zhuyin": "ㄐㄧㄣˇ",
+   "spoken": "只",
+   "spoken_zhuyin": "ㄓˇ",
+   "en": "only",
+   "example_zh": "本優惠僅限學生使用。",
+   "example_zhuyin": "ㄅㄣˇ ㄧㄡ ㄏㄨㄟˋ ㄐㄧㄣˇ ㄒㄧㄢˋ ㄒㄩㄝˊ ㄕㄥ ㄕˇ ㄩㄥˋ",
+   "example_en": "This discount is for students only."
+  },
+  {
+   "id": "R12",
+   "written": "尚未",
+   "written_zhuyin": "ㄕㄤˋ ㄨㄟˋ",
+   "spoken": "還沒",
+   "spoken_zhuyin": "ㄏㄞˊ ㄇㄟˊ",
+   "en": "not yet",
+   "example_zh": "調查結果尚未公布。",
+   "example_zhuyin": "ㄉㄧㄠˋ ㄔㄚˊ ㄐㄧㄝˊ ㄍㄨㄛˇ ㄕㄤˋ ㄨㄟˋ ㄍㄨㄥ ㄅㄨˋ",
+   "example_en": "The results of the investigation have not been announced yet."
+  },
+  {
+   "id": "R13",
+   "written": "已",
+   "written_zhuyin": "ㄧˇ",
+   "spoken": "已經",
+   "spoken_zhuyin": "ㄧˇ ㄐㄧㄥ",
+   "en": "already",
+   "example_zh": "新的公車路線已於上週開始營運。",
+   "example_zhuyin": "ㄒㄧㄣ ˙ㄉㄜ ㄍㄨㄥ ㄔㄜ ㄌㄨˋ ㄒㄧㄢˋ ㄧˇ ㄩˊ ㄕㄤˋ ㄓㄡ ㄎㄞ ㄕˇ ㄧㄥˊ ㄩㄣˋ",
+   "example_en": "The new bus route started running last week."
+  },
+  {
+   "id": "R14",
+   "written": "將",
+   "written_zhuyin": "ㄐㄧㄤ",
+   "spoken": "會",
+   "spoken_zhuyin": "ㄏㄨㄟˋ",
+   "en": "will, is going to",
+   "example_zh": "氣象署表示，南部地區明日將有大雨。",
+   "example_zhuyin": "ㄑㄧˋ ㄒㄧㄤˋ ㄕㄨˇ ㄅㄧㄠˇ ㄕˋ ㄋㄢˊ ㄅㄨˋ ㄉㄧˋ ㄑㄩ ㄇㄧㄥˊ ㄖˋ ㄐㄧㄤ ㄧㄡˇ ㄉㄚˋ ㄩˇ",
+   "example_en": "The Central Weather Administration says there will be heavy rain in the south tomorrow."
+  },
+  {
+   "id": "R15",
+   "written": "此",
+   "written_zhuyin": "ㄘˇ",
+   "spoken": "這",
+   "spoken_zhuyin": "ㄓㄜˋ",
+   "en": "this",
+   "example_zh": "此路段夜間禁止停車。",
+   "example_zhuyin": "ㄘˇ ㄌㄨˋ ㄉㄨㄢˋ ㄧㄝˋ ㄐㄧㄢ ㄐㄧㄣˋ ㄓˇ ㄊㄧㄥˊ ㄔㄜ",
+   "example_en": "Parking on this section of road is prohibited at night."
+  },
+  {
+   "id": "R16",
+   "written": "為",
+   "written_zhuyin": "ㄨㄟˊ",
+   "spoken": "是",
+   "spoken_zhuyin": "ㄕˋ",
+   "en": "is, to be (linking two things)",
+   "example_zh": "本次活動報名費為三百元。",
+   "example_zhuyin": "ㄅㄣˇ ㄘˋ ㄏㄨㄛˊ ㄉㄨㄥˋ ㄅㄠˋ ㄇㄧㄥˊ ㄈㄟˋ ㄨㄟˊ ㄙㄢ ㄅㄞˇ ㄩㄢˊ",
+   "example_en": "The registration fee for this event is NT$300."
+  },
+  {
+   "id": "R17",
+   "written": "為何",
+   "written_zhuyin": "ㄨㄟˋ ㄏㄜˊ",
+   "spoken": "為什麼",
+   "spoken_zhuyin": "ㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ",
+   "en": "why",
+   "example_zh": "他並未說明為何辭職。",
+   "example_zhuyin": "ㄊㄚ ㄅㄧㄥˋ ㄨㄟˋ ㄕㄨㄛ ㄇㄧㄥˊ ㄨㄟˋ ㄏㄜˊ ㄘˊ ㄓˊ",
+   "example_en": "He did not explain why he resigned."
+  },
+  {
+   "id": "R18",
+   "written": "如何",
+   "written_zhuyin": "ㄖㄨˊ ㄏㄜˊ",
+   "spoken": "怎麼",
+   "spoken_zhuyin": "ㄗㄣˇ ˙ㄇㄜ",
+   "en": "how",
+   "example_zh": "民眾可上網查詢如何申請。",
+   "example_zhuyin": "ㄇㄧㄣˊ ㄓㄨㄥˋ ㄎㄜˇ ㄕㄤˋ ㄨㄤˇ ㄔㄚˊ ㄒㄩㄣˊ ㄖㄨˊ ㄏㄜˊ ㄕㄣ ㄑㄧㄥˇ",
+   "example_en": "People can look up online how to apply."
+  },
+  {
+   "id": "R19",
+   "written": "何時",
+   "written_zhuyin": "ㄏㄜˊ ㄕˊ",
+   "spoken": "什麼時候",
+   "spoken_zhuyin": "ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ",
+   "en": "when",
+   "example_zh": "目前仍不清楚道路何時恢復通行。",
+   "example_zhuyin": "ㄇㄨˋ ㄑㄧㄢˊ ㄖㄥˊ ㄅㄨˋ ㄑㄧㄥ ㄔㄨˇ ㄉㄠˋ ㄌㄨˋ ㄏㄜˊ ㄕˊ ㄏㄨㄟ ㄈㄨˋ ㄊㄨㄥ ㄒㄧㄥˊ",
+   "example_en": "It is still unclear when the road will reopen to traffic."
+  },
+  {
+   "id": "R20",
+   "written": "是否",
+   "written_zhuyin": "ㄕˋ ㄈㄡˇ",
+   "spoken": "是不是",
+   "spoken_zhuyin": "ㄕˋ ㄅㄨˋ ㄕˋ",
+   "en": "whether, if",
+   "example_zh": "請確認資料是否正確。",
+   "example_zhuyin": "ㄑㄧㄥˇ ㄑㄩㄝˋ ㄖㄣˋ ㄗ ㄌㄧㄠˋ ㄕˋ ㄈㄡˇ ㄓㄥˋ ㄑㄩㄝˋ",
+   "example_en": "Please check whether the information is correct."
+  },
+  {
+   "id": "R21",
+   "written": "應",
+   "written_zhuyin": "ㄧㄥ",
+   "spoken": "應該",
+   "spoken_zhuyin": "ㄧㄥ ㄍㄞ",
+   "en": "should",
+   "example_zh": "騎機車應戴安全帽。",
+   "example_zhuyin": "ㄑㄧˊ ㄐㄧ ㄔㄜ ㄧㄥ ㄉㄞˋ ㄢ ㄑㄩㄢˊ ㄇㄠˋ",
+   "example_en": "Scooter riders should wear a helmet."
+  },
+  {
+   "id": "R22",
+   "written": "勿",
+   "written_zhuyin": "ㄨˋ",
+   "spoken": "不要",
+   "spoken_zhuyin": "ㄅㄨˋ ㄧㄠˋ",
+   "en": "do not (in requests and signs)",
+   "example_zh": "請勿在捷運車廂內飲食。",
+   "example_zhuyin": "ㄑㄧㄥˇ ㄨˋ ㄗㄞˋ ㄐㄧㄝˊ ㄩㄣˋ ㄔㄜ ㄒㄧㄤ ㄋㄟˋ ㄧㄣˇ ㄕˊ",
+   "example_en": "Please do not eat or drink in MRT cars."
+  },
+  {
+   "id": "R23",
+   "written": "仍",
+   "written_zhuyin": "ㄖㄥˊ",
+   "spoken": "還",
+   "spoken_zhuyin": "ㄏㄞˊ",
+   "en": "still",
+   "example_zh": "雨勢雖已減弱，民眾仍應注意安全。",
+   "example_zhuyin": "ㄩˇ ㄕˋ ㄙㄨㄟ ㄧˇ ㄐㄧㄢˇ ㄖㄨㄛˋ ㄇㄧㄣˊ ㄓㄨㄥˋ ㄖㄥˊ ㄧㄥ ㄓㄨˋ ㄧˋ ㄢ ㄑㄩㄢˊ",
+   "example_en": "Although the rain has eased, people should still be careful."
+  },
+  {
+   "id": "R24",
+   "written": "即將",
+   "written_zhuyin": "ㄐㄧˊ ㄐㄧㄤ",
+   "spoken": "快要",
+   "spoken_zhuyin": "ㄎㄨㄞˋ ㄧㄠˋ",
+   "en": "about to, soon",
+   "example_zh": "新學期即將開始。",
+   "example_zhuyin": "ㄒㄧㄣ ㄒㄩㄝˊ ㄑㄧˊ ㄐㄧˊ ㄐㄧㄤ ㄎㄞ ㄕˇ",
+   "example_en": "The new semester is about to begin."
+  },
+  {
+   "id": "R25",
+   "written": "屆時",
+   "written_zhuyin": "ㄐㄧㄝˋ ㄕˊ",
+   "spoken": "到時候",
+   "spoken_zhuyin": "ㄉㄠˋ ㄕˊ ㄏㄡˋ",
+   "en": "at that time, when the time comes",
+   "example_zh": "開幕典禮下週六舉行，屆時將有煙火表演。",
+   "example_zhuyin": "ㄎㄞ ㄇㄨˋ ㄉㄧㄢˇ ㄌㄧˇ ㄒㄧㄚˋ ㄓㄡ ㄌㄧㄡˋ ㄐㄩˇ ㄒㄧㄥˊ ㄐㄧㄝˋ ㄕˊ ㄐㄧㄤ ㄧㄡˇ ㄧㄢ ㄏㄨㄛˇ ㄅㄧㄠˇ ㄧㄢˇ",
+   "example_en": "The opening ceremony is next Saturday, and there will be a fireworks show then."
+  },
+  {
+   "id": "R26",
+   "written": "日前",
+   "written_zhuyin": "ㄖˋ ㄑㄧㄢˊ",
+   "spoken": "前幾天",
+   "spoken_zhuyin": "ㄑㄧㄢˊ ㄐㄧˇ ㄊㄧㄢ",
+   "en": "a few days ago, recently",
+   "example_zh": "警方日前破獲一個詐騙集團。",
+   "example_zhuyin": "ㄐㄧㄥˇ ㄈㄤ ㄖˋ ㄑㄧㄢˊ ㄆㄛˋ ㄏㄨㄛˋ ㄧ ˙ㄍㄜ ㄓㄚˋ ㄆㄧㄢˋ ㄐㄧˊ ㄊㄨㄢˊ",
+   "example_en": "A few days ago the police broke up a fraud ring."
+  },
+  {
+   "id": "R27",
+   "written": "約",
+   "written_zhuyin": "ㄩㄝ",
+   "spoken": "大概",
+   "spoken_zhuyin": "ㄉㄚˋ ㄍㄞˋ",
+   "en": "about, approximately",
+   "example_zh": "本次活動約有兩百人參加。",
+   "example_zhuyin": "ㄅㄣˇ ㄘˋ ㄏㄨㄛˊ ㄉㄨㄥˋ ㄩㄝ ㄧㄡˇ ㄌㄧㄤˇ ㄅㄞˇ ㄖㄣˊ ㄕㄣ ㄐㄧㄚ",
+   "example_en": "About two hundred people took part in this event."
+  },
+  {
+   "id": "R28",
+   "written": "本週",
+   "written_zhuyin": "ㄅㄣˇ ㄓㄡ",
+   "spoken": "這個禮拜",
+   "spoken_zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄌㄧˇ ㄅㄞˋ",
+   "en": "this week",
+   "example_zh": "本週三下午將暫停供水。",
+   "example_zhuyin": "ㄅㄣˇ ㄓㄡ ㄙㄢ ㄒㄧㄚˋ ㄨˇ ㄐㄧㄤ ㄓㄢˋ ㄊㄧㄥˊ ㄍㄨㄥ ㄕㄨㄟˇ",
+   "example_en": "The water supply will be cut off this Wednesday afternoon."
+  },
+  {
+   "id": "R29",
+   "written": "抵達",
+   "written_zhuyin": "ㄉㄧˇ ㄉㄚˊ",
+   "spoken": "到",
+   "spoken_zhuyin": "ㄉㄠˋ",
+   "en": "to arrive",
+   "example_zh": "列車將於十點抵達屏東站。",
+   "example_zhuyin": "ㄌㄧㄝˋ ㄔㄜ ㄐㄧㄤ ㄩˊ ㄕˊ ㄉㄧㄢˇ ㄉㄧˇ ㄉㄚˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄓㄢˋ",
+   "example_en": "The train will arrive at Pingtung Station at ten."
+  },
+  {
+   "id": "R30",
+   "written": "前往",
+   "written_zhuyin": "ㄑㄧㄢˊ ㄨㄤˇ",
+   "spoken": "去",
+   "spoken_zhuyin": "ㄑㄩˋ",
+   "en": "to go to, to head for",
+   "example_zh": "民眾可搭乘接駁車前往會場。",
+   "example_zhuyin": "ㄇㄧㄣˊ ㄓㄨㄥˋ ㄎㄜˇ ㄉㄚ ㄔㄥˊ ㄐㄧㄝ ㄅㄛˊ ㄔㄜ ㄑㄧㄢˊ ㄨㄤˇ ㄏㄨㄟˋ ㄔㄤˇ",
+   "example_en": "People can take the shuttle bus to the venue."
+  },
+  {
+   "id": "R31",
+   "written": "搭乘",
+   "written_zhuyin": "ㄉㄚ ㄔㄥˊ",
+   "spoken": "坐",
+   "spoken_zhuyin": "ㄗㄨㄛˋ",
+   "en": "to take (a bus, train, elevator)",
+   "example_zh": "請搭乘電梯至三樓。",
+   "example_zhuyin": "ㄑㄧㄥˇ ㄉㄚ ㄔㄥˊ ㄉㄧㄢˋ ㄊㄧ ㄓˋ ㄙㄢ ㄌㄡˊ",
+   "example_en": "Please take the elevator to the third floor."
+  },
+  {
+   "id": "R32",
+   "written": "致電",
+   "written_zhuyin": "ㄓˋ ㄉㄧㄢˋ",
+   "spoken": "打電話",
+   "spoken_zhuyin": "ㄉㄚˇ ㄉㄧㄢˋ ㄏㄨㄚˋ",
+   "en": "to phone",
+   "example_zh": "如有疑問，歡迎致電本中心。",
+   "example_zhuyin": "ㄖㄨˊ ㄧㄡˇ ㄧˊ ㄨㄣˋ ㄏㄨㄢ ㄧㄥˊ ㄓˋ ㄉㄧㄢˋ ㄅㄣˇ ㄓㄨㄥ ㄒㄧㄣ",
+   "example_en": "If you have any questions, you are welcome to call our center."
+  },
+  {
+   "id": "R33",
+   "written": "告知",
+   "written_zhuyin": "ㄍㄠˋ ㄓ",
+   "spoken": "告訴",
+   "spoken_zhuyin": "ㄍㄠˋ ㄙㄨˋ",
+   "en": "to inform, to tell",
+   "example_zh": "請將結果告知家長。",
+   "example_zhuyin": "ㄑㄧㄥˇ ㄐㄧㄤ ㄐㄧㄝˊ ㄍㄨㄛˇ ㄍㄠˋ ㄓ ㄐㄧㄚ ㄓㄤˇ",
+   "example_en": "Please inform the parents of the results."
+  },
+  {
+   "id": "R34",
+   "written": "協助",
+   "written_zhuyin": "ㄒㄧㄝˊ ㄓㄨˋ",
+   "spoken": "幫忙",
+   "spoken_zhuyin": "ㄅㄤ ㄇㄤˊ",
+   "en": "to help, to assist",
+   "example_zh": "志工將協助民眾填寫表格。",
+   "example_zhuyin": "ㄓˋ ㄍㄨㄥ ㄐㄧㄤ ㄒㄧㄝˊ ㄓㄨˋ ㄇㄧㄣˊ ㄓㄨㄥˋ ㄊㄧㄢˊ ㄒㄧㄝˇ ㄅㄧㄠˇ ㄍㄜˊ",
+   "example_en": "Volunteers will help people fill in the forms."
+  },
+  {
+   "id": "R35",
+   "written": "購買",
+   "written_zhuyin": "ㄍㄡˋ ㄇㄞˇ",
+   "spoken": "買",
+   "spoken_zhuyin": "ㄇㄞˇ",
+   "en": "to buy",
+   "example_zh": "民眾可於超商購買車票。",
+   "example_zhuyin": "ㄇㄧㄣˊ ㄓㄨㄥˋ ㄎㄜˇ ㄩˊ ㄔㄠ ㄕㄤ ㄍㄡˋ ㄇㄞˇ ㄔㄜ ㄆㄧㄠˋ",
+   "example_en": "Tickets can be bought at convenience stores."
+  },
+  {
+   "id": "R36",
+   "written": "用餐",
+   "written_zhuyin": "ㄩㄥˋ ㄘㄢ",
+   "spoken": "吃飯",
+   "spoken_zhuyin": "ㄔ ㄈㄢˋ",
+   "en": "to have a meal, to dine",
+   "example_zh": "本餐廳用餐時間為九十分鐘。",
+   "example_zhuyin": "ㄅㄣˇ ㄘㄢ ㄊㄧㄥ ㄩㄥˋ ㄘㄢ ㄕˊ ㄐㄧㄢ ㄨㄟˊ ㄐㄧㄡˇ ㄕˊ ㄈㄣ ㄓㄨㄥ",
+   "example_en": "There is a 90-minute time limit for meals at this restaurant."
+  },
+  {
+   "id": "R37",
+   "written": "居住",
+   "written_zhuyin": "ㄐㄩ ㄓㄨˋ",
+   "spoken": "住",
+   "spoken_zhuyin": "ㄓㄨˋ",
+   "en": "to live, to reside",
+   "example_zh": "他目前居住於屏東市。",
+   "example_zhuyin": "ㄊㄚ ㄇㄨˋ ㄑㄧㄢˊ ㄐㄩ ㄓㄨˋ ㄩˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄕˋ",
+   "example_en": "He currently lives in Pingtung City."
+  },
+  {
+   "id": "R38",
+   "written": "不適",
+   "written_zhuyin": "ㄅㄨˋ ㄕˋ",
+   "spoken": "不舒服",
+   "spoken_zhuyin": "ㄅㄨˋ ㄕㄨ ˙ㄈㄨ",
+   "en": "unwell, uncomfortable",
+   "example_zh": "他因身體不適請假一天。",
+   "example_zhuyin": "ㄊㄚ ㄧㄣ ㄕㄣ ㄊㄧˇ ㄅㄨˋ ㄕˋ ㄑㄧㄥˇ ㄐㄧㄚˋ ㄧ ㄊㄧㄢ",
+   "example_en": "He took a day off because he was unwell."
+  },
+  {
+   "id": "R39",
+   "written": "立即",
+   "written_zhuyin": "ㄌㄧˋ ㄐㄧˊ",
+   "spoken": "馬上",
+   "spoken_zhuyin": "ㄇㄚˇ ㄕㄤˋ",
+   "en": "immediately",
+   "example_zh": "發現火災請立即撥打一一九。",
+   "example_zhuyin": "ㄈㄚ ㄒㄧㄢˋ ㄏㄨㄛˇ ㄗㄞ ㄑㄧㄥˇ ㄌㄧˋ ㄐㄧˊ ㄅㄛ ㄉㄚˇ ㄧ ㄧ ㄐㄧㄡˇ",
+   "example_en": "If you discover a fire, call 119 immediately."
+  },
+  {
+   "id": "R40",
+   "written": "遭",
+   "written_zhuyin": "ㄗㄠ",
+   "spoken": "被",
+   "spoken_zhuyin": "ㄅㄟˋ",
+   "en": "(passive, for something bad happening to someone)",
+   "example_zh": "他的機車昨晚遭竊。",
+   "example_zhuyin": "ㄊㄚ ˙ㄉㄜ ㄐㄧ ㄔㄜ ㄗㄨㄛˊ ㄨㄢˇ ㄗㄠ ㄑㄧㄝˋ",
+   "example_en": "His scooter was stolen last night.",
+   "note_en": "Both mark the passive for something bad that happens to someone. Taiwan speech uses the spoken form; the Mainland-style passive with the word for \"give\" is not Taiwan usage."
+  }
+ ],
+ "news_topics": [
+  {
+   "id": "media",
+   "zh": "報導用語",
+   "zhuyin": "ㄅㄠˋ ㄉㄠˇ ㄩㄥˋ ㄩˇ",
+   "en": "Reporting"
+  },
+  {
+   "id": "politics",
+   "zh": "政治",
+   "zhuyin": "ㄓㄥˋ ㄓˋ",
+   "en": "Politics"
+  },
+  {
+   "id": "economy",
+   "zh": "經濟",
+   "zhuyin": "ㄐㄧㄥ ㄐㄧˋ",
+   "en": "Economy"
+  },
+  {
+   "id": "weather",
+   "zh": "天氣與災害",
+   "zhuyin": "ㄊㄧㄢ ㄑㄧˋ ㄩˇ ㄗㄞ ㄏㄞˋ",
+   "en": "Weather and disasters"
+  },
+  {
+   "id": "law",
+   "zh": "治安與法律",
+   "zhuyin": "ㄓˋ ㄢ ㄩˇ ㄈㄚˇ ㄌㄩˋ",
+   "en": "Crime and the law"
+  },
+  {
+   "id": "society",
+   "zh": "社會與健康",
+   "zhuyin": "ㄕㄜˋ ㄏㄨㄟˋ ㄩˇ ㄐㄧㄢˋ ㄎㄤ",
+   "en": "Society and health"
+  },
+  {
+   "id": "transport",
+   "zh": "交通",
+   "zhuyin": "ㄐㄧㄠ ㄊㄨㄥ",
+   "en": "Transport"
+  }
+ ],
+ "news": [
+  {
+   "id": "N01",
+   "topic": "media",
+   "zh": "記者",
+   "zhuyin": "ㄐㄧˋ ㄓㄜˇ",
+   "en": "reporter, journalist",
+   "level": "第4級"
+  },
+  {
+   "id": "N02",
+   "topic": "media",
+   "zh": "報導",
+   "zhuyin": "ㄅㄠˋ ㄉㄠˇ",
+   "en": "news report; to report",
+   "level": "第5級"
+  },
+  {
+   "id": "N03",
+   "topic": "media",
+   "zh": "記者會",
+   "zhuyin": "ㄐㄧˋ ㄓㄜˇ ㄏㄨㄟˋ",
+   "en": "press conference",
+   "level": null
+  },
+  {
+   "id": "N04",
+   "topic": "media",
+   "zh": "發言人",
+   "zhuyin": "ㄈㄚ ㄧㄢˊ ㄖㄣˊ",
+   "en": "spokesperson",
+   "level": "第7級"
+  },
+  {
+   "id": "N05",
+   "topic": "media",
+   "zh": "表示",
+   "zhuyin": "ㄅㄧㄠˇ ㄕˋ",
+   "en": "to state, to say (the usual news verb for \"said\")",
+   "level": "第4*級"
+  },
+  {
+   "id": "N06",
+   "topic": "media",
+   "zh": "指出",
+   "zhuyin": "ㄓˇ ㄔㄨ",
+   "en": "to point out",
+   "level": null
+  },
+  {
+   "id": "N07",
+   "topic": "media",
+   "zh": "強調",
+   "zhuyin": "ㄑㄧㄤˊ ㄉㄧㄠˋ",
+   "en": "to stress, to emphasize",
+   "level": "第5級"
+  },
+  {
+   "id": "N08",
+   "topic": "media",
+   "zh": "呼籲",
+   "zhuyin": "ㄏㄨ ㄩˋ",
+   "en": "to call on (someone to do something), to appeal",
+   "level": "第6級"
+  },
+  {
+   "id": "N09",
+   "topic": "media",
+   "zh": "回應",
+   "zhuyin": "ㄏㄨㄟˊ ㄧㄥˋ",
+   "en": "to respond; a response",
+   "level": "第5級"
+  },
+  {
+   "id": "N10",
+   "topic": "media",
+   "zh": "據了解",
+   "zhuyin": "ㄐㄩˋ ㄌㄧㄠˇ ㄐㄧㄝˇ",
+   "en": "it is understood that, according to sources",
+   "level": null
+  },
+  {
+   "id": "N11",
+   "topic": "politics",
+   "zh": "政府",
+   "zhuyin": "ㄓㄥˋ ㄈㄨˇ",
+   "en": "government",
+   "level": "第4級"
+  },
+  {
+   "id": "N12",
+   "topic": "politics",
+   "zh": "總統",
+   "zhuyin": "ㄗㄨㄥˇ ㄊㄨㄥˇ",
+   "en": "president",
+   "level": "第4級"
+  },
+  {
+   "id": "N13",
+   "topic": "politics",
+   "zh": "行政院",
+   "zhuyin": "ㄒㄧㄥˊ ㄓㄥˋ ㄩㄢˋ",
+   "en": "the Executive Yuan (Taiwan's cabinet)",
+   "level": null
+  },
+  {
+   "id": "N14",
+   "topic": "politics",
+   "zh": "立法院",
+   "zhuyin": "ㄌㄧˋ ㄈㄚˇ ㄩㄢˋ",
+   "en": "the Legislative Yuan (Taiwan's parliament)",
+   "level": null
+  },
+  {
+   "id": "N15",
+   "topic": "politics",
+   "zh": "立法委員",
+   "zhuyin": "ㄌㄧˋ ㄈㄚˇ ㄨㄟˇ ㄩㄢˊ",
+   "en": "legislator, member of the Legislative Yuan",
+   "level": null
+  },
+  {
+   "id": "N16",
+   "topic": "politics",
+   "zh": "政策",
+   "zhuyin": "ㄓㄥˋ ㄘㄜˋ",
+   "en": "policy",
+   "level": "第4*級"
+  },
+  {
+   "id": "N17",
+   "topic": "politics",
+   "zh": "法案",
+   "zhuyin": "ㄈㄚˇ ㄢˋ",
+   "en": "bill (a draft law)",
+   "level": "第6級"
+  },
+  {
+   "id": "N18",
+   "topic": "politics",
+   "zh": "選舉",
+   "zhuyin": "ㄒㄩㄢˇ ㄐㄩˇ",
+   "en": "election",
+   "level": "第5級"
+  },
+  {
+   "id": "N19",
+   "topic": "politics",
+   "zh": "投票",
+   "zhuyin": "ㄊㄡˊ ㄆㄧㄠˋ",
+   "en": "to vote",
+   "level": "第5級"
+  },
+  {
+   "id": "N20",
+   "topic": "politics",
+   "zh": "候選人",
+   "zhuyin": "ㄏㄡˋ ㄒㄩㄢˇ ㄖㄣˊ",
+   "en": "candidate",
+   "level": null
+  },
+  {
+   "id": "N21",
+   "topic": "economy",
+   "zh": "經濟",
+   "zhuyin": "ㄐㄧㄥ ㄐㄧˋ",
+   "en": "economy",
+   "level": "第4級"
+  },
+  {
+   "id": "N22",
+   "topic": "economy",
+   "zh": "景氣",
+   "zhuyin": "ㄐㄧㄥˇ ㄑㄧˋ",
+   "en": "the economic climate, business conditions",
+   "level": "第5級"
+  },
+  {
+   "id": "N23",
+   "topic": "economy",
+   "zh": "物價",
+   "zhuyin": "ㄨˋ ㄐㄧㄚˋ",
+   "en": "prices, the cost of living",
+   "level": "第5級"
+  },
+  {
+   "id": "N24",
+   "topic": "economy",
+   "zh": "調漲",
+   "zhuyin": "ㄊㄧㄠˊ ㄓㄤˇ",
+   "en": "to raise (prices, fees)",
+   "level": null
+  },
+  {
+   "id": "N25",
+   "topic": "economy",
+   "zh": "薪資",
+   "zhuyin": "ㄒㄧㄣ ㄗ",
+   "en": "wages, salary",
+   "level": "第5級"
+  },
+  {
+   "id": "N26",
+   "topic": "economy",
+   "zh": "基本工資",
+   "zhuyin": "ㄐㄧ ㄅㄣˇ ㄍㄨㄥ ㄗ",
+   "en": "the minimum wage",
+   "level": null
+  },
+  {
+   "id": "N27",
+   "topic": "economy",
+   "zh": "股市",
+   "zhuyin": "ㄍㄨˇ ㄕˋ",
+   "en": "stock market",
+   "level": "第5級"
+  },
+  {
+   "id": "N28",
+   "topic": "economy",
+   "zh": "失業率",
+   "zhuyin": "ㄕ ㄧㄝˋ ㄌㄩˋ",
+   "en": "unemployment rate",
+   "level": null
+  },
+  {
+   "id": "N29",
+   "topic": "economy",
+   "zh": "半導體",
+   "zhuyin": "ㄅㄢˋ ㄉㄠˇ ㄊㄧˇ",
+   "en": "semiconductor",
+   "level": null
+  },
+  {
+   "id": "N30",
+   "topic": "weather",
+   "zh": "颱風",
+   "zhuyin": "ㄊㄞˊ ㄈㄥ",
+   "en": "typhoon",
+   "level": "第3級"
+  },
+  {
+   "id": "N31",
+   "topic": "weather",
+   "zh": "豪雨",
+   "zhuyin": "ㄏㄠˊ ㄩˇ",
+   "en": "torrential rain (a weather warning level)",
+   "level": null
+  },
+  {
+   "id": "N32",
+   "topic": "weather",
+   "zh": "地震",
+   "zhuyin": "ㄉㄧˋ ㄓㄣˋ",
+   "en": "earthquake",
+   "level": "第4級"
+  },
+  {
+   "id": "N33",
+   "topic": "weather",
+   "zh": "停班停課",
+   "zhuyin": "ㄊㄧㄥˊ ㄅㄢ ㄊㄧㄥˊ ㄎㄜˋ",
+   "en": "suspension of work and classes (for a typhoon, for example)",
+   "level": null
+  },
+  {
+   "id": "N34",
+   "topic": "weather",
+   "zh": "災情",
+   "zhuyin": "ㄗㄞ ㄑㄧㄥˊ",
+   "en": "damage reports, the extent of a disaster",
+   "level": "第7級"
+  },
+  {
+   "id": "N35",
+   "topic": "weather",
+   "zh": "停電",
+   "zhuyin": "ㄊㄧㄥˊ ㄉㄧㄢˋ",
+   "en": "power outage",
+   "level": null
+  },
+  {
+   "id": "N36",
+   "topic": "weather",
+   "zh": "土石流",
+   "zhuyin": "ㄊㄨˇ ㄕˊ ㄌㄧㄡˊ",
+   "en": "mudslide, debris flow",
+   "level": null
+  },
+  {
+   "id": "N37",
+   "topic": "weather",
+   "zh": "警報",
+   "zhuyin": "ㄐㄧㄥˇ ㄅㄠˋ",
+   "en": "warning, alert",
+   "level": "第6級"
+  },
+  {
+   "id": "N38",
+   "topic": "law",
+   "zh": "警方",
+   "zhuyin": "ㄐㄧㄥˇ ㄈㄤ",
+   "en": "the police",
+   "level": null
+  },
+  {
+   "id": "N39",
+   "topic": "law",
+   "zh": "嫌犯",
+   "zhuyin": "ㄒㄧㄢˊ ㄈㄢˋ",
+   "en": "suspect",
+   "level": "第7級"
+  },
+  {
+   "id": "N40",
+   "topic": "law",
+   "zh": "詐騙",
+   "zhuyin": "ㄓㄚˋ ㄆㄧㄢˋ",
+   "en": "fraud, scam; to defraud",
+   "level": "第5級"
+  },
+  {
+   "id": "N41",
+   "topic": "law",
+   "zh": "逮捕",
+   "zhuyin": "ㄉㄞˇ ㄅㄨˇ",
+   "en": "to arrest",
+   "level": "第5級"
+  },
+  {
+   "id": "N42",
+   "topic": "law",
+   "zh": "起訴",
+   "zhuyin": "ㄑㄧˇ ㄙㄨˋ",
+   "en": "to indict, to prosecute",
+   "level": "第6級"
+  },
+  {
+   "id": "N43",
+   "topic": "law",
+   "zh": "法院",
+   "zhuyin": "ㄈㄚˇ ㄩㄢˋ",
+   "en": "court (of law)",
+   "level": "第5級"
+  },
+  {
+   "id": "N44",
+   "topic": "law",
+   "zh": "判決",
+   "zhuyin": "ㄆㄢˋ ㄐㄩㄝˊ",
+   "en": "court ruling, verdict",
+   "level": "第6級"
+  },
+  {
+   "id": "N45",
+   "topic": "law",
+   "zh": "酒駕",
+   "zhuyin": "ㄐㄧㄡˇ ㄐㄧㄚˋ",
+   "en": "drunk driving",
+   "level": null
+  },
+  {
+   "id": "N46",
+   "topic": "law",
+   "zh": "車禍",
+   "zhuyin": "ㄔㄜ ㄏㄨㄛˋ",
+   "en": "traffic accident",
+   "level": "第4級"
+  },
+  {
+   "id": "N47",
+   "topic": "society",
+   "zh": "民眾",
+   "zhuyin": "ㄇㄧㄣˊ ㄓㄨㄥˋ",
+   "en": "members of the public, people",
+   "level": "第4*級"
+  },
+  {
+   "id": "N48",
+   "topic": "society",
+   "zh": "網友",
+   "zhuyin": "ㄨㄤˇ ㄧㄡˇ",
+   "en": "netizens, internet users",
+   "level": "第4級"
+  },
+  {
+   "id": "N49",
+   "topic": "society",
+   "zh": "業者",
+   "zhuyin": "ㄧㄝˋ ㄓㄜˇ",
+   "en": "businesses, operators (in an industry)",
+   "level": null
+  },
+  {
+   "id": "N50",
+   "topic": "society",
+   "zh": "健保",
+   "zhuyin": "ㄐㄧㄢˋ ㄅㄠˇ",
+   "en": "National Health Insurance (short form)",
+   "level": null
+  },
+  {
+   "id": "N51",
+   "topic": "society",
+   "zh": "長照",
+   "zhuyin": "ㄔㄤˊ ㄓㄠˋ",
+   "en": "long-term care (short form)",
+   "level": null
+  },
+  {
+   "id": "N52",
+   "topic": "society",
+   "zh": "疫苗",
+   "zhuyin": "ㄧˋ ㄇㄧㄠˊ",
+   "en": "vaccine",
+   "level": "第6級"
+  },
+  {
+   "id": "N53",
+   "topic": "society",
+   "zh": "出生率",
+   "zhuyin": "ㄔㄨ ㄕㄥ ㄌㄩˋ",
+   "en": "birth rate",
+   "level": "第5級"
+  },
+  {
+   "id": "N54",
+   "topic": "society",
+   "zh": "高齡化",
+   "zhuyin": "ㄍㄠ ㄌㄧㄥˊ ㄏㄨㄚˋ",
+   "en": "population ageing",
+   "level": null
+  },
+  {
+   "id": "N55",
+   "topic": "society",
+   "zh": "補助",
+   "zhuyin": "ㄅㄨˇ ㄓㄨˋ",
+   "en": "subsidy; to subsidize",
+   "level": "第6級"
+  },
+  {
+   "id": "N56",
+   "topic": "society",
+   "zh": "送醫",
+   "zhuyin": "ㄙㄨㄥˋ ㄧ",
+   "en": "to be taken to hospital",
+   "level": null
+  },
+  {
+   "id": "N57",
+   "topic": "transport",
+   "zh": "國道",
+   "zhuyin": "ㄍㄨㄛˊ ㄉㄠˋ",
+   "en": "national freeway",
+   "level": null
+  },
+  {
+   "id": "N58",
+   "topic": "transport",
+   "zh": "高鐵",
+   "zhuyin": "ㄍㄠ ㄊㄧㄝˇ",
+   "en": "Taiwan High Speed Rail",
+   "level": "第4級"
+  },
+  {
+   "id": "N59",
+   "topic": "transport",
+   "zh": "連假",
+   "zhuyin": "ㄌㄧㄢˊ ㄐㄧㄚˋ",
+   "en": "a long weekend, several days off in a row",
+   "level": null
+  },
+  {
+   "id": "N60",
+   "topic": "transport",
+   "zh": "車潮",
+   "zhuyin": "ㄔㄜ ㄔㄠˊ",
+   "en": "heavy traffic",
+   "level": null
+  }
+ ],
+ "models": {
+  "situation": {
+   "zh": "大衛感冒發燒，星期四不能去上華語課，要跟王老師請假。",
+   "zhuyin": "ㄉㄚˋ ㄨㄟˋ ㄍㄢˇ ㄇㄠˋ ㄈㄚ ㄕㄠ ㄒㄧㄥ ㄑㄧˊ ㄙˋ ㄅㄨˋ ㄋㄥˊ ㄑㄩˋ ㄕㄤˋ ㄏㄨㄚˊ ㄩˇ ㄎㄜˋ ㄧㄠˋ ㄍㄣ ㄨㄤˊ ㄌㄠˇ ㄕ ㄑㄧㄥˇ ㄐㄧㄚˋ",
+   "en": "David has a cold and a fever and cannot go to his Mandarin class on Thursday, so he asks his teacher, Ms Wang, for leave."
+  },
+  "formal_letter": {
+   "title_zh": "正式書信",
+   "title_en": "Formal letter",
+   "lines": [
+    {
+     "zh": "王老師道鑒：",
+     "zhuyin": "ㄨㄤˊ ㄌㄠˇ ㄕ ㄉㄠˋ ㄐㄧㄢˋ",
+     "en": "Dear Teacher Wang,",
+     "role": "salutation",
+     "note_en": "The formal salutation for writing to a teacher."
+    },
+    {
+     "zh": "學生因感冒發燒，經醫師診斷需在家休養兩天。",
+     "zhuyin": "ㄒㄩㄝˊ ㄕㄥ ㄧㄣ ㄍㄢˇ ㄇㄠˋ ㄈㄚ ㄕㄠ ㄐㄧㄥ ㄧ ㄕ ㄓㄣˇ ㄉㄨㄢˋ ㄒㄩ ㄗㄞˋ ㄐㄧㄚ ㄒㄧㄡ ㄧㄤˇ ㄌㄧㄤˇ ㄊㄧㄢ",
+     "en": "I have a cold and a fever, and the doctor has said I need to rest at home for two days.",
+     "role": "body",
+     "note_en": "In a letter to a teacher, the writer calls himself \"student\" instead of \"I\"."
+    },
+    {
+     "zh": "因此無法出席本週四的課程，特此向您請假。",
+     "zhuyin": "ㄧㄣ ㄘˇ ㄨˊ ㄈㄚˇ ㄔㄨ ㄒㄧˊ ㄅㄣˇ ㄓㄡ ㄙˋ ˙ㄉㄜ ㄎㄜˋ ㄔㄥˊ ㄊㄜˋ ㄘˇ ㄒㄧㄤˋ ㄋㄧㄣˊ ㄑㄧㄥˇ ㄐㄧㄚˋ",
+     "en": "I therefore cannot attend this Thursday's class, and I am writing to ask for leave.",
+     "role": "body"
+    },
+    {
+     "zh": "隨函附上診斷證明影本，請您參閱。",
+     "zhuyin": "ㄙㄨㄟˊ ㄏㄢˊ ㄈㄨˋ ㄕㄤˋ ㄓㄣˇ ㄉㄨㄢˋ ㄓㄥˋ ㄇㄧㄥˊ ㄧㄥˇ ㄅㄣˇ ㄑㄧㄥˇ ㄋㄧㄣˊ ㄘㄢ ㄩㄝˋ",
+     "en": "Enclosed is a copy of my doctor's certificate for your reference.",
+     "role": "body"
+    },
+    {
+     "zh": "若當日有作業或講義，懇請告知，學生將於下週上課前補交。",
+     "zhuyin": "ㄖㄨㄛˋ ㄉㄤ ㄖˋ ㄧㄡˇ ㄗㄨㄛˋ ㄧㄝˋ ㄏㄨㄛˋ ㄐㄧㄤˇ ㄧˋ ㄎㄣˇ ㄑㄧㄥˇ ㄍㄠˋ ㄓ ㄒㄩㄝˊ ㄕㄥ ㄐㄧㄤ ㄩˊ ㄒㄧㄚˋ ㄓㄡ ㄕㄤˋ ㄎㄜˋ ㄑㄧㄢˊ ㄅㄨˇ ㄐㄧㄠ",
+     "en": "If there is homework or a handout that day, please let me know; I will hand it in before class next week.",
+     "role": "body"
+    },
+    {
+     "zh": "造成您的不便，敬請見諒。",
+     "zhuyin": "ㄗㄠˋ ㄔㄥˊ ㄋㄧㄣˊ ˙ㄉㄜ ㄅㄨˋ ㄅㄧㄢˋ ㄐㄧㄥˋ ㄑㄧㄥˇ ㄐㄧㄢˋ ㄌㄧㄤˋ",
+     "en": "I apologize for the inconvenience.",
+     "role": "body"
+    },
+    {
+     "zh": "敬請",
+     "zhuyin": "ㄐㄧㄥˋ ㄑㄧㄥˇ",
+     "en": "I respectfully wish you",
+     "role": "closing"
+    },
+    {
+     "zh": "教安",
+     "zhuyin": "ㄐㄧㄠˋ ㄢ",
+     "en": "peace in your teaching",
+     "role": "closing",
+     "note_en": "The closing wish used for teachers."
+    },
+    {
+     "zh": "學生 大衛 敬上",
+     "zhuyin": "ㄒㄩㄝˊ ㄕㄥ ㄉㄚˋ ㄨㄟˋ ㄐㄧㄥˋ ㄕㄤˋ",
+     "en": "Respectfully, your student David",
+     "role": "signature",
+     "note_en": "This sign-off is used by a junior writing to a senior."
+    },
+    {
+     "zh": "十月十四日",
+     "zhuyin": "ㄕˊ ㄩㄝˋ ㄕˊ ㄙˋ ㄖˋ",
+     "en": "October 14",
+     "role": "date"
+    }
+   ]
+  },
+  "line_message": {
+   "title_zh": "LINE訊息",
+   "title_en": "LINE message",
+   "lines": [
+    {
+     "zh": "王老師好！",
+     "zhuyin": "ㄨㄤˊ ㄌㄠˇ ㄕ ㄏㄠˇ",
+     "en": "Hi, Teacher Wang!"
+    },
+    {
+     "zh": "不好意思，我感冒發燒了，醫生說要在家休息兩天。",
+     "zhuyin": "ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄨㄛˇ ㄍㄢˇ ㄇㄠˋ ㄈㄚ ㄕㄠ ˙ㄌㄜ ㄧ ㄕㄥ ㄕㄨㄛ ㄧㄠˋ ㄗㄞˋ ㄐㄧㄚ ㄒㄧㄡ ㄒㄧˊ ㄌㄧㄤˇ ㄊㄧㄢ",
+     "en": "Sorry, I've got a cold and a fever, and the doctor says I need to rest at home for two days."
+    },
+    {
+     "zh": "所以禮拜四的課我沒辦法去，想跟您請假。",
+     "zhuyin": "ㄙㄨㄛˇ ㄧˇ ㄌㄧˇ ㄅㄞˋ ㄙˋ ˙ㄉㄜ ㄎㄜˋ ㄨㄛˇ ㄇㄟˊ ㄅㄢˋ ㄈㄚˇ ㄑㄩˋ ㄒㄧㄤˇ ㄍㄣ ㄋㄧㄣˊ ㄑㄧㄥˇ ㄐㄧㄚˋ",
+     "en": "So I can't come to class on Thursday. I'd like to ask for the day off."
+    },
+    {
+     "zh": "我等一下把診斷證明拍照傳給您。",
+     "zhuyin": "ㄨㄛˇ ㄉㄥˇ ㄧ ㄒㄧㄚˋ ㄅㄚˇ ㄓㄣˇ ㄉㄨㄢˋ ㄓㄥˋ ㄇㄧㄥˊ ㄆㄞ ㄓㄠˋ ㄔㄨㄢˊ ㄍㄟˇ ㄋㄧㄣˊ",
+     "en": "I'll take a photo of my doctor's certificate and send it to you in a moment."
+    },
+    {
+     "zh": "那天如果有作業或講義，可以麻煩您跟我說嗎？",
+     "zhuyin": "ㄋㄚˋ ㄊㄧㄢ ㄖㄨˊ ㄍㄨㄛˇ ㄧㄡˇ ㄗㄨㄛˋ ㄧㄝˋ ㄏㄨㄛˋ ㄐㄧㄤˇ ㄧˋ ㄎㄜˇ ㄧˇ ㄇㄚˊ ˙ㄈㄢ ㄋㄧㄣˊ ㄍㄣ ㄨㄛˇ ㄕㄨㄛ ˙ㄇㄚ",
+     "en": "If there's homework or a handout that day, could you let me know?"
+    },
+    {
+     "zh": "我下禮拜上課前會補交喔！",
+     "zhuyin": "ㄨㄛˇ ㄒㄧㄚˋ ㄌㄧˇ ㄅㄞˋ ㄕㄤˋ ㄎㄜˋ ㄑㄧㄢˊ ㄏㄨㄟˋ ㄅㄨˇ ㄐㄧㄠ ㄛ",
+     "en": "I'll hand it in before class next week!"
+    },
+    {
+     "zh": "真的很抱歉，謝謝老師！",
+     "zhuyin": "ㄓㄣ ˙ㄉㄜ ㄏㄣˇ ㄅㄠˋ ㄑㄧㄢˋ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄕ",
+     "en": "I'm really sorry. Thank you!"
+    }
+   ]
+  },
+  "compare": [
+   {
+    "written": "醫師診斷",
+    "written_zhuyin": "ㄧ ㄕ ㄓㄣˇ ㄉㄨㄢˋ",
+    "spoken": "醫生說",
+    "spoken_zhuyin": "ㄧ ㄕㄥ ㄕㄨㄛ",
+    "en": "the doctor diagnosed / the doctor said"
+   },
+   {
+    "written": "休養",
+    "written_zhuyin": "ㄒㄧㄡ ㄧㄤˇ",
+    "spoken": "休息",
+    "spoken_zhuyin": "ㄒㄧㄡ ㄒㄧˊ",
+    "en": "to rest and recover / to rest"
+   },
+   {
+    "written": "無法出席",
+    "written_zhuyin": "ㄨˊ ㄈㄚˇ ㄔㄨ ㄒㄧˊ",
+    "spoken": "沒辦法去",
+    "spoken_zhuyin": "ㄇㄟˊ ㄅㄢˋ ㄈㄚˇ ㄑㄩˋ",
+    "en": "cannot attend / can't go"
+   },
+   {
+    "written": "本週四",
+    "written_zhuyin": "ㄅㄣˇ ㄓㄡ ㄙˋ",
+    "spoken": "禮拜四",
+    "spoken_zhuyin": "ㄌㄧˇ ㄅㄞˋ ㄙˋ",
+    "en": "this Thursday"
+   },
+   {
+    "written": "向您請假",
+    "written_zhuyin": "ㄒㄧㄤˋ ㄋㄧㄣˊ ㄑㄧㄥˇ ㄐㄧㄚˋ",
+    "spoken": "跟您請假",
+    "spoken_zhuyin": "ㄍㄣ ㄋㄧㄣˊ ㄑㄧㄥˇ ㄐㄧㄚˋ",
+    "en": "to ask you for leave"
+   },
+   {
+    "written": "懇請告知",
+    "written_zhuyin": "ㄎㄣˇ ㄑㄧㄥˇ ㄍㄠˋ ㄓ",
+    "spoken": "可以麻煩您跟我說嗎",
+    "spoken_zhuyin": "ㄎㄜˇ ㄧˇ ㄇㄚˊ ˙ㄈㄢ ㄋㄧㄣˊ ㄍㄣ ㄨㄛˇ ㄕㄨㄛ ˙ㄇㄚ",
+    "en": "please kindly inform me / could you tell me"
+   },
+   {
+    "written": "學生將於下週上課前補交",
+    "written_zhuyin": "ㄒㄩㄝˊ ㄕㄥ ㄐㄧㄤ ㄩˊ ㄒㄧㄚˋ ㄓㄡ ㄕㄤˋ ㄎㄜˋ ㄑㄧㄢˊ ㄅㄨˇ ㄐㄧㄠ",
+    "spoken": "我下禮拜上課前會補交",
+    "spoken_zhuyin": "ㄨㄛˇ ㄒㄧㄚˋ ㄌㄧˇ ㄅㄞˋ ㄕㄤˋ ㄎㄜˋ ㄑㄧㄢˊ ㄏㄨㄟˋ ㄅㄨˇ ㄐㄧㄠ",
+    "en": "I will hand it in before class next week"
+   },
+   {
+    "written": "敬請見諒",
+    "written_zhuyin": "ㄐㄧㄥˋ ㄑㄧㄥˇ ㄐㄧㄢˋ ㄌㄧㄤˋ",
+    "spoken": "真的很抱歉",
+    "spoken_zhuyin": "ㄓㄣ ˙ㄉㄜ ㄏㄣˇ ㄅㄠˋ ㄑㄧㄢˋ",
+    "en": "please excuse me / I'm really sorry"
+   }
+  ]
+ }
+}

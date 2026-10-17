@@ -1,0 +1,121 @@
+id,situation,zh,zhuyin,en,level,note
+PB001,convenience-store,歡迎光臨！,ㄏㄨㄢ ㄧㄥˊ ㄍㄨㄤ ㄌㄧㄣˊ,Welcome!,2,Staff say this when you walk into most shops; no reply needed.
+PB002,convenience-store,需要袋子嗎？,ㄒㄩ ㄧㄠˋ ㄉㄞˋ ˙ㄗ ˙ㄇㄚ,Do you need a bag?,2,Shop bags usually cost a little; many people bring their own.
+PB003,convenience-store,不用，謝謝。,ㄅㄨˋ ㄩㄥˋ ㄒㄧㄝˋ ˙ㄒㄧㄝ,"No need, thanks.",1,
+PB004,convenience-store,需要載具嗎？,ㄒㄩ ㄧㄠˋ ㄗㄞˋ ㄐㄩˋ ˙ㄇㄚ,Do you want the e-receipt saved to a carrier?,3,Asked about the electronic receipt (發票); say 不用 if you have no carrier barcode.
+PB005,convenience-store,可以幫我微波嗎？,ㄎㄜˇ ㄧˇ ㄅㄤ ㄨㄛˇ ㄨㄟˊ ㄅㄛ ˙ㄇㄚ,Could you microwave it for me?,2,
+PB006,convenience-store,我要繳費。,ㄨㄛˇ ㄧㄠˋ ㄐㄧㄠˇ ㄈㄟˋ,I'd like to pay a bill.,3,
+PB007,convenience-store,我要一杯熱美式。,ㄨㄛˇ ㄧㄠˋ ㄧ ㄅㄟ ㄖㄜˋ ㄇㄟˇ ㄕˋ,I'd like a hot Americano.,2,
+PB008,breakfast-shop,帥哥，要吃什麼？,ㄕㄨㄞˋ ㄍㄜ ㄧㄠˋ ㄔ ㄕㄣˊ ˙ㄇㄜ,"What would you like, handsome?",2,Breakfast-shop staff often call customers 帥哥 or 美女; it's just friendly.
+PB009,breakfast-shop,我要一份蘿蔔糕加蛋。,ㄨㄛˇ ㄧㄠˋ ㄧ ㄈㄣˋ ㄌㄨㄛˊ ˙ㄅㄛ ㄍㄠ ㄐㄧㄚ ㄉㄢˋ,I'd like turnip cake with egg.,2,
+PB010,breakfast-shop,一杯大冰奶。,ㄧ ㄅㄟ ㄉㄚˋ ㄅㄧㄥ ㄋㄞˇ,A large iced milk tea.,2,冰奶 is the breakfast-shop iced milk tea.
+PB011,breakfast-shop,蛋餅要什麼口味？,ㄉㄢˋ ㄅㄧㄥˇ ㄧㄠˋ ㄕㄣˊ ˙ㄇㄜ ㄎㄡˇ ㄨㄟˋ,What filling would you like in your egg crepe?,2,
+PB012,breakfast-shop,我要鮪魚蛋餅。,ㄨㄛˇ ㄧㄠˋ ㄨㄟˇ ㄩˊ ㄉㄢˋ ㄅㄧㄥˇ,I'll have a tuna egg crepe.,2,
+PB013,breakfast-shop,內用還是外帶？,ㄋㄟˋ ㄩㄥˋ ㄏㄞˊ ㄕˋ ㄨㄞˋ ㄉㄞˋ,For here or to go?,1,
+PB014,breakfast-shop,外帶，謝謝。,ㄨㄞˋ ㄉㄞˋ ㄒㄧㄝˋ ˙ㄒㄧㄝ,"To go, thanks.",1,
+PB015,drink-shop,甜度冰塊呢？,ㄊㄧㄢˊ ㄉㄨˋ ㄅㄧㄥ ㄎㄨㄞˋ ˙ㄋㄜ,How sweet and how much ice?,2,The question you will hear at every tea shop.
+PB016,drink-shop,半糖少冰。,ㄅㄢˋ ㄊㄤˊ ㄕㄠˇ ㄅㄧㄥ,"Half sugar, less ice.",2,"Sugar levels, sweetest first: 全糖, 少糖, 半糖, 微糖, 無糖."
+PB017,drink-shop,微糖去冰。,ㄨㄟˊ ㄊㄤˊ ㄑㄩˋ ㄅㄧㄥ,"Light sugar, no ice.",2,"Ice levels, most first: 正常冰, 少冰, 微冰, 去冰."
+PB018,drink-shop,我要一杯大杯的珍珠奶茶。,ㄨㄛˇ ㄧㄠˋ ㄧ ㄅㄟ ㄉㄚˋ ㄅㄟ ˙ㄉㄜ ㄓㄣ ㄓㄨ ㄋㄞˇ ㄔㄚˊ,I'd like a large bubble milk tea.,2,
+PB019,drink-shop,要加珍珠嗎？,ㄧㄠˋ ㄐㄧㄚ ㄓㄣ ㄓㄨ ˙ㄇㄚ,Would you like to add tapioca pearls?,2,
+PB020,drink-shop,可以用一卡通嗎？,ㄎㄜˇ ㄧˇ ㄩㄥˋ ㄧ ㄎㄚˇ ㄊㄨㄥ ˙ㄇㄚ,Can I pay with an iPASS card?,2,
+PB021,drink-shop,不用吸管，謝謝。,ㄅㄨˋ ㄩㄥˋ ㄒㄧ ㄍㄨㄢˇ ㄒㄧㄝˋ ˙ㄒㄧㄝ,"No straw, thanks.",2,
+PB022,night-market,老闆，這個怎麼賣？,ㄌㄠˇ ㄅㄢˇ ㄓㄜˋ ˙ㄍㄜ ㄗㄣˇ ˙ㄇㄜ ㄇㄞˋ,"Boss, how much is this?",2,Address stall owners as 老闆 or 老闆娘.
+PB023,night-market,一份臭豆腐，小辣。,ㄧ ㄈㄣˋ ㄔㄡˋ ㄉㄡˋ ㄈㄨˇ ㄒㄧㄠˇ ㄌㄚˋ,"One stinky tofu, a little spicy.",2,
+PB024,night-market,要不要辣？,ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄌㄚˋ,Do you want it spicy?,1,
+PB025,night-market,可以算便宜一點嗎？,ㄎㄜˇ ㄧˇ ㄙㄨㄢˋ ㄆㄧㄢˊ ㄧˊ ㄧ ㄉㄧㄢˇ ˙ㄇㄚ,Could you give me a slightly better price?,3,
+PB026,night-market,排隊的人好多喔！,ㄆㄞˊ ㄉㄨㄟˋ ˙ㄉㄜ ㄖㄣˊ ㄏㄠˇ ㄉㄨㄛ ㄛ,So many people in the queue!,2,
+PB027,night-market,這個要排多久？,ㄓㄜˋ ˙ㄍㄜ ㄧㄠˋ ㄆㄞˊ ㄉㄨㄛ ㄐㄧㄡˇ,How long is the wait for this?,2,
+PB028,night-market,我要一杯木瓜牛奶。,ㄨㄛˇ ㄧㄠˋ ㄧ ㄅㄟ ㄇㄨˋ ㄍㄨㄚ ㄋㄧㄡˊ ㄋㄞˇ,I'd like a papaya milk.,1,
+PB029,bento,我要一個雞腿便當。,ㄨㄛˇ ㄧㄠˋ ㄧ ˙ㄍㄜ ㄐㄧ ㄊㄨㄟˇ ㄅㄧㄢˋ ㄉㄤ,I'd like a chicken-leg bento.,1,
+PB030,bento,飯少一點。,ㄈㄢˋ ㄕㄠˇ ㄧ ㄉㄧㄢˇ,"A bit less rice, please.",2,
+PB031,bento,菜可以自己選嗎？,ㄘㄞˋ ㄎㄜˇ ㄧˇ ㄗˋ ㄐㄧˇ ㄒㄩㄢˇ ˙ㄇㄚ,Can I choose the dishes myself?,2,"At a 自助餐 buffet you pick your dishes, and the price depends on what you take."
+PB032,bento,這樣多少錢？,ㄓㄜˋ ㄧㄤˋ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ,How much is all this?,2,
+PB033,bento,有排骨便當嗎？,ㄧㄡˇ ㄆㄞˊ ㄍㄨˇ ㄅㄧㄢˋ ㄉㄤ ˙ㄇㄚ,Do you have pork chop bento?,2,
+PB034,bento,便當要加熱嗎？,ㄅㄧㄢˋ ㄉㄤ ㄧㄠˋ ㄐㄧㄚ ㄖㄜˋ ˙ㄇㄚ,Do you want the bento heated?,2,
+PB035,bento,不要辣，謝謝。,ㄅㄨˋ ㄧㄠˋ ㄌㄚˋ ㄒㄧㄝˋ ˙ㄒㄧㄝ,"Not spicy, thanks.",1,
+PB036,transport,這班火車有停屏東嗎？,ㄓㄜˋ ㄅㄢ ㄏㄨㄛˇ ㄔㄜ ㄧㄡˇ ㄊㄧㄥˊ ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄇㄚ,Does this train stop at Pingtung?,2,有 + verb in a question is everyday Taiwan Mandarin.
+PB037,transport,我要一張到高雄的票。,ㄨㄛˇ ㄧㄠˋ ㄧ ㄓㄤ ㄉㄠˋ ㄍㄠ ㄒㄩㄥˊ ˙ㄉㄜ ㄆㄧㄠˋ,I'd like a ticket to Kaohsiung.,2,
+PB038,transport,下一班車幾點？,ㄒㄧㄚˋ ㄧ ㄅㄢ ㄔㄜ ㄐㄧˇ ㄉㄧㄢˇ,What time is the next one?,2,
+PB039,transport,騎機車要戴安全帽。,ㄑㄧˊ ㄐㄧ ㄔㄜ ㄧㄠˋ ㄉㄞˋ ㄢ ㄑㄩㄢˊ ㄇㄠˋ,You have to wear a helmet on a scooter.,2,
+PB040,transport,司機，我在這裡下車。,ㄙ ㄐㄧ ㄨㄛˇ ㄗㄞˋ ㄓㄜˋ ㄌㄧˇ ㄒㄧㄚˋ ㄔㄜ,"Driver, I'll get off here.",2,
+PB041,transport,這台公車可以刷一卡通嗎？,ㄓㄜˋ ㄊㄞˊ ㄍㄨㄥ ㄔㄜ ㄎㄜˇ ㄧˇ ㄕㄨㄚ ㄧ ㄎㄚˇ ㄊㄨㄥ ˙ㄇㄚ,Can I use an iPASS card on this bus?,2,
+PB042,transport,請問高鐵站怎麼去？,ㄑㄧㄥˇ ㄨㄣˋ ㄍㄠ ㄊㄧㄝˇ ㄓㄢˋ ㄗㄣˇ ˙ㄇㄜ ㄑㄩˋ,"Excuse me, how do I get to the high-speed rail station?",2,
+PB043,transport,九五，加滿。,ㄐㄧㄡˇ ㄨˇ ㄐㄧㄚ ㄇㄢˇ,"95 unleaded, fill it up.",2,"At the petrol station: 九二, 九五 or 九八 are the grades."
+PB044,doctor,我要掛號。,ㄨㄛˇ ㄧㄠˋ ㄍㄨㄚˋ ㄏㄠˋ,I'd like to register (to see a doctor).,3,
+PB045,doctor,有帶健保卡嗎？,ㄧㄡˇ ㄉㄞˋ ㄐㄧㄢˋ ㄅㄠˇ ㄎㄚˇ ˙ㄇㄚ,Did you bring your NHI card?,2,
+PB046,doctor,我喉嚨很痛。,ㄨㄛˇ ㄏㄡˊ ㄌㄨㄥˊ ㄏㄣˇ ㄊㄨㄥˋ,I have a sore throat.,2,
+PB047,doctor,我發燒了。,ㄨㄛˇ ㄈㄚ ㄕㄠ ˙ㄌㄜ,I have a fever.,2,
+PB048,doctor,我從昨天開始咳嗽。,ㄨㄛˇ ㄘㄨㄥˊ ㄗㄨㄛˊ ㄊㄧㄢ ㄎㄞ ㄕˇ ㄎㄜˊ ㄙㄡˋ,I've been coughing since yesterday.,2,
+PB049,doctor,你有對什麼藥過敏嗎？,ㄋㄧˇ ㄧㄡˇ ㄉㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ ㄧㄠˋ ㄍㄨㄛˋ ㄇㄧㄣˇ ˙ㄇㄚ,Are you allergic to any medicine?,3,
+PB050,doctor,下次什麼時候回診？,ㄒㄧㄚˋ ㄘˋ ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ ㄏㄨㄟˊ ㄓㄣˇ,When is my next follow-up visit?,3,
+PB051,pharmacy,我想買感冒藥。,ㄨㄛˇ ㄒㄧㄤˇ ㄇㄞˇ ㄍㄢˇ ㄇㄠˋ ㄧㄠˋ,I'd like to buy some cold medicine.,2,
+PB052,pharmacy,這個藥一天吃幾次？,ㄓㄜˋ ˙ㄍㄜ ㄧㄠˋ ㄧ ㄊㄧㄢ ㄔ ㄐㄧˇ ㄘˋ,How many times a day do I take this?,2,
+PB053,pharmacy,飯後吃，一天三次。,ㄈㄢˋ ㄏㄡˋ ㄔ ㄧ ㄊㄧㄢ ㄙㄢ ㄘˋ,"After meals, three times a day.",2,
+PB054,pharmacy,吃了會想睡覺嗎？,ㄔ ˙ㄌㄜ ㄏㄨㄟˋ ㄒㄧㄤˇ ㄕㄨㄟˋ ㄐㄧㄠˋ ˙ㄇㄚ,Will it make me sleepy?,2,
+PB055,pharmacy,有沒有防蚊液？,ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄈㄤˊ ㄨㄣˊ ㄧㄝˋ,Do you have mosquito repellent?,3,
+PB056,pharmacy,我要領處方箋的藥。,ㄨㄛˇ ㄧㄠˋ ㄌㄧㄥˇ ㄔㄨˇ ㄈㄤ ㄐㄧㄢ ˙ㄉㄜ ㄧㄠˋ,I'm here to pick up my prescription.,3,
+PB057,pharmacy,需要看醫生嗎？,ㄒㄩ ㄧㄠˋ ㄎㄢˋ ㄧ ㄕㄥ ˙ㄇㄚ,Do I need to see a doctor?,2,
+PB058,bank,我想開戶。,ㄨㄛˇ ㄒㄧㄤˇ ㄎㄞ ㄏㄨˋ,I'd like to open an account.,3,
+PB059,bank,要帶居留證和護照。,ㄧㄠˋ ㄉㄞˋ ㄐㄩ ㄌㄧㄡˊ ㄓㄥˋ ㄏㄜˊ ㄏㄨˋ ㄓㄠˋ,You need to bring your ARC and passport.,3,
+PB060,bank,請抽號碼牌。,ㄑㄧㄥˇ ㄔㄡ ㄏㄠˋ ㄇㄚˇ ㄆㄞˊ,Please take a number.,3,
+PB061,bank,我要換錢。,ㄨㄛˇ ㄧㄠˋ ㄏㄨㄢˋ ㄑㄧㄢˊ,I'd like to change money.,2,
+PB062,bank,提款機在哪裡？,ㄊㄧˊ ㄎㄨㄢˇ ㄐㄧ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ,Where is the ATM?,2,Taiwan calls an ATM 提款機.
+PB063,bank,我的卡被吃掉了。,ㄨㄛˇ ˙ㄉㄜ ㄎㄚˇ ㄅㄟˋ ㄔ ㄉㄧㄠˋ ˙ㄌㄜ,The machine swallowed my card.,3,
+PB064,bank,我要匯款。,ㄨㄛˇ ㄧㄠˋ ㄏㄨㄟˋ ㄎㄨㄢˇ,I'd like to make a transfer.,3,
+PB065,post-office,我要寄這個包裹。,ㄨㄛˇ ㄧㄠˋ ㄐㄧˋ ㄓㄜˋ ˙ㄍㄜ ㄅㄠ ㄍㄨㄛˇ,I'd like to send this parcel.,2,
+PB066,post-office,寄到國外要多久？,ㄐㄧˋ ㄉㄠˋ ㄍㄨㄛˊ ㄨㄞˋ ㄧㄠˋ ㄉㄨㄛ ㄐㄧㄡˇ,How long does it take to send it abroad?,2,
+PB067,post-office,我要寄掛號信。,ㄨㄛˇ ㄧㄠˋ ㄐㄧˋ ㄍㄨㄚˋ ㄏㄠˋ ㄒㄧㄣˋ,I'd like to send a registered letter.,3,
+PB068,post-office,我想買郵票。,ㄨㄛˇ ㄒㄧㄤˇ ㄇㄞˇ ㄧㄡˊ ㄆㄧㄠˋ,I'd like to buy stamps.,2,
+PB069,post-office,我來領包裹。,ㄨㄛˇ ㄌㄞˊ ㄌㄧㄥˇ ㄅㄠ ㄍㄨㄛˇ,I'm here to pick up a parcel.,3,
+PB070,post-office,裡面是什麼東西？,ㄌㄧˇ ㄇㄧㄢˋ ㄕˋ ㄕㄣˊ ˙ㄇㄜ ㄉㄨㄥ ˙ㄒㄧ,What's inside?,2,
+PB071,post-office,要寄平信還是快捷？,ㄧㄠˋ ㄐㄧˋ ㄆㄧㄥˊ ㄒㄧㄣˋ ㄏㄞˊ ㄕˋ ㄎㄨㄞˋ ㄐㄧㄝˊ,Regular mail or express?,3,
+PB072,renting,這間套房還有在租嗎？,ㄓㄜˋ ㄐㄧㄢ ㄊㄠˋ ㄈㄤˊ ㄏㄞˊ ㄧㄡˇ ㄗㄞˋ ㄗㄨ ˙ㄇㄚ,Is this studio still for rent?,3,有在 + verb asks whether something is still going on; everyday Taiwan Mandarin.
+PB073,renting,房租一個月多少？,ㄈㄤˊ ㄗㄨ ㄧ ˙ㄍㄜ ㄩㄝˋ ㄉㄨㄛ ㄕㄠˇ,How much is the rent per month?,2,
+PB074,renting,押金要幾個月？,ㄧㄚ ㄐㄧㄣ ㄧㄠˋ ㄐㄧˇ ˙ㄍㄜ ㄩㄝˋ,How many months' deposit?,3,
+PB075,renting,水電怎麼算？,ㄕㄨㄟˇ ㄉㄧㄢˋ ㄗㄣˇ ˙ㄇㄜ ㄙㄨㄢˋ,How are water and electricity charged?,3,
+PB076,renting,可以養寵物嗎？,ㄎㄜˇ ㄧˇ ㄧㄤˇ ㄔㄨㄥˇ ㄨˋ ˙ㄇㄚ,Are pets allowed?,3,
+PB077,renting,什麼時候可以看房子？,ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ ㄎㄜˇ ㄧˇ ㄎㄢˋ ㄈㄤˊ ˙ㄗ,When can I come and see the place?,2,
+PB078,renting,冷氣壞了，可以來修嗎？,ㄌㄥˇ ㄑㄧˋ ㄏㄨㄞˋ ˙ㄌㄜ ㄎㄜˇ ㄧˇ ㄌㄞˊ ㄒㄧㄡ ˙ㄇㄚ,"The air conditioner is broken, can you come and fix it?",2,
+PB079,phone,喂，請問是哪位？,ㄨㄟˋ ㄑㄧㄥˇ ㄨㄣˋ ㄕˋ ㄋㄚˇ ㄨㄟˋ,"Hello, who's calling please?",2,
+PB080,phone,我們加個LINE吧。,ㄨㄛˇ ˙ㄇㄣ ㄐㄧㄚ ˙ㄍㄜ ˙ㄅㄚ,Let's add each other on LINE.,2,LINE is the main messaging app in Taiwan.
+PB081,phone,我等一下打給你。,ㄨㄛˇ ㄉㄥˇ ㄧ ㄒㄧㄚˋ ㄉㄚˇ ㄍㄟˇ ㄋㄧˇ,I'll call you back in a bit.,2,
+PB082,phone,你的手機號碼是多少？,ㄋㄧˇ ˙ㄉㄜ ㄕㄡˇ ㄐㄧ ㄏㄠˋ ㄇㄚˇ ㄕˋ ㄉㄨㄛ ㄕㄠˇ,What's your mobile number?,2,
+PB083,phone,我傳訊息給你。,ㄨㄛˇ ㄔㄨㄢˊ ㄒㄩㄣˋ ㄒㄧˊ ㄍㄟˇ ㄋㄧˇ,I'll send you a message.,2,
+PB084,phone,收訊不好，聽不清楚。,ㄕㄡ ㄒㄩㄣˋ ㄅㄨˋ ㄏㄠˇ ㄊㄧㄥ ㄅㄨˋ ㄑㄧㄥ ㄔㄨˇ,"The signal is bad, I can't hear you clearly.",3,
+PB085,phone,我手機快沒電了。,ㄨㄛˇ ㄕㄡˇ ㄐㄧ ㄎㄨㄞˋ ㄇㄟˊ ㄉㄧㄢˋ ˙ㄌㄜ,My phone is almost out of battery.,2,
+PB086,weather,今天好熱喔！,ㄐㄧㄣ ㄊㄧㄢ ㄏㄠˇ ㄖㄜˋ ㄛ,It's so hot today!,1,
+PB087,weather,颱風要來了。,ㄊㄞˊ ㄈㄥ ㄧㄠˋ ㄌㄞˊ ˙ㄌㄜ,A typhoon is coming.,2,
+PB088,weather,明天有放颱風假嗎？,ㄇㄧㄥˊ ㄊㄧㄢ ㄧㄡˇ ㄈㄤˋ ㄊㄞˊ ㄈㄥ ㄐㄧㄚˋ ˙ㄇㄚ,Is there a typhoon day off tomorrow?,3,Local governments announce typhoon days off (颱風假).
+PB089,weather,出門記得帶傘。,ㄔㄨ ㄇㄣˊ ㄐㄧˋ ˙ㄉㄜ ㄉㄞˋ ㄙㄢˇ,Remember to take an umbrella when you go out.,2,
+PB090,weather,夏天下午常常下雷陣雨。,ㄒㄧㄚˋ ㄊㄧㄢ ㄒㄧㄚˋ ㄨˇ ㄔㄤˊ ㄔㄤˊ ㄒㄧㄚˋ ㄌㄟˊ ㄓㄣˋ ㄩˇ,Summer afternoons often bring thunderstorms.,3,
+PB091,weather,外面風很大，騎車小心。,ㄨㄞˋ ㄇㄧㄢˋ ㄈㄥ ㄏㄣˇ ㄉㄚˋ ㄑㄧˊ ㄔㄜ ㄒㄧㄠˇ ㄒㄧㄣ,"It's very windy out, ride carefully.",2,
+PB092,weather,太陽好大，要擦防曬。,ㄊㄞˋ ㄧㄤˊ ㄏㄠˇ ㄉㄚˋ ㄧㄠˋ ㄘㄚ ㄈㄤˊ ㄕㄞˋ,"The sun is strong, put on sunscreen.",3,
+PB093,neighbours,早安！要去上班喔？,ㄗㄠˇ ㄢ ㄧㄠˋ ㄑㄩˋ ㄕㄤˋ ㄅㄢ ㄛ,Morning! Off to work?,1,
+PB094,neighbours,吃飽了沒？,ㄔ ㄅㄠˇ ˙ㄌㄜ ㄇㄟˊ,Have you eaten yet?,1,"A greeting, not an invitation; 吃飽了 is a fine answer."
+PB095,neighbours,我住在三樓。,ㄨㄛˇ ㄓㄨˋ ㄗㄞˋ ㄙㄢ ㄌㄡˊ,I live on the third floor.,1,
+PB096,neighbours,垃圾車幾點來？,ㄌㄜˋ ㄙㄜˋ ㄔㄜ ㄐㄧˇ ㄉㄧㄢˇ ㄌㄞˊ,What time does the rubbish truck come?,2,"Rubbish trucks play music as they come, and people bring their bags out to meet it."
+PB097,neighbours,這是我做的，請你吃。,ㄓㄜˋ ㄕˋ ㄨㄛˇ ㄗㄨㄛˋ ˙ㄉㄜ ㄑㄧㄥˇ ㄋㄧˇ ㄔ,"I made this, please have some.",2,
+PB098,neighbours,不好意思，打擾了。,ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄉㄚˇ ㄖㄠˇ ˙ㄌㄜ,"Sorry to bother you.",2,
+PB099,neighbours,有空來坐坐。,ㄧㄡˇ ㄎㄨㄥˋ ㄌㄞˊ ㄗㄨㄛˋ ㄗㄨㄛˋ,Drop by when you're free.,2,
+PB100,family,你家有幾個人？,ㄋㄧˇ ㄐㄧㄚ ㄧㄡˇ ㄐㄧˇ ˙ㄍㄜ ㄖㄣˊ,How many people are in your family?,1,
+PB101,family,我有一個哥哥和一個妹妹。,ㄨㄛˇ ㄧㄡˇ ㄧ ˙ㄍㄜ ㄍㄜ ˙ㄍㄜ ㄏㄜˊ ㄧ ˙ㄍㄜ ㄇㄟˋ ˙ㄇㄟ,I have an older brother and a younger sister.,1,
+PB102,family,你結婚了嗎？,ㄋㄧˇ ㄐㄧㄝˊ ㄏㄨㄣ ˙ㄌㄜ ˙ㄇㄚ,Are you married?,2,
+PB103,family,我週末回去看我爸媽。,ㄨㄛˇ ㄓㄡ ㄇㄛˋ ㄏㄨㄟˊ ㄑㄩˋ ㄎㄢˋ ㄨㄛˇ ㄅㄚˋ ㄇㄚ,I'm going back to see my parents at the weekend.,2,
+PB104,family,你小孩幾歲了？,ㄋㄧˇ ㄒㄧㄠˇ ㄏㄞˊ ㄐㄧˇ ㄙㄨㄟˋ ˙ㄌㄜ,How old is your child?,2,
+PB105,family,阿嬤身體還好嗎？,ㄚ ˙ㄇㄚ ㄕㄣ ㄊㄧˇ ㄏㄞˊ ㄏㄠˇ ˙ㄇㄚ,Is Grandma keeping well?,2,阿嬤 is the everyday Taiwan word for grandma.
+PB106,family,過年我們全家一起吃年夜飯。,ㄍㄨㄛˋ ㄋㄧㄢˊ ㄨㄛˇ ˙ㄇㄣ ㄑㄩㄢˊ ㄐㄧㄚ ㄧ ㄑㄧˇ ㄔ ㄋㄧㄢˊ ㄧㄝˋ ㄈㄢˋ,At Lunar New Year our whole family has the reunion dinner together.,3,
+PB107,festivals,我們去廟裡拜拜。,ㄨㄛˇ ˙ㄇㄣ ㄑㄩˋ ㄇㄧㄠˋ ㄌㄧˇ ㄅㄞˋ ㄅㄞˋ,We're going to the temple to pray.,2,
+PB108,festivals,新年快樂！,ㄒㄧㄣ ㄋㄧㄢˊ ㄎㄨㄞˋ ㄌㄜˋ,Happy New Year!,1,
+PB109,festivals,恭喜發財！,ㄍㄨㄥ ㄒㄧˇ ㄈㄚ ㄘㄞˊ,Wishing you prosperity!,2,The standard Lunar New Year greeting.
+PB110,festivals,中秋節要烤肉嗎？,ㄓㄨㄥ ㄑㄧㄡ ㄐㄧㄝˊ ㄧㄠˋ ㄎㄠˇ ㄖㄡˋ ˙ㄇㄚ,Are you having a barbecue for Mid-Autumn?,2,Barbecuing with family and neighbours is a popular Mid-Autumn custom in Taiwan.
+PB111,festivals,端午節吃粽子。,ㄉㄨㄢ ㄨˇ ㄐㄧㄝˊ ㄔ ㄗㄨㄥˋ ˙ㄗ,We eat rice dumplings at the Dragon Boat Festival.,2,
+PB112,festivals,紅包要包多少？,ㄏㄨㄥˊ ㄅㄠ ㄧㄠˋ ㄅㄠ ㄉㄨㄛ ㄕㄠˇ,How much should I put in the red envelope?,3,
+PB113,festivals,拜拜的時候要拿香嗎？,ㄅㄞˋ ㄅㄞˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄧㄠˋ ㄋㄚˊ ㄒㄧㄤ ˙ㄇㄚ,Do I hold incense when I pray?,3,
+PB114,hobbies,你平常喜歡做什麼？,ㄋㄧˇ ㄆㄧㄥˊ ㄔㄤˊ ㄒㄧˇ ㄏㄨㄢ ㄗㄨㄛˋ ㄕㄣˊ ˙ㄇㄜ,What do you usually like to do?,2,
+PB115,hobbies,我喜歡騎腳踏車。,ㄨㄛˇ ㄒㄧˇ ㄏㄨㄢ ㄑㄧˊ ㄐㄧㄠˇ ㄊㄚˋ ㄔㄜ,I like riding my bike.,2,腳踏車 is the usual Taiwan word for a bicycle.
+PB116,hobbies,週末要不要去爬山？,ㄓㄡ ㄇㄛˋ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄑㄩˋ ㄆㄚˊ ㄕㄢ,Do you want to go hiking at the weekend?,2,
+PB117,hobbies,我最近在學做菜。,ㄨㄛˇ ㄗㄨㄟˋ ㄐㄧㄣˋ ㄗㄞˋ ㄒㄩㄝˊ ㄗㄨㄛˋ ㄘㄞˋ,I've been learning to cook lately.,2,
+PB118,hobbies,你有在運動嗎？,ㄋㄧˇ ㄧㄡˇ ㄗㄞˋ ㄩㄣˋ ㄉㄨㄥˋ ˙ㄇㄚ,Do you work out?,2,有在 + verb asks about a habit; everyday Taiwan Mandarin.
+PB119,hobbies,我們去唱歌吧！,ㄨㄛˇ ˙ㄇㄣ ㄑㄩˋ ㄔㄤˋ ㄍㄜ ˙ㄅㄚ,Let's go sing!,1,去唱歌 often means going to KTV.
+PB120,hobbies,這部電影很好看。,ㄓㄜˋ ㄅㄨˋ ㄉㄧㄢˋ ㄧㄥˇ ㄏㄣˇ ㄏㄠˇ ㄎㄢˋ,This film is really good.,2,

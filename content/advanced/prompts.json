@@ -1,0 +1,156 @@
+{
+ "journal": [
+  {"level": 1, "prompts": [
+   {"id": "j1-1", "zh": "你今天吃了什麼？", "zhuyin": "ㄋㄧˇ ㄐㄧㄣ ㄊㄧㄢ ㄔ ˙ㄌㄜ ㄕㄣˊ ˙ㄇㄜ", "en": "What did you eat today?"},
+   {"id": "j1-2", "zh": "請介紹你的家人。", "zhuyin": "ㄑㄧㄥˇ ㄐㄧㄝˋ ㄕㄠˋ ㄋㄧˇ ˙ㄉㄜ ㄐㄧㄚ ㄖㄣˊ", "en": "Introduce your family."},
+   {"id": "j1-3", "zh": "你住在哪裡？你喜歡那裡嗎？", "zhuyin": "ㄋㄧˇ ㄓㄨˋ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ ㄋㄧˇ ㄒㄧˇ ㄏㄨㄢ ㄋㄚˋ ㄌㄧˇ ˙ㄇㄚ", "en": "Where do you live? Do you like it there?"},
+   {"id": "j1-4", "zh": "你每天幾點起床？早上做什麼？", "zhuyin": "ㄋㄧˇ ㄇㄟˇ ㄊㄧㄢ ㄐㄧˇ ㄉㄧㄢˇ ㄑㄧˇ ㄔㄨㄤˊ ㄗㄠˇ ㄕㄤˋ ㄗㄨㄛˋ ㄕㄣˊ ˙ㄇㄜ", "en": "What time do you get up every day? What do you do in the morning?"},
+   {"id": "j1-5", "zh": "你喜歡喝什麼？茶還是咖啡？", "zhuyin": "ㄋㄧˇ ㄒㄧˇ ㄏㄨㄢ ㄏㄜ ㄕㄣˊ ˙ㄇㄜ ㄔㄚˊ ㄏㄞˊ ㄕˋ ㄎㄚ ㄈㄟ", "en": "What do you like to drink? Tea or coffee?"},
+   {"id": "j1-6", "zh": "今天天氣怎麼樣？你去了哪裡？", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄊㄧㄢ ㄑㄧˋ ㄗㄣˇ ˙ㄇㄜ ㄧㄤˋ ㄋㄧˇ ㄑㄩˋ ˙ㄌㄜ ㄋㄚˇ ㄌㄧˇ", "en": "What's the weather like today? Where did you go?"}
+  ]},
+  {"level": 2, "prompts": [
+   {"id": "j2-1", "zh": "你週末常常做什麼？跟誰一起？", "zhuyin": "ㄋㄧˇ ㄓㄡ ㄇㄛˋ ㄔㄤˊ ㄔㄤˊ ㄗㄨㄛˋ ㄕㄣˊ ˙ㄇㄜ ㄍㄣ ㄕㄟˊ ㄧ ㄑㄧˇ", "en": "What do you often do on weekends? Who with?"},
+   {"id": "j2-2", "zh": "你都怎麼去買菜？騎機車、開車還是走路？", "zhuyin": "ㄋㄧˇ ㄉㄡ ㄗㄣˇ ˙ㄇㄜ ㄑㄩˋ ㄇㄞˇ ㄘㄞˋ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄎㄞ ㄔㄜ ㄏㄞˊ ㄕˋ ㄗㄡˇ ㄌㄨˋ", "en": "How do you usually go grocery shopping: by scooter, by car or on foot?"},
+   {"id": "j2-3", "zh": "寫一寫你家附近的一家店。你常在那裡買什麼？", "zhuyin": "ㄒㄧㄝˇ ㄧ ㄒㄧㄝˇ ㄋㄧˇ ㄐㄧㄚ ㄈㄨˋ ㄐㄧㄣˋ ˙ㄉㄜ ㄧ ㄐㄧㄚ ㄉㄧㄢˋ ㄋㄧˇ ㄔㄤˊ ㄗㄞˋ ㄋㄚˋ ㄌㄧˇ ㄇㄞˇ ㄕㄣˊ ˙ㄇㄜ", "en": "Write about a shop near your home. What do you often buy there?"},
+   {"id": "j2-4", "zh": "你上次去看醫生是什麼時候？哪裡不舒服？", "zhuyin": "ㄋㄧˇ ㄕㄤˋ ㄘˋ ㄑㄩˋ ㄎㄢˋ ㄧ ㄕㄥ ㄕˋ ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ ㄋㄚˇ ㄌㄧˇ ㄅㄨˋ ㄕㄨ ˙ㄈㄨ", "en": "When did you last see a doctor? What was wrong?"},
+   {"id": "j2-5", "zh": "你最喜歡哪一個季節？為什麼？", "zhuyin": "ㄋㄧˇ ㄗㄨㄟˋ ㄒㄧˇ ㄏㄨㄢ ㄋㄚˇ ㄧ ˙ㄍㄜ ㄐㄧˋ ㄐㄧㄝˊ ㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ", "en": "Which season do you like best? Why?"},
+   {"id": "j2-6", "zh": "你有沒有學過什麼運動？學了多久？", "zhuyin": "ㄋㄧˇ ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄒㄩㄝˊ ㄍㄨㄛˋ ㄕㄣˊ ˙ㄇㄜ ㄩㄣˋ ㄉㄨㄥˋ ㄒㄩㄝˊ ˙ㄌㄜ ㄉㄨㄛ ㄐㄧㄡˇ", "en": "Have you ever learned a sport? How long did you learn it for?"}
+  ]},
+  {"level": 3, "prompts": [
+   {"id": "j3-1", "zh": "說一說你在臺灣遇到的一個小問題，後來是怎麼解決的？", "zhuyin": "ㄕㄨㄛ ㄧ ㄕㄨㄛ ㄋㄧˇ ㄗㄞˋ ㄊㄞˊ ㄨㄢ ㄩˋ ㄉㄠˋ ˙ㄉㄜ ㄧ ˙ㄍㄜ ㄒㄧㄠˇ ㄨㄣˋ ㄊㄧˊ ㄏㄡˋ ㄌㄞˊ ㄕˋ ㄗㄣˇ ˙ㄇㄜ ㄐㄧㄝˇ ㄐㄩㄝˊ ˙ㄉㄜ", "en": "Describe a small problem you ran into in Taiwan. How did you solve it in the end?"},
+   {"id": "j3-2", "zh": "你的鄰居是什麼樣的人？你們都聊些什麼？", "zhuyin": "ㄋㄧˇ ˙ㄉㄜ ㄌㄧㄣˊ ㄐㄩ ㄕˋ ㄕㄣˊ ˙ㄇㄜ ㄧㄤˋ ˙ㄉㄜ ㄖㄣˊ ㄋㄧˇ ˙ㄇㄣ ㄉㄡ ㄌㄧㄠˊ ㄒㄧㄝ ㄕㄣˊ ˙ㄇㄜ", "en": "What are your neighbours like? What do you talk about?"},
+   {"id": "j3-3", "zh": "你比較喜歡去傳統市場還是超市買菜？為什麼？", "zhuyin": "ㄋㄧˇ ㄅㄧˇ ㄐㄧㄠˋ ㄒㄧˇ ㄏㄨㄢ ㄑㄩˋ ㄔㄨㄢˊ ㄊㄨㄥˇ ㄕˋ ㄔㄤˇ ㄏㄞˊ ㄕˋ ㄔㄠ ㄕˋ ㄇㄞˇ ㄘㄞˋ ㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ", "en": "Do you prefer buying groceries at a traditional market or at a supermarket? Why?"},
+   {"id": "j3-4", "zh": "你最近看了什麼影片或節目？內容是什麼？", "zhuyin": "ㄋㄧˇ ㄗㄨㄟˋ ㄐㄧㄣˋ ㄎㄢˋ ˙ㄌㄜ ㄕㄣˊ ˙ㄇㄜ ㄧㄥˇ ㄆㄧㄢˋ ㄏㄨㄛˋ ㄐㄧㄝˊ ㄇㄨˋ ㄋㄟˋ ㄖㄨㄥˊ ㄕˋ ㄕㄣˊ ˙ㄇㄜ", "en": "What video or show have you watched recently? What was it about?"},
+   {"id": "j3-5", "zh": "寫一則訊息，約朋友這個週末一起出去。", "zhuyin": "ㄒㄧㄝˇ ㄧ ㄗㄜˊ ㄒㄩㄣˋ ㄒㄧˊ ㄩㄝ ㄆㄥˊ ㄧㄡˇ ㄓㄜˋ ˙ㄍㄜ ㄓㄡ ㄇㄛˋ ㄧ ㄑㄧˇ ㄔㄨ ㄑㄩˋ", "en": "Write a message asking a friend to go out with you this weekend."},
+   {"id": "j3-6", "zh": "你覺得學中文哪個部分最難？你都怎麼練習？", "zhuyin": "ㄋㄧˇ ㄐㄩㄝˊ ˙ㄉㄜ ㄒㄩㄝˊ ㄓㄨㄥ ㄨㄣˊ ㄋㄚˇ ˙ㄍㄜ ㄅㄨˋ ㄈㄣˋ ㄗㄨㄟˋ ㄋㄢˊ ㄋㄧˇ ㄉㄡ ㄗㄣˇ ˙ㄇㄜ ㄌㄧㄢˋ ㄒㄧˊ", "en": "Which part of learning Chinese do you find hardest? How do you practise?"}
+  ]},
+  {"level": 4, "prompts": [
+   {"id": "j4-1", "zh": "你剛搬來屏東的時候，有什麼事讓你覺得很意外？", "zhuyin": "ㄋㄧˇ ㄍㄤ ㄅㄢ ㄌㄞˊ ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄧㄡˇ ㄕㄣˊ ˙ㄇㄜ ㄕˋ ㄖㄤˋ ㄋㄧˇ ㄐㄩㄝˊ ˙ㄉㄜ ㄏㄣˇ ㄧˋ ㄨㄞˋ", "en": "When you first moved to Pingtung, what surprised you?"},
+   {"id": "j4-2", "zh": "有人說住在鄉下比住在城市好，你同意嗎？請說明理由。", "zhuyin": "ㄧㄡˇ ㄖㄣˊ ㄕㄨㄛ ㄓㄨˋ ㄗㄞˋ ㄒㄧㄤ ㄒㄧㄚˋ ㄅㄧˇ ㄓㄨˋ ㄗㄞˋ ㄔㄥˊ ㄕˋ ㄏㄠˇ ㄋㄧˇ ㄊㄨㄥˊ ㄧˋ ˙ㄇㄚ ㄑㄧㄥˇ ㄕㄨㄛ ㄇㄧㄥˊ ㄌㄧˇ ㄧㄡˊ", "en": "Some people say living in the countryside is better than living in a city. Do you agree? Give your reasons."},
+   {"id": "j4-3", "zh": "描述一個你常去的地方，讓沒去過的人也能想像那裡的樣子。", "zhuyin": "ㄇㄧㄠˊ ㄕㄨˋ ㄧ ˙ㄍㄜ ㄋㄧˇ ㄔㄤˊ ㄑㄩˋ ˙ㄉㄜ ㄉㄧˋ ㄈㄤ ㄖㄤˋ ㄇㄟˊ ㄑㄩˋ ㄍㄨㄛˋ ˙ㄉㄜ ㄖㄣˊ ㄧㄝˇ ㄋㄥˊ ㄒㄧㄤˇ ㄒㄧㄤˋ ㄋㄚˋ ㄌㄧˇ ˙ㄉㄜ ㄧㄤˋ ˙ㄗ", "en": "Describe a place you often go to, so that someone who has never been there can picture it."},
+   {"id": "j4-4", "zh": "在屏東生活，騎機車和開車各有什麼優點和缺點？", "zhuyin": "ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄕㄥ ㄏㄨㄛˊ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄏㄜˊ ㄎㄞ ㄔㄜ ㄍㄜˋ ㄧㄡˇ ㄕㄣˊ ˙ㄇㄜ ㄧㄡ ㄉㄧㄢˇ ㄏㄜˊ ㄑㄩㄝ ㄉㄧㄢˇ", "en": "Living in Pingtung, what are the pros and cons of riding a scooter and of driving a car?"},
+   {"id": "j4-5", "zh": "寫下你這個月的目標，還有你打算怎麼完成。", "zhuyin": "ㄒㄧㄝˇ ㄒㄧㄚˋ ㄋㄧˇ ㄓㄜˋ ˙ㄍㄜ ㄩㄝˋ ˙ㄉㄜ ㄇㄨˋ ㄅㄧㄠ ㄏㄞˊ ㄧㄡˇ ㄋㄧˇ ㄉㄚˇ ㄙㄨㄢˋ ㄗㄣˇ ˙ㄇㄜ ㄨㄢˊ ㄔㄥˊ", "en": "Write down your goals for this month and how you plan to reach them."},
+   {"id": "j4-6", "zh": "說一個你幫助別人，或是別人幫助你的經驗。", "zhuyin": "ㄕㄨㄛ ㄧ ˙ㄍㄜ ㄋㄧˇ ㄅㄤ ㄓㄨˋ ㄅㄧㄝˊ ㄖㄣˊ ㄏㄨㄛˋ ㄕˋ ㄅㄧㄝˊ ㄖㄣˊ ㄅㄤ ㄓㄨˋ ㄋㄧˇ ˙ㄉㄜ ㄐㄧㄥ ㄧㄢˋ", "en": "Tell about a time you helped someone, or someone helped you."}
+  ]},
+  {"level": 5, "prompts": [
+   {"id": "j5-1", "zh": "很多年輕人離開家鄉，到大城市工作。你覺得這對鄉下的社區有什麼影響？", "zhuyin": "ㄏㄣˇ ㄉㄨㄛ ㄋㄧㄢˊ ㄑㄧㄥ ㄖㄣˊ ㄌㄧˊ ㄎㄞ ㄐㄧㄚ ㄒㄧㄤ ㄉㄠˋ ㄉㄚˋ ㄔㄥˊ ㄕˋ ㄍㄨㄥ ㄗㄨㄛˋ ㄋㄧˇ ㄐㄩㄝˊ ˙ㄉㄜ ㄓㄜˋ ㄉㄨㄟˋ ㄒㄧㄤ ㄒㄧㄚˋ ˙ㄉㄜ ㄕㄜˋ ㄑㄩ ㄧㄡˇ ㄕㄣˊ ˙ㄇㄜ ㄧㄥˇ ㄒㄧㄤˇ", "en": "Many young people leave their hometowns to work in big cities. What effect do you think this has on rural communities?"},
+   {"id": "j5-2", "zh": "外送平台越來越普遍，對小吃店和消費者各有什麼好處和壞處？", "zhuyin": "ㄨㄞˋ ㄙㄨㄥˋ ㄆㄧㄥˊ ㄊㄞˊ ㄩㄝˋ ㄌㄞˊ ㄩㄝˋ ㄆㄨˇ ㄅㄧㄢˋ ㄉㄨㄟˋ ㄒㄧㄠˇ ㄔ ㄉㄧㄢˋ ㄏㄜˊ ㄒㄧㄠ ㄈㄟˋ ㄓㄜˇ ㄍㄜˋ ㄧㄡˇ ㄕㄣˊ ˙ㄇㄜ ㄏㄠˇ ㄔㄨˋ ㄏㄜˊ ㄏㄨㄞˋ ㄔㄨˋ", "en": "Food delivery platforms are more and more common. What are the advantages and disadvantages for small eateries and for customers?"},
+   {"id": "j5-3", "zh": "學一種語言的時候，了解文化跟學語法一樣重要嗎？請舉例說明你的看法。", "zhuyin": "ㄒㄩㄝˊ ㄧ ㄓㄨㄥˇ ㄩˇ ㄧㄢˊ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄌㄧㄠˇ ㄐㄧㄝˇ ㄨㄣˊ ㄏㄨㄚˋ ㄍㄣ ㄒㄩㄝˊ ㄩˇ ㄈㄚˇ ㄧ ㄧㄤˋ ㄓㄨㄥˋ ㄧㄠˋ ˙ㄇㄚ ㄑㄧㄥˇ ㄐㄩˇ ㄌㄧˋ ㄕㄨㄛ ㄇㄧㄥˊ ㄋㄧˇ ˙ㄉㄜ ㄎㄢˋ ㄈㄚˇ", "en": "When you learn a language, is understanding the culture as important as learning the grammar? Give examples to support your view."},
+   {"id": "j5-4", "zh": "談談你在臺灣看到的一種環保習慣，例如垃圾分類或自備購物袋。你覺得效果怎麼樣？", "zhuyin": "ㄊㄢˊ ㄊㄢˊ ㄋㄧˇ ㄗㄞˋ ㄊㄞˊ ㄨㄢ ㄎㄢˋ ㄉㄠˋ ˙ㄉㄜ ㄧ ㄓㄨㄥˇ ㄏㄨㄢˊ ㄅㄠˇ ㄒㄧˊ ㄍㄨㄢˋ ㄌㄧˋ ㄖㄨˊ ㄌㄜˋ ㄙㄜˋ ㄈㄣ ㄌㄟˋ ㄏㄨㄛˋ ㄗˋ ㄅㄟˋ ㄍㄡˋ ㄨˋ ㄉㄞˋ ㄋㄧˇ ㄐㄩㄝˊ ˙ㄉㄜ ㄒㄧㄠˋ ㄍㄨㄛˇ ㄗㄣˇ ˙ㄇㄜ ㄧㄤˋ", "en": "Talk about an environmental habit you've seen in Taiwan, such as sorting rubbish or bringing your own shopping bag. How well do you think it works?"},
+   {"id": "j5-5", "zh": "如果你可以改變你住的地方的一件事，你會改變什麼？為什麼？", "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄍㄞˇ ㄅㄧㄢˋ ㄋㄧˇ ㄓㄨˋ ˙ㄉㄜ ㄉㄧˋ ㄈㄤ ˙ㄉㄜ ㄧ ㄐㄧㄢˋ ㄕˋ ㄋㄧˇ ㄏㄨㄟˋ ㄍㄞˇ ㄅㄧㄢˋ ㄕㄣˊ ˙ㄇㄜ ㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ", "en": "If you could change one thing about the place you live, what would you change? Why?"},
+   {"id": "j5-6", "zh": "回想你學中文的過程，哪一段時間進步最多？你認為原因是什麼？", "zhuyin": "ㄏㄨㄟˊ ㄒㄧㄤˇ ㄋㄧˇ ㄒㄩㄝˊ ㄓㄨㄥ ㄨㄣˊ ˙ㄉㄜ ㄍㄨㄛˋ ㄔㄥˊ ㄋㄚˇ ㄧ ㄉㄨㄢˋ ㄕˊ ㄐㄧㄢ ㄐㄧㄣˋ ㄅㄨˋ ㄗㄨㄟˋ ㄉㄨㄛ ㄋㄧˇ ㄖㄣˋ ㄨㄟˊ ㄩㄢˊ ㄧㄣ ㄕˋ ㄕㄣˊ ˙ㄇㄜ", "en": "Looking back on how you've learned Chinese, when did you improve the most? What do you think the reason was?"}
+  ]}
+ ],
+ "monologue": [
+  {"month": 1, "level": 1, "zh": "自我介紹：你叫什麼名字？從哪裡來？為什麼學中文？", "zhuyin": "ㄗˋ ㄨㄛˇ ㄐㄧㄝˋ ㄕㄠˋ ㄋㄧˇ ㄐㄧㄠˋ ㄕㄣˊ ˙ㄇㄜ ㄇㄧㄥˊ ˙ㄗ ㄘㄨㄥˊ ㄋㄚˇ ㄌㄧˇ ㄌㄞˊ ㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ ㄒㄩㄝˊ ㄓㄨㄥ ㄨㄣˊ", "en": "Introduce yourself: your name, where you're from, and why you're learning Chinese."},
+  {"month": 2, "level": 1, "zh": "我的一天：從早上起床到晚上睡覺。", "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄧ ㄊㄧㄢ ㄘㄨㄥˊ ㄗㄠˇ ㄕㄤˋ ㄑㄧˇ ㄔㄨㄤˊ ㄉㄠˋ ㄨㄢˇ ㄕㄤˋ ㄕㄨㄟˋ ㄐㄧㄠˋ", "en": "My day, from getting up in the morning to going to bed at night."},
+  {"month": 3, "level": 2, "zh": "我的家：家裡有什麼？你最喜歡哪個地方？", "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄐㄧㄚ ㄐㄧㄚ ˙ㄌㄧ ㄧㄡˇ ㄕㄣˊ ˙ㄇㄜ ㄋㄧˇ ㄗㄨㄟˋ ㄒㄧˇ ㄏㄨㄢ ㄋㄚˇ ˙ㄍㄜ ㄉㄧˋ ㄈㄤ", "en": "My home: what's in it, and which spot do you like best?"},
+  {"month": 4, "level": 2, "zh": "我最喜歡的臺灣食物：是什麼？在哪裡吃？", "zhuyin": "ㄨㄛˇ ㄗㄨㄟˋ ㄒㄧˇ ㄏㄨㄢ ˙ㄉㄜ ㄊㄞˊ ㄨㄢ ㄕˊ ㄨˋ ㄕˋ ㄕㄣˊ ˙ㄇㄜ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ ㄔ", "en": "My favourite Taiwanese food: what is it, and where do you eat it?"},
+  {"month": 5, "level": 2, "zh": "我在屏東的生活：交通、買菜和吃飯。", "zhuyin": "ㄨㄛˇ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄕㄥ ㄏㄨㄛˊ ㄐㄧㄠ ㄊㄨㄥ ㄇㄞˇ ㄘㄞˋ ㄏㄜˊ ㄔ ㄈㄢˋ", "en": "My life in Pingtung: getting around, buying groceries and eating."},
+  {"month": 6, "level": 3, "zh": "一次看醫生或去辦事的經驗。", "zhuyin": "ㄧ ㄘˋ ㄎㄢˋ ㄧ ㄕㄥ ㄏㄨㄛˋ ㄑㄩˋ ㄅㄢˋ ㄕˋ ˙ㄉㄜ ㄐㄧㄥ ㄧㄢˋ", "en": "A time I went to the doctor or ran an errand."},
+  {"month": 7, "level": 3, "zh": "我的興趣：什麼時候開始的？為什麼喜歡？", "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄒㄧㄥˋ ㄑㄩˋ ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ ㄎㄞ ㄕˇ ˙ㄉㄜ ㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ ㄒㄧˇ ㄏㄨㄢ", "en": "My hobby: when did it start, and why do I like it?"},
+  {"month": 8, "level": 3, "zh": "一次旅行：去了哪裡？做了什麼？有什麼特別的事？", "zhuyin": "ㄧ ㄘˋ ㄌㄩˇ ㄒㄧㄥˊ ㄑㄩˋ ˙ㄌㄜ ㄋㄚˇ ㄌㄧˇ ㄗㄨㄛˋ ˙ㄌㄜ ㄕㄣˊ ˙ㄇㄜ ㄧㄡˇ ㄕㄣˊ ˙ㄇㄜ ㄊㄜˋ ㄅㄧㄝˊ ˙ㄉㄜ ㄕˋ", "en": "A trip: where I went, what I did, and anything special that happened."},
+  {"month": 9, "level": 3, "zh": "天氣和季節：夏天和颱風天你怎麼過？", "zhuyin": "ㄊㄧㄢ ㄑㄧˋ ㄏㄜˊ ㄐㄧˋ ㄐㄧㄝˊ ㄒㄧㄚˋ ㄊㄧㄢ ㄏㄜˊ ㄊㄞˊ ㄈㄥ ㄊㄧㄢ ㄋㄧˇ ㄗㄣˇ ˙ㄇㄜ ㄍㄨㄛˋ", "en": "Weather and seasons: how do you get through summer and typhoon days?"},
+  {"month": 10, "level": 4, "zh": "臺灣和我的國家有什麼不一樣？", "zhuyin": "ㄊㄞˊ ㄨㄢ ㄏㄜˊ ㄨㄛˇ ˙ㄉㄜ ㄍㄨㄛˊ ㄐㄧㄚ ㄧㄡˇ ㄕㄣˊ ˙ㄇㄜ ㄅㄨˋ ㄧ ㄧㄤˋ", "en": "How is Taiwan different from my country?"},
+  {"month": 11, "level": 4, "zh": "一個讓我印象很深的人。", "zhuyin": "ㄧ ˙ㄍㄜ ㄖㄤˋ ㄨㄛˇ ㄧㄣˋ ㄒㄧㄤˋ ㄏㄣˇ ㄕㄣ ˙ㄉㄜ ㄖㄣˊ", "en": "A person who made a strong impression on me."},
+  {"month": 12, "level": 4, "zh": "學中文這一年：我進步了什麼？下一步要做什麼？", "zhuyin": "ㄒㄩㄝˊ ㄓㄨㄥ ㄨㄣˊ ㄓㄜˋ ㄧ ㄋㄧㄢˊ ㄨㄛˇ ㄐㄧㄣˋ ㄅㄨˋ ˙ㄌㄜ ㄕㄣˊ ˙ㄇㄜ ㄒㄧㄚˋ ㄧ ㄅㄨˋ ㄧㄠˋ ㄗㄨㄛˋ ㄕㄣˊ ˙ㄇㄜ", "en": "A year of Chinese: how have I improved, and what's my next step?"}
+ ],
+ "roleplay": [
+  {"id": "market", "level": 2, "title_zh": "傳統市場買菜", "title_en": "Buying vegetables at the market", "setting_en": "A morning vegetable stall at a traditional market in Pingtung.", "learner": "馬克",
+   "lines": [
+    {"speaker": "阿姨", "zh": "帥哥，來看看！今天的高麗菜很新鮮喔！", "zhuyin": "ㄕㄨㄞˋ ㄍㄜ ㄌㄞˊ ㄎㄢˋ ㄎㄢˋ ㄐㄧㄣ ㄊㄧㄢ ˙ㄉㄜ ㄍㄠ ㄌㄧˋ ㄘㄞˋ ㄏㄣˇ ㄒㄧㄣ ㄒㄧㄢ ㄛ", "en": "Hey handsome, come and have a look! The cabbage is really fresh today!"},
+    {"speaker": "馬克", "zh": "高麗菜一顆多少錢？", "zhuyin": "ㄍㄠ ㄌㄧˋ ㄘㄞˋ ㄧ ㄎㄜ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ", "en": "How much is one cabbage?"},
+    {"speaker": "阿姨", "zh": "一顆五十。", "zhuyin": "ㄧ ㄎㄜ ㄨˇ ㄕˊ", "en": "Fifty a head."},
+    {"speaker": "馬克", "zh": "好，我要一顆。番茄怎麼賣？", "zhuyin": "ㄏㄠˇ ㄨㄛˇ ㄧㄠˋ ㄧ ㄎㄜ ㄈㄢ ㄑㄧㄝˊ ㄗㄣˇ ˙ㄇㄜ ㄇㄞˋ", "en": "OK, I'll take one. How much are the tomatoes?"},
+    {"speaker": "阿姨", "zh": "番茄一斤六十。", "zhuyin": "ㄈㄢ ㄑㄧㄝˊ ㄧ ㄐㄧㄣ ㄌㄧㄡˋ ㄕˊ", "en": "Tomatoes are sixty a catty."},
+    {"speaker": "馬克", "zh": "我要半斤就好。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄅㄢˋ ㄐㄧㄣ ㄐㄧㄡˋ ㄏㄠˇ", "en": "Just half a catty, please."},
+    {"speaker": "阿姨", "zh": "好，還要什麼嗎？", "zhuyin": "ㄏㄠˇ ㄏㄞˊ ㄧㄠˋ ㄕㄣˊ ˙ㄇㄜ ˙ㄇㄚ", "en": "OK. Anything else?"},
+    {"speaker": "馬克", "zh": "這是什麼菜？我沒看過。", "zhuyin": "ㄓㄜˋ ㄕˋ ㄕㄣˊ ˙ㄇㄜ ㄘㄞˋ ㄨㄛˇ ㄇㄟˊ ㄎㄢˋ ㄍㄨㄛˋ", "en": "What vegetable is this? I've never seen it."},
+    {"speaker": "阿姨", "zh": "這是地瓜葉，用蒜頭炒很好吃喔。一把三十。", "zhuyin": "ㄓㄜˋ ㄕˋ ㄉㄧˋ ㄍㄨㄚ ㄧㄝˋ ㄩㄥˋ ㄙㄨㄢˋ ㄊㄡˊ ㄔㄠˇ ㄏㄣˇ ㄏㄠˇ ㄔ ㄛ ㄧ ㄅㄚˇ ㄙㄢ ㄕˊ", "en": "That's sweet potato leaves. They're delicious stir-fried with garlic. Thirty a bunch."},
+    {"speaker": "馬克", "zh": "那我也買一把。全部多少錢？", "zhuyin": "ㄋㄚˋ ㄨㄛˇ ㄧㄝˇ ㄇㄞˇ ㄧ ㄅㄚˇ ㄑㄩㄢˊ ㄅㄨˋ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ", "en": "Then I'll get a bunch too. How much is it altogether?"},
+    {"speaker": "阿姨", "zh": "一共一百一十，算你一百就好！", "zhuyin": "ㄧ ㄍㄨㄥˋ ㄧ ㄅㄞˇ ㄧ ㄕˊ ㄙㄨㄢˋ ㄋㄧˇ ㄧ ㄅㄞˇ ㄐㄧㄡˋ ㄏㄠˇ", "en": "That's a hundred and ten in total. Just give me a hundred!"},
+    {"speaker": "馬克", "zh": "真的嗎？謝謝阿姨！", "zhuyin": "ㄓㄣ ˙ㄉㄜ ˙ㄇㄚ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄚ ㄧˊ", "en": "Really? Thank you!"},
+    {"speaker": "阿姨", "zh": "不會啦，這些蔥送你，常來喔！", "zhuyin": "ㄅㄨˋ ㄏㄨㄟˋ ˙ㄌㄚ ㄓㄜˋ ㄒㄧㄝ ㄘㄨㄥ ㄙㄨㄥˋ ㄋㄧˇ ㄔㄤˊ ㄌㄞˊ ㄛ", "en": "No problem! Have some green onions on me. Come back often!"}
+   ]},
+  {"id": "store", "level": 2, "title_zh": "便利商店取貨和繳費", "title_en": "Picking up a parcel and paying a bill at a convenience store", "setting_en": "The counter of a convenience store near Mark's flat.", "learner": "馬克",
+   "lines": [
+    {"speaker": "店員", "zh": "歡迎光臨！", "zhuyin": "ㄏㄨㄢ ㄧㄥˊ ㄍㄨㄤ ㄌㄧㄣˊ", "en": "Welcome!"},
+    {"speaker": "馬克", "zh": "你好，我要取貨。", "zhuyin": "ㄋㄧˇ ㄏㄠˇ ㄨㄛˇ ㄧㄠˋ ㄑㄩˇ ㄏㄨㄛˋ", "en": "Hi, I'm here to pick up a parcel."},
+    {"speaker": "店員", "zh": "好，請問你的名字和電話後三碼？", "zhuyin": "ㄏㄠˇ ㄑㄧㄥˇ ㄨㄣˋ ㄋㄧˇ ˙ㄉㄜ ㄇㄧㄥˊ ˙ㄗ ㄏㄜˊ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄏㄡˋ ㄙㄢ ㄇㄚˇ", "en": "OK. May I have your name and the last three digits of your phone number?"},
+    {"speaker": "馬克", "zh": "我叫馬克，後三碼是五二八。", "zhuyin": "ㄨㄛˇ ㄐㄧㄠˋ ㄇㄚˇ ㄎㄜˋ ㄏㄡˋ ㄙㄢ ㄇㄚˇ ㄕˋ ㄨˇ ㄦˋ ㄅㄚ", "en": "I'm Mark, and the last three digits are 528."},
+    {"speaker": "店員", "zh": "請等一下……找到了，請在這裡簽名。", "zhuyin": "ㄑㄧㄥˇ ㄉㄥˇ ㄧ ㄒㄧㄚˋ ㄓㄠˇ ㄉㄠˋ ˙ㄌㄜ ㄑㄧㄥˇ ㄗㄞˋ ㄓㄜˋ ㄌㄧˇ ㄑㄧㄢ ㄇㄧㄥˊ", "en": "One moment... Found it. Please sign here."},
+    {"speaker": "馬克", "zh": "好。另外，我也要繳這張帳單。", "zhuyin": "ㄏㄠˇ ㄌㄧㄥˋ ㄨㄞˋ ㄨㄛˇ ㄧㄝˇ ㄧㄠˋ ㄐㄧㄠˇ ㄓㄜˋ ㄓㄤ ㄓㄤˋ ㄉㄢ", "en": "OK. Also, I'd like to pay this bill."},
+    {"speaker": "店員", "zh": "一共六百四十二元。", "zhuyin": "ㄧ ㄍㄨㄥˋ ㄌㄧㄡˋ ㄅㄞˇ ㄙˋ ㄕˊ ㄦˋ ㄩㄢˊ", "en": "That's six hundred and forty-two dollars."},
+    {"speaker": "馬克", "zh": "給你一千。", "zhuyin": "ㄍㄟˇ ㄋㄧˇ ㄧ ㄑㄧㄢ", "en": "Here's a thousand."},
+    {"speaker": "店員", "zh": "找你三百五十八元，這是收據，請收好。袋子要另外買喔，需要嗎？", "zhuyin": "ㄓㄠˇ ㄋㄧˇ ㄙㄢ ㄅㄞˇ ㄨˇ ㄕˊ ㄅㄚ ㄩㄢˊ ㄓㄜˋ ㄕˋ ㄕㄡ ㄐㄩˋ ㄑㄧㄥˇ ㄕㄡ ㄏㄠˇ ㄉㄞˋ ˙ㄗ ㄧㄠˋ ㄌㄧㄥˋ ㄨㄞˋ ㄇㄞˇ ㄛ ㄒㄩ ㄧㄠˋ ˙ㄇㄚ", "en": "Here's three hundred and fifty-eight back, and here's your receipt; please keep it. Bags cost extra. Do you need one?"},
+    {"speaker": "馬克", "zh": "不用了，我有帶袋子。謝謝！", "zhuyin": "ㄅㄨˋ ㄩㄥˋ ˙ㄌㄜ ㄨㄛˇ ㄧㄡˇ ㄉㄞˋ ㄉㄞˋ ˙ㄗ ㄒㄧㄝˋ ˙ㄒㄧㄝ", "en": "No thanks, I brought a bag. Thank you!"},
+    {"speaker": "店員", "zh": "謝謝光臨！", "zhuyin": "ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄍㄨㄤ ㄌㄧㄣˊ", "en": "Thanks for coming!"}
+   ]},
+  {"id": "clinic", "level": 3, "title_zh": "診所看病", "title_en": "At the clinic", "setting_en": "A neighbourhood family clinic in Pingtung. Mark has been ill since last night.", "learner": "馬克",
+   "lines": [
+    {"speaker": "護士", "zh": "你好，麻煩給我你的健保卡。你以前來過嗎？", "zhuyin": "ㄋㄧˇ ㄏㄠˇ ㄇㄚˊ ㄈㄢˊ ㄍㄟˇ ㄨㄛˇ ㄋㄧˇ ˙ㄉㄜ ㄐㄧㄢˋ ㄅㄠˇ ㄎㄚˇ ㄋㄧˇ ㄧˇ ㄑㄧㄢˊ ㄌㄞˊ ㄍㄨㄛˋ ˙ㄇㄚ", "en": "Hello, your health insurance card, please. Have you been here before?"},
+    {"speaker": "馬克", "zh": "有，我上個月來過。", "zhuyin": "ㄧㄡˇ ㄨㄛˇ ㄕㄤˋ ˙ㄍㄜ ㄩㄝˋ ㄌㄞˊ ㄍㄨㄛˋ", "en": "Yes, I came last month."},
+    {"speaker": "護士", "zh": "好，先量一下體溫……三十七度八，有一點發燒喔。請坐一下，等一下叫你。", "zhuyin": "ㄏㄠˇ ㄒㄧㄢ ㄌㄧㄤˊ ㄧ ㄒㄧㄚˋ ㄊㄧˇ ㄨㄣ ㄙㄢ ㄕˊ ㄑㄧ ㄉㄨˋ ㄅㄚ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄈㄚ ㄕㄠ ㄛ ㄑㄧㄥˇ ㄗㄨㄛˋ ㄧ ㄒㄧㄚˋ ㄉㄥˇ ㄧ ㄒㄧㄚˋ ㄐㄧㄠˋ ㄋㄧˇ", "en": "OK, let's take your temperature first... 37.8, you have a slight fever. Please have a seat; we'll call you shortly."},
+    {"speaker": "醫生", "zh": "今天怎麼了？哪裡不舒服？", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄗㄣˇ ˙ㄇㄜ ˙ㄌㄜ ㄋㄚˇ ㄌㄧˇ ㄅㄨˋ ㄕㄨ ˙ㄈㄨ", "en": "What's the matter today? What's bothering you?"},
+    {"speaker": "馬克", "zh": "我從昨天晚上開始拉肚子，肚子也很痛。", "zhuyin": "ㄨㄛˇ ㄘㄨㄥˊ ㄗㄨㄛˊ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄎㄞ ㄕˇ ㄌㄚ ㄉㄨˋ ˙ㄗ ㄉㄨˋ ˙ㄗ ㄧㄝˇ ㄏㄣˇ ㄊㄨㄥˋ", "en": "I've had diarrhoea since last night, and my stomach really hurts."},
+    {"speaker": "醫生", "zh": "有吐嗎？昨天吃了什麼？", "zhuyin": "ㄧㄡˇ ㄊㄨˋ ˙ㄇㄚ ㄗㄨㄛˊ ㄊㄧㄢ ㄔ ˙ㄌㄜ ㄕㄣˊ ˙ㄇㄜ", "en": "Have you thrown up? What did you eat yesterday?"},
+    {"speaker": "馬克", "zh": "吐了一次。昨天中午吃了海鮮，可能不太新鮮。", "zhuyin": "ㄊㄨˋ ˙ㄌㄜ ㄧ ㄘˋ ㄗㄨㄛˊ ㄊㄧㄢ ㄓㄨㄥ ㄨˇ ㄔ ˙ㄌㄜ ㄏㄞˇ ㄒㄧㄢ ㄎㄜˇ ㄋㄥˊ ㄅㄨˋ ㄊㄞˋ ㄒㄧㄣ ㄒㄧㄢ", "en": "I threw up once. I had seafood yesterday lunchtime; maybe it wasn't very fresh."},
+    {"speaker": "醫生", "zh": "我看一下……應該是腸胃炎。這幾天吃清淡一點，不要吃辣的，也不要喝冰的。", "zhuyin": "ㄨㄛˇ ㄎㄢˋ ㄧ ㄒㄧㄚˋ ㄧㄥ ㄍㄞ ㄕˋ ㄔㄤˊ ㄨㄟˋ ㄧㄢˊ ㄓㄜˋ ㄐㄧˇ ㄊㄧㄢ ㄔ ㄑㄧㄥ ㄉㄢˋ ㄧ ㄉㄧㄢˇ ㄅㄨˋ ㄧㄠˋ ㄔ ㄌㄚˋ ˙ㄉㄜ ㄧㄝˇ ㄅㄨˋ ㄧㄠˋ ㄏㄜ ㄅㄧㄥ ˙ㄉㄜ", "en": "Let me take a look... It's probably gastroenteritis. Eat plain food for the next few days: nothing spicy and no cold drinks."},
+    {"speaker": "馬克", "zh": "好。那我明天可以去上班嗎？", "zhuyin": "ㄏㄠˇ ㄋㄚˋ ㄨㄛˇ ㄇㄧㄥˊ ㄊㄧㄢ ㄎㄜˇ ㄧˇ ㄑㄩˋ ㄕㄤˋ ㄅㄢ ˙ㄇㄚ", "en": "OK. So can I go to work tomorrow?"},
+    {"speaker": "醫生", "zh": "如果還在發燒，最好在家休息。要多喝水喔。", "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄏㄞˊ ㄗㄞˋ ㄈㄚ ㄕㄠ ㄗㄨㄟˋ ㄏㄠˇ ㄗㄞˋ ㄐㄧㄚ ㄒㄧㄡ ㄒㄧˊ ㄧㄠˋ ㄉㄨㄛ ㄏㄜ ㄕㄨㄟˇ ㄛ", "en": "If you still have a fever, you'd better rest at home. Drink plenty of water."},
+    {"speaker": "醫生", "zh": "我開三天的藥，一天三次，飯後吃。", "zhuyin": "ㄨㄛˇ ㄎㄞ ㄙㄢ ㄊㄧㄢ ˙ㄉㄜ ㄧㄠˋ ㄧ ㄊㄧㄢ ㄙㄢ ㄘˋ ㄈㄢˋ ㄏㄡˋ ㄔ", "en": "I'm prescribing three days of medicine: three times a day, after meals."},
+    {"speaker": "馬克", "zh": "我可以拿一張診斷證明書嗎？公司要看。", "zhuyin": "ㄨㄛˇ ㄎㄜˇ ㄧˇ ㄋㄚˊ ㄧ ㄓㄤ ㄓㄣˇ ㄉㄨㄢˋ ㄓㄥˋ ㄇㄧㄥˊ ㄕㄨ ˙ㄇㄚ ㄍㄨㄥ ㄙ ㄧㄠˋ ㄎㄢˋ", "en": "Could I get a medical certificate? My company needs to see one."},
+    {"speaker": "護士", "zh": "可以，診斷證明書要另外收費。領藥的時候一起給你。", "zhuyin": "ㄎㄜˇ ㄧˇ ㄓㄣˇ ㄉㄨㄢˋ ㄓㄥˋ ㄇㄧㄥˊ ㄕㄨ ㄧㄠˋ ㄌㄧㄥˋ ㄨㄞˋ ㄕㄡ ㄈㄟˋ ㄌㄧㄥˇ ㄧㄠˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄧ ㄑㄧˇ ㄍㄟˇ ㄋㄧˇ", "en": "Sure, the certificate has a separate fee. We'll give it to you when you collect your medicine."},
+    {"speaker": "馬克", "zh": "好，謝謝。", "zhuyin": "ㄏㄠˇ ㄒㄧㄝˋ ˙ㄒㄧㄝ", "en": "OK, thank you."}
+   ]},
+  {"id": "mechanic", "level": 3, "title_zh": "機車行修車", "title_en": "At the scooter repair shop", "setting_en": "A small scooter shop on Mark's street. His scooter was hard to start this morning.", "learner": "馬克",
+   "lines": [
+    {"speaker": "馬克", "zh": "老闆，我的機車今天早上很難發動，可以幫我看一下嗎？", "zhuyin": "ㄌㄠˇ ㄅㄢˇ ㄨㄛˇ ˙ㄉㄜ ㄐㄧ ㄔㄜ ㄐㄧㄣ ㄊㄧㄢ ㄗㄠˇ ㄕㄤˋ ㄏㄣˇ ㄋㄢˊ ㄈㄚ ㄉㄨㄥˋ ㄎㄜˇ ㄧˇ ㄅㄤ ㄨㄛˇ ㄎㄢˋ ㄧ ㄒㄧㄚˋ ˙ㄇㄚ", "en": "Boss, my scooter was really hard to start this morning. Could you take a look at it for me?"},
+    {"speaker": "老闆", "zh": "好啊。你上次換機油是什麼時候？", "zhuyin": "ㄏㄠˇ ˙ㄚ ㄋㄧˇ ㄕㄤˋ ㄘˋ ㄏㄨㄢˋ ㄐㄧ ㄧㄡˊ ㄕˋ ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ", "en": "Sure. When did you last change the oil?"},
+    {"speaker": "馬克", "zh": "我忘了，好像是半年前吧。", "zhuyin": "ㄨㄛˇ ㄨㄤˋ ˙ㄌㄜ ㄏㄠˇ ㄒㄧㄤˋ ㄕˋ ㄅㄢˋ ㄋㄧㄢˊ ㄑㄧㄢˊ ˙ㄅㄚ", "en": "I forget. Maybe six months ago?"},
+    {"speaker": "老闆", "zh": "那太久了喔。我先檢查一下……電瓶沒什麼電了，要換一顆新的。", "zhuyin": "ㄋㄚˋ ㄊㄞˋ ㄐㄧㄡˇ ˙ㄌㄜ ㄛ ㄨㄛˇ ㄒㄧㄢ ㄐㄧㄢˇ ㄔㄚˊ ㄧ ㄒㄧㄚˋ ㄉㄧㄢˋ ㄆㄧㄥˊ ㄇㄟˊ ㄕㄣˊ ˙ㄇㄜ ㄉㄧㄢˋ ˙ㄌㄜ ㄧㄠˋ ㄏㄨㄢˋ ㄧ ㄎㄜ ㄒㄧㄣ ˙ㄉㄜ", "en": "That's too long. Let me check first... The battery is almost dead; you need a new one."},
+    {"speaker": "馬克", "zh": "換電瓶要多少錢？", "zhuyin": "ㄏㄨㄢˋ ㄉㄧㄢˋ ㄆㄧㄥˊ ㄧㄠˋ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ", "en": "How much is a new battery?"},
+    {"speaker": "老闆", "zh": "電瓶一千二，順便換機油的話，全部一千五。", "zhuyin": "ㄉㄧㄢˋ ㄆㄧㄥˊ ㄧ ㄑㄧㄢ ㄦˋ ㄕㄨㄣˋ ㄅㄧㄢˋ ㄏㄨㄢˋ ㄐㄧ ㄧㄡˊ ˙ㄉㄜ ㄏㄨㄚˋ ㄑㄩㄢˊ ㄅㄨˋ ㄧ ㄑㄧㄢ ㄨˇ", "en": "The battery is twelve hundred. If I change the oil while I'm at it, it's fifteen hundred altogether."},
+    {"speaker": "馬克", "zh": "好，那都換吧。要等多久？", "zhuyin": "ㄏㄠˇ ㄋㄚˋ ㄉㄡ ㄏㄨㄢˋ ˙ㄅㄚ ㄧㄠˋ ㄉㄥˇ ㄉㄨㄛ ㄐㄧㄡˇ", "en": "OK, change both then. How long will it take?"},
+    {"speaker": "老闆", "zh": "大概半個小時。你可以坐在旁邊等，或是先去附近走走。", "zhuyin": "ㄉㄚˋ ㄍㄞˋ ㄅㄢˋ ˙ㄍㄜ ㄒㄧㄠˇ ㄕˊ ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄗㄨㄛˋ ㄗㄞˋ ㄆㄤˊ ㄅㄧㄢ ㄉㄥˇ ㄏㄨㄛˋ ㄕˋ ㄒㄧㄢ ㄑㄩˋ ㄈㄨˋ ㄐㄧㄣˋ ㄗㄡˇ ㄗㄡˇ", "en": "About half an hour. You can wait here, or go for a walk nearby first."},
+    {"speaker": "馬克", "zh": "對了，我的後輪好像也沒什麼氣了。", "zhuyin": "ㄉㄨㄟˋ ˙ㄌㄜ ㄨㄛˇ ˙ㄉㄜ ㄏㄡˋ ㄌㄨㄣˊ ㄏㄠˇ ㄒㄧㄤˋ ㄧㄝˇ ㄇㄟˊ ㄕㄣˊ ˙ㄇㄜ ㄑㄧˋ ˙ㄌㄜ", "en": "Oh, and my back tyre seems to be low on air too."},
+    {"speaker": "老闆", "zh": "我幫你打氣，順便看看有沒有破洞。", "zhuyin": "ㄨㄛˇ ㄅㄤ ㄋㄧˇ ㄉㄚˇ ㄑㄧˋ ㄕㄨㄣˋ ㄅㄧㄢˋ ㄎㄢˋ ㄎㄢˋ ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄆㄛˋ ㄉㄨㄥˋ", "en": "I'll pump it up for you and check for a puncture while I'm at it."},
+    {"speaker": "老闆", "zh": "好了，輪胎沒問題，打氣不用錢。", "zhuyin": "ㄏㄠˇ ˙ㄌㄜ ㄌㄨㄣˊ ㄊㄞ ㄇㄟˊ ㄨㄣˋ ㄊㄧˊ ㄉㄚˇ ㄑㄧˋ ㄅㄨˋ ㄩㄥˋ ㄑㄧㄢˊ", "en": "Done. The tyre's fine, and there's no charge for the air."},
+    {"speaker": "馬克", "zh": "謝謝老闆！", "zhuyin": "ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄅㄢˇ", "en": "Thanks, boss!"},
+    {"speaker": "老闆", "zh": "不會啦。以後要記得定期保養，騎起來比較安全。", "zhuyin": "ㄅㄨˋ ㄏㄨㄟˋ ˙ㄌㄚ ㄧˇ ㄏㄡˋ ㄧㄠˋ ㄐㄧˋ ˙ㄉㄜ ㄉㄧㄥˋ ㄑㄧˊ ㄅㄠˇ ㄧㄤˇ ㄑㄧˊ ㄑㄧˇ ㄌㄞˊ ㄅㄧˇ ㄐㄧㄠˋ ㄢ ㄑㄩㄢˊ", "en": "No problem. Remember to have it serviced regularly from now on; it's safer to ride."}
+   ]},
+  {"id": "neighbour", "level": 3, "title_zh": "等垃圾車", "title_en": "Waiting for the rubbish truck", "setting_en": "Evening, on the street outside Mark's building, waiting for the rubbish truck with a neighbour.", "learner": "馬克",
+   "lines": [
+    {"speaker": "陳阿姨", "zh": "馬克，你也在等垃圾車喔？", "zhuyin": "ㄇㄚˇ ㄎㄜˋ ㄋㄧˇ ㄧㄝˇ ㄗㄞˋ ㄉㄥˇ ㄌㄜˋ ㄙㄜˋ ㄔㄜ ㄛ", "en": "Mark, are you waiting for the rubbish truck too?"},
+    {"speaker": "馬克", "zh": "對啊。陳阿姨，請問垃圾車是每天來嗎？", "zhuyin": "ㄉㄨㄟˋ ˙ㄚ ㄔㄣˊ ㄚ ㄧˊ ㄑㄧㄥˇ ㄨㄣˋ ㄌㄜˋ ㄙㄜˋ ㄔㄜ ㄕˋ ㄇㄟˇ ㄊㄧㄢ ㄌㄞˊ ˙ㄇㄚ", "en": "Yes. Mrs Chen, does the rubbish truck come every day?"},
+    {"speaker": "陳阿姨", "zh": "不是每天喔。哪幾天會來，你可以問里長，比較清楚。", "zhuyin": "ㄅㄨˋ ㄕˋ ㄇㄟˇ ㄊㄧㄢ ㄛ ㄋㄚˇ ㄐㄧˇ ㄊㄧㄢ ㄏㄨㄟˋ ㄌㄞˊ ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄨㄣˋ ㄌㄧˇ ㄓㄤˇ ㄅㄧˇ ㄐㄧㄠˋ ㄑㄧㄥ ㄔㄨˇ", "en": "Not every day. You can ask the borough chief which days it comes; they'll know best."},
+    {"speaker": "馬克", "zh": "好。那這些寶特瓶和紙盒要怎麼丟？", "zhuyin": "ㄏㄠˇ ㄋㄚˋ ㄓㄜˋ ㄒㄧㄝ ㄅㄠˇ ㄊㄜˋ ㄆㄧㄥˊ ㄏㄜˊ ㄓˇ ㄏㄜˊ ㄧㄠˋ ㄗㄣˇ ˙ㄇㄜ ㄉㄧㄡ", "en": "OK. So how do I throw out these plastic bottles and cartons?"},
+    {"speaker": "陳阿姨", "zh": "寶特瓶和紙盒是資源回收，要分開。垃圾車後面還有一臺回收車，拿給他們就好。", "zhuyin": "ㄅㄠˇ ㄊㄜˋ ㄆㄧㄥˊ ㄏㄜˊ ㄓˇ ㄏㄜˊ ㄕˋ ㄗ ㄩㄢˊ ㄏㄨㄟˊ ㄕㄡ ㄧㄠˋ ㄈㄣ ㄎㄞ ㄌㄜˋ ㄙㄜˋ ㄔㄜ ㄏㄡˋ ㄇㄧㄢˋ ㄏㄞˊ ㄧㄡˇ ㄧ ㄊㄞˊ ㄏㄨㄟˊ ㄕㄡ ㄔㄜ ㄋㄚˊ ㄍㄟˇ ㄊㄚ ˙ㄇㄣ ㄐㄧㄡˋ ㄏㄠˇ", "en": "Bottles and cartons are recycling, so keep them separate. There's a recycling truck behind the rubbish truck; just hand them to them."},
+    {"speaker": "馬克", "zh": "那剩菜呢？", "zhuyin": "ㄋㄚˋ ㄕㄥˋ ㄘㄞˋ ˙ㄋㄜ", "en": "What about leftover food?"},
+    {"speaker": "陳阿姨", "zh": "剩菜是廚餘，倒進車上的廚餘桶。", "zhuyin": "ㄕㄥˋ ㄘㄞˋ ㄕˋ ㄔㄨˊ ㄩˊ ㄉㄠˋ ㄐㄧㄣˋ ㄔㄜ ㄕㄤˋ ˙ㄉㄜ ㄔㄨˊ ㄩˊ ㄊㄨㄥˇ", "en": "Leftovers are food waste. Tip them into the food-waste bin on the truck."},
+    {"speaker": "馬克", "zh": "原來如此。我聽到音樂再出來就可以了嗎？", "zhuyin": "ㄩㄢˊ ㄌㄞˊ ㄖㄨˊ ㄘˇ ㄨㄛˇ ㄊㄧㄥ ㄉㄠˋ ㄧㄣ ㄩㄝˋ ㄗㄞˋ ㄔㄨ ㄌㄞˊ ㄐㄧㄡˋ ㄎㄜˇ ㄧˇ ˙ㄌㄜ ˙ㄇㄚ", "en": "I see. Is it fine to come out when I hear the music?"},
+    {"speaker": "陳阿姨", "zh": "可以，可是車不會等很久，要早一點出來。", "zhuyin": "ㄎㄜˇ ㄧˇ ㄎㄜˇ ㄕˋ ㄔㄜ ㄅㄨˋ ㄏㄨㄟˋ ㄉㄥˇ ㄏㄣˇ ㄐㄧㄡˇ ㄧㄠˋ ㄗㄠˇ ㄧ ㄉㄧㄢˇ ㄔㄨ ㄌㄞˊ", "en": "Yes, but the truck doesn't wait long, so come out a bit early."},
+    {"speaker": "馬克", "zh": "好，我知道了。謝謝阿姨！", "zhuyin": "ㄏㄠˇ ㄨㄛˇ ㄓ ㄉㄠˋ ˙ㄌㄜ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄚ ㄧˊ", "en": "OK, got it. Thank you!"},
+    {"speaker": "陳阿姨", "zh": "不客氣。你最近工作忙不忙？有空來我家吃飯啊。", "zhuyin": "ㄅㄨˋ ㄎㄜˋ ㄑㄧˋ ㄋㄧˇ ㄗㄨㄟˋ ㄐㄧㄣˋ ㄍㄨㄥ ㄗㄨㄛˋ ㄇㄤˊ ㄅㄨˋ ㄇㄤˊ ㄧㄡˇ ㄎㄨㄥˋ ㄌㄞˊ ㄨㄛˇ ㄐㄧㄚ ㄔ ㄈㄢˋ ˙ㄚ", "en": "You're welcome. Have you been busy at work lately? Come over for dinner when you're free."},
+    {"speaker": "馬克", "zh": "好啊，謝謝！那我週末帶水果過去。", "zhuyin": "ㄏㄠˇ ˙ㄚ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄋㄚˋ ㄨㄛˇ ㄓㄡ ㄇㄛˋ ㄉㄞˋ ㄕㄨㄟˇ ㄍㄨㄛˇ ㄍㄨㄛˋ ㄑㄩˋ", "en": "I'd love to, thanks! I'll bring some fruit over at the weekend."},
+    {"speaker": "陳阿姨", "zh": "不用帶啦，人來就好！", "zhuyin": "ㄅㄨˋ ㄩㄥˋ ㄉㄞˋ ˙ㄌㄚ ㄖㄣˊ ㄌㄞˊ ㄐㄧㄡˋ ㄏㄠˇ", "en": "No need to bring anything. Just come!"}
+   ]},
+  {"id": "landlord", "level": 4, "title_zh": "跟房東說熱水器壞了", "title_en": "Telling the landlord the water heater is broken", "setting_en": "Mark meets his landlady, Mrs Lin, in the stairwell of his building.", "learner": "馬克",
+   "lines": [
+    {"speaker": "馬克", "zh": "林太太，不好意思打擾您。我房間的熱水器好像壞了。", "zhuyin": "ㄌㄧㄣˊ ㄊㄞˋ ˙ㄊㄞ ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄉㄚˇ ㄖㄠˇ ㄋㄧㄣˊ ㄨㄛˇ ㄈㄤˊ ㄐㄧㄢ ˙ㄉㄜ ㄖㄜˋ ㄕㄨㄟˇ ㄑㄧˋ ㄏㄠˇ ㄒㄧㄤˋ ㄏㄨㄞˋ ˙ㄌㄜ", "en": "Mrs Lin, sorry to bother you. I think the water heater in my room is broken."},
+    {"speaker": "房東", "zh": "真的喔？什麼時候開始的？", "zhuyin": "ㄓㄣ ˙ㄉㄜ ㄛ ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ ㄎㄞ ㄕˇ ˙ㄉㄜ", "en": "Really? Since when?"},
+    {"speaker": "馬克", "zh": "前天就開始了。洗澡的時候水一下熱一下冷，昨天晚上完全沒有熱水。", "zhuyin": "ㄑㄧㄢˊ ㄊㄧㄢ ㄐㄧㄡˋ ㄎㄞ ㄕˇ ˙ㄌㄜ ㄒㄧˇ ㄗㄠˇ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄕㄨㄟˇ ㄧ ㄒㄧㄚˋ ㄖㄜˋ ㄧ ㄒㄧㄚˋ ㄌㄥˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄨㄢˊ ㄑㄩㄢˊ ㄇㄟˊ ㄧㄡˇ ㄖㄜˋ ㄕㄨㄟˇ", "en": "Since the day before yesterday. When I showered the water kept going hot and cold, and last night there was no hot water at all."},
+    {"speaker": "房東", "zh": "會不會是瓦斯用完了？你有看一下瓦斯桶嗎？", "zhuyin": "ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄕˋ ㄨㄚˇ ㄙ ㄩㄥˋ ㄨㄢˊ ˙ㄌㄜ ㄋㄧˇ ㄧㄡˇ ㄎㄢˋ ㄧ ㄒㄧㄚˋ ㄨㄚˇ ㄙ ㄊㄨㄥˇ ˙ㄇㄚ", "en": "Could the gas have run out? Did you check the gas cylinder?"},
+    {"speaker": "馬克", "zh": "我看過了，瓦斯還有。應該是熱水器的問題。", "zhuyin": "ㄨㄛˇ ㄎㄢˋ ㄍㄨㄛˋ ˙ㄌㄜ ㄨㄚˇ ㄙ ㄏㄞˊ ㄧㄡˇ ㄧㄥ ㄍㄞ ㄕˋ ㄖㄜˋ ㄕㄨㄟˇ ㄑㄧˋ ˙ㄉㄜ ㄨㄣˋ ㄊㄧˊ", "en": "I checked. There's still gas, so it must be the water heater."},
+    {"speaker": "房東", "zh": "好，那我請師傅明天過去看看。你明天下午在家嗎？", "zhuyin": "ㄏㄠˇ ㄋㄚˋ ㄨㄛˇ ㄑㄧㄥˇ ㄕ ㄈㄨˋ ㄇㄧㄥˊ ㄊㄧㄢ ㄍㄨㄛˋ ㄑㄩˋ ㄎㄢˋ ㄎㄢˋ ㄋㄧˇ ㄇㄧㄥˊ ㄊㄧㄢ ㄒㄧㄚˋ ㄨˇ ㄗㄞˋ ㄐㄧㄚ ˙ㄇㄚ", "en": "All right, I'll ask a repairman to come and look at it tomorrow. Are you home tomorrow afternoon?"},
+    {"speaker": "馬克", "zh": "我下午要上班，五點以後才會回來。師傅可以晚一點來嗎？", "zhuyin": "ㄨㄛˇ ㄒㄧㄚˋ ㄨˇ ㄧㄠˋ ㄕㄤˋ ㄅㄢ ㄨˇ ㄉㄧㄢˇ ㄧˇ ㄏㄡˋ ㄘㄞˊ ㄏㄨㄟˋ ㄏㄨㄟˊ ㄌㄞˊ ㄕ ㄈㄨˋ ㄎㄜˇ ㄧˇ ㄨㄢˇ ㄧ ㄉㄧㄢˇ ㄌㄞˊ ˙ㄇㄚ", "en": "I work in the afternoon and won't be back until after five. Could he come a bit later?"},
+    {"speaker": "房東", "zh": "我問問看。如果不行，我有鑰匙，先讓他進去修，可以嗎？", "zhuyin": "ㄨㄛˇ ㄨㄣˋ ㄨㄣˋ ㄎㄢˋ ㄖㄨˊ ㄍㄨㄛˇ ㄅㄨˋ ㄒㄧㄥˊ ㄨㄛˇ ㄧㄡˇ ㄧㄠˋ ˙ㄕ ㄒㄧㄢ ㄖㄤˋ ㄊㄚ ㄐㄧㄣˋ ㄑㄩˋ ㄒㄧㄡ ㄎㄜˇ ㄧˇ ˙ㄇㄚ", "en": "I'll ask. If he can't, I have a key; is it OK if I let him in to fix it?"},
+    {"speaker": "馬克", "zh": "可以，沒問題。修理費要我付嗎？", "zhuyin": "ㄎㄜˇ ㄧˇ ㄇㄟˊ ㄨㄣˋ ㄊㄧˊ ㄒㄧㄡ ㄌㄧˇ ㄈㄟˋ ㄧㄠˋ ㄨㄛˇ ㄈㄨˋ ˙ㄇㄚ", "en": "Sure, no problem. Do I pay for the repair?"},
+    {"speaker": "房東", "zh": "不用啦，熱水器是我裝的，壞了當然是我負責。", "zhuyin": "ㄅㄨˋ ㄩㄥˋ ˙ㄌㄚ ㄖㄜˋ ㄕㄨㄟˇ ㄑㄧˋ ㄕˋ ㄨㄛˇ ㄓㄨㄤ ˙ㄉㄜ ㄏㄨㄞˋ ˙ㄌㄜ ㄉㄤ ㄖㄢˊ ㄕˋ ㄨㄛˇ ㄈㄨˋ ㄗㄜˊ", "en": "No, no. I put the water heater in, so of course it's my job when it breaks."},
+    {"speaker": "馬克", "zh": "太好了，謝謝您。還有，這個月的電費要怎麼算？", "zhuyin": "ㄊㄞˋ ㄏㄠˇ ˙ㄌㄜ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄋㄧㄣˊ ㄏㄞˊ ㄧㄡˇ ㄓㄜˋ ˙ㄍㄜ ㄩㄝˋ ˙ㄉㄜ ㄉㄧㄢˋ ㄈㄟˋ ㄧㄠˋ ㄗㄣˇ ˙ㄇㄜ ㄙㄨㄢˋ", "en": "Great, thank you. And how will this month's electricity be worked out?"},
+    {"speaker": "房東", "zh": "跟之前一樣，月底我看一下電表，再傳訊息跟你說。", "zhuyin": "ㄍㄣ ㄓ ㄑㄧㄢˊ ㄧ ㄧㄤˋ ㄩㄝˋ ㄉㄧˇ ㄨㄛˇ ㄎㄢˋ ㄧ ㄒㄧㄚˋ ㄉㄧㄢˋ ㄅㄧㄠˇ ㄗㄞˋ ㄔㄨㄢˊ ㄒㄩㄣˋ ㄒㄧˊ ㄍㄣ ㄋㄧˇ ㄕㄨㄛ", "en": "Same as before. At the end of the month I'll read the meter and send you a message."},
+    {"speaker": "馬克", "zh": "好的，那我月底跟房租一起轉帳給您。", "zhuyin": "ㄏㄠˇ ˙ㄉㄜ ㄋㄚˋ ㄨㄛˇ ㄩㄝˋ ㄉㄧˇ ㄍㄣ ㄈㄤˊ ㄗㄨ ㄧ ㄑㄧˇ ㄓㄨㄢˇ ㄓㄤˋ ㄍㄟˇ ㄋㄧㄣˊ", "en": "OK, then I'll transfer it to you with the rent at the end of the month."},
+    {"speaker": "房東", "zh": "好，這兩天先忍耐一下喔。", "zhuyin": "ㄏㄠˇ ㄓㄜˋ ㄌㄧㄤˇ ㄊㄧㄢ ㄒㄧㄢ ㄖㄣˇ ㄋㄞˋ ㄧ ㄒㄧㄚˋ ㄛ", "en": "Good. Please bear with it for the next couple of days."}
+   ]}
+ ]
+}

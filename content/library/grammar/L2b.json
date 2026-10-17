@@ -1,0 +1,1625 @@
+[
+ {
+  "id": "G062",
+  "tbcl": 62,
+  "pattern": "也",
+  "level": "第2*級",
+  "title_en": "也 (also, too) after the subject",
+  "explanation_en": "也 is an adverb meaning \"also\" or \"too\". It always goes after the subject and before the verb or adjective, never at the start of the sentence or at the end as in English. With a negative it comes before 不 or 沒: 我也不知道 \"I don't know either\".",
+  "structure": "Subject + 也 + VP",
+  "examples": [
+   {
+    "zh": "我喜歡喝珍珠奶茶，我妹妹也喜歡。",
+    "zhuyin": "ㄨㄛˇ ㄒㄧˇ ㄏㄨㄢ ㄏㄜ ㄓㄣ ㄓㄨ ㄋㄞˇ ㄔㄚˊ ㄨㄛˇ ㄇㄟˋ ˙ㄇㄟ ㄧㄝˇ ㄒㄧˇ ㄏㄨㄢ",
+    "en": "I like bubble tea, and my younger sister likes it too."
+   },
+   {
+    "zh": "他會騎機車，也會開車。",
+    "zhuyin": "ㄊㄚ ㄏㄨㄟˋ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄧㄝˇ ㄏㄨㄟˋ ㄎㄞ ㄔㄜ",
+    "en": "He can ride a scooter, and he can also drive a car."
+   },
+   {
+    "zh": "我不吃辣，我先生也不吃。",
+    "zhuyin": "ㄨㄛˇ ㄅㄨˋ ㄔ ㄌㄚˋ ㄨㄛˇ ㄒㄧㄢ ㄕㄥ ㄧㄝˇ ㄅㄨˋ ㄔ",
+    "en": "I don't eat spicy food, and my husband doesn't either."
+   }
+  ],
+  "mistake": {
+   "wrong": "也我妹妹喜歡喝奶茶。",
+   "right": "我妹妹也喜歡喝奶茶。",
+   "right_zhuyin": "ㄨㄛˇ ㄇㄟˋ ˙ㄇㄟ ㄧㄝˇ ㄒㄧˇ ㄏㄨㄢ ㄏㄜ ㄋㄞˇ ㄔㄚˊ",
+   "why_en": "也 is an adverb, so it cannot stand before the subject the way \"also\" or \"too\" can in English. Put it after the subject, right before the verb."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G063",
+  "tbcl": 63,
+  "pattern": "在3",
+  "level": "第2*級",
+  "title_en": "在 + time: when something happens",
+  "explanation_en": "在 can introduce a time phrase that says when an action happens, often together with 的時候, 以前 or 以後. The whole time phrase goes before the verb, either before or after the subject. With a plain date or day, 在 is often left out in speech (我星期六去).",
+  "structure": "Subject + 在 + time (+ 的時候 / 以前 / 以後) + VP",
+  "examples": [
+   {
+    "zh": "我們在過年的時候回屏東。",
+    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄗㄞˋ ㄍㄨㄛˋ ㄋㄧㄢˊ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄏㄨㄟˊ ㄆㄧㄥˊ ㄉㄨㄥ",
+    "en": "We go back to Pingtung at Chinese New Year."
+   },
+   {
+    "zh": "我在高中的時候學過日文。",
+    "zhuyin": "ㄨㄛˇ ㄗㄞˋ ㄍㄠ ㄓㄨㄥ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄒㄩㄝˊ ㄍㄨㄛˋ ㄖˋ ㄨㄣˊ",
+    "en": "I studied Japanese in high school."
+   },
+   {
+    "zh": "你要在晚上十點以前回家。",
+    "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄗㄞˋ ㄨㄢˇ ㄕㄤˋ ㄕˊ ㄉㄧㄢˇ ㄧˇ ㄑㄧㄢˊ ㄏㄨㄟˊ ㄐㄧㄚ",
+    "en": "You have to be home before ten at night."
+   }
+  ],
+  "mistake": {
+   "wrong": "我們回屏東在過年的時候。",
+   "right": "我們在過年的時候回屏東。",
+   "right_zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄗㄞˋ ㄍㄨㄛˋ ㄋㄧㄢˊ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄏㄨㄟˊ ㄆㄧㄥˊ ㄉㄨㄥ",
+   "why_en": "English puts \"at New Year\" at the end, but in Chinese the time phrase must come before the verb."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G064",
+  "tbcl": 64,
+  "pattern": "以後",
+  "level": "第2*級",
+  "title_en": "以後 (after, later, in the future)",
+  "explanation_en": "以後 follows an event or a length of time: 下課以後 \"after class\", 三個月以後 \"three months later\". On its own at the start of a sentence it means \"in the future, from now on\". Note the order: the event comes first and 以後 after it, the opposite of English \"after\". The next clause often has 就 or 再.",
+  "structure": "Event / time length + 以後，(Subject) + VP",
+  "examples": [
+   {
+    "zh": "吃完早餐以後，我騎機車去上班。",
+    "zhuyin": "ㄔ ㄨㄢˊ ㄗㄠˇ ㄘㄢ ㄧˇ ㄏㄡˋ ㄨㄛˇ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄑㄩˋ ㄕㄤˋ ㄅㄢ",
+    "en": "After breakfast I ride my scooter to work."
+   },
+   {
+    "zh": "三個月以後，我要搬到高雄。",
+    "zhuyin": "ㄙㄢ ㄍㄜˋ ㄩㄝˋ ㄧˇ ㄏㄡˋ ㄨㄛˇ ㄧㄠˋ ㄅㄢ ㄉㄠˋ ㄍㄠ ㄒㄩㄥˊ",
+    "en": "Three months from now I'm moving to Kaohsiung."
+   },
+   {
+    "zh": "下課以後，我們去喝手搖飲吧。",
+    "zhuyin": "ㄒㄧㄚˋ ㄎㄜˋ ㄧˇ ㄏㄡˋ ㄨㄛˇ ˙ㄇㄣ ㄑㄩˋ ㄏㄜ ㄕㄡˇ ㄧㄠˊ ㄧㄣˇ ˙ㄅㄚ",
+    "en": "Let's go get a drink from a tea stand after class."
+   },
+   {
+    "zh": "以後我想在臺灣工作。",
+    "zhuyin": "ㄧˇ ㄏㄡˋ ㄨㄛˇ ㄒㄧㄤˇ ㄗㄞˋ ㄊㄞˊ ㄨㄢ ㄍㄨㄥ ㄗㄨㄛˋ",
+    "en": "In the future I want to work in Taiwan."
+   }
+  ],
+  "mistake": {
+   "wrong": "以後吃飯，我去運動。",
+   "right": "吃飯以後，我去運動。",
+   "right_zhuyin": "ㄔ ㄈㄢˋ ㄧˇ ㄏㄡˋ ㄨㄛˇ ㄑㄩˋ ㄩㄣˋ ㄉㄨㄥˋ",
+   "why_en": "以後 comes after the event it refers to. 以後吃飯 would mean \"later, I'll eat\"."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G065",
+  "tbcl": 65,
+  "pattern": "怎麼樣",
+  "level": "第2*級",
+  "title_en": "怎麼樣 (how is it? how about...?)",
+  "explanation_en": "怎麼樣 asks for an opinion or a description: 天氣怎麼樣？ \"How's the weather?\" Added after a suggestion, it means \"how about it?\" and asks the listener to agree. Like other question words, it stays where the answer would go, so it usually comes at the end after the topic.",
+  "structure": "Topic + 怎麼樣？ / Suggestion，怎麼樣？",
+  "examples": [
+   {
+    "zh": "屏東今天的天氣怎麼樣？",
+    "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ㄐㄧㄣ ㄊㄧㄢ ˙ㄉㄜ ㄊㄧㄢ ㄑㄧˋ ㄗㄣˇ ˙ㄇㄜ ㄧㄤˋ",
+    "en": "How's the weather in Pingtung today?"
+   },
+   {
+    "zh": "這家早餐店的蛋餅怎麼樣？",
+    "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ㄗㄠˇ ㄘㄢ ㄉㄧㄢˋ ˙ㄉㄜ ㄉㄢˋ ㄅㄧㄥˇ ㄗㄣˇ ˙ㄇㄜ ㄧㄤˋ",
+    "en": "How are the egg crepes at this breakfast shop?"
+   },
+   {
+    "zh": "我們週末去墾丁，怎麼樣？",
+    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄓㄡ ㄇㄛˋ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ ㄗㄣˇ ˙ㄇㄜ ㄧㄤˋ",
+    "en": "How about going to Kenting this weekend?"
+   }
+  ],
+  "mistake": {
+   "wrong": "怎麼樣是屏東今天的天氣？",
+   "right": "屏東今天的天氣怎麼樣？",
+   "right_zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ㄐㄧㄣ ㄊㄧㄢ ˙ㄉㄜ ㄊㄧㄢ ㄑㄧˋ ㄗㄣˇ ˙ㄇㄜ ㄧㄤˋ",
+   "why_en": "Chinese doesn't move the question word to the front as English does with \"how\". Say the topic first, then 怎麼樣, with no 是."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G066",
+  "tbcl": 66,
+  "pattern": "幾/多少1",
+  "level": "第2*級",
+  "title_en": "幾 and 多少 (how many, how much)",
+  "explanation_en": "Both ask \"how many\". 幾 is used when you expect a small number, usually under ten, and it must be followed by a measure word (幾個人, 幾歲). 多少 is used for any number, often a large or unknown one, and the measure word can be dropped (多少學生). Prices are asked with 多少錢.",
+  "structure": "幾 + MW + N ? / 多少 (+ MW) + N ?",
+  "examples": [
+   {
+    "zh": "你家有幾個人？",
+    "zhuyin": "ㄋㄧˇ ㄐㄧㄚ ㄧㄡˇ ㄐㄧˇ ˙ㄍㄜ ㄖㄣˊ",
+    "en": "How many people are there in your family?"
+   },
+   {
+    "zh": "這杯紅茶多少錢？",
+    "zhuyin": "ㄓㄜˋ ㄅㄟ ㄏㄨㄥˊ ㄔㄚˊ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ",
+    "en": "How much is this cup of black tea?"
+   },
+   {
+    "zh": "你們學校有多少學生？",
+    "zhuyin": "ㄋㄧˇ ˙ㄇㄣ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄧㄡˇ ㄉㄨㄛ ㄕㄠˇ ㄒㄩㄝˊ ㄕㄥ",
+    "en": "How many students does your school have?"
+   },
+   {
+    "zh": "從屏東到高雄，坐火車要幾分鐘？",
+    "zhuyin": "ㄘㄨㄥˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄉㄠˋ ㄍㄠ ㄒㄩㄥˊ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄧㄠˋ ㄐㄧˇ ㄈㄣ ㄓㄨㄥ",
+    "en": "How many minutes does the train take from Pingtung to Kaohsiung?"
+   }
+  ],
+  "mistake": {
+   "wrong": "你有幾哥哥？",
+   "right": "你有幾個哥哥？",
+   "right_zhuyin": "ㄋㄧˇ ㄧㄡˇ ㄐㄧˇ ˙ㄍㄜ ㄍㄜ ˙ㄍㄜ",
+   "why_en": "幾 always needs a measure word before the noun. (多少 can drop it, but 幾 cannot.)"
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G067",
+  "tbcl": 67,
+  "pattern": "怎麼辦",
+  "level": "第2*級",
+  "title_en": "怎麼辦 (what should I do?)",
+  "explanation_en": "怎麼辦 asks what to do about a problem: \"What should I do? What now?\" It usually comes at the end, after you describe the problem, or after a noun meaning \"what about...?\". It is different from 怎麼做, which asks how to make or do something step by step.",
+  "structure": "Problem，怎麼辦？ / N + 怎麼辦？",
+  "examples": [
+   {
+    "zh": "我的健保卡丟了，怎麼辦？",
+    "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄐㄧㄢˋ ㄅㄠˇ ㄎㄚˇ ㄉㄧㄡ ˙ㄌㄜ ㄗㄣˇ ˙ㄇㄜ ㄅㄢˋ",
+    "en": "I lost my health insurance card. What should I do?"
+   },
+   {
+    "zh": "下大雨了，我沒有帶雨衣，怎麼辦？",
+    "zhuyin": "ㄒㄧㄚˋ ㄉㄚˋ ㄩˇ ˙ㄌㄜ ㄨㄛˇ ㄇㄟˊ ㄧㄡˇ ㄉㄞˋ ㄩˇ ㄧ ㄗㄣˇ ˙ㄇㄜ ㄅㄢˋ",
+    "en": "It's pouring and I didn't bring a raincoat. What do I do?"
+   },
+   {
+    "zh": "明天有颱風，我們的旅行怎麼辦？",
+    "zhuyin": "ㄇㄧㄥˊ ㄊㄧㄢ ㄧㄡˇ ㄊㄞˊ ㄈㄥ ㄨㄛˇ ˙ㄇㄣ ˙ㄉㄜ ㄌㄩˇ ㄒㄧㄥˊ ㄗㄣˇ ˙ㄇㄜ ㄅㄢˋ",
+    "en": "There's a typhoon tomorrow. What about our trip?"
+   }
+  ],
+  "mistake": {
+   "wrong": "我的鑰匙丟了，怎麼做？",
+   "right": "我的鑰匙丟了，怎麼辦？",
+   "right_zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄧㄠˋ ˙ㄕ ㄉㄧㄡ ˙ㄌㄜ ㄗㄣˇ ˙ㄇㄜ ㄅㄢˋ",
+   "why_en": "怎麼做 asks for a method (\"how do you make it?\"). For \"what do I do now?\" about a problem, use 怎麼辦."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G068",
+  "tbcl": 68,
+  "pattern": "跟1",
+  "level": "第2*級",
+  "title_en": "跟 (with someone)",
+  "explanation_en": "跟 + person means \"with\" and is often followed by 一起 \"together\". The 跟 phrase goes before the verb, not after it as in English. To negate, put 不 or 沒 before 跟: 我沒跟他去.",
+  "structure": "Subject + 跟 + person + (一起) + VP",
+  "examples": [
+   {
+    "zh": "我常跟媽媽一起去菜市場。",
+    "zhuyin": "ㄨㄛˇ ㄔㄤˊ ㄍㄣ ㄇㄚ ˙ㄇㄚ ㄧ ㄑㄧˇ ㄑㄩˋ ㄘㄞˋ ㄕˋ ㄔㄤˇ",
+    "en": "I often go to the market with my mom."
+   },
+   {
+    "zh": "週末你要跟誰去看電影？",
+    "zhuyin": "ㄓㄡ ㄇㄛˋ ㄋㄧˇ ㄧㄠˋ ㄍㄣ ㄕㄟˊ ㄑㄩˋ ㄎㄢˋ ㄉㄧㄢˋ ㄧㄥˇ",
+    "en": "Who are you going to the movies with this weekend?"
+   },
+   {
+    "zh": "他跟朋友騎機車去墾丁玩。",
+    "zhuyin": "ㄊㄚ ㄍㄣ ㄆㄥˊ ㄧㄡˇ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ ㄨㄢˊ",
+    "en": "He rode scooters to Kenting with his friends for fun."
+   }
+  ],
+  "mistake": {
+   "wrong": "我去菜市場跟媽媽。",
+   "right": "我跟媽媽去菜市場。",
+   "right_zhuyin": "ㄨㄛˇ ㄍㄣ ㄇㄚ ˙ㄇㄚ ㄑㄩˋ ㄘㄞˋ ㄕˋ ㄔㄤˇ",
+   "why_en": "\"With mom\" is a prepositional phrase, and in Chinese these come before the verb."
+  },
+  "taiwan_note": "In Taiwan, 跟 is the everyday spoken word for \"with\" and \"and\". 和 means the same; MOE reads it ㄏㄜˊ, and ㄏㄢˋ is its everyday spoken reading in Taiwan."
+ },
+ {
+  "id": "G069",
+  "tbcl": 69,
+  "pattern": "請問",
+  "level": "第2*級",
+  "title_en": "請問 (excuse me, may I ask)",
+  "explanation_en": "請問 politely opens a question to someone, especially a stranger: \"Excuse me, ...?\" It goes at the start, followed by the question. It is only for questions; to ask someone to do something, use 請 alone (請坐, 請給我...).",
+  "structure": "請問，+ question？",
+  "examples": [
+   {
+    "zh": "請問，捷運站在哪裡？",
+    "zhuyin": "ㄑㄧㄥˇ ㄨㄣˋ ㄐㄧㄝˊ ㄩㄣˋ ㄓㄢˋ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ",
+    "en": "Excuse me, where is the MRT station?"
+   },
+   {
+    "zh": "請問您貴姓？",
+    "zhuyin": "ㄑㄧㄥˇ ㄨㄣˋ ㄋㄧㄣˊ ㄍㄨㄟˋ ㄒㄧㄥˋ",
+    "en": "May I ask your surname?"
+   },
+   {
+    "zh": "請問，這附近有便利商店嗎？",
+    "zhuyin": "ㄑㄧㄥˇ ㄨㄣˋ ㄓㄜˋ ㄈㄨˋ ㄐㄧㄣˋ ㄧㄡˇ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ˙ㄇㄚ",
+    "en": "Excuse me, is there a convenience store near here?"
+   }
+  ],
+  "mistake": {
+   "wrong": "請問給我一杯水。",
+   "right": "請你給我一杯水。",
+   "right_zhuyin": "ㄑㄧㄥˇ ㄋㄧˇ ㄍㄟˇ ㄨㄛˇ ㄧ ㄅㄟ ㄕㄨㄟˇ",
+   "why_en": "請問 means \"may I ask\" and introduces a question. A request uses 請 + verb."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G070",
+  "tbcl": 70,
+  "pattern": "好嗎",
+  "level": "第2*級",
+  "title_en": "好嗎 (OK? would you?) as a tag",
+  "explanation_en": "Adding 好嗎 at the end turns a request or suggestion into a softer question: \"..., OK?\" The first part is a normal sentence and 好嗎 follows after a comma. 好不好 works the same way, but do not add 嗎 to it.",
+  "structure": "Request / suggestion，好嗎？",
+  "examples": [
+   {
+    "zh": "請你說慢一點，好嗎？",
+    "zhuyin": "ㄑㄧㄥˇ ㄋㄧˇ ㄕㄨㄛ ㄇㄢˋ ㄧ ㄉㄧㄢˇ ㄏㄠˇ ˙ㄇㄚ",
+    "en": "Could you speak a bit more slowly, please?"
+   },
+   {
+    "zh": "我們明天去早餐店吃早餐，好嗎？",
+    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄇㄧㄥˊ ㄊㄧㄢ ㄑㄩˋ ㄗㄠˇ ㄘㄢ ㄉㄧㄢˋ ㄔ ㄗㄠˇ ㄘㄢ ㄏㄠˇ ˙ㄇㄚ",
+    "en": "Let's have breakfast at the breakfast shop tomorrow, OK?"
+   },
+   {
+    "zh": "你幫我買一杯綠茶，好嗎？",
+    "zhuyin": "ㄋㄧˇ ㄅㄤ ㄨㄛˇ ㄇㄞˇ ㄧ ㄅㄟ ㄌㄩˋ ㄔㄚˊ ㄏㄠˇ ˙ㄇㄚ",
+    "en": "Could you buy me a green tea?"
+   }
+  ],
+  "mistake": {
+   "wrong": "請你說慢一點，好不好嗎？",
+   "right": "請你說慢一點，好不好？",
+   "right_zhuyin": "ㄑㄧㄥˇ ㄋㄧˇ ㄕㄨㄛ ㄇㄢˋ ㄧ ㄉㄧㄢˇ ㄏㄠˇ ㄅㄨˋ ㄏㄠˇ",
+   "why_en": "好不好 is already a question (A-not-A), so it cannot take 嗎. Use either 好嗎 or 好不好."
+  },
+  "taiwan_note": "A typical friendly answer in Taiwan is 好啊 or 好喔."
+ },
+ {
+  "id": "G071",
+  "tbcl": 71,
+  "pattern": "怎麼了",
+  "level": "第2*級",
+  "title_en": "怎麼了 (what's wrong? what happened?)",
+  "explanation_en": "怎麼了 asks about something unexpected or a problem: \"What's wrong? What happened?\" It can stand alone or follow the person or thing you are asking about. It shows concern, so you will hear it when someone looks unwell or upset.",
+  "structure": "(Subject +) 怎麼了？",
+  "examples": [
+   {
+    "zh": "你怎麼了？你的臉好紅。",
+    "zhuyin": "ㄋㄧˇ ㄗㄣˇ ˙ㄇㄜ ˙ㄌㄜ ㄋㄧˇ ˙ㄉㄜ ㄌㄧㄢˇ ㄏㄠˇ ㄏㄨㄥˊ",
+    "en": "What's wrong? Your face is really red."
+   },
+   {
+    "zh": "他今天沒有來上班，他怎麼了？",
+    "zhuyin": "ㄊㄚ ㄐㄧㄣ ㄊㄧㄢ ㄇㄟˊ ㄧㄡˇ ㄌㄞˊ ㄕㄤˋ ㄅㄢ ㄊㄚ ㄗㄣˇ ˙ㄇㄜ ˙ㄌㄜ",
+    "en": "He didn't come to work today. What's up with him?"
+   },
+   {
+    "zh": "你的機車怎麼了？",
+    "zhuyin": "ㄋㄧˇ ˙ㄉㄜ ㄐㄧ ㄔㄜ ㄗㄣˇ ˙ㄇㄜ ˙ㄌㄜ",
+    "en": "What's wrong with your scooter?"
+   },
+   {
+    "zh": "你怎麼了？你有看醫生嗎？",
+    "zhuyin": "ㄋㄧˇ ㄗㄣˇ ˙ㄇㄜ ˙ㄌㄜ ㄋㄧˇ ㄧㄡˇ ㄎㄢˋ ㄧ ㄕㄥ ˙ㄇㄚ",
+    "en": "What's wrong? Did you see a doctor?"
+   }
+  ],
+  "mistake": {
+   "wrong": "什麼發生了？",
+   "right": "你怎麼了？",
+   "right_zhuyin": "ㄋㄧˇ ㄗㄣˇ ˙ㄇㄜ ˙ㄌㄜ",
+   "why_en": "\"What happened?\" is not translated word by word. Ask 怎麼了？ or 發生什麼事了？"
+  },
+  "taiwan_note": "你有看醫生嗎？ uses the Taiwan pattern 有 + verb for a completed action; it means the same as 你看醫生了嗎？"
+ },
+ {
+  "id": "G072",
+  "tbcl": 72,
+  "pattern": "V到2/在",
+  "level": "第2*級",
+  "title_en": "V到 / V在 + place (to, at)",
+  "explanation_en": "到 and 在 can attach right after a verb to say where someone or something ends up. V到 + place marks the destination reached (走到, 搬到, 寄到). V在 + place marks where someone or something stays as a result (住在, 坐在, 放在). Nothing can come between the verb and 到 or 在.",
+  "structure": "Subject + V到 / V在 + place",
+  "examples": [
+   {
+    "zh": "我上個月搬到屏東了。",
+    "zhuyin": "ㄨㄛˇ ㄕㄤˋ ㄍㄜˋ ㄩㄝˋ ㄅㄢ ㄉㄠˋ ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄌㄜ",
+    "en": "I moved to Pingtung last month."
+   },
+   {
+    "zh": "爺爺每天走到公園去散步。",
+    "zhuyin": "ㄧㄝˊ ˙ㄧㄝ ㄇㄟˇ ㄊㄧㄢ ㄗㄡˇ ㄉㄠˋ ㄍㄨㄥ ㄩㄢˊ ㄑㄩˋ ㄙㄢˋ ㄅㄨˋ",
+    "en": "Grandpa walks to the park every day for a stroll."
+   },
+   {
+    "zh": "你的手機放在桌子上。",
+    "zhuyin": "ㄋㄧˇ ˙ㄉㄜ ㄕㄡˇ ㄐㄧ ㄈㄤˋ ㄗㄞˋ ㄓㄨㄛ ˙ㄗ ㄕㄤˋ",
+    "en": "Your phone is on the table."
+   },
+   {
+    "zh": "我們坐在後面吧。",
+    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄗㄨㄛˋ ㄗㄞˋ ㄏㄡˋ ㄇㄧㄢˋ ˙ㄅㄚ",
+    "en": "Let's sit at the back."
+   }
+  ],
+  "mistake": {
+   "wrong": "我放手機在桌子上。",
+   "right": "我把手機放在桌子上。",
+   "right_zhuyin": "ㄨㄛˇ ㄅㄚˇ ㄕㄡˇ ㄐㄧ ㄈㄤˋ ㄗㄞˋ ㄓㄨㄛ ˙ㄗ ㄕㄤˋ",
+   "why_en": "在 + place must follow the verb directly, so the object cannot stay between them. Move the object before the verb, for example with 把."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G073",
+  "tbcl": 73,
+  "pattern": "從......到......1",
+  "level": "第2*級",
+  "title_en": "從...到... (from one time to another)",
+  "explanation_en": "從 A 到 B gives a time span: \"from A to B\". The whole phrase normally goes before the verb, after the subject or at the start. 都 is often added before the verb when the action covers the whole span.",
+  "structure": "Subject + 從 + time A + 到 + time B + VP",
+  "examples": [
+   {
+    "zh": "我從早上八點到下午五點上班。",
+    "zhuyin": "ㄨㄛˇ ㄘㄨㄥˊ ㄗㄠˇ ㄕㄤˋ ㄅㄚ ㄉㄧㄢˇ ㄉㄠˋ ㄒㄧㄚˋ ㄨˇ ㄨˇ ㄉㄧㄢˇ ㄕㄤˋ ㄅㄢ",
+    "en": "I work from 8 a.m. to 5 p.m."
+   },
+   {
+    "zh": "我們從星期一到星期五都要上課。",
+    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄘㄨㄥˊ ㄒㄧㄥ ㄑㄧˊ ㄧ ㄉㄠˋ ㄒㄧㄥ ㄑㄧˊ ㄨˇ ㄉㄡ ㄧㄠˋ ㄕㄤˋ ㄎㄜˋ",
+    "en": "We have class from Monday to Friday."
+   },
+   {
+    "zh": "從下午兩點到四點，我在圖書館看書。",
+    "zhuyin": "ㄘㄨㄥˊ ㄒㄧㄚˋ ㄨˇ ㄌㄧㄤˇ ㄉㄧㄢˇ ㄉㄠˋ ㄙˋ ㄉㄧㄢˇ ㄨㄛˇ ㄗㄞˋ ㄊㄨˊ ㄕㄨ ㄍㄨㄢˇ ㄎㄢˋ ㄕㄨ",
+    "en": "From two to four in the afternoon I read at the library."
+   }
+  ],
+  "mistake": {
+   "wrong": "我上班從早上八點到下午五點。",
+   "right": "我從早上八點到下午五點上班。",
+   "right_zhuyin": "ㄨㄛˇ ㄘㄨㄥˊ ㄗㄠˇ ㄕㄤˋ ㄅㄚ ㄉㄧㄢˇ ㄉㄠˋ ㄒㄧㄚˋ ㄨˇ ㄨˇ ㄉㄧㄢˇ ㄕㄤˋ ㄅㄢ",
+   "why_en": "English puts \"from ... to ...\" after the verb, but Chinese puts the time span before it."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G074",
+  "tbcl": 74,
+  "pattern": "從......到......2",
+  "level": "第2*級",
+  "title_en": "從...到... (from one place to another)",
+  "explanation_en": "從 A 到 B can also give a route: \"from place A to place B\". It often goes with travel verbs and with questions about time or distance: 從 A 到 B 要多久？ The starting point with 從 comes before the verb; the means of transport usually comes between 從 A and the destination.",
+  "structure": "從 + place A + 到 + place B (+ 要 + time) / 從 + A + 坐/騎 ... + 到/去 + B",
+  "examples": [
+   {
+    "zh": "從屏東到高雄，坐火車很方便。",
+    "zhuyin": "ㄘㄨㄥˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄉㄠˋ ㄍㄠ ㄒㄩㄥˊ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄏㄣˇ ㄈㄤ ㄅㄧㄢˋ",
+    "en": "Taking the train from Pingtung to Kaohsiung is very convenient."
+   },
+   {
+    "zh": "從我家到學校，騎機車要十分鐘。",
+    "zhuyin": "ㄘㄨㄥˊ ㄨㄛˇ ㄐㄧㄚ ㄉㄠˋ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄧㄠˋ ㄕˊ ㄈㄣ ㄓㄨㄥ",
+    "en": "From my home to school takes ten minutes by scooter."
+   },
+   {
+    "zh": "從這裡到夜市遠不遠？",
+    "zhuyin": "ㄘㄨㄥˊ ㄓㄜˋ ㄌㄧˇ ㄉㄠˋ ㄧㄝˋ ㄕˋ ㄩㄢˇ ㄅㄨˋ ㄩㄢˇ",
+    "en": "Is it far from here to the night market?"
+   }
+  ],
+  "mistake": {
+   "wrong": "我去高雄從屏東坐火車。",
+   "right": "我從屏東坐火車去高雄。",
+   "right_zhuyin": "ㄨㄛˇ ㄘㄨㄥˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄑㄩˋ ㄍㄠ ㄒㄩㄥˊ",
+   "why_en": "The order follows the trip: starting point (從 A), then the means (坐火車), then the destination (去 / 到 B)."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G075",
+  "tbcl": 75,
+  "pattern": "都1",
+  "level": "第2*級",
+  "title_en": "都 (all, both)",
+  "explanation_en": "都 means \"all\" or \"both\" and refers back to a plural noun that comes before it. It is an adverb, so it goes after the subject and before the verb. If \"all\" refers to the object, move the object in front: 這些菜我都喜歡.",
+  "structure": "Plural subject / topic + 都 + VP",
+  "examples": [
+   {
+    "zh": "我們都喜歡吃夜市的鹽酥雞。",
+    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄉㄡ ㄒㄧˇ ㄏㄨㄢ ㄔ ㄧㄝˋ ㄕˋ ˙ㄉㄜ ㄧㄢˊ ㄙㄨ ㄐㄧ",
+    "en": "We all love the fried chicken bites at the night market."
+   },
+   {
+    "zh": "我的家人都住在屏東。",
+    "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄐㄧㄚ ㄖㄣˊ ㄉㄡ ㄓㄨˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ",
+    "en": "My whole family lives in Pingtung."
+   },
+   {
+    "zh": "這三個便當都是你的嗎？",
+    "zhuyin": "ㄓㄜˋ ㄙㄢ ㄍㄜˋ ㄅㄧㄢˋ ˙ㄉㄤ ㄉㄡ ㄕˋ ㄋㄧˇ ˙ㄉㄜ ˙ㄇㄚ",
+    "en": "Are all three of these lunch boxes yours?"
+   }
+  ],
+  "mistake": {
+   "wrong": "都我們喜歡夜市。",
+   "right": "我們都喜歡夜市。",
+   "right_zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄉㄡ ㄒㄧˇ ㄏㄨㄢ ㄧㄝˋ ㄕˋ",
+   "why_en": "都 can't open a sentence like \"all of us\". Put the subject first and 都 after it."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G076",
+  "tbcl": 76,
+  "pattern": "V來/去1",
+  "level": "第2*級",
+  "title_en": "V來 / V去 (direction toward or away from the speaker)",
+  "explanation_en": "來 or 去 after a verb shows the direction of a movement: 來 toward the speaker, 去 away from the speaker. 拿來 \"bring here\", 跑去 \"run off to\". With a carried object and a place, the order is verb + object + 去/來 + place: 帶便當去公司.",
+  "structure": "V + 來 / 去 ; V + O + 去 / 來 + place",
+  "examples": [
+   {
+    "zh": "你要的書，我拿來了。",
+    "zhuyin": "ㄋㄧˇ ㄧㄠˋ ˙ㄉㄜ ㄕㄨ ㄨㄛˇ ㄋㄚˊ ㄌㄞˊ ˙ㄌㄜ",
+    "en": "I've brought the book you wanted."
+   },
+   {
+    "zh": "他跑去便利商店買水了。",
+    "zhuyin": "ㄊㄚ ㄆㄠˇ ㄑㄩˋ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄇㄞˇ ㄕㄨㄟˇ ˙ㄌㄜ",
+    "en": "He ran off to the convenience store to buy water."
+   },
+   {
+    "zh": "我每天帶便當去公司。",
+    "zhuyin": "ㄨㄛˇ ㄇㄟˇ ㄊㄧㄢ ㄉㄞˋ ㄅㄧㄢˋ ˙ㄉㄤ ㄑㄩˋ ㄍㄨㄥ ㄙ",
+    "en": "I take a lunch box to the office every day."
+   },
+   {
+    "zh": "媽媽從屏東寄來一盒芒果。",
+    "zhuyin": "ㄇㄚ ˙ㄇㄚ ㄘㄨㄥˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄐㄧˋ ㄌㄞˊ ㄧ ㄏㄜˊ ㄇㄤˊ ㄍㄨㄛˇ",
+    "en": "Mom sent a box of mangoes from Pingtung."
+   }
+  ],
+  "mistake": {
+   "wrong": "我每天帶去便當公司。",
+   "right": "我每天帶便當去公司。",
+   "right_zhuyin": "ㄨㄛˇ ㄇㄟˇ ㄊㄧㄢ ㄉㄞˋ ㄅㄧㄢˋ ˙ㄉㄤ ㄑㄩˋ ㄍㄨㄥ ㄙ",
+   "why_en": "The thing you carry comes right after 帶; then 去 + the place."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G077",
+  "tbcl": 77,
+  "pattern": "因為......所以......",
+  "level": "第2*級",
+  "title_en": "因為...所以... (because..., so...)",
+  "explanation_en": "因為 gives the reason and 所以 the result. The reason clause normally comes first, which English speakers find odd because English avoids \"because ... so ...\" together. Either word can be dropped. Both are conjunctions: 所以 stands at the start of its clause, before the subject, while 因為 may come before or after the subject.",
+  "structure": "因為 + reason，所以 + result",
+  "examples": [
+   {
+    "zh": "因為今天下大雨，所以我坐公車去上班。",
+    "zhuyin": "ㄧㄣ ㄨㄟˋ ㄐㄧㄣ ㄊㄧㄢ ㄒㄧㄚˋ ㄉㄚˋ ㄩˇ ㄙㄨㄛˇ ㄧˇ ㄨㄛˇ ㄗㄨㄛˋ ㄍㄨㄥ ㄔㄜ ㄑㄩˋ ㄕㄤˋ ㄅㄢ",
+    "en": "It's pouring today, so I'm taking the bus to work."
+   },
+   {
+    "zh": "因為這家便當很好吃，所以中午人很多。",
+    "zhuyin": "ㄧㄣ ㄨㄟˋ ㄓㄜˋ ㄐㄧㄚ ㄅㄧㄢˋ ˙ㄉㄤ ㄏㄣˇ ㄏㄠˇ ㄔ ㄙㄨㄛˇ ㄧˇ ㄓㄨㄥ ㄨˇ ㄖㄣˊ ㄏㄣˇ ㄉㄨㄛ",
+    "en": "This lunch-box shop is good, so it's crowded at noon."
+   },
+   {
+    "zh": "我因為感冒了，所以今天沒有去上課。",
+    "zhuyin": "ㄨㄛˇ ㄧㄣ ㄨㄟˋ ㄍㄢˇ ㄇㄠˋ ˙ㄌㄜ ㄙㄨㄛˇ ㄧˇ ㄐㄧㄣ ㄊㄧㄢ ㄇㄟˊ ㄧㄡˇ ㄑㄩˋ ㄕㄤˋ ㄎㄜˋ",
+    "en": "I caught a cold, so I didn't go to class today."
+   }
+  ],
+  "mistake": {
+   "wrong": "因為下雨，我所以沒有騎機車。",
+   "right": "因為下雨，所以我沒有騎機車。",
+   "right_zhuyin": "ㄧㄣ ㄨㄟˋ ㄒㄧㄚˋ ㄩˇ ㄙㄨㄛˇ ㄧˇ ㄨㄛˇ ㄇㄟˊ ㄧㄡˇ ㄑㄧˊ ㄐㄧ ㄔㄜ",
+   "why_en": "所以 is a conjunction, so it goes at the start of the result clause, before the subject."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G078",
+  "tbcl": 78,
+  "pattern": "有的......有的......",
+  "level": "第2*級",
+  "title_en": "有的...有的... (some..., others...)",
+  "explanation_en": "有的 means \"some (of them)\" and refers to part of a group the listener already knows. Two or more 有的 clauses split the group: some do this, others do that. 有的 stands in subject position, before the verb.",
+  "structure": "(Group,) 有的 (N) + VP，有的 (N) + VP",
+  "examples": [
+   {
+    "zh": "我的同事有的騎機車上班，有的開車。",
+    "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄊㄨㄥˊ ㄕˋ ㄧㄡˇ ˙ㄉㄜ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄕㄤˋ ㄅㄢ ㄧㄡˇ ˙ㄉㄜ ㄎㄞ ㄔㄜ",
+    "en": "Some of my coworkers ride scooters to work, and some drive."
+   },
+   {
+    "zh": "夜市的小吃有的很辣，有的不辣。",
+    "zhuyin": "ㄧㄝˋ ㄕˋ ˙ㄉㄜ ㄒㄧㄠˇ ㄔ ㄧㄡˇ ˙ㄉㄜ ㄏㄣˇ ㄌㄚˋ ㄧㄡˇ ˙ㄉㄜ ㄅㄨˋ ㄌㄚˋ",
+    "en": "Some night-market snacks are spicy and some aren't."
+   },
+   {
+    "zh": "這些水果有的是我買的，有的是鄰居送的。",
+    "zhuyin": "ㄓㄜˋ ㄒㄧㄝ ㄕㄨㄟˇ ㄍㄨㄛˇ ㄧㄡˇ ˙ㄉㄜ ㄕˋ ㄨㄛˇ ㄇㄞˇ ˙ㄉㄜ ㄧㄡˇ ˙ㄉㄜ ㄕˋ ㄌㄧㄣˊ ㄐㄩ ㄙㄨㄥˋ ˙ㄉㄜ",
+    "en": "Some of this fruit I bought, and some the neighbors gave us."
+   }
+  ],
+  "mistake": {
+   "wrong": "一些同學喜歡游泳，一些同學喜歡打球。",
+   "right": "有的同學喜歡游泳，有的喜歡打球。",
+   "right_zhuyin": "ㄧㄡˇ ˙ㄉㄜ ㄊㄨㄥˊ ㄒㄩㄝˊ ㄒㄧˇ ㄏㄨㄢ ㄧㄡˊ ㄩㄥˇ ㄧㄡˇ ˙ㄉㄜ ㄒㄧˇ ㄏㄨㄢ ㄉㄚˇ ㄑㄧㄡˊ",
+   "why_en": "For \"some..., others...\" Chinese uses 有的...有的.... 一些 does not split a group this way."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G079",
+  "tbcl": 79,
+  "pattern": "到......（去/來）+VP",
+  "level": "第2*級",
+  "title_en": "到 + place + (去/來) + VP (go somewhere to do something)",
+  "explanation_en": "到 + place says where you go, and the verb phrase after it says what you do there. 去 (away from the speaker) or 來 (toward the speaker) can be added after the place. The place always comes before the purpose, the reverse of English \"go to do X at Y\".",
+  "structure": "Subject + 到 + place + (去 / 來) + VP",
+  "examples": [
+   {
+    "zh": "我們到夜市去吃晚飯吧。",
+    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄉㄠˋ ㄧㄝˋ ㄕˋ ㄑㄩˋ ㄔ ㄨㄢˇ ㄈㄢˋ ˙ㄅㄚ",
+    "en": "Let's go to the night market for dinner."
+   },
+   {
+    "zh": "他到臺灣來學中文。",
+    "zhuyin": "ㄊㄚ ㄉㄠˋ ㄊㄞˊ ㄨㄢ ㄌㄞˊ ㄒㄩㄝˊ ㄓㄨㄥ ㄨㄣˊ",
+    "en": "He came to Taiwan to study Chinese."
+   },
+   {
+    "zh": "暑假你要到哪裡去玩？",
+    "zhuyin": "ㄕㄨˇ ㄐㄧㄚˋ ㄋㄧˇ ㄧㄠˋ ㄉㄠˋ ㄋㄚˇ ㄌㄧˇ ㄑㄩˋ ㄨㄢˊ",
+    "en": "Where are you going for fun this summer vacation?"
+   }
+  ],
+  "mistake": {
+   "wrong": "我想去玩在墾丁。",
+   "right": "我想到墾丁去玩。",
+   "right_zhuyin": "ㄨㄛˇ ㄒㄧㄤˇ ㄉㄠˋ ㄎㄣˇ ㄉㄧㄥ ㄑㄩˋ ㄨㄢˊ",
+   "why_en": "The place comes first (到墾丁), then what you do there (去玩)."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G080",
+  "tbcl": 80,
+  "pattern": "太Vs了",
+  "level": "第2*級",
+  "title_en": "太...了 (too..., so...)",
+  "explanation_en": "太 + adjective + 了 means \"too...\" when something is more than you want (太貴了), and \"so...!\" in happy exclamations (太好了, 太好吃了). The 了 at the end is normal in both uses. 不太 + adjective means \"not very\" and takes no 了.",
+  "structure": "太 + Vs + 了 ; 不太 + Vs",
+  "examples": [
+   {
+    "zh": "這件衣服太貴了，我不買。",
+    "zhuyin": "ㄓㄜˋ ㄐㄧㄢˋ ㄧ ㄈㄨˊ ㄊㄞˋ ㄍㄨㄟˋ ˙ㄌㄜ ㄨㄛˇ ㄅㄨˋ ㄇㄞˇ",
+    "en": "This shirt is too expensive; I won't buy it."
+   },
+   {
+    "zh": "今天太熱了，我們開冷氣吧。",
+    "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄊㄞˋ ㄖㄜˋ ˙ㄌㄜ ㄨㄛˇ ˙ㄇㄣ ㄎㄞ ㄌㄥˇ ㄑㄧˋ ˙ㄅㄚ",
+    "en": "It's too hot today. Let's turn on the air conditioning."
+   },
+   {
+    "zh": "你做的牛肉麵太好吃了！",
+    "zhuyin": "ㄋㄧˇ ㄗㄨㄛˋ ˙ㄉㄜ ㄋㄧㄡˊ ㄖㄡˋ ㄇㄧㄢˋ ㄊㄞˋ ㄏㄠˇ ㄔ ˙ㄌㄜ",
+    "en": "The beef noodle soup you made is so good!"
+   },
+   {
+    "zh": "這家的咖啡不太好喝。",
+    "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ˙ㄉㄜ ㄎㄚ ㄈㄟ ㄅㄨˋ ㄊㄞˋ ㄏㄠˇ ㄏㄜ",
+    "en": "The coffee here isn't very good."
+   }
+  ],
+  "mistake": {
+   "wrong": "這杯咖啡是太甜了。",
+   "right": "這杯咖啡太甜了。",
+   "right_zhuyin": "ㄓㄜˋ ㄅㄟ ㄎㄚ ㄈㄟ ㄊㄞˋ ㄊㄧㄢˊ ˙ㄌㄜ",
+   "why_en": "Adjectives work like verbs in Chinese, so they don't take 是."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G081",
+  "tbcl": 81,
+  "pattern": "......還是......",
+  "level": "第2*級",
+  "title_en": "還是 (or?) in choice questions",
+  "explanation_en": "還是 joins two choices in a question: \"A or B?\" The sentence is already a question, so it ends without 嗎. In statements, \"or\" is 或是 / 或者 instead.",
+  "structure": "A 還是 B？",
+  "examples": [
+   {
+    "zh": "你要喝熱的還是冰的？",
+    "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄏㄜ ㄖㄜˋ ˙ㄉㄜ ㄏㄞˊ ㄕˋ ㄅㄧㄥ ˙ㄉㄜ",
+    "en": "Do you want it hot or iced?"
+   },
+   {
+    "zh": "你要吃便當還是吃麵？",
+    "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄔ ㄅㄧㄢˋ ˙ㄉㄤ ㄏㄞˊ ㄕˋ ㄔ ㄇㄧㄢˋ",
+    "en": "Do you want a lunch box or noodles?"
+   },
+   {
+    "zh": "我們坐火車去還是騎機車去？",
+    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄑㄩˋ ㄏㄞˊ ㄕˋ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄑㄩˋ",
+    "en": "Shall we go by train or by scooter?"
+   },
+   {
+    "zh": "你是學生還是老師？",
+    "zhuyin": "ㄋㄧˇ ㄕˋ ㄒㄩㄝˊ ㄕㄥ ㄏㄞˊ ㄕˋ ㄌㄠˇ ㄕ",
+    "en": "Are you a student or a teacher?"
+   }
+  ],
+  "mistake": {
+   "wrong": "你要喝咖啡或者茶？",
+   "right": "你要喝咖啡還是茶？",
+   "right_zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄏㄜ ㄎㄚ ㄈㄟ ㄏㄞˊ ㄕˋ ㄔㄚˊ",
+   "why_en": "In a question that asks the listener to choose, \"or\" is 還是; 或者 is for statements."
+  },
+  "taiwan_note": "At Taiwan drink stands the clerk often asks 冰的還是熱的？ and then your sugar and ice level."
+ },
+ {
+  "id": "G082",
+  "tbcl": 82,
+  "pattern": "又......又......",
+  "level": "第2*級",
+  "title_en": "又...又... (both... and...)",
+  "explanation_en": "又 A 又 B links two adjectives or verb phrases that describe the same thing: \"both A and B\". The two qualities usually point the same way (both good or both bad). Each 又 goes right before its adjective or verb, with no 很.",
+  "structure": "Subject + 又 + Vs/VP + 又 + Vs/VP",
+  "examples": [
+   {
+    "zh": "這家餐廳又便宜又好吃。",
+    "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ㄘㄢ ㄊㄧㄥ ㄧㄡˋ ㄆㄧㄢˊ ㄧˊ ㄧㄡˋ ㄏㄠˇ ㄔ",
+    "en": "This restaurant is both cheap and tasty."
+   },
+   {
+    "zh": "今天又熱又悶。",
+    "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄧㄡˋ ㄖㄜˋ ㄧㄡˋ ㄇㄣˋ",
+    "en": "Today is hot and muggy."
+   },
+   {
+    "zh": "我弟弟又高又帥。",
+    "zhuyin": "ㄨㄛˇ ㄉㄧˋ ˙ㄉㄧ ㄧㄡˋ ㄍㄠ ㄧㄡˋ ㄕㄨㄞˋ",
+    "en": "My younger brother is tall and handsome."
+   },
+   {
+    "zh": "她又會唱歌又會跳舞。",
+    "zhuyin": "ㄊㄚ ㄧㄡˋ ㄏㄨㄟˋ ㄔㄤˋ ㄍㄜ ㄧㄡˋ ㄏㄨㄟˋ ㄊㄧㄠˋ ㄨˇ",
+    "en": "She can sing and dance."
+   }
+  ],
+  "mistake": {
+   "wrong": "這家餐廳很便宜和好吃。",
+   "right": "這家餐廳又便宜又好吃。",
+   "right_zhuyin": "ㄓㄜˋ ㄐㄧㄚ ㄘㄢ ㄊㄧㄥ ㄧㄡˋ ㄆㄧㄢˊ ㄧˊ ㄧㄡˋ ㄏㄠˇ ㄔ",
+   "why_en": "和 joins nouns, not adjectives or verbs. Use 又...又... (or 也, 而且)."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G083",
+  "tbcl": 83,
+  "pattern": "有（一）點Vs",
+  "level": "第2*級",
+  "title_en": "有(一)點 + adjective (a bit, somewhat)",
+  "explanation_en": "有一點 or 有點 before an adjective means \"a bit, somewhat\". It usually describes something slightly unwelcome: 有一點累, 有點貴. Compare adjective + 一點, which compares or asks for \"a bit more\" (便宜一點).",
+  "structure": "Subject + 有(一)點 + Vs",
+  "examples": [
+   {
+    "zh": "我今天有一點累。",
+    "zhuyin": "ㄨㄛˇ ㄐㄧㄣ ㄊㄧㄢ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄌㄟˇ",
+    "en": "I'm a bit tired today."
+   },
+   {
+    "zh": "這碗湯有點鹹。",
+    "zhuyin": "ㄓㄜˋ ㄨㄢˇ ㄊㄤ ㄧㄡˇ ㄉㄧㄢˇ ㄒㄧㄢˊ",
+    "en": "This soup is a bit salty."
+   },
+   {
+    "zh": "外面有一點冷，你多穿一件外套吧。",
+    "zhuyin": "ㄨㄞˋ ㄇㄧㄢˋ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄌㄥˇ ㄋㄧˇ ㄉㄨㄛ ㄔㄨㄢ ㄧ ㄐㄧㄢˋ ㄨㄞˋ ㄊㄠˋ ˙ㄅㄚ",
+    "en": "It's a bit cold outside. Put on another jacket."
+   }
+  ],
+  "mistake": {
+   "wrong": "我一點累。",
+   "right": "我今天有一點累。",
+   "right_zhuyin": "ㄨㄛˇ ㄐㄧㄣ ㄊㄧㄢ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄌㄟˇ",
+   "why_en": "\"A bit\" before an adjective is 有一點 (or 有點); 一點 alone goes after the adjective and means \"a bit more\"."
+  },
+  "taiwan_note": "Taiwan speech often asks about feelings with 會 + adjective: 你會不會冷？ \"Are you cold?\" A typical answer is 有一點。"
+ },
+ {
+  "id": "G084",
+  "tbcl": 84,
+  "pattern": "（在） PW 的 N",
+  "level": "第2*級",
+  "title_en": "(在) place + 的 + noun (the N at / in...)",
+  "explanation_en": "A place phrase can describe a noun, like English \"the phone on the table\". In Chinese the place phrase + 的 comes before the noun: 桌子上的手機. 在 at the start is optional.",
+  "structure": "(在) place word + 的 + N",
+  "examples": [
+   {
+    "zh": "桌子上的手機是誰的？",
+    "zhuyin": "ㄓㄨㄛ ˙ㄗ ㄕㄤˋ ˙ㄉㄜ ㄕㄡˇ ㄐㄧ ㄕˋ ㄕㄟˊ ˙ㄉㄜ",
+    "en": "Whose is the phone on the table?"
+   },
+   {
+    "zh": "在門口的那個人是我哥哥。",
+    "zhuyin": "ㄗㄞˋ ㄇㄣˊ ㄎㄡˇ ˙ㄉㄜ ㄋㄚˋ ˙ㄍㄜ ㄖㄣˊ ㄕˋ ㄨㄛˇ ㄍㄜ ˙ㄍㄜ",
+    "en": "The person at the door is my older brother."
+   },
+   {
+    "zh": "我喜歡學校旁邊的那家早餐店。",
+    "zhuyin": "ㄨㄛˇ ㄒㄧˇ ㄏㄨㄢ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄆㄤˊ ㄅㄧㄢ ˙ㄉㄜ ㄋㄚˋ ㄐㄧㄚ ㄗㄠˇ ㄘㄢ ㄉㄧㄢˋ",
+    "en": "I like the breakfast shop next to the school."
+   }
+  ],
+  "mistake": {
+   "wrong": "手機在桌子上是我的。",
+   "right": "桌子上的手機是我的。",
+   "right_zhuyin": "ㄓㄨㄛ ˙ㄗ ㄕㄤˋ ˙ㄉㄜ ㄕㄡˇ ㄐㄧ ㄕˋ ㄨㄛˇ ˙ㄉㄜ",
+   "why_en": "A describing phrase goes before the noun with 的; it cannot follow the noun as in English."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G085",
+  "tbcl": 85,
+  "pattern": "從2",
+  "level": "第2*級",
+  "title_en": "從 (from) as a starting point",
+  "explanation_en": "從 marks a starting point in time or place: 從明天開始 \"starting tomorrow\", 從美國來 \"come from America\". The 從 phrase goes before the verb. With time, 從 ... 開始 or 從 ... 起 is very common.",
+  "structure": "Subject + 從 + time / place + V ; 從 + time + 開始，...",
+  "examples": [
+   {
+    "zh": "從明天開始，我要早上六點起床。",
+    "zhuyin": "ㄘㄨㄥˊ ㄇㄧㄥˊ ㄊㄧㄢ ㄎㄞ ㄕˇ ㄨㄛˇ ㄧㄠˋ ㄗㄠˇ ㄕㄤˋ ㄌㄧㄡˋ ㄉㄧㄢˇ ㄑㄧˇ ㄔㄨㄤˊ",
+    "en": "Starting tomorrow, I'm getting up at six."
+   },
+   {
+    "zh": "從上個月開始，我每天騎機車上班。",
+    "zhuyin": "ㄘㄨㄥˊ ㄕㄤˋ ㄍㄜˋ ㄩㄝˋ ㄎㄞ ㄕˇ ㄨㄛˇ ㄇㄟˇ ㄊㄧㄢ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄕㄤˋ ㄅㄢ",
+    "en": "Since last month I've been riding my scooter to work every day."
+   },
+   {
+    "zh": "他從美國來。",
+    "zhuyin": "ㄊㄚ ㄘㄨㄥˊ ㄇㄟˇ ㄍㄨㄛˊ ㄌㄞˊ",
+    "en": "He comes from America."
+   }
+  ],
+  "mistake": {
+   "wrong": "我開始運動從上個月。",
+   "right": "我從上個月開始運動。",
+   "right_zhuyin": "ㄨㄛˇ ㄘㄨㄥˊ ㄕㄤˋ ㄍㄜˋ ㄩㄝˋ ㄎㄞ ㄕˇ ㄩㄣˋ ㄉㄨㄥˋ",
+   "why_en": "The 從 phrase goes before the verb, not at the end of the sentence as in English."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G086",
+  "tbcl": 86,
+  "pattern": "V起來1",
+  "level": "第2*級",
+  "title_en": "V起來 (up)",
+  "explanation_en": "起來 after a verb shows upward movement: 站起來 \"stand up\", 拿起來 \"pick up\". On its own, 起來 means \"get up\". \"Up\" in these phrases is 起來, not 上.",
+  "structure": "V + 起來",
+  "examples": [
+   {
+    "zh": "老師進來的時候，大家都站起來了。",
+    "zhuyin": "ㄌㄠˇ ㄕ ㄐㄧㄣˋ ㄌㄞˊ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄉㄚˋ ㄐㄧㄚ ㄉㄡ ㄓㄢˋ ㄑㄧˇ ㄌㄞˊ ˙ㄌㄜ",
+    "en": "When the teacher came in, everyone stood up."
+   },
+   {
+    "zh": "你的錢包掉了，快拿起來吧。",
+    "zhuyin": "ㄋㄧˇ ˙ㄉㄜ ㄑㄧㄢˊ ㄅㄠ ㄉㄧㄠˋ ˙ㄌㄜ ㄎㄨㄞˋ ㄋㄚˊ ㄑㄧˇ ㄌㄞˊ ˙ㄅㄚ",
+    "en": "You dropped your wallet. Pick it up!"
+   },
+   {
+    "zh": "快起來，已經八點了！",
+    "zhuyin": "ㄎㄨㄞˋ ㄑㄧˇ ㄌㄞˊ ㄧˇ ㄐㄧㄥ ㄅㄚ ㄉㄧㄢˇ ˙ㄌㄜ",
+    "en": "Get up, it's already eight!"
+   }
+  ],
+  "mistake": {
+   "wrong": "請大家站上。",
+   "right": "請大家站起來。",
+   "right_zhuyin": "ㄑㄧㄥˇ ㄉㄚˋ ㄐㄧㄚ ㄓㄢˋ ㄑㄧˇ ㄌㄞˊ",
+   "why_en": "\"Stand up\" is 站起來. 上 is for going up onto something (上樓, 上車), not for rising from a seat."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G087",
+  "tbcl": 87,
+  "pattern": "Vs一點",
+  "level": "第2*級",
+  "title_en": "Adjective + 一點 (a bit more...)",
+  "explanation_en": "一點 after an adjective means \"a bit more...\". It is used in comparisons and in requests: 便宜一點 \"a bit cheaper\", 說慢一點 \"speak a bit more slowly\", 小心一點 \"be a bit more careful\". Do not confuse it with 有一點 before an adjective (\"somewhat\").",
+  "structure": "Vs + 一點 ; V + Vs + 一點 (requests: 說慢一點)",
+  "examples": [
+   {
+    "zh": "可以便宜一點嗎？",
+    "zhuyin": "ㄎㄜˇ ㄧˇ ㄆㄧㄢˊ ㄧˊ ㄧ ㄉㄧㄢˇ ˙ㄇㄚ",
+    "en": "Could you make it a bit cheaper?"
+   },
+   {
+    "zh": "請你說慢一點。",
+    "zhuyin": "ㄑㄧㄥˇ ㄋㄧˇ ㄕㄨㄛ ㄇㄢˋ ㄧ ㄉㄧㄢˇ",
+    "en": "Please speak a bit more slowly."
+   },
+   {
+    "zh": "騎機車要小心一點喔。",
+    "zhuyin": "ㄑㄧˊ ㄐㄧ ㄔㄜ ㄧㄠˋ ㄒㄧㄠˇ ㄒㄧㄣ ㄧ ㄉㄧㄢˇ ㄛ",
+    "en": "Be a bit more careful riding your scooter, OK?"
+   },
+   {
+    "zh": "這件太小了，有沒有大一點的？",
+    "zhuyin": "ㄓㄜˋ ㄐㄧㄢˋ ㄊㄞˋ ㄒㄧㄠˇ ˙ㄌㄜ ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄉㄚˋ ㄧ ㄉㄧㄢˇ ˙ㄉㄜ",
+    "en": "This one is too small. Do you have a slightly bigger one?"
+   }
+  ],
+  "mistake": {
+   "wrong": "可以一點便宜嗎？",
+   "right": "可以便宜一點嗎？",
+   "right_zhuyin": "ㄎㄜˇ ㄧˇ ㄆㄧㄢˊ ㄧˊ ㄧ ㄉㄧㄢˇ ˙ㄇㄚ",
+   "why_en": "In \"a bit cheaper\", 一點 follows the adjective."
+  },
+  "taiwan_note": "At markets you will often hear 可以算便宜一點嗎？ \"Could you give me a better price?\""
+ },
+ {
+  "id": "G088",
+  "tbcl": 88,
+  "pattern": "數詞+多（量詞）",
+  "level": "第2*級",
+  "title_en": "Number + 多 (more than, -odd)",
+  "explanation_en": "多 after a number means \"more than, ...-odd\". With round numbers (10, 20, 100...), 多 goes right after the number and before the measure word: 二十多分鐘, 一百多塊. With a single digit, it comes after the measure word: 一個多小時, 三塊多.",
+  "structure": "Round number + 多 + MW (+ N) ; 1-9 + MW + 多 (+ N)",
+  "examples": [
+   {
+    "zh": "這碗牛肉麵一百多塊。",
+    "zhuyin": "ㄓㄜˋ ㄨㄢˇ ㄋㄧㄡˊ ㄖㄡˋ ㄇㄧㄢˋ ㄧ ㄅㄞˇ ㄉㄨㄛ ㄎㄨㄞˋ",
+    "en": "This bowl of beef noodle soup is over a hundred dollars."
+   },
+   {
+    "zh": "我等公車等了二十多分鐘。",
+    "zhuyin": "ㄨㄛˇ ㄉㄥˇ ㄍㄨㄥ ㄔㄜ ㄉㄥˇ ˙ㄌㄜ ㄦˋ ㄕˊ ㄉㄨㄛ ㄈㄣˋ ㄓㄨㄥ",
+    "en": "I waited over twenty minutes for the bus."
+   },
+   {
+    "zh": "我們在咖啡店坐了兩個多小時。",
+    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄗㄞˋ ㄎㄚ ㄈㄟ ㄉㄧㄢˋ ㄗㄨㄛˋ ˙ㄌㄜ ㄌㄧㄤˇ ㄍㄜˋ ㄉㄨㄛ ㄒㄧㄠˇ ㄕˊ",
+    "en": "We sat in the café for over two hours."
+   },
+   {
+    "zh": "我們班有三十多個學生。",
+    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄅㄢ ㄧㄡˇ ㄙㄢ ㄕˊ ㄉㄨㄛ ㄍㄜˋ ㄒㄩㄝˊ ㄕㄥ",
+    "en": "There are thirty-odd students in our class."
+   }
+  ],
+  "mistake": {
+   "wrong": "我等了二十分鐘多。",
+   "right": "我等了二十多分鐘。",
+   "right_zhuyin": "ㄨㄛˇ ㄉㄥˇ ˙ㄌㄜ ㄦˋ ㄕˊ ㄉㄨㄛ ㄈㄣˋ ㄓㄨㄥ",
+   "why_en": "With a round number like 二十, 多 goes before the measure word. Only single digits take 多 after it (一個多小時)."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G089",
+  "tbcl": 89,
+  "pattern": "V到1",
+  "level": "第2*級",
+  "title_en": "V到 + time / point (until, up to)",
+  "explanation_en": "到 after a verb can mark how far an action goes, in time or in amount: 睡到十點 \"sleep until ten\", 看到第五十頁 \"read up to page fifty\". 到 attaches to the verb itself, so a verb with an object like 睡覺 is either shortened (睡到) or repeated (睡覺睡到).",
+  "structure": "Subject + V到 + time / point",
+  "examples": [
+   {
+    "zh": "我昨天睡到中午十二點。",
+    "zhuyin": "ㄨㄛˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄕㄨㄟˋ ㄉㄠˋ ㄓㄨㄥ ㄨˇ ㄕˊ ㄦˋ ㄉㄧㄢˇ",
+    "en": "Yesterday I slept until noon."
+   },
+   {
+    "zh": "這本書我看到第五十頁了。",
+    "zhuyin": "ㄓㄜˋ ㄅㄣˇ ㄕㄨ ㄨㄛˇ ㄎㄢˋ ㄉㄠˋ ㄉㄧˋ ㄨˇ ㄕˊ ㄧㄝˋ ˙ㄌㄜ",
+    "en": "I've read this book up to page fifty."
+   },
+   {
+    "zh": "他每天工作到晚上九點。",
+    "zhuyin": "ㄊㄚ ㄇㄟˇ ㄊㄧㄢ ㄍㄨㄥ ㄗㄨㄛˋ ㄉㄠˋ ㄨㄢˇ ㄕㄤˋ ㄐㄧㄡˇ ㄉㄧㄢˇ",
+    "en": "He works until nine every night."
+   }
+  ],
+  "mistake": {
+   "wrong": "我昨天睡覺到中午。",
+   "right": "我昨天睡到中午十二點。",
+   "right_zhuyin": "ㄨㄛˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄕㄨㄟˋ ㄉㄠˋ ㄓㄨㄥ ㄨˇ ㄕˊ ㄦˋ ㄉㄧㄢˇ",
+   "why_en": "到 must follow the verb directly. Drop the object (睡到) or repeat the verb (睡覺睡到)."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G090",
+  "tbcl": 90,
+  "pattern": "又1",
+  "level": "第2*級",
+  "title_en": "又 (again) for repetition that already happened",
+  "explanation_en": "又 means \"again\" when the repetition has already happened, usually with 了 at the end: 他又遲到了. It often sounds a little annoyed or surprised. For \"again\" in the future, use 再 instead (明天再來).",
+  "structure": "Subject + 又 + V + 了",
+  "examples": [
+   {
+    "zh": "他又遲到了。",
+    "zhuyin": "ㄊㄚ ㄧㄡˋ ㄔˊ ㄉㄠˋ ˙ㄌㄜ",
+    "en": "He's late again."
+   },
+   {
+    "zh": "你怎麼又買手搖飲了？",
+    "zhuyin": "ㄋㄧˇ ㄗㄣˇ ˙ㄇㄜ ㄧㄡˋ ㄇㄞˇ ㄕㄡˇ ㄧㄠˊ ㄧㄣˇ ˙ㄌㄜ",
+    "en": "How come you bought another tea-stand drink?"
+   },
+   {
+    "zh": "昨天下雨，今天又下雨了。",
+    "zhuyin": "ㄗㄨㄛˊ ㄊㄧㄢ ㄒㄧㄚˋ ㄩˇ ㄐㄧㄣ ㄊㄧㄢ ㄧㄡˋ ㄒㄧㄚˋ ㄩˇ ˙ㄌㄜ",
+    "en": "It rained yesterday, and it's raining again today."
+   }
+  ],
+  "mistake": {
+   "wrong": "明天我又來。",
+   "right": "明天我再來。",
+   "right_zhuyin": "ㄇㄧㄥˊ ㄊㄧㄢ ㄨㄛˇ ㄗㄞˋ ㄌㄞˊ",
+   "why_en": "又 is for a repetition that has already happened. A future \"again\" uses 再."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G091",
+  "tbcl": 91,
+  "pattern": "又2",
+  "level": "第2*級",
+  "title_en": "又 (and also) adding another action",
+  "explanation_en": "又 can add one more action by the same person: \"and then also...\". It is common with 了 in both clauses: 我去了郵局，又去了銀行. English speakers often use 和 here, but 和 cannot join verbs or clauses.",
+  "structure": "Subject + V了 + O，又 + V了 + O",
+  "examples": [
+   {
+    "zh": "我去了郵局，又去了銀行。",
+    "zhuyin": "ㄨㄛˇ ㄑㄩˋ ˙ㄌㄜ ㄧㄡˊ ㄐㄩˊ ㄧㄡˋ ㄑㄩˋ ˙ㄌㄜ ㄧㄣˊ ㄏㄤˊ",
+    "en": "I went to the post office and then to the bank."
+   },
+   {
+    "zh": "她買了一雙鞋，又買了一件外套。",
+    "zhuyin": "ㄊㄚ ㄇㄞˇ ˙ㄌㄜ ㄧ ㄕㄨㄤ ㄒㄧㄝˊ ㄧㄡˋ ㄇㄞˇ ˙ㄌㄜ ㄧ ㄐㄧㄢˋ ㄨㄞˋ ㄊㄠˋ",
+    "en": "She bought a pair of shoes and also a jacket."
+   },
+   {
+    "zh": "今天我洗了衣服，又打掃了房間。",
+    "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄨㄛˇ ㄒㄧˇ ˙ㄌㄜ ㄧ ㄈㄨˊ ㄧㄡˋ ㄉㄚˇ ㄙㄠˇ ˙ㄌㄜ ㄈㄤˊ ㄐㄧㄢ",
+    "en": "Today I did the laundry and also cleaned my room."
+   }
+  ],
+  "mistake": {
+   "wrong": "我去了郵局，和去了銀行。",
+   "right": "我去了郵局，又去了銀行。",
+   "right_zhuyin": "ㄨㄛˇ ㄑㄩˋ ˙ㄌㄜ ㄧㄡˊ ㄐㄩˊ ㄧㄡˋ ㄑㄩˋ ˙ㄌㄜ ㄧㄣˊ ㄏㄤˊ",
+   "why_en": "和 joins nouns only. To add another action, use 又 (or 也, 還)."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G092",
+  "tbcl": 92,
+  "pattern": "V過來1/過去",
+  "level": "第2*級",
+  "title_en": "V過來 / V過去 (over here, over there)",
+  "explanation_en": "過來 and 過去 after a verb show movement across a space: 過來 toward the speaker, 過去 away from the speaker. 走過來 \"walk over (here)\", 跑過去 \"run over (there)\". On their own, 過來 and 過去 mean \"come over\" and \"go over\".",
+  "structure": "V + 過來 / 過去",
+  "examples": [
+   {
+    "zh": "那隻狗向我跑過來了。",
+    "zhuyin": "ㄋㄚˋ ㄓ ㄍㄡˇ ㄒㄧㄤˋ ㄨㄛˇ ㄆㄠˇ ㄍㄨㄛˋ ㄌㄞˊ ˙ㄌㄜ",
+    "en": "That dog came running over to me."
+   },
+   {
+    "zh": "你先走過去，我等一下就到。",
+    "zhuyin": "ㄋㄧˇ ㄒㄧㄢ ㄗㄡˇ ㄍㄨㄛˋ ㄑㄩˋ ㄨㄛˇ ㄉㄥˇ ㄧ ㄒㄧㄚˋ ㄐㄧㄡˋ ㄉㄠˋ",
+    "en": "You walk over first; I'll be there in a moment."
+   },
+   {
+    "zh": "公車開過來了，我們上車吧。",
+    "zhuyin": "ㄍㄨㄥ ㄔㄜ ㄎㄞ ㄍㄨㄛˋ ㄌㄞˊ ˙ㄌㄜ ㄨㄛˇ ˙ㄇㄣ ㄕㄤˋ ㄔㄜ ˙ㄅㄚ",
+    "en": "The bus is coming. Let's get on."
+   }
+  ],
+  "mistake": {
+   "wrong": "我等一下來過。",
+   "right": "我等一下過來。",
+   "right_zhuyin": "ㄨㄛˇ ㄉㄥˇ ㄧ ㄒㄧㄚˋ ㄍㄨㄛˋ ㄌㄞˊ",
+   "why_en": "\"Come over\" is 過來. 來過 means \"have been here before\" (過 marks experience)."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G093",
+  "tbcl": 93,
+  "pattern": "V下來/下去1",
+  "level": "第2*級",
+  "title_en": "V下來 / V下去 (down)",
+  "explanation_en": "下來 and 下去 after a verb show downward movement: 下來 toward the speaker, 下去 away from the speaker. 坐下來 \"sit down\", 走下去 \"walk down\". Choose 來 or 去 by where the speaker is, not by where the listener is.",
+  "structure": "V + 下來 / 下去",
+  "examples": [
+   {
+    "zh": "你累了吧？坐下來休息一下。",
+    "zhuyin": "ㄋㄧˇ ㄌㄟˇ ˙ㄌㄜ ˙ㄅㄚ ㄗㄨㄛˋ ㄒㄧㄚˋ ㄌㄞˊ ㄒㄧㄡ ㄒㄧˊ ㄧ ㄒㄧㄚˋ",
+    "en": "You must be tired. Sit down and rest a bit."
+   },
+   {
+    "zh": "電梯壞了，我們走下去吧。",
+    "zhuyin": "ㄉㄧㄢˋ ㄊㄧ ㄏㄨㄞˋ ˙ㄌㄜ ㄨㄛˇ ˙ㄇㄣ ㄗㄡˇ ㄒㄧㄚˋ ㄑㄩˋ ˙ㄅㄚ",
+    "en": "The elevator is broken. Let's walk down."
+   },
+   {
+    "zh": "貓從樹上跳下來了。",
+    "zhuyin": "ㄇㄠ ㄘㄨㄥˊ ㄕㄨˋ ㄕㄤˋ ㄊㄧㄠˋ ㄒㄧㄚˋ ㄌㄞˊ ˙ㄌㄜ",
+    "en": "The cat jumped down from the tree."
+   }
+  ],
+  "mistake": {
+   "wrong": "我在樓下，你快下去！",
+   "right": "我在樓下，你快下來！",
+   "right_zhuyin": "ㄨㄛˇ ㄗㄞˋ ㄌㄡˊ ㄒㄧㄚˋ ㄋㄧˇ ㄎㄨㄞˋ ㄒㄧㄚˋ ㄌㄞˊ",
+   "why_en": "The speaker is downstairs, so the movement comes toward the speaker: 下來."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G094",
+  "tbcl": 94,
+  "pattern": "A比B ......",
+  "level": "第2*級",
+  "title_en": "A 比 B + adjective (comparisons)",
+  "explanation_en": "A 比 B + adjective means \"A is more ... than B\". Do not put 很 or 非常 before the adjective; to say how much, add it after: 高一點, 高很多, 高十公分. The negative is usually A 沒有 B (那麼) + adjective.",
+  "structure": "A + 比 + B + Vs (+ 一點 / 很多 / amount)",
+  "examples": [
+   {
+    "zh": "高雄比屏東大。",
+    "zhuyin": "ㄍㄠ ㄒㄩㄥˊ ㄅㄧˇ ㄆㄧㄥˊ ㄉㄨㄥ ㄉㄚˋ",
+    "en": "Kaohsiung is bigger than Pingtung."
+   },
+   {
+    "zh": "今天比昨天熱一點。",
+    "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄅㄧˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄖㄜˋ ㄧ ㄉㄧㄢˇ",
+    "en": "Today is a bit hotter than yesterday."
+   },
+   {
+    "zh": "我哥哥比我高十公分。",
+    "zhuyin": "ㄨㄛˇ ㄍㄜ ˙ㄍㄜ ㄅㄧˇ ㄨㄛˇ ㄍㄠ ㄕˊ ㄍㄨㄥ ㄈㄣ",
+    "en": "My older brother is ten centimeters taller than me."
+   },
+   {
+    "zh": "坐火車比坐公車快。",
+    "zhuyin": "ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄅㄧˇ ㄗㄨㄛˋ ㄍㄨㄥ ㄔㄜ ㄎㄨㄞˋ",
+    "en": "Taking the train is faster than taking the bus."
+   }
+  ],
+  "mistake": {
+   "wrong": "我哥哥比我很高。",
+   "right": "我哥哥比我高很多。",
+   "right_zhuyin": "ㄨㄛˇ ㄍㄜ ˙ㄍㄜ ㄅㄧˇ ㄨㄛˇ ㄍㄠ ㄏㄣˇ ㄉㄨㄛ",
+   "why_en": "In a 比 sentence the adjective takes no 很. Say how much after it: 高很多."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G095",
+  "tbcl": 95,
+  "pattern": "A跟B一樣......",
+  "level": "第2*級",
+  "title_en": "A 跟 B 一樣 (A is the same as B; as ... as)",
+  "explanation_en": "A 跟 B 一樣 means \"A is the same as B\". Add an adjective after 一樣 to say \"as ... as\": 跟你一樣高. The negative is 不一樣 \"not the same, different\".",
+  "structure": "A + 跟 + B + 一樣 (+ Vs)",
+  "examples": [
+   {
+    "zh": "我的手機跟你的一樣。",
+    "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄕㄡˇ ㄐㄧ ㄍㄣ ㄋㄧˇ ˙ㄉㄜ ㄧ ㄧㄤˋ",
+    "en": "My phone is the same as yours."
+   },
+   {
+    "zh": "我妹妹跟我一樣高。",
+    "zhuyin": "ㄨㄛˇ ㄇㄟˋ ˙ㄇㄟ ㄍㄣ ㄨㄛˇ ㄧ ㄧㄤˋ ㄍㄠ",
+    "en": "My younger sister is as tall as I am."
+   },
+   {
+    "zh": "這個便當跟那個一樣貴嗎？",
+    "zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄅㄧㄢˋ ˙ㄉㄤ ㄍㄣ ㄋㄚˋ ˙ㄍㄜ ㄧ ㄧㄤˋ ㄍㄨㄟˋ ˙ㄇㄚ",
+    "en": "Is this lunch box as expensive as that one?"
+   },
+   {
+    "zh": "屏東的夏天跟高雄一樣熱。",
+    "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄒㄧㄚˋ ㄊㄧㄢ ㄍㄣ ㄍㄠ ㄒㄩㄥˊ ㄧ ㄧㄤˋ ㄖㄜˋ",
+    "en": "Summer in Pingtung is as hot as in Kaohsiung."
+   }
+  ],
+  "mistake": {
+   "wrong": "我一樣高跟你。",
+   "right": "我跟你一樣高。",
+   "right_zhuyin": "ㄨㄛˇ ㄍㄣ ㄋㄧˇ ㄧ ㄧㄤˋ ㄍㄠ",
+   "why_en": "跟 + B comes before 一樣, and the adjective comes last."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G096",
+  "tbcl": 96,
+  "pattern": "一......就......",
+  "level": "第2*級",
+  "title_en": "一...就... (as soon as)",
+  "explanation_en": "一 V1 就 V2 means \"as soon as V1 happens, V2 happens\", or \"whenever V1, V2\". 一 and 就 are both adverbs, so each stands right before its verb, after its own subject. The two parts can have different subjects: 天氣一熱，我就....",
+  "structure": "Subject + 一 + V1 (，Subject) + 就 + V2",
+  "examples": [
+   {
+    "zh": "我一到家就洗澡。",
+    "zhuyin": "ㄨㄛˇ ㄧ ㄉㄠˋ ㄐㄧㄚ ㄐㄧㄡˋ ㄒㄧˇ ㄗㄠˇ",
+    "en": "I take a shower as soon as I get home."
+   },
+   {
+    "zh": "他一喝咖啡就睡不著。",
+    "zhuyin": "ㄊㄚ ㄧ ㄏㄜ ㄎㄚ ㄈㄟ ㄐㄧㄡˋ ㄕㄨㄟˋ ㄅㄨˋ ㄓㄠˊ",
+    "en": "Whenever he drinks coffee he can't sleep."
+   },
+   {
+    "zh": "天氣一熱，我就想吃冰。",
+    "zhuyin": "ㄊㄧㄢ ㄑㄧˋ ㄧ ㄖㄜˋ ㄨㄛˇ ㄐㄧㄡˋ ㄒㄧㄤˇ ㄔ ㄅㄧㄥ",
+    "en": "As soon as it gets hot, I want shaved ice."
+   },
+   {
+    "zh": "你一下課就打電話給我。",
+    "zhuyin": "ㄋㄧˇ ㄧ ㄒㄧㄚˋ ㄎㄜˋ ㄐㄧㄡˋ ㄉㄚˇ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄍㄟˇ ㄨㄛˇ",
+    "en": "Call me as soon as class is over."
+   }
+  ],
+  "mistake": {
+   "wrong": "一我回家，就開冷氣。",
+   "right": "我一回家就開冷氣。",
+   "right_zhuyin": "ㄨㄛˇ ㄧ ㄏㄨㄟˊ ㄐㄧㄚ ㄐㄧㄡˋ ㄎㄞ ㄌㄥˇ ㄑㄧˋ",
+   "why_en": "一 is an adverb, so it goes after the subject, right before the verb."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G097",
+  "tbcl": 97,
+  "pattern": "（是）......的",
+  "level": "第2*級",
+  "title_en": "(是)...的 (focusing on when, where, how)",
+  "explanation_en": "When an action is already known to have happened, 是...的 focuses on its details: when, where, how or with whom. 是 goes before the detail and 的 at the end; 是 can be dropped in positive sentences but not in the negative (不是...的). Do not use 了 in this pattern.",
+  "structure": "Subject + (是) + time / place / manner + V + 的",
+  "examples": [
+   {
+    "zh": "我是去年來臺灣的。",
+    "zhuyin": "ㄨㄛˇ ㄕˋ ㄑㄩˋ ㄋㄧㄢˊ ㄌㄞˊ ㄊㄞˊ ㄨㄢ ˙ㄉㄜ",
+    "en": "I came to Taiwan last year."
+   },
+   {
+    "zh": "你是怎麼來的？我是騎機車來的。",
+    "zhuyin": "ㄋㄧˇ ㄕˋ ㄗㄣˇ ˙ㄇㄜ ㄌㄞˊ ˙ㄉㄜ ㄨㄛˇ ㄕˋ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄌㄞˊ ˙ㄉㄜ",
+    "en": "How did you get here? I came by scooter."
+   },
+   {
+    "zh": "這個便當是在哪裡買的？",
+    "zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄅㄧㄢˋ ˙ㄉㄤ ㄕˋ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ ㄇㄞˇ ˙ㄉㄜ",
+    "en": "Where did you buy this lunch box?"
+   },
+   {
+    "zh": "我們是在夜市認識的。",
+    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄕˋ ㄗㄞˋ ㄧㄝˋ ㄕˋ ㄖㄣˋ ㄕˋ ˙ㄉㄜ",
+    "en": "We met at a night market."
+   }
+  ],
+  "mistake": {
+   "wrong": "我是昨天到了。",
+   "right": "我是昨天到的。",
+   "right_zhuyin": "ㄨㄛˇ ㄕˋ ㄗㄨㄛˊ ㄊㄧㄢ ㄉㄠˋ ˙ㄉㄜ",
+   "why_en": "是...的 ends with 的, not 了. The event itself is already known; the sentence focuses on when."
+  },
+  "taiwan_note": "Taiwan speakers often ask whether something happened with 有 + verb (你有去嗎？ \"Did you go?\"), then ask for the details with 是...的 (你是跟誰去的？)."
+ },
+ {
+  "id": "G098",
+  "tbcl": 98,
+  "pattern": "好/難+V",
+  "level": "第2*級",
+  "title_en": "好 / 難 + verb (easy / hard to..., nice / awful to...)",
+  "explanation_en": "好 or 難 before a verb means \"easy\" or \"hard\" to do it: 好學, 難寫. With the senses it means pleasant or unpleasant: 好吃 \"tasty\", 難吃 \"awful\", 好看, 好聽, 難喝. The pair works as one adjective, so it takes 很, 不, 太 like any adjective.",
+  "structure": "Subject + (很) + 好 / 難 + V",
+  "examples": [
+   {
+    "zh": "中文字很難寫，可是很好看。",
+    "zhuyin": "ㄓㄨㄥ ㄨㄣˊ ㄗˋ ㄏㄣˇ ㄋㄢˊ ㄒㄧㄝˇ ㄎㄜˇ ㄕˋ ㄏㄣˇ ㄏㄠˇ ㄎㄢˋ",
+    "en": "Chinese characters are hard to write, but they look beautiful."
+   },
+   {
+    "zh": "這家的滷肉飯很好吃。",
+    "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ˙ㄉㄜ ㄌㄨˇ ㄖㄡˋ ㄈㄢˋ ㄏㄣˇ ㄏㄠˇ ㄔ",
+    "en": "The braised pork rice here is delicious."
+   },
+   {
+    "zh": "這個問題很難回答。",
+    "zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄨㄣˋ ㄊㄧˊ ㄏㄣˇ ㄋㄢˊ ㄏㄨㄟˊ ㄉㄚˊ",
+    "en": "This question is hard to answer."
+   },
+   {
+    "zh": "臺語好學嗎？",
+    "zhuyin": "ㄊㄞˊ ㄩˇ ㄏㄠˇ ㄒㄩㄝˊ ˙ㄇㄚ",
+    "en": "Is Taiwanese easy to learn?"
+   }
+  ],
+  "mistake": {
+   "wrong": "這道菜很困難做。",
+   "right": "這道菜很難做。",
+   "right_zhuyin": "ㄓㄜˋ ㄉㄠˋ ㄘㄞˋ ㄏㄣˇ ㄋㄢˊ ㄗㄨㄛˋ",
+   "why_en": "Only 難 combines with a verb this way. 困難 is a separate word (\"difficult; difficulty\") and cannot."
+  },
+  "taiwan_note": "Taiwan speech also says 不錯吃 \"pretty tasty\". It is casual; 很好吃 is the neutral choice."
+ },
+ {
+  "id": "G099",
+  "tbcl": 99,
+  "pattern": "了......就......",
+  "level": "第2*級",
+  "title_en": "V1了...就V2 (after doing..., then...)",
+  "explanation_en": "V1 了 (O) 就 V2 means that V2 follows right after V1 is done: 我吃了早餐就去上班. It works for past, habitual and future events. 了 goes right after the first verb, and 就 right before the second.",
+  "structure": "Subject + V1 + 了 (+ O) + 就 + V2",
+  "examples": [
+   {
+    "zh": "我吃了早餐就去上班。",
+    "zhuyin": "ㄨㄛˇ ㄔ ˙ㄌㄜ ㄗㄠˇ ㄘㄢ ㄐㄧㄡˋ ㄑㄩˋ ㄕㄤˋ ㄅㄢ",
+    "en": "I go to work right after breakfast."
+   },
+   {
+    "zh": "你下了課就回家吧。",
+    "zhuyin": "ㄋㄧˇ ㄒㄧㄚˋ ˙ㄌㄜ ㄎㄜˋ ㄐㄧㄡˋ ㄏㄨㄟˊ ㄐㄧㄚ ˙ㄅㄚ",
+    "en": "Go home right after class."
+   },
+   {
+    "zh": "他每天洗了澡就睡覺。",
+    "zhuyin": "ㄊㄚ ㄇㄟˇ ㄊㄧㄢ ㄒㄧˇ ˙ㄌㄜ ㄗㄠˇ ㄐㄧㄡˋ ㄕㄨㄟˋ ㄐㄧㄠˋ",
+    "en": "Every day he goes to bed right after his shower."
+   }
+  ],
+  "mistake": {
+   "wrong": "我就吃了早餐去上班。",
+   "right": "我吃了早餐就去上班。",
+   "right_zhuyin": "ㄨㄛˇ ㄔ ˙ㄌㄜ ㄗㄠˇ ㄘㄢ ㄐㄧㄡˋ ㄑㄩˋ ㄕㄤˋ ㄅㄢ",
+   "why_en": "就 belongs before the second verb (去), not the first."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G100",
+  "tbcl": 100,
+  "pattern": "從......往......",
+  "level": "第2*級",
+  "title_en": "從...往... (from here, head toward...)",
+  "explanation_en": "從 + place gives the starting point and 往 + direction gives the way to go: 從這裡往前走 \"from here, go straight\". Both phrases come before the verb. This pattern is common in giving directions, often ending with 就到了.",
+  "structure": "從 + place + 往 + direction + V",
+  "examples": [
+   {
+    "zh": "從這裡往前走，就到捷運站了。",
+    "zhuyin": "ㄘㄨㄥˊ ㄓㄜˋ ㄌㄧˇ ㄨㄤˇ ㄑㄧㄢˊ ㄗㄡˇ ㄐㄧㄡˋ ㄉㄠˋ ㄐㄧㄝˊ ㄩㄣˋ ㄓㄢˋ ˙ㄌㄜ",
+    "en": "Go straight from here and you'll reach the MRT station."
+   },
+   {
+    "zh": "從火車站往右轉，就可以看到郵局。",
+    "zhuyin": "ㄘㄨㄥˊ ㄏㄨㄛˇ ㄔㄜ ㄓㄢˋ ㄨㄤˇ ㄧㄡˋ ㄓㄨㄢˇ ㄐㄧㄡˋ ㄎㄜˇ ㄧˇ ㄎㄢˋ ㄉㄠˋ ㄧㄡˊ ㄐㄩˊ",
+    "en": "Turn right from the train station and you'll see the post office."
+   },
+   {
+    "zh": "從學校往東走五分鐘就是夜市。",
+    "zhuyin": "ㄘㄨㄥˊ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄨㄤˇ ㄉㄨㄥ ㄗㄡˇ ㄨˇ ㄈㄣ ㄓㄨㄥ ㄐㄧㄡˋ ㄕˋ ㄧㄝˋ ㄕˋ",
+    "en": "Walk east from the school for five minutes and you're at the night market."
+   }
+  ],
+  "mistake": {
+   "wrong": "從這裡走往前。",
+   "right": "從這裡往前走。",
+   "right_zhuyin": "ㄘㄨㄥˊ ㄓㄜˋ ㄌㄧˇ ㄨㄤˇ ㄑㄧㄢˊ ㄗㄡˇ",
+   "why_en": "往 + direction goes before the verb: 往前走, not 走往前."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G101",
+  "tbcl": 101,
+  "pattern": "A離B......",
+  "level": "第2*級",
+  "title_en": "A 離 B (distance between two places or times)",
+  "explanation_en": "離 means \"away from\" and describes the distance between two places: A 離 B 很近 / 很遠, or with an amount of time or distance after it. It also works for time: 離過年還有兩個星期 \"there are two weeks to go until New Year\". Do not use 從 for this; 從 marks the start of a movement.",
+  "structure": "A + 離 + B + 近 / 遠 / time / distance",
+  "examples": [
+   {
+    "zh": "我家離學校很近。",
+    "zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄌㄧˊ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄏㄣˇ ㄐㄧㄣˋ",
+    "en": "My home is very close to the school."
+   },
+   {
+    "zh": "屏東離高雄不遠。",
+    "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ㄌㄧˊ ㄍㄠ ㄒㄩㄥˊ ㄅㄨˋ ㄩㄢˇ",
+    "en": "Pingtung isn't far from Kaohsiung."
+   },
+   {
+    "zh": "這裡離火車站走路只要五分鐘。",
+    "zhuyin": "ㄓㄜˋ ㄌㄧˇ ㄌㄧˊ ㄏㄨㄛˇ ㄔㄜ ㄓㄢˋ ㄗㄡˇ ㄌㄨˋ ㄓˇ ㄧㄠˋ ㄨˇ ㄈㄣ ㄓㄨㄥ",
+    "en": "It's only a five-minute walk from here to the train station."
+   },
+   {
+    "zh": "離過年還有兩個星期。",
+    "zhuyin": "ㄌㄧˊ ㄍㄨㄛˋ ㄋㄧㄢˊ ㄏㄞˊ ㄧㄡˇ ㄌㄧㄤˇ ㄍㄜˋ ㄒㄧㄥ ㄑㄧˊ",
+    "en": "There are still two weeks to go until Chinese New Year."
+   }
+  ],
+  "mistake": {
+   "wrong": "我家從學校很遠。",
+   "right": "我家離學校很遠。",
+   "right_zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄌㄧˊ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄏㄣˇ ㄩㄢˇ",
+   "why_en": "Distance between two places uses 離. 從 marks where a movement starts."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G102",
+  "tbcl": 102,
+  "pattern": "VP 的 N",
+  "level": "第2*級",
+  "title_en": "VP + 的 + noun (relative clauses)",
+  "explanation_en": "To describe a noun with a clause, put the clause + 的 before the noun: 我昨天買的手機 \"the phone I bought yesterday\". Chinese has no word like \"who\" or \"that\"; 的 does the job. A demonstrative + measure word (那個) can come before or after the clause.",
+  "structure": "VP + 的 + (那個) + N",
+  "examples": [
+   {
+    "zh": "我昨天買的手機壞了。",
+    "zhuyin": "ㄨㄛˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄇㄞˇ ˙ㄉㄜ ㄕㄡˇ ㄐㄧ ㄏㄨㄞˋ ˙ㄌㄜ",
+    "en": "The phone I bought yesterday is broken."
+   },
+   {
+    "zh": "會說臺語的人很多。",
+    "zhuyin": "ㄏㄨㄟˋ ㄕㄨㄛ ㄊㄞˊ ㄩˇ ˙ㄉㄜ ㄖㄣˊ ㄏㄣˇ ㄉㄨㄛ",
+    "en": "Many people speak Taiwanese."
+   },
+   {
+    "zh": "穿紅衣服的那個女生是我姐姐。",
+    "zhuyin": "ㄔㄨㄢ ㄏㄨㄥˊ ㄧ ㄈㄨˊ ˙ㄉㄜ ㄋㄚˋ ˙ㄍㄜ ㄋㄩˇ ㄕㄥ ㄕˋ ㄨㄛˇ ㄐㄧㄝˇ ˙ㄐㄧㄝ",
+    "en": "The girl in the red shirt is my older sister."
+   },
+   {
+    "zh": "我最喜歡吃媽媽做的菜。",
+    "zhuyin": "ㄨㄛˇ ㄗㄨㄟˋ ㄒㄧˇ ㄏㄨㄢ ㄔ ㄇㄚ ˙ㄇㄚ ㄗㄨㄛˋ ˙ㄉㄜ ㄘㄞˋ",
+    "en": "I love the food my mom makes."
+   }
+  ],
+  "mistake": {
+   "wrong": "那個女生穿紅衣服是我姐姐。",
+   "right": "穿紅衣服的那個女生是我姐姐。",
+   "right_zhuyin": "ㄔㄨㄢ ㄏㄨㄥˊ ㄧ ㄈㄨˊ ˙ㄉㄜ ㄋㄚˋ ˙ㄍㄜ ㄋㄩˇ ㄕㄥ ㄕˋ ㄨㄛˇ ㄐㄧㄝˇ ˙ㄐㄧㄝ",
+   "why_en": "The describing clause goes before the noun and ends with 的; there is no \"who\"."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G103",
+  "tbcl": 103,
+  "pattern": "多+Vs？",
+  "level": "第2*級",
+  "title_en": "多 + adjective? (how tall, how far...)",
+  "explanation_en": "多 + adjective asks about degree: 多高 \"how tall\", 多遠 \"how far\", 多久 \"how long\", 多大 \"how old / how big\". 有 is often added before it: 你有多高？ The adjectives are normally the \"large\" member of a pair (高, 遠, 大, 重).",
+  "structure": "Subject + (有) + 多 + Vs？",
+  "examples": [
+   {
+    "zh": "你弟弟多高？",
+    "zhuyin": "ㄋㄧˇ ㄉㄧˋ ˙ㄉㄧ ㄉㄨㄛ ㄍㄠ",
+    "en": "How tall is your younger brother?"
+   },
+   {
+    "zh": "你家離這裡多遠？",
+    "zhuyin": "ㄋㄧˇ ㄐㄧㄚ ㄌㄧˊ ㄓㄜˋ ㄌㄧˇ ㄉㄨㄛ ㄩㄢˇ",
+    "en": "How far is your home from here?"
+   },
+   {
+    "zh": "你們等了多久？",
+    "zhuyin": "ㄋㄧˇ ˙ㄇㄣ ㄉㄥˇ ˙ㄌㄜ ㄉㄨㄛ ㄐㄧㄡˇ",
+    "en": "How long did you wait?"
+   },
+   {
+    "zh": "那隻狗多大了？",
+    "zhuyin": "ㄋㄚˋ ㄓ ㄍㄡˇ ㄉㄨㄛ ㄉㄚˋ ˙ㄌㄜ",
+    "en": "How old is that dog?"
+   }
+  ],
+  "mistake": {
+   "wrong": "你家離捷運站怎麼遠？",
+   "right": "你家離捷運站多遠？",
+   "right_zhuyin": "ㄋㄧˇ ㄐㄧㄚ ㄌㄧˊ ㄐㄧㄝˊ ㄩㄣˋ ㄓㄢˋ ㄉㄨㄛ ㄩㄢˇ",
+   "why_en": "怎麼 asks how something is done or why. To ask about degree, use 多 + adjective."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G104",
+  "tbcl": 104,
+  "pattern": "V進/出/上/回+（......）來/去",
+  "level": "第2*級",
+  "title_en": "Compound directions: V + 進/出/上/下/回/過 + 來/去",
+  "explanation_en": "A movement verb can take two direction words: first 進 (in), 出 (out), 上 (up), 下 (down), 回 (back) or 過 (across), then 來 (toward the speaker) or 去 (away). 走進來 \"walk in\", 拿回去 \"take back\". A place goes between the two direction words: 走進教室來, 跑回家去.",
+  "structure": "V + 進/出/上/下/回/過 + (place) + 來 / 去",
+  "examples": [
+   {
+    "zh": "外面要下雨了，衣服快拿進來吧。",
+    "zhuyin": "ㄨㄞˋ ㄇㄧㄢˋ ㄧㄠˋ ㄒㄧㄚˋ ㄩˇ ˙ㄌㄜ ㄧ ㄈㄨˊ ㄎㄨㄞˋ ㄋㄚˊ ㄐㄧㄣˋ ㄌㄞˊ ˙ㄅㄚ",
+    "en": "It's about to rain outside. Bring the laundry in."
+   },
+   {
+    "zh": "他從房間走出來了。",
+    "zhuyin": "ㄊㄚ ㄘㄨㄥˊ ㄈㄤˊ ㄐㄧㄢ ㄗㄡˇ ㄔㄨ ㄌㄞˊ ˙ㄌㄜ",
+    "en": "He walked out of the room."
+   },
+   {
+    "zh": "我從屏東帶回來一盒芒果。",
+    "zhuyin": "ㄨㄛˇ ㄘㄨㄥˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄉㄞˋ ㄏㄨㄟˊ ㄌㄞˊ ㄧ ㄏㄜˊ ㄇㄤˊ ㄍㄨㄛˇ",
+    "en": "I brought back a box of mangoes from Pingtung."
+   },
+   {
+    "zh": "他跑回家去拿手機。",
+    "zhuyin": "ㄊㄚ ㄆㄠˇ ㄏㄨㄟˊ ㄐㄧㄚ ㄑㄩˋ ㄋㄚˊ ㄕㄡˇ ㄐㄧ",
+    "en": "He ran back home to get his phone."
+   }
+  ],
+  "mistake": {
+   "wrong": "他走進來教室。",
+   "right": "他走進教室來。",
+   "right_zhuyin": "ㄊㄚ ㄗㄡˇ ㄐㄧㄣˋ ㄐㄧㄠˋ ㄕˋ ㄌㄞˊ",
+   "why_en": "A place goes between 進 and 來, not after 來."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G105",
+  "tbcl": 105,
+  "pattern": "零代詞",
+  "level": "第2*級",
+  "title_en": "Zero pronouns (leaving out it, him, I)",
+  "explanation_en": "Chinese often leaves out a subject or an object when it is clear from context. Translated pronouns like 它 for things sound stiff, so drop them. Leave a pronoun in only when it is needed for contrast or clarity.",
+  "structure": "(Subject) + V + (Object), with known subjects or objects left out",
+  "examples": [
+   {
+    "zh": "我昨天買了一本書，還沒看。",
+    "zhuyin": "ㄨㄛˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄇㄞˇ ˙ㄌㄜ ㄧ ㄅㄣˇ ㄕㄨ ㄏㄞˊ ㄇㄟˊ ㄎㄢˋ",
+    "en": "I bought a book yesterday but haven't read it yet."
+   },
+   {
+    "zh": "這件外套很好看，可是太貴了，我不買。",
+    "zhuyin": "ㄓㄜˋ ㄐㄧㄢˋ ㄨㄞˋ ㄊㄠˋ ㄏㄣˇ ㄏㄠˇ ㄎㄢˋ ㄎㄜˇ ㄕˋ ㄊㄞˋ ㄍㄨㄟˋ ˙ㄌㄜ ㄨㄛˇ ㄅㄨˋ ㄇㄞˇ",
+    "en": "This jacket looks great, but it's too expensive, so I won't buy it."
+   },
+   {
+    "zh": "媽媽做了蛋糕，你要不要吃？",
+    "zhuyin": "ㄇㄚ ˙ㄇㄚ ㄗㄨㄛˋ ˙ㄌㄜ ㄉㄢˋ ㄍㄠ ㄋㄧˇ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄔ",
+    "en": "Mom made a cake. Do you want some?"
+   }
+  ],
+  "mistake": {
+   "wrong": "我買了一本書，我還沒有看它。",
+   "right": "我昨天買了一本書，還沒看。",
+   "right_zhuyin": "ㄨㄛˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄇㄞˇ ˙ㄌㄜ ㄧ ㄅㄣˇ ㄕㄨ ㄏㄞˊ ㄇㄟˊ ㄎㄢˋ",
+   "why_en": "Once the book is known, Chinese drops both the repeated 我 and the object 它."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G106",
+  "tbcl": 106,
+  "pattern": "概數",
+  "level": "第2*級",
+  "title_en": "Approximate numbers (十幾, 幾十, 三四個)",
+  "explanation_en": "幾 inside a number means \"a few, some\": 十幾 \"ten-odd (11-19)\", 幾十 \"several tens\", 幾百 \"several hundred\". Two neighboring numbers side by side also give an estimate: 三四個 \"three or four\". A measure word follows as usual.",
+  "structure": "十幾 / 幾十 / 幾百 + MW ; N + (N+1) + MW",
+  "examples": [
+   {
+    "zh": "我們班有二十幾個學生。",
+    "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄅㄢ ㄧㄡˇ ㄦˋ ㄕˊ ㄐㄧˇ ˙ㄍㄜ ㄒㄩㄝˊ ㄕㄥ",
+    "en": "There are twenty-some students in our class."
+   },
+   {
+    "zh": "這碗麵大概七八十塊。",
+    "zhuyin": "ㄓㄜˋ ㄨㄢˇ ㄇㄧㄢˋ ㄉㄚˋ ㄍㄞˋ ㄑㄧ ㄅㄚ ㄕˊ ㄎㄨㄞˋ",
+    "en": "This bowl of noodles is about seventy or eighty dollars."
+   },
+   {
+    "zh": "這條街上有幾十家小吃店。",
+    "zhuyin": "ㄓㄜˋ ㄊㄧㄠˊ ㄐㄧㄝ ˙ㄕㄤ ㄧㄡˇ ㄐㄧˇ ㄕˊ ㄐㄧㄚ ㄒㄧㄠˇ ㄔ ㄉㄧㄢˋ",
+    "en": "There are dozens of snack shops on this street."
+   },
+   {
+    "zh": "我買了三四個芒果。",
+    "zhuyin": "ㄨㄛˇ ㄇㄞˇ ˙ㄌㄜ ㄙㄢ ㄙˋ ㄍㄜˋ ㄇㄤˊ ㄍㄨㄛˇ",
+    "en": "I bought three or four mangoes."
+   }
+  ],
+  "mistake": {
+   "wrong": "我買了三或四個芒果。",
+   "right": "我買了三四個芒果。",
+   "right_zhuyin": "ㄨㄛˇ ㄇㄞˇ ˙ㄌㄜ ㄙㄢ ㄙˋ ㄍㄜˋ ㄇㄤˊ ㄍㄨㄛˇ",
+   "why_en": "To estimate, Chinese puts the two neighboring numbers together without \"or\"."
+  },
+  "taiwan_note": ""
+ },
+ {
+  "id": "G107",
+  "tbcl": 107,
+  "pattern": "話題優先",
+  "level": "第2*級",
+  "title_en": "Topic first (這本書我看過了)",
+  "explanation_en": "Chinese often puts the topic first and then comments on it, even when the topic is the object of the verb: 這本書我看過了 \"This book, I've read\". The topic is something both speakers already have in mind. No word like \"about\" and no pronoun repeating the topic is needed.",
+  "structure": "Topic + (Subject) + comment",
+  "examples": [
+   {
+    "zh": "這本書我看過了。",
+    "zhuyin": "ㄓㄜˋ ㄅㄣˇ ㄕㄨ ㄨㄛˇ ㄎㄢˋ ㄍㄨㄛˋ ˙ㄌㄜ",
+    "en": "I've already read this book."
+   },
+   {
+    "zh": "珍珠奶茶一杯多少錢？",
+    "zhuyin": "ㄓㄣ ㄓㄨ ㄋㄞˇ ㄔㄚˊ ㄧ ㄅㄟ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ",
+    "en": "How much is one cup of bubble tea?"
+   },
+   {
+    "zh": "水果，我最喜歡芒果。",
+    "zhuyin": "ㄕㄨㄟˇ ㄍㄨㄛˇ ㄨㄛˇ ㄗㄨㄟˋ ㄒㄧˇ ㄏㄨㄢ ㄇㄤˊ ㄍㄨㄛˇ",
+    "en": "As for fruit, I like mangoes best."
+   },
+   {
+    "zh": "臺北我去過兩次。",
+    "zhuyin": "ㄊㄞˊ ㄅㄟˇ ㄨㄛˇ ㄑㄩˋ ㄍㄨㄛˋ ㄌㄧㄤˇ ㄘˋ",
+    "en": "I've been to Taipei twice."
+   }
+  ],
+  "mistake": {
+   "wrong": "關於這本書，我看過它。",
+   "right": "這本書我看過了。",
+   "right_zhuyin": "ㄓㄜˋ ㄅㄣˇ ㄕㄨ ㄨㄛˇ ㄎㄢˋ ㄍㄨㄛˋ ˙ㄌㄜ",
+   "why_en": "Just put the topic first. 關於 \"about\" and the pronoun 它 are not needed."
+  },
+  "taiwan_note": ""
+ }
+]

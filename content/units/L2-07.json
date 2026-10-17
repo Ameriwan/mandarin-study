@@ -1,0 +1,84 @@
+{
+  "id": "L2-07", "level": "第2*級", "order": 7,
+  "topic": "租房 renting", "title_zh": "租房子", "title_en": "Renting a room",
+  "can_do_en": "I can view a room for rent, ask about the rent, the deposit and the bills, ask whether it's noisy and where to park, and ask for a lower price.",
+  "dialogue": [
+    {"speaker": "房東", "zh": "你們好！你就是昨天打電話來的馬克喔？我姓陳。", "zhuyin": "ㄋㄧˇ ˙ㄇㄣ ㄏㄠˇ ㄋㄧˇ ㄐㄧㄡˋ ㄕˋ ㄗㄨㄛˊ ㄊㄧㄢ ㄉㄚˇ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄌㄞˊ ˙ㄉㄜ ㄇㄚˇ ㄎㄜˋ ㄛ ㄨㄛˇ ㄒㄧㄥˋ ㄔㄣˊ", "en": "Hello! You must be Mark, who called yesterday? My surname is Chen."},
+    {"speaker": "馬克", "zh": "陳太太好！對，我是馬克。這是我的朋友阿芳。", "zhuyin": "ㄔㄣˊ ㄊㄞˋ ˙ㄊㄞ ㄏㄠˇ ㄉㄨㄟˋ ㄨㄛˇ ㄕˋ ㄇㄚˇ ㄎㄜˋ ㄓㄜˋ ㄕˋ ㄨㄛˇ ˙ㄉㄜ ㄆㄥˊ ㄧㄡˇ ㄚ ㄈㄤ", "en": "Hello, Mrs. Chen! Yes, I'm Mark. This is my friend A-Fang."},
+    {"speaker": "房東", "zh": "房間在三樓，我帶你們上去看。", "zhuyin": "ㄈㄤˊ ㄐㄧㄢ ㄗㄞˋ ㄙㄢ ㄌㄡˊ ㄨㄛˇ ㄉㄞˋ ㄋㄧˇ ˙ㄇㄣ ㄕㄤˋ ㄑㄩˋ ㄎㄢˋ", "en": "The room is on the third floor. I'll take you up to see it."},
+    {"speaker": "阿芳", "zh": "哇，這間套房又大又乾淨，還有冷氣！", "zhuyin": "ㄨㄚ ㄓㄜˋ ㄐㄧㄢ ㄊㄠˋ ㄈㄤˊ ㄧㄡˋ ㄉㄚˋ ㄧㄡˋ ㄍㄢ ㄐㄧㄥˋ ㄏㄞˊ ㄧㄡˇ ㄌㄥˇ ㄑㄧˋ", "en": "Wow, this studio is big and clean, and it has air conditioning too!"},
+    {"speaker": "馬克", "zh": "床和桌子也都很新。房租一個月多少？", "zhuyin": "ㄔㄨㄤˊ ㄏㄜˊ ㄓㄨㄛ ˙ㄗ ㄧㄝˇ ㄉㄡ ㄏㄣˇ ㄒㄧㄣ ㄈㄤˊ ㄗㄨ ㄧ ˙ㄍㄜ ㄩㄝˋ ㄉㄨㄛ ㄕㄠˇ", "en": "The bed and the desk are new, too. How much is the rent a month?"},
+    {"speaker": "房東", "zh": "一個月五千五。水費我付，電費你自己付，一度五塊。", "zhuyin": "ㄧ ˙ㄍㄜ ㄩㄝˋ ㄨˇ ㄑㄧㄢ ㄨˇ ㄕㄨㄟˇ ㄈㄟˋ ㄨㄛˇ ㄈㄨˋ ㄉㄧㄢˋ ㄈㄟˋ ㄋㄧˇ ㄗˋ ㄐㄧˇ ㄈㄨˋ ㄧ ㄉㄨˋ ㄨˇ ㄎㄨㄞˋ", "en": "5,500 a month. I pay the water; you pay your own electricity, five dollars a unit (kWh)."},
+    {"speaker": "馬克", "zh": "押金呢？", "zhuyin": "ㄧㄚ ㄐㄧㄣ ˙ㄋㄜ", "en": "And the deposit?"},
+    {"speaker": "房東", "zh": "押金兩個月，最少要租一年喔。", "zhuyin": "ㄧㄚ ㄐㄧㄣ ㄌㄧㄤˇ ˙ㄍㄜ ㄩㄝˋ ㄗㄨㄟˋ ㄕㄠˇ ㄧㄠˋ ㄗㄨ ㄧ ㄋㄧㄢˊ ㄛ", "en": "Two months' rent as a deposit, and you have to rent for at least a year."},
+    {"speaker": "阿芳", "zh": "這裡晚上會不會很吵？", "zhuyin": "ㄓㄜˋ ㄌㄧˇ ㄨㄢˇ ㄕㄤˋ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄏㄣˇ ㄔㄠˇ", "en": "Is it noisy here at night?"},
+    {"speaker": "房東", "zh": "不會啦，這邊晚上沒什麼車。機車可以停在樓下，騎車到火車站只要五分鐘。", "zhuyin": "ㄅㄨˋ ㄏㄨㄟˋ ˙ㄌㄚ ㄓㄜˋ ㄅㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄇㄟˊ ㄕㄣˊ ˙ㄇㄜ ㄔㄜ ㄐㄧ ㄔㄜ ㄎㄜˇ ㄧˇ ㄊㄧㄥˊ ㄗㄞˋ ㄌㄡˊ ㄒㄧㄚˋ ㄑㄧˊ ㄔㄜ ㄉㄠˋ ㄏㄨㄛˇ ㄔㄜ ㄓㄢˋ ㄓˇ ㄧㄠˋ ㄨˇ ㄈㄣ ㄓㄨㄥ", "en": "Not at all. There's hardly any traffic around here at night. You can park your scooter downstairs, and it's only five minutes by scooter to the train station."},
+    {"speaker": "馬克", "zh": "我很喜歡這裡，可是五千五有一點貴。可以算便宜一點嗎？", "zhuyin": "ㄨㄛˇ ㄏㄣˇ ㄒㄧˇ ㄏㄨㄢ ㄓㄜˋ ㄌㄧˇ ㄎㄜˇ ㄕˋ ㄨˇ ㄑㄧㄢ ㄨˇ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄍㄨㄟˋ ㄎㄜˇ ㄧˇ ㄙㄨㄢˋ ㄆㄧㄢˊ ㄧˊ ㄧ ㄉㄧㄢˇ ˙ㄇㄚ", "en": "I really like it here, but 5,500 is a bit expensive. Could you make it a little cheaper?"},
+    {"speaker": "房東", "zh": "你會住久一點齁？好啦，那算你五千二就好。", "zhuyin": "ㄋㄧˇ ㄏㄨㄟˋ ㄓㄨˋ ㄐㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄏㄡ ㄏㄠˇ ˙ㄌㄚ ㄋㄚˋ ㄙㄨㄢˋ ㄋㄧˇ ㄨˇ ㄑㄧㄢ ㄦˋ ㄐㄧㄡˋ ㄏㄠˇ", "en": "You'll stay a good while, right? OK then, I'll let you have it for 5,200."},
+    {"speaker": "馬克", "zh": "太好了，謝謝！那我要租這間。什麼時候可以搬進來？", "zhuyin": "ㄊㄞˋ ㄏㄠˇ ˙ㄌㄜ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄋㄚˋ ㄨㄛˇ ㄧㄠˋ ㄗㄨ ㄓㄜˋ ㄐㄧㄢ ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ ㄎㄜˇ ㄧˇ ㄅㄢ ㄐㄧㄣˋ ㄌㄞˊ", "en": "Great, thank you! Then I'll take this one. When can I move in?"},
+    {"speaker": "房東", "zh": "下個月一號就可以搬進來了。", "zhuyin": "ㄒㄧㄚˋ ˙ㄍㄜ ㄩㄝˋ ㄧ ㄏㄠˋ ㄐㄧㄡˋ ㄎㄜˇ ㄧˇ ㄅㄢ ㄐㄧㄣˋ ㄌㄞˊ ˙ㄌㄜ", "en": "You can move in on the first of next month."}
+  ],
+  "vocab": [
+    {"zh": "房東", "zhuyin": "ㄈㄤˊ ㄉㄨㄥ", "en": "landlord, landlady", "pos": "n", "measure": "位", "level": "第2*級"},
+    {"zh": "樓下", "zhuyin": "ㄌㄡˊ ㄒㄧㄚˋ", "en": "downstairs (三樓 third floor)", "pos": "n", "level": "第2*級"},
+    {"zh": "間", "zhuyin": "ㄐㄧㄢ", "en": "measure word for rooms and shops (這間 this one)", "pos": "m", "level": "第2級"},
+    {"zh": "套房", "zhuyin": "ㄊㄠˋ ㄈㄤˊ", "en": "studio room with its own bathroom", "pos": "n", "measure": "間", "level": "第5級"},
+    {"zh": "乾淨", "zhuyin": "ㄍㄢ ㄐㄧㄥˋ", "en": "clean", "pos": "adj", "level": "第2級"},
+    {"zh": "冷氣", "zhuyin": "ㄌㄥˇ ㄑㄧˋ", "en": "air conditioning; air conditioner", "pos": "n", "measure": "台", "level": "第2*級"},
+    {"zh": "房租", "zhuyin": "ㄈㄤˊ ㄗㄨ", "en": "rent", "pos": "n", "level": "第2*級"},
+    {"zh": "付", "zhuyin": "ㄈㄨˋ", "en": "to pay", "pos": "v", "level": "第2*級"},
+    {"zh": "電費", "zhuyin": "ㄉㄧㄢˋ ㄈㄟˋ", "en": "electricity bill (水費 water bill)", "pos": "n", "level": null},
+    {"zh": "押金", "zhuyin": "ㄧㄚ ㄐㄧㄣ", "en": "deposit", "pos": "n", "level": "第5級"},
+    {"zh": "租", "zhuyin": "ㄗㄨ", "en": "to rent", "pos": "v", "level": "第2*級"},
+    {"zh": "吵", "zhuyin": "ㄔㄠˇ", "en": "noisy", "pos": "adj", "level": "第3*級"},
+    {"zh": "停", "zhuyin": "ㄊㄧㄥˊ", "en": "to park; to stop", "pos": "v", "level": "第3級"},
+    {"zh": "騎", "zhuyin": "ㄑㄧˊ", "en": "to ride (騎車 ride a scooter or a bike)", "pos": "v", "level": "第2級"},
+    {"zh": "算", "zhuyin": "ㄙㄨㄢˋ", "en": "to count; to charge (算便宜一點 make it a bit cheaper)", "pos": "v", "level": "第2級"},
+    {"zh": "搬", "zhuyin": "ㄅㄢ", "en": "to move (house); to carry", "pos": "v", "level": "第2*級"}
+  ],
+  "grammar": [
+    {"id": "G102", "note_en": "The landlady greets Mark with 你就是昨天打電話來的馬克喔？: the clause 昨天打電話來 + 的 comes before 馬克, where English says 'Mark, who called yesterday'. Rooms get described the same way: 我昨天看的套房 'the studio I saw yesterday'."},
+    {"id": "G082", "note_en": "阿芳 sums up the room with 又大又乾淨 'both big and clean', with no 很 after 又. The two qualities point the same way, so it works for praise and for complaints alike: 又小又貴."},
+    {"id": "G104", "note_en": "The landlady will 帶你們上去 'take you up' to the third floor, and Mark asks when he can 搬進來 'move in'. They are standing in the room, so it is 來 (toward the speaker); in his message from somewhere else Mark writes 搬進去."}
+  ],
+  "pronunciation": {
+    "contrast": "en-eng",
+    "tone_pair": "21",
+    "note_en": "Keep ㄣ and ㄥ apart. ㄣ ends with the tongue tip on the gum ridge: 押金 ㄧㄚ ㄐㄧㄣ, 新 ㄒㄧㄣ, 陳 ㄔㄣˊ. ㄥ ends with the back of the tongue raised and the tip down: 乾淨 ㄍㄢ ㄐㄧㄥˋ, 姓 ㄒㄧㄥˋ, 冷氣 ㄌㄥˇ ㄑㄧˋ, 停 ㄊㄧㄥˊ. Many Taiwan speakers merge ㄧㄥ into ㄧㄣ, so 姓陳 can sound like 信陳; understand it, but produce the difference. Tone pair 2+1 (rise, then stay high and level): 房東, 房租, 房間, 騎車. Start the rise low enough that the second syllable can sit level at the top."
+  },
+  "shadowing": [
+    {"zh": "你就是昨天打電話來的馬克喔？", "zhuyin": "ㄋㄧˇ ㄐㄧㄡˋ ㄕˋ ㄗㄨㄛˊ ㄊㄧㄢ ㄉㄚˇ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄌㄞˊ ˙ㄉㄜ ㄇㄚˇ ㄎㄜˋ ㄛ", "en": "You must be Mark, who called yesterday?"},
+    {"zh": "這間套房又大又乾淨，還有冷氣！", "zhuyin": "ㄓㄜˋ ㄐㄧㄢ ㄊㄠˋ ㄈㄤˊ ㄧㄡˋ ㄉㄚˋ ㄧㄡˋ ㄍㄢ ㄐㄧㄥˋ ㄏㄞˊ ㄧㄡˇ ㄌㄥˇ ㄑㄧˋ", "en": "This studio is big and clean, and it has air conditioning too!"},
+    {"zh": "房租一個月多少？", "zhuyin": "ㄈㄤˊ ㄗㄨ ㄧ ˙ㄍㄜ ㄩㄝˋ ㄉㄨㄛ ㄕㄠˇ", "en": "How much is the rent a month?"},
+    {"zh": "這裡晚上會不會很吵？", "zhuyin": "ㄓㄜˋ ㄌㄧˇ ㄨㄢˇ ㄕㄤˋ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄏㄣˇ ㄔㄠˇ", "en": "Is it noisy here at night?"},
+    {"zh": "機車可以停在樓下。", "zhuyin": "ㄐㄧ ㄔㄜ ㄎㄜˇ ㄧˇ ㄊㄧㄥˊ ㄗㄞˋ ㄌㄡˊ ㄒㄧㄚˋ", "en": "You can park your scooter downstairs."},
+    {"zh": "五千五有一點貴，可以算便宜一點嗎？", "zhuyin": "ㄨˇ ㄑㄧㄢ ㄨˇ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄍㄨㄟˋ ㄎㄜˇ ㄧˇ ㄙㄨㄢˋ ㄆㄧㄢˊ ㄧˊ ㄧ ㄉㄧㄢˇ ˙ㄇㄚ", "en": "5,500 is a bit expensive. Could you make it a little cheaper?"},
+    {"zh": "什麼時候可以搬進來？", "zhuyin": "ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ ㄎㄜˇ ㄧˇ ㄅㄢ ㄐㄧㄣˋ ㄌㄞˊ", "en": "When can I move in?"}
+  ],
+  "comprehension": [
+    {"question_en": "How did Mark first get in touch with the landlady?", "options_en": ["He phoned her yesterday.", "A-Fang introduced them at a party.", "He met her at the train station."], "answer": 0},
+    {"question_en": "Who pays for the water?", "options_en": ["Mark", "The landlady", "Mark and A-Fang together"], "answer": 1},
+    {"question_en": "How much is the deposit?", "options_en": ["One month's rent", "Two months' rent", "There is no deposit."], "answer": 1},
+    {"question_en": "Where can Mark park his scooter?", "options_en": ["At the train station", "Downstairs", "On the third floor"], "answer": 1},
+    {"question_en": "What monthly rent do they agree on?", "options_en": ["NT$5,000", "NT$5,200", "NT$5,500"], "answer": 1}
+  ],
+  "speaking": {
+    "prompt_en": "You're viewing a room for rent in Pingtung. Say what you like about it, ask the landlord about the rent, the deposit and the bills, ask whether it's noisy at night and where to park your scooter, then ask for a lower price.",
+    "prompt_zh": "你在屏東看房子。請說說你覺得房間怎麼樣，問房東房租和押金多少、水費電費誰付、晚上會不會很吵、機車可以停在哪裡，然後請房東算便宜一點。",
+    "checklist_en": [
+      "described the room with 又……又…… (又大又乾淨)",
+      "asked 房租一個月多少？ and about the 押金",
+      "asked who pays the 水費 and 電費",
+      "used 會不會 + adjective (會不會很吵？)",
+      "asked 可以算便宜一點嗎？",
+      "kept ㄣ (押金) and ㄥ (乾淨, 停) apart"
+    ]
+  },
+  "writing": {
+    "prompt_en": "You've just rented a room. Write a short LINE message (4–6 sentences) to a friend: what the room is like, the rent and the deposit, who pays which bills, and when you move in.",
+    "prompt_zh": "你剛租了一間房子。請寫一個短短的LINE訊息給朋友：房間怎麼樣、房租和押金多少、水電費誰付、什麼時候搬進去。",
+    "model_zh": "阿芳，謝謝你今天跟我去看房子！那間套房又大又乾淨，晚上也不會很吵。房租一個月五千二，水費房東付，電費我自己付。押金是兩個月。我下個月一號搬進去，你有空來我家玩喔！",
+    "model_zhuyin": "ㄚ ㄈㄤ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄋㄧˇ ㄐㄧㄣ ㄊㄧㄢ ㄍㄣ ㄨㄛˇ ㄑㄩˋ ㄎㄢˋ ㄈㄤˊ ˙ㄗ ㄋㄚˋ ㄐㄧㄢ ㄊㄠˋ ㄈㄤˊ ㄧㄡˋ ㄉㄚˋ ㄧㄡˋ ㄍㄢ ㄐㄧㄥˋ ㄨㄢˇ ㄕㄤˋ ㄧㄝˇ ㄅㄨˋ ㄏㄨㄟˋ ㄏㄣˇ ㄔㄠˇ ㄈㄤˊ ㄗㄨ ㄧ ˙ㄍㄜ ㄩㄝˋ ㄨˇ ㄑㄧㄢ ㄦˋ ㄕㄨㄟˇ ㄈㄟˋ ㄈㄤˊ ㄉㄨㄥ ㄈㄨˋ ㄉㄧㄢˋ ㄈㄟˋ ㄨㄛˇ ㄗˋ ㄐㄧˇ ㄈㄨˋ ㄧㄚ ㄐㄧㄣ ㄕˋ ㄌㄧㄤˇ ˙ㄍㄜ ㄩㄝˋ ㄨㄛˇ ㄒㄧㄚˋ ˙ㄍㄜ ㄩㄝˋ ㄧ ㄏㄠˋ ㄅㄢ ㄐㄧㄣˋ ㄑㄩˋ ㄋㄧˇ ㄧㄡˇ ㄎㄨㄥˋ ㄌㄞˊ ㄨㄛˇ ㄐㄧㄚ ㄨㄢˊ ㄛ"
+  },
+  "culture_en": "Rental listings in Taiwan say whether a room is a 套房, with its own bathroom, or a 雅房, which shares a bathroom with other tenants. A deposit (押金) of two months' rent is the usual deal, and the Rental Housing Market Development and Regulation Act (租賃住宅市場發展及管理條例) does not allow more than two months' rent as a deposit; you get it back when you move out, minus anything you still owe. In a rented room, electricity is often charged by the 度 (one kilowatt-hour) on the room's own meter, so ask how much one 度 costs before you sign. You will also see red 吉屋出租 'house for rent' signs: 吉屋 'lucky house' is the polite way to say 空屋 'empty house'."
+}

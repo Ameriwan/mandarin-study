@@ -1,0 +1,61 @@
+id,level,pattern,zh,zhuyin,en,situation
+P01,1,請問…在哪裡？,請問火車站在哪裡？,ㄑㄧㄥˇ ㄨㄣˋ ㄏㄨㄛˇ ㄔㄜ ㄓㄢˋ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ,"Excuse me, where is the train station?",directions
+P02,1,可以…嗎？,可以刷卡嗎？,ㄎㄜˇ ㄧˇ ㄕㄨㄚ ㄎㄚˇ ˙ㄇㄚ,Can I pay by card?,shopping
+P03,1,我要一杯…,我要一杯珍珠奶茶。,ㄨㄛˇ ㄧㄠˋ ㄧ ㄅㄟ ㄓㄣ ㄓㄨ ㄋㄞˇ ㄔㄚˊ,I'd like a bubble milk tea.,drink-shop
+P04,1,…多少錢？,這個便當多少錢？,ㄓㄜˋ ˙ㄍㄜ ㄅㄧㄢˋ ㄉㄤ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ,How much is this bento?,bento
+P05,1,我想去…,我想去夜市。,ㄨㄛˇ ㄒㄧㄤˇ ㄑㄩˋ ㄧㄝˋ ㄕˋ,I want to go to the night market.,night-market
+P06,1,有沒有…？,有沒有大杯的？,ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄉㄚˋ ㄅㄟ ˙ㄉㄜ,Do you have a large size?,drink-shop
+P07,1,…在…旁邊,郵局在銀行旁邊。,ㄧㄡˊ ㄐㄩˊ ㄗㄞˋ ㄧㄣˊ ㄏㄤˊ ㄆㄤˊ ㄅㄧㄢ,The post office is next to the bank.,directions
+P08,1,我是…,我是新來的鄰居。,ㄨㄛˇ ㄕˋ ㄒㄧㄣ ㄌㄞˊ ˙ㄉㄜ ㄌㄧㄣˊ ㄐㄩ,I'm the new neighbour.,neighbours
+P09,1,你叫什麼…？,你叫什麼名字？,ㄋㄧˇ ㄐㄧㄠˋ ㄕㄣˊ ˙ㄇㄜ ㄇㄧㄥˊ ˙ㄗ,What's your name?,small-talk
+P10,1,這是什麼…？,這是什麼水果？,ㄓㄜˋ ㄕˋ ㄕㄣˊ ˙ㄇㄜ ㄕㄨㄟˇ ㄍㄨㄛˇ,What fruit is this?,night-market
+P11,1,我不要…,我不要袋子，謝謝。,ㄨㄛˇ ㄅㄨˋ ㄧㄠˋ ㄉㄞˋ ˙ㄗ ㄒㄧㄝˋ ˙ㄒㄧㄝ,"I don't need a bag, thanks.",convenience-store
+P12,1,…幾點…？,火車幾點開？,ㄏㄨㄛˇ ㄔㄜ ㄐㄧˇ ㄉㄧㄢˇ ㄎㄞ,What time does the train leave?,transport
+P13,1,我會說…,我會說一點中文。,ㄨㄛˇ ㄏㄨㄟˋ ㄕㄨㄛ ㄧ ㄉㄧㄢˇ ㄓㄨㄥ ㄨㄣˊ,I can speak a little Chinese.,small-talk
+P14,1,…好不好？,我們一起去吃早餐，好不好？,ㄨㄛˇ ˙ㄇㄣ ㄧ ㄑㄧˇ ㄑㄩˋ ㄔ ㄗㄠˇ ㄘㄢ ㄏㄠˇ ㄅㄨˋ ㄏㄠˇ,"Let's go have breakfast together, OK?",breakfast-shop
+P15,1,…太…了,今天太熱了！,ㄐㄧㄣ ㄊㄧㄢ ㄊㄞˋ ㄖㄜˋ ˙ㄌㄜ,It's too hot today!,weather
+P16,1,我在…（做什麼）,我在便利商店買東西。,ㄨㄛˇ ㄗㄞˋ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄇㄞˇ ㄉㄨㄥ ㄒㄧ,I'm shopping at the convenience store.,convenience-store
+P17,1,…還是…？,你要內用還是外帶？,ㄋㄧˇ ㄧㄠˋ ㄋㄟˋ ㄩㄥˋ ㄏㄞˊ ㄕˋ ㄨㄞˋ ㄉㄞˋ,Is it for here or to go?,breakfast-shop
+P18,1,去…怎麼走？,請問去車站怎麼走？,ㄑㄧㄥˇ ㄨㄣˋ ㄑㄩˋ ㄔㄜ ㄓㄢˋ ㄗㄣˇ ˙ㄇㄜ ㄗㄡˇ,"Excuse me, how do I get to the station?",directions
+P19,1,我喜歡…,我喜歡吃芒果。,ㄨㄛˇ ㄒㄧˇ ㄏㄨㄢ ㄔ ㄇㄤˊ ㄍㄨㄛˇ,I like eating mangoes.,small-talk
+P20,1,…了嗎？,你吃飽了嗎？,ㄋㄧˇ ㄔ ㄅㄠˇ ˙ㄌㄜ ˙ㄇㄚ,Have you eaten? (a friendly greeting),neighbours
+P21,1,我沒有…,我沒有健保卡。,ㄨㄛˇ ㄇㄟˊ ㄧㄡˇ ㄐㄧㄢˋ ㄅㄠˇ ㄎㄚˇ,I don't have an NHI card.,doctor
+P22,1,現在幾點？,現在幾點？,ㄒㄧㄢˋ ㄗㄞˋ ㄐㄧˇ ㄉㄧㄢˇ,What time is it now?,time
+P23,1,…幾個…？,你家有幾個人？,ㄋㄧˇ ㄐㄧㄚ ㄧㄡˇ ㄐㄧˇ ˙ㄍㄜ ㄖㄣˊ,How many people are in your family?,family
+P24,2,A比較…,這家比較便宜。,ㄓㄜˋ ㄐㄧㄚ ㄅㄧˇ ㄐㄧㄠˋ ㄆㄧㄢˊ ㄧˊ,This shop is cheaper.,shopping
+P25,2,可不可以…？,可不可以便宜一點？,ㄎㄜˇ ㄅㄨˋ ㄎㄜˇ ㄧˇ ㄆㄧㄢˊ ㄧˊ ㄧ ㄉㄧㄢˇ,Could you make it a bit cheaper?,night-market
+P26,2,我想要…,我想要半糖少冰。,ㄨㄛˇ ㄒㄧㄤˇ ㄧㄠˋ ㄅㄢˋ ㄊㄤˊ ㄕㄠˇ ㄅㄧㄥ,"I'd like half sugar, less ice.",drink-shop
+P27,2,你有…嗎？（有＋動詞）,你有看醫生嗎？,ㄋㄧˇ ㄧㄡˇ ㄎㄢˋ ㄧ ㄕㄥ ˙ㄇㄚ,Did you see a doctor?,doctor
+P28,2,…的時候,下雨的時候，我坐公車。,ㄒㄧㄚˋ ㄩˇ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄨㄛˇ ㄗㄨㄛˋ ㄍㄨㄥ ㄔㄜ,"When it rains, I take the bus.",transport
+P29,2,因為…所以…,因為颱風要來，所以明天不用上班。,ㄧㄣ ㄨㄟˋ ㄊㄞˊ ㄈㄥ ㄧㄠˋ ㄌㄞˊ ㄙㄨㄛˇ ㄧˇ ㄇㄧㄥˊ ㄊㄧㄢ ㄅㄨˋ ㄩㄥˋ ㄕㄤˋ ㄅㄢ,"Because a typhoon is coming, we don't have to work tomorrow.",weather
+P30,2,這裡可以…嗎？,這裡可以停機車嗎？,ㄓㄜˋ ㄌㄧˇ ㄎㄜˇ ㄧˇ ㄊㄧㄥˊ ㄐㄧ ㄔㄜ ˙ㄇㄚ,Can I park my scooter here?,transport
+P31,2,我要去…（做什麼）,我要去郵局寄包裹。,ㄨㄛˇ ㄧㄠˋ ㄑㄩˋ ㄧㄡˊ ㄐㄩˊ ㄐㄧˋ ㄅㄠ ㄍㄨㄛˇ,I'm going to the post office to send a parcel.,post-office
+P32,2,…得很…,他中文說得很好。,ㄊㄚ ㄓㄨㄥ ㄨㄣˊ ㄕㄨㄛ ˙ㄉㄜ ㄏㄣˇ ㄏㄠˇ,He speaks Chinese very well.,small-talk
+P33,2,…過…嗎？,你去過墾丁嗎？,ㄋㄧˇ ㄑㄩˋ ㄍㄨㄛˋ ㄎㄣˇ ㄉㄧㄥ ˙ㄇㄚ,Have you ever been to Kenting?,hobbies
+P34,2,先…再…,先付錢再拿飲料。,ㄒㄧㄢ ㄈㄨˋ ㄑㄧㄢˊ ㄗㄞˋ ㄋㄚˊ ㄧㄣˇ ㄌㄧㄠˋ,"Pay first, then pick up your drink.",drink-shop
+P35,2,…一下,請等一下。,ㄑㄧㄥˇ ㄉㄥˇ ㄧ ㄒㄧㄚˋ,Please wait a moment.,general
+P36,2,可以幫我…嗎？,可以幫我加熱嗎？,ㄎㄜˇ ㄧˇ ㄅㄤ ㄨㄛˇ ㄐㄧㄚ ㄖㄜˋ ˙ㄇㄚ,Could you heat it up for me?,convenience-store
+P37,2,…會不會…？（會＋形容詞）,外面會不會冷？,ㄨㄞˋ ㄇㄧㄢˋ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄌㄥˇ,Is it cold outside?,weather
+P38,2,要不要…？,要不要一起去拜拜？,ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄧ ㄑㄧˇ ㄑㄩˋ ㄅㄞˋ ㄅㄞˋ,Do you want to go to the temple to pray together?,festivals
+P39,2,…了（新情況）,下雨了。,ㄒㄧㄚˋ ㄩˇ ˙ㄌㄜ,It's started raining.,weather
+P40,2,快…了,公車快到了。,ㄍㄨㄥ ㄔㄜ ㄎㄨㄞˋ ㄉㄠˋ ˙ㄌㄜ,The bus is almost here.,transport
+P41,2,從…到…要多久？,從屏東到高雄要多久？,ㄘㄨㄥˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄉㄠˋ ㄍㄠ ㄒㄩㄥˊ ㄧㄠˋ ㄉㄨㄛ ㄐㄧㄡˇ,How long does it take from Pingtung to Kaohsiung?,transport
+P42,2,…離…很近,我家離菜市場很近。,ㄨㄛˇ ㄐㄧㄚ ㄌㄧˊ ㄘㄞˋ ㄕˋ ㄔㄤˇ ㄏㄣˇ ㄐㄧㄣˋ,My home is close to the market.,directions
+P43,2,我在…等你,我在便利商店門口等你。,ㄨㄛˇ ㄗㄞˋ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄇㄣˊ ㄎㄡˇ ㄉㄥˇ ㄋㄧˇ,I'll wait for you outside the convenience store.,phone
+P44,2,…怎麼用？,這個怎麼用？,ㄓㄜˋ ˙ㄍㄜ ㄗㄣˇ ˙ㄇㄜ ㄩㄥˋ,How do I use this?,general
+P45,2,我有一點…,我有一點不舒服。,ㄨㄛˇ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄅㄨˋ ㄕㄨ ˙ㄈㄨ,I'm feeling a bit unwell.,doctor
+P46,2,…正在…,我正在吃飯，等一下打給你。,ㄨㄛˇ ㄓㄥˋ ㄗㄞˋ ㄔ ㄈㄢˋ ㄉㄥˇ ㄧ ㄒㄧㄚˋ ㄉㄚˇ ㄍㄟˇ ㄋㄧˇ,"I'm eating right now, I'll call you back in a bit.",phone
+P47,2,…以後,下班以後，我去運動。,ㄒㄧㄚˋ ㄅㄢ ㄧˇ ㄏㄡˋ ㄨㄛˇ ㄑㄩˋ ㄩㄣˋ ㄉㄨㄥˋ,"After work, I go and exercise.",hobbies
+P48,2,不用…,不用找了。,ㄅㄨˋ ㄩㄥˋ ㄓㄠˇ ˙ㄌㄜ,Keep the change.,shopping
+P49,3,如果…就…,如果颱風來，我們就不出門。,ㄖㄨˊ ㄍㄨㄛˇ ㄊㄞˊ ㄈㄥ ㄌㄞˊ ㄨㄛˇ ˙ㄇㄣ ㄐㄧㄡˋ ㄅㄨˋ ㄔㄨ ㄇㄣˊ,"If the typhoon comes, we'll stay in.",weather
+P50,3,雖然…但是…,雖然下雨，但是夜市人還是很多。,ㄙㄨㄟ ㄖㄢˊ ㄒㄧㄚˋ ㄩˇ ㄉㄢˋ ˙ㄕ ㄧㄝˋ ㄕˋ ㄖㄣˊ ㄏㄞˊ ㄕˋ ㄏㄣˇ ㄉㄨㄛ,"Even though it's raining, the night market is still crowded.",night-market
+P51,3,一…就…,我一到家就打給你。,ㄨㄛˇ ㄧ ㄉㄠˋ ㄐㄧㄚ ㄐㄧㄡˋ ㄉㄚˇ ㄍㄟˇ ㄋㄧˇ,I'll call you as soon as I get home.,phone
+P52,3,越來越…,天氣越來越熱了。,ㄊㄧㄢ ㄑㄧˋ ㄩㄝˋ ㄌㄞˊ ㄩㄝˋ ㄖㄜˋ ˙ㄌㄜ,The weather is getting hotter and hotter.,weather
+P53,3,把…（動詞）,請把垃圾拿出去。,ㄑㄧㄥˇ ㄅㄚˇ ㄌㄜˋ ㄙㄜˋ ㄋㄚˊ ㄔㄨ ㄑㄩˋ,Please take the rubbish out.,neighbours
+P54,3,…被…了,我的機車被拖走了。,ㄨㄛˇ ˙ㄉㄜ ㄐㄧ ㄔㄜ ㄅㄟˋ ㄊㄨㄛ ㄗㄡˇ ˙ㄌㄜ,My scooter got towed.,transport
+P55,3,除了…以外，還…,除了滷肉飯以外，我還點了一碗湯。,ㄔㄨˊ ˙ㄌㄜ ㄌㄨˇ ㄖㄡˋ ㄈㄢˋ ㄧˇ ㄨㄞˋ ㄨㄛˇ ㄏㄞˊ ㄉㄧㄢˇ ˙ㄌㄜ ㄧ ㄨㄢˇ ㄊㄤ,"Besides the braised pork rice, I also ordered a bowl of soup.",bento
+P56,3,…的話,有問題的話，打電話給我。,ㄧㄡˇ ㄨㄣˋ ㄊㄧˊ ˙ㄉㄜ ㄏㄨㄚˋ ㄉㄚˇ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄍㄟˇ ㄨㄛˇ,"If there's a problem, give me a call.",renting
+P57,3,不但…而且…,這家店不但便宜，而且很好吃。,ㄓㄜˋ ㄐㄧㄚ ㄉㄧㄢˋ ㄅㄨˋ ㄉㄢˋ ㄆㄧㄢˊ ㄧˊ ㄦˊ ㄑㄧㄝˇ ㄏㄣˇ ㄏㄠˇ ㄔ,This place is not only cheap but also really tasty.,bento
+P58,3,連…都…,他連早餐都沒吃。,ㄊㄚ ㄌㄧㄢˊ ㄗㄠˇ ㄘㄢ ㄉㄡ ㄇㄟˊ ㄔ,He didn't even eat breakfast.,breakfast-shop
+P59,3,…看起來…,你看起來很累。,ㄋㄧˇ ㄎㄢˋ ㄑㄧˇ ㄌㄞˊ ㄏㄣˇ ㄌㄟˋ,You look tired.,small-talk
+P60,3,…對…有興趣,我對做菜很有興趣。,ㄨㄛˇ ㄉㄨㄟˋ ㄗㄨㄛˋ ㄘㄞˋ ㄏㄣˇ ㄧㄡˇ ㄒㄧㄥˋ ㄑㄩˋ,I'm really interested in cooking.,hobbies

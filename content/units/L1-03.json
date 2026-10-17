@@ -1,0 +1,77 @@
+{
+ "id": "L1-03", "level": "第1*級", "order": 3,
+ "topic": "早餐店 ordering", "title_zh": "在早餐店", "title_en": "At the breakfast shop",
+ "can_do_en": "I can order food and drinks for two at a breakfast shop, ask whether something is good, and answer 'for here or to go?'",
+ "dialogue": [
+  {"speaker": "老闆娘", "zh": "早安！要吃什麼？", "zhuyin": "ㄗㄠˇ ㄢ ㄧㄠˋ ㄔ ㄕㄣˊ ˙ㄇㄜ", "en": "Good morning! What would you like?"},
+  {"speaker": "安娜", "zh": "志明，這家的蛋餅好不好吃？", "zhuyin": "ㄓˋ ㄇㄧㄥˊ ㄓㄜˋ ㄐㄧㄚ ˙ㄉㄜ ㄉㄢˋ ㄅㄧㄥˇ ㄏㄠˇ ㄅㄨˋ ㄏㄠˇ ㄔ", "en": "Zhiming, are the egg crepes here good?"},
+  {"speaker": "志明", "zh": "很好吃！我常常來。", "zhuyin": "ㄏㄣˇ ㄏㄠˇ ㄔ ㄨㄛˇ ㄔㄤˊ ㄔㄤˊ ㄌㄞˊ", "en": "They're really good! I come here a lot."},
+  {"speaker": "安娜", "zh": "那我要一個蛋餅。", "zhuyin": "ㄋㄚˋ ㄨㄛˇ ㄧㄠˋ ㄧ ˙ㄍㄜ ㄉㄢˋ ㄅㄧㄥˇ", "en": "Then I'll have an egg crepe."},
+  {"speaker": "志明", "zh": "老闆娘，我要一份蘿蔔糕。", "zhuyin": "ㄌㄠˇ ㄅㄢˇ ㄋㄧㄤˊ ㄨㄛˇ ㄧㄠˋ ㄧ ㄈㄣˋ ㄌㄨㄛˊ ˙ㄅㄛ ㄍㄠ", "en": "I'd like a turnip cake, please. (said to the owner)"},
+  {"speaker": "老闆娘", "zh": "蘿蔔糕要不要加蛋？", "zhuyin": "ㄌㄨㄛˊ ˙ㄅㄛ ㄍㄠ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄐㄧㄚ ㄉㄢˋ", "en": "Do you want an egg with the turnip cake?"},
+  {"speaker": "志明", "zh": "要，謝謝。還要兩杯冰奶茶，都要大杯的。", "zhuyin": "ㄧㄠˋ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄏㄞˊ ㄧㄠˋ ㄌㄧㄤˇ ㄅㄟ ㄅㄧㄥ ㄋㄞˇ ㄔㄚˊ ㄉㄡ ㄧㄠˋ ㄉㄚˋ ㄅㄟ ˙ㄉㄜ", "en": "Yes, thanks. And two iced milk teas, both large."},
+  {"speaker": "老闆娘", "zh": "好，內用還是外帶？", "zhuyin": "ㄏㄠˇ ㄋㄟˋ ㄩㄥˋ ㄏㄞˊ ㄕˋ ㄨㄞˋ ㄉㄞˋ", "en": "OK. For here or to go?"},
+  {"speaker": "安娜", "zh": "內用。", "zhuyin": "ㄋㄟˋ ㄩㄥˋ", "en": "For here."},
+  {"speaker": "老闆娘", "zh": "一共一百二十五塊。你們先坐，好了我拿給你們。", "zhuyin": "ㄧ ㄍㄨㄥˋ ㄧ ㄅㄞˇ ㄦˋ ㄕˊ ㄨˇ ㄎㄨㄞˋ ㄋㄧˇ ˙ㄇㄣ ㄒㄧㄢ ㄗㄨㄛˋ ㄏㄠˇ ˙ㄌㄜ ㄨㄛˇ ㄋㄚˊ ㄍㄟˇ ㄋㄧˇ ˙ㄇㄣ", "en": "That's 125 dollars altogether. Have a seat first; I'll bring it over when it's ready."},
+  {"speaker": "志明", "zh": "今天我請你啦！", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄨㄛˇ ㄑㄧㄥˇ ㄋㄧˇ ˙ㄌㄚ", "en": "Today it's my treat!"},
+  {"speaker": "安娜", "zh": "真的嗎？謝謝你！", "zhuyin": "ㄓㄣ ˙ㄉㄜ ˙ㄇㄚ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄋㄧˇ", "en": "Really? Thank you!"},
+  {"speaker": "老闆娘", "zh": "來，你們的早餐好了！", "zhuyin": "ㄌㄞˊ ㄋㄧˇ ˙ㄇㄣ ˙ㄉㄜ ㄗㄠˇ ㄘㄢ ㄏㄠˇ ˙ㄌㄜ", "en": "Here you go, your breakfast is ready!"},
+  {"speaker": "安娜", "zh": "謝謝老闆娘！", "zhuyin": "ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄅㄢˇ ㄋㄧㄤˊ", "en": "Thank you! (said to the owner)"}
+ ],
+ "vocab": [
+  {"zh": "早餐", "zhuyin": "ㄗㄠˇ ㄘㄢ", "en": "breakfast", "pos": "n", "measure": "份", "level": "第1*級"},
+  {"zh": "家", "zhuyin": "ㄐㄧㄚ", "en": "measure word for shops and restaurants", "pos": "m", "measure": "", "level": "第1級"},
+  {"zh": "蛋餅", "zhuyin": "ㄉㄢˋ ㄅㄧㄥˇ", "en": "egg crepe (a thin pancake rolled with egg)", "pos": "n", "measure": "個", "level": ""},
+  {"zh": "蛋", "zhuyin": "ㄉㄢˋ", "en": "egg", "pos": "n", "measure": "顆", "level": "第1*級"},
+  {"zh": "蘿蔔糕", "zhuyin": "ㄌㄨㄛˊ ˙ㄅㄛ ㄍㄠ", "en": "turnip cake (pan-fried radish cake)", "pos": "n", "measure": "份", "level": ""},
+  {"zh": "份", "zhuyin": "ㄈㄣˋ", "en": "measure word for a portion or serving", "pos": "m", "measure": "", "level": "第2級"},
+  {"zh": "加", "zhuyin": "ㄐㄧㄚ", "en": "to add", "pos": "v", "measure": "", "level": "第2級"},
+  {"zh": "奶茶", "zhuyin": "ㄋㄞˇ ㄔㄚˊ", "en": "milk tea", "pos": "n", "measure": "杯", "level": "第2*級"},
+  {"zh": "杯", "zhuyin": "ㄅㄟ", "en": "measure word for cups of drinks; cup", "pos": "m", "measure": "", "level": "第1*級"},
+  {"zh": "冰", "zhuyin": "ㄅㄧㄥ", "en": "iced, cold; ice", "pos": "adj", "measure": "", "level": "第1*級"},
+  {"zh": "內用", "zhuyin": "ㄋㄟˋ ㄩㄥˋ", "en": "to eat in (for here)", "pos": "v", "measure": "", "level": ""},
+  {"zh": "外帶", "zhuyin": "ㄨㄞˋ ㄉㄞˋ", "en": "to take away (to go)", "pos": "v", "measure": "", "level": ""},
+  {"zh": "還是", "zhuyin": "ㄏㄞˊ ㄕˋ", "en": "or (in questions)", "pos": "conj", "measure": "", "level": "第1*級"},
+  {"zh": "一共", "zhuyin": "ㄧ ㄍㄨㄥˋ", "en": "altogether, in total", "pos": "adv", "measure": "", "level": "第1*級"},
+  {"zh": "先", "zhuyin": "ㄒㄧㄢ", "en": "first, beforehand", "pos": "adv", "measure": "", "level": "第1*級"},
+  {"zh": "常常", "zhuyin": "ㄔㄤˊ ㄔㄤˊ", "en": "often", "pos": "adv", "measure": "", "level": "第1*級"},
+  {"zh": "請", "zhuyin": "ㄑㄧㄥˇ", "en": "to treat (pay for someone)", "pos": "v", "measure": "", "level": "第1級"},
+  {"zh": "真的", "zhuyin": "ㄓㄣ ˙ㄉㄜ", "en": "really, truly", "pos": "adv", "measure": "", "level": "第1*級"},
+  {"zh": "老闆娘", "zhuyin": "ㄌㄠˇ ㄅㄢˇ ㄋㄧㄤˊ", "en": "female shop owner; the owner's wife", "pos": "n", "measure": "位", "level": "第3*級"},
+  {"zh": "啦", "zhuyin": "˙ㄌㄚ", "en": "sentence-final particle that makes a statement friendly and insistent", "pos": "part", "measure": "", "level": "第2級"}
+ ],
+ "grammar": [
+  {"id": "G012", "note_en": "Every order is number + measure word + food: 一個蛋餅, 一份蘿蔔糕, 兩杯冰奶茶. Drinks take 杯, a portion takes 份, and 'two' before a measure word is 兩, not 二."},
+  {"id": "G015", "note_en": "Anna asks for an opinion with 好不好吃？ (the two-syllable 好吃 repeats only 好), and the owner offers an extra with 要不要加蛋？. Neither question takes 嗎."}
+ ],
+ "pronunciation": {"contrast": "q-ch-c", "tone_pair": "31", "note_en": "Three aspirated sounds meet at breakfast: ㄘ in 早餐 (tongue behind the teeth, like 'ts' with a puff), ㄔ in 吃, 奶茶 and 常常 (tongue tip up behind the gum ridge), ㄑ in 請 (tongue tip down, lips spread). Tone pair 3+1: in 早餐 and 早安 the third tone stays low (21) with no rise before the high, level first tone."},
+ "shadowing": [
+  {"zh": "早安！要吃什麼？", "zhuyin": "ㄗㄠˇ ㄢ ㄧㄠˋ ㄔ ㄕㄣˊ ˙ㄇㄜ", "en": "Good morning! What would you like?"},
+  {"zh": "這家的蛋餅好不好吃？", "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ˙ㄉㄜ ㄉㄢˋ ㄅㄧㄥˇ ㄏㄠˇ ㄅㄨˋ ㄏㄠˇ ㄔ", "en": "Are the egg crepes here good?"},
+  {"zh": "我要一個蛋餅。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄧ ˙ㄍㄜ ㄉㄢˋ ㄅㄧㄥˇ", "en": "I'll have an egg crepe."},
+  {"zh": "蘿蔔糕要不要加蛋？", "zhuyin": "ㄌㄨㄛˊ ˙ㄅㄛ ㄍㄠ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄐㄧㄚ ㄉㄢˋ", "en": "Do you want an egg with the turnip cake?"},
+  {"zh": "我要兩杯冰奶茶，都要大杯的。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄌㄧㄤˇ ㄅㄟ ㄅㄧㄥ ㄋㄞˇ ㄔㄚˊ ㄉㄡ ㄧㄠˋ ㄉㄚˋ ㄅㄟ ˙ㄉㄜ", "en": "I'd like two iced milk teas, both large."},
+  {"zh": "內用還是外帶？", "zhuyin": "ㄋㄟˋ ㄩㄥˋ ㄏㄞˊ ㄕˋ ㄨㄞˋ ㄉㄞˋ", "en": "For here or to go?"},
+  {"zh": "一共一百二十五塊。", "zhuyin": "ㄧ ㄍㄨㄥˋ ㄧ ㄅㄞˇ ㄦˋ ㄕˊ ㄨˇ ㄎㄨㄞˋ", "en": "That's 125 dollars altogether."},
+  {"zh": "今天我請你啦！", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄨㄛˇ ㄑㄧㄥˇ ㄋㄧˇ ˙ㄌㄚ", "en": "Today it's my treat!"}
+ ],
+ "comprehension": [
+  {"question_en": "What does Anna order to eat?", "options_en": ["A turnip cake with egg", "An egg crepe", "A hamburger"], "answer": 1},
+  {"question_en": "What drinks does Zhiming order?", "options_en": ["Two large iced milk teas", "Two small hot milk teas", "One large iced black tea"], "answer": 0},
+  {"question_en": "Are they eating at the shop?", "options_en": ["No, they take the food to go", "They have not decided", "Yes, they eat in"], "answer": 2},
+  {"question_en": "How much is the order altogether?", "options_en": ["105 dollars", "125 dollars", "152 dollars"], "answer": 1},
+  {"question_en": "Who pays today?", "options_en": ["Anna", "Zhiming", "They split it"], "answer": 1}
+ ],
+ "speaking": {
+  "prompt_en": "You are at a breakfast shop in Pingtung. Order one thing to eat and one drink, say whether you want the drink iced or hot and large or medium, then answer the owner's 內用還是外帶？",
+  "prompt_zh": "你在屏東的早餐店。點一個吃的跟一杯喝的，說要冰的還是熱的、大杯還是中杯，再回答老闆娘：「內用還是外帶？」",
+  "checklist_en": ["used number + measure word (一個 / 一份 / 一杯)", "used 杯 for the drink", "said 兩, not 二, if I ordered two of something", "said 冰的 or 熱的 and 大杯 or 中杯", "answered 內用 or 外帶"]
+ },
+ "writing": {
+  "prompt_en": "Write 3 or 4 sentences about your usual breakfast: where you eat it, what you eat and drink (with measure words), and whether you eat in or take it away.",
+  "prompt_zh": "寫三、四句：你常常在哪裡吃早餐？吃什麼、喝什麼？內用還是外帶？",
+  "model_zh": "我常常去一家早餐店吃早餐。我喜歡吃蘿蔔糕加蛋，也喜歡喝熱奶茶。一份蘿蔔糕跟一杯奶茶，一共六十塊。我都外帶，在公司吃。",
+  "model_zhuyin": "ㄨㄛˇ ㄔㄤˊ ㄔㄤˊ ㄑㄩˋ ㄧ ㄐㄧㄚ ㄗㄠˇ ㄘㄢ ㄉㄧㄢˋ ㄔ ㄗㄠˇ ㄘㄢ ㄨㄛˇ ㄒㄧˇ ㄏㄨㄢ ㄔ ㄌㄨㄛˊ ˙ㄅㄛ ㄍㄠ ㄐㄧㄚ ㄉㄢˋ ㄧㄝˇ ㄒㄧˇ ㄏㄨㄢ ㄏㄜ ㄖㄜˋ ㄋㄞˇ ㄔㄚˊ ㄧ ㄈㄣˋ ㄌㄨㄛˊ ˙ㄅㄛ ㄍㄠ ㄍㄣ ㄧ ㄅㄟ ㄋㄞˇ ㄔㄚˊ ㄧ ㄍㄨㄥˋ ㄌㄧㄡˋ ㄕˊ ㄎㄨㄞˋ ㄨㄛˇ ㄉㄡ ㄨㄞˋ ㄉㄞˋ ㄗㄞˋ ㄍㄨㄥ ㄙ ㄔ"
+ },
+ "culture_en": "Taiwan's 早餐店 (breakfast shops) open early and sell both Chinese-style items such as 蛋餅 and 蘿蔔糕 and Western-style ones such as 漢堡 (hamburgers) and 吐司 (toast), usually with 奶茶 or 紅茶. At many shops you tick your order on a paper menu, or just say it at the counter. Staff often call customers 帥哥 ('handsome') or 美女 ('beautiful') whatever their age; it is simply friendly. Regulars shorten 大杯冰奶茶 to 大冰奶."
+}

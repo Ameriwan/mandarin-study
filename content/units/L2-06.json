@@ -1,0 +1,86 @@
+{
+  "id": "L2-06", "level": "第2*級", "order": 6,
+  "topic": "phone & LINE", "title_zh": "打電話和LINE", "title_en": "Phone calls and LINE",
+  "can_do_en": "I can call a friend back, explain why I missed the call, ask them to repeat what I didn't catch, and agree on a time and place to meet, with the address sent on LINE.",
+  "dialogue": [
+    {"speaker": "馬克", "zh": "喂，小美嗎？我是馬克。你剛剛有打給我嗎？", "zhuyin": "ㄨㄟˋ ㄒㄧㄠˇ ㄇㄟˇ ˙ㄇㄚ ㄨㄛˇ ㄕˋ ㄇㄚˇ ㄎㄜˋ ㄋㄧˇ ㄍㄤ ㄍㄤ ㄧㄡˇ ㄉㄚˇ ㄍㄟˇ ㄨㄛˇ ˙ㄇㄚ", "en": "Hello? Xiaomei? It's Mark. Did you just call me?"},
+    {"speaker": "小美", "zh": "對啊，我打了兩次，你都沒接。", "zhuyin": "ㄉㄨㄟˋ ˙ㄚ ㄨㄛˇ ㄉㄚˇ ˙ㄌㄜ ㄌㄧㄤˇ ㄘˋ ㄋㄧˇ ㄉㄡ ㄇㄟˊ ㄐㄧㄝ", "en": "Yes, I called twice, and you didn't pick up either time."},
+    {"speaker": "馬克", "zh": "不好意思，我剛剛在騎車，沒聽到。怎麼了？", "zhuyin": "ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄨㄛˇ ㄍㄤ ㄍㄤ ㄗㄞˋ ㄑㄧˊ ㄔㄜ ㄇㄟˊ ㄊㄧㄥ ㄉㄠˋ ㄗㄣˇ ˙ㄇㄜ ˙ㄌㄜ", "en": "Sorry, I was riding my scooter just now and didn't hear it. What's up?"},
+    {"speaker": "小美", "zh": "這個星期六我們要去東港吃海鮮，你要不要一起來？", "zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄒㄧㄥ ㄑㄧˊ ㄌㄧㄡˋ ㄨㄛˇ ˙ㄇㄣ ㄧㄠˋ ㄑㄩˋ ㄉㄨㄥ ㄍㄤˇ ㄔ ㄏㄞˇ ㄒㄧㄢ ㄋㄧˇ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄧ ㄑㄧˇ ㄌㄞˊ", "en": "This Saturday we're going to Donggang to eat seafood. Do you want to come along?"},
+    {"speaker": "馬克", "zh": "好啊！幾點？在哪裡見面？", "zhuyin": "ㄏㄠˇ ˙ㄚ ㄐㄧˇ ㄉㄧㄢˇ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ ㄐㄧㄢˋ ㄇㄧㄢˋ", "en": "Sure! What time? Where are we meeting?"},
+    {"speaker": "小美", "zh": "中午十二點，在東港的一家海鮮餐廳。", "zhuyin": "ㄓㄨㄥ ㄨˇ ㄕˊ ㄦˋ ㄉㄧㄢˇ ㄗㄞˋ ㄉㄨㄥ ㄍㄤˇ ˙ㄉㄜ ㄧ ㄐㄧㄚ ㄏㄞˇ ㄒㄧㄢ ㄘㄢ ㄊㄧㄥ", "en": "Twelve noon, at a seafood restaurant in Donggang."},
+    {"speaker": "馬克", "zh": "什麼？外面有點吵，我沒聽清楚。你可以再說一次嗎？", "zhuyin": "ㄕㄣˊ ˙ㄇㄜ ㄨㄞˋ ㄇㄧㄢˋ ㄧㄡˇ ㄉㄧㄢˇ ㄔㄠˇ ㄨㄛˇ ㄇㄟˊ ㄊㄧㄥ ㄑㄧㄥ ㄔㄨˇ ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄗㄞˋ ㄕㄨㄛ ㄧ ㄘˋ ˙ㄇㄚ", "en": "Sorry? It's a bit noisy out here, and I didn't catch that. Could you say it again?"},
+    {"speaker": "小美", "zh": "中午十二點。餐廳的地址，我等一下用LINE傳給你。", "zhuyin": "ㄓㄨㄥ ㄨˇ ㄕˊ ㄦˋ ㄉㄧㄢˇ ㄘㄢ ㄊㄧㄥ ˙ㄉㄜ ㄉㄧˋ ㄓˇ ㄨㄛˇ ㄉㄥˇ ㄧ ㄒㄧㄚˋ ㄩㄥˋ ㄔㄨㄢˊ ㄍㄟˇ ㄋㄧˇ", "en": "Twelve noon. I'll send you the restaurant's address on LINE in a minute."},
+    {"speaker": "馬克", "zh": "好。可是我們還沒加LINE吧？", "zhuyin": "ㄏㄠˇ ㄎㄜˇ ㄕˋ ㄨㄛˇ ˙ㄇㄣ ㄏㄞˊ ㄇㄟˊ ㄐㄧㄚ ˙ㄅㄚ", "en": "OK. But we haven't added each other on LINE yet, have we?"},
+    {"speaker": "小美", "zh": "對喔！我用你的手機號碼加你……加好了，你看一下。", "zhuyin": "ㄉㄨㄟˋ ㄛ ㄨㄛˇ ㄩㄥˋ ㄋㄧˇ ˙ㄉㄜ ㄕㄡˇ ㄐㄧ ㄏㄠˋ ㄇㄚˇ ㄐㄧㄚ ㄋㄧˇ ㄐㄧㄚ ㄏㄠˇ ˙ㄌㄜ ㄋㄧˇ ㄎㄢˋ ㄧ ㄒㄧㄚˋ", "en": "Oh, right! I'll add you with your phone number… Done. Have a look."},
+    {"speaker": "馬克", "zh": "有，我看到了。你傳的貼圖好可愛喔！", "zhuyin": "ㄧㄡˇ ㄨㄛˇ ㄎㄢˋ ㄉㄠˋ ˙ㄌㄜ ㄋㄧˇ ㄔㄨㄢˊ ˙ㄉㄜ ㄊㄧㄝ ㄊㄨˊ ㄏㄠˇ ㄎㄜˇ ㄞˋ ㄛ", "en": "Yes, I see it. The sticker you sent is so cute!"},
+    {"speaker": "小美", "zh": "哈哈。我一掛電話就傳地址給你。", "zhuyin": "ㄏㄚ ㄏㄚ ㄨㄛˇ ㄧ ㄍㄨㄚˋ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄐㄧㄡˋ ㄔㄨㄢˊ ㄉㄧˋ ㄓˇ ㄍㄟˇ ㄋㄧˇ", "en": "Haha. I'll send you the address as soon as I hang up."},
+    {"speaker": "馬克", "zh": "好，謝謝！那星期六見。", "zhuyin": "ㄏㄠˇ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄋㄚˋ ㄒㄧㄥ ㄑㄧˊ ㄌㄧㄡˋ ㄐㄧㄢˋ", "en": "OK, thanks! See you Saturday, then."},
+    {"speaker": "小美", "zh": "星期六見！騎車小心喔！", "zhuyin": "ㄒㄧㄥ ㄑㄧˊ ㄌㄧㄡˋ ㄐㄧㄢˋ ㄑㄧˊ ㄔㄜ ㄒㄧㄠˇ ㄒㄧㄣ ㄛ", "en": "See you Saturday! Ride safely!"}
+  ],
+  "vocab": [
+    {"zh": "喂", "zhuyin": "ㄨㄟˋ", "en": "hello? (answering or making a phone call)", "pos": "interj", "level": "第2*級"},
+    {"zh": "剛剛", "zhuyin": "ㄍㄤ ㄍㄤ", "en": "just now, a moment ago", "pos": "adv", "level": "第2級"},
+    {"zh": "打", "zhuyin": "ㄉㄚˇ", "en": "to make (a phone call); 打給 + person: to call someone", "pos": "v", "level": "第1級"},
+    {"zh": "接", "zhuyin": "ㄐㄧㄝ", "en": "to answer (the phone), to pick up", "pos": "v", "level": "第2級"},
+    {"zh": "聽到", "zhuyin": "ㄊㄧㄥ ㄉㄠˋ", "en": "to hear", "pos": "v", "level": "第2級"},
+    {"zh": "海鮮", "zhuyin": "ㄏㄞˇ ㄒㄧㄢ", "en": "seafood", "pos": "n", "level": "第3級"},
+    {"zh": "見面", "zhuyin": "ㄐㄧㄢˋ ㄇㄧㄢˋ", "en": "to meet (up), to see each other", "pos": "v", "level": "第2*級"},
+    {"zh": "吵", "zhuyin": "ㄔㄠˇ", "en": "noisy", "pos": "adj", "level": "第3*級"},
+    {"zh": "清楚", "zhuyin": "ㄑㄧㄥ ㄔㄨˇ", "en": "clear; 聽清楚 to hear clearly, to catch (what was said)", "pos": "adj", "level": "第2級"},
+    {"zh": "地址", "zhuyin": "ㄉㄧˋ ㄓˇ", "en": "address", "pos": "n", "measure": "個", "level": "第2*級"},
+    {"zh": "傳", "zhuyin": "ㄔㄨㄢˊ", "en": "to send (a message, a photo, a sticker)", "pos": "v", "level": "第3*級"},
+    {"zh": "加", "zhuyin": "ㄐㄧㄚ", "en": "to add (someone as a friend on LINE)", "pos": "v", "level": "第2級"},
+    {"zh": "手機", "zhuyin": "ㄕㄡˇ ㄐㄧ", "en": "mobile phone", "pos": "n", "measure": "支", "level": "第1級"},
+    {"zh": "號碼", "zhuyin": "ㄏㄠˋ ㄇㄚˇ", "en": "number (phone number); 手機號碼 mobile number", "pos": "n", "measure": "個", "level": "第2*級"},
+    {"zh": "貼圖", "zhuyin": "ㄊㄧㄝ ㄊㄨˊ", "en": "sticker (in LINE chats)", "pos": "n", "measure": "個", "level": null},
+    {"zh": "可愛", "zhuyin": "ㄎㄜˇ ㄞˋ", "en": "cute", "pos": "adj", "level": "第2級"},
+    {"zh": "掛", "zhuyin": "ㄍㄨㄚˋ", "en": "to hang; 掛電話 to hang up (the phone)", "pos": "v", "level": "第2*級"},
+    {"zh": "小心", "zhuyin": "ㄒㄧㄠˇ ㄒㄧㄣ", "en": "to be careful; 騎車小心 ride safely", "pos": "v", "level": "第2級"}
+  ],
+  "grammar": [
+    {"id": "G043", "note_en": "Mark explains the missed calls with 我剛剛在騎車: 在 + verb for an action that was going on at that moment. It is the usual excuse on the phone: 我剛剛在上課 / 在洗澡，沒聽到。"},
+    {"id": "G037", "note_en": "Two verb + result pairs: 我沒聽清楚 'I didn't hear it clearly', the phrase for asking someone to repeat on a bad line, and 加好了 'done adding you'. When the result didn't happen, the negative is 沒 + verb + result."},
+    {"id": "G096", "note_en": "我一掛電話就傳地址給你: 一 before the first verb and 就 before the second, 'as soon as I hang up, I'll send you the address'. In 一掛 the 一 is said ㄧˊ, because 掛 is a fourth tone."}
+  ],
+  "pronunciation": {
+    "contrast": "en-eng",
+    "tone_pair": "44",
+    "note_en": "Keep ㄣ and ㄥ apart. 小心 ㄒㄧㄠˇ ㄒㄧㄣ and 怎麼 ㄗㄣˇ ˙ㄇㄜ close with the tongue tip; 星期 ㄒㄧㄥ ㄑㄧˊ, 聽到 ㄊㄧㄥ ㄉㄠˋ, 清楚 ㄑㄧㄥ ㄔㄨˇ and 等一下 ㄉㄥˇ ㄧ ㄒㄧㄚˋ close with the back of the tongue (compare 信 ㄒㄧㄣˋ / 姓 ㄒㄧㄥˋ). Many Taiwan speakers say ㄧㄥ like ㄧㄣ, so 聽 can sound like ㄊㄧㄣ: understand it, but produce ㄧㄥ. Tone pair 4+4: 電話, 見面 and 外面 are two high falls in a row; start the second one high again instead of letting it trail off. 一 changes before a fourth tone: 一掛 and 一次 are written ㄧ but said ㄧˊ."
+  },
+  "shadowing": [
+    {"zh": "喂，小美嗎？我是馬克。", "zhuyin": "ㄨㄟˋ ㄒㄧㄠˇ ㄇㄟˇ ˙ㄇㄚ ㄨㄛˇ ㄕˋ ㄇㄚˇ ㄎㄜˋ", "en": "Hello? Xiaomei? It's Mark."},
+    {"zh": "你剛剛有打給我嗎？", "zhuyin": "ㄋㄧˇ ㄍㄤ ㄍㄤ ㄧㄡˇ ㄉㄚˇ ㄍㄟˇ ㄨㄛˇ ˙ㄇㄚ", "en": "Did you just call me?"},
+    {"zh": "不好意思，我剛剛在騎車，沒聽到。", "zhuyin": "ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄨㄛˇ ㄍㄤ ㄍㄤ ㄗㄞˋ ㄑㄧˊ ㄔㄜ ㄇㄟˊ ㄊㄧㄥ ㄉㄠˋ", "en": "Sorry, I was riding my scooter just now and didn't hear it."},
+    {"zh": "外面有點吵，我沒聽清楚。", "zhuyin": "ㄨㄞˋ ㄇㄧㄢˋ ㄧㄡˇ ㄉㄧㄢˇ ㄔㄠˇ ㄨㄛˇ ㄇㄟˊ ㄊㄧㄥ ㄑㄧㄥ ㄔㄨˇ", "en": "It's a bit noisy out here, and I didn't catch that."},
+    {"zh": "你可以再說一次嗎？", "zhuyin": "ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄗㄞˋ ㄕㄨㄛ ㄧ ㄘˋ ˙ㄇㄚ", "en": "Could you say it again?"},
+    {"zh": "我用你的手機號碼加你。", "zhuyin": "ㄨㄛˇ ㄩㄥˋ ㄋㄧˇ ˙ㄉㄜ ㄕㄡˇ ㄐㄧ ㄏㄠˋ ㄇㄚˇ ㄐㄧㄚ ㄋㄧˇ", "en": "I'll add you with your phone number."},
+    {"zh": "我一掛電話就傳地址給你。", "zhuyin": "ㄨㄛˇ ㄧ ㄍㄨㄚˋ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄐㄧㄡˋ ㄔㄨㄢˊ ㄉㄧˋ ㄓˇ ㄍㄟˇ ㄋㄧˇ", "en": "I'll send you the address as soon as I hang up."}
+  ],
+  "comprehension": [
+    {"question_en": "Why didn't Mark answer Xiaomei's calls?", "options_en": ["He was in class.", "He was riding his scooter and didn't hear the phone.", "His phone was switched off."], "answer": 1},
+    {"question_en": "What is the plan for Saturday?", "options_en": ["Eating seafood in Donggang", "Going to the night market in Pingtung", "Taking the train to Kaohsiung"], "answer": 0},
+    {"question_en": "What time will they meet?", "options_en": ["10:00 a.m.", "12 noon", "2:00 p.m."], "answer": 1},
+    {"question_en": "Why does Mark ask Xiaomei to say it again?", "options_en": ["She spoke too fast.", "She spoke too quietly.", "It was noisy where he was."], "answer": 2},
+    {"question_en": "How will Mark get the restaurant's address?", "options_en": ["Xiaomei will send it on LINE after the call.", "Xiaomei will text it to him tomorrow.", "Mark will look it up himself."], "answer": 0}
+  ],
+  "speaking": {
+    "prompt_en": "A Taiwanese friend called you twice while you were busy. Call back: open with 喂 and say who you are, ask if they called, say what you were doing, ask them to repeat something you didn't catch, and agree on a time and place to meet. Ask them to send the address on LINE.",
+    "prompt_zh": "朋友打給你兩次，你都沒接。請你打給他：先說「喂」和你是誰，問他剛剛有沒有打給你，說你剛剛在做什麼。有一句話沒聽清楚，請他再說一次。最後約時間和地方，請他用LINE傳地址給你。",
+    "checklist_en": [
+      "opened with 喂 and said who you are (我是……)",
+      "asked 你剛剛有打給我嗎？",
+      "said what you were doing with 在 + verb (我剛剛在……)",
+      "asked them to repeat: 我沒聽清楚，你可以再說一次嗎？",
+      "agreed on a time and place and asked them to 用LINE傳地址給我",
+      "kept ㄣ (小心) and ㄥ (聽到, 清楚) apart"
+    ]
+  },
+  "writing": {
+    "prompt_en": "A friend called while you were busy and you missed it. Write a short LINE message (3–5 sentences): say sorry, say what you were doing, ask what they need, and say when you'll call back.",
+    "prompt_zh": "朋友打給你的時候，你在忙，沒接到。請寫一個短短的LINE訊息：說不好意思，說你剛剛在做什麼，問他有什麼事，再說你什麼時候會打給他。",
+    "model_zh": "阿傑，不好意思，你剛剛打給我的時候，我在上課，沒聽到。你找我有什麼事嗎？我五點下課，一下課就打給你。如果很急，可以先傳LINE給我喔！",
+    "model_zhuyin": "ㄚ ㄐㄧㄝˊ ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄋㄧˇ ㄍㄤ ㄍㄤ ㄉㄚˇ ㄍㄟˇ ㄨㄛˇ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄨㄛˇ ㄗㄞˋ ㄕㄤˋ ㄎㄜˋ ㄇㄟˊ ㄊㄧㄥ ㄉㄠˋ ㄋㄧˇ ㄓㄠˇ ㄨㄛˇ ㄧㄡˇ ㄕㄣˊ ˙ㄇㄜ ㄕˋ ˙ㄇㄚ ㄨㄛˇ ㄨˇ ㄉㄧㄢˇ ㄒㄧㄚˋ ㄎㄜˋ ㄧ ㄒㄧㄚˋ ㄎㄜˋ ㄐㄧㄡˋ ㄉㄚˇ ㄍㄟˇ ㄋㄧˇ ㄖㄨˊ ㄍㄨㄛˇ ㄏㄣˇ ㄐㄧˊ ㄎㄜˇ ㄧˇ ㄒㄧㄢ ㄔㄨㄢˊ ㄍㄟˇ ㄨㄛˇ ㄛ"
+  },
+  "culture_en": "LINE is the messaging app most people in Taiwan use: friends, families, classmates and co-workers keep in touch in LINE chats and groups, many shops and clinics have LINE accounts, and many people make free voice and video calls on it instead of dialling. To add someone, you scan their QR code or search for their LINE ID or phone number, if their settings allow it. Stickers (貼圖) are a big part of the conversation; some are free and many are sold. Once your message has been read, LINE shows 已讀 ('read') next to it, and 已讀不回 ('read, no reply') is an everyday complaint about someone who saw your message and didn't answer. Taiwan mobile numbers have ten digits and start with 09 (09xx-xxx-xxx), and people usually read them out in those groups. Calls are answered with 喂？ The MOE dictionary writes it ㄨㄟˋ, but on the phone it is often said with a rise, ㄨㄟˊ, which is how the TBCL word list gives it."
+}

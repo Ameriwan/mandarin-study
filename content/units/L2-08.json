@@ -1,0 +1,86 @@
+{
+  "id": "L2-08", "level": "第2*級", "order": 8,
+  "topic": "颱風 and weather, plans", "title_zh": "颱風要來了", "title_en": "A typhoon is coming",
+  "can_do_en": "I can talk about a coming typhoon, change a weekend plan because of the weather and say why, and understand what a neighbour tells me to get ready.",
+  "dialogue": [
+    {"speaker": "陳阿姨", "zh": "馬克、阿傑，你們有看新聞嗎？颱風明天就要來了喔！", "zhuyin": "ㄇㄚˇ ㄎㄜˋ ㄚ ㄐㄧㄝˊ ㄋㄧˇ ˙ㄇㄣ ㄧㄡˇ ㄎㄢˋ ㄒㄧㄣ ㄨㄣˊ ˙ㄇㄚ ㄊㄞˊ ㄈㄥ ㄇㄧㄥˊ ㄊㄧㄢ ㄐㄧㄡˋ ㄧㄠˋ ㄌㄞˊ ˙ㄌㄜ ㄛ", "en": "Mark, A-Jie, have you seen the news? The typhoon is coming tomorrow!"},
+    {"speaker": "阿傑", "zh": "有啊。這次的颱風很大，明天晚上會到屏東。", "zhuyin": "ㄧㄡˇ ˙ㄚ ㄓㄜˋ ㄘˋ ˙ㄉㄜ ㄊㄞˊ ㄈㄥ ㄏㄣˇ ㄉㄚˋ ㄇㄧㄥˊ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄏㄨㄟˋ ㄉㄠˋ ㄆㄧㄥˊ ㄉㄨㄥ", "en": "Yes. This typhoon is a big one. It'll reach Pingtung tomorrow night."},
+    {"speaker": "馬克", "zh": "真的嗎？那我們星期六去墾丁的計畫怎麼辦？", "zhuyin": "ㄓㄣ ˙ㄉㄜ ˙ㄇㄚ ㄋㄚˋ ㄨㄛˇ ˙ㄇㄣ ㄒㄧㄥ ㄑㄧˊ ㄌㄧㄡˋ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ ˙ㄉㄜ ㄐㄧˋ ㄏㄨㄚˋ ㄗㄣˇ ˙ㄇㄜ ㄅㄢˋ", "en": "Really? Then what about our plan to go to Kenting on Saturday?"},
+    {"speaker": "阿傑", "zh": "颱風天去墾丁太危險了。我們改下個週末再去吧。", "zhuyin": "ㄊㄞˊ ㄈㄥ ㄊㄧㄢ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ ㄊㄞˋ ㄨㄟˊ ㄒㄧㄢˇ ˙ㄌㄜ ㄨㄛˇ ˙ㄇㄣ ㄍㄞˇ ㄒㄧㄚˋ ㄍㄜˋ ㄓㄡ ㄇㄛˋ ㄗㄞˋ ㄑㄩˋ ˙ㄅㄚ", "en": "Going to Kenting in a typhoon is too dangerous. Let's change it to next weekend."},
+    {"speaker": "馬克", "zh": "好吧，好可惜喔。", "zhuyin": "ㄏㄠˇ ˙ㄅㄚ ㄏㄠˇ ㄎㄜˇ ㄒㄧˊ ㄛ", "en": "Oh well. That's such a shame."},
+    {"speaker": "陳阿姨", "zh": "沒關係啦，下次再去。你們今天要先準備水、麵包和泡麵喔。", "zhuyin": "ㄇㄟˊ ㄍㄨㄢ ㄒㄧˋ ˙ㄌㄚ ㄒㄧㄚˋ ㄘˋ ㄗㄞˋ ㄑㄩˋ ㄋㄧˇ ˙ㄇㄣ ㄐㄧㄣ ㄊㄧㄢ ㄧㄠˋ ㄒㄧㄢ ㄓㄨㄣˇ ㄅㄟˋ ㄕㄨㄟˇ ㄇㄧㄢˋ ㄅㄠ ㄏㄜˊ ㄆㄠˋ ㄇㄧㄢˋ ㄛ", "en": "Never mind, you can go next time. Today you should get water, bread and instant noodles in first."},
+    {"speaker": "馬克", "zh": "為什麼要準備那麼多水？", "zhuyin": "ㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ ㄧㄠˋ ㄓㄨㄣˇ ㄅㄟˋ ㄋㄚˋ ˙ㄇㄜ ㄉㄨㄛ ㄕㄨㄟˇ", "en": "Why do we need so much water?"},
+    {"speaker": "陳阿姨", "zh": "因為颱風來的時候，有時候會停水、停電，所以要先準備好。", "zhuyin": "ㄧㄣ ㄨㄟˋ ㄊㄞˊ ㄈㄥ ㄌㄞˊ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄧㄡˇ ㄕˊ ˙ㄏㄡ ㄏㄨㄟˋ ㄊㄧㄥˊ ㄕㄨㄟˇ ㄊㄧㄥˊ ㄉㄧㄢˋ ㄙㄨㄛˇ ㄧˇ ㄧㄠˋ ㄒㄧㄢ ㄓㄨㄣˇ ㄅㄟˋ ㄏㄠˇ", "en": "Because when a typhoon comes, the water or the power sometimes goes off, so you have to be ready beforehand."},
+    {"speaker": "阿傑", "zh": "對，還有窗戶要關好。", "zhuyin": "ㄉㄨㄟˋ ㄏㄞˊ ㄧㄡˇ ㄔㄨㄤ ㄏㄨˋ ㄧㄠˋ ㄍㄨㄢ ㄏㄠˇ", "en": "Right, and the windows have to be shut tight."},
+    {"speaker": "馬克", "zh": "我知道了。那明天還要上班嗎？", "zhuyin": "ㄨㄛˇ ㄓ ㄉㄠˋ ˙ㄌㄜ ㄋㄚˋ ㄇㄧㄥˊ ㄊㄧㄢ ㄏㄞˊ ㄧㄠˋ ㄕㄤˋ ㄅㄢ ˙ㄇㄚ", "en": "Got it. So do we still have to go to work tomorrow?"},
+    {"speaker": "阿傑", "zh": "還不知道。晚上才會決定要不要停班停課。", "zhuyin": "ㄏㄞˊ ㄅㄨˋ ㄓ ㄉㄠˋ ㄨㄢˇ ㄕㄤˋ ㄘㄞˊ ㄏㄨㄟˋ ㄐㄩㄝˊ ㄉㄧㄥˋ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄊㄧㄥˊ ㄅㄢ ㄊㄧㄥˊ ㄎㄜˋ", "en": "We don't know yet. They won't decide until tonight whether work and school are called off."},
+    {"speaker": "陳阿姨", "zh": "如果停班停課，你們就在家休息，不要騎機車出去，要小心喔！", "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄊㄧㄥˊ ㄅㄢ ㄊㄧㄥˊ ㄎㄜˋ ㄋㄧˇ ˙ㄇㄣ ㄐㄧㄡˋ ㄗㄞˋ ㄐㄧㄚ ㄒㄧㄡ ㄒㄧˊ ㄅㄨˋ ㄧㄠˋ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄔㄨ ㄑㄩˋ ㄧㄠˋ ㄒㄧㄠˇ ㄒㄧㄣ ㄛ", "en": "If work and school are called off, stay home and rest. Don't go out on your scooters. Be careful!"},
+    {"speaker": "馬克", "zh": "好，謝謝阿姨！阿傑，我們現在就去超市吧。", "zhuyin": "ㄏㄠˇ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄚ ㄧˊ ㄚ ㄐㄧㄝˊ ㄨㄛˇ ˙ㄇㄣ ㄒㄧㄢˋ ㄗㄞˋ ㄐㄧㄡˋ ㄑㄩˋ ㄔㄠ ㄕˋ ˙ㄅㄚ", "en": "OK, thank you! A-Jie, let's go to the supermarket right now."},
+    {"speaker": "陳阿姨", "zh": "快去吧！晚一點，泡麵和青菜可能都賣完了。", "zhuyin": "ㄎㄨㄞˋ ㄑㄩˋ ˙ㄅㄚ ㄨㄢˇ ㄧ ㄉㄧㄢˇ ㄆㄠˋ ㄇㄧㄢˋ ㄏㄜˊ ㄑㄧㄥ ㄘㄞˋ ㄎㄜˇ ㄋㄥˊ ㄉㄡ ㄇㄞˋ ㄨㄢˊ ˙ㄌㄜ", "en": "Go on, quickly! Any later and the instant noodles and vegetables might all be sold out."}
+  ],
+  "vocab": [
+    {"zh": "颱風", "zhuyin": "ㄊㄞˊ ㄈㄥ", "en": "typhoon; 颱風天 a typhoon day", "pos": "n", "measure": "個", "level": "第3級"},
+    {"zh": "新聞", "zhuyin": "ㄒㄧㄣ ㄨㄣˊ", "en": "the news", "pos": "n", "level": "第3級"},
+    {"zh": "計畫", "zhuyin": "ㄐㄧˋ ㄏㄨㄚˋ", "en": "plan; to plan", "pos": "n/v", "measure": "個", "level": "第2級"},
+    {"zh": "怎麼辦", "zhuyin": "ㄗㄣˇ ˙ㄇㄜ ㄅㄢˋ", "en": "what should we do? what about...?", "pos": "phrase", "level": "第2級"},
+    {"zh": "危險", "zhuyin": "ㄨㄟˊ ㄒㄧㄢˇ", "en": "dangerous", "pos": "adj", "level": "第3級"},
+    {"zh": "改", "zhuyin": "ㄍㄞˇ", "en": "to change (a plan, a time)", "pos": "v", "level": "第3*級"},
+    {"zh": "可惜", "zhuyin": "ㄎㄜˇ ㄒㄧˊ", "en": "it's a pity, what a shame", "pos": "adj", "level": "第3*級"},
+    {"zh": "準備", "zhuyin": "ㄓㄨㄣˇ ㄅㄟˋ", "en": "to prepare, to get ready; 準備好 all ready", "pos": "v", "level": "第2級"},
+    {"zh": "泡麵", "zhuyin": "ㄆㄠˋ ㄇㄧㄢˋ", "en": "instant noodles", "pos": "n", "measure": "包", "level": "第3級"},
+    {"zh": "停電", "zhuyin": "ㄊㄧㄥˊ ㄉㄧㄢˋ", "en": "power cut; the power goes off (停水 the water goes off)", "pos": "v", "level": null},
+    {"zh": "窗戶", "zhuyin": "ㄔㄨㄤ ㄏㄨˋ", "en": "window", "pos": "n", "measure": "扇", "level": "第2*級"},
+    {"zh": "關", "zhuyin": "ㄍㄨㄢ", "en": "to close, to shut; to turn off; 關好 shut properly", "pos": "v", "level": "第2*級"},
+    {"zh": "決定", "zhuyin": "ㄐㄩㄝˊ ㄉㄧㄥˋ", "en": "to decide; decision", "pos": "v/n", "level": "第2級"},
+    {"zh": "停班停課", "zhuyin": "ㄊㄧㄥˊ ㄅㄢ ㄊㄧㄥˊ ㄎㄜˋ", "en": "work and classes are called off (for a typhoon)", "pos": "phrase", "level": null},
+    {"zh": "如果", "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ", "en": "if", "pos": "conj", "level": "第2級"},
+    {"zh": "小心", "zhuyin": "ㄒㄧㄠˇ ㄒㄧㄣ", "en": "to be careful; careful!", "pos": "v", "level": "第2級"},
+    {"zh": "超市", "zhuyin": "ㄔㄠ ㄕˋ", "en": "supermarket", "pos": "n", "measure": "家", "level": "第2*級"},
+    {"zh": "青菜", "zhuyin": "ㄑㄧㄥ ㄘㄞˋ", "en": "(green) vegetables", "pos": "n", "level": "第2*級"}
+  ],
+  "grammar": [
+    {"id": "G067", "note_en": "Mark names the problem and puts 怎麼辦 at the end: 我們去墾丁的計畫怎麼辦？ 'What about our Kenting plan?' After a noun, 怎麼辦 asks what will happen to that thing now."},
+    {"id": "G077", "note_en": "陳阿姨 explains why to buy so much water: 因為 + the reason (water and power can go off), 所以 + the result (get ready beforehand). The reason comes first, as it usually does in Chinese."},
+    {"id": "G080", "note_en": "阿傑 says 颱風天去墾丁太危險了: 太 + adjective + 了 for 'too...', more than is OK. Mark's 好可惜喔 is different: there 好 just means 'so, really'."}
+  ],
+  "pronunciation": {
+    "contrast": "en-eng",
+    "tone_pair": "21",
+    "note_en": "Keep ㄣ (tongue tip) and ㄥ (back of the tongue) apart: 墾丁 ㄎㄣˇ ㄉㄧㄥ has both, and so do 新聞 ㄒㄧㄣ ㄨㄣˊ vs 停電 ㄊㄧㄥˊ ㄉㄧㄢˋ and 小心 ㄒㄧㄠˇ ㄒㄧㄣ vs 青菜 ㄑㄧㄥ ㄘㄞˋ. Many Taiwan speakers merge ㄧㄥ into ㄧㄣ and say 風 like 'fong'; understand it, but produce the standard. Tone pair 2+1 (rise, then high and level): 颱風, 明天, 屏東, 停班. Two Taiwan readings to keep: 危險 ㄨㄟˊ ㄒㄧㄢˇ and 可惜 ㄎㄜˇ ㄒㄧˊ, both with a T2. In 好可惜 the first 好 is said ㄏㄠˊ (3+3), 晚一點 is said with 一 as ㄧˋ, and 不要 is said ㄅㄨˊ ㄧㄠˋ."
+  },
+  "shadowing": [
+    {"zh": "你們有看新聞嗎？颱風明天就要來了喔！", "zhuyin": "ㄋㄧˇ ˙ㄇㄣ ㄧㄡˇ ㄎㄢˋ ㄒㄧㄣ ㄨㄣˊ ˙ㄇㄚ ㄊㄞˊ ㄈㄥ ㄇㄧㄥˊ ㄊㄧㄢ ㄐㄧㄡˋ ㄧㄠˋ ㄌㄞˊ ˙ㄌㄜ ㄛ", "en": "Have you seen the news? The typhoon is coming tomorrow!"},
+    {"zh": "那我們去墾丁的計畫怎麼辦？", "zhuyin": "ㄋㄚˋ ㄨㄛˇ ˙ㄇㄣ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ ˙ㄉㄜ ㄐㄧˋ ㄏㄨㄚˋ ㄗㄣˇ ˙ㄇㄜ ㄅㄢˋ", "en": "Then what about our plan to go to Kenting?"},
+    {"zh": "颱風天去墾丁太危險了。", "zhuyin": "ㄊㄞˊ ㄈㄥ ㄊㄧㄢ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ ㄊㄞˋ ㄨㄟˊ ㄒㄧㄢˇ ˙ㄌㄜ", "en": "Going to Kenting in a typhoon is too dangerous."},
+    {"zh": "好吧，好可惜喔。", "zhuyin": "ㄏㄠˇ ˙ㄅㄚ ㄏㄠˇ ㄎㄜˇ ㄒㄧˊ ㄛ", "en": "Oh well. That's such a shame."},
+    {"zh": "因為颱風來的時候，有時候會停水、停電，所以要先準備好。", "zhuyin": "ㄧㄣ ㄨㄟˋ ㄊㄞˊ ㄈㄥ ㄌㄞˊ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄧㄡˇ ㄕˊ ˙ㄏㄡ ㄏㄨㄟˋ ㄊㄧㄥˊ ㄕㄨㄟˇ ㄊㄧㄥˊ ㄉㄧㄢˋ ㄙㄨㄛˇ ㄧˇ ㄧㄠˋ ㄒㄧㄢ ㄓㄨㄣˇ ㄅㄟˋ ㄏㄠˇ", "en": "Because when a typhoon comes, the water or the power sometimes goes off, so you have to be ready beforehand."},
+    {"zh": "如果停班停課，你們就在家休息。", "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄊㄧㄥˊ ㄅㄢ ㄊㄧㄥˊ ㄎㄜˋ ㄋㄧˇ ˙ㄇㄣ ㄐㄧㄡˋ ㄗㄞˋ ㄐㄧㄚ ㄒㄧㄡ ㄒㄧˊ", "en": "If work and school are called off, stay home and rest."},
+    {"zh": "晚一點，泡麵和青菜可能都賣完了。", "zhuyin": "ㄨㄢˇ ㄧ ㄉㄧㄢˇ ㄆㄠˋ ㄇㄧㄢˋ ㄏㄜˊ ㄑㄧㄥ ㄘㄞˋ ㄎㄜˇ ㄋㄥˊ ㄉㄡ ㄇㄞˋ ㄨㄢˊ ˙ㄌㄜ", "en": "Any later and the instant noodles and vegetables might all be sold out."}
+  ],
+  "comprehension": [
+    {"question_en": "When will the typhoon reach Pingtung?", "options_en": ["This afternoon", "Tomorrow night", "On Saturday morning"], "answer": 1},
+    {"question_en": "What were Mark and A-Jie planning to do on Saturday?", "options_en": ["Go to Kenting", "Go to work", "Go to the supermarket"], "answer": 0},
+    {"question_en": "Why does 陳阿姨 tell them to buy water?", "options_en": ["The supermarket is closing for a week.", "The water and the power sometimes go off during a typhoon.", "Bottled water is cheaper before a typhoon."], "answer": 1},
+    {"question_en": "Do they know yet whether they have to work tomorrow?", "options_en": ["Yes, they have to work.", "Yes, work is called off.", "No, it will be decided tonight."], "answer": 2},
+    {"question_en": "Why does 陳阿姨 tell them to hurry?", "options_en": ["The typhoon is coming tonight.", "The noodles and vegetables might sell out.", "It's going to rain soon."], "answer": 1}
+  ],
+  "speaking": {
+    "prompt_en": "A typhoon is on its way to Pingtung. Call a friend you had weekend plans with: say when the typhoon is coming, say you can't go and why, suggest a new time, and remind your friend what to get ready.",
+    "prompt_zh": "颱風要來屏東了。請打電話跟朋友說：颱風什麼時候來、你們週末為什麼不能去玩了、什麼時候再去，還有要先準備什麼。",
+    "checklist_en": [
+      "said when the typhoon is coming (颱風明天就要來了)",
+      "gave the reason with 因為……所以……",
+      "used 太……了 (太危險了)",
+      "suggested a new time (我們改下個週末再去吧)",
+      "named two things to get ready (水、泡麵……)",
+      "kept ㄣ (新聞, 墾) and ㄥ (颱風, 停電, 丁) apart"
+    ]
+  },
+  "writing": {
+    "prompt_en": "A typhoon is coming. Write a short LINE message (3–5 sentences) to a friend: say the typhoon is coming, say your Saturday trip is off and why, suggest a new time, and remind your friend to get ready.",
+    "prompt_zh": "颱風要來了。請寫一個短短的LINE訊息給朋友：說颱風要來了、你們星期六為什麼不能去玩了、改什麼時候去，還有提醒朋友要先準備。",
+    "model_zh": "小美，你有看新聞嗎？颱風明天晚上就要來了。因為颱風天出去玩太危險了，所以我們星期六不要去墾丁了。我們改下個週末再去，好不好？今天記得先去超市買水和泡麵喔！",
+    "model_zhuyin": "ㄒㄧㄠˇ ㄇㄟˇ ㄋㄧˇ ㄧㄡˇ ㄎㄢˋ ㄒㄧㄣ ㄨㄣˊ ˙ㄇㄚ ㄊㄞˊ ㄈㄥ ㄇㄧㄥˊ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄐㄧㄡˋ ㄧㄠˋ ㄌㄞˊ ˙ㄌㄜ ㄧㄣ ㄨㄟˋ ㄊㄞˊ ㄈㄥ ㄊㄧㄢ ㄔㄨ ㄑㄩˋ ㄨㄢˊ ㄊㄞˋ ㄨㄟˊ ㄒㄧㄢˇ ˙ㄌㄜ ㄙㄨㄛˇ ㄧˇ ㄨㄛˇ ˙ㄇㄣ ㄒㄧㄥ ㄑㄧˊ ㄌㄧㄡˋ ㄅㄨˋ ㄧㄠˋ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ ˙ㄌㄜ ㄨㄛˇ ˙ㄇㄣ ㄍㄞˇ ㄒㄧㄚˋ ㄍㄜˋ ㄓㄡ ㄇㄛˋ ㄗㄞˋ ㄑㄩˋ ㄏㄠˇ ㄅㄨˋ ㄏㄠˇ ㄐㄧㄣ ㄊㄧㄢ ㄐㄧˋ ˙ㄉㄜ ㄒㄧㄢ ㄑㄩˋ ㄔㄠ ㄕˋ ㄇㄞˇ ㄕㄨㄟˇ ㄏㄜˊ ㄆㄠˋ ㄇㄧㄢˋ ㄛ"
+  },
+  "culture_en": "Typhoon warnings in Taiwan, first for the sea and then for land (海上 / 陸上颱風警報), come from the Central Weather Administration (中央氣象署). When a typhoon is on its way, each city or county government decides whether work and classes stop the next day (停班停課), following national rules from the Directorate-General of Personnel Administration (行政院人事行政總處), whose website lists every area's decision; the announcement usually comes the evening before. People call the day off a 颱風假 'typhoon day off'. Before a typhoon, many people stock up on drinking water, instant noodles and vegetables and charge their phones, because the water or the power can go off for a while."
+}

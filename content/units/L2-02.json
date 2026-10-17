@@ -1,0 +1,81 @@
+{
+ "id": "L2-02", "level": "第2級", "order": 2,
+ "topic": "機車 / 火車 / 客運", "title_zh": "坐火車去高雄", "title_en": "Taking the train to Kaohsiung",
+ "can_do_en": "I can choose between scooter, train and intercity bus, ask how long a trip takes and how far a place is, and ask station staff about the next train.",
+ "dialogue": [
+  {"speaker": "馬克", "zh": "阿傑，我明天想去高雄。坐火車還是騎機車比較好？", "zhuyin": "ㄚ ㄐㄧㄝˊ ㄨㄛˇ ㄇㄧㄥˊ ㄊㄧㄢ ㄒㄧㄤˇ ㄑㄩˋ ㄍㄠ ㄒㄩㄥˊ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄏㄞˊ ㄕˋ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄅㄧˇ ㄐㄧㄠˋ ㄏㄠˇ", "en": "Ajie, I'd like to go to Kaohsiung tomorrow. Is it better to take the train or ride a scooter?"},
+  {"speaker": "阿傑", "zh": "坐火車比較好啦。騎機車比坐火車慢，週末路上車也很多。", "zhuyin": "ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄅㄧˇ ㄐㄧㄠˋ ㄏㄠˇ ˙ㄌㄚ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄅㄧˇ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄇㄢˋ ㄓㄡ ㄇㄛˋ ㄌㄨˋ ㄕㄤˋ ㄔㄜ ㄧㄝˇ ㄏㄣˇ ㄉㄨㄛ", "en": "The train's better. A scooter is slower than the train, and there's a lot of traffic on the roads at the weekend, too."},
+  {"speaker": "馬克", "zh": "從屏東到高雄，坐火車要多久？", "zhuyin": "ㄘㄨㄥˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄉㄠˋ ㄍㄠ ㄒㄩㄥˊ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄧㄠˋ ㄉㄨㄛ ㄐㄧㄡˇ", "en": "How long does the train take from Pingtung to Kaohsiung?"},
+  {"speaker": "阿傑", "zh": "差不多半個小時。車站離我家不遠，我騎機車載你去。", "zhuyin": "ㄔㄚ ㄅㄨˋ ㄉㄨㄛ ㄅㄢˋ ˙ㄍㄜ ㄒㄧㄠˇ ㄕˊ ㄔㄜ ㄓㄢˋ ㄌㄧˊ ㄨㄛˇ ㄐㄧㄚ ㄅㄨˋ ㄩㄢˇ ㄨㄛˇ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄗㄞˋ ㄋㄧˇ ㄑㄩˋ", "en": "About half an hour. The station isn't far from my place; I'll take you there on my scooter."},
+  {"speaker": "馬克", "zh": "太好了！那我需要先買票嗎？", "zhuyin": "ㄊㄞˋ ㄏㄠˇ ˙ㄌㄜ ㄋㄚˋ ㄨㄛˇ ㄒㄩ ㄧㄠˋ ㄒㄧㄢ ㄇㄞˇ ㄆㄧㄠˋ ˙ㄇㄚ", "en": "Great! So do I need to buy a ticket first?"},
+  {"speaker": "阿傑", "zh": "不用啦，刷悠遊卡就可以進站了。明天記得帶喔！", "zhuyin": "ㄅㄨˋ ㄩㄥˋ ˙ㄌㄚ ㄕㄨㄚ ㄧㄡ ㄧㄡˊ ㄎㄚˇ ㄐㄧㄡˋ ㄎㄜˇ ㄧˇ ㄐㄧㄣˋ ㄓㄢˋ ˙ㄌㄜ ㄇㄧㄥˊ ㄊㄧㄢ ㄐㄧˋ ˙ㄉㄜ ㄉㄞˋ ㄛ", "en": "No need. Just tap your EasyCard and you can go in. Remember to bring it tomorrow!"},
+  {"speaker": "馬克", "zh": "好。對了，下個星期我想去墾丁，也可以坐火車嗎？", "zhuyin": "ㄏㄠˇ ㄉㄨㄟˋ ˙ㄌㄜ ㄒㄧㄚˋ ˙ㄍㄜ ㄒㄧㄥ ㄑㄧˊ ㄨㄛˇ ㄒㄧㄤˇ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ ㄧㄝˇ ㄎㄜˇ ㄧˇ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ˙ㄇㄚ", "en": "OK. Oh, and next week I'd like to go to Kenting. Can I take the train there too?"},
+  {"speaker": "阿傑", "zh": "墾丁沒有火車喔，要坐客運。客運比較慢，要兩三個小時。", "zhuyin": "ㄎㄣˇ ㄉㄧㄥ ㄇㄟˊ ㄧㄡˇ ㄏㄨㄛˇ ㄔㄜ ㄛ ㄧㄠˋ ㄗㄨㄛˋ ㄎㄜˋ ㄩㄣˋ ㄎㄜˋ ㄩㄣˋ ㄅㄧˇ ㄐㄧㄠˋ ㄇㄢˋ ㄧㄠˋ ㄌㄧㄤˇ ㄙㄢ ˙ㄍㄜ ㄒㄧㄠˇ ㄕˊ", "en": "There's no train to Kenting, you know. You have to take the intercity bus. The bus is slower: it takes two or three hours."},
+  {"speaker": "阿傑", "zh": "到了！安全帽給我，你快去吧。", "zhuyin": "ㄉㄠˋ ˙ㄌㄜ ㄢ ㄑㄩㄢˊ ㄇㄠˋ ㄍㄟˇ ㄨㄛˇ ㄋㄧˇ ㄎㄨㄞˋ ㄑㄩˋ ˙ㄅㄚ", "en": "(The next morning, at Pingtung Station) Here we are! Give me the helmet, and off you go."},
+  {"speaker": "馬克", "zh": "請問，下一班去高雄的火車幾點開？", "zhuyin": "ㄑㄧㄥˇ ㄨㄣˋ ㄒㄧㄚˋ ㄧ ㄅㄢ ㄑㄩˋ ㄍㄠ ㄒㄩㄥˊ ˙ㄉㄜ ㄏㄨㄛˇ ㄔㄜ ㄐㄧˇ ㄉㄧㄢˇ ㄎㄞ", "en": "Excuse me, what time does the next train to Kaohsiung leave?"},
+  {"speaker": "站務員", "zh": "十點十五分，在第二月台。", "zhuyin": "ㄕˊ ㄉㄧㄢˇ ㄕˊ ㄨˇ ㄈㄣ ㄗㄞˋ ㄉㄧˋ ㄦˋ ㄩㄝˋ ㄊㄞˊ", "en": "At 10:15, from platform 2."},
+  {"speaker": "馬克", "zh": "我要在哪裡刷卡？", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ ㄕㄨㄚ ㄎㄚˇ", "en": "Where do I tap my card?"},
+  {"speaker": "站務員", "zh": "就在前面。你看，大家都在那邊刷卡。", "zhuyin": "ㄐㄧㄡˋ ㄗㄞˋ ㄑㄧㄢˊ ㄇㄧㄢˋ ㄋㄧˇ ㄎㄢˋ ㄉㄚˋ ㄐㄧㄚ ㄉㄡ ㄗㄞˋ ㄋㄚˋ ㄅㄧㄢ ㄕㄨㄚ ㄎㄚˇ", "en": "Just up ahead. Look, everyone's tapping their cards over there."},
+  {"speaker": "馬克", "zh": "好，謝謝！", "zhuyin": "ㄏㄠˇ ㄒㄧㄝˋ ˙ㄒㄧㄝ", "en": "OK, thanks!"}
+ ],
+ "vocab": [
+  {"zh": "火車", "zhuyin": "ㄏㄨㄛˇ ㄔㄜ", "en": "train", "pos": "n", "measure": "班", "level": "第1*級"},
+  {"zh": "機車", "zhuyin": "ㄐㄧ ㄔㄜ", "en": "scooter, motorbike", "pos": "n", "measure": "台", "level": "第3級"},
+  {"zh": "客運", "zhuyin": "ㄎㄜˋ ㄩㄣˋ", "en": "intercity bus (coach)", "pos": "n", "measure": "班", "level": "第4*級"},
+  {"zh": "騎", "zhuyin": "ㄑㄧˊ", "en": "to ride (a scooter, bicycle, horse)", "pos": "v", "level": "第2級"},
+  {"zh": "車站", "zhuyin": "ㄔㄜ ㄓㄢˋ", "en": "station (train or bus)", "pos": "n", "measure": "個", "level": "第2*級"},
+  {"zh": "比較", "zhuyin": "ㄅㄧˇ ㄐㄧㄠˋ", "en": "comparatively, more (比較好 'better')", "pos": "adv", "level": "第2級"},
+  {"zh": "週末", "zhuyin": "ㄓㄡ ㄇㄛˋ", "en": "weekend", "pos": "n", "measure": "個", "level": "第1*級"},
+  {"zh": "多久", "zhuyin": "ㄉㄨㄛ ㄐㄧㄡˇ", "en": "how long (time)", "pos": "q", "level": "第1*級"},
+  {"zh": "差不多", "zhuyin": "ㄔㄚ ㄅㄨˋ ㄉㄨㄛ", "en": "about, roughly", "pos": "adv", "level": "第2級"},
+  {"zh": "離", "zhuyin": "ㄌㄧˊ", "en": "from (distance: A 離 B 很近)", "pos": "prep", "level": "第2級"},
+  {"zh": "遠", "zhuyin": "ㄩㄢˇ", "en": "far", "pos": "adj", "level": "第2級"},
+  {"zh": "載", "zhuyin": "ㄗㄞˋ", "en": "to give (someone) a ride", "pos": "v", "level": "第4級"},
+  {"zh": "需要", "zhuyin": "ㄒㄩ ㄧㄠˋ", "en": "to need (to)", "pos": "v", "level": "第2級"},
+  {"zh": "票", "zhuyin": "ㄆㄧㄠˋ", "en": "ticket", "pos": "n", "measure": "張", "level": "第2級"},
+  {"zh": "刷卡", "zhuyin": "ㄕㄨㄚ ㄎㄚˇ", "en": "to tap or swipe a card", "pos": "v", "level": "第3級"},
+  {"zh": "記得", "zhuyin": "ㄐㄧˋ ˙ㄉㄜ", "en": "to remember (to)", "pos": "v", "level": "第2級"},
+  {"zh": "班", "zhuyin": "ㄅㄢ", "en": "measure word for scheduled runs (下一班 'the next one')", "pos": "m", "level": "第2級"},
+  {"zh": "月台", "zhuyin": "ㄩㄝˋ ㄊㄞˊ", "en": "platform (at a station)", "pos": "n", "measure": "個", "level": "第3*級"}
+ ],
+ "grammar": [
+  {"id": "G074", "note_en": "從屏東到高雄 marks where the trip starts and ends; the question about the trip (坐火車要多久？) follows it."},
+  {"id": "G094", "note_en": "騎機車比坐火車慢 compares two ways of getting there: A 比 B + adjective, with no 很 before the adjective."},
+  {"id": "G101", "note_en": "車站離我家不遠 says how far one place is from another: A 離 B + 遠 / 近 (negated with 不)."}
+ ],
+ "pronunciation": {"contrast": "q-ch-c", "tone_pair": "31", "note_en": "騎機車 ㄑㄧˊ ㄐㄧ ㄔㄜ puts ㄑ and ㄔ side by side: for 騎 the tongue tip is down behind the lower teeth with the lips spread; for 車 the tip is up just behind the gum ridge. Both have a strong puff of air, and so does 從 ㄘㄨㄥˊ (\"ts\" plus a puff). In 火車 and 我家 (3 + 1), keep the third tone low (21) with no rise before the high, level first tone."},
+ "shadowing": [
+  {"zh": "坐火車還是騎機車比較好？", "zhuyin": "ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄏㄞˊ ㄕˋ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄅㄧˇ ㄐㄧㄠˋ ㄏㄠˇ", "en": "Is it better to take the train or ride a scooter?"},
+  {"zh": "騎機車比坐火車慢。", "zhuyin": "ㄑㄧˊ ㄐㄧ ㄔㄜ ㄅㄧˇ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄇㄢˋ", "en": "A scooter is slower than the train."},
+  {"zh": "從屏東到高雄，坐火車要多久？", "zhuyin": "ㄘㄨㄥˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄉㄠˋ ㄍㄠ ㄒㄩㄥˊ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄧㄠˋ ㄉㄨㄛ ㄐㄧㄡˇ", "en": "How long does the train take from Pingtung to Kaohsiung?"},
+  {"zh": "車站離我家不遠。", "zhuyin": "ㄔㄜ ㄓㄢˋ ㄌㄧˊ ㄨㄛˇ ㄐㄧㄚ ㄅㄨˋ ㄩㄢˇ", "en": "The station isn't far from my place."},
+  {"zh": "我騎機車載你去。", "zhuyin": "ㄨㄛˇ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄗㄞˋ ㄋㄧˇ ㄑㄩˋ", "en": "I'll take you there on my scooter."},
+  {"zh": "墾丁沒有火車，要坐客運。", "zhuyin": "ㄎㄣˇ ㄉㄧㄥ ㄇㄟˊ ㄧㄡˇ ㄏㄨㄛˇ ㄔㄜ ㄧㄠˋ ㄗㄨㄛˋ ㄎㄜˋ ㄩㄣˋ", "en": "There's no train to Kenting; you have to take the intercity bus."},
+  {"zh": "請問，下一班去高雄的火車幾點開？", "zhuyin": "ㄑㄧㄥˇ ㄨㄣˋ ㄒㄧㄚˋ ㄧ ㄅㄢ ㄑㄩˋ ㄍㄠ ㄒㄩㄥˊ ˙ㄉㄜ ㄏㄨㄛˇ ㄔㄜ ㄐㄧˇ ㄉㄧㄢˇ ㄎㄞ", "en": "Excuse me, what time does the next train to Kaohsiung leave?"}
+ ],
+ "comprehension": [
+  {"question_en": "Why does Ajie say the train is the better choice?", "options_en": ["Train tickets are free at the weekend.", "A scooter is slower, and the roads are busy at the weekend.", "Mark doesn't know how to ride a scooter."], "answer": 1},
+  {"question_en": "About how long does the train take from Pingtung to Kaohsiung?", "options_en": ["About half an hour.", "About ten minutes.", "Two or three hours."], "answer": 0},
+  {"question_en": "How will Mark get into the station?", "options_en": ["He buys a ticket at the window first.", "Ajie buys him a ticket.", "He taps his EasyCard."], "answer": 2},
+  {"question_en": "How can Mark get to Kenting next week?", "options_en": ["By intercity bus.", "By train from Pingtung.", "Only on Ajie's scooter."], "answer": 0},
+  {"question_en": "When and where does the next train to Kaohsiung leave?", "options_en": ["At 10:50 from platform 2.", "At 10:15 from platform 2.", "At 10:15 from platform 1."], "answer": 1}
+ ],
+ "speaking": {
+  "prompt_en": "Tell a friend how you usually get to a place you often go (school, work, the market, the station): how you go, how long it takes, how far it is, and why you don't go another way.",
+  "prompt_zh": "跟朋友說說你常常怎麼去一個地方：坐什麼車、要多久、遠不遠，為什麼不用別的方法去。",
+  "checklist_en": [
+   "used 從 A 到 B for the route",
+   "used 離 to say how far it is (離 … 很近 / 不遠)",
+   "compared two ways with 比 (A 比 B 快 / 慢)",
+   "said how long it takes (要 … 分鐘 / 小時, 差不多 …)",
+   "kept the third tone low in 火車 and 我家"
+  ]
+ },
+ "writing": {
+  "prompt_en": "Write a short message (3-4 sentences) to a friend who is coming to visit: how to get from the station to your home, how long it takes, and which way is faster.",
+  "prompt_zh": "寫一個短訊息給要來找你的朋友：從車站怎麼到你家、要多久、哪一個比較快。",
+  "model_zh": "我家離車站不遠。從車站到我家，騎機車差不多十分鐘。坐公車比騎機車慢，要二十幾分鐘。到了跟我說，我去接你！",
+  "model_zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄌㄧˊ ㄔㄜ ㄓㄢˋ ㄅㄨˋ ㄩㄢˇ ㄘㄨㄥˊ ㄔㄜ ㄓㄢˋ ㄉㄠˋ ㄨㄛˇ ㄐㄧㄚ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄔㄚ ㄅㄨˋ ㄉㄨㄛ ㄕˊ ㄈㄣ ㄓㄨㄥ ㄗㄨㄛˋ ㄍㄨㄥ ㄔㄜ ㄅㄧˇ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄇㄢˋ ㄧㄠˋ ㄦˋ ㄕˊ ㄐㄧˇ ㄈㄣ ㄓㄨㄥ ㄉㄠˋ ˙ㄌㄜ ㄍㄣ ㄨㄛˇ ㄕㄨㄛ ㄨㄛˇ ㄑㄩˋ ㄐㄧㄝ ㄋㄧˇ"
+ },
+ "culture_en": "Taiwan calls a scooter 機車 (the Mainland word is 摩托車), and in Pingtung it is the everyday way to get around. By law the rider and the passenger must both wear a helmet (安全帽). At many big intersections scooters may not turn left directly: they make a two-stage left turn (兩段式左轉), going straight first, waiting in the marked box, then crossing with the next green light. When you ride Taiwan Railway trains without a reserved seat, you can tap in and out with an EasyCard (悠遊卡) or an iPASS (一卡通, the card from Kaohsiung that is common in the south) instead of buying a ticket. Kenting has no railway, so people get there by intercity bus or by road."
+}

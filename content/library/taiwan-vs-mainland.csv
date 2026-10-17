@@ -1,0 +1,35 @@
+taiwan,taiwan_zhuyin,mainland,en,category,type,example_zh,example_zhuyin,example_en
+計程車,ㄐㄧˋ ㄔㄥˊ ㄔㄜ,出租車,taxi,transport and home,word,,,
+捷運,ㄐㄧㄝˊ ㄩㄣˋ,地鐵,"metro, MRT",transport and home,word,,,
+公車,ㄍㄨㄥ ㄔㄜ,公交車,city bus,transport and home,word,,,
+機車,ㄐㄧ ㄔㄜ,摩托車,"scooter, motorbike",transport and home,word,,,
+冷氣,ㄌㄥˇ ㄑㄧˋ,空調,air conditioning,transport and home,word,,,
+便當,ㄅㄧㄢˋ ㄉㄤ,盒飯,boxed meal (bento),food,word,,,
+泡麵,ㄆㄠˋ ㄇㄧㄢˋ,方便麵,instant noodles,food,word,,,
+馬鈴薯,ㄇㄚˇ ㄌㄧㄥˊ ㄕㄨˇ,土豆,potato,food,word,,,
+番茄,ㄈㄢ ㄑㄧㄝˊ,西紅柿,tomato,food,word,,,
+高麗菜,ㄍㄠ ㄌㄧˊ ㄘㄞˋ,捲心菜,cabbage,food,word,,,
+優格,ㄧㄡ ㄍㄜˊ,酸奶,yogurt,food,word,,,
+品質,ㄆㄧㄣˇ ㄓˊ,質量,quality,general,word,,,
+資訊,ㄗ ㄒㄩㄣˋ,信息,information,general,word,,,
+軟體,ㄖㄨㄢˇ ㄊㄧˇ,軟件,software,computers and tech,word,,,
+網路,ㄨㄤˇ ㄌㄨˋ,網絡,"internet, network",computers and tech,word,,,
+程式,ㄔㄥˊ ㄕˋ,程序,(computer) program,computers and tech,word,,,
+數位,ㄕㄨˋ ㄨㄟˋ,數字,digital,computers and tech,word,,,
+滑鼠,ㄏㄨㄚˊ ㄕㄨˇ,鼠標,(computer) mouse,computers and tech,word,,,
+列印,ㄌㄧㄝˋ ㄧㄣˋ,打印,to print,computers and tech,word,,,
+印表機,ㄧㄣˋ ㄅㄧㄠˇ ㄐㄧ,打印機,printer,computers and tech,word,,,
+隨身碟,ㄙㄨㄟˊ ㄕㄣ ㄉㄧㄝˊ,U盤,USB flash drive,computers and tech,word,,,
+簡訊,ㄐㄧㄢˇ ㄒㄩㄣˋ,短信,text message (SMS),computers and tech,word,,,
+部落格,ㄅㄨˋ ㄌㄨㄛˋ ㄍㄜˊ,博客,blog,computers and tech,word,,,
+原子筆,ㄩㄢˊ ㄗˇ ㄅㄧˇ,圓珠筆,ballpoint pen,stationery,word,,,
+立可白,ㄌㄧˋ ㄎㄜˇ ㄅㄞˊ,修正液,correction fluid,stationery,word,,,
+有＋動詞,,動詞＋了／過,"有 before a verb says that the action did happen (and 沒有 + verb that it didn't). Taiwan speech uses it a lot, especially in questions; Mainland speech usually uses 了 or 過 instead.",grammar,grammar,你有看醫生嗎？,ㄋㄧˇ ㄧㄡˇ ㄎㄢˋ ㄧ ㄕㄥ ˙ㄇㄚ,Did you see a doctor?
+會＋動詞,,,"會 before a verb for what will happen or is likely to happen (""will""). Very frequent in Taiwan speech, in statements and in questions.",grammar,grammar,他會來嗎？,ㄊㄚ ㄏㄨㄟˋ ㄌㄞˊ ˙ㄇㄚ,Will he come?
+會＋形容詞？,,形容詞＋不＋形容詞？,"In questions about how you feel, Taiwan speech puts 會 before the adjective: 你會不會熱？ ""Are you hot?"" Mainland speech usually asks 你熱不熱？",grammar,grammar,你會不會熱？,ㄋㄧˇ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄖㄜˋ,Are you hot?
+幫忙＋人,,幫＋人／幫＋人＋的忙,"Taiwan speech puts the person straight after 幫忙 (我幫忙他). Textbook Mandarin treats 幫忙 as verb + object and says 我幫他 or 我幫他的忙.",grammar,grammar,我幫忙他搬家。,ㄨㄛˇ ㄅㄤ ㄇㄤˊ ㄊㄚ ㄅㄢ ㄐㄧㄚ,I helped him move house.
+啦,˙ㄌㄚ,,"Sentence-final particle that makes a statement casual: reassuring, settling or a little impatient.",particles,grammar,好啦，我知道啦。,ㄏㄠˇ ˙ㄌㄚ ㄨㄛˇ ㄓ ㄉㄠˋ ˙ㄌㄚ,"OK, OK, I know."
+齁,ㄏㄡ,,"Spoken particle that asks for agreement, like ""…, right?"" or ""isn't it?"" (Zhuyin as the MOE dictionary lists it).",particles,grammar,今天很熱齁？,ㄐㄧㄣ ㄊㄧㄢ ㄏㄣˇ ㄖㄜˋ ㄏㄡ,"It's really hot today, isn't it?"
+喔,ㄛ,,"Sentence-final particle for a friendly reminder or warning, or to show you've understood: ""mind you"", ""OK?"", ""oh, I see"".",particles,grammar,騎車小心喔！,ㄑㄧˊ ㄔㄜ ㄒㄧㄠˇ ㄒㄧㄣ ㄛ,"Ride carefully, OK?"
+欸,ㄟˋ,,"At the start of a sentence: gets someone's attention (""hey"") or shows you've just noticed something.",particles,grammar,欸，你的手機掉了。,ㄟˋ ㄋㄧˇ ˙ㄉㄜ ㄕㄡˇ ㄐㄧ ㄉㄧㄠˋ ˙ㄌㄜ,"Hey, you dropped your phone."
+不錯吃,ㄅㄨˋ ㄘㄨㄛˋ ㄔ,好吃／挺好吃,"""Pretty tasty"": Taiwan speech puts 不錯 ""not bad"" straight before 吃, the way 好吃 is built from 好.",grammar,grammar,這家的牛肉麵不錯吃。,ㄓㄜˋ ㄐㄧㄚ ˙ㄉㄜ ㄋㄧㄡˊ ㄖㄡˋ ㄇㄧㄢˋ ㄅㄨˋ ㄘㄨㄛˋ ㄔ,The beef noodles at this place are pretty tasty.

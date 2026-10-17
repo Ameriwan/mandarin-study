@@ -1,0 +1,76 @@
+{
+ "id": "L1-07", "level": "第1*級", "order": 7,
+ "topic": "問路", "title_zh": "請問，怎麼走？", "title_en": "Asking directions",
+ "can_do_en": "I can ask where a street or place is, follow simple directions (straight on, turn at the second corner, on the left or right) and repeat them back.",
+ "dialogue": [
+  {"speaker": "大衛", "zh": "阿姨，不好意思，請問中正路在哪裡？", "zhuyin": "ㄚ ㄧˊ ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄑㄧㄥˇ ㄨㄣˋ ㄓㄨㄥ ㄓㄥˋ ㄌㄨˋ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ", "en": "Excuse me, ma'am, could you tell me where Zhongzheng Road is?"},
+  {"speaker": "阿姨", "zh": "中正路喔？你要去中正路哪裡？", "zhuyin": "ㄓㄨㄥ ㄓㄥˋ ㄌㄨˋ ㄛ ㄋㄧˇ ㄧㄠˋ ㄑㄩˋ ㄓㄨㄥ ㄓㄥˋ ㄌㄨˋ ㄋㄚˇ ㄌㄧˇ", "en": "Zhongzheng Road? Where on Zhongzheng Road are you going?"},
+  {"speaker": "大衛", "zh": "我要去我朋友家，在中正路三十八號。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄑㄩˋ ㄨㄛˇ ㄆㄥˊ ㄧㄡˇ ㄐㄧㄚ ㄗㄞˋ ㄓㄨㄥ ㄓㄥˋ ㄌㄨˋ ㄙㄢ ㄕˊ ㄅㄚ ㄏㄠˋ", "en": "I'm going to my friend's place, at 38 Zhongzheng Road."},
+  {"speaker": "阿姨", "zh": "喔，那裡不遠，走路五分鐘。", "zhuyin": "ㄛ ㄋㄚˋ ㄌㄧˇ ㄅㄨˋ ㄩㄢˇ ㄗㄡˇ ㄌㄨˋ ㄨˇ ㄈㄣ ㄓㄨㄥ", "en": "Oh, that's not far. Five minutes on foot."},
+  {"speaker": "大衛", "zh": "太好了！要怎麼走？", "zhuyin": "ㄊㄞˋ ㄏㄠˇ ˙ㄌㄜ ㄧㄠˋ ㄗㄣˇ ˙ㄇㄜ ㄗㄡˇ", "en": "Great! How do I get there?"},
+  {"speaker": "阿姨", "zh": "你從這裡一直往前走，到第二個路口右轉，就是中正路。", "zhuyin": "ㄋㄧˇ ㄘㄨㄥˊ ㄓㄜˋ ㄌㄧˇ ㄧ ㄓˊ ㄨㄤˇ ㄑㄧㄢˊ ㄗㄡˇ ㄉㄠˋ ㄉㄧˋ ㄦˋ ㄍㄜˋ ㄌㄨˋ ㄎㄡˇ ㄧㄡˋ ㄓㄨㄢˇ ㄐㄧㄡˋ ㄕˋ ㄓㄨㄥ ㄓㄥˋ ㄌㄨˋ", "en": "From here go straight ahead, and at the second intersection turn right: that's Zhongzheng Road."},
+  {"speaker": "大衛", "zh": "第二個路口右轉，然後呢？", "zhuyin": "ㄉㄧˋ ㄦˋ ㄍㄜˋ ㄌㄨˋ ㄎㄡˇ ㄧㄡˋ ㄓㄨㄢˇ ㄖㄢˊ ㄏㄡˋ ˙ㄋㄜ", "en": "Turn right at the second intersection, and then?"},
+  {"speaker": "阿姨", "zh": "右轉以後，你會看到一家郵局。三十八號就在郵局旁邊。", "zhuyin": "ㄧㄡˋ ㄓㄨㄢˇ ㄧˇ ㄏㄡˋ ㄋㄧˇ ㄏㄨㄟˋ ㄎㄢˋ ㄉㄠˋ ㄧ ㄐㄧㄚ ㄧㄡˊ ㄐㄩˊ ㄙㄢ ㄕˊ ㄅㄚ ㄏㄠˋ ㄐㄧㄡˋ ㄗㄞˋ ㄧㄡˊ ㄐㄩˊ ㄆㄤˊ ㄅㄧㄢ", "en": "After you turn right, you'll see a post office. Number 38 is right next to the post office."},
+  {"speaker": "大衛", "zh": "在郵局左邊還是右邊？", "zhuyin": "ㄗㄞˋ ㄧㄡˊ ㄐㄩˊ ㄗㄨㄛˇ ㄅㄧㄢ ㄏㄞˊ ㄕˋ ㄧㄡˋ ㄅㄧㄢ", "en": "On the left of the post office, or the right?"},
+  {"speaker": "阿姨", "zh": "在右邊。看到郵局就到了。", "zhuyin": "ㄗㄞˋ ㄧㄡˋ ㄅㄧㄢ ㄎㄢˋ ㄉㄠˋ ㄧㄡˊ ㄐㄩˊ ㄐㄧㄡˋ ㄉㄠˋ ˙ㄌㄜ", "en": "On the right. Once you see the post office, you're there."},
+  {"speaker": "大衛", "zh": "好，我知道了。謝謝阿姨！", "zhuyin": "ㄏㄠˇ ㄨㄛˇ ㄓ ㄉㄠˋ ˙ㄌㄜ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄚ ㄧˊ", "en": "OK, got it. Thank you!"},
+  {"speaker": "阿姨", "zh": "不會啦！", "zhuyin": "ㄅㄨˋ ㄏㄨㄟˋ ˙ㄌㄚ", "en": "Not at all!"}
+ ],
+ "vocab": [
+  {"zh": "請問", "zhuyin": "ㄑㄧㄥˇ ㄨㄣˋ", "en": "excuse me, may I ask", "pos": "phrase", "level": "第1級"},
+  {"zh": "不好意思", "zhuyin": "ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ", "en": "excuse me; sorry (to bother you)", "pos": "phrase", "level": "第2*級"},
+  {"zh": "阿姨", "zhuyin": "ㄚ ㄧˊ", "en": "auntie (polite address for a woman of your parents' age)", "pos": "n", "measure": "位", "level": "第2*級"},
+  {"zh": "哪裡", "zhuyin": "ㄋㄚˇ ㄌㄧˇ", "en": "where", "pos": "pron", "level": "第1級"},
+  {"zh": "路", "zhuyin": "ㄌㄨˋ", "en": "road, street; way", "pos": "n", "measure": "條", "level": "第1級"},
+  {"zh": "走路", "zhuyin": "ㄗㄡˇ ㄌㄨˋ", "en": "to walk; on foot", "pos": "v", "level": "第1*級"},
+  {"zh": "從", "zhuyin": "ㄘㄨㄥˊ", "en": "from", "pos": "prep", "level": "第1*級"},
+  {"zh": "一直", "zhuyin": "ㄧ ㄓˊ", "en": "straight (on); all the way", "pos": "adv", "level": "第2級"},
+  {"zh": "往", "zhuyin": "ㄨㄤˇ", "en": "toward, in the direction of", "pos": "prep", "level": "第2級"},
+  {"zh": "路口", "zhuyin": "ㄌㄨˋ ㄎㄡˇ", "en": "intersection, corner", "pos": "n", "measure": "個", "level": "第2*級"},
+  {"zh": "轉", "zhuyin": "ㄓㄨㄢˇ", "en": "to turn (左轉 turn left, 右轉 turn right)", "pos": "v", "level": "第2級"},
+  {"zh": "右邊", "zhuyin": "ㄧㄡˋ ㄅㄧㄢ", "en": "right side, on the right", "pos": "n", "level": "第1*級"},
+  {"zh": "左", "zhuyin": "ㄗㄨㄛˇ", "en": "left (左邊 left side)", "pos": "n", "level": "第1*級"},
+  {"zh": "然後", "zhuyin": "ㄖㄢˊ ㄏㄡˋ", "en": "and then, after that", "pos": "conj", "level": "第1*級"},
+  {"zh": "以後", "zhuyin": "ㄧˇ ㄏㄡˋ", "en": "after (doing something); later", "pos": "n", "level": "第1*級"},
+  {"zh": "看到", "zhuyin": "ㄎㄢˋ ㄉㄠˋ", "en": "to see, to catch sight of", "pos": "v", "level": "第1*級"},
+  {"zh": "郵局", "zhuyin": "ㄧㄡˊ ㄐㄩˊ", "en": "post office", "pos": "n", "measure": "家", "level": "第2*級"},
+  {"zh": "旁邊", "zhuyin": "ㄆㄤˊ ㄅㄧㄢ", "en": "beside, next to", "pos": "n", "level": "第1*級"},
+  {"zh": "還是", "zhuyin": "ㄏㄞˊ ㄕˋ", "en": "or (in a question)", "pos": "conj", "level": "第1*級"},
+  {"zh": "遠", "zhuyin": "ㄩㄢˇ", "en": "far", "pos": "adj", "level": "第2級"}
+ ],
+ "grammar": [
+  {"id": "G014", "note_en": "大衛 asks 中正路在哪裡？ and 阿姨 asks back 你要去中正路哪裡？: 哪裡 sits where the place will be in the answer, and neither question takes 嗎."},
+  {"id": "G008", "note_en": "Every location answer is 在 + place with no 是: 三十八號就在郵局旁邊, 在郵局左邊還是右邊？, 在右邊."},
+  {"id": "G009", "note_en": "大衛 gives the address big to small, road first and the number with 號 last: 在中正路三十八號."}
+ ],
+ "pronunciation": {"contrast": "j-zh-z", "tone_pair": "34", "note_en": "Directions are full of ㄐ / ㄓ / ㄗ: 就 ㄐㄧㄡˋ and 家 ㄐㄧㄚ (tongue flat, lips spread), 中正路 ㄓㄨㄥ ㄓㄥˋ and 這裡 ㄓㄜˋ (tongue tip curled back), 走 ㄗㄡˇ, 在 ㄗㄞˋ and 左 ㄗㄨㄛˇ (tongue tip behind the teeth). Many Taiwan speakers say ㄓ close to ㄗ, so 中正 may sound like zong-zeng; understand it, but say ㄓ yourself. Tone pair 3+4 in 走路, 請問, 我要, 你會: keep the third tone low (21) with no rise, then drop from high for the fourth."},
+ "shadowing": [
+  {"zh": "不好意思，請問中正路在哪裡？", "zhuyin": "ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄑㄧㄥˇ ㄨㄣˋ ㄓㄨㄥ ㄓㄥˋ ㄌㄨˋ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ", "en": "Excuse me, where is Zhongzheng Road?"},
+  {"zh": "我要去我朋友家，在中正路三十八號。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄑㄩˋ ㄨㄛˇ ㄆㄥˊ ㄧㄡˇ ㄐㄧㄚ ㄗㄞˋ ㄓㄨㄥ ㄓㄥˋ ㄌㄨˋ ㄙㄢ ㄕˊ ㄅㄚ ㄏㄠˋ", "en": "I'm going to my friend's place, at 38 Zhongzheng Road."},
+  {"zh": "那裡不遠，走路五分鐘。", "zhuyin": "ㄋㄚˋ ㄌㄧˇ ㄅㄨˋ ㄩㄢˇ ㄗㄡˇ ㄌㄨˋ ㄨˇ ㄈㄣ ㄓㄨㄥ", "en": "That's not far, five minutes on foot."},
+  {"zh": "要怎麼走？", "zhuyin": "ㄧㄠˋ ㄗㄣˇ ˙ㄇㄜ ㄗㄡˇ", "en": "How do I get there?"},
+  {"zh": "你從這裡一直往前走，到第二個路口右轉。", "zhuyin": "ㄋㄧˇ ㄘㄨㄥˊ ㄓㄜˋ ㄌㄧˇ ㄧ ㄓˊ ㄨㄤˇ ㄑㄧㄢˊ ㄗㄡˇ ㄉㄠˋ ㄉㄧˋ ㄦˋ ㄍㄜˋ ㄌㄨˋ ㄎㄡˇ ㄧㄡˋ ㄓㄨㄢˇ", "en": "From here go straight ahead, and turn right at the second intersection."},
+  {"zh": "三十八號就在郵局旁邊。", "zhuyin": "ㄙㄢ ㄕˊ ㄅㄚ ㄏㄠˋ ㄐㄧㄡˋ ㄗㄞˋ ㄧㄡˊ ㄐㄩˊ ㄆㄤˊ ㄅㄧㄢ", "en": "Number 38 is right next to the post office."},
+  {"zh": "在郵局左邊還是右邊？", "zhuyin": "ㄗㄞˋ ㄧㄡˊ ㄐㄩˊ ㄗㄨㄛˇ ㄅㄧㄢ ㄏㄞˊ ㄕˋ ㄧㄡˋ ㄅㄧㄢ", "en": "On the left of the post office, or the right?"},
+  {"zh": "看到郵局就到了。", "zhuyin": "ㄎㄢˋ ㄉㄠˋ ㄧㄡˊ ㄐㄩˊ ㄐㄧㄡˋ ㄉㄠˋ ˙ㄌㄜ", "en": "Once you see the post office, you're there."}
+ ],
+ "comprehension": [
+  {"question_en": "Where is 大衛 going?", "options_en": ["To the post office", "To his friend's place at 38 Zhongzheng Road", "To the train station"], "answer": 1},
+  {"question_en": "How long does it take on foot?", "options_en": ["About five minutes", "About fifteen minutes", "It is too far to walk"], "answer": 0},
+  {"question_en": "Where should he turn, and which way?", "options_en": ["Left at the first intersection", "Right at the post office", "Right at the second intersection"], "answer": 2},
+  {"question_en": "Where is number 38?", "options_en": ["On the left of the post office", "On the right of the post office", "Across from the post office"], "answer": 1},
+  {"question_en": "What does 阿姨 mean by 不會啦 at the end?", "options_en": ["I can't help you", "It won't take long", "Not at all (you're welcome)"], "answer": 2}
+ ],
+ "speaking": {
+  "prompt_en": "You are at the train station and want to go to the post office. Stop a local, ask where it is and whether it is far, ask how to get there, repeat the directions back, and thank them.",
+  "prompt_zh": "你在火車站，想去郵局。請你問路：郵局在哪裡？遠不遠？怎麼走？再說一次怎麼走，最後說謝謝。",
+  "checklist_en": ["opened politely with 不好意思，請問…", "asked …在哪裡？ with no 嗎", "asked 要怎麼走？", "repeated one direction back (一直往前走 / 第…個路口右轉 or 左轉)", "used 在 + place for a location (在郵局旁邊, 在右邊)", "kept 走路 and 請問 low then falling (3+4)"]
+ },
+ "writing": {
+  "prompt_en": "Tell a friend how to walk from your home to a place nearby (a convenience store, the post office or a park). Write two or three sentences.",
+  "prompt_zh": "從你家到附近的一個地方（便利商店、郵局、公園）要怎麼走？寫兩、三句。",
+  "model_zh": "從我家一直往前走，到第一個路口左轉。便利商店在公園旁邊，走路三分鐘。",
+  "model_zhuyin": "ㄘㄨㄥˊ ㄨㄛˇ ㄐㄧㄚ ㄧ ㄓˊ ㄨㄤˇ ㄑㄧㄢˊ ㄗㄡˇ ㄉㄠˋ ㄉㄧˋ ㄧ ˙ㄍㄜ ㄌㄨˋ ㄎㄡˇ ㄗㄨㄛˇ ㄓㄨㄢˇ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄗㄞˋ ㄍㄨㄥ ㄩㄢˊ ㄆㄤˊ ㄅㄧㄢ ㄗㄡˇ ㄌㄨˋ ㄙㄢ ㄈㄣ ㄓㄨㄥ"
+ },
+ "culture_en": "In Taiwan, 不會 or 不會啦 ('not at all') is a very common reply to 謝謝, used alongside 不客氣. 阿姨 'auntie' is a friendly, polite way to address a woman about your parents' age, even a stranger. Most towns in Taiwan have a 中正路 and a 中山路, named after Chiang Kai-shek (蔣中正) and Sun Yat-sen (孫中山), so when you give an address, say which town it is in."
+}

@@ -1,0 +1,1199 @@
+{
+ "band": "L3",
+ "tbcl_levels": [
+  "第3級",
+  "第3*級"
+ ],
+ "note": "Original graded texts for the Advanced reading ladder. Zhuyin stores base tones (MASTER_PROMPT §9.2).",
+ "texts": [
+  {
+   "id": "R3-01",
+   "level": "第3級",
+   "vocab_max": "第3*級",
+   "chars": 225,
+   "topic_en": "Rubbish collection",
+   "title": {
+    "zh": "垃圾車來了",
+    "zhuyin": "ㄌㄜˋ ㄙㄜˋ ㄔㄜ ㄌㄞˊ ˙ㄌㄜ",
+    "en": "Here Comes the Rubbish Truck"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "我剛來臺灣的時候，不知道垃圾要怎麼丟。",
+      "zhuyin": "ㄨㄛˇ ㄍㄤ ㄌㄞˊ ㄊㄞˊ ㄨㄢ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄅㄨˋ ㄓ ㄉㄠˋ ㄌㄜˋ ㄙㄜˋ ㄧㄠˋ ㄗㄣˇ ˙ㄇㄜ ㄉㄧㄡ",
+      "en": "When I first came to Taiwan, I didn't know how to throw away rubbish.",
+      "words": [
+       "我",
+       "剛",
+       "來",
+       "臺灣",
+       "的",
+       "時候",
+       "不知道",
+       "垃圾",
+       "要",
+       "怎麼",
+       "丟"
+      ]
+     },
+     {
+      "zh": "鄰居告訴我：「你要在家等垃圾車。」",
+      "zhuyin": "ㄌㄧㄣˊ ㄐㄩ ㄍㄠˋ ㄙㄨˋ ㄨㄛˇ ㄋㄧˇ ㄧㄠˋ ㄗㄞˋ ㄐㄧㄚ ㄉㄥˇ ㄌㄜˋ ㄙㄜˋ ㄔㄜ",
+      "en": "My neighbour told me, \"You have to wait at home for the rubbish truck.\"",
+      "words": [
+       "鄰居",
+       "告訴",
+       "我",
+       "你",
+       "要",
+       "在家",
+       "等",
+       "垃圾車"
+      ]
+     },
+     {
+      "zh": "原來在這裡，大家要自己把垃圾拿給垃圾車。",
+      "zhuyin": "ㄩㄢˊ ㄌㄞˊ ㄗㄞˋ ㄓㄜˋ ㄌㄧˇ ㄉㄚˋ ㄐㄧㄚ ㄧㄠˋ ㄗˋ ㄐㄧˇ ㄅㄚˇ ㄌㄜˋ ㄙㄜˋ ㄋㄚˊ ㄍㄟˇ ㄌㄜˋ ㄙㄜˋ ㄔㄜ",
+      "en": "It turns out that here, everyone takes their own rubbish to the truck.",
+      "words": [
+       "原來",
+       "在",
+       "這裡",
+       "大家",
+       "要",
+       "自己",
+       "把",
+       "垃圾",
+       "拿",
+       "給",
+       "垃圾車"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "垃圾車晚上來，來的時候會放音樂，所以很遠就能聽到。",
+      "zhuyin": "ㄌㄜˋ ㄙㄜˋ ㄔㄜ ㄨㄢˇ ㄕㄤˋ ㄌㄞˊ ㄌㄞˊ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄏㄨㄟˋ ㄈㄤˋ ㄧㄣ ㄩㄝˋ ㄙㄨㄛˇ ㄧˇ ㄏㄣˇ ㄩㄢˇ ㄐㄧㄡˋ ㄋㄥˊ ㄊㄧㄥ ㄉㄠˋ",
+      "en": "The rubbish truck comes in the evening, playing music as it comes, so you can hear it from far away.",
+      "words": [
+       "垃圾車",
+       "晚上",
+       "來",
+       "來",
+       "的",
+       "時候",
+       "會",
+       "放",
+       "音樂",
+       "所以",
+       "很",
+       "遠",
+       "就",
+       "能",
+       "聽到"
+      ]
+     },
+     {
+      "zh": "每個地方的時間不一樣，我家這裡是晚上七點半。",
+      "zhuyin": "ㄇㄟˇ ㄍㄜˋ ㄉㄧˋ ㄈㄤ ˙ㄉㄜ ㄕˊ ㄐㄧㄢ ㄅㄨˋ ㄧ ㄧㄤˋ ㄨㄛˇ ㄐㄧㄚ ㄓㄜˋ ㄌㄧˇ ㄕˋ ㄨㄢˇ ㄕㄤˋ ㄑㄧ ㄉㄧㄢˇ ㄅㄢˋ",
+      "en": "The time is different in each area; where I live it's half past seven in the evening.",
+      "words": [
+       "每",
+       "個",
+       "地方",
+       "的",
+       "時間",
+       "不一樣",
+       "我",
+       "家",
+       "這裡",
+       "是",
+       "晚上",
+       "七",
+       "點",
+       "半"
+      ]
+     },
+     {
+      "zh": "我第一次聽到的時候，還以為是賣冰淇淋的車！",
+      "zhuyin": "ㄨㄛˇ ㄉㄧˋ ㄧ ㄘˋ ㄊㄧㄥ ㄉㄠˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄏㄞˊ ㄧˇ ㄨㄟˊ ㄕˋ ㄇㄞˋ ㄅㄧㄥ ㄑㄧˊ ㄌㄧㄣˊ ˙ㄉㄜ ㄔㄜ",
+      "en": "The first time I heard it, I thought it was an ice cream van!",
+      "words": [
+       "我",
+       "第一",
+       "次",
+       "聽到",
+       "的",
+       "時候",
+       "還",
+       "以為",
+       "是",
+       "賣",
+       "冰淇淋",
+       "的",
+       "車"
+      ]
+     },
+     {
+      "zh": "聽到音樂以後，鄰居們就拿著垃圾從家裡走出來。",
+      "zhuyin": "ㄊㄧㄥ ㄉㄠˋ ㄧㄣ ㄩㄝˋ ㄧˇ ㄏㄡˋ ㄌㄧㄣˊ ㄐㄩ ˙ㄇㄣ ㄐㄧㄡˋ ㄋㄚˊ ˙ㄓㄜ ㄌㄜˋ ㄙㄜˋ ㄘㄨㄥˊ ㄐㄧㄚ ˙ㄌㄧ ㄗㄡˇ ㄔㄨ ㄌㄞˊ",
+      "en": "When they hear the music, the neighbours come out of their homes carrying their rubbish.",
+      "words": [
+       "聽到",
+       "音樂",
+       "以後",
+       "鄰居",
+       "們",
+       "就",
+       "拿",
+       "著",
+       "垃圾",
+       "從",
+       "家裡",
+       "走",
+       "出來"
+      ]
+     },
+     {
+      "zh": "大家在路口等車的時候，常常聊聊天。",
+      "zhuyin": "ㄉㄚˋ ㄐㄧㄚ ㄗㄞˋ ㄌㄨˋ ㄎㄡˇ ㄉㄥˇ ㄔㄜ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄔㄤˊ ㄔㄤˊ ㄌㄧㄠˊ ㄌㄧㄠˊ ㄊㄧㄢ",
+      "en": "While everyone waits at the corner for the truck, they often have a chat.",
+      "words": [
+       "大家",
+       "在",
+       "路口",
+       "等",
+       "車",
+       "的",
+       "時候",
+       "常常",
+       "聊",
+       "聊天"
+      ]
+     },
+     {
+      "zh": "住在我旁邊的陳太太每次看到我都問：「吃飽了沒？」",
+      "zhuyin": "ㄓㄨˋ ㄗㄞˋ ㄨㄛˇ ㄆㄤˊ ㄅㄧㄢ ˙ㄉㄜ ㄔㄣˊ ㄊㄞˋ ˙ㄊㄞ ㄇㄟˇ ㄘˋ ㄎㄢˋ ㄉㄠˋ ㄨㄛˇ ㄉㄡ ㄨㄣˋ ㄔ ㄅㄠˇ ˙ㄌㄜ ㄇㄟˊ",
+      "en": "Mrs Chen, who lives next door, asks me every time she sees me, \"Have you eaten yet?\"",
+      "words": [
+       "住",
+       "在",
+       "我",
+       "旁邊",
+       "的",
+       "陳",
+       "太太",
+       "每",
+       "次",
+       "看到",
+       "我",
+       "都",
+       "問",
+       "吃",
+       "飽",
+       "了",
+       "沒"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "垃圾車走了以後，還有一輛車來收紙、瓶子和罐子。",
+      "zhuyin": "ㄌㄜˋ ㄙㄜˋ ㄔㄜ ㄗㄡˇ ˙ㄌㄜ ㄧˇ ㄏㄡˋ ㄏㄞˊ ㄧㄡˇ ㄧ ㄌㄧㄤˋ ㄔㄜ ㄌㄞˊ ㄕㄡ ㄓˇ ㄆㄧㄥˊ ˙ㄗ ㄏㄜˊ ㄍㄨㄢˋ ˙ㄗ",
+      "en": "After the rubbish truck leaves, another truck comes to collect paper, bottles and cans.",
+      "words": [
+       "垃圾車",
+       "走",
+       "了",
+       "以後",
+       "還有",
+       "一",
+       "輛",
+       "車",
+       "來",
+       "收",
+       "紙",
+       "瓶子",
+       "和",
+       "罐子"
+      ]
+     },
+     {
+      "zh": "如果去晚了，垃圾車已經走了，就只好等明天。",
+      "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄑㄩˋ ㄨㄢˇ ˙ㄌㄜ ㄌㄜˋ ㄙㄜˋ ㄔㄜ ㄧˇ ㄐㄧㄥ ㄗㄡˇ ˙ㄌㄜ ㄐㄧㄡˋ ㄓˇ ㄏㄠˇ ㄉㄥˇ ㄇㄧㄥˊ ㄊㄧㄢ",
+      "en": "If you are late and the truck has already gone, you just have to wait until tomorrow.",
+      "words": [
+       "如果",
+       "去",
+       "晚",
+       "了",
+       "垃圾車",
+       "已經",
+       "走",
+       "了",
+       "就",
+       "只好",
+       "等",
+       "明天"
+      ]
+     },
+     {
+      "zh": "我覺得這個方法很好，路上很乾淨，我也認識了很多鄰居。",
+      "zhuyin": "ㄨㄛˇ ㄐㄩㄝˊ ˙ㄉㄜ ㄓㄜˋ ˙ㄍㄜ ㄈㄤ ㄈㄚˇ ㄏㄣˇ ㄏㄠˇ ㄌㄨˋ ㄕㄤˋ ㄏㄣˇ ㄍㄢ ㄐㄧㄥˋ ㄨㄛˇ ㄧㄝˇ ㄖㄣˋ ˙ㄕ ˙ㄌㄜ ㄏㄣˇ ㄉㄨㄛ ㄌㄧㄣˊ ㄐㄩ",
+      "en": "I think this is a good system: the streets are clean, and I have got to know lots of neighbours.",
+      "words": [
+       "我",
+       "覺得",
+       "這個",
+       "方法",
+       "很",
+       "好",
+       "路上",
+       "很",
+       "乾淨",
+       "我",
+       "也",
+       "認識",
+       "了",
+       "很",
+       "多",
+       "鄰居"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "What did the writer think the rubbish truck was at first?",
+     "options_en": [
+      "A bus",
+      "An ice cream van",
+      "A fire engine"
+     ],
+     "answer": 1
+    },
+    {
+     "question_en": "What does Mrs Chen ask every time she sees the writer?",
+     "options_en": [
+      "Where are you from?",
+      "Are you busy today?",
+      "Have you eaten yet?"
+     ],
+     "answer": 2
+    },
+    {
+     "question_en": "What happens if you are too late for the truck?",
+     "options_en": [
+      "You have to wait until the next day",
+      "You can leave the rubbish on the street",
+      "A neighbour takes it for you"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "id": "R3-02",
+   "level": "第3級",
+   "vocab_max": "第3*級",
+   "chars": 234,
+   "topic_en": "Typhoon",
+   "title": {
+    "zh": "颱風天",
+    "zhuyin": "ㄊㄞˊ ㄈㄥ ㄊㄧㄢ",
+    "en": "Typhoon Days"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "去年七月，新聞說有一個很大的颱風要來了。",
+      "zhuyin": "ㄑㄩˋ ㄋㄧㄢˊ ㄑㄧ ㄩㄝˋ ㄒㄧㄣ ㄨㄣˊ ㄕㄨㄛ ㄧㄡˇ ㄧ ˙ㄍㄜ ㄏㄣˇ ㄉㄚˋ ˙ㄉㄜ ㄊㄞˊ ㄈㄥ ㄧㄠˋ ㄌㄞˊ ˙ㄌㄜ",
+      "en": "Last July the news said a big typhoon was coming.",
+      "words": [
+       "去年",
+       "七",
+       "月",
+       "新聞",
+       "說",
+       "有",
+       "一個",
+       "很",
+       "大",
+       "的",
+       "颱風",
+       "要",
+       "來",
+       "了"
+      ]
+     },
+     {
+      "zh": "那是我在臺灣的第一個颱風，我很緊張。",
+      "zhuyin": "ㄋㄚˋ ㄕˋ ㄨㄛˇ ㄗㄞˋ ㄊㄞˊ ㄨㄢ ˙ㄉㄜ ㄉㄧˋ ㄧ ˙ㄍㄜ ㄊㄞˊ ㄈㄥ ㄨㄛˇ ㄏㄣˇ ㄐㄧㄣˇ ㄓㄤ",
+      "en": "It was my first typhoon in Taiwan, and I was nervous.",
+      "words": [
+       "那",
+       "是",
+       "我",
+       "在",
+       "臺灣",
+       "的",
+       "第一個",
+       "颱風",
+       "我",
+       "很",
+       "緊張"
+      ]
+     },
+     {
+      "zh": "我去問鄰居陳先生應該準備什麼。",
+      "zhuyin": "ㄨㄛˇ ㄑㄩˋ ㄨㄣˋ ㄌㄧㄣˊ ㄐㄩ ㄔㄣˊ ㄒㄧㄢ ㄕㄥ ㄧㄥ ㄍㄞ ㄓㄨㄣˇ ㄅㄟˋ ㄕㄣˊ ˙ㄇㄜ",
+      "en": "I went to ask my neighbour Mr Chen what I should get ready.",
+      "words": [
+       "我",
+       "去",
+       "問",
+       "鄰居",
+       "陳",
+       "先生",
+       "應該",
+       "準備",
+       "什麼"
+      ]
+     },
+     {
+      "zh": "他說：「別擔心，先去超市買泡麵、麵包和水。」",
+      "zhuyin": "ㄊㄚ ㄕㄨㄛ ㄅㄧㄝˊ ㄉㄢ ㄒㄧㄣ ㄒㄧㄢ ㄑㄩˋ ㄔㄠ ㄕˋ ㄇㄞˇ ㄆㄠˋ ㄇㄧㄢˋ ㄇㄧㄢˋ ㄅㄠ ㄏㄜˊ ㄕㄨㄟˇ",
+      "en": "He said, \"Don't worry. First go to the supermarket and buy instant noodles, bread and water.\"",
+      "words": [
+       "他說",
+       "別",
+       "擔心",
+       "先",
+       "去",
+       "超市",
+       "買",
+       "泡麵",
+       "麵包",
+       "和",
+       "水"
+      ]
+     },
+     {
+      "zh": "超市裡的人很多，大家都在買一樣的東西。",
+      "zhuyin": "ㄔㄠ ㄕˋ ㄌㄧˇ ˙ㄉㄜ ㄖㄣˊ ㄏㄣˇ ㄉㄨㄛ ㄉㄚˋ ㄐㄧㄚ ㄉㄡ ㄗㄞˋ ㄇㄞˇ ㄧ ㄧㄤˋ ˙ㄉㄜ ㄉㄨㄥ ˙ㄒㄧ",
+      "en": "The supermarket was crowded, and everyone was buying the same things.",
+      "words": [
+       "超市",
+       "裡",
+       "的",
+       "人",
+       "很",
+       "多",
+       "大家",
+       "都",
+       "在",
+       "買",
+       "一樣",
+       "的",
+       "東西"
+      ]
+     },
+     {
+      "zh": "他還告訴我，要把窗戶關好，把外頭的東西都拿進屋子裡。",
+      "zhuyin": "ㄊㄚ ㄏㄞˊ ㄍㄠˋ ㄙㄨˋ ㄨㄛˇ ㄧㄠˋ ㄅㄚˇ ㄔㄨㄤ ㄏㄨˋ ㄍㄨㄢ ㄏㄠˇ ㄅㄚˇ ㄨㄞˋ ˙ㄊㄡ ˙ㄉㄜ ㄉㄨㄥ ˙ㄒㄧ ㄉㄡ ㄋㄚˊ ㄐㄧㄣˋ ㄨ ˙ㄗ ㄌㄧˇ",
+      "en": "He also told me to shut the windows properly and bring everything that was outside into the house.",
+      "words": [
+       "他",
+       "還",
+       "告訴",
+       "我",
+       "要",
+       "把",
+       "窗戶",
+       "關",
+       "好",
+       "把",
+       "外頭",
+       "的",
+       "東西",
+       "都",
+       "拿",
+       "進",
+       "屋子",
+       "裡"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "第二天，風雨越來越大。",
+      "zhuyin": "ㄉㄧˋ ㄦˋ ㄊㄧㄢ ㄈㄥ ㄩˇ ㄩㄝˋ ㄌㄞˊ ㄩㄝˋ ㄉㄚˋ",
+      "en": "The next day the wind and rain grew stronger and stronger.",
+      "words": [
+       "第",
+       "二",
+       "天",
+       "風雨",
+       "越",
+       "來",
+       "越",
+       "大"
+      ]
+     },
+     {
+      "zh": "學校和公司都放假了，這就是大家說的「颱風假」。",
+      "zhuyin": "ㄒㄩㄝˊ ㄒㄧㄠˋ ㄏㄜˊ ㄍㄨㄥ ㄙ ㄉㄡ ㄈㄤˋ ㄐㄧㄚˋ ˙ㄌㄜ ㄓㄜˋ ㄐㄧㄡˋ ㄕˋ ㄉㄚˋ ㄐㄧㄚ ㄕㄨㄛ ˙ㄉㄜ ㄊㄞˊ ㄈㄥ ㄐㄧㄚˋ",
+      "en": "Schools and offices all closed. This is what people call a \"typhoon day off\".",
+      "words": [
+       "學校",
+       "和",
+       "公司",
+       "都",
+       "放假",
+       "了",
+       "這",
+       "就",
+       "是",
+       "大家",
+       "說",
+       "的",
+       "颱風",
+       "假"
+      ]
+     },
+     {
+      "zh": "我不能出門，只好在家看電視、看新聞。",
+      "zhuyin": "ㄨㄛˇ ㄅㄨˋ ㄋㄥˊ ㄔㄨ ㄇㄣˊ ㄓˇ ㄏㄠˇ ㄗㄞˋ ㄐㄧㄚ ㄎㄢˋ ㄉㄧㄢˋ ㄕˋ ㄎㄢˋ ㄒㄧㄣ ㄨㄣˊ",
+      "en": "I couldn't go out, so I stayed home watching TV and the news.",
+      "words": [
+       "我",
+       "不能",
+       "出門",
+       "只好",
+       "在家",
+       "看",
+       "電視",
+       "看",
+       "新聞"
+      ]
+     },
+     {
+      "zh": "晚上停電了，房間裡黑得什麼都看不見，我只好用手機的燈看書。",
+      "zhuyin": "ㄨㄢˇ ㄕㄤˋ ㄊㄧㄥˊ ㄉㄧㄢˋ ˙ㄌㄜ ㄈㄤˊ ㄐㄧㄢ ㄌㄧˇ ㄏㄟ ˙ㄉㄜ ㄕㄣˊ ˙ㄇㄜ ㄉㄡ ㄎㄢˋ ㄅㄨˋ ㄐㄧㄢˋ ㄨㄛˇ ㄓˇ ㄏㄠˇ ㄩㄥˋ ㄕㄡˇ ㄐㄧ ˙ㄉㄜ ㄉㄥ ㄎㄢˋ ㄕㄨ",
+      "en": "In the evening the power went out and the room was too dark to see anything, so I read by my phone's light.",
+      "words": [
+       "晚上",
+       "停電",
+       "了",
+       "房間",
+       "裡",
+       "黑",
+       "得",
+       "什麼",
+       "都",
+       "看",
+       "不見",
+       "我",
+       "只好",
+       "用",
+       "手機",
+       "的",
+       "燈",
+       "看",
+       "書"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "第三天早上，颱風走了，天氣變得很好。",
+      "zhuyin": "ㄉㄧˋ ㄙㄢ ㄊㄧㄢ ㄗㄠˇ ㄕㄤˋ ㄊㄞˊ ㄈㄥ ㄗㄡˇ ˙ㄌㄜ ㄊㄧㄢ ㄑㄧˋ ㄅㄧㄢˋ ˙ㄉㄜ ㄏㄣˇ ㄏㄠˇ",
+      "en": "On the morning of the third day the typhoon had passed, and the weather turned lovely.",
+      "words": [
+       "第",
+       "三",
+       "天",
+       "早上",
+       "颱風",
+       "走",
+       "了",
+       "天氣",
+       "變",
+       "得",
+       "很",
+       "好"
+      ]
+     },
+     {
+      "zh": "可是外頭很亂，路上有很多樹和垃圾。",
+      "zhuyin": "ㄎㄜˇ ㄕˋ ㄨㄞˋ ˙ㄊㄡ ㄏㄣˇ ㄌㄨㄢˋ ㄌㄨˋ ㄕㄤˋ ㄧㄡˇ ㄏㄣˇ ㄉㄨㄛ ㄕㄨˋ ㄏㄜˊ ㄌㄜˋ ㄙㄜˋ",
+      "en": "But outside it was a mess, with lots of trees and rubbish in the streets.",
+      "words": [
+       "可是",
+       "外頭",
+       "很",
+       "亂",
+       "路上",
+       "有",
+       "很",
+       "多",
+       "樹",
+       "和",
+       "垃圾"
+      ]
+     },
+     {
+      "zh": "鄰居們一起出來，把路弄乾淨。",
+      "zhuyin": "ㄌㄧㄣˊ ㄐㄩ ˙ㄇㄣ ㄧ ㄑㄧˇ ㄔㄨ ㄌㄞˊ ㄅㄚˇ ㄌㄨˋ ㄋㄨㄥˋ ㄍㄢ ㄐㄧㄥˋ",
+      "en": "The neighbours came out together and cleaned up the street.",
+      "words": [
+       "鄰居",
+       "們",
+       "一起",
+       "出來",
+       "把",
+       "路",
+       "弄",
+       "乾淨"
+      ]
+     },
+     {
+      "zh": "颱風很可怕，可是有這麼好的鄰居，我就不怕了。",
+      "zhuyin": "ㄊㄞˊ ㄈㄥ ㄏㄣˇ ㄎㄜˇ ㄆㄚˋ ㄎㄜˇ ㄕˋ ㄧㄡˇ ㄓㄜˋ ˙ㄇㄜ ㄏㄠˇ ˙ㄉㄜ ㄌㄧㄣˊ ㄐㄩ ㄨㄛˇ ㄐㄧㄡˋ ㄅㄨˋ ㄆㄚˋ ˙ㄌㄜ",
+      "en": "Typhoons are frightening, but with such good neighbours I'm not afraid any more.",
+      "words": [
+       "颱風",
+       "很",
+       "可怕",
+       "可是",
+       "有",
+       "這麼",
+       "好",
+       "的",
+       "鄰居",
+       "我",
+       "就",
+       "不怕",
+       "了"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "What did Mr Chen tell the writer to buy?",
+     "options_en": [
+      "Candles and batteries",
+      "Rice and fresh vegetables",
+      "Instant noodles, bread and water"
+     ],
+     "answer": 2
+    },
+    {
+     "question_en": "What is a \"typhoon day off\"?",
+     "options_en": [
+      "A day when schools and offices close because of a typhoon",
+      "A holiday after the typhoon season",
+      "A day for cleaning up after a typhoon"
+     ],
+     "answer": 0
+    },
+    {
+     "question_en": "What did the writer use for light when the power went out?",
+     "options_en": [
+      "A candle",
+      "The light on their phone",
+      "The TV"
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "id": "R3-03",
+   "level": "第3級",
+   "vocab_max": "第3*級",
+   "chars": 215,
+   "topic_en": "Pingtung fruit",
+   "title": {
+    "zh": "屏東的水果",
+    "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄕㄨㄟˇ ㄍㄨㄛˇ",
+    "en": "Pingtung Fruit"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "屏東很適合種水果。",
+      "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ㄏㄣˇ ㄕˋ ㄏㄜˊ ㄓㄨㄥˋ ㄕㄨㄟˇ ㄍㄨㄛˇ",
+      "en": "Pingtung is a very good place for growing fruit.",
+      "words": [
+       "屏東",
+       "很",
+       "適合",
+       "種",
+       "水果"
+      ]
+     },
+     {
+      "zh": "這裡天氣熱，太陽大，所以水果都很甜。",
+      "zhuyin": "ㄓㄜˋ ㄌㄧˇ ㄊㄧㄢ ㄑㄧˋ ㄖㄜˋ ㄊㄞˋ ㄧㄤˊ ㄉㄚˋ ㄙㄨㄛˇ ㄧˇ ㄕㄨㄟˇ ㄍㄨㄛˇ ㄉㄡ ㄏㄣˇ ㄊㄧㄢˊ",
+      "en": "It's hot here and the sun is strong, so the fruit is sweet.",
+      "words": [
+       "這裡",
+       "天氣",
+       "熱",
+       "太陽",
+       "大",
+       "所以",
+       "水果",
+       "都",
+       "很",
+       "甜"
+      ]
+     },
+     {
+      "zh": "屏東的水果不只好吃，也很便宜。",
+      "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄕㄨㄟˇ ㄍㄨㄛˇ ㄅㄨˋ ㄓˇ ㄏㄠˇ ㄔ ㄧㄝˇ ㄏㄣˇ ㄆㄧㄢˊ ㄧˊ",
+      "en": "Pingtung fruit is not only delicious but also cheap.",
+      "words": [
+       "屏東",
+       "的",
+       "水果",
+       "不只",
+       "好吃",
+       "也",
+       "很",
+       "便宜"
+      ]
+     },
+     {
+      "zh": "一年四季都有不同的水果可以吃。",
+      "zhuyin": "ㄧ ㄋㄧㄢˊ ㄙˋ ㄐㄧˋ ㄉㄡ ㄧㄡˇ ㄅㄨˋ ㄊㄨㄥˊ ˙ㄉㄜ ㄕㄨㄟˇ ㄍㄨㄛˇ ㄎㄜˇ ㄧˇ ㄔ",
+      "en": "All year round there is different fruit to eat.",
+      "words": [
+       "一年四季",
+       "都",
+       "有",
+       "不同",
+       "的",
+       "水果",
+       "可以",
+       "吃"
+      ]
+     },
+     {
+      "zh": "夏天是芒果的季節，屏東的鳳梨和香蕉也很有名。",
+      "zhuyin": "ㄒㄧㄚˋ ㄊㄧㄢ ㄕˋ ㄇㄤˊ ㄍㄨㄛˇ ˙ㄉㄜ ㄐㄧˋ ㄐㄧㄝˊ ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄈㄥˋ ㄌㄧˊ ㄏㄜˊ ㄒㄧㄤ ㄐㄧㄠ ㄧㄝˇ ㄏㄣˇ ㄧㄡˇ ㄇㄧㄥˊ",
+      "en": "Summer is mango season, and Pingtung's pineapples and bananas are well known too.",
+      "words": [
+       "夏天",
+       "是",
+       "芒果",
+       "的",
+       "季節",
+       "屏東",
+       "的",
+       "鳳梨",
+       "和",
+       "香蕉",
+       "也",
+       "很",
+       "有名"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "我常常去市場買水果。",
+      "zhuyin": "ㄨㄛˇ ㄔㄤˊ ㄔㄤˊ ㄑㄩˋ ㄕˋ ㄔㄤˇ ㄇㄞˇ ㄕㄨㄟˇ ㄍㄨㄛˇ",
+      "en": "I often go to the market to buy fruit.",
+      "words": [
+       "我",
+       "常常",
+       "去",
+       "市場",
+       "買",
+       "水果"
+      ]
+     },
+     {
+      "zh": "市場的阿姨看到我是外國人，總是讓我先吃吃看。",
+      "zhuyin": "ㄕˋ ㄔㄤˇ ˙ㄉㄜ ㄚ ㄧˊ ㄎㄢˋ ㄉㄠˋ ㄨㄛˇ ㄕˋ ㄨㄞˋ ㄍㄨㄛˊ ㄖㄣˊ ㄗㄨㄥˇ ㄕˋ ㄖㄤˋ ㄨㄛˇ ㄒㄧㄢ ㄔ ㄔ ㄎㄢˋ",
+      "en": "When the woman at the market sees I'm a foreigner, she always lets me try some first.",
+      "words": [
+       "市場",
+       "的",
+       "阿姨",
+       "看到",
+       "我",
+       "是",
+       "外國",
+       "人",
+       "總是",
+       "讓",
+       "我",
+       "先",
+       "吃",
+       "吃",
+       "看"
+      ]
+     },
+     {
+      "zh": "她說：「不甜不用錢！」",
+      "zhuyin": "ㄊㄚ ㄕㄨㄛ ㄅㄨˋ ㄊㄧㄢˊ ㄅㄨˋ ㄩㄥˋ ㄑㄧㄢˊ",
+      "en": "She says, \"If it's not sweet, you don't pay!\"",
+      "words": [
+       "她",
+       "說",
+       "不",
+       "甜",
+       "不用",
+       "錢"
+      ]
+     },
+     {
+      "zh": "有一次我買了一個很大的木瓜，回家才發現還沒熟。",
+      "zhuyin": "ㄧㄡˇ ㄧ ㄘˋ ㄨㄛˇ ㄇㄞˇ ˙ㄌㄜ ㄧ ˙ㄍㄜ ㄏㄣˇ ㄉㄚˋ ˙ㄉㄜ ㄇㄨˋ ㄍㄨㄚ ㄏㄨㄟˊ ㄐㄧㄚ ㄘㄞˊ ㄈㄚ ㄒㄧㄢˋ ㄏㄞˊ ㄇㄟˊ ㄕㄡˊ",
+      "en": "Once I bought a big papaya and only found out at home that it wasn't ripe yet.",
+      "words": [
+       "有",
+       "一",
+       "次",
+       "我",
+       "買",
+       "了",
+       "一個",
+       "很",
+       "大",
+       "的",
+       "木瓜",
+       "回家",
+       "才",
+       "發現",
+       "還",
+       "沒",
+       "熟"
+      ]
+     },
+     {
+      "zh": "阿姨說，放兩三天就可以吃了。",
+      "zhuyin": "ㄚ ㄧˊ ㄕㄨㄛ ㄈㄤˋ ㄌㄧㄤˇ ㄙㄢ ㄊㄧㄢ ㄐㄧㄡˋ ㄎㄜˇ ㄧˇ ㄔ ˙ㄌㄜ",
+      "en": "The woman said that after two or three days it would be ready to eat.",
+      "words": [
+       "阿姨",
+       "說",
+       "放",
+       "兩三天",
+       "就",
+       "可以",
+       "吃",
+       "了"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "天氣熱的時候，我最喜歡吃芒果冰。",
+      "zhuyin": "ㄊㄧㄢ ㄑㄧˋ ㄖㄜˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄨㄛˇ ㄗㄨㄟˋ ㄒㄧˇ ㄏㄨㄢ ㄔ ㄇㄤˊ ㄍㄨㄛˇ ㄅㄧㄥ",
+      "en": "When it's hot, my favourite thing is mango shaved ice.",
+      "words": [
+       "天氣",
+       "熱",
+       "的",
+       "時候",
+       "我",
+       "最",
+       "喜歡",
+       "吃",
+       "芒果",
+       "冰"
+      ]
+     },
+     {
+      "zh": "一大碗冰上放了很多新鮮的芒果，又甜又冰。",
+      "zhuyin": "ㄧ ㄉㄚˋ ㄨㄢˇ ㄅㄧㄥ ㄕㄤˋ ㄈㄤˋ ˙ㄌㄜ ㄏㄣˇ ㄉㄨㄛ ㄒㄧㄣ ㄒㄧㄢ ˙ㄉㄜ ㄇㄤˊ ㄍㄨㄛˇ ㄧㄡˋ ㄊㄧㄢˊ ㄧㄡˋ ㄅㄧㄥ",
+      "en": "A big bowl of ice is topped with lots of fresh mango, sweet and icy cold.",
+      "words": [
+       "一",
+       "大",
+       "碗",
+       "冰",
+       "上",
+       "放",
+       "了",
+       "很",
+       "多",
+       "新鮮",
+       "的",
+       "芒果",
+       "又",
+       "甜",
+       "又",
+       "冰"
+      ]
+     },
+     {
+      "zh": "雖然一碗要一百多塊，可是吃一口就覺得很快樂。",
+      "zhuyin": "ㄙㄨㄟ ㄖㄢˊ ㄧ ㄨㄢˇ ㄧㄠˋ ㄧ ㄅㄞˇ ㄉㄨㄛ ㄎㄨㄞˋ ㄎㄜˇ ㄕˋ ㄔ ㄧ ㄎㄡˇ ㄐㄧㄡˋ ㄐㄩㄝˊ ˙ㄉㄜ ㄏㄣˇ ㄎㄨㄞˋ ㄌㄜˋ",
+      "en": "A bowl costs over a hundred dollars, but one bite makes me happy.",
+      "words": [
+       "雖然",
+       "一",
+       "碗",
+       "要",
+       "一",
+       "百",
+       "多",
+       "塊",
+       "可是",
+       "吃",
+       "一口",
+       "就",
+       "覺得",
+       "很",
+       "快樂"
+      ]
+     },
+     {
+      "zh": "每個季節都有好吃的水果，這就是我喜歡住在屏東的原因。",
+      "zhuyin": "ㄇㄟˇ ㄍㄜˋ ㄐㄧˋ ㄐㄧㄝˊ ㄉㄡ ㄧㄡˇ ㄏㄠˇ ㄔ ˙ㄉㄜ ㄕㄨㄟˇ ㄍㄨㄛˇ ㄓㄜˋ ㄐㄧㄡˋ ㄕˋ ㄨㄛˇ ㄒㄧˇ ㄏㄨㄢ ㄓㄨˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄩㄢˊ ㄧㄣ",
+      "en": "Every season has delicious fruit, and that is why I like living in Pingtung.",
+      "words": [
+       "每",
+       "個",
+       "季節",
+       "都",
+       "有",
+       "好吃",
+       "的",
+       "水果",
+       "這",
+       "就",
+       "是",
+       "我",
+       "喜歡",
+       "住",
+       "在",
+       "屏東",
+       "的",
+       "原因"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "Why is the fruit in Pingtung sweet, according to the text?",
+     "options_en": [
+      "The hot weather and strong sun",
+      "The cold nights",
+      "The rain in winter"
+     ],
+     "answer": 0
+    },
+    {
+     "question_en": "What was wrong with the papaya?",
+     "options_en": [
+      "It was too expensive",
+      "It was not ripe yet",
+      "It was too small"
+     ],
+     "answer": 1
+    },
+    {
+     "question_en": "How much does a bowl of mango shaved ice cost?",
+     "options_en": [
+      "About 50 dollars",
+      "Just over 200 dollars",
+      "A little over 100 dollars"
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "id": "R3-04",
+   "level": "第3級",
+   "vocab_max": "第3級",
+   "chars": 214,
+   "topic_en": "Riding a scooter",
+   "title": {
+    "zh": "騎機車",
+    "zhuyin": "ㄑㄧˊ ㄐㄧ ㄔㄜ",
+    "en": "Riding a Scooter"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "在屏東，公車不多，所以很多人騎機車。",
+      "zhuyin": "ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄍㄨㄥ ㄔㄜ ㄅㄨˋ ㄉㄨㄛ ㄙㄨㄛˇ ㄧˇ ㄏㄣˇ ㄉㄨㄛ ㄖㄣˊ ㄑㄧˊ ㄐㄧ ㄔㄜ",
+      "en": "In Pingtung there aren't many buses, so lots of people ride scooters.",
+      "words": [
+       "在",
+       "屏東",
+       "公車",
+       "不多",
+       "所以",
+       "很",
+       "多",
+       "人",
+       "騎",
+       "機車"
+      ]
+     },
+     {
+      "zh": "我來屏東三個月以後，也買了一輛機車。",
+      "zhuyin": "ㄨㄛˇ ㄌㄞˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄙㄢ ㄍㄜˋ ㄩㄝˋ ㄧˇ ㄏㄡˋ ㄧㄝˇ ㄇㄞˇ ˙ㄌㄜ ㄧ ㄌㄧㄤˋ ㄐㄧ ㄔㄜ",
+      "en": "Three months after I came to Pingtung, I bought a scooter too.",
+      "words": [
+       "我",
+       "來",
+       "屏東",
+       "三",
+       "個",
+       "月",
+       "以後",
+       "也",
+       "買",
+       "了",
+       "一",
+       "輛",
+       "機車"
+      ]
+     },
+     {
+      "zh": "剛開始騎的時候，我很緊張，因為路上的機車和汽車都很多。",
+      "zhuyin": "ㄍㄤ ㄎㄞ ㄕˇ ㄑㄧˊ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄨㄛˇ ㄏㄣˇ ㄐㄧㄣˇ ㄓㄤ ㄧㄣ ㄨㄟˋ ㄌㄨˋ ㄕㄤˋ ˙ㄉㄜ ㄐㄧ ㄔㄜ ㄏㄜˊ ㄑㄧˋ ㄔㄜ ㄉㄡ ㄏㄣˇ ㄉㄨㄛ",
+      "en": "When I first started riding, I was nervous because there were so many scooters and cars on the road.",
+      "words": [
+       "剛",
+       "開始",
+       "騎",
+       "的",
+       "時候",
+       "我",
+       "很",
+       "緊張",
+       "因為",
+       "路上",
+       "的",
+       "機車",
+       "和",
+       "汽車",
+       "都",
+       "很",
+       "多"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "騎機車一定要戴安全帽，下雨的時候還要穿雨衣。",
+      "zhuyin": "ㄑㄧˊ ㄐㄧ ㄔㄜ ㄧ ㄉㄧㄥˋ ㄧㄠˋ ㄉㄞˋ ㄢ ㄑㄩㄢˊ ㄇㄠˋ ㄒㄧㄚˋ ㄩˇ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄏㄞˊ ㄧㄠˋ ㄔㄨㄢ ㄩˇ ㄧ",
+      "en": "On a scooter you must wear a helmet, and when it rains you also need a raincoat.",
+      "words": [
+       "騎",
+       "機車",
+       "一定",
+       "要",
+       "戴",
+       "安全帽",
+       "下雨",
+       "的",
+       "時候",
+       "還",
+       "要",
+       "穿",
+       "雨衣"
+      ]
+     },
+     {
+      "zh": "在一些大路口，機車不能直接左轉，要分兩次過馬路。",
+      "zhuyin": "ㄗㄞˋ ㄧ ㄒㄧㄝ ㄉㄚˋ ㄌㄨˋ ㄎㄡˇ ㄐㄧ ㄔㄜ ㄅㄨˋ ㄋㄥˊ ㄓˊ ㄐㄧㄝ ㄗㄨㄛˇ ㄓㄨㄢˇ ㄧㄠˋ ㄈㄣ ㄌㄧㄤˇ ㄘˋ ㄍㄨㄛˋ ㄇㄚˇ ㄌㄨˋ",
+      "en": "At some big intersections, scooters can't turn left directly; they have to cross in two stages.",
+      "words": [
+       "在",
+       "一些",
+       "大",
+       "路口",
+       "機車",
+       "不能",
+       "直接",
+       "左轉",
+       "要",
+       "分",
+       "兩",
+       "次",
+       "過",
+       "馬路"
+      ]
+     },
+     {
+      "zh": "一開始我常常忘記，後來就習慣了。",
+      "zhuyin": "ㄧ ㄎㄞ ㄕˇ ㄨㄛˇ ㄔㄤˊ ㄔㄤˊ ㄨㄤˋ ㄐㄧˋ ㄏㄡˋ ㄌㄞˊ ㄐㄧㄡˋ ㄒㄧˊ ㄍㄨㄢˋ ˙ㄌㄜ",
+      "en": "At first I often forgot, but later I got used to it.",
+      "words": [
+       "一",
+       "開始",
+       "我",
+       "常常",
+       "忘記",
+       "後來",
+       "就",
+       "習慣",
+       "了"
+      ]
+     },
+     {
+      "zh": "下雨天騎車比較危險，所以我會騎得特別慢。",
+      "zhuyin": "ㄒㄧㄚˋ ㄩˇ ㄊㄧㄢ ㄑㄧˊ ㄔㄜ ㄅㄧˇ ㄐㄧㄠˋ ㄨㄟˊ ㄒㄧㄢˇ ㄙㄨㄛˇ ㄧˇ ㄨㄛˇ ㄏㄨㄟˋ ㄑㄧˊ ˙ㄉㄜ ㄊㄜˋ ㄅㄧㄝˊ ㄇㄢˋ",
+      "en": "Riding in the rain is more dangerous, so I ride extra slowly.",
+      "words": [
+       "下雨",
+       "天",
+       "騎車",
+       "比較",
+       "危險",
+       "所以",
+       "我",
+       "會",
+       "騎",
+       "得",
+       "特別",
+       "慢"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "現在我常常騎機車去市場買菜，也騎去學校上課。",
+      "zhuyin": "ㄒㄧㄢˋ ㄗㄞˋ ㄨㄛˇ ㄔㄤˊ ㄔㄤˊ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄑㄩˋ ㄕˋ ㄔㄤˇ ㄇㄞˇ ㄘㄞˋ ㄧㄝˇ ㄑㄧˊ ㄑㄩˋ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄕㄤˋ ㄎㄜˋ",
+      "en": "Now I often ride my scooter to the market for groceries, and to school for class.",
+      "words": [
+       "現在",
+       "我",
+       "常常",
+       "騎",
+       "機車",
+       "去",
+       "市場",
+       "買菜",
+       "也",
+       "騎",
+       "去",
+       "學校",
+       "上課"
+      ]
+     },
+     {
+      "zh": "停車和加油也都很方便。",
+      "zhuyin": "ㄊㄧㄥˊ ㄔㄜ ㄏㄜˊ ㄐㄧㄚ ㄧㄡˊ ㄧㄝˇ ㄉㄡ ㄏㄣˇ ㄈㄤ ㄅㄧㄢˋ",
+      "en": "Parking and filling up are easy too.",
+      "words": [
+       "停車",
+       "和",
+       "加油",
+       "也",
+       "都",
+       "很",
+       "方便"
+      ]
+     },
+     {
+      "zh": "在加油站，有人會幫你加油，你只要說「九五，加滿」就好了。",
+      "zhuyin": "ㄗㄞˋ ㄐㄧㄚ ㄧㄡˊ ㄓㄢˋ ㄧㄡˇ ㄖㄣˊ ㄏㄨㄟˋ ㄅㄤ ㄋㄧˇ ㄐㄧㄚ ㄧㄡˊ ㄋㄧˇ ㄓˇ ㄧㄠˋ ㄕㄨㄛ ㄐㄧㄡˇ ㄨˇ ㄐㄧㄚ ㄇㄢˇ ㄐㄧㄡˋ ㄏㄠˇ ˙ㄌㄜ",
+      "en": "At the petrol station someone fills up for you; you just say \"95, fill it up\".",
+      "words": [
+       "在",
+       "加油站",
+       "有",
+       "人",
+       "會",
+       "幫",
+       "你",
+       "加油",
+       "你",
+       "只要",
+       "說",
+       "九",
+       "五",
+       "加",
+       "滿",
+       "就",
+       "好",
+       "了"
+      ]
+     },
+     {
+      "zh": "騎機車很方便，可是夏天太陽很大，騎久了很熱。",
+      "zhuyin": "ㄑㄧˊ ㄐㄧ ㄔㄜ ㄏㄣˇ ㄈㄤ ㄅㄧㄢˋ ㄎㄜˇ ㄕˋ ㄒㄧㄚˋ ㄊㄧㄢ ㄊㄞˋ ㄧㄤˊ ㄏㄣˇ ㄉㄚˋ ㄑㄧˊ ㄐㄧㄡˇ ˙ㄌㄜ ㄏㄣˇ ㄖㄜˋ",
+      "en": "Riding a scooter is convenient, but in summer the sun is strong, and after riding for a while you get very hot.",
+      "words": [
+       "騎",
+       "機車",
+       "很",
+       "方便",
+       "可是",
+       "夏天",
+       "太陽",
+       "很",
+       "大",
+       "騎",
+       "久",
+       "了",
+       "很",
+       "熱"
+      ]
+     },
+     {
+      "zh": "我覺得注意安全最重要，不要騎太快。",
+      "zhuyin": "ㄨㄛˇ ㄐㄩㄝˊ ˙ㄉㄜ ㄓㄨˋ ㄧˋ ㄢ ㄑㄩㄢˊ ㄗㄨㄟˋ ㄓㄨㄥˋ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄑㄧˊ ㄊㄞˋ ㄎㄨㄞˋ",
+      "en": "I think being careful is the most important thing: don't ride too fast.",
+      "words": [
+       "我",
+       "覺得",
+       "注意",
+       "安全",
+       "最",
+       "重要",
+       "不要",
+       "騎",
+       "太",
+       "快"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "Why do many people in Pingtung ride scooters?",
+     "options_en": [
+      "Taxis are expensive",
+      "There aren't many buses",
+      "It is hard to park a car"
+     ],
+     "answer": 1
+    },
+    {
+     "question_en": "What must scooters do at some big intersections?",
+     "options_en": [
+      "Stop and walk the scooter",
+      "Sound the horn",
+      "Cross in two stages instead of turning left directly"
+     ],
+     "answer": 2
+    },
+    {
+     "question_en": "What do you say at the petrol station?",
+     "options_en": [
+      "\"95, fill it up\"",
+      "\"Check the tyres, please\"",
+      "\"Where is the toilet?\""
+     ],
+     "answer": 0
+    }
+   ]
+  }
+ ]
+}

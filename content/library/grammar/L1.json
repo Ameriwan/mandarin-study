@@ -1,0 +1,213 @@
+[
+  {
+    "id": "G001", "tbcl": 1, "pattern": "繫動詞", "level": "第1級",
+    "title_en": "是 (shì) 'to be' linking two nouns",
+    "explanation_en": "是 links a subject to a noun that says who or what it is: A 是 B means 'A is B'. It is used with nouns, not with adjectives; for 'is busy' or 'is pretty' you put 很 or another adverb straight before the adjective. 是 never changes for person or tense, and its negative is 不是.",
+    "structure": "A 是 B (noun)",
+    "examples": [
+      {"zh": "我是大學生。", "zhuyin": "ㄨㄛˇ ㄕˋ ㄉㄚˋ ㄒㄩㄝˊ ㄕㄥ", "en": "I am a university student."},
+      {"zh": "她是我的老師。", "zhuyin": "ㄊㄚ ㄕˋ ㄨㄛˇ ˙ㄉㄜ ㄌㄠˇ ㄕ", "en": "She is my teacher."},
+      {"zh": "我們是屏東人。", "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄕˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄖㄣˊ", "en": "We are from Pingtung."},
+      {"zh": "這是便當。", "zhuyin": "ㄓㄜˋ ㄕˋ ㄅㄧㄢˋ ㄉㄤ", "en": "This is a boxed lunch (bento)."}
+    ],
+    "mistake": {"wrong": "她是很漂亮。", "right": "她很漂亮。", "right_zhuyin": "ㄊㄚ ㄏㄣˇ ㄆㄧㄠˋ ˙ㄌㄧㄤ", "why_en": "English needs 'is' before an adjective, but Chinese does not: an adjective follows 很 directly, without 是."},
+    "taiwan_note": ""
+  },
+  {
+    "id": "G002", "tbcl": 2, "pattern": "表所有「的」", "level": "第1級",
+    "title_en": "的 (de) for possession: 'X's Y'",
+    "explanation_en": "Put 的 after a noun or pronoun to show that something belongs to it: 我的手機 'my phone', 老師的機車 'the teacher's scooter'. The owner always comes first and the thing owned comes second, like English 's and unlike English 'of'. 的 is said in the neutral tone.",
+    "structure": "Owner + 的 + Noun",
+    "examples": [
+      {"zh": "這是我的手機。", "zhuyin": "ㄓㄜˋ ㄕˋ ㄨㄛˇ ˙ㄉㄜ ㄕㄡˇ ㄐㄧ", "en": "This is my cell phone."},
+      {"zh": "那是老師的機車。", "zhuyin": "ㄋㄚˋ ㄕˋ ㄌㄠˇ ㄕ ˙ㄉㄜ ㄐㄧ ㄔㄜ", "en": "That is the teacher's scooter."},
+      {"zh": "你的咖啡在這裡。", "zhuyin": "ㄋㄧˇ ˙ㄉㄜ ㄎㄚ ㄈㄟ ㄗㄞˋ ㄓㄜˋ ㄌㄧˇ", "en": "Your coffee is here."},
+      {"zh": "王先生的電話是多少？", "zhuyin": "ㄨㄤˊ ㄒㄧㄢ ㄕㄥ ˙ㄉㄜ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄕˋ ㄉㄨㄛ ㄕㄠˇ", "en": "What is Mr. Wang's phone number?"}
+    ],
+    "mistake": {"wrong": "這是書的老師。", "right": "這是老師的書。", "right_zhuyin": "ㄓㄜˋ ㄕˋ ㄌㄠˇ ㄕ ˙ㄉㄜ ㄕㄨ", "why_en": "Following English 'the book of the teacher' reverses the meaning: 書的老師 is 'the book's teacher'. The owner goes before 的."},
+    "taiwan_note": ""
+  },
+  {
+    "id": "G003", "tbcl": 3, "pattern": "「的」省略用法", "level": "第1級",
+    "title_en": "Dropping 的 with family and close relations",
+    "explanation_en": "Between a personal pronoun and a family member or close relation, 的 is usually left out: 我媽媽 'my mom', 他朋友 'his friend'. It is also often dropped before a home, school or group you belong to: 我家 'my home', 我們學校 'our school'. With ordinary things you own, keep 的: 我的手機.",
+    "structure": "Pronoun + family member / close relation / own group (no 的)",
+    "examples": [
+      {"zh": "我媽媽是老師。", "zhuyin": "ㄨㄛˇ ㄇㄚ ˙ㄇㄚ ㄕˋ ㄌㄠˇ ㄕ", "en": "My mom is a teacher."},
+      {"zh": "他哥哥在高雄。", "zhuyin": "ㄊㄚ ㄍㄜ ˙ㄍㄜ ㄗㄞˋ ㄍㄠ ㄒㄩㄥˊ", "en": "His older brother is in Kaohsiung."},
+      {"zh": "我家在屏東。", "zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ", "en": "My home is in Pingtung."},
+      {"zh": "你們學校大不大？", "zhuyin": "ㄋㄧˇ ˙ㄇㄣ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄉㄚˋ ㄅㄨˋ ㄉㄚˋ", "en": "Is your school big?"}
+    ],
+    "mistake": {"wrong": "我的爸爸的車很新。", "right": "我爸爸的車很新。", "right_zhuyin": "ㄨㄛˇ ㄅㄚˋ ˙ㄅㄚ ˙ㄉㄜ ㄔㄜ ㄏㄣˇ ㄒㄧㄣ", "why_en": "Two 的 in a row sound clumsy. Drop the first one, between the pronoun and the family member, and keep the one before the thing owned."},
+    "taiwan_note": ""
+  },
+  {
+    "id": "G004", "tbcl": 4, "pattern": "不", "level": "第1級",
+    "title_en": "不 (bù) for 'not'",
+    "explanation_en": "不 goes right before a verb or adjective to negate it: 不是 'is not', 不忙 'not busy', 不喜歡 'don't like'. It negates habits, wishes, states and the present or future, not completed actions, which take 沒. The verb 有 is always negated with 沒 (沒有), never with 不. 不 is fourth tone, but before another fourth tone it is said in the second tone (不是); the app stores the base tone.",
+    "structure": "Subject + 不 + Verb / Adjective",
+    "examples": [
+      {"zh": "我不是老師。", "zhuyin": "ㄨㄛˇ ㄅㄨˋ ㄕˋ ㄌㄠˇ ㄕ", "en": "I'm not a teacher."},
+      {"zh": "他不喝咖啡。", "zhuyin": "ㄊㄚ ㄅㄨˋ ㄏㄜ ㄎㄚ ㄈㄟ", "en": "He doesn't drink coffee."},
+      {"zh": "今天不熱。", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄅㄨˋ ㄖㄜˋ", "en": "It's not hot today."},
+      {"zh": "我不喜歡吃辣。", "zhuyin": "ㄨㄛˇ ㄅㄨˋ ㄒㄧˇ ㄏㄨㄢ ㄔ ㄌㄚˋ", "en": "I don't like spicy food."}
+    ],
+    "mistake": {"wrong": "我不有機車。", "right": "我沒有機車。", "right_zhuyin": "ㄨㄛˇ ㄇㄟˊ ㄧㄡˇ ㄐㄧ ㄔㄜ", "why_en": "有 is the one verb that never takes 不. 'Don't have' is 沒有."},
+    "taiwan_note": "In Taiwan you will also hear 不錯吃 'pretty tasty', built like 好吃: 這家便當不錯吃。"
+  },
+  {
+    "id": "G005", "tbcl": 5, "pattern": "這/那/哪", "level": "第1級",
+    "title_en": "這 'this', 那 'that', 哪 'which'",
+    "explanation_en": "這 points to something near the speaker, 那 to something farther away, and 哪 asks 'which'. They can stand alone as the subject (這是我的 'this is mine'), but before a noun they need a measure word: 這本書, 那個人, 哪一杯. A number can go between them and the measure word: 這兩個. Because 哪 already asks a question, do not add 嗎.",
+    "structure": "這/那/哪 + (number) + measure word + noun",
+    "examples": [
+      {"zh": "那個人是誰？", "zhuyin": "ㄋㄚˋ ˙ㄍㄜ ㄖㄣˊ ㄕˋ ㄕㄟˊ", "en": "Who is that person?"},
+      {"zh": "這本書很好看。", "zhuyin": "ㄓㄜˋ ㄅㄣˇ ㄕㄨ ㄏㄣˇ ㄏㄠˇ ㄎㄢˋ", "en": "This book is really good."},
+      {"zh": "你要哪一杯？", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄋㄚˇ ㄧ ㄅㄟ", "en": "Which cup do you want?"},
+      {"zh": "那是我的機車。", "zhuyin": "ㄋㄚˋ ㄕˋ ㄨㄛˇ ˙ㄉㄜ ㄐㄧ ㄔㄜ", "en": "That's my scooter."}
+    ],
+    "mistake": {"wrong": "我要這書。", "right": "我要這本書。", "right_zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄓㄜˋ ㄅㄣˇ ㄕㄨ", "why_en": "Before a noun, 這, 那 and 哪 need a measure word (本 for books), just as numbers do."},
+    "taiwan_note": ""
+  },
+  {
+    "id": "G006", "tbcl": 6, "pattern": "什麼", "level": "第1級",
+    "title_en": "什麼 (shénme) 'what'",
+    "explanation_en": "什麼 means 'what'. It sits exactly where the answer would go, so the word order is the same as in a statement: 你喝什麼？ 'What are you drinking?' is answered 我喝茶。 Before a noun it means 'what kind of' or 'which': 什麼菜. Because 什麼 already makes a question, do not add 嗎.",
+    "structure": "Subject + Verb + 什麼 (+ Noun)？",
+    "examples": [
+      {"zh": "你要喝什麼？", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄏㄜ ㄕㄣˊ ˙ㄇㄜ", "en": "What would you like to drink?"},
+      {"zh": "這是什麼菜？", "zhuyin": "ㄓㄜˋ ㄕˋ ㄕㄣˊ ˙ㄇㄜ ㄘㄞˋ", "en": "What dish is this?"},
+      {"zh": "你叫什麼名字？", "zhuyin": "ㄋㄧˇ ㄐㄧㄠˋ ㄕㄣˊ ˙ㄇㄜ ㄇㄧㄥˊ ˙ㄗ", "en": "What's your name?"},
+      {"zh": "早餐你想吃什麼？", "zhuyin": "ㄗㄠˇ ㄘㄢ ㄋㄧˇ ㄒㄧㄤˇ ㄔ ㄕㄣˊ ˙ㄇㄜ", "en": "What do you want for breakfast?"}
+    ],
+    "mistake": {"wrong": "什麼你想吃？", "right": "你想吃什麼？", "right_zhuyin": "ㄋㄧˇ ㄒㄧㄤˇ ㄔ ㄕㄣˊ ˙ㄇㄜ", "why_en": "English moves 'what' to the front, but Chinese leaves 什麼 in the object slot, where the answer goes."},
+    "taiwan_note": ""
+  },
+  {
+    "id": "G007", "tbcl": 7, "pattern": "嗎", "level": "第1級",
+    "title_en": "嗎 (ma) for yes/no questions",
+    "explanation_en": "Add 嗎 to the end of a statement to turn it into a yes/no question; the word order does not change. Answer by repeating the verb or adjective (要 / 不要, 忙 / 不忙) rather than with a single word for 'yes' or 'no'. Do not add 嗎 to a question that already has a question word such as 什麼, 誰 or 哪裡, or to an A-not-A question.",
+    "structure": "Statement + 嗎？",
+    "examples": [
+      {"zh": "你今天忙嗎？", "zhuyin": "ㄋㄧˇ ㄐㄧㄣ ㄊㄧㄢ ㄇㄤˊ ˙ㄇㄚ", "en": "Are you busy today?"},
+      {"zh": "附近有便利商店嗎？", "zhuyin": "ㄈㄨˋ ㄐㄧㄣˋ ㄧㄡˇ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ˙ㄇㄚ", "en": "Is there a convenience store nearby?"},
+      {"zh": "你要珍珠奶茶嗎？", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄓㄣ ㄓㄨ ㄋㄞˇ ㄔㄚˊ ˙ㄇㄚ", "en": "Do you want bubble tea?"},
+      {"zh": "你有看醫生嗎？", "zhuyin": "ㄋㄧˇ ㄧㄡˇ ㄎㄢˋ ㄧ ㄕㄥ ˙ㄇㄚ", "en": "Did you see a doctor?"}
+    ],
+    "mistake": {"wrong": "你喜歡什麼嗎？", "right": "你喜歡什麼？", "right_zhuyin": "ㄋㄧˇ ㄒㄧˇ ㄏㄨㄢ ㄕㄣˊ ˙ㄇㄜ", "why_en": "什麼 already makes this a question, so 嗎 is not added. (With 嗎 it would mean 'Is there anything you like?')"},
+    "taiwan_note": "In Taiwan, 有 + verb + 嗎 is a common way to ask whether something happened: 你有看醫生嗎？ 'Did you see a doctor?' Answer 有 or 沒有."
+  },
+  {
+    "id": "G008", "tbcl": 8, "pattern": "在1", "level": "第1*級",
+    "title_en": "在 (zài) 'to be at / in' a place",
+    "explanation_en": "As a main verb, 在 says where someone or something is: Person/Thing + 在 + Place. No other verb is needed, and 是 is not used for location. The negative is 不在 'is not here / not in'. Later you will also meet 在 before another verb, as a preposition and as a marker of an ongoing action.",
+    "structure": "Person/Thing + 在 + Place",
+    "examples": [
+      {"zh": "媽媽在家。", "zhuyin": "ㄇㄚ ˙ㄇㄚ ㄗㄞˋ ㄐㄧㄚ", "en": "Mom is at home."},
+      {"zh": "老師不在辦公室。", "zhuyin": "ㄌㄠˇ ㄕ ㄅㄨˋ ㄗㄞˋ ㄅㄢˋ ㄍㄨㄥ ㄕˋ", "en": "The teacher isn't in the office."},
+      {"zh": "便利商店在學校旁邊。", "zhuyin": "ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄗㄞˋ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄆㄤˊ ㄅㄧㄢ", "en": "The convenience store is next to the school."},
+      {"zh": "你現在在哪裡？", "zhuyin": "ㄋㄧˇ ㄒㄧㄢˋ ㄗㄞˋ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ", "en": "Where are you right now?"}
+    ],
+    "mistake": {"wrong": "他是家。", "right": "他在家。", "right_zhuyin": "ㄊㄚ ㄗㄞˋ ㄐㄧㄚ", "why_en": "English 'He is home' uses 'is', but Chinese states location with 在, not 是."},
+    "taiwan_note": ""
+  },
+  {
+    "id": "G009", "tbcl": 9, "pattern": "地點表達", "level": "第1*級",
+    "title_en": "Places and addresses: from large to small",
+    "explanation_en": "Chinese names places from the largest unit to the smallest, the reverse of English: country, county or city, township or district, road, and finally the number with 號. Nothing separates the parts, so 屏東縣潮州鎮 reads as one phrase. The same big-to-small order is used for places inside places, such as 學校圖書館 'the school library'.",
+    "structure": "Country + county/city + township/district + road (路/街) + number + 號",
+    "examples": [
+      {"zh": "他住在臺灣屏東縣潮州鎮。", "zhuyin": "ㄊㄚ ㄓㄨˋ ㄗㄞˋ ㄊㄞˊ ㄨㄢ ㄆㄧㄥˊ ㄉㄨㄥ ㄒㄧㄢˋ ㄔㄠˊ ㄓㄡ ㄓㄣˋ", "en": "He lives in Chaozhou Township, Pingtung County, Taiwan."},
+      {"zh": "我住在屏東市民生路。", "zhuyin": "ㄨㄛˇ ㄓㄨˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄕˋ ㄇㄧㄣˊ ㄕㄥ ㄌㄨˋ", "en": "I live on Minsheng Road in Pingtung City."},
+      {"zh": "我家在中正路三十八號。", "zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄗㄞˋ ㄓㄨㄥ ㄓㄥˋ ㄌㄨˋ ㄙㄢ ㄕˊ ㄅㄚ ㄏㄠˋ", "en": "My home is at No. 38, Zhongzheng Road."},
+      {"zh": "我在學校圖書館。", "zhuyin": "ㄨㄛˇ ㄗㄞˋ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄊㄨˊ ㄕㄨ ㄍㄨㄢˇ", "en": "I'm at the school library."}
+    ],
+    "mistake": {"wrong": "我住在民生路，屏東。", "right": "我住在屏東民生路。", "right_zhuyin": "ㄨㄛˇ ㄓㄨˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄇㄧㄣˊ ㄕㄥ ㄌㄨˋ", "why_en": "English goes from small to large ('Minsheng Road, Pingtung'); Chinese goes from large to small, with no comma."},
+    "taiwan_note": "Both 臺 and 台 are used in Taiwan (臺灣 / 台灣); official documents use 臺. Taiwan addresses often add 巷 (lane) and 弄 (alley) between the road and the number."
+  },
+  {
+    "id": "G010", "tbcl": 10, "pattern": "時間表達", "level": "第1*級",
+    "title_en": "Dates and clock times: from large to small",
+    "explanation_en": "Dates go from year to month to day: 年, 月, then 號 (in speech) or 日 (in writing), with the weekday after the date. Clock times go from the part of the day to the hour to the minute: 下午三點十分 '3:10 pm', and 半 means half past. Time expressions come before the verb, either at the start of the sentence or right after the subject.",
+    "structure": "(year 年) month 月 day 號/日 + part of day + hour 點 + minute 分 + Verb",
+    "examples": [
+      {"zh": "今天是十月十六號。", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄕˋ ㄕˊ ㄩㄝˋ ㄕˊ ㄌㄧㄡˋ ㄏㄠˋ", "en": "Today is October 16th."},
+      {"zh": "我的生日是五月二十號。", "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄕㄥ ㄖˋ ㄕˋ ㄨˇ ㄩㄝˋ ㄦˋ ㄕˊ ㄏㄠˋ", "en": "My birthday is May 20th."},
+      {"zh": "我們明天下午三點見。", "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄇㄧㄥˊ ㄊㄧㄢ ㄒㄧㄚˋ ㄨˇ ㄙㄢ ㄉㄧㄢˇ ㄐㄧㄢˋ", "en": "See you tomorrow at 3 pm."},
+      {"zh": "星期六晚上八點我們去夜市。", "zhuyin": "ㄒㄧㄥ ㄑㄧˊ ㄌㄧㄡˋ ㄨㄢˇ ㄕㄤˋ ㄅㄚ ㄉㄧㄢˇ ㄨㄛˇ ˙ㄇㄣ ㄑㄩˋ ㄧㄝˋ ㄕˋ", "en": "We're going to the night market at 8 pm on Saturday."}
+    ],
+    "mistake": {"wrong": "我去三點下午。", "right": "我下午三點去。", "right_zhuyin": "ㄨㄛˇ ㄒㄧㄚˋ ㄨˇ ㄙㄢ ㄉㄧㄢˇ ㄑㄩˋ", "why_en": "The time goes before the verb, and the part of the day comes before the hour: 下午三點, not '3 o'clock in the afternoon'."},
+    "taiwan_note": "Taiwan also counts years in the 民國 calendar, which starts in 1912: 2026 is 民國115年. You will see it on forms, receipts and ID cards. In speech, 號 is far more common than 日 for the day of the month."
+  },
+  {
+    "id": "G011", "tbcl": 11, "pattern": "稱數法", "level": "第1*級",
+    "title_en": "Saying numbers (十, 百, 千, 萬, 零)",
+    "explanation_en": "Numbers are said place by place, largest first: 五十五 is 'five ten five' (55), 三百零六 is 'three hundred zero six' (306). A gap inside a number is read 零 once, however many zeros there are: 一千零五 is 1,005. Large numbers are grouped by 萬 (10,000), not by thousands, so 10,000 is 一萬 and 28,000 is 兩萬八千. 兩 is common before 百, 千 and 萬, and in speech a final unit can be dropped: 八千五 is 8,500.",
+    "structure": "digit + 萬 + digit + 千 + digit + 百 + digit + 十 + digit (零 for a gap)",
+    "examples": [
+      {"zh": "這杯奶茶五十五塊。", "zhuyin": "ㄓㄜˋ ㄅㄟ ㄋㄞˇ ㄔㄚˊ ㄨˇ ㄕˊ ㄨˇ ㄎㄨㄞˋ", "en": "This milk tea is 55 dollars."},
+      {"zh": "我們學校有三百零六個學生。", "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄧㄡˇ ㄙㄢ ㄅㄞˇ ㄌㄧㄥˊ ㄌㄧㄡˋ ㄍㄜˋ ㄒㄩㄝˊ ㄕㄥ", "en": "Our school has 306 students."},
+      {"zh": "一共是一千零五十塊。", "zhuyin": "ㄧ ㄍㄨㄥˋ ㄕˋ ㄧ ㄑㄧㄢ ㄌㄧㄥˊ ㄨˇ ㄕˊ ㄎㄨㄞˋ", "en": "That's 1,050 dollars altogether."},
+      {"zh": "這台二手機車兩萬八千塊。", "zhuyin": "ㄓㄜˋ ㄊㄞˊ ㄦˋ ㄕㄡˇ ㄐㄧ ㄔㄜ ㄌㄧㄤˇ ㄨㄢˋ ㄅㄚ ㄑㄧㄢ ㄎㄨㄞˋ", "en": "This used scooter is 28,000 dollars."}
+    ],
+    "mistake": {"wrong": "我的房租是十千塊。", "right": "我的房租是一萬塊。", "right_zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄈㄤˊ ㄗㄨ ㄕˋ ㄧ ㄨㄢˋ ㄎㄨㄞˋ", "why_en": "English counts 'ten thousand', but Chinese has its own unit 萬 for 10,000, so the number is 一萬."},
+    "taiwan_note": "Prices in Taiwan are in New Taiwan dollars: people say 塊 and price tags write 元."
+  },
+  {
+    "id": "G012", "tbcl": 12, "pattern": "數+量", "level": "第1*級",
+    "title_en": "Number + measure word + noun",
+    "explanation_en": "A number cannot go straight before a noun: a measure word (classifier) goes between them, as in 一本書 'one book' or 三杯咖啡 'three cups of coffee'. 個 is the general measure word, but many nouns have their own, such as 本 for books, 杯 for drinks and 台 for vehicles and machines. For 'two' before a measure word, use 兩, not 二: 兩個人.",
+    "structure": "Number + measure word + noun",
+    "examples": [
+      {"zh": "我要一杯紅茶。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄧ ㄅㄟ ㄏㄨㄥˊ ㄔㄚˊ", "en": "I'd like a cup of black tea."},
+      {"zh": "他家有兩台機車。", "zhuyin": "ㄊㄚ ㄐㄧㄚ ㄧㄡˇ ㄌㄧㄤˇ ㄊㄞˊ ㄐㄧ ㄔㄜ", "en": "His family has two scooters."},
+      {"zh": "老闆，三個便當。", "zhuyin": "ㄌㄠˇ ㄅㄢˇ ㄙㄢ ㄍㄜˋ ㄅㄧㄢˋ ㄉㄤ", "en": "Three bento boxes, please. (said to the shop owner)"},
+      {"zh": "桌子上有五本書。", "zhuyin": "ㄓㄨㄛ ˙ㄗ ㄕㄤˋ ㄧㄡˇ ㄨˇ ㄅㄣˇ ㄕㄨ", "en": "There are five books on the table."}
+    ],
+    "mistake": {"wrong": "我要兩珍珠奶茶。", "right": "我要兩杯珍珠奶茶。", "right_zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄌㄧㄤˇ ㄅㄟ ㄓㄣ ㄓㄨ ㄋㄞˇ ㄔㄚˊ", "why_en": "A number needs a measure word before the noun; drinks take 杯."},
+    "taiwan_note": "In Taiwan, 台 (also written 臺) is the usual measure word for vehicles and machines: 一台機車, 一台電腦."
+  },
+  {
+    "id": "G013", "tbcl": 13, "pattern": "誰", "level": "第1*級",
+    "title_en": "誰 'who'",
+    "explanation_en": "誰 asks 'who' or 'whom'. Like other question words, it takes the place of the person in the answer: as the subject (誰要喝咖啡？) or as the object (你找誰？). 誰的 means 'whose'. A question with 誰 does not take 嗎.",
+    "structure": "誰 + Verb …？ / Subject + Verb + 誰？ / 誰的 + Noun",
+    "examples": [
+      {"zh": "他是誰？", "zhuyin": "ㄊㄚ ㄕˋ ㄕㄟˊ", "en": "Who is he?"},
+      {"zh": "誰要喝咖啡？", "zhuyin": "ㄕㄟˊ ㄧㄠˋ ㄏㄜ ㄎㄚ ㄈㄟ", "en": "Who wants coffee?"},
+      {"zh": "你找誰？", "zhuyin": "ㄋㄧˇ ㄓㄠˇ ㄕㄟˊ", "en": "Who are you looking for?"},
+      {"zh": "這是誰的雨傘？", "zhuyin": "ㄓㄜˋ ㄕˋ ㄕㄟˊ ˙ㄉㄜ ㄩˇ ㄙㄢˇ", "en": "Whose umbrella is this?"}
+    ],
+    "mistake": {"wrong": "誰你要找？", "right": "你要找誰？", "right_zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄓㄠˇ ㄕㄟˊ", "why_en": "English puts 'who' first, but in Chinese 誰 stays in the object slot after the verb."},
+    "taiwan_note": ""
+  },
+  {
+    "id": "G014", "tbcl": 14, "pattern": "哪（裡/兒）", "level": "第1*級",
+    "title_en": "哪裡 / 哪兒 'where'",
+    "explanation_en": "哪裡 means 'where'. Use it after 在 to ask where something is (廁所在哪裡？) or after a verb of going to ask where someone is headed (你要去哪裡？). It stays in the slot where the place would be in the answer, and the question takes no 嗎. 哪兒 means the same but is the northern form.",
+    "structure": "Thing/Person + 在 + 哪裡？ / Subject + 去 + 哪裡？",
+    "examples": [
+      {"zh": "廁所在哪裡？", "zhuyin": "ㄘㄜˋ ㄙㄨㄛˇ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ", "en": "Where is the restroom?"},
+      {"zh": "你要去哪裡？", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄑㄩˋ ㄋㄚˇ ㄌㄧˇ", "en": "Where are you going?"},
+      {"zh": "你住在哪裡？", "zhuyin": "ㄋㄧˇ ㄓㄨˋ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ", "en": "Where do you live?"},
+      {"zh": "你在哪裡買早餐？", "zhuyin": "ㄋㄧˇ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ ㄇㄞˇ ㄗㄠˇ ㄘㄢ", "en": "Where do you buy breakfast?"}
+    ],
+    "mistake": {"wrong": "銀行是哪裡？", "right": "銀行在哪裡？", "right_zhuyin": "ㄧㄣˊ ㄏㄤˊ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ", "why_en": "English 'Where is the bank?' uses 'is', but asking for a location needs 在 + 哪裡."},
+    "taiwan_note": "Taiwan speakers say 哪裡; 哪兒 sounds northern, because adding -r (兒化) is rare in Taiwan."
+  },
+  {
+    "id": "G015", "tbcl": 15, "pattern": "A-not-A", "level": "第1*級",
+    "title_en": "A-not-A questions (忙不忙, 要不要)",
+    "explanation_en": "A yes/no question can also be made by saying the verb or adjective twice, first positive and then negative: 你忙不忙？ 'Are you busy?', 你要不要喝水？ With a two-syllable verb or adjective you may repeat just the first syllable: 喜不喜歡, 好不好吃. The A-not-A form of 有 is 有沒有. An A-not-A question never takes 嗎.",
+    "structure": "Subject + V不V (+ Object)？ / Subject + Adj不Adj？ / 有沒有",
+    "examples": [
+      {"zh": "你忙不忙？", "zhuyin": "ㄋㄧˇ ㄇㄤˊ ㄅㄨˋ ㄇㄤˊ", "en": "Are you busy?"},
+      {"zh": "你要不要喝水？", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄏㄜ ㄕㄨㄟˇ", "en": "Do you want some water?"},
+      {"zh": "這家的滷肉飯好不好吃？", "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ˙ㄉㄜ ㄌㄨˇ ㄖㄡˋ ㄈㄢˋ ㄏㄠˇ ㄅㄨˋ ㄏㄠˇ ㄔ", "en": "Is the braised pork rice at this place good?"},
+      {"zh": "你會不會冷？", "zhuyin": "ㄋㄧˇ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄌㄥˇ", "en": "Are you cold?"},
+      {"zh": "明天你有沒有空？", "zhuyin": "ㄇㄧㄥˊ ㄊㄧㄢ ㄋㄧˇ ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄎㄨㄥˋ", "en": "Are you free tomorrow?"}
+    ],
+    "mistake": {"wrong": "你忙不忙嗎？", "right": "你忙不忙？", "right_zhuyin": "ㄋㄧˇ ㄇㄤˊ ㄅㄨˋ ㄇㄤˊ", "why_en": "The A-not-A form is already a question, so adding 嗎 is wrong."},
+    "taiwan_note": "In Taiwan, 會不會 + adjective is a common way to ask how someone feels: 你會不會冷？ 'Are you cold?' 有沒有 + verb asks whether something happened: 你有沒有吃早餐？"
+  }
+]

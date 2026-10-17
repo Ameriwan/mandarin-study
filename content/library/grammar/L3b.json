@@ -1,0 +1,1306 @@
+[
+{
+ "id": "G166",
+ "tbcl": 166,
+ "pattern": "應該1",
+ "level": "第3*級",
+ "title_en": "應該 (should): giving advice",
+ "explanation_en": "應該 before a verb says what would be the right or sensible thing to do, like English 'should' or 'ought to'. Use it to give advice or to say what you think is a good idea. It goes after the subject (and any time word) and before the verb. 'Shouldn't' is 不應該, and a yes-no question is 應不應該…? or 應該…嗎？",
+ "structure": "Subject + (不)應該 + Verb phrase",
+ "examples": [
+  {
+   "zh": "你感冒了，應該多休息。",
+   "zhuyin": "ㄋㄧˇ ㄍㄢˇ ㄇㄠˋ ˙ㄌㄜ ㄧㄥ ㄍㄞ ㄉㄨㄛ ㄒㄧㄡ ㄒㄧˊ",
+   "en": "You have a cold; you should rest more."
+  },
+  {
+   "zh": "天氣這麼熱，出門應該多喝水。",
+   "zhuyin": "ㄊㄧㄢ ㄑㄧˋ ㄓㄜˋ ˙ㄇㄜ ㄖㄜˋ ㄔㄨ ㄇㄣˊ ㄧㄥ ㄍㄞ ㄉㄨㄛ ㄏㄜ ㄕㄨㄟˇ",
+   "en": "It's so hot; you should drink plenty of water when you go out."
+  },
+  {
+   "zh": "你不應該每天都喝手搖飲。",
+   "zhuyin": "ㄋㄧˇ ㄅㄨˋ ㄧㄥ ㄍㄞ ㄇㄟˇ ㄊㄧㄢ ㄉㄡ ㄏㄜ ㄕㄡˇ ㄧㄠˊ ㄧㄣˇ",
+   "en": "You shouldn't drink bubble tea every day."
+  }
+ ],
+ "mistake": {
+  "wrong": "你應該不每天喝手搖飲。",
+  "right": "你不應該每天都喝手搖飲。",
+  "right_zhuyin": "ㄋㄧˇ ㄅㄨˋ ㄧㄥ ㄍㄞ ㄇㄟˇ ㄊㄧㄢ ㄉㄡ ㄏㄜ ㄕㄡˇ ㄧㄠˊ ㄧㄣˇ",
+  "why_en": "For advice, 'shouldn't' is 不應該, with 不 in front. 應該不 + verb sounds like a guess ('probably doesn't'), not advice."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G167",
+ "tbcl": 167,
+ "pattern": "應該2",
+ "level": "第3*級",
+ "title_en": "應該 (be supposed to): duties and rules",
+ "explanation_en": "應該 also states what someone is supposed to do because of a rule, a role or a social norm. The form is the same as for advice, but the meaning is firmer: it describes what is expected, not just a suggestion. In speech 應該 is also used for a confident guess ('should be, probably'), as in 他應該到了 'He should be there by now'; the context tells you which meaning is meant.",
+ "structure": "Subject + (不)應該 + Verb phrase",
+ "examples": [
+  {
+   "zh": "騎機車應該戴安全帽。",
+   "zhuyin": "ㄑㄧˊ ㄐㄧ ㄔㄜ ㄧㄥ ㄍㄞ ㄉㄞˋ ㄢ ㄑㄩㄢˊ ㄇㄠˋ",
+   "en": "You're supposed to wear a helmet when you ride a scooter."
+  },
+  {
+   "zh": "學生應該準時到學校。",
+   "zhuyin": "ㄒㄩㄝˊ ㄕㄥ ㄧㄥ ㄍㄞ ㄓㄨㄣˇ ㄕˊ ㄉㄠˋ ㄒㄩㄝˊ ㄒㄧㄠˋ",
+   "en": "Students are supposed to get to school on time."
+  },
+  {
+   "zh": "在捷運上不應該吃東西。",
+   "zhuyin": "ㄗㄞˋ ㄐㄧㄝˊ ㄩㄣˋ ㄕㄤˋ ㄅㄨˋ ㄧㄥ ㄍㄞ ㄔ ㄉㄨㄥ ˙ㄒㄧ",
+   "en": "You're not supposed to eat on the MRT."
+  },
+  {
+   "zh": "他六點就出門了，現在應該到了。",
+   "zhuyin": "ㄊㄚ ㄌㄧㄡˋ ㄉㄧㄢˇ ㄐㄧㄡˋ ㄔㄨ ㄇㄣˊ ˙ㄌㄜ ㄒㄧㄢˋ ㄗㄞˋ ㄧㄥ ㄍㄞ ㄉㄠˋ ˙ㄌㄜ",
+   "en": "He left at six, so he should be there by now."
+  }
+ ],
+ "mistake": {
+  "wrong": "學生應該是準時。",
+  "right": "學生應該準時到學校。",
+  "right_zhuyin": "ㄒㄩㄝˊ ㄕㄥ ㄧㄥ ㄍㄞ ㄓㄨㄣˇ ㄕˊ ㄉㄠˋ ㄒㄩㄝˊ ㄒㄧㄠˋ",
+  "why_en": "English 'should be on time' does not need 是: 準時 works directly with a verb such as 到. 應該是 + adjective tends to sound like a guess ('is probably')."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G168",
+ "tbcl": 168,
+ "pattern": "可以3",
+ "level": "第3*級",
+ "title_en": "可以 (can): what something can do or lead to",
+ "explanation_en": "Besides permission and ability, 可以 can say that something is able to bring about a result or serve a purpose. The subject is often an activity or a thing rather than a person: 多走路可以讓身體更好 'walking more can make you healthier'. It is often followed by 讓 + someone + result, or by a verb describing the benefit (可以省時間 'can save time').",
+ "structure": "Thing / Activity + 可以 + (讓 + someone) + Result",
+ "examples": [
+  {
+   "zh": "多喝水可以讓皮膚變好。",
+   "zhuyin": "ㄉㄨㄛ ㄏㄜ ㄕㄨㄟˇ ㄎㄜˇ ㄧˇ ㄖㄤˋ ㄆㄧˊ ㄈㄨ ㄅㄧㄢˋ ㄏㄠˇ",
+   "en": "Drinking more water can make your skin better."
+  },
+  {
+   "zh": "騎機車上班可以省很多時間。",
+   "zhuyin": "ㄑㄧˊ ㄐㄧ ㄔㄜ ㄕㄤˋ ㄅㄢ ㄎㄜˇ ㄧˇ ㄕㄥˇ ㄏㄣˇ ㄉㄨㄛ ㄕˊ ㄐㄧㄢ",
+   "en": "Riding a scooter to work can save a lot of time."
+  },
+  {
+   "zh": "運動可以讓你睡得比較好。",
+   "zhuyin": "ㄩㄣˋ ㄉㄨㄥˋ ㄎㄜˇ ㄧˇ ㄖㄤˋ ㄋㄧˇ ㄕㄨㄟˋ ˙ㄉㄜ ㄅㄧˇ ㄐㄧㄠˋ ㄏㄠˇ",
+   "en": "Exercise can help you sleep better."
+  }
+ ],
+ "mistake": {
+  "wrong": "多喝水可以做皮膚變好。",
+  "right": "多喝水可以讓皮膚變好。",
+  "right_zhuyin": "ㄉㄨㄛ ㄏㄜ ㄕㄨㄟˇ ㄎㄜˇ ㄧˇ ㄖㄤˋ ㄆㄧˊ ㄈㄨ ㄅㄧㄢˋ ㄏㄠˇ",
+  "why_en": "'Make something + result' is 讓 (or 使), not 做. 做 means 'do' or 'make' in the sense of producing something."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G169",
+ "tbcl": 169,
+ "pattern": "V起來2",
+ "level": "第3*級",
+ "title_en": "V起來: starting to happen",
+ "explanation_en": "起來 after a verb or an adjective marks the start of an action or a state that then continues: 笑起來 'burst out laughing', 熱起來 'get hot'. It often ends with 了. If the verb has an object, the object goes between 起 and 來: 下起雨來 'start to rain'. Compared with 開始 ('begin'), V起來 often makes the change sound sudden or noticeable.",
+ "structure": "Verb / Adjective + 起來；Verb + 起 + Object + 來",
+ "examples": [
+  {
+   "zh": "大家聽了他的笑話，都笑起來了。",
+   "zhuyin": "ㄉㄚˋ ㄐㄧㄚ ㄊㄧㄥ ˙ㄌㄜ ㄊㄚ ˙ㄉㄜ ㄒㄧㄠˋ ㄏㄨㄚˋ ㄉㄡ ㄒㄧㄠˋ ㄑㄧˇ ㄌㄞˊ ˙ㄌㄜ",
+   "en": "Everyone burst out laughing at his joke."
+  },
+  {
+   "zh": "天氣熱起來了，我們開冷氣吧。",
+   "zhuyin": "ㄊㄧㄢ ㄑㄧˋ ㄖㄜˋ ㄑㄧˇ ㄌㄞˊ ˙ㄌㄜ ㄨㄛˇ ˙ㄇㄣ ㄎㄞ ㄌㄥˇ ㄑㄧˋ ˙ㄅㄚ",
+   "en": "It's getting hot; let's turn on the air conditioner."
+  },
+  {
+   "zh": "我們走到夜市的時候，突然下起雨來了。",
+   "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄗㄡˇ ㄉㄠˋ ㄧㄝˋ ㄕˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄊㄨˊ ㄖㄢˊ ㄒㄧㄚˋ ㄑㄧˇ ㄩˇ ㄌㄞˊ ˙ㄌㄜ",
+   "en": "When we got to the night market, it suddenly started to rain."
+  },
+  {
+   "zh": "小孩一看到醫生就哭起來了。",
+   "zhuyin": "ㄒㄧㄠˇ ㄏㄞˊ ㄧ ㄎㄢˋ ㄉㄠˋ ㄧ ㄕㄥ ㄐㄧㄡˋ ㄎㄨ ㄑㄧˇ ㄌㄞˊ ˙ㄌㄜ",
+   "en": "The child started crying as soon as he saw the doctor."
+  }
+ ],
+ "mistake": {
+  "wrong": "突然下雨起來了。",
+  "right": "突然下起雨來了。",
+  "right_zhuyin": "ㄊㄨˊ ㄖㄢˊ ㄒㄧㄚˋ ㄑㄧˇ ㄩˇ ㄌㄞˊ ˙ㄌㄜ",
+  "why_en": "When the verb has an object (下雨, 唱歌), the object goes between 起 and 來: 下起雨來, 唱起歌來."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G170",
+ "tbcl": 170,
+ "pattern": "V起來3",
+ "level": "第3*級",
+ "title_en": "V起來: putting away, saving or hiding",
+ "explanation_en": "After verbs such as 收, 存, 藏, 包 or 關, 起來 shows that something is put away, collected, stored or hidden. The idea is that things that were out in the open end up together or out of sight. It is very common with 把: 把錢存起來 'save the money'.",
+ "structure": "(把 + Object) + 收 / 存 / 藏 / 包 + 起來",
+ "examples": [
+  {
+   "zh": "天氣變熱了，我把厚外套收起來了。",
+   "zhuyin": "ㄊㄧㄢ ㄑㄧˋ ㄅㄧㄢˋ ㄖㄜˋ ˙ㄌㄜ ㄨㄛˇ ㄅㄚˇ ㄏㄡˋ ㄨㄞˋ ㄊㄠˋ ㄕㄡ ㄑㄧˇ ㄌㄞˊ ˙ㄌㄜ",
+   "en": "The weather has warmed up, so I put my heavy jacket away."
+  },
+  {
+   "zh": "他每個月把一半的薪水存起來。",
+   "zhuyin": "ㄊㄚ ㄇㄟˇ ˙ㄍㄜ ㄩㄝˋ ㄅㄚˇ ㄧ ㄅㄢˋ ˙ㄉㄜ ㄒㄧㄣ ㄕㄨㄟˇ ㄘㄨㄣˊ ㄑㄧˇ ㄌㄞˊ",
+   "en": "He saves half of his salary every month."
+  },
+  {
+   "zh": "媽媽把蛋糕藏起來了。",
+   "zhuyin": "ㄇㄚ ˙ㄇㄚ ㄅㄚˇ ㄉㄢˋ ㄍㄠ ㄘㄤˊ ㄑㄧˇ ㄌㄞˊ ˙ㄌㄜ",
+   "en": "Mom has hidden the cake."
+  },
+  {
+   "zh": "颱風快來了，外面的東西要收起來喔。",
+   "zhuyin": "ㄊㄞˊ ㄈㄥ ㄎㄨㄞˋ ㄌㄞˊ ˙ㄌㄜ ㄨㄞˋ ㄇㄧㄢˋ ˙ㄉㄜ ㄉㄨㄥ ˙ㄒㄧ ㄧㄠˋ ㄕㄡ ㄑㄧˇ ㄌㄞˊ ㄛ",
+   "en": "A typhoon is coming, so the things outside need to be put away."
+  }
+ ],
+ "mistake": {
+  "wrong": "天氣變熱了，我把厚外套放走了。",
+  "right": "天氣變熱了，我把厚外套收起來了。",
+  "right_zhuyin": "ㄊㄧㄢ ㄑㄧˋ ㄅㄧㄢˋ ㄖㄜˋ ˙ㄌㄜ ㄨㄛˇ ㄅㄚˇ ㄏㄡˋ ㄨㄞˋ ㄊㄠˋ ㄕㄡ ㄑㄧˇ ㄌㄞˊ ˙ㄌㄜ",
+  "why_en": "'Put away' (store) is 收起來. 放走 means 'let go, release', as when you let a bird go."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G171",
+ "tbcl": 171,
+ "pattern": "V下去2",
+ "level": "第3*級",
+ "title_en": "V下去: keep on doing",
+ "explanation_en": "下去 after a verb means continuing an action that has already started, from now on: 說下去 'go on talking', 住下去 'keep living here'. It is common with 再, 一直 or a negative (不想再…下去了 'don't want to go on'). 下去 does not take an object after it, so the object comes first as the topic.",
+ "structure": "(Topic) + Subject + Verb + 下去",
+ "examples": [
+  {
+   "zh": "你說得很好，請說下去。",
+   "zhuyin": "ㄋㄧˇ ㄕㄨㄛ ˙ㄉㄜ ㄏㄣˇ ㄏㄠˇ ㄑㄧㄥˇ ㄕㄨㄛ ㄒㄧㄚˋ ㄑㄩˋ",
+   "en": "You're doing well; please go on."
+  },
+  {
+   "zh": "這份工作太累了，我不想做下去了。",
+   "zhuyin": "ㄓㄜˋ ㄈㄣˋ ㄍㄨㄥ ㄗㄨㄛˋ ㄊㄞˋ ㄌㄟˋ ˙ㄌㄜ ㄨㄛˇ ㄅㄨˋ ㄒㄧㄤˇ ㄗㄨㄛˋ ㄒㄧㄚˋ ㄑㄩˋ ˙ㄌㄜ",
+   "en": "This job is too tiring; I don't want to keep doing it."
+  },
+  {
+   "zh": "再這樣熬夜下去，你的身體會受不了。",
+   "zhuyin": "ㄗㄞˋ ㄓㄜˋ ㄧㄤˋ ㄠˊ ㄧㄝˋ ㄒㄧㄚˋ ㄑㄩˋ ㄋㄧˇ ˙ㄉㄜ ㄕㄣ ㄊㄧˇ ㄏㄨㄟˋ ㄕㄡˋ ㄅㄨˋ ㄌㄧㄠˇ",
+   "en": "If you keep staying up late like this, your body won't be able to take it."
+  },
+  {
+   "zh": "我很喜歡屏東，想在這裡一直住下去。",
+   "zhuyin": "ㄨㄛˇ ㄏㄣˇ ㄒㄧˇ ㄏㄨㄢ ㄆㄧㄥˊ ㄉㄨㄥ ㄒㄧㄤˇ ㄗㄞˋ ㄓㄜˋ ㄌㄧˇ ㄧ ㄓˊ ㄓㄨˋ ㄒㄧㄚˋ ㄑㄩˋ",
+   "en": "I really like Pingtung and want to keep living here."
+  }
+ ],
+ "mistake": {
+  "wrong": "我不想做這份工作下去了。",
+  "right": "這份工作太累了，我不想做下去了。",
+  "right_zhuyin": "ㄓㄜˋ ㄈㄣˋ ㄍㄨㄥ ㄗㄨㄛˋ ㄊㄞˋ ㄌㄟˋ ˙ㄌㄜ ㄨㄛˇ ㄅㄨˋ ㄒㄧㄤˇ ㄗㄨㄛˋ ㄒㄧㄚˋ ㄑㄩˋ ˙ㄌㄜ",
+  "why_en": "下去 cannot have an object after the verb. Put the object first as the topic (這份工作…) and end with 做下去."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G172",
+ "tbcl": 172,
+ "pattern": "才2",
+ "level": "第3*級",
+ "title_en": "才 (only then): a condition that must be met",
+ "explanation_en": "才 in the second part of a sentence says the result happens only if, or only after, the condition in the first part is met: 'only then'. The first part often has 要, 得 or 先, and 才 is often followed by 能 or 會. Compared with 就, which makes a result sound easy and quick, 才 stresses that it takes something to get there.",
+ "structure": "Condition (要 / 得 / 先…)，(Subject) + 才 + 能 / 會 + Verb",
+ "examples": [
+  {
+   "zh": "你要每天練習，發音才會進步。",
+   "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄇㄟˇ ㄊㄧㄢ ㄌㄧㄢˋ ㄒㄧˊ ㄈㄚ ㄧㄣ ㄘㄞˊ ㄏㄨㄟˋ ㄐㄧㄣˋ ㄅㄨˋ",
+   "en": "You have to practice every day; only then will your pronunciation improve."
+  },
+  {
+   "zh": "你得先掛號，才能看醫生。",
+   "zhuyin": "ㄋㄧˇ ㄉㄟˇ ㄒㄧㄢ ㄍㄨㄚˋ ㄏㄠˋ ㄘㄞˊ ㄋㄥˊ ㄎㄢˋ ㄧ ㄕㄥ",
+   "en": "You have to register first before you can see the doctor."
+  },
+  {
+   "zh": "這家早餐店要早點去，才買得到蛋餅。",
+   "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ㄗㄠˇ ㄘㄢ ㄉㄧㄢˋ ㄧㄠˋ ㄗㄠˇ ㄉㄧㄢˇ ㄑㄩˋ ㄘㄞˊ ㄇㄞˇ ㄉㄜˊ ㄉㄠˋ ㄉㄢˋ ㄅㄧㄥˇ",
+   "en": "You have to go to this breakfast shop early if you want to get an egg crepe."
+  }
+ ],
+ "mistake": {
+  "wrong": "你得先掛號，就能看醫生。",
+  "right": "你得先掛號，才能看醫生。",
+  "right_zhuyin": "ㄋㄧˇ ㄉㄟˇ ㄒㄧㄢ ㄍㄨㄚˋ ㄏㄠˋ ㄘㄞˊ ㄋㄥˊ ㄎㄢˋ ㄧ ㄕㄥ",
+  "why_en": "When the first part is a requirement ('you have to … first'), use 才 ('only then'). 就 says the result follows easily, which clashes with 得 or 要."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G173",
+ "tbcl": 173,
+ "pattern": "才3",
+ "level": "第3*級",
+ "title_en": "才 (just): only a moment ago",
+ "explanation_en": "才 right before a verb can mean the action happened only a short time ago, like 剛 'just'. It is often combined with 剛 (才剛) and makes the time sound very short. Like all adverbs, it comes after the subject and before the verb, never at the end of the sentence.",
+ "structure": "Subject + 才(剛) + Verb",
+ "examples": [
+  {
+   "zh": "我才吃完午飯，現在還不餓。",
+   "zhuyin": "ㄨㄛˇ ㄘㄞˊ ㄔ ㄨㄢˊ ㄨˇ ㄈㄢˋ ㄒㄧㄢˋ ㄗㄞˋ ㄏㄞˊ ㄅㄨˋ ㄜˋ",
+   "en": "I've just finished lunch, so I'm not hungry yet."
+  },
+  {
+   "zh": "他才剛走，你等一下再打給他吧。",
+   "zhuyin": "ㄊㄚ ㄘㄞˊ ㄍㄤ ㄗㄡˇ ㄋㄧˇ ㄉㄥˇ ㄧ ㄒㄧㄚˋ ㄗㄞˋ ㄉㄚˇ ㄍㄟˇ ㄊㄚ ˙ㄅㄚ",
+   "en": "He's only just left; call him again in a little while."
+  },
+  {
+   "zh": "我們才剛搬來屏東，還不認識鄰居。",
+   "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄘㄞˊ ㄍㄤ ㄅㄢ ㄌㄞˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄏㄞˊ ㄅㄨˋ ㄖㄣˋ ㄕˋ ㄌㄧㄣˊ ㄐㄩ",
+   "en": "We've only just moved to Pingtung and don't know the neighbors yet."
+  }
+ ],
+ "mistake": {
+  "wrong": "我吃完午飯才。",
+  "right": "我才吃完午飯。",
+  "right_zhuyin": "ㄨㄛˇ ㄘㄞˊ ㄔ ㄨㄢˊ ㄨˇ ㄈㄢˋ",
+  "why_en": "才 is an adverb, so it goes before the verb (我才吃完…), not at the end like English 'just now'."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G174",
+ "tbcl": 174,
+ "pattern": "就2",
+ "level": "第3*級",
+ "title_en": "就 (already as many as): stressing a large amount",
+ "explanation_en": "就 before a verb followed by a number can stress that the amount is large, even within a small scope: 'X alone already…'. The scope is often marked with 光 ('just, alone'): 光便利商店就有五家 'there are five convenience stores alone'. The point is 'and that is only part of it', and the stress falls on the number.",
+ "structure": "光 + Scope + 就 + Verb + Number (+ Measure)",
+ "examples": [
+  {
+   "zh": "我們學校附近很方便，光便利商店就有五家。",
+   "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄈㄨˋ ㄐㄧㄣˋ ㄏㄣˇ ㄈㄤ ㄅㄧㄢˋ ㄍㄨㄤ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄐㄧㄡˋ ㄧㄡˇ ㄨˇ ㄐㄧㄚ",
+   "en": "Our school's neighborhood is really convenient; there are five convenience stores alone."
+  },
+  {
+   "zh": "光今天他就喝了三杯手搖飲。",
+   "zhuyin": "ㄍㄨㄤ ㄐㄧㄣ ㄊㄧㄢ ㄊㄚ ㄐㄧㄡˋ ㄏㄜ ˙ㄌㄜ ㄙㄢ ㄅㄟ ㄕㄡˇ ㄧㄠˊ ㄧㄣˇ",
+   "en": "Today alone he's already had three cups of bubble tea."
+  },
+  {
+   "zh": "我們家人很多，光表哥就有六個。",
+   "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄐㄧㄚ ㄖㄣˊ ㄏㄣˇ ㄉㄨㄛ ㄍㄨㄤ ㄅㄧㄠˇ ㄍㄜ ㄐㄧㄡˋ ㄧㄡˇ ㄌㄧㄡˋ ˙ㄍㄜ",
+   "en": "We have a big family: I have six older male cousins on my mother's side alone."
+  }
+ ],
+ "mistake": {
+  "wrong": "我們學校附近很方便，光便利商店有五家。",
+  "right": "我們學校附近很方便，光便利商店就有五家。",
+  "right_zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄈㄨˋ ㄐㄧㄣˋ ㄏㄣˇ ㄈㄤ ㄅㄧㄢˋ ㄍㄨㄤ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄐㄧㄡˋ ㄧㄡˇ ㄨˇ ㄐㄧㄚ",
+  "why_en": "When 光 marks 'X alone', the sentence needs 就 before the verb; without it, it sounds unfinished."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G175",
+ "tbcl": 175,
+ "pattern": "還1",
+ "level": "第3*級",
+ "title_en": "A 比 B 還 + adjective: even more than",
+ "explanation_en": "還 in a 比 comparison means 'even more': A 比 B 還貴 'A is even more expensive than B'. It suggests that B is already high on that scale, so the comparison is surprising or emphatic. 還要 is also common in speech. A 比 sentence never takes 很 or 非常; use 還 or 更 to intensify.",
+ "structure": "A 比 B + 還(要) + Adjective",
+ "examples": [
+  {
+   "zh": "今天比昨天還熱。",
+   "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄅㄧˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄏㄞˊ ㄖㄜˋ",
+   "en": "Today is even hotter than yesterday."
+  },
+  {
+   "zh": "我弟弟比我爸爸還高。",
+   "zhuyin": "ㄨㄛˇ ㄉㄧˋ ˙ㄉㄧ ㄅㄧˇ ㄨㄛˇ ㄅㄚˋ ˙ㄅㄚ ㄏㄞˊ ㄍㄠ",
+   "en": "My younger brother is even taller than my dad."
+  },
+  {
+   "zh": "在屏東，騎機車比開車還方便。",
+   "zhuyin": "ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄅㄧˇ ㄎㄞ ㄔㄜ ㄏㄞˊ ㄈㄤ ㄅㄧㄢˋ",
+   "en": "In Pingtung, riding a scooter is even more convenient than driving."
+  }
+ ],
+ "mistake": {
+  "wrong": "今天比昨天很熱。",
+  "right": "今天比昨天還熱。",
+  "right_zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄅㄧˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄏㄞˊ ㄖㄜˋ",
+  "why_en": "比 comparisons cannot take 很 or 非常. Use 還 or 更 for 'even more', or no adverb at all."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G176",
+ "tbcl": 176,
+ "pattern": "願意",
+ "level": "第3*級",
+ "title_en": "願意: be willing to",
+ "explanation_en": "願意 means being willing or glad to do something, often something that costs time, effort or comfort. It goes before a verb phrase, and 不願意 means 'unwilling, not want to'. Questions use 願不願意…? or 願意…嗎？ Unlike 想 ('want to'), 願意 stresses agreeing to do it, often for someone else.",
+ "structure": "Subject + (不)願意 + Verb phrase",
+ "examples": [
+  {
+   "zh": "你願意幫我搬家嗎？",
+   "zhuyin": "ㄋㄧˇ ㄩㄢˋ ㄧˋ ㄅㄤ ㄨㄛˇ ㄅㄢ ㄐㄧㄚ ˙ㄇㄚ",
+   "en": "Would you be willing to help me move house?"
+  },
+  {
+   "zh": "他不願意在颱風天出門。",
+   "zhuyin": "ㄊㄚ ㄅㄨˋ ㄩㄢˋ ㄧˋ ㄗㄞˋ ㄊㄞˊ ㄈㄥ ㄊㄧㄢ ㄔㄨ ㄇㄣˊ",
+   "en": "He isn't willing to go out on typhoon days."
+  },
+  {
+   "zh": "如果薪水高一點，我願意每天早一點上班。",
+   "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄒㄧㄣ ㄕㄨㄟˇ ㄍㄠ ㄧ ㄉㄧㄢˇ ㄨㄛˇ ㄩㄢˋ ㄧˋ ㄇㄟˇ ㄊㄧㄢ ㄗㄠˇ ㄧ ㄉㄧㄢˇ ㄕㄤˋ ㄅㄢ",
+   "en": "If the pay were a bit higher, I'd be willing to start work earlier every day."
+  }
+ ],
+ "mistake": {
+  "wrong": "我願意明天不下雨。",
+  "right": "我希望明天不要下雨。",
+  "right_zhuyin": "ㄨㄛˇ ㄒㄧ ㄨㄤˋ ㄇㄧㄥˊ ㄊㄧㄢ ㄅㄨˋ ㄧㄠˋ ㄒㄧㄚˋ ㄩˇ",
+  "why_en": "願意 means 'be willing to (do something yourself)'. To wish or hope that something happens, use 希望."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G177",
+ "tbcl": 177,
+ "pattern": "只要......就......",
+ "level": "第3*級",
+ "title_en": "只要…就…: as long as",
+ "explanation_en": "只要 introduces a condition that is enough on its own, and 就 introduces the result: 'as long as A, B'. It makes the condition sound easy or minimal. 只要 can go before or after the subject of the first clause; 就 goes after the subject of the second clause, right before the verb.",
+ "structure": "只要 + Condition，(Subject) + 就 + Result",
+ "examples": [
+  {
+   "zh": "只要有健保卡，看醫生就不貴。",
+   "zhuyin": "ㄓˇ ㄧㄠˋ ㄧㄡˇ ㄐㄧㄢˋ ㄅㄠˇ ㄎㄚˇ ㄎㄢˋ ㄧ ㄕㄥ ㄐㄧㄡˋ ㄅㄨˋ ㄍㄨㄟˋ",
+   "en": "As long as you have your NHI card, seeing a doctor isn't expensive."
+  },
+  {
+   "zh": "你只要按這個按鈕，冷氣就會開。",
+   "zhuyin": "ㄋㄧˇ ㄓˇ ㄧㄠˋ ㄢˋ ㄓㄜˋ ˙ㄍㄜ ㄢˋ ㄋㄧㄡˇ ㄌㄥˇ ㄑㄧˋ ㄐㄧㄡˋ ㄏㄨㄟˋ ㄎㄞ",
+   "en": "Just press this button and the air conditioner will come on."
+  },
+  {
+   "zh": "只要不下雨，我們晚上就去夜市。",
+   "zhuyin": "ㄓˇ ㄧㄠˋ ㄅㄨˋ ㄒㄧㄚˋ ㄩˇ ㄨㄛˇ ˙ㄇㄣ ㄨㄢˇ ㄕㄤˋ ㄐㄧㄡˋ ㄑㄩˋ ㄧㄝˋ ㄕˋ",
+   "en": "As long as it doesn't rain, we'll go to the night market tonight."
+  }
+ ],
+ "mistake": {
+  "wrong": "你只要按這個按鈕，就冷氣會開。",
+  "right": "你只要按這個按鈕，冷氣就會開。",
+  "right_zhuyin": "ㄋㄧˇ ㄓˇ ㄧㄠˋ ㄢˋ ㄓㄜˋ ˙ㄍㄜ ㄢˋ ㄋㄧㄡˇ ㄌㄥˇ ㄑㄧˋ ㄐㄧㄡˋ ㄏㄨㄟˋ ㄎㄞ",
+  "why_en": "就 is an adverb: it comes after the subject of the second clause (冷氣就會開), not at the start of the clause like English 'then'."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G178",
+ "tbcl": 178,
+ "pattern": "只有......才......",
+ "level": "第3*級",
+ "title_en": "只有…才…: only if",
+ "explanation_en": "只有 introduces the one condition that is necessary, and 才 introduces the result: 'only if A (does) B'. Compare 只要…就…, where the condition is enough; with 只有…才…, nothing else will work. 才 comes after the subject of the second clause and is often followed by 能 or 會.",
+ "structure": "只有 + Condition，(Subject) + 才 + Result",
+ "examples": [
+  {
+   "zh": "只有週末，我才有時間跟家人去墾丁。",
+   "zhuyin": "ㄓˇ ㄧㄡˇ ㄓㄡ ㄇㄛˋ ㄨㄛˇ ㄘㄞˊ ㄧㄡˇ ㄕˊ ㄐㄧㄢ ㄍㄣ ㄐㄧㄚ ㄖㄣˊ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ",
+   "en": "Only on weekends do I have time to go to Kenting with my family."
+  },
+  {
+   "zh": "只有多聽多說，你的中文才會進步。",
+   "zhuyin": "ㄓˇ ㄧㄡˇ ㄉㄨㄛ ㄊㄧㄥ ㄉㄨㄛ ㄕㄨㄛ ㄋㄧˇ ˙ㄉㄜ ㄓㄨㄥ ㄨㄣˊ ㄘㄞˊ ㄏㄨㄟˋ ㄐㄧㄣˋ ㄅㄨˋ",
+   "en": "Only by listening and speaking a lot will your Chinese improve."
+  },
+  {
+   "zh": "這種藥只有在藥局才買得到。",
+   "zhuyin": "ㄓㄜˋ ㄓㄨㄥˇ ㄧㄠˋ ㄓˇ ㄧㄡˇ ㄗㄞˋ ㄧㄠˋ ㄐㄩˊ ㄘㄞˊ ㄇㄞˇ ㄉㄜˊ ㄉㄠˋ",
+   "en": "You can only buy this medicine at a pharmacy."
+  }
+ ],
+ "mistake": {
+  "wrong": "只有多聽多說，你的中文就會進步。",
+  "right": "只有多聽多說，你的中文才會進步。",
+  "right_zhuyin": "ㄓˇ ㄧㄡˇ ㄉㄨㄛ ㄊㄧㄥ ㄉㄨㄛ ㄕㄨㄛ ㄋㄧˇ ˙ㄉㄜ ㄓㄨㄥ ㄨㄣˊ ㄘㄞˊ ㄏㄨㄟˋ ㄐㄧㄣˋ ㄅㄨˋ",
+  "why_en": "只有 ('only if') pairs with 才. 就 belongs with 只要 ('as long as'), so mixing them blurs the meaning."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G179",
+ "tbcl": 179,
+ "pattern": "只好",
+ "level": "第3*級",
+ "title_en": "只好: have no choice but to",
+ "explanation_en": "只好 before a verb says that, because of the situation, someone had to do something they would not normally choose: 'had no choice but to, could only'. The reason usually comes first. 只好 is an adverb, so it goes after the subject, not at the start of the clause.",
+ "structure": "Reason，Subject + 只好 + Verb phrase",
+ "examples": [
+  {
+   "zh": "末班車已經走了，我們只好坐計程車回家。",
+   "zhuyin": "ㄇㄛˋ ㄅㄢ ㄔㄜ ㄧˇ ㄐㄧㄥ ㄗㄡˇ ˙ㄌㄜ ㄨㄛˇ ˙ㄇㄣ ㄓˇ ㄏㄠˇ ㄗㄨㄛˋ ㄐㄧˋ ㄔㄥˊ ㄔㄜ ㄏㄨㄟˊ ㄐㄧㄚ",
+   "en": "The last bus had already gone, so we had to take a taxi home."
+  },
+  {
+   "zh": "雨下得太大，我們只好改天再去。",
+   "zhuyin": "ㄩˇ ㄒㄧㄚˋ ˙ㄉㄜ ㄊㄞˋ ㄉㄚˋ ㄨㄛˇ ˙ㄇㄣ ㄓˇ ㄏㄠˇ ㄍㄞˇ ㄊㄧㄢ ㄗㄞˋ ㄑㄩˋ",
+   "en": "It was raining too hard, so we had to go another day."
+  },
+  {
+   "zh": "機車壞了，他只好走路去上班。",
+   "zhuyin": "ㄐㄧ ㄔㄜ ㄏㄨㄞˋ ˙ㄌㄜ ㄊㄚ ㄓˇ ㄏㄠˇ ㄗㄡˇ ㄌㄨˋ ㄑㄩˋ ㄕㄤˋ ㄅㄢ",
+   "en": "His scooter broke down, so he had to walk to work."
+  }
+ ],
+ "mistake": {
+  "wrong": "末班車已經走了，只好我們坐計程車回家。",
+  "right": "末班車已經走了，我們只好坐計程車回家。",
+  "right_zhuyin": "ㄇㄛˋ ㄅㄢ ㄔㄜ ㄧˇ ㄐㄧㄥ ㄗㄡˇ ˙ㄌㄜ ㄨㄛˇ ˙ㄇㄣ ㄓˇ ㄏㄠˇ ㄗㄨㄛˋ ㄐㄧˋ ㄔㄥˊ ㄔㄜ ㄏㄨㄟˊ ㄐㄧㄚ",
+  "why_en": "只好 is an adverb: it follows the subject (我們只好…), unlike English 'so' at the start of a clause."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G180",
+ "tbcl": 180,
+ "pattern": "不管......都......",
+ "level": "第3*級",
+ "title_en": "不管…都…: no matter (what, who, when, how)",
+ "explanation_en": "不管 introduces conditions that make no difference, and 都 (or 也) introduces the result that stays the same. What follows 不管 must contain alternatives: a question word (什麼, 誰, 多…), an A-not-A form (下不下雨) or A 還是 B. A single fixed condition after 不管 is not possible.",
+ "structure": "不管 + Question word / A不A / A還是B，(Subject) + 都 + Verb",
+ "examples": [
+  {
+   "zh": "不管多忙，他每天晚上都打電話給媽媽。",
+   "zhuyin": "ㄅㄨˋ ㄍㄨㄢˇ ㄉㄨㄛ ㄇㄤˊ ㄊㄚ ㄇㄟˇ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄉㄡ ㄉㄚˇ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄍㄟˇ ㄇㄚ ˙ㄇㄚ",
+   "en": "No matter how busy he is, he calls his mom every evening."
+  },
+  {
+   "zh": "不管你什麼時候來，我都在家。",
+   "zhuyin": "ㄅㄨˋ ㄍㄨㄢˇ ㄋㄧˇ ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ ㄌㄞˊ ㄨㄛˇ ㄉㄡ ㄗㄞˋ ㄐㄧㄚ",
+   "en": "Whenever you come, I'll be at home."
+  },
+  {
+   "zh": "不管下不下雨，我們都要去拜拜。",
+   "zhuyin": "ㄅㄨˋ ㄍㄨㄢˇ ㄒㄧㄚˋ ㄅㄨˋ ㄒㄧㄚˋ ㄩˇ ㄨㄛˇ ˙ㄇㄣ ㄉㄡ ㄧㄠˋ ㄑㄩˋ ㄅㄞˋ ㄅㄞˋ",
+   "en": "Rain or shine, we're going to the temple to pray."
+  }
+ ],
+ "mistake": {
+  "wrong": "不管下雨，我們都要去拜拜。",
+  "right": "不管下不下雨，我們都要去拜拜。",
+  "right_zhuyin": "ㄅㄨˋ ㄍㄨㄢˇ ㄒㄧㄚˋ ㄅㄨˋ ㄒㄧㄚˋ ㄩˇ ㄨㄛˇ ˙ㄇㄣ ㄉㄡ ㄧㄠˋ ㄑㄩˋ ㄅㄞˋ ㄅㄞˋ",
+  "why_en": "不管 needs alternatives after it: an A-not-A form (下不下雨), a question word or 還是. For 'even if it rains', use a different pattern (就算…也…)."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G181",
+ "tbcl": 181,
+ "pattern": "一M比一M......",
+ "level": "第3*級",
+ "title_en": "一 + measure + 比 + 一 + measure: more and more",
+ "explanation_en": "Repeating 一 + a measure word or a time word around 比 shows steady change across a series: 一天比一天好 'better every day', 一次比一次好 'better each time'. With 天, 年 or 次 it describes change over time; with ordinary measure words it compares the members of a group one after another. The adjective comes at the end, without 很.",
+ "structure": "Subject + 一 M 比 一 M + Adjective",
+ "examples": [
+  {
+   "zh": "來臺灣以後，他的中文一天比一天好。",
+   "zhuyin": "ㄌㄞˊ ㄊㄞˊ ㄨㄢ ㄧˇ ㄏㄡˋ ㄊㄚ ˙ㄉㄜ ㄓㄨㄥ ㄨㄣˊ ㄧ ㄊㄧㄢ ㄅㄧˇ ㄧ ㄊㄧㄢ ㄏㄠˇ",
+   "en": "Since coming to Taiwan, his Chinese has been getting better every day."
+  },
+  {
+   "zh": "他做的菜一次比一次好吃。",
+   "zhuyin": "ㄊㄚ ㄗㄨㄛˋ ˙ㄉㄜ ㄘㄞˋ ㄧ ㄘˋ ㄅㄧˇ ㄧ ㄘˋ ㄏㄠˇ ㄔ",
+   "en": "The food he cooks tastes better every time."
+  },
+  {
+   "zh": "這條街的房租一年比一年貴。",
+   "zhuyin": "ㄓㄜˋ ㄊㄧㄠˊ ㄐㄧㄝ ˙ㄉㄜ ㄈㄤˊ ㄗㄨ ㄧ ㄋㄧㄢˊ ㄅㄧˇ ㄧ ㄋㄧㄢˊ ㄍㄨㄟˋ",
+   "en": "Rents on this street get more expensive every year."
+  }
+ ],
+ "mistake": {
+  "wrong": "他的中文一天比一天很好。",
+  "right": "來臺灣以後，他的中文一天比一天好。",
+  "right_zhuyin": "ㄌㄞˊ ㄊㄞˊ ㄨㄢ ㄧˇ ㄏㄡˋ ㄊㄚ ˙ㄉㄜ ㄓㄨㄥ ㄨㄣˊ ㄧ ㄊㄧㄢ ㄅㄧˇ ㄧ ㄊㄧㄢ ㄏㄠˇ",
+  "why_en": "Like other 比 sentences, this pattern does not take 很 before the adjective."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G182",
+ "tbcl": 182,
+ "pattern": "Vs得多",
+ "level": "第3*級",
+ "title_en": "Adjective + 得多: much more",
+ "explanation_en": "得多 after an adjective in a 比 comparison says the difference is large: 'much more'. It comes at the end, right after the adjective: 貴得多 'much more expensive'. 多了 (貴多了) is a common spoken alternative. Don't put 很 or 非常 in front of the adjective.",
+ "structure": "A 比 B + Adjective + 得多",
+ "examples": [
+  {
+   "zh": "坐高鐵比坐火車快得多。",
+   "zhuyin": "ㄗㄨㄛˋ ㄍㄠ ㄊㄧㄝˇ ㄅㄧˇ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄎㄨㄞˋ ˙ㄉㄜ ㄉㄨㄛ",
+   "en": "Taking the high-speed rail is much faster than taking the train."
+  },
+  {
+   "zh": "這家便當比那家好吃得多。",
+   "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ㄅㄧㄢˋ ㄉㄤ ㄅㄧˇ ㄋㄚˋ ㄐㄧㄚ ㄏㄠˇ ㄔ ˙ㄉㄜ ㄉㄨㄛ",
+   "en": "This shop's bento is much tastier than that one's."
+  },
+  {
+   "zh": "屏東的房租比臺北便宜得多。",
+   "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄈㄤˊ ㄗㄨ ㄅㄧˇ ㄊㄞˊ ㄅㄟˇ ㄆㄧㄢˊ ㄧˊ ˙ㄉㄜ ㄉㄨㄛ",
+   "en": "Rent in Pingtung is much cheaper than in Taipei."
+  }
+ ],
+ "mistake": {
+  "wrong": "坐高鐵比坐火車非常快。",
+  "right": "坐高鐵比坐火車快得多。",
+  "right_zhuyin": "ㄗㄨㄛˋ ㄍㄠ ㄊㄧㄝˇ ㄅㄧˇ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄎㄨㄞˋ ˙ㄉㄜ ㄉㄨㄛ",
+  "why_en": "In a 比 comparison, 很 and 非常 cannot express 'much'. Put 得多 (or 多了) after the adjective instead."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G183",
+ "tbcl": 183,
+ "pattern": "尤其（是）",
+ "level": "第3*級",
+ "title_en": "尤其(是): especially",
+ "explanation_en": "尤其 or 尤其是 singles out one case as the strongest example of what was just said: 'especially, in particular'. It usually starts the second part of a sentence, after a general statement. 尤其是 is followed by a noun or a clause; 尤其 alone can also go after the subject, directly before a verb or adjective (我尤其喜歡…).",
+ "structure": "General statement，尤其是 + Noun；Subject + 尤其 + Verb",
+ "examples": [
+  {
+   "zh": "我很喜歡臺灣小吃，尤其是滷肉飯。",
+   "zhuyin": "ㄨㄛˇ ㄏㄣˇ ㄒㄧˇ ㄏㄨㄢ ㄊㄞˊ ㄨㄢ ㄒㄧㄠˇ ㄔ ㄧㄡˊ ㄑㄧˊ ㄕˋ ㄌㄨˇ ㄖㄡˋ ㄈㄢˋ",
+   "en": "I love Taiwanese street food, especially braised pork rice."
+  },
+  {
+   "zh": "屏東的夏天很熱，尤其是中午。",
+   "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄒㄧㄚˋ ㄊㄧㄢ ㄏㄣˇ ㄖㄜˋ ㄧㄡˊ ㄑㄧˊ ㄕˋ ㄓㄨㄥ ㄨˇ",
+   "en": "Summers in Pingtung are hot, especially at noon."
+  },
+  {
+   "zh": "他很怕颱風，尤其怕停電。",
+   "zhuyin": "ㄊㄚ ㄏㄣˇ ㄆㄚˋ ㄊㄞˊ ㄈㄥ ㄧㄡˊ ㄑㄧˊ ㄆㄚˋ ㄊㄧㄥˊ ㄉㄧㄢˋ",
+   "en": "He's afraid of typhoons, and especially of power cuts."
+  }
+ ],
+ "mistake": {
+  "wrong": "尤其是我喜歡滷肉飯。",
+  "right": "我尤其喜歡滷肉飯。",
+  "right_zhuyin": "ㄨㄛˇ ㄧㄡˊ ㄑㄧˊ ㄒㄧˇ ㄏㄨㄢ ㄌㄨˇ ㄖㄡˋ ㄈㄢˋ",
+  "why_en": "Before a verb, 尤其 goes after the subject (我尤其喜歡…). 尤其是 at the start needs a general statement before it."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G184",
+ "tbcl": 184,
+ "pattern": "V 得/不 了",
+ "level": "第3*級",
+ "title_en": "V得了 / V不了: can or can't manage",
+ "explanation_en": "得了 and 不了 after a verb say whether something can be managed at all, because of amount, strength or circumstances: 吃不了 'can't eat that much', 去不了 'can't make it'. In this pattern 了 is read ㄌㄧㄠˇ, not ˙ㄌㄜ. The negative form is much more common; 受不了 'can't stand it' is a very common fixed phrase.",
+ "structure": "Verb + 得了 / 不了",
+ "examples": [
+  {
+   "zh": "這件事很簡單，我一個人做得了。",
+   "zhuyin": "ㄓㄜˋ ㄐㄧㄢˋ ㄕˋ ㄏㄣˇ ㄐㄧㄢˇ ㄉㄢ ㄨㄛˇ ㄧ ˙ㄍㄜ ㄖㄣˊ ㄗㄨㄛˋ ˙ㄉㄜ ㄌㄧㄠˇ",
+   "en": "This is simple; I can manage it on my own."
+  },
+  {
+   "zh": "我明天要上班，去不了你的生日派對。",
+   "zhuyin": "ㄨㄛˇ ㄇㄧㄥˊ ㄊㄧㄢ ㄧㄠˋ ㄕㄤˋ ㄅㄢ ㄑㄩˋ ㄅㄨˋ ㄌㄧㄠˇ ㄋㄧˇ ˙ㄉㄜ ㄕㄥ ㄖˋ ㄆㄞˋ ㄉㄨㄟˋ",
+   "en": "I have to work tomorrow, so I can't make it to your birthday party."
+  },
+  {
+   "zh": "這麼熱的天氣，我真的受不了。",
+   "zhuyin": "ㄓㄜˋ ˙ㄇㄜ ㄖㄜˋ ˙ㄉㄜ ㄊㄧㄢ ㄑㄧˋ ㄨㄛˇ ㄓㄣ ˙ㄉㄜ ㄕㄡˋ ㄅㄨˋ ㄌㄧㄠˇ",
+   "en": "I really can't stand weather this hot."
+  }
+ ],
+ "mistake": {
+  "wrong": "我不吃得了這麼多。",
+  "right": "我吃不了這麼多。",
+  "right_zhuyin": "ㄨㄛˇ ㄔ ˙ㄅㄨ ㄌㄧㄠˇ ㄓㄜˋ ˙ㄇㄜ ㄉㄨㄛ",
+  "why_en": "The negative goes between the verb and 了: 吃不了. 不 cannot go before the verb in this pattern. Remember that this 了 is ㄌㄧㄠˇ."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G185",
+ "tbcl": 185,
+ "pattern": "V得/不......（表可能）",
+ "level": "第3*級",
+ "title_en": "Potential complements: V得懂 / V不完",
+ "explanation_en": "Putting 得 or 不 between a verb and its result or direction complement says whether the result can be reached: 聽懂 'understand by listening' becomes 聽得懂 'can understand' and 聽不懂 'can't understand'. This is about whether circumstances or ability allow the result, so it is different from 能 / 不能, which often mean permission. The negative forms are especially common: 聽不清楚, 買不到, 找不到.",
+ "structure": "Verb + 得 / 不 + Result or Direction complement",
+ "examples": [
+  {
+   "zh": "你聽得懂臺語嗎？",
+   "zhuyin": "ㄋㄧˇ ㄊㄧㄥ ˙ㄉㄜ ㄉㄨㄥˇ ㄊㄞˊ ㄩˇ ˙ㄇㄚ",
+   "en": "Can you understand Taiwanese?"
+  },
+  {
+   "zh": "他說得太快了，我聽不清楚。",
+   "zhuyin": "ㄊㄚ ㄕㄨㄛ ˙ㄉㄜ ㄊㄞˋ ㄎㄨㄞˋ ˙ㄌㄜ ㄨㄛˇ ㄊㄧㄥ ㄅㄨˋ ㄑㄧㄥ ㄔㄨˇ",
+   "en": "He talks too fast; I can't hear him clearly."
+  },
+  {
+   "zh": "作業太多了，我今天寫不完。",
+   "zhuyin": "ㄗㄨㄛˋ ㄧㄝˋ ㄊㄞˋ ㄉㄨㄛ ˙ㄌㄜ ㄨㄛˇ ㄐㄧㄣ ㄊㄧㄢ ㄒㄧㄝˇ ㄅㄨˋ ㄨㄢˊ",
+   "en": "There's too much homework; I can't finish it today."
+  },
+  {
+   "zh": "我找不到我的鑰匙。",
+   "zhuyin": "ㄨㄛˇ ㄓㄠˇ ㄅㄨˋ ㄉㄠˋ ㄨㄛˇ ˙ㄉㄜ ㄧㄠˋ ˙ㄕ",
+   "en": "I can't find my keys."
+  }
+ ],
+ "mistake": {
+  "wrong": "我不能聽懂臺語。",
+  "right": "我聽不懂臺語。",
+  "right_zhuyin": "ㄨㄛˇ ㄊㄧㄥ ㄅㄨˋ ㄉㄨㄥˇ ㄊㄞˊ ㄩˇ",
+  "why_en": "To say a result can't be reached, use the potential form 聽不懂, not 不能聽懂. 不能 usually means 'not allowed' or 'unable for some outside reason'."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G186",
+ "tbcl": 186,
+ "pattern": "V 得/不 下",
+ "level": "第3*級",
+ "title_en": "V得下 / V不下: enough room or capacity",
+ "explanation_en": "下 as a potential complement says whether there is enough room or capacity: 放得下 'it fits', 坐不下 'not enough seats', 吃不下 'too full to eat more'. The subject is often the container or place (這台車坐得下五個人) or the person (我吃不下了). Use 得 for 'can fit' and 不 for 'can't fit'.",
+ "structure": "Verb + 得下 / 不下 (+ Object)",
+ "examples": [
+  {
+   "zh": "這台車坐得下五個人嗎？",
+   "zhuyin": "ㄓㄜˋ ㄊㄞˊ ㄔㄜ ㄗㄨㄛˋ ˙ㄉㄜ ㄒㄧㄚˋ ㄨˇ ㄍㄜˋ ㄖㄣˊ ˙ㄇㄚ",
+   "en": "Can this car seat five people?"
+  },
+  {
+   "zh": "我吃得好飽，真的吃不下了啦。",
+   "zhuyin": "ㄨㄛˇ ㄔ ˙ㄉㄜ ㄏㄠˇ ㄅㄠˇ ㄓㄣ ˙ㄉㄜ ㄔ ㄅㄨˋ ㄒㄧㄚˋ ˙ㄌㄜ ˙ㄌㄚ",
+   "en": "I'm so full, I really can't eat any more."
+  },
+  {
+   "zh": "冰箱太小了，放不下這個大西瓜。",
+   "zhuyin": "ㄅㄧㄥ ㄒㄧㄤ ㄊㄞˋ ㄒㄧㄠˇ ˙ㄌㄜ ㄈㄤˋ ㄅㄨˋ ㄒㄧㄚˋ ㄓㄜˋ ˙ㄍㄜ ㄉㄚˋ ㄒㄧ ㄍㄨㄚ",
+   "en": "The fridge is too small to fit this big watermelon."
+  }
+ ],
+ "mistake": {
+  "wrong": "冰箱太小了，不放得下這個大西瓜。",
+  "right": "冰箱太小了，放不下這個大西瓜。",
+  "right_zhuyin": "ㄅㄧㄥ ㄒㄧㄤ ㄊㄞˋ ㄒㄧㄠˇ ˙ㄌㄜ ㄈㄤˋ ㄅㄨˋ ㄒㄧㄚˋ ㄓㄜˋ ˙ㄍㄜ ㄉㄚˋ ㄒㄧ ㄍㄨㄚ",
+  "why_en": "不 goes between the verb and 下 (放不下); it cannot go before the verb in this pattern."
+ },
+ "taiwan_note": "台 is the usual measure word for cars and machines in Taiwan: 一台車, 一台冰箱."
+},
+{
+ "id": "G187",
+ "tbcl": 187,
+ "pattern": "疑問代詞",
+ "level": "第3*級",
+ "title_en": "Question words meaning 'any-' or 'whatever'",
+ "explanation_en": "Question words such as 什麼, 誰, 哪裡 and 什麼時候 do not always ask questions. Followed by 都 (or 也, especially in negatives), they mean 'every-, any-': 誰都知道 'everyone knows', 什麼都不想吃 'don't want to eat anything'. The question word comes before 都 and the verb. Used twice with 就 in between, it links two clauses: 想去哪裡就去哪裡 'go wherever you like'.",
+ "structure": "Question word + 都 / 也 + Verb；想 + V + Question word + 就 + V + Question word",
+ "examples": [
+  {
+   "zh": "他很累，什麼都不想吃。",
+   "zhuyin": "ㄊㄚ ㄏㄣˇ ㄌㄟˋ ㄕㄣˊ ˙ㄇㄜ ㄉㄡ ㄅㄨˋ ㄒㄧㄤˇ ㄔ",
+   "en": "He's tired and doesn't want to eat anything."
+  },
+  {
+   "zh": "這件事誰都知道。",
+   "zhuyin": "ㄓㄜˋ ㄐㄧㄢˋ ㄕˋ ㄕㄟˊ ㄉㄡ ㄓ ㄉㄠˋ",
+   "en": "Everyone knows about this."
+  },
+  {
+   "zh": "今天放假，你想去哪裡就去哪裡。",
+   "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄈㄤˋ ㄐㄧㄚˋ ㄋㄧˇ ㄒㄧㄤˇ ㄑㄩˋ ㄋㄚˇ ㄌㄧˇ ㄐㄧㄡˋ ㄑㄩˋ ㄋㄚˇ ㄌㄧˇ",
+   "en": "It's a day off today; go wherever you like."
+  },
+  {
+   "zh": "我什麼時候都可以，你決定吧。",
+   "zhuyin": "ㄨㄛˇ ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ ㄉㄡ ㄎㄜˇ ㄧˇ ㄋㄧˇ ㄐㄩㄝˊ ㄉㄧㄥˋ ˙ㄅㄚ",
+   "en": "Any time works for me; you decide."
+  }
+ ],
+ "mistake": {
+  "wrong": "他很累，不想吃什麼都。",
+  "right": "他很累，什麼都不想吃。",
+  "right_zhuyin": "ㄊㄚ ㄏㄣˇ ㄌㄟˋ ㄕㄣˊ ˙ㄇㄜ ㄉㄡ ㄅㄨˋ ㄒㄧㄤˇ ㄔ",
+  "why_en": "In this use the question word goes before 都 and the verb: 什麼都不想吃. 都 never comes at the end."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G188",
+ "tbcl": 188,
+ "pattern": "差不多",
+ "level": "第3*級",
+ "title_en": "差不多: almost, about; about the same",
+ "explanation_en": "As an adverb before a verb phrase or a number, 差不多 means 'almost, nearly, about': 差不多到了 'almost there', 差不多十分鐘 'about ten minutes'. As a predicate it means 'about the same' (A 跟 B 差不多) or 'good enough'. It is not used for something that nearly happened but didn't; that is 差一點.",
+ "structure": "差不多 + Verb / Number；A 跟 B 差不多",
+ "examples": [
+  {
+   "zh": "我差不多到了，你再等我五分鐘。",
+   "zhuyin": "ㄨㄛˇ ㄔㄚ ㄅㄨˋ ㄉㄨㄛ ㄉㄠˋ ˙ㄌㄜ ㄋㄧˇ ㄗㄞˋ ㄉㄥˇ ㄨㄛˇ ㄨˇ ㄈㄣ ㄓㄨㄥ",
+   "en": "I'm almost there; give me five more minutes."
+  },
+  {
+   "zh": "從這裡騎機車到市場差不多十分鐘。",
+   "zhuyin": "ㄘㄨㄥˊ ㄓㄜˋ ㄌㄧˇ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄉㄠˋ ㄕˋ ㄔㄤˇ ㄔㄚ ㄅㄨˋ ㄉㄨㄛ ㄕˊ ㄈㄣ ㄓㄨㄥ",
+   "en": "From here it's about ten minutes to the market by scooter."
+  },
+  {
+   "zh": "這兩家的價錢差不多。",
+   "zhuyin": "ㄓㄜˋ ㄌㄧㄤˇ ㄐㄧㄚ ˙ㄉㄜ ㄐㄧㄚˋ ㄑㄧㄢˊ ㄔㄚ ㄅㄨˋ ㄉㄨㄛ",
+   "en": "The prices at these two shops are about the same."
+  }
+ ],
+ "mistake": {
+  "wrong": "我今天差不多跌倒了。",
+  "right": "我今天差點跌倒了。",
+  "right_zhuyin": "ㄨㄛˇ ㄐㄧㄣ ㄊㄧㄢ ㄔㄚ ㄉㄧㄢˇ ㄉㄧㄝˊ ㄉㄠˇ ˙ㄌㄜ",
+  "why_en": "For something that almost happened but didn't ('I almost fell'), use 差一點 or its short form 差點. 差不多 is for amounts, times and progress."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G189",
+ "tbcl": 189,
+ "pattern": "Vs極了/得不得了/得很",
+ "level": "第3*級",
+ "title_en": "極了 / 得不得了 / 得很: extremely",
+ "explanation_en": "These three endings come after an adjective (or a feeling verb such as 喜歡) to say the degree is very high. 極了 'extremely' is lively and common; 得不得了 is the strongest and very colloquial; 得很 is milder, like 'really, quite'. Because they already express degree, 很 or 非常 is not added before the adjective.",
+ "structure": "Adjective + 極了 / 得不得了 / 得很",
+ "examples": [
+  {
+   "zh": "這碗牛肉麵好吃極了。",
+   "zhuyin": "ㄓㄜˋ ㄨㄢˇ ㄋㄧㄡˊ ㄖㄡˋ ㄇㄧㄢˋ ㄏㄠˇ ㄔ ㄐㄧˊ ˙ㄌㄜ",
+   "en": "This bowl of beef noodles is absolutely delicious."
+  },
+  {
+   "zh": "他的新機車貴得不得了。",
+   "zhuyin": "ㄊㄚ ˙ㄉㄜ ㄒㄧㄣ ㄐㄧ ㄔㄜ ㄍㄨㄟˋ ˙ㄉㄜ ㄅㄨˋ ㄉㄜˊ ㄌㄧㄠˇ",
+   "en": "His new scooter is incredibly expensive."
+  },
+  {
+   "zh": "這家的滷肉飯便宜得很。",
+   "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ˙ㄉㄜ ㄌㄨˇ ㄖㄡˋ ㄈㄢˋ ㄆㄧㄢˊ ㄧˊ ˙ㄉㄜ ㄏㄣˇ",
+   "en": "The braised pork rice here is really cheap."
+  },
+  {
+   "zh": "颱風過後，外面亂極了。",
+   "zhuyin": "ㄊㄞˊ ㄈㄥ ㄍㄨㄛˋ ㄏㄡˋ ㄨㄞˋ ㄇㄧㄢˋ ㄌㄨㄢˋ ㄐㄧˊ ˙ㄌㄜ",
+   "en": "After the typhoon, it's a complete mess outside."
+  }
+ ],
+ "mistake": {
+  "wrong": "這碗牛肉麵很好吃極了。",
+  "right": "這碗牛肉麵好吃極了。",
+  "right_zhuyin": "ㄓㄜˋ ㄨㄢˇ ㄋㄧㄡˊ ㄖㄡˋ ㄇㄧㄢˋ ㄏㄠˇ ㄔ ㄐㄧˊ ˙ㄌㄜ",
+  "why_en": "極了 already means 'extremely', so 很 is not added before the adjective."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G190",
+ "tbcl": 190,
+ "pattern": "Vs死了",
+ "level": "第3*級",
+ "title_en": "Adjective + 死了: … to death (casual exaggeration)",
+ "explanation_en": "死了 after an adjective or a feeling verb is a strong, informal exaggeration: 熱死了 'it's boiling', 累死了 'I'm dead tired'. It is used mostly for unpleasant feelings, though 高興死了 'thrilled to bits' also occurs. It belongs to casual speech, so avoid it in formal writing and polite situations.",
+ "structure": "Adjective / Feeling verb + 死了",
+ "examples": [
+  {
+   "zh": "你會不會熱？我快熱死了。",
+   "zhuyin": "ㄋㄧˇ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄖㄜˋ ㄨㄛˇ ㄎㄨㄞˋ ㄖㄜˋ ㄙˇ ˙ㄌㄜ",
+   "en": "Are you hot? I'm dying of heat."
+  },
+  {
+   "zh": "下班以後還要去打工，我累死了。",
+   "zhuyin": "ㄒㄧㄚˋ ㄅㄢ ㄧˇ ㄏㄡˋ ㄏㄞˊ ㄧㄠˋ ㄑㄩˋ ㄉㄚˇ ㄍㄨㄥ ㄨㄛˇ ㄌㄟˋ ㄙˇ ˙ㄌㄜ",
+   "en": "After work I still have my part-time job; I'm dead tired."
+  },
+  {
+   "zh": "等了一個小時，公車還沒來，氣死了！",
+   "zhuyin": "ㄉㄥˇ ˙ㄌㄜ ㄧ ˙ㄍㄜ ㄒㄧㄠˇ ㄕˊ ㄍㄨㄥ ㄔㄜ ㄏㄞˊ ㄇㄟˊ ㄌㄞˊ ㄑㄧˋ ㄙˇ ˙ㄌㄜ",
+   "en": "I've waited an hour and the bus still hasn't come. So annoying!"
+  },
+  {
+   "zh": "你不要突然叫我，嚇死我了！",
+   "zhuyin": "ㄋㄧˇ ㄅㄨˋ ㄧㄠˋ ㄊㄨˊ ㄖㄢˊ ㄐㄧㄠˋ ㄨㄛˇ ㄒㄧㄚˋ ㄙˇ ㄨㄛˇ ˙ㄌㄜ",
+   "en": "Don't call out to me so suddenly; you scared me to death!"
+  }
+ ],
+ "mistake": {
+  "wrong": "今天很熱死了。",
+  "right": "今天熱死了。",
+  "right_zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄖㄜˋ ㄙˇ ˙ㄌㄜ",
+  "why_en": "死了 already makes it extreme, so 很 is not added."
+ },
+ "taiwan_note": "你會不會熱？ uses 會 + adjective to ask how someone feels, a common Taiwan question."
+},
+{
+ "id": "G191",
+ "tbcl": 191,
+ "pattern": "Vs壞了",
+ "level": "第3*級",
+ "title_en": "Adjective + 壞了: terribly, awfully",
+ "explanation_en": "壞了 after an adjective or a feeling verb such as 餓, 累, 急, 嚇 or 高興 says the feeling is extremely strong: 'terribly, awfully'. It is informal like 死了 but sounds softer and more caring, so it is often said about other people (孩子餓壞了). Don't confuse it with 壞了 after an action verb, where it means 'broken': 手機摔壞了 'the phone broke when it fell'.",
+ "structure": "Adjective / Feeling verb + 壞了",
+ "examples": [
+  {
+   "zh": "爬了三個小時的山，大家都累壞了。",
+   "zhuyin": "ㄆㄚˊ ˙ㄌㄜ ㄙㄢ ˙ㄍㄜ ㄒㄧㄠˇ ㄕˊ ˙ㄉㄜ ㄕㄢ ㄉㄚˋ ㄐㄧㄚ ㄉㄡ ㄌㄟˋ ㄏㄨㄞˋ ˙ㄌㄜ",
+   "en": "After three hours of hiking up the mountain, everyone was worn out."
+  },
+  {
+   "zh": "地震的時候，孩子們都嚇壞了。",
+   "zhuyin": "ㄉㄧˋ ㄓㄣˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄏㄞˊ ˙ㄗ ˙ㄇㄣ ㄉㄡ ㄒㄧㄚˋ ㄏㄨㄞˋ ˙ㄌㄜ",
+   "en": "The children were terrified during the earthquake."
+  },
+  {
+   "zh": "聽說你考上大學了，你媽媽一定高興壞了吧！",
+   "zhuyin": "ㄊㄧㄥ ㄕㄨㄛ ㄋㄧˇ ㄎㄠˇ ㄕㄤˋ ㄉㄚˋ ㄒㄩㄝˊ ˙ㄌㄜ ㄋㄧˇ ㄇㄚ ˙ㄇㄚ ㄧ ㄉㄧㄥˋ ㄍㄠ ㄒㄧㄥˋ ㄏㄨㄞˋ ˙ㄌㄜ ˙ㄅㄚ",
+   "en": "I heard you got into university. Your mom must be thrilled!"
+  }
+ ],
+ "mistake": {
+  "wrong": "爬了三個小時的山，大家都很累壞了。",
+  "right": "爬了三個小時的山，大家都累壞了。",
+  "right_zhuyin": "ㄆㄚˊ ˙ㄌㄜ ㄙㄢ ˙ㄍㄜ ㄒㄧㄠˇ ㄕˊ ˙ㄉㄜ ㄕㄢ ㄉㄚˋ ㄐㄧㄚ ㄉㄡ ㄌㄟˋ ㄏㄨㄞˋ ˙ㄌㄜ",
+  "why_en": "壞了 already shows the high degree, so 很 is not added before the adjective."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G192",
+ "tbcl": 192,
+ "pattern": "Vs了一點",
+ "level": "第3*級",
+ "title_en": "Adjective + 了一點: a bit too …",
+ "explanation_en": "了一點 after an adjective says something is slightly more than ideal: 貴了一點 'a bit too expensive', 小了一點 'a bit too small'. It is a mild, polite way to point out a problem and is often followed by 可是, 但是 or a request. 一點 always comes after the adjective; it cannot stand before it.",
+ "structure": "Subject + Adjective + 了一點",
+ "examples": [
+  {
+   "zh": "這件衣服很好看，可是貴了一點。",
+   "zhuyin": "ㄓㄜˋ ㄐㄧㄢˋ ㄧ ˙ㄈㄨ ㄏㄣˇ ㄏㄠˇ ㄎㄢˋ ㄎㄜˇ ㄕˋ ㄍㄨㄟˋ ˙ㄌㄜ ㄧ ㄉㄧㄢˇ",
+   "en": "This top looks nice, but it's a bit too expensive."
+  },
+  {
+   "zh": "這雙鞋小了一點，有大一點的嗎？",
+   "zhuyin": "ㄓㄜˋ ㄕㄨㄤ ㄒㄧㄝˊ ㄒㄧㄠˇ ˙ㄌㄜ ㄧ ㄉㄧㄢˇ ㄧㄡˇ ㄉㄚˋ ㄧ ㄉㄧㄢˇ ˙ㄉㄜ ˙ㄇㄚ",
+   "en": "These shoes are a bit too small; do you have a bigger pair?"
+  },
+  {
+   "zh": "這杯珍珠奶茶甜了一點，下次我要半糖。",
+   "zhuyin": "ㄓㄜˋ ㄅㄟ ㄓㄣ ㄓㄨ ㄋㄞˇ ㄔㄚˊ ㄊㄧㄢˊ ˙ㄌㄜ ㄧ ㄉㄧㄢˇ ㄒㄧㄚˋ ㄘˋ ㄨㄛˇ ㄧㄠˋ ㄅㄢˋ ㄊㄤˊ",
+   "en": "This pearl milk tea is a bit too sweet; next time I'll get half sugar."
+  }
+ ],
+ "mistake": {
+  "wrong": "這雙鞋一點小。",
+  "right": "這雙鞋小了一點。",
+  "right_zhuyin": "ㄓㄜˋ ㄕㄨㄤ ㄒㄧㄝˊ ㄒㄧㄠˇ ˙ㄌㄜ ㄧ ㄉㄧㄢˇ",
+  "why_en": "一點 ('a bit') goes after the adjective (小了一點), or use 有一點 before it (有一點小). 一點 alone cannot go before the adjective."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G193",
+ "tbcl": 193,
+ "pattern": "把O V（一）V",
+ "level": "第3*級",
+ "title_en": "把 + object + V(一)V: do something quickly",
+ "explanation_en": "With 把, doubling the verb after the object (擦擦, or 擦一擦 with 一 in the middle) makes the action sound short, light or casual: 'give it a quick wipe'. It is common in suggestions and requests. Only one-syllable verbs take 一 in the middle; two-syllable verbs repeat as ABAB (把客廳整理整理).",
+ "structure": "把 + Object + V(一)V / VV (two-syllable verbs: ABAB)",
+ "examples": [
+  {
+   "zh": "吃飯以前，先把桌子擦一擦。",
+   "zhuyin": "ㄔ ㄈㄢˋ ㄧˇ ㄑㄧㄢˊ ㄒㄧㄢ ㄅㄚˇ ㄓㄨㄛ ˙ㄗ ㄘㄚ ㄧ ㄘㄚ",
+   "en": "Before we eat, give the table a quick wipe."
+  },
+  {
+   "zh": "你把這份報告看一看，有問題再跟我說。",
+   "zhuyin": "ㄋㄧˇ ㄅㄚˇ ㄓㄜˋ ㄈㄣˋ ㄅㄠˋ ㄍㄠˋ ㄎㄢˋ ㄧ ㄎㄢˋ ㄧㄡˇ ㄨㄣˋ ㄊㄧˊ ㄗㄞˋ ㄍㄣ ㄨㄛˇ ㄕㄨㄛ",
+   "en": "Have a look at this report and tell me if there are any problems."
+  },
+  {
+   "zh": "客人快來了，我們把客廳整理整理吧。",
+   "zhuyin": "ㄎㄜˋ ㄖㄣˊ ㄎㄨㄞˋ ㄌㄞˊ ˙ㄌㄜ ㄨㄛˇ ˙ㄇㄣ ㄅㄚˇ ㄎㄜˋ ㄊㄧㄥ ㄓㄥˇ ㄌㄧˇ ㄓㄥˇ ㄌㄧˇ ˙ㄅㄚ",
+   "en": "The guests are coming soon; let's tidy up the living room a bit."
+  }
+ ],
+ "mistake": {
+  "wrong": "先擦一擦把桌子。",
+  "right": "先把桌子擦一擦。",
+  "right_zhuyin": "ㄒㄧㄢ ㄅㄚˇ ㄓㄨㄛ ˙ㄗ ㄘㄚ ㄧ ㄘㄚ",
+  "why_en": "With 把, the object comes before the verb (把桌子擦一擦); the doubled verb stays at the end."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G194",
+ "tbcl": 194,
+ "pattern": "把 O V到......（來/去）",
+ "level": "第3*級",
+ "title_en": "把 + object + V到 + place (+ 來/去): moving something somewhere",
+ "explanation_en": "This pattern says an action moves the object to a place: 把車開到停車場 'drive the car to the parking lot'. The place follows 到 right after the verb, and 來 or 去 can be added at the end to show movement toward or away from the speaker. The verbs are verbs of moving or carrying, such as 開, 騎, 搬, 拿, 送 and 寄.",
+ "structure": "把 + Object + Verb + 到 + Place (+ 來 / 去)",
+ "examples": [
+  {
+   "zh": "請你把機車騎到後面去。",
+   "zhuyin": "ㄑㄧㄥˇ ㄋㄧˇ ㄅㄚˇ ㄐㄧ ㄔㄜ ㄑㄧˊ ㄉㄠˋ ㄏㄡˋ ㄇㄧㄢˋ ㄑㄩˋ",
+   "en": "Please ride your scooter round to the back."
+  },
+  {
+   "zh": "他把舊沙發搬到樓下去了。",
+   "zhuyin": "ㄊㄚ ㄅㄚˇ ㄐㄧㄡˋ ㄕㄚ ㄈㄚ ㄅㄢ ㄉㄠˋ ㄌㄡˊ ㄒㄧㄚˋ ㄑㄩˋ ˙ㄌㄜ",
+   "en": "He moved the old sofa downstairs."
+  },
+  {
+   "zh": "你可以把那箱水拿到我這裡來嗎？",
+   "zhuyin": "ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄅㄚˇ ㄋㄚˋ ㄒㄧㄤ ㄕㄨㄟˇ ㄋㄚˊ ㄉㄠˋ ㄨㄛˇ ㄓㄜˋ ㄌㄧˇ ㄌㄞˊ ˙ㄇㄚ",
+   "en": "Could you bring that case of water over here to me?"
+  }
+ ],
+ "mistake": {
+  "wrong": "他把舊沙發到樓下搬去了。",
+  "right": "他把舊沙發搬到樓下去了。",
+  "right_zhuyin": "ㄊㄚ ㄅㄚˇ ㄐㄧㄡˋ ㄕㄚ ㄈㄚ ㄅㄢ ㄉㄠˋ ㄌㄡˊ ㄒㄧㄚˋ ㄑㄩˋ ˙ㄌㄜ",
+  "why_en": "到 + place comes after the verb (搬到樓下), and 來 / 去 goes at the very end."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G195",
+ "tbcl": 195,
+ "pattern": "把 O V 了",
+ "level": "第3*級",
+ "title_en": "把 + object + V了: use up, get rid of, deal with",
+ "explanation_en": "With verbs such as 吃, 喝, 賣, 丟 and 忘, 把 + object + verb + 了 says the object is used up, gone or dealt with: 把湯喝了 'drink up the soup', 把舊手機賣了 'sell the old phone'. This 了 (˙ㄌㄜ) works much like 掉 'away, off', so it also appears in commands and plans, not only in the past. A 把 sentence cannot end in a bare verb, and this 了 gives it the ending it needs.",
+ "structure": "把 + Object + Verb + 了",
+ "examples": [
+  {
+   "zh": "湯快冷了，快把它喝了吧。",
+   "zhuyin": "ㄊㄤ ㄎㄨㄞˋ ㄌㄥˇ ˙ㄌㄜ ㄎㄨㄞˋ ㄅㄚˇ ㄊㄚ ㄏㄜ ˙ㄌㄜ ˙ㄅㄚ",
+   "en": "The soup's getting cold; drink it up."
+  },
+  {
+   "zh": "這些剩菜放太久了，把它們丟了吧。",
+   "zhuyin": "ㄓㄜˋ ㄒㄧㄝ ㄕㄥˋ ㄘㄞˋ ㄈㄤˋ ㄊㄞˋ ㄐㄧㄡˇ ˙ㄌㄜ ㄅㄚˇ ㄊㄚ ˙ㄇㄣ ㄉㄧㄡ ˙ㄌㄜ ˙ㄅㄚ",
+   "en": "These leftovers have been sitting too long; throw them out."
+  },
+  {
+   "zh": "他把我們的約會忘了。",
+   "zhuyin": "ㄊㄚ ㄅㄚˇ ㄨㄛˇ ˙ㄇㄣ ˙ㄉㄜ ㄩㄝ ㄏㄨㄟˋ ㄨㄤˋ ˙ㄌㄜ",
+   "en": "He forgot about our date."
+  }
+ ],
+ "mistake": {
+  "wrong": "湯快冷了，快把湯喝吧。",
+  "right": "湯快冷了，快把它喝了吧。",
+  "right_zhuyin": "ㄊㄤ ㄎㄨㄞˋ ㄌㄥˇ ˙ㄌㄜ ㄎㄨㄞˋ ㄅㄚˇ ㄊㄚ ㄏㄜ ˙ㄌㄜ ˙ㄅㄚ",
+  "why_en": "A 把 sentence needs something after the verb. Add 了 (or 掉) to show the soup will be finished: 把它喝了."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G196",
+ "tbcl": 196,
+ "pattern": "把......V+結果補語",
+ "level": "第3*級",
+ "title_en": "把 + object + verb + result complement",
+ "explanation_en": "A very common use of 把: the object comes before the verb, and a result complement after the verb says what happened to it: 把門鎖好 'lock the door properly', 把作業寫完 'finish the homework'. The focus is on what you do to the object and the result. Negatives and words like 要 or 會 go before 把 (沒把…, 要把…), not before the verb.",
+ "structure": "Subject + (沒 / 要) + 把 + Object + Verb + Result",
+ "examples": [
+  {
+   "zh": "出門以前，記得把冷氣關掉。",
+   "zhuyin": "ㄔㄨ ㄇㄣˊ ㄧˇ ㄑㄧㄢˊ ㄐㄧˋ ˙ㄉㄜ ㄅㄚˇ ㄌㄥˇ ㄑㄧˋ ㄍㄨㄢ ㄉㄧㄠˋ",
+   "en": "Remember to turn off the air conditioner before you go out."
+  },
+  {
+   "zh": "我還沒把作業寫完。",
+   "zhuyin": "ㄨㄛˇ ㄏㄞˊ ㄇㄟˊ ㄅㄚˇ ㄗㄨㄛˋ ㄧㄝˋ ㄒㄧㄝˇ ㄨㄢˊ",
+   "en": "I haven't finished my homework yet."
+  },
+  {
+   "zh": "你有把門鎖好嗎？",
+   "zhuyin": "ㄋㄧˇ ㄧㄡˇ ㄅㄚˇ ㄇㄣˊ ㄙㄨㄛˇ ㄏㄠˇ ˙ㄇㄚ",
+   "en": "Did you lock the door properly?"
+  },
+  {
+   "zh": "他把我的名字寫錯了。",
+   "zhuyin": "ㄊㄚ ㄅㄚˇ ㄨㄛˇ ˙ㄉㄜ ㄇㄧㄥˊ ˙ㄗ ㄒㄧㄝˇ ㄘㄨㄛˋ ˙ㄌㄜ",
+   "en": "He wrote my name wrong."
+  }
+ ],
+ "mistake": {
+  "wrong": "我把作業還沒寫完。",
+  "right": "我還沒把作業寫完。",
+  "right_zhuyin": "ㄨㄛˇ ㄏㄞˊ ㄇㄟˊ ㄅㄚˇ ㄗㄨㄛˋ ㄧㄝˋ ㄒㄧㄝˇ ㄨㄢˊ",
+  "why_en": "Negation goes before 把 (還沒把作業寫完), not between the object and the verb."
+ },
+ "taiwan_note": "In Taiwan, 有 + verb asks or says whether something was done: 你有把門鎖好嗎？ The answer is 有 or 沒有."
+},
+{
+ "id": "G197",
+ "tbcl": 197,
+ "pattern": "把 O V-在 PW",
+ "level": "第3*級",
+ "title_en": "把 + object + V在 + place: putting something somewhere",
+ "explanation_en": "To say where something is put and ends up, use 把 + object + verb + 在 + place: 把書放在桌上 'put the book on the table'. Typical verbs are 放, 停, 掛, 貼, 寫 and 忘. The place comes after the verb because it is where the object ends up; 在 + place before the verb would only say where the action happens.",
+ "structure": "把 + Object + Verb + 在 + Place",
+ "examples": [
+  {
+   "zh": "你可以把機車停在門口。",
+   "zhuyin": "ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄅㄚˇ ㄐㄧ ㄔㄜ ㄊㄧㄥˊ ㄗㄞˋ ㄇㄣˊ ㄎㄡˇ",
+   "en": "You can park your scooter by the door."
+  },
+  {
+   "zh": "我把雨傘忘在捷運上了。",
+   "zhuyin": "ㄨㄛˇ ㄅㄚˇ ㄩˇ ㄙㄢˇ ㄨㄤˋ ㄗㄞˋ ㄐㄧㄝˊ ㄩㄣˋ ㄕㄤˋ ˙ㄌㄜ",
+   "en": "I left my umbrella on the MRT."
+  },
+  {
+   "zh": "請把垃圾放在外面。",
+   "zhuyin": "ㄑㄧㄥˇ ㄅㄚˇ ㄌㄜˋ ㄙㄜˋ ㄈㄤˋ ㄗㄞˋ ㄨㄞˋ ㄇㄧㄢˋ",
+   "en": "Please put the trash outside."
+  }
+ ],
+ "mistake": {
+  "wrong": "我把雨傘在捷運上忘了。",
+  "right": "我把雨傘忘在捷運上了。",
+  "right_zhuyin": "ㄨㄛˇ ㄅㄚˇ ㄩˇ ㄙㄢˇ ㄨㄤˋ ㄗㄞˋ ㄐㄧㄝˊ ㄩㄣˋ ㄕㄤˋ ˙ㄌㄜ",
+  "why_en": "Where the object ends up goes after the verb with 在: 忘在捷運上."
+ },
+ "taiwan_note": "垃圾 is read ㄌㄜˋ ㄙㄜˋ in Taiwan (MOE)."
+},
+{
+ "id": "G198",
+ "tbcl": 198,
+ "pattern": "把+N1+V給+N2",
+ "level": "第3*級",
+ "title_en": "把 + thing + V給 + person: passing something to someone",
+ "explanation_en": "When something is handed, sent or returned to someone, Chinese often uses 把 + thing + verb + 給 + person: 把照片傳給我 'send me the photos'. 給 right after the verb marks who receives the thing. Common verbs are 交, 寄, 傳, 送, 還 and 借.",
+ "structure": "把 + Thing + Verb + 給 + Person",
+ "examples": [
+  {
+   "zh": "你可以把照片傳給我嗎？",
+   "zhuyin": "ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄅㄚˇ ㄓㄠˋ ㄆㄧㄢˋ ㄔㄨㄢˊ ㄍㄟˇ ㄨㄛˇ ˙ㄇㄚ",
+   "en": "Could you send me the photos?"
+  },
+  {
+   "zh": "我明天會把書還給你。",
+   "zhuyin": "ㄨㄛˇ ㄇㄧㄥˊ ㄊㄧㄢ ㄏㄨㄟˋ ㄅㄚˇ ㄕㄨ ㄏㄨㄢˊ ㄍㄟˇ ㄋㄧˇ",
+   "en": "I'll give the book back to you tomorrow."
+  },
+  {
+   "zh": "請把這份文件交給櫃臺的小姐。",
+   "zhuyin": "ㄑㄧㄥˇ ㄅㄚˇ ㄓㄜˋ ㄈㄣˋ ㄨㄣˊ ㄐㄧㄢˋ ㄐㄧㄠ ㄍㄟˇ ㄍㄨㄟˋ ㄊㄞˊ ˙ㄉㄜ ㄒㄧㄠˇ ㄐㄧㄝˇ",
+   "en": "Please hand this document to the woman at the front desk."
+  }
+ ],
+ "mistake": {
+  "wrong": "我明天會給你還書。",
+  "right": "我明天會把書還給你。",
+  "right_zhuyin": "ㄨㄛˇ ㄇㄧㄥˊ ㄊㄧㄢ ㄏㄨㄟˋ ㄅㄚˇ ㄕㄨ ㄏㄨㄢˊ ㄍㄟˇ ㄋㄧˇ",
+  "why_en": "給 + person before the verb means 'for someone' (as a favor). To show who receives the thing, put 給 after the verb: 把書還給你."
+ },
+ "taiwan_note": "會 here means 'will', a very common use in Taiwan."
+},
+{
+ "id": "G199",
+ "tbcl": 199,
+ "pattern": "被+（N）+V得",
+ "level": "第3*級",
+ "title_en": "被 + (cause) + V得 + result: badly affected by something",
+ "explanation_en": "This passive pattern says how strongly the subject was affected: 被吵得睡不著 'kept awake by the noise'. 被 introduces the cause (a person or a thing, which can be left out), and 得 after the verb introduces the result or the degree. Like most 被 sentences, it usually describes something unpleasant.",
+ "structure": "Subject + 被 + (Cause) + Verb + 得 + Result",
+ "examples": [
+  {
+   "zh": "我昨天晚上被蚊子咬得睡不著。",
+   "zhuyin": "ㄨㄛˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄅㄟˋ ㄨㄣˊ ˙ㄗ ㄧㄠˇ ˙ㄉㄜ ㄕㄨㄟˋ ㄅㄨˋ ㄓㄠˊ",
+   "en": "Last night the mosquitoes bit me so much that I couldn't sleep."
+  },
+  {
+   "zh": "他被老闆罵得很難過。",
+   "zhuyin": "ㄊㄚ ㄅㄟˋ ㄌㄠˇ ㄅㄢˇ ㄇㄚˋ ˙ㄉㄜ ㄏㄣˇ ㄋㄢˊ ㄍㄨㄛˋ",
+   "en": "He was scolded by his boss and felt terrible."
+  },
+  {
+   "zh": "我們被太陽曬得好熱。",
+   "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄅㄟˋ ㄊㄞˋ ㄧㄤˊ ㄕㄞˋ ˙ㄉㄜ ㄏㄠˇ ㄖㄜˋ",
+   "en": "The sun made us really hot."
+  }
+ ],
+ "mistake": {
+  "wrong": "我昨天晚上被蚊子咬睡不著。",
+  "right": "我昨天晚上被蚊子咬得睡不著。",
+  "right_zhuyin": "ㄨㄛˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄅㄟˋ ㄨㄣˊ ˙ㄗ ㄧㄠˇ ˙ㄉㄜ ㄕㄨㄟˋ ㄅㄨˋ ㄓㄠˊ",
+  "why_en": "The result after the verb needs 得 to link it: 咬得睡不著."
+ },
+ "taiwan_note": "Use 被 for the passive. The 給 passive is a Mainland pattern, so don't take it as a model for Taiwan Mandarin."
+},
+{
+ "id": "G200",
+ "tbcl": 200,
+ "pattern": "其實",
+ "level": "第3*級",
+ "title_en": "其實: actually, in fact",
+ "explanation_en": "其實 introduces the real situation, often correcting what someone believes or what seems to be true: 'actually, in fact'. It can open a sentence or come right after the subject, before the verb. It is useful for softening a disagreement or revealing something unexpected. It does not mean 'really, very'.",
+ "structure": "其實 + Clause；Subject + 其實 + Verb phrase",
+ "examples": [
+  {
+   "zh": "大家都以為他是日本人，其實他是臺灣人。",
+   "zhuyin": "ㄉㄚˋ ㄐㄧㄚ ㄉㄡ ㄧˇ ㄨㄟˊ ㄊㄚ ㄕˋ ㄖˋ ㄅㄣˇ ㄖㄣˊ ㄑㄧˊ ㄕˊ ㄊㄚ ㄕˋ ㄊㄞˊ ㄨㄢ ㄖㄣˊ",
+   "en": "Everyone thinks he's Japanese, but actually he's Taiwanese."
+  },
+  {
+   "zh": "這家店看起來很普通，其實不錯吃。",
+   "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ㄉㄧㄢˋ ㄎㄢˋ ㄑㄧˇ ㄌㄞˊ ㄏㄣˇ ㄆㄨˇ ㄊㄨㄥ ㄑㄧˊ ㄕˊ ㄅㄨˋ ㄘㄨㄛˋ ㄔ",
+   "en": "This place looks ordinary, but the food is actually pretty good."
+  },
+  {
+   "zh": "他說他不累，其實他昨天沒睡。",
+   "zhuyin": "ㄊㄚ ㄕㄨㄛ ㄊㄚ ㄅㄨˋ ㄌㄟˋ ㄑㄧˊ ㄕˊ ㄊㄚ ㄗㄨㄛˊ ㄊㄧㄢ ㄇㄟˊ ㄕㄨㄟˋ",
+   "en": "He says he isn't tired, but actually he didn't sleep last night."
+  }
+ ],
+ "mistake": {
+  "wrong": "這個便當其實好吃！我很喜歡。",
+  "right": "這個便當真的很好吃！",
+  "right_zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄅㄧㄢˋ ㄉㄤ ㄓㄣ ˙ㄉㄜ ㄏㄣˇ ㄏㄠˇ ㄔ",
+  "why_en": "其實 means 'in fact, contrary to what you'd think', not 'really, very'. For emphasis, use 真的."
+ },
+ "taiwan_note": "不錯吃 ('pretty tasty') is a Taiwan expression."
+},
+{
+ "id": "G201",
+ "tbcl": 201,
+ "pattern": "什麼都......就是......",
+ "level": "第3*級",
+ "title_en": "什麼都…，就是…: everything except",
+ "explanation_en": "This pattern says something applies to everything, with one exception that the speaker stresses. The first part uses a question word + 都 for 'everything, anything', and 就是 introduces the exception, usually with 不 or 沒. Other question words work too: 哪裡都去過，就是沒去過… 'been everywhere except…'.",
+ "structure": "Subject + 什麼都 + Verb，就是 + (不 / 沒) + Exception",
+ "examples": [
+  {
+   "zh": "我什麼都不怕，就是怕蟑螂。",
+   "zhuyin": "ㄨㄛˇ ㄕㄣˊ ˙ㄇㄜ ㄉㄡ ㄅㄨˋ ㄆㄚˋ ㄐㄧㄡˋ ㄕˋ ㄆㄚˋ ㄓㄤ ㄌㄤˊ",
+   "en": "I'm not scared of anything except cockroaches."
+  },
+  {
+   "zh": "這間房子什麼都好，就是離市場太遠。",
+   "zhuyin": "ㄓㄜˋ ㄐㄧㄢ ㄈㄤˊ ˙ㄗ ㄕㄣˊ ˙ㄇㄜ ㄉㄡ ㄏㄠˇ ㄐㄧㄡˋ ㄕˋ ㄌㄧˊ ㄕˋ ㄔㄤˇ ㄊㄞˋ ㄩㄢˇ",
+   "en": "This house is great in every way, except that it's too far from the market."
+  },
+  {
+   "zh": "他哪裡都去過了，就是還沒去過綠島。",
+   "zhuyin": "ㄊㄚ ㄋㄚˇ ㄌㄧˇ ㄉㄡ ㄑㄩˋ ㄍㄨㄛˋ ˙ㄌㄜ ㄐㄧㄡˋ ㄕˋ ㄏㄞˊ ㄇㄟˊ ㄑㄩˋ ㄍㄨㄛˋ ㄌㄩˋ ㄉㄠˇ",
+   "en": "He's been everywhere except Green Island."
+  }
+ ],
+ "mistake": {
+  "wrong": "我不怕什麼都，就是怕蟑螂。",
+  "right": "我什麼都不怕，就是怕蟑螂。",
+  "right_zhuyin": "ㄨㄛˇ ㄕㄣˊ ˙ㄇㄜ ㄉㄡ ㄅㄨˋ ㄆㄚˋ ㄐㄧㄡˋ ㄕˋ ㄆㄚˋ ㄓㄤ ㄌㄤˊ",
+  "why_en": "什麼都 goes before the verb (什麼都不怕); 都 never ends the clause."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G202",
+ "tbcl": 202,
+ "pattern": "V好",
+ "level": "第3*級",
+ "title_en": "V好: done and ready, done properly",
+ "explanation_en": "好 after a verb is a result complement: the action is completed so that things are ready, settled or done properly: 準備好了 'all set', 買好了 'bought already (taken care of)', 坐好 'sit properly'. It often comes with 了 or in a 把 sentence. Compared with 完 ('finished'), 好 adds that the result is satisfactory or ready for what comes next.",
+ "structure": "Verb + 好 (+ 了)",
+ "examples": [
+  {
+   "zh": "東西都準備好了，我們出發吧。",
+   "zhuyin": "ㄉㄨㄥ ˙ㄒㄧ ㄉㄡ ㄓㄨㄣˇ ㄅㄟˋ ㄏㄠˇ ˙ㄌㄜ ㄨㄛˇ ˙ㄇㄣ ㄔㄨ ㄈㄚ ˙ㄅㄚ",
+   "en": "Everything is ready; let's set off."
+  },
+  {
+   "zh": "車票我已經買好了。",
+   "zhuyin": "ㄔㄜ ㄆㄧㄠˋ ㄨㄛˇ ㄧˇ ㄐㄧㄥ ㄇㄞˇ ㄏㄠˇ ˙ㄌㄜ",
+   "en": "I've already bought the tickets."
+  },
+  {
+   "zh": "你坐好，我們要開車了。",
+   "zhuyin": "ㄋㄧˇ ㄗㄨㄛˋ ㄏㄠˇ ㄨㄛˇ ˙ㄇㄣ ㄧㄠˋ ㄎㄞ ㄔㄜ ˙ㄌㄜ",
+   "en": "Sit properly; we're about to drive off."
+  },
+  {
+   "zh": "便當訂好了嗎？",
+   "zhuyin": "ㄅㄧㄢˋ ㄉㄤ ㄉㄧㄥˋ ㄏㄠˇ ˙ㄌㄜ ˙ㄇㄚ",
+   "en": "Have the bento boxes been ordered?"
+  }
+ ],
+ "mistake": {
+  "wrong": "我已經買車票好了。",
+  "right": "我已經買好車票了。",
+  "right_zhuyin": "ㄨㄛˇ ㄧˇ ㄐㄧㄥ ㄇㄞˇ ㄏㄠˇ ㄔㄜ ㄆㄧㄠˋ ˙ㄌㄜ",
+  "why_en": "好 attaches directly to the verb (買好), so the object comes after 買好, or before it as a topic (車票我已經買好了)."
+ },
+ "taiwan_note": ""
+},
+{
+ "id": "G203",
+ "tbcl": 203,
+ "pattern": "V完",
+ "level": "第3*級",
+ "title_en": "V完: finish doing",
+ "explanation_en": "完 after a verb means the action is finished: 吃完 'finish eating', 寫完 'finish writing'. Add 了 when it is already finished, and use 還沒(有) + V完 for 'haven't finished yet'. An object goes after 完 (吃完飯) or is moved to the front as a topic. The potential forms are V得完 / V不完 'can / can't finish'.",
+ "structure": "Verb + 完 (+ Object) (+ 了)",
+ "examples": [
+  {
+   "zh": "我剛吃完飯，等一下再去。",
+   "zhuyin": "ㄨㄛˇ ㄍㄤ ㄔ ㄨㄢˊ ㄈㄢˋ ㄉㄥˇ ㄧ ㄒㄧㄚˋ ㄗㄞˋ ㄑㄩˋ",
+   "en": "I've just finished eating; I'll go in a bit."
+  },
+  {
+   "zh": "這本小說你看完了嗎？",
+   "zhuyin": "ㄓㄜˋ ㄅㄣˇ ㄒㄧㄠˇ ㄕㄨㄛ ㄋㄧˇ ㄎㄢˋ ㄨㄢˊ ˙ㄌㄜ ˙ㄇㄚ",
+   "en": "Have you finished reading this novel?"
+  },
+  {
+   "zh": "他還沒做完作業，不能出去玩。",
+   "zhuyin": "ㄊㄚ ㄏㄞˊ ㄇㄟˊ ㄗㄨㄛˋ ㄨㄢˊ ㄗㄨㄛˋ ㄧㄝˋ ㄅㄨˋ ㄋㄥˊ ㄔㄨ ㄑㄩˋ ㄨㄢˊ",
+   "en": "He hasn't finished his homework, so he can't go out to play."
+  }
+ ],
+ "mistake": {
+  "wrong": "我吃飯完了。",
+  "right": "我吃完飯了。",
+  "right_zhuyin": "ㄨㄛˇ ㄔ ㄨㄢˊ ㄈㄢˋ ˙ㄌㄜ",
+  "why_en": "完 attaches directly to the verb, before the object: 吃完飯, not 吃飯完."
+ },
+ "taiwan_note": ""
+}
+]

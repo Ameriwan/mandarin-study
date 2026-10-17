@@ -1,0 +1,76 @@
+{
+ "id": "L1-08", "level": "第1*級", "order": 8,
+ "topic": "天氣 and small talk with neighbours",
+ "title_zh": "今天好熱喔", "title_en": "Weather talk with the neighbours",
+ "can_do_en": "I can greet my neighbours, talk about hot, cold and rainy weather, and ask whether it will rain.",
+ "dialogue": [
+  {"speaker": "馬克", "zh": "陳阿姨、陳伯伯，早！", "zhuyin": "ㄔㄣˊ ㄚ ㄧˊ ㄔㄣˊ ㄅㄛˊ ˙ㄅㄛ ㄗㄠˇ", "en": "Good morning, Auntie Chen, Uncle Chen!"},
+  {"speaker": "陳阿姨", "zh": "早啊！馬克，吃飽了嗎？", "zhuyin": "ㄗㄠˇ ˙ㄚ ㄇㄚˇ ㄎㄜˋ ㄔ ㄅㄠˇ ˙ㄌㄜ ˙ㄇㄚ", "en": "Morning! Mark, have you eaten?"},
+  {"speaker": "馬克", "zh": "吃飽了。今天好熱喔！", "zhuyin": "ㄔ ㄅㄠˇ ˙ㄌㄜ ㄐㄧㄣ ㄊㄧㄢ ㄏㄠˇ ㄖㄜˋ ㄛ", "en": "Yes, I have. It's so hot today!"},
+  {"speaker": "陳伯伯", "zh": "對啊，屏東的夏天真的很熱。", "zhuyin": "ㄉㄨㄟˋ ˙ㄚ ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄒㄧㄚˋ ㄊㄧㄢ ㄓㄣ ˙ㄉㄜ ㄏㄣˇ ㄖㄜˋ", "en": "Yes, summer in Pingtung is really hot."},
+  {"speaker": "陳阿姨", "zh": "你們那裡冬天冷不冷？", "zhuyin": "ㄋㄧˇ ˙ㄇㄣ ㄋㄚˋ ㄌㄧˇ ㄉㄨㄥ ㄊㄧㄢ ㄌㄥˇ ㄅㄨˋ ㄌㄥˇ", "en": "Is winter cold where you're from?"},
+  {"speaker": "馬克", "zh": "非常冷，常常下雪。", "zhuyin": "ㄈㄟ ㄔㄤˊ ㄌㄥˇ ㄔㄤˊ ㄔㄤˊ ㄒㄧㄚˋ ㄒㄩㄝˇ", "en": "Very cold. It often snows."},
+  {"speaker": "陳伯伯", "zh": "屏東冬天不冷，也不常下雨，天氣很舒服。", "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ㄉㄨㄥ ㄊㄧㄢ ㄅㄨˋ ㄌㄥˇ ㄧㄝˇ ㄅㄨˋ ㄔㄤˊ ㄒㄧㄚˋ ㄩˇ ㄊㄧㄢ ㄑㄧˋ ㄏㄣˇ ㄕㄨ ˙ㄈㄨ", "en": "Winter in Pingtung isn't cold, and it doesn't rain much. The weather is very comfortable."},
+  {"speaker": "馬克", "zh": "真的嗎？那我會喜歡屏東的冬天！", "zhuyin": "ㄓㄣ ˙ㄉㄜ ˙ㄇㄚ ㄋㄚˋ ㄨㄛˇ ㄏㄨㄟˋ ㄒㄧˇ ㄏㄨㄢ ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄉㄨㄥ ㄊㄧㄢ", "en": "Really? Then I'm going to like winter in Pingtung!"},
+  {"speaker": "陳阿姨", "zh": "你今天要去哪裡？", "zhuyin": "ㄋㄧˇ ㄐㄧㄣ ㄊㄧㄢ ㄧㄠˋ ㄑㄩˋ ㄋㄚˇ ㄌㄧˇ", "en": "Where are you off to today?"},
+  {"speaker": "馬克", "zh": "我要去公園運動。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄑㄩˋ ㄍㄨㄥ ㄩㄢˊ ㄩㄣˋ ㄉㄨㄥˋ", "en": "I'm going to the park to exercise."},
+  {"speaker": "陳阿姨", "zh": "早上去很好。下午可能會下雨喔。", "zhuyin": "ㄗㄠˇ ㄕㄤˋ ㄑㄩˋ ㄏㄣˇ ㄏㄠˇ ㄒㄧㄚˋ ㄨˇ ㄎㄜˇ ㄋㄥˊ ㄏㄨㄟˋ ㄒㄧㄚˋ ㄩˇ ㄛ", "en": "The morning is a good time to go. It might rain this afternoon."},
+  {"speaker": "馬克", "zh": "雨會不會很大？", "zhuyin": "ㄩˇ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄏㄣˇ ㄉㄚˋ", "en": "Will the rain be heavy?"},
+  {"speaker": "陳伯伯", "zh": "會，夏天的下午常常下大雨。你早一點回家吧。", "zhuyin": "ㄏㄨㄟˋ ㄒㄧㄚˋ ㄊㄧㄢ ˙ㄉㄜ ㄒㄧㄚˋ ㄨˇ ㄔㄤˊ ㄔㄤˊ ㄒㄧㄚˋ ㄉㄚˋ ㄩˇ ㄋㄧˇ ㄗㄠˇ ㄧ ㄉㄧㄢˇ ㄏㄨㄟˊ ㄐㄧㄚ ˙ㄅㄚ", "en": "Yes. In summer it often rains hard in the afternoon. Better come home early."},
+  {"speaker": "馬克", "zh": "好，謝謝伯伯！阿姨再見！", "zhuyin": "ㄏㄠˇ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄅㄛˊ ˙ㄅㄛ ㄚ ㄧˊ ㄗㄞˋ ㄐㄧㄢˋ", "en": "OK, thank you, Uncle! Bye, Auntie!"}
+ ],
+ "vocab": [
+  {"zh": "天氣", "zhuyin": "ㄊㄧㄢ ㄑㄧˋ", "en": "weather", "pos": "n", "level": "第1*級"},
+  {"zh": "熱", "zhuyin": "ㄖㄜˋ", "en": "hot", "pos": "adj", "level": "第1級"},
+  {"zh": "冷", "zhuyin": "ㄌㄥˇ", "en": "cold", "pos": "adj", "level": "第1級"},
+  {"zh": "下雨", "zhuyin": "ㄒㄧㄚˋ ㄩˇ", "en": "to rain", "pos": "v", "level": "第1*級"},
+  {"zh": "雨", "zhuyin": "ㄩˇ", "en": "rain", "pos": "n", "measure": "場", "level": "第1*級"},
+  {"zh": "夏天", "zhuyin": "ㄒㄧㄚˋ ㄊㄧㄢ", "en": "summer", "pos": "n", "level": "第2級"},
+  {"zh": "冬天", "zhuyin": "ㄉㄨㄥ ㄊㄧㄢ", "en": "winter", "pos": "n", "level": "第2級"},
+  {"zh": "下雪", "zhuyin": "ㄒㄧㄚˋ ㄒㄩㄝˇ", "en": "to snow", "pos": "v", "level": "第2*級"},
+  {"zh": "舒服", "zhuyin": "ㄕㄨ ˙ㄈㄨ", "en": "comfortable", "pos": "adj", "level": "第1*級"},
+  {"zh": "可能", "zhuyin": "ㄎㄜˇ ㄋㄥˊ", "en": "maybe, might", "pos": "adv", "level": "第1級"},
+  {"zh": "會", "zhuyin": "ㄏㄨㄟˋ", "en": "will, be likely to", "pos": "aux", "level": "第1*級"},
+  {"zh": "常常", "zhuyin": "ㄔㄤˊ ㄔㄤˊ", "en": "often", "pos": "adv", "level": "第1*級"},
+  {"zh": "公園", "zhuyin": "ㄍㄨㄥ ㄩㄢˊ", "en": "park", "pos": "n", "measure": "個", "level": "第1*級"},
+  {"zh": "運動", "zhuyin": "ㄩㄣˋ ㄉㄨㄥˋ", "en": "to exercise; exercise", "pos": "v", "level": "第1*級"},
+  {"zh": "那裡", "zhuyin": "ㄋㄚˋ ㄌㄧˇ", "en": "there; (你們那裡) where you are from", "pos": "pron", "level": "第1級"},
+  {"zh": "飽", "zhuyin": "ㄅㄠˇ", "en": "full (after eating)", "pos": "adj", "level": "第1*級"},
+  {"zh": "真的", "zhuyin": "ㄓㄣ ˙ㄉㄜ", "en": "really", "pos": "adv", "level": "第1*級"},
+  {"zh": "阿姨", "zhuyin": "ㄚ ㄧˊ", "en": "auntie (an older woman, e.g. a neighbour)", "pos": "n", "measure": "位", "level": "第2*級"},
+  {"zh": "伯伯", "zhuyin": "ㄅㄛˊ ˙ㄅㄛ", "en": "uncle (an older man, e.g. a neighbour)", "pos": "n", "measure": "位", "level": "第2*級"}
+ ],
+ "grammar": [
+  {"id": "G015", "note_en": "陳阿姨 asks 你們那裡冬天冷不冷？ and Mark asks 雨會不會很大？: an adjective or 會 said twice, positive then negative, makes a yes/no question with no 嗎. 會不會 + adjective is the usual Taiwan way to ask about the weather or how someone feels."},
+  {"id": "G004", "note_en": "陳伯伯 says 屏東冬天不冷，也不常下雨: 不 goes straight before an adjective (不冷) or before an adverb and verb (不常下雨) to talk about how things usually are."}
+ ],
+ "pronunciation": {"contrast": "yu-i-u", "tone_pair": "43", "note_en": "下雨 ㄒㄧㄚˋ ㄩˇ 'to rain' and 下午 ㄒㄧㄚˋ ㄨˇ 'afternoon' are both T4 + T3 and differ only in ㄩ and ㄨ: for ㄩ say ㄧ (as in 阿姨) and round your lips without moving your tongue back. Keep the T3 of 雨 and 午 low (21) inside a sentence; a rise is allowed only at the end of a phrase."},
+ "shadowing": [
+  {"zh": "吃飽了嗎？", "zhuyin": "ㄔ ㄅㄠˇ ˙ㄌㄜ ˙ㄇㄚ", "en": "Have you eaten?"},
+  {"zh": "今天好熱喔！", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄏㄠˇ ㄖㄜˋ ㄛ", "en": "It's so hot today!"},
+  {"zh": "你們那裡冬天冷不冷？", "zhuyin": "ㄋㄧˇ ˙ㄇㄣ ㄋㄚˋ ㄌㄧˇ ㄉㄨㄥ ㄊㄧㄢ ㄌㄥˇ ㄅㄨˋ ㄌㄥˇ", "en": "Is winter cold where you're from?"},
+  {"zh": "屏東冬天不冷，也不常下雨。", "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ㄉㄨㄥ ㄊㄧㄢ ㄅㄨˋ ㄌㄥˇ ㄧㄝˇ ㄅㄨˋ ㄔㄤˊ ㄒㄧㄚˋ ㄩˇ", "en": "Winter in Pingtung isn't cold, and it doesn't rain much."},
+  {"zh": "我要去公園運動。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄑㄩˋ ㄍㄨㄥ ㄩㄢˊ ㄩㄣˋ ㄉㄨㄥˋ", "en": "I'm going to the park to exercise."},
+  {"zh": "下午可能會下雨喔。", "zhuyin": "ㄒㄧㄚˋ ㄨˇ ㄎㄜˇ ㄋㄥˊ ㄏㄨㄟˋ ㄒㄧㄚˋ ㄩˇ ㄛ", "en": "It might rain this afternoon."},
+  {"zh": "雨會不會很大？", "zhuyin": "ㄩˇ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄏㄣˇ ㄉㄚˋ", "en": "Will the rain be heavy?"}
+ ],
+ "comprehension": [
+  {"question_en": "What does 陳阿姨 ask Mark right after saying good morning?", "options_en": ["What time it is", "Whether he has eaten", "Where he lives"], "answer": 1},
+  {"question_en": "What is winter like where Mark comes from?", "options_en": ["Very cold, and it often snows", "Mild and dry", "Hot and rainy"], "answer": 0},
+  {"question_en": "What does 陳伯伯 say about winter in Pingtung?", "options_en": ["It is cold and wet", "It is hotter than summer", "It is not cold, it rarely rains, and it is comfortable"], "answer": 2},
+  {"question_en": "Where is Mark going this morning?", "options_en": ["To the market", "To the park to exercise", "To work"], "answer": 1},
+  {"question_en": "Why does 陳伯伯 tell Mark to come home early?", "options_en": ["Summer afternoons often bring heavy rain", "It will get cold in the evening", "The park closes at noon"], "answer": 0}
+ ],
+ "speaking": {
+  "prompt_en": "You meet a neighbour at your door in the morning. Greet them, say what the weather is like today, ask whether it will rain this afternoon, and say where you are going.",
+  "prompt_zh": "早上你在門口看到鄰居。跟他說早，說說今天的天氣，問問下午會不會下雨，也說你要去哪裡。",
+  "checklist_en": ["greeted with 早 and a title (阿姨早！ / 伯伯早！)", "described the weather with 好 / 很 / 非常 + 熱 or 冷", "asked an A-not-A question with no 嗎 (會不會下雨？ 熱不熱？)", "used 不 before an adjective (不冷, 不熱)", "said 下雨 with ㄩ, clearly different from 下午"]
+ },
+ "writing": {
+  "prompt_en": "Write 3 or 4 short sentences: what is the weather like today where you live, and what will you do?",
+  "prompt_zh": "寫三、四個句子：今天你那裡的天氣怎麼樣？你要做什麼？",
+  "model_zh": "今天屏東很熱，下午可能會下雨。我早上去公園運動，下午在家休息。屏東冬天不冷，我很喜歡。",
+  "model_zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄆㄧㄥˊ ㄉㄨㄥ ㄏㄣˇ ㄖㄜˋ ㄒㄧㄚˋ ㄨˇ ㄎㄜˇ ㄋㄥˊ ㄏㄨㄟˋ ㄒㄧㄚˋ ㄩˇ ㄨㄛˇ ㄗㄠˇ ㄕㄤˋ ㄑㄩˋ ㄍㄨㄥ ㄩㄢˊ ㄩㄣˋ ㄉㄨㄥˋ ㄒㄧㄚˋ ㄨˇ ㄗㄞˋ ㄐㄧㄚ ㄒㄧㄡ ㄒㄧˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄉㄨㄥ ㄊㄧㄢ ㄅㄨˋ ㄌㄥˇ ㄨㄛˇ ㄏㄣˇ ㄒㄧˇ ㄏㄨㄢ"
+ },
+ "culture_en": "Older people in Taiwan often greet you with 吃飽了嗎？ 'Have you eaten?'. It is a greeting, not an invitation: just answer 吃飽了 or 還沒. Neighbours and other older adults are called 阿姨 'auntie' and 伯伯 'uncle' even when they are not relatives, often with their surname: 陳阿姨. Pingtung is in the far south of Taiwan: summers are hot, with frequent heavy afternoon showers, and winters are mild and mostly dry."
+}

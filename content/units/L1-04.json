@@ -1,0 +1,84 @@
+{
+ "id": "L1-04", "level": "第1*級", "order": 4,
+ "topic": "手搖飲 (甜度/冰塊)", "title_zh": "買手搖飲", "title_en": "Ordering a hand-shaken drink",
+ "can_do_en": "I can order a drink at a drink stand, choose the size, the sugar level and the ice, and ask a friend if they want one too.",
+ "dialogue": [
+  {"speaker": "店員", "zh": "你好，要喝什麼？", "zhuyin": "ㄋㄧˇ ㄏㄠˇ ㄧㄠˋ ㄏㄜ ㄕㄣˊ ˙ㄇㄜ", "en": "Hi, what would you like to drink?"},
+  {"speaker": "小美", "zh": "我要一杯珍珠奶茶。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄧ ㄅㄟ ㄓㄣ ㄓㄨ ㄋㄞˇ ㄔㄚˊ", "en": "I'd like a bubble milk tea."},
+  {"speaker": "店員", "zh": "大杯還是中杯？", "zhuyin": "ㄉㄚˋ ㄅㄟ ㄏㄞˊ ㄕˋ ㄓㄨㄥ ㄅㄟ", "en": "Large or medium?"},
+  {"speaker": "小美", "zh": "大杯。", "zhuyin": "ㄉㄚˋ ㄅㄟ", "en": "Large."},
+  {"speaker": "店員", "zh": "甜度冰塊呢？", "zhuyin": "ㄊㄧㄢˊ ㄉㄨˋ ㄅㄧㄥ ㄎㄨㄞˋ ˙ㄋㄜ", "en": "And the sugar level and the ice?"},
+  {"speaker": "小美", "zh": "半糖少冰。", "zhuyin": "ㄅㄢˋ ㄊㄤˊ ㄕㄠˇ ㄅㄧㄥ", "en": "Half sugar, less ice."},
+  {"speaker": "小美", "zh": "阿明，你要不要喝？", "zhuyin": "ㄚ ㄇㄧㄥˊ ㄋㄧˇ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄏㄜ", "en": "A-Ming, do you want a drink?"},
+  {"speaker": "阿明", "zh": "好啊。你們有沒有熱的？", "zhuyin": "ㄏㄠˇ ˙ㄚ ㄋㄧˇ ˙ㄇㄣ ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄖㄜˋ ˙ㄉㄜ", "en": "Sure. Do you have hot drinks?"},
+  {"speaker": "店員", "zh": "有喔，紅茶可以做熱的。", "zhuyin": "ㄧㄡˇ ㄛ ㄏㄨㄥˊ ㄔㄚˊ ㄎㄜˇ ㄧˇ ㄗㄨㄛˋ ㄖㄜˋ ˙ㄉㄜ", "en": "Yes, we can make the black tea hot."},
+  {"speaker": "阿明", "zh": "那我要一杯熱紅茶，無糖。", "zhuyin": "ㄋㄚˋ ㄨㄛˇ ㄧㄠˋ ㄧ ㄅㄟ ㄖㄜˋ ㄏㄨㄥˊ ㄔㄚˊ ㄨˊ ㄊㄤˊ", "en": "Then I'll have a hot black tea, no sugar."},
+  {"speaker": "店員", "zh": "好，一共九十五塊。", "zhuyin": "ㄏㄠˇ ㄧ ㄍㄨㄥˋ ㄐㄧㄡˇ ㄕˊ ㄨˇ ㄎㄨㄞˋ", "en": "OK, that's ninety-five dollars altogether."},
+  {"speaker": "阿明", "zh": "我請你啦！", "zhuyin": "ㄨㄛˇ ㄑㄧㄥˇ ㄋㄧˇ ˙ㄌㄚ", "en": "It's my treat!"},
+  {"speaker": "小美", "zh": "謝謝你喔！", "zhuyin": "ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄋㄧˇ ㄛ", "en": "Thank you!"}
+ ],
+ "vocab": [
+  {"zh": "喝", "zhuyin": "ㄏㄜ", "en": "to drink", "pos": "v", "measure": null, "level": "第1級"},
+  {"zh": "杯", "zhuyin": "ㄅㄟ", "en": "cup, glass (measure word for drinks)", "pos": "m", "measure": null, "level": "第1*級"},
+  {"zh": "茶", "zhuyin": "ㄔㄚˊ", "en": "tea", "pos": "n", "measure": "杯", "level": "第1級"},
+  {"zh": "紅茶", "zhuyin": "ㄏㄨㄥˊ ㄔㄚˊ", "en": "black tea", "pos": "n", "measure": "杯", "level": "第2*級"},
+  {"zh": "奶茶", "zhuyin": "ㄋㄞˇ ㄔㄚˊ", "en": "milk tea", "pos": "n", "measure": "杯", "level": "第2*級"},
+  {"zh": "珍珠奶茶", "zhuyin": "ㄓㄣ ㄓㄨ ㄋㄞˇ ㄔㄚˊ", "en": "bubble milk tea, pearl milk tea (short form 珍奶)", "pos": "n", "measure": "杯", "level": null},
+  {"zh": "還是", "zhuyin": "ㄏㄞˊ ㄕˋ", "en": "or (in a question that offers a choice)", "pos": "conj", "measure": null, "level": "第1*級"},
+  {"zh": "甜", "zhuyin": "ㄊㄧㄢˊ", "en": "sweet", "pos": "adj", "measure": null, "level": "第1*級"},
+  {"zh": "甜度", "zhuyin": "ㄊㄧㄢˊ ㄉㄨˋ", "en": "sweetness, sugar level", "pos": "n", "measure": null, "level": null},
+  {"zh": "糖", "zhuyin": "ㄊㄤˊ", "en": "sugar", "pos": "n", "measure": null, "level": "第2*級"},
+  {"zh": "半", "zhuyin": "ㄅㄢˋ", "en": "half", "pos": "num", "measure": null, "level": "第1級"},
+  {"zh": "半糖", "zhuyin": "ㄅㄢˋ ㄊㄤˊ", "en": "half sugar", "pos": "phrase", "measure": null, "level": null},
+  {"zh": "無糖", "zhuyin": "ㄨˊ ㄊㄤˊ", "en": "no sugar, sugar-free", "pos": "phrase", "measure": null, "level": null},
+  {"zh": "冰", "zhuyin": "ㄅㄧㄥ", "en": "iced, cold; ice", "pos": "adj", "measure": null, "level": "第1*級"},
+  {"zh": "冰塊", "zhuyin": "ㄅㄧㄥ ㄎㄨㄞˋ", "en": "ice cubes; the ice in a drink", "pos": "n", "measure": null, "level": "第2*級"},
+  {"zh": "少", "zhuyin": "ㄕㄠˇ", "en": "few, little; less", "pos": "adj", "measure": null, "level": "第1級"},
+  {"zh": "少冰", "zhuyin": "ㄕㄠˇ ㄅㄧㄥ", "en": "less ice", "pos": "phrase", "measure": null, "level": null},
+  {"zh": "熱", "zhuyin": "ㄖㄜˋ", "en": "hot", "pos": "adj", "measure": null, "level": "第1級"},
+  {"zh": "一共", "zhuyin": "ㄧ ㄍㄨㄥˋ", "en": "altogether, in total", "pos": "adv", "measure": null, "level": "第1*級"},
+  {"zh": "塊", "zhuyin": "ㄎㄨㄞˋ", "en": "dollar (NT$, spoken); piece", "pos": "m", "measure": null, "level": "第1級"}
+ ],
+ "grammar": [
+  {"id": "G012", "note_en": "Drinks are counted with the measure word 杯: 一杯珍珠奶茶, 一杯熱紅茶. The same 杯 names the size, 大杯 and 中杯."},
+  {"id": "G015", "note_en": "小美 asks her friend 你要不要喝？ and 阿明 asks the clerk 你們有沒有熱的？ The verb said twice with 不 or 沒 in the middle makes the question, so 嗎 is not added."},
+  {"id": "G011", "note_en": "The clerk gives the total as 九十五塊: 九十 (nine tens) + 五. Prices are said with 塊 in speech."}
+ ],
+ "pronunciation": {"contrast": "an-ang", "tone_pair": "22", "note_en": "半糖 puts ㄢ and ㄤ side by side: 半 ㄅㄢˋ ends with the tongue tip on the ridge behind the teeth, and 糖 ㄊㄤˊ ends with the back of the tongue raised and a darker a. 甜 ㄊㄧㄢˊ is different again: ㄧㄢ sounds like \"yen\", not \"yahn\". For the tone pair, 紅茶 and 無糖 are two rising tones in a row (2+2); let both rise. Also listen for 一 in 一杯, said ㄧˋ before the first tone of 杯."},
+ "shadowing": [
+  {"zh": "我要一杯珍珠奶茶。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄧ ㄅㄟ ㄓㄣ ㄓㄨ ㄋㄞˇ ㄔㄚˊ", "en": "I'd like a bubble milk tea."},
+  {"zh": "大杯還是中杯？", "zhuyin": "ㄉㄚˋ ㄅㄟ ㄏㄞˊ ㄕˋ ㄓㄨㄥ ㄅㄟ", "en": "Large or medium?"},
+  {"zh": "甜度冰塊呢？", "zhuyin": "ㄊㄧㄢˊ ㄉㄨˋ ㄅㄧㄥ ㄎㄨㄞˋ ˙ㄋㄜ", "en": "And the sugar level and the ice?"},
+  {"zh": "半糖少冰。", "zhuyin": "ㄅㄢˋ ㄊㄤˊ ㄕㄠˇ ㄅㄧㄥ", "en": "Half sugar, less ice."},
+  {"zh": "你要不要喝？", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄏㄜ", "en": "Do you want a drink?"},
+  {"zh": "你們有沒有熱的？", "zhuyin": "ㄋㄧˇ ˙ㄇㄣ ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄖㄜˋ ˙ㄉㄜ", "en": "Do you have hot drinks?"},
+  {"zh": "那我要一杯熱紅茶，無糖。", "zhuyin": "ㄋㄚˋ ㄨㄛˇ ㄧㄠˋ ㄧ ㄅㄟ ㄖㄜˋ ㄏㄨㄥˊ ㄔㄚˊ ㄨˊ ㄊㄤˊ", "en": "Then I'll have a hot black tea, no sugar."},
+  {"zh": "一共九十五塊。", "zhuyin": "ㄧ ㄍㄨㄥˋ ㄐㄧㄡˇ ㄕˊ ㄨˇ ㄎㄨㄞˋ", "en": "That's ninety-five dollars altogether."}
+ ],
+ "comprehension": [
+  {"question_en": "What size is 小美's milk tea?", "options_en": ["Small", "Medium", "Large"], "answer": 2},
+  {"question_en": "How does 小美 want her drink?", "options_en": ["Half sugar, less ice", "No sugar, no ice", "Full sugar, hot"], "answer": 0},
+  {"question_en": "Why does 阿明 order black tea?", "options_en": ["It is the cheapest drink", "The shop can make it hot", "小美 tells him to"], "answer": 1},
+  {"question_en": "How much is the total?", "options_en": ["NT$59", "NT$95", "NT$905"], "answer": 1},
+  {"question_en": "Who pays?", "options_en": ["小美", "The clerk", "阿明"], "answer": 2}
+ ],
+ "speaking": {
+  "prompt_en": "You are at a drink stand in Pingtung. Order one drink: say the drink, the size, the sugar level and the ice. Then ask your friend if they want one too.",
+  "prompt_zh": "你在飲料店。請你點一杯飲料，說大杯還是中杯、甜度和冰塊。再問朋友要不要喝。",
+  "checklist_en": [
+   "used 一杯 + the drink (number + measure word)",
+   "gave the size with 大杯 or 中杯",
+   "gave the sugar level, then the ice (for example 半糖少冰)",
+   "asked an A-not-A question (要不要 or 有沒有)",
+   "said 一 in 一杯 as ㄧˋ",
+   "kept ㄢ and ㄤ apart in 半糖"
+  ]
+ },
+ "writing": {
+  "prompt_en": "Your friend is at the drink stand and asks what you want. Type your order in one or two sentences: the drink, the size, the sugar and the ice. Then ask how much it is.",
+  "prompt_zh": "朋友在飲料店，問你要喝什麼。請寫一兩句話。",
+  "model_zh": "我要一杯奶茶，大杯，半糖少冰。一共多少錢？",
+  "model_zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄧ ㄅㄟ ㄋㄞˇ ㄔㄚˊ ㄉㄚˋ ㄅㄟ ㄅㄢˋ ㄊㄤˊ ㄕㄠˇ ㄅㄧㄥ ㄧ ㄍㄨㄥˋ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ"
+ },
+ "culture_en": "At Taiwan's hand-shaken drink shops (手搖飲) the clerk asks for the sugar level and the ice level separately, and the usual answer gives the sugar first: 半糖少冰. Common sugar levels are 全糖 (full), 少糖 (less), 半糖 (half), 微糖 (a little) and 無糖 (none). Common ice levels are 正常冰 (regular), 少冰 (less), 微冰 (a little) and 去冰 (no ice in the cup), and some drinks can be made 熱 (hot). The exact amounts differ from shop to shop. Bubble milk tea, 珍珠奶茶, is usually shortened to 珍奶."
+}

@@ -1,0 +1,1000 @@
+{
+ "band": "L2",
+ "tbcl_levels": [
+  "第2級",
+  "第2*級"
+ ],
+ "note": "Original graded texts for the Advanced reading ladder. Zhuyin stores base tones (MASTER_PROMPT §9.2).",
+ "texts": [
+  {
+   "id": "R2-01",
+   "level": "第2級",
+   "vocab_max": "第2*級",
+   "chars": 176,
+   "topic_en": "Night market",
+   "title": {
+    "zh": "第一次去夜市",
+    "zhuyin": "ㄉㄧˋ ㄧ ㄘˋ ㄑㄩˋ ㄧㄝˋ ㄕˋ",
+    "en": "My First Night Market"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "星期五晚上，我的臺灣朋友小林帶我去夜市。",
+      "zhuyin": "ㄒㄧㄥ ㄑㄧˊ ㄨˇ ㄨㄢˇ ㄕㄤˋ ㄨㄛˇ ˙ㄉㄜ ㄊㄞˊ ㄨㄢ ㄆㄥˊ ㄧㄡˇ ㄒㄧㄠˇ ㄌㄧㄣˊ ㄉㄞˋ ㄨㄛˇ ㄑㄩˋ ㄧㄝˋ ㄕˋ",
+      "en": "On Friday evening my Taiwanese friend Xiao Lin took me to the night market.",
+      "words": [
+       "星期",
+       "五",
+       "晚上",
+       "我",
+       "的",
+       "臺灣",
+       "朋友",
+       "小林",
+       "帶",
+       "我",
+       "去",
+       "夜市"
+      ]
+     },
+     {
+      "zh": "那是我第一次去臺灣的夜市。",
+      "zhuyin": "ㄋㄚˋ ㄕˋ ㄨㄛˇ ㄉㄧˋ ㄧ ㄘˋ ㄑㄩˋ ㄊㄞˊ ㄨㄢ ˙ㄉㄜ ㄧㄝˋ ㄕˋ",
+      "en": "It was my first time at a Taiwanese night market.",
+      "words": [
+       "那",
+       "是",
+       "我",
+       "第一",
+       "次",
+       "去",
+       "臺灣",
+       "的",
+       "夜市"
+      ]
+     },
+     {
+      "zh": "夜市裡的人非常多，有很多賣小吃的店，也有賣衣服和鞋子的。",
+      "zhuyin": "ㄧㄝˋ ㄕˋ ㄌㄧˇ ˙ㄉㄜ ㄖㄣˊ ㄈㄟ ㄔㄤˊ ㄉㄨㄛ ㄧㄡˇ ㄏㄣˇ ㄉㄨㄛ ㄇㄞˋ ㄒㄧㄠˇ ㄔ ˙ㄉㄜ ㄉㄧㄢˋ ㄧㄝˇ ㄧㄡˇ ㄇㄞˋ ㄧ ˙ㄈㄨ ㄏㄜˊ ㄒㄧㄝˊ ˙ㄗ ˙ㄉㄜ",
+      "en": "The night market was packed. There were lots of food stalls, and stalls selling clothes and shoes too.",
+      "words": [
+       "夜市",
+       "裡",
+       "的",
+       "人",
+       "非常",
+       "多",
+       "有",
+       "很",
+       "多",
+       "賣",
+       "小吃",
+       "的",
+       "店",
+       "也",
+       "有",
+       "賣",
+       "衣服",
+       "和",
+       "鞋子",
+       "的"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "小林說：「今天晚上不要吃太飽，每種都吃一點。」",
+      "zhuyin": "ㄒㄧㄠˇ ㄌㄧㄣˊ ㄕㄨㄛ ㄐㄧㄣ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄅㄨˋ ㄧㄠˋ ㄔ ㄊㄞˋ ㄅㄠˇ ㄇㄟˇ ㄓㄨㄥˇ ㄉㄡ ㄔ ㄧ ㄉㄧㄢˇ",
+      "en": "Xiao Lin said, \"Don't fill up tonight. Have a little of everything.\"",
+      "words": [
+       "小林",
+       "說",
+       "今天",
+       "晚上",
+       "不要",
+       "吃",
+       "太",
+       "飽",
+       "每",
+       "種",
+       "都",
+       "吃",
+       "一點"
+      ]
+     },
+     {
+      "zh": "我們先吃了一碗湯麵，又吃了烤肉和包子。",
+      "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄒㄧㄢ ㄔ ˙ㄌㄜ ㄧ ㄨㄢˇ ㄊㄤ ㄇㄧㄢˋ ㄧㄡˋ ㄔ ˙ㄌㄜ ㄎㄠˇ ㄖㄡˋ ㄏㄜˊ ㄅㄠ ˙ㄗ",
+      "en": "First we had a bowl of noodle soup, then grilled meat and steamed buns.",
+      "words": [
+       "我們",
+       "先",
+       "吃",
+       "了",
+       "一",
+       "碗",
+       "湯",
+       "麵",
+       "又",
+       "吃",
+       "了",
+       "烤",
+       "肉",
+       "和",
+       "包子"
+      ]
+     },
+     {
+      "zh": "最後，我們一人買了一杯冰奶茶。",
+      "zhuyin": "ㄗㄨㄟˋ ㄏㄡˋ ㄨㄛˇ ˙ㄇㄣ ㄧ ㄖㄣˊ ㄇㄞˇ ˙ㄌㄜ ㄧ ㄅㄟ ㄅㄧㄥ ㄋㄞˇ ㄔㄚˊ",
+      "en": "Last of all, we each bought a cup of iced milk tea.",
+      "words": [
+       "最後",
+       "我們",
+       "一",
+       "人",
+       "買",
+       "了",
+       "一",
+       "杯",
+       "冰",
+       "奶茶"
+      ]
+     },
+     {
+      "zh": "一共花了兩百多塊，比在餐廳吃飯便宜多了。",
+      "zhuyin": "ㄧ ㄍㄨㄥˋ ㄏㄨㄚ ˙ㄌㄜ ㄌㄧㄤˇ ㄅㄞˇ ㄉㄨㄛ ㄎㄨㄞˋ ㄅㄧˇ ㄗㄞˋ ㄘㄢ ㄊㄧㄥ ㄔ ㄈㄢˋ ㄆㄧㄢˊ ㄧˊ ㄉㄨㄛ ˙ㄌㄜ",
+      "en": "Altogether we spent a little over two hundred dollars, much cheaper than eating in a restaurant.",
+      "words": [
+       "一共",
+       "花",
+       "了",
+       "兩",
+       "百",
+       "多",
+       "塊",
+       "比",
+       "在",
+       "餐廳",
+       "吃飯",
+       "便宜",
+       "多",
+       "了"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "小林問我：「好吃嗎？」",
+      "zhuyin": "ㄒㄧㄠˇ ㄌㄧㄣˊ ㄨㄣˋ ㄨㄛˇ ㄏㄠˇ ㄔ ˙ㄇㄚ",
+      "en": "Xiao Lin asked me, \"Was it good?\"",
+      "words": [
+       "小林",
+       "問",
+       "我",
+       "好吃",
+       "嗎"
+      ]
+     },
+     {
+      "zh": "我說：「太好吃了！下次我還想來。」",
+      "zhuyin": "ㄨㄛˇ ㄕㄨㄛ ㄊㄞˋ ㄏㄠˇ ㄔ ˙ㄌㄜ ㄒㄧㄚˋ ㄘˋ ㄨㄛˇ ㄏㄞˊ ㄒㄧㄤˇ ㄌㄞˊ",
+      "en": "I said, \"It was delicious! I want to come again next time.\"",
+      "words": [
+       "我",
+       "說",
+       "太",
+       "好吃",
+       "了",
+       "下次",
+       "我",
+       "還",
+       "想",
+       "來"
+      ]
+     },
+     {
+      "zh": "我們回家的時候已經十一點了，可是路上還有很多人。",
+      "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄏㄨㄟˊ ㄐㄧㄚ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄧˇ ㄐㄧㄥ ㄕˊ ㄧ ㄉㄧㄢˇ ˙ㄌㄜ ㄎㄜˇ ㄕˋ ㄌㄨˋ ㄕㄤˋ ㄏㄞˊ ㄧㄡˇ ㄏㄣˇ ㄉㄨㄛ ㄖㄣˊ",
+      "en": "By the time we went home it was already eleven o'clock, but there were still lots of people around.",
+      "words": [
+       "我們",
+       "回家",
+       "的",
+       "時候",
+       "已經",
+       "十",
+       "一點",
+       "了",
+       "可是",
+       "路上",
+       "還有",
+       "很",
+       "多",
+       "人"
+      ]
+     },
+     {
+      "zh": "我覺得夜市是臺灣最特別的地方。",
+      "zhuyin": "ㄨㄛˇ ㄐㄩㄝˊ ˙ㄉㄜ ㄧㄝˋ ㄕˋ ㄕˋ ㄊㄞˊ ㄨㄢ ㄗㄨㄟˋ ㄊㄜˋ ㄅㄧㄝˊ ˙ㄉㄜ ㄉㄧˋ ㄈㄤ",
+      "en": "I think night markets are the most special places in Taiwan.",
+      "words": [
+       "我",
+       "覺得",
+       "夜市",
+       "是",
+       "臺灣",
+       "最",
+       "特別",
+       "的",
+       "地方"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "What did Xiao Lin tell the writer to do?",
+     "options_en": [
+      "Bring a lot of cash",
+      "Not fill up, and try a little of everything",
+      "Come early to avoid the crowds"
+     ],
+     "answer": 1
+    },
+    {
+     "question_en": "How much did they spend altogether?",
+     "options_en": [
+      "A little over 200 dollars",
+      "About 100 dollars",
+      "About 500 dollars"
+     ],
+     "answer": 0
+    },
+    {
+     "question_en": "What time was it when they went home?",
+     "options_en": [
+      "Nine o'clock",
+      "Ten o'clock",
+      "Eleven o'clock"
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "id": "R2-02",
+   "level": "第2級",
+   "vocab_max": "第2*級",
+   "chars": 168,
+   "topic_en": "Renting a home",
+   "title": {
+    "zh": "我的房東",
+    "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄈㄤˊ ㄉㄨㄥ",
+    "en": "My Landlady"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "上個月我搬家了，現在住在屏東市。",
+      "zhuyin": "ㄕㄤˋ ㄍㄜˋ ㄩㄝˋ ㄨㄛˇ ㄅㄢ ㄐㄧㄚ ˙ㄌㄜ ㄒㄧㄢˋ ㄗㄞˋ ㄓㄨˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄕˋ",
+      "en": "Last month I moved, and now I live in Pingtung City.",
+      "words": [
+       "上",
+       "個",
+       "月",
+       "我",
+       "搬家",
+       "了",
+       "現在",
+       "住",
+       "在",
+       "屏東",
+       "市"
+      ]
+     },
+     {
+      "zh": "我的新家不大，有一個房間和一個小客廳。",
+      "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄒㄧㄣ ㄐㄧㄚ ㄅㄨˋ ㄉㄚˋ ㄧㄡˇ ㄧ ˙ㄍㄜ ㄈㄤˊ ㄐㄧㄢ ㄏㄜˊ ㄧ ˙ㄍㄜ ㄒㄧㄠˇ ㄎㄜˋ ㄊㄧㄥ",
+      "en": "My new home isn't big: one bedroom and a small living room.",
+      "words": [
+       "我",
+       "的",
+       "新家",
+       "不",
+       "大",
+       "有",
+       "一個",
+       "房間",
+       "和",
+       "一個",
+       "小",
+       "客廳"
+      ]
+     },
+     {
+      "zh": "房租一個月六千塊，不太貴。",
+      "zhuyin": "ㄈㄤˊ ㄗㄨ ㄧ ˙ㄍㄜ ㄩㄝˋ ㄌㄧㄡˋ ㄑㄧㄢ ㄎㄨㄞˋ ㄅㄨˋ ㄊㄞˋ ㄍㄨㄟˋ",
+      "en": "The rent is six thousand dollars a month, which isn't too expensive.",
+      "words": [
+       "房租",
+       "一個",
+       "月",
+       "六",
+       "千",
+       "塊",
+       "不",
+       "太",
+       "貴"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "房東是一位六十多歲的阿姨，她住在樓上。",
+      "zhuyin": "ㄈㄤˊ ㄉㄨㄥ ㄕˋ ㄧ ㄨㄟˋ ㄌㄧㄡˋ ㄕˊ ㄉㄨㄛ ㄙㄨㄟˋ ˙ㄉㄜ ㄚ ㄧˊ ㄊㄚ ㄓㄨˋ ㄗㄞˋ ㄌㄡˊ ㄕㄤˋ",
+      "en": "My landlady is a woman in her sixties, and she lives upstairs.",
+      "words": [
+       "房東",
+       "是",
+       "一",
+       "位",
+       "六",
+       "十",
+       "多",
+       "歲",
+       "的",
+       "阿姨",
+       "她",
+       "住",
+       "在",
+       "樓上"
+      ]
+     },
+     {
+      "zh": "我剛搬來的時候，冷氣壞了。",
+      "zhuyin": "ㄨㄛˇ ㄍㄤ ㄅㄢ ㄌㄞˊ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄌㄥˇ ㄑㄧˋ ㄏㄨㄞˋ ˙ㄌㄜ",
+      "en": "Just after I moved in, the air conditioner broke.",
+      "words": [
+       "我",
+       "剛",
+       "搬",
+       "來",
+       "的",
+       "時候",
+       "冷氣",
+       "壞",
+       "了"
+      ]
+     },
+     {
+      "zh": "那幾天非常熱，晚上我都沒辦法好好睡覺。",
+      "zhuyin": "ㄋㄚˋ ㄐㄧˇ ㄊㄧㄢ ㄈㄟ ㄔㄤˊ ㄖㄜˋ ㄨㄢˇ ㄕㄤˋ ㄨㄛˇ ㄉㄡ ㄇㄟˊ ㄅㄢˋ ㄈㄚˇ ㄏㄠˇ ㄏㄠˇ ㄕㄨㄟˋ ㄐㄧㄠˋ",
+      "en": "Those days were very hot, and I couldn't sleep properly at night.",
+      "words": [
+       "那",
+       "幾",
+       "天",
+       "非常",
+       "熱",
+       "晚上",
+       "我",
+       "都",
+       "沒辦法",
+       "好",
+       "好",
+       "睡覺"
+      ]
+     },
+     {
+      "zh": "我打電話給房東，她馬上就找人來幫我。",
+      "zhuyin": "ㄨㄛˇ ㄉㄚˇ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄍㄟˇ ㄈㄤˊ ㄉㄨㄥ ㄊㄚ ㄇㄚˇ ㄕㄤˋ ㄐㄧㄡˋ ㄓㄠˇ ㄖㄣˊ ㄌㄞˊ ㄅㄤ ㄨㄛˇ",
+      "en": "I phoned my landlady, and she got someone to help me right away.",
+      "words": [
+       "我",
+       "打電話",
+       "給",
+       "房東",
+       "她",
+       "馬上",
+       "就",
+       "找",
+       "人",
+       "來",
+       "幫",
+       "我"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "房東阿姨對我很好。",
+      "zhuyin": "ㄈㄤˊ ㄉㄨㄥ ㄚ ㄧˊ ㄉㄨㄟˋ ㄨㄛˇ ㄏㄣˇ ㄏㄠˇ",
+      "en": "My landlady is very good to me.",
+      "words": [
+       "房東",
+       "阿姨",
+       "對",
+       "我",
+       "很",
+       "好"
+      ]
+     },
+     {
+      "zh": "她常常拿水果給我，還問我：「住得習慣嗎？」",
+      "zhuyin": "ㄊㄚ ㄔㄤˊ ㄔㄤˊ ㄋㄚˊ ㄕㄨㄟˇ ㄍㄨㄛˇ ㄍㄟˇ ㄨㄛˇ ㄏㄞˊ ㄨㄣˋ ㄨㄛˇ ㄓㄨˋ ˙ㄉㄜ ㄒㄧˊ ㄍㄨㄢˋ ˙ㄇㄚ",
+      "en": "She often brings me fruit and asks, \"Are you getting used to living here?\"",
+      "words": [
+       "她",
+       "常常",
+       "拿",
+       "水果",
+       "給",
+       "我",
+       "還",
+       "問",
+       "我",
+       "住",
+       "得",
+       "習慣",
+       "嗎"
+      ]
+     },
+     {
+      "zh": "有時候她也請我去她家吃晚飯。",
+      "zhuyin": "ㄧㄡˇ ㄕˊ ˙ㄏㄡ ㄊㄚ ㄧㄝˇ ㄑㄧㄥˇ ㄨㄛˇ ㄑㄩˋ ㄊㄚ ㄐㄧㄚ ㄔ ㄨㄢˇ ㄈㄢˋ",
+      "en": "Sometimes she also invites me to her place for dinner.",
+      "words": [
+       "有時候",
+       "她",
+       "也",
+       "請",
+       "我",
+       "去",
+       "她",
+       "家",
+       "吃",
+       "晚飯"
+      ]
+     },
+     {
+      "zh": "她做的菜很好吃，可是有一點辣。",
+      "zhuyin": "ㄊㄚ ㄗㄨㄛˋ ˙ㄉㄜ ㄘㄞˋ ㄏㄣˇ ㄏㄠˇ ㄔ ㄎㄜˇ ㄕˋ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄌㄚˋ",
+      "en": "Her cooking is delicious, but a little spicy.",
+      "words": [
+       "她",
+       "做",
+       "的",
+       "菜",
+       "很",
+       "好吃",
+       "可是",
+       "有一點",
+       "辣"
+      ]
+     },
+     {
+      "zh": "有一位這麼好的房東，我真的很高興。",
+      "zhuyin": "ㄧㄡˇ ㄧ ㄨㄟˋ ㄓㄜˋ ˙ㄇㄜ ㄏㄠˇ ˙ㄉㄜ ㄈㄤˊ ㄉㄨㄥ ㄨㄛˇ ㄓㄣ ˙ㄉㄜ ㄏㄣˇ ㄍㄠ ㄒㄧㄥˋ",
+      "en": "I'm really happy to have such a kind landlady.",
+      "words": [
+       "有",
+       "一",
+       "位",
+       "這麼",
+       "好",
+       "的",
+       "房東",
+       "我",
+       "真的",
+       "很",
+       "高興"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "How much is the rent?",
+     "options_en": [
+      "6,000 dollars a month",
+      "3,000 dollars a month",
+      "10,000 dollars a month"
+     ],
+     "answer": 0
+    },
+    {
+     "question_en": "What went wrong just after the writer moved in?",
+     "options_en": [
+      "The door would not lock",
+      "The air conditioner broke",
+      "There was no hot water"
+     ],
+     "answer": 1
+    },
+    {
+     "question_en": "What is the landlady's cooking like?",
+     "options_en": [
+      "Sweet",
+      "Salty",
+      "Delicious but a little spicy"
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "id": "R2-03",
+   "level": "第2級",
+   "vocab_max": "第2*級",
+   "chars": 165,
+   "topic_en": "Convenience stores",
+   "title": {
+    "zh": "便利商店",
+    "zhuyin": "ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ",
+    "en": "Convenience Stores"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "臺灣有很多便利商店，走路幾分鐘就能看到一家。",
+      "zhuyin": "ㄊㄞˊ ㄨㄢ ㄧㄡˇ ㄏㄣˇ ㄉㄨㄛ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄗㄡˇ ㄌㄨˋ ㄐㄧˇ ㄈㄣ ㄓㄨㄥ ㄐㄧㄡˋ ㄋㄥˊ ㄎㄢˋ ㄉㄠˋ ㄧ ㄐㄧㄚ",
+      "en": "Taiwan has lots of convenience stores; a few minutes' walk and you'll see one.",
+      "words": [
+       "臺灣",
+       "有",
+       "很",
+       "多",
+       "便利商店",
+       "走路",
+       "幾",
+       "分鐘",
+       "就",
+       "能",
+       "看到",
+       "一",
+       "家"
+      ]
+     },
+     {
+      "zh": "我家樓下就有一家，我天天都去。",
+      "zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄌㄡˊ ㄒㄧㄚˋ ㄐㄧㄡˋ ㄧㄡˇ ㄧ ㄐㄧㄚ ㄨㄛˇ ㄊㄧㄢ ㄊㄧㄢ ㄉㄡ ㄑㄩˋ",
+      "en": "There's one right downstairs from my home, and I go there every day.",
+      "words": [
+       "我",
+       "家",
+       "樓下",
+       "就",
+       "有",
+       "一",
+       "家",
+       "我",
+       "天天",
+       "都",
+       "去"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "在便利商店，可以買吃的、喝的，也可以做很多事情。",
+      "zhuyin": "ㄗㄞˋ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄎㄜˇ ㄧˇ ㄇㄞˇ ㄔ ˙ㄉㄜ ㄏㄜ ˙ㄉㄜ ㄧㄝˇ ㄎㄜˇ ㄧˇ ㄗㄨㄛˋ ㄏㄣˇ ㄉㄨㄛ ㄕˋ ㄑㄧㄥˊ",
+      "en": "At a convenience store you can buy food and drinks, and do lots of other things too.",
+      "words": [
+       "在",
+       "便利商店",
+       "可以",
+       "買",
+       "吃",
+       "的",
+       "喝",
+       "的",
+       "也",
+       "可以",
+       "做",
+       "很",
+       "多",
+       "事情"
+      ]
+     },
+     {
+      "zh": "我常常在那裡寄東西，或是拿網路上買的東西。",
+      "zhuyin": "ㄨㄛˇ ㄔㄤˊ ㄔㄤˊ ㄗㄞˋ ㄋㄚˋ ㄌㄧˇ ㄐㄧˋ ㄉㄨㄥ ˙ㄒㄧ ㄏㄨㄛˋ ㄕˋ ㄋㄚˊ ㄨㄤˇ ㄌㄨˋ ㄕㄤˋ ㄇㄞˇ ˙ㄉㄜ ㄉㄨㄥ ˙ㄒㄧ",
+      "en": "I often send parcels there, or pick up things I bought online.",
+      "words": [
+       "我",
+       "常常",
+       "在",
+       "那裡",
+       "寄",
+       "東西",
+       "或是",
+       "拿",
+       "網路",
+       "上",
+       "買",
+       "的",
+       "東西"
+      ]
+     },
+     {
+      "zh": "天氣熱的時候，我也會在那裡買冰咖啡和冰淇淋。",
+      "zhuyin": "ㄊㄧㄢ ㄑㄧˋ ㄖㄜˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄨㄛˇ ㄧㄝˇ ㄏㄨㄟˋ ㄗㄞˋ ㄋㄚˋ ㄌㄧˇ ㄇㄞˇ ㄅㄧㄥ ㄎㄚ ㄈㄟ ㄏㄜˊ ㄅㄧㄥ ㄑㄧˊ ㄌㄧㄣˊ",
+      "en": "When it's hot, I also buy iced coffee and ice cream there.",
+      "words": [
+       "天氣",
+       "熱",
+       "的",
+       "時候",
+       "我",
+       "也",
+       "會",
+       "在",
+       "那裡",
+       "買",
+       "冰",
+       "咖啡",
+       "和",
+       "冰淇淋"
+      ]
+     },
+     {
+      "zh": "店裡有桌子和椅子，有的學生下課以後在那裡寫功課。",
+      "zhuyin": "ㄉㄧㄢˋ ㄌㄧˇ ㄧㄡˇ ㄓㄨㄛ ˙ㄗ ㄏㄜˊ ㄧˇ ˙ㄗ ㄧㄡˇ ˙ㄉㄜ ㄒㄩㄝˊ ㄕㄥ ㄒㄧㄚˋ ㄎㄜˋ ㄧˇ ㄏㄡˋ ㄗㄞˋ ㄋㄚˋ ㄌㄧˇ ㄒㄧㄝˇ ㄍㄨㄥ ㄎㄜˋ",
+      "en": "The store has tables and chairs, and some students do their homework there after class.",
+      "words": [
+       "店",
+       "裡",
+       "有",
+       "桌子",
+       "和",
+       "椅子",
+       "有的",
+       "學生",
+       "下課",
+       "以後",
+       "在",
+       "那裡",
+       "寫",
+       "功課"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "我家樓下的那家店二十四小時都開。",
+      "zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄌㄡˊ ㄒㄧㄚˋ ˙ㄉㄜ ㄋㄚˋ ㄐㄧㄚ ㄉㄧㄢˋ ㄦˋ ㄕˊ ㄙˋ ㄒㄧㄠˇ ㄕˊ ㄉㄡ ㄎㄞ",
+      "en": "The store downstairs from my home is open twenty-four hours.",
+      "words": [
+       "我",
+       "家",
+       "樓下",
+       "的",
+       "那",
+       "家",
+       "店",
+       "二十四",
+       "小時",
+       "都",
+       "開"
+      ]
+     },
+     {
+      "zh": "有一次晚上兩點，我肚子餓了，就下樓去買了一碗麵。",
+      "zhuyin": "ㄧㄡˇ ㄧ ㄘˋ ㄨㄢˇ ㄕㄤˋ ㄌㄧㄤˇ ㄉㄧㄢˇ ㄨㄛˇ ㄉㄨˋ ˙ㄗ ㄜˋ ˙ㄌㄜ ㄐㄧㄡˋ ㄒㄧㄚˋ ㄌㄡˊ ㄑㄩˋ ㄇㄞˇ ˙ㄌㄜ ㄧ ㄨㄢˇ ㄇㄧㄢˋ",
+      "en": "Once, at two in the morning, I got hungry, so I went downstairs and bought a bowl of noodles.",
+      "words": [
+       "有",
+       "一",
+       "次",
+       "晚上",
+       "兩",
+       "點",
+       "我",
+       "肚子",
+       "餓",
+       "了",
+       "就",
+       "下樓",
+       "去",
+       "買",
+       "了",
+       "一",
+       "碗",
+       "麵"
+      ]
+     },
+     {
+      "zh": "有了便利商店，住在臺灣真的很方便。",
+      "zhuyin": "ㄧㄡˇ ˙ㄌㄜ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄓㄨˋ ㄗㄞˋ ㄊㄞˊ ㄨㄢ ㄓㄣ ˙ㄉㄜ ㄏㄣˇ ㄈㄤ ㄅㄧㄢˋ",
+      "en": "With convenience stores, living in Taiwan is really convenient.",
+      "words": [
+       "有",
+       "了",
+       "便利商店",
+       "住",
+       "在",
+       "臺灣",
+       "真的",
+       "很",
+       "方便"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "Where is the writer's nearest convenience store?",
+     "options_en": [
+      "Next to the school",
+      "Near the train station",
+      "Downstairs from the writer's home"
+     ],
+     "answer": 2
+    },
+    {
+     "question_en": "What do some students do in the store?",
+     "options_en": [
+      "Their homework",
+      "Part-time work",
+      "Watch TV"
+     ],
+     "answer": 0
+    },
+    {
+     "question_en": "What did the writer do once at two in the morning?",
+     "options_en": [
+      "Sent a parcel",
+      "Bought a bowl of noodles",
+      "Picked up an online order"
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "id": "R2-04",
+   "level": "第2級",
+   "vocab_max": "第2*級",
+   "chars": 168,
+   "topic_en": "The morning market",
+   "title": {
+    "zh": "早上的市場",
+    "zhuyin": "ㄗㄠˇ ㄕㄤˋ ˙ㄉㄜ ㄕˋ ㄔㄤˇ",
+    "en": "The Morning Market"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "我家附近有一個市場，每天早上人都很多。",
+      "zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄈㄨˋ ㄐㄧㄣˋ ㄧㄡˇ ㄧ ˙ㄍㄜ ㄕˋ ㄔㄤˇ ㄇㄟˇ ㄊㄧㄢ ㄗㄠˇ ㄕㄤˋ ㄖㄣˊ ㄉㄡ ㄏㄣˇ ㄉㄨㄛ",
+      "en": "There's a market near my home, and it's busy every morning.",
+      "words": [
+       "我",
+       "家",
+       "附近",
+       "有",
+       "一個",
+       "市場",
+       "每天",
+       "早上",
+       "人",
+       "都",
+       "很",
+       "多"
+      ]
+     },
+     {
+      "zh": "我喜歡星期六早上去那裡買菜。",
+      "zhuyin": "ㄨㄛˇ ㄒㄧˇ ㄏㄨㄢ ㄒㄧㄥ ㄑㄧˊ ㄌㄧㄡˋ ㄗㄠˇ ㄕㄤˋ ㄑㄩˋ ㄋㄚˋ ㄌㄧˇ ㄇㄞˇ ㄘㄞˋ",
+      "en": "I like to go food shopping there on Saturday mornings.",
+      "words": [
+       "我",
+       "喜歡",
+       "星期",
+       "六",
+       "早上",
+       "去",
+       "那裡",
+       "買菜"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "市場裡有賣魚的、賣肉的，也有賣青菜和水果的。",
+      "zhuyin": "ㄕˋ ㄔㄤˇ ㄌㄧˇ ㄧㄡˇ ㄇㄞˋ ㄩˊ ˙ㄉㄜ ㄇㄞˋ ㄖㄡˋ ˙ㄉㄜ ㄧㄝˇ ㄧㄡˇ ㄇㄞˋ ㄑㄧㄥ ㄘㄞˋ ㄏㄜˊ ㄕㄨㄟˇ ㄍㄨㄛˇ ˙ㄉㄜ",
+      "en": "In the market there are stalls selling fish and meat, and stalls selling vegetables and fruit.",
+      "words": [
+       "市場",
+       "裡",
+       "有",
+       "賣",
+       "魚",
+       "的",
+       "賣",
+       "肉",
+       "的",
+       "也",
+       "有",
+       "賣",
+       "青菜",
+       "和",
+       "水果",
+       "的"
+      ]
+     },
+     {
+      "zh": "這裡的青菜和水果比超市便宜很多。",
+      "zhuyin": "ㄓㄜˋ ㄌㄧˇ ˙ㄉㄜ ㄑㄧㄥ ㄘㄞˋ ㄏㄜˊ ㄕㄨㄟˇ ㄍㄨㄛˇ ㄅㄧˇ ㄔㄠ ㄕˋ ㄆㄧㄢˊ ㄧˊ ㄏㄣˇ ㄉㄨㄛ",
+      "en": "The vegetables and fruit here are much cheaper than at the supermarket.",
+      "words": [
+       "這裡",
+       "的",
+       "青菜",
+       "和",
+       "水果",
+       "比",
+       "超市",
+       "便宜",
+       "很",
+       "多"
+      ]
+     },
+     {
+      "zh": "賣水果的老闆認識我，每次都說：「今天的西瓜很甜，買一個吧！」",
+      "zhuyin": "ㄇㄞˋ ㄕㄨㄟˇ ㄍㄨㄛˇ ˙ㄉㄜ ㄌㄠˇ ㄅㄢˇ ㄖㄣˋ ˙ㄕ ㄨㄛˇ ㄇㄟˇ ㄘˋ ㄉㄡ ㄕㄨㄛ ㄐㄧㄣ ㄊㄧㄢ ˙ㄉㄜ ㄒㄧ ㄍㄨㄚ ㄏㄣˇ ㄊㄧㄢˊ ㄇㄞˇ ㄧ ˙ㄍㄜ ˙ㄅㄚ",
+      "en": "The fruit seller knows me, and every time he says, \"The watermelons are sweet today. Buy one!\"",
+      "words": [
+       "賣",
+       "水果",
+       "的",
+       "老闆",
+       "認識",
+       "我",
+       "每",
+       "次",
+       "都",
+       "說",
+       "今天",
+       "的",
+       "西瓜",
+       "很",
+       "甜",
+       "買",
+       "一個",
+       "吧"
+      ]
+     },
+     {
+      "zh": "有時候我買了很多東西，賣菜的阿姨還會多給我一點。",
+      "zhuyin": "ㄧㄡˇ ㄕˊ ˙ㄏㄡ ㄨㄛˇ ㄇㄞˇ ˙ㄌㄜ ㄏㄣˇ ㄉㄨㄛ ㄉㄨㄥ ˙ㄒㄧ ㄇㄞˋ ㄘㄞˋ ˙ㄉㄜ ㄚ ㄧˊ ㄏㄞˊ ㄏㄨㄟˋ ㄉㄨㄛ ㄍㄟˇ ㄨㄛˇ ㄧ ㄉㄧㄢˇ",
+      "en": "Sometimes when I buy a lot, the woman who sells vegetables gives me a little extra.",
+      "words": [
+       "有時候",
+       "我",
+       "買",
+       "了",
+       "很",
+       "多",
+       "東西",
+       "賣",
+       "菜",
+       "的",
+       "阿姨",
+       "還",
+       "會",
+       "多",
+       "給",
+       "我",
+       "一點"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "一開始，我常常聽不懂他們說的話。",
+      "zhuyin": "ㄧ ㄎㄞ ㄕˇ ㄨㄛˇ ㄔㄤˊ ㄔㄤˊ ㄊㄧㄥ ㄅㄨˋ ㄉㄨㄥˇ ㄊㄚ ˙ㄇㄣ ㄕㄨㄛ ˙ㄉㄜ ㄏㄨㄚˋ",
+      "en": "At first I often couldn't understand what they said.",
+      "words": [
+       "一",
+       "開始",
+       "我",
+       "常常",
+       "聽",
+       "不懂",
+       "他們",
+       "說",
+       "的",
+       "話"
+      ]
+     },
+     {
+      "zh": "我聽不懂的時候，就請他們說慢一點。",
+      "zhuyin": "ㄨㄛˇ ㄊㄧㄥ ㄅㄨˋ ㄉㄨㄥˇ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄐㄧㄡˋ ㄑㄧㄥˇ ㄊㄚ ˙ㄇㄣ ㄕㄨㄛ ㄇㄢˋ ㄧ ㄉㄧㄢˇ",
+      "en": "When I don't understand, I ask them to speak a bit more slowly.",
+      "words": [
+       "我",
+       "聽",
+       "不懂",
+       "的",
+       "時候",
+       "就",
+       "請",
+       "他們",
+       "說",
+       "慢",
+       "一點"
+      ]
+     },
+     {
+      "zh": "大家都很客氣，每次都再說一次。",
+      "zhuyin": "ㄉㄚˋ ㄐㄧㄚ ㄉㄡ ㄏㄣˇ ㄎㄜˋ ㄑㄧˋ ㄇㄟˇ ㄘˋ ㄉㄡ ㄗㄞˋ ㄕㄨㄛ ㄧ ㄘˋ",
+      "en": "Everyone is polite and says it again every time.",
+      "words": [
+       "大家",
+       "都",
+       "很",
+       "客氣",
+       "每",
+       "次",
+       "都",
+       "再",
+       "說",
+       "一",
+       "次"
+      ]
+     },
+     {
+      "zh": "去市場買菜，也是我練習中文的好機會。",
+      "zhuyin": "ㄑㄩˋ ㄕˋ ㄔㄤˇ ㄇㄞˇ ㄘㄞˋ ㄧㄝˇ ㄕˋ ㄨㄛˇ ㄌㄧㄢˋ ㄒㄧˊ ㄓㄨㄥ ㄨㄣˊ ˙ㄉㄜ ㄏㄠˇ ㄐㄧ ㄏㄨㄟˋ",
+      "en": "Food shopping at the market is also a good chance for me to practise Chinese.",
+      "words": [
+       "去",
+       "市場",
+       "買菜",
+       "也",
+       "是",
+       "我",
+       "練習",
+       "中文",
+       "的",
+       "好",
+       "機會"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "When does the writer like to go to the market?",
+     "options_en": [
+      "Saturday morning",
+      "Friday evening",
+      "Sunday afternoon"
+     ],
+     "answer": 0
+    },
+    {
+     "question_en": "What does the woman who sells vegetables sometimes do?",
+     "options_en": [
+      "Teaches the writer to cook",
+      "Gives the writer a little extra",
+      "Speaks English to the writer"
+     ],
+     "answer": 1
+    },
+    {
+     "question_en": "What does the writer do when they don't understand?",
+     "options_en": [
+      "Goes to the supermarket instead",
+      "Uses a phone to translate",
+      "Asks people to speak more slowly"
+     ],
+     "answer": 2
+    }
+   ]
+  }
+ ]
+}

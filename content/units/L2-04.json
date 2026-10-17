@@ -1,0 +1,87 @@
+{
+  "id": "L2-04", "level": "第2*級", "order": 4,
+  "topic": "藥局", "title_zh": "在藥局", "title_en": "At the pharmacy",
+  "can_do_en": "I can tell a pharmacist what's wrong and since when, understand how often and how much medicine to take, and ask what to do if it doesn't get better.",
+  "dialogue": [
+    {"speaker": "藥師", "zh": "你好，需要什麼嗎？", "zhuyin": "ㄋㄧˇ ㄏㄠˇ ㄒㄩ ㄧㄠˋ ㄕㄣˊ ˙ㄇㄜ ˙ㄇㄚ", "en": "Hi, what can I get you?"},
+    {"speaker": "安娜", "zh": "我肚子不太舒服，從今天早上開始就一直拉肚子。", "zhuyin": "ㄨㄛˇ ㄉㄨˋ ˙ㄗ ㄅㄨˋ ㄊㄞˋ ㄕㄨ ˙ㄈㄨ ㄘㄨㄥˊ ㄐㄧㄣ ㄊㄧㄢ ㄗㄠˇ ㄕㄤˋ ㄎㄞ ㄕˇ ㄐㄧㄡˋ ㄧ ㄓˊ ㄌㄚ ㄉㄨˋ ˙ㄗ", "en": "My stomach doesn't feel great. I've had diarrhea since this morning."},
+    {"speaker": "藥師", "zh": "有沒有發燒？你昨天吃了什麼？", "zhuyin": "ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄈㄚ ㄕㄠ ㄋㄧˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄔ ˙ㄌㄜ ㄕㄣˊ ˙ㄇㄜ", "en": "Any fever? What did you eat yesterday?"},
+    {"speaker": "安娜", "zh": "沒有發燒。昨天晚上去夜市吃了很多辣的，還喝了很多冰的。", "zhuyin": "ㄇㄟˊ ㄧㄡˇ ㄈㄚ ㄕㄠ ㄗㄨㄛˊ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄑㄩˋ ㄧㄝˋ ㄕˋ ㄔ ˙ㄌㄜ ㄏㄣˇ ㄉㄨㄛ ㄌㄚˋ ˙ㄉㄜ ㄏㄞˊ ㄏㄜ ˙ㄌㄜ ㄏㄣˇ ㄉㄨㄛ ㄅㄧㄥ ˙ㄉㄜ", "en": "No fever. Last night I went to the night market and ate a lot of spicy food, and I drank a lot of cold drinks too."},
+    {"speaker": "藥師", "zh": "那應該是吃壞肚子了。這個藥一天吃三次，一次一顆，飯後吃。", "zhuyin": "ㄋㄚˋ ㄧㄥ ㄍㄞ ㄕˋ ㄔ ㄏㄨㄞˋ ㄉㄨˋ ˙ㄗ ˙ㄌㄜ ㄓㄜˋ ˙ㄍㄜ ㄧㄠˋ ㄧ ㄊㄧㄢ ㄔ ㄙㄢ ㄘˋ ㄧ ㄘˋ ㄧ ㄎㄜ ㄈㄢˋ ㄏㄡˋ ㄔ", "en": "Then something you ate probably upset your stomach. Take this medicine three times a day, one tablet each time, after meals."},
+    {"speaker": "安娜", "zh": "好。那我可以喝咖啡嗎？", "zhuyin": "ㄏㄠˇ ㄋㄚˋ ㄨㄛˇ ㄎㄜˇ ㄧˇ ㄏㄜ ㄎㄚ ㄈㄟ ˙ㄇㄚ", "en": "OK. Can I drink coffee, then?"},
+    {"speaker": "藥師", "zh": "這兩天先不要喝。吃東西也要小心一點，不要吃辣的跟冰的，多喝溫開水。", "zhuyin": "ㄓㄜˋ ㄌㄧㄤˇ ㄊㄧㄢ ㄒㄧㄢ ㄅㄨˋ ㄧㄠˋ ㄏㄜ ㄔ ㄉㄨㄥ ˙ㄒㄧ ㄧㄝˇ ㄧㄠˋ ㄒㄧㄠˇ ㄒㄧㄣ ㄧ ㄉㄧㄢˇ ㄅㄨˋ ㄧㄠˋ ㄔ ㄌㄚˋ ˙ㄉㄜ ㄍㄣ ㄅㄧㄥ ˙ㄉㄜ ㄉㄨㄛ ㄏㄜ ㄨㄣ ㄎㄞ ㄕㄨㄟˇ", "en": "Skip it for the next couple of days. Be a bit more careful about what you eat, too: no spicy food and nothing cold. Drink plenty of warm water."},
+    {"speaker": "安娜", "zh": "知道了。還有，我的腳被蚊子咬了好多包，好癢喔。", "zhuyin": "ㄓ ㄉㄠˋ ˙ㄌㄜ ㄏㄞˊ ㄧㄡˇ ㄨㄛˇ ˙ㄉㄜ ㄐㄧㄠˇ ㄅㄟˋ ㄨㄣˊ ˙ㄗ ㄧㄠˇ ˙ㄌㄜ ㄏㄠˇ ㄉㄨㄛ ㄅㄠ ㄏㄠˇ ㄧㄤˇ ㄛ", "en": "Got it. Also, mosquitoes bit my legs all over, and they're so itchy."},
+    {"speaker": "藥師", "zh": "我們屏東蚊子很多啦。你可以擦這條藥膏，洗了澡就擦一點。", "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄆㄧㄥˊ ㄉㄨㄥ ㄨㄣˊ ˙ㄗ ㄏㄣˇ ㄉㄨㄛ ˙ㄌㄚ ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄘㄚ ㄓㄜˋ ㄊㄧㄠˊ ㄧㄠˋ ㄍㄠ ㄒㄧˇ ˙ㄌㄜ ㄗㄠˇ ㄐㄧㄡˋ ㄘㄚ ㄧ ㄉㄧㄢˇ", "en": "We've got a lot of mosquitoes here in Pingtung. You can use this cream: put a little on right after your shower."},
+    {"speaker": "安娜", "zh": "一天要擦幾次？", "zhuyin": "ㄧ ㄊㄧㄢ ㄧㄠˋ ㄘㄚ ㄐㄧˇ ㄘˋ", "en": "How many times a day should I put it on?"},
+    {"speaker": "藥師", "zh": "一天擦兩三次就可以了。", "zhuyin": "ㄧ ㄊㄧㄢ ㄘㄚ ㄌㄧㄤˇ ㄙㄢ ㄘˋ ㄐㄧㄡˋ ㄎㄜˇ ㄧˇ ˙ㄌㄜ", "en": "Two or three times a day is enough."},
+    {"speaker": "安娜", "zh": "好。如果明天還是一直拉肚子，怎麼辦？", "zhuyin": "ㄏㄠˇ ㄖㄨˊ ㄍㄨㄛˇ ㄇㄧㄥˊ ㄊㄧㄢ ㄏㄞˊ ㄕˋ ㄧ ㄓˊ ㄌㄚ ㄉㄨˋ ˙ㄗ ㄗㄣˇ ˙ㄇㄜ ㄅㄢˋ", "en": "OK. And if I still have diarrhea tomorrow, what should I do?"},
+    {"speaker": "藥師", "zh": "那就要去看醫生喔。這盒藥一百二，藥膏一百八，一共三百。", "zhuyin": "ㄋㄚˋ ㄐㄧㄡˋ ㄧㄠˋ ㄑㄩˋ ㄎㄢˋ ㄧ ㄕㄥ ㄛ ㄓㄜˋ ㄏㄜˊ ㄧㄠˋ ㄧ ㄅㄞˇ ㄦˋ ㄧㄠˋ ㄍㄠ ㄧ ㄅㄞˇ ㄅㄚ ㄧ ㄍㄨㄥˋ ㄙㄢ ㄅㄞˇ", "en": "Then you should go and see a doctor. The box of medicine is 120 and the cream is 180, so 300 altogether."},
+    {"speaker": "安娜", "zh": "好，這是三百塊。謝謝！", "zhuyin": "ㄏㄠˇ ㄓㄜˋ ㄕˋ ㄙㄢ ㄅㄞˇ ㄎㄨㄞˋ ㄒㄧㄝˋ ˙ㄒㄧㄝ", "en": "OK, here's 300. Thank you!"}
+  ],
+  "vocab": [
+    {"zh": "藥局", "zhuyin": "ㄧㄠˋ ㄐㄩˊ", "en": "pharmacy", "pos": "n", "measure": "家", "level": "第3*級"},
+    {"zh": "藥師", "zhuyin": "ㄧㄠˋ ㄕ", "en": "pharmacist", "pos": "n", "measure": "位", "level": null},
+    {"zh": "需要", "zhuyin": "ㄒㄩ ㄧㄠˋ", "en": "to need", "pos": "v", "level": "第2級"},
+    {"zh": "肚子", "zhuyin": "ㄉㄨˋ ˙ㄗ", "en": "stomach, belly", "pos": "n", "level": "第2*級"},
+    {"zh": "開始", "zhuyin": "ㄎㄞ ㄕˇ", "en": "to begin; 從……開始 starting from…", "pos": "v", "level": "第2級"},
+    {"zh": "拉肚子", "zhuyin": "ㄌㄚ ㄉㄨˋ ˙ㄗ", "en": "to have diarrhea", "pos": "v", "level": "第4級"},
+    {"zh": "辣", "zhuyin": "ㄌㄚˋ", "en": "spicy; 辣的 spicy food", "pos": "adj", "level": "第2*級"},
+    {"zh": "壞", "zhuyin": "ㄏㄨㄞˋ", "en": "bad, broken; 吃壞肚子 to get an upset stomach from something you ate", "pos": "adj", "level": "第2*級"},
+    {"zh": "顆", "zhuyin": "ㄎㄜ", "en": "measure word for tablets and other small round things", "pos": "m", "level": "第3級"},
+    {"zh": "小心", "zhuyin": "ㄒㄧㄠˇ ㄒㄧㄣ", "en": "to be careful", "pos": "v", "level": "第2級"},
+    {"zh": "溫開水", "zhuyin": "ㄨㄣ ㄎㄞ ㄕㄨㄟˇ", "en": "warm (boiled) drinking water", "pos": "n", "measure": "杯", "level": null},
+    {"zh": "蚊子", "zhuyin": "ㄨㄣˊ ˙ㄗ", "en": "mosquito", "pos": "n", "measure": "隻", "level": "第3*級"},
+    {"zh": "咬", "zhuyin": "ㄧㄠˇ", "en": "to bite; 被蚊子咬 bitten by mosquitoes", "pos": "v", "level": "第4級"},
+    {"zh": "癢", "zhuyin": "ㄧㄤˇ", "en": "itchy", "pos": "adj", "level": "第5級"},
+    {"zh": "藥膏", "zhuyin": "ㄧㄠˋ ㄍㄠ", "en": "ointment, cream", "pos": "n", "measure": "條", "level": null},
+    {"zh": "條", "zhuyin": "ㄊㄧㄠˊ", "en": "measure word for long thin things, and for a tube of cream", "pos": "m", "level": "第2級"},
+    {"zh": "擦", "zhuyin": "ㄘㄚ", "en": "to put on (cream); to wipe", "pos": "v", "level": "第4級"},
+    {"zh": "洗澡", "zhuyin": "ㄒㄧˇ ㄗㄠˇ", "en": "to take a shower or bath; split as 洗了澡", "pos": "v", "level": "第2*級"},
+    {"zh": "如果", "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ", "en": "if", "pos": "conj", "level": "第2級"},
+    {"zh": "怎麼辦", "zhuyin": "ㄗㄣˇ ˙ㄇㄜ ㄅㄢˋ", "en": "what should I do? what now?", "pos": "phrase", "level": "第2級"}
+  ],
+  "grammar": [
+    {"id": "G099", "note_en": "The pharmacist says 洗了澡就擦一點: put the cream on right after your shower. 了 goes straight after the first verb (洗了澡) and 就 straight before the second; the writing model does the same with 吃了飯就吃一顆."},
+    {"id": "G087", "note_en": "吃東西要小心一點: an adjective + 一點 asks for 'a bit more' of that quality, here 'be a bit more careful about what you eat'. Don't mix it up with 有一點 before an adjective, which means 'somewhat' (unit L2-03)."},
+    {"id": "G067", "note_en": "Anna states the problem first and puts 怎麼辦 at the end: 如果明天還是一直拉肚子，怎麼辦？ 'If I still have diarrhea tomorrow, what should I do?'"}
+  ],
+  "pronunciation": {
+    "contrast": "aspiration",
+    "tone_pair": "41",
+    "note_en": "Aspiration: ㄉ in 肚子 ㄉㄨˋ ˙ㄗ has no puff of air, ㄊ in 條 ㄊㄧㄠˊ and 一天 ㄧ ㄊㄧㄢ has a strong one (肚子 / 兔子 ㄊㄨˋ ˙ㄗ is a classic pair). In the same way, ㄍ in 藥膏 ㄧㄠˋ ㄍㄠ has no puff and ㄎ in 一顆 ㄧ ㄎㄜ has one; ㄗ in 洗澡 ㄒㄧˇ ㄗㄠˇ has none and ㄘ in 擦 ㄘㄚ and 三次 ㄙㄢ ㄘˋ has one. Tone pair 4+1 (a high fall, then high and level): 藥師 ㄧㄠˋ ㄕ, 藥膏 ㄧㄠˋ ㄍㄠ; jump back up for the second syllable instead of letting it fall too. Sandhi: 一次一顆 is said ㄧˊ ㄘˋ ㄧˋ ㄎㄜ, 不要 ㄅㄨˊ ㄧㄠˋ, 一共 ㄧˊ ㄍㄨㄥˋ, and the word 洗澡 on its own ㄒㄧˊ ㄗㄠˇ (3+3)."
+  },
+  "shadowing": [
+    {"zh": "我肚子不太舒服，從今天早上開始就一直拉肚子。", "zhuyin": "ㄨㄛˇ ㄉㄨˋ ˙ㄗ ㄅㄨˋ ㄊㄞˋ ㄕㄨ ˙ㄈㄨ ㄘㄨㄥˊ ㄐㄧㄣ ㄊㄧㄢ ㄗㄠˇ ㄕㄤˋ ㄎㄞ ㄕˇ ㄐㄧㄡˋ ㄧ ㄓˊ ㄌㄚ ㄉㄨˋ ˙ㄗ", "en": "My stomach doesn't feel great. I've had diarrhea since this morning."},
+    {"zh": "那應該是吃壞肚子了。", "zhuyin": "ㄋㄚˋ ㄧㄥ ㄍㄞ ㄕˋ ㄔ ㄏㄨㄞˋ ㄉㄨˋ ˙ㄗ ˙ㄌㄜ", "en": "Then something you ate probably upset your stomach."},
+    {"zh": "這個藥一天吃三次，一次一顆，飯後吃。", "zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄧㄠˋ ㄧ ㄊㄧㄢ ㄔ ㄙㄢ ㄘˋ ㄧ ㄘˋ ㄧ ㄎㄜ ㄈㄢˋ ㄏㄡˋ ㄔ", "en": "Take this medicine three times a day, one tablet each time, after meals."},
+    {"zh": "吃東西要小心一點，多喝溫開水。", "zhuyin": "ㄔ ㄉㄨㄥ ˙ㄒㄧ ㄧㄠˋ ㄒㄧㄠˇ ㄒㄧㄣ ㄧ ㄉㄧㄢˇ ㄉㄨㄛ ㄏㄜ ㄨㄣ ㄎㄞ ㄕㄨㄟˇ", "en": "Be a bit more careful about what you eat, and drink plenty of warm water."},
+    {"zh": "我的腳被蚊子咬了好多包，好癢喔。", "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄐㄧㄠˇ ㄅㄟˋ ㄨㄣˊ ˙ㄗ ㄧㄠˇ ˙ㄌㄜ ㄏㄠˇ ㄉㄨㄛ ㄅㄠ ㄏㄠˇ ㄧㄤˇ ㄛ", "en": "Mosquitoes bit my legs all over, and they're so itchy."},
+    {"zh": "洗了澡就擦一點。", "zhuyin": "ㄒㄧˇ ˙ㄌㄜ ㄗㄠˇ ㄐㄧㄡˋ ㄘㄚ ㄧ ㄉㄧㄢˇ", "en": "Put a little on right after your shower."},
+    {"zh": "如果明天還是一直拉肚子，怎麼辦？", "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄇㄧㄥˊ ㄊㄧㄢ ㄏㄞˊ ㄕˋ ㄧ ㄓˊ ㄌㄚ ㄉㄨˋ ˙ㄗ ㄗㄣˇ ˙ㄇㄜ ㄅㄢˋ", "en": "If I still have diarrhea tomorrow, what should I do?"}
+  ],
+  "comprehension": [
+    {"question_en": "Why does Anna go to the pharmacy?", "options_en": ["She has had diarrhea since this morning.", "She has a fever and a sore throat.", "She has a prescription from a clinic."], "answer": 0},
+    {"question_en": "What does the pharmacist think caused it?", "options_en": ["Too much coffee", "A cold", "Spicy food and cold drinks at the night market"], "answer": 2},
+    {"question_en": "How should she take the medicine?", "options_en": ["Three tablets once a day, before bed", "One tablet three times a day, after meals", "Two tablets twice a day, before meals"], "answer": 1},
+    {"question_en": "When should she put on the cream?", "options_en": ["Right after her shower, two or three times a day", "Only before she goes out", "Once a week"], "answer": 0},
+    {"question_en": "How much does Anna pay altogether?", "options_en": ["NT$120", "NT$180", "NT$300"], "answer": 2}
+  ],
+  "speaking": {
+    "prompt_en": "You're at a pharmacy in Pingtung. Tell the pharmacist what's wrong and since when, answer whether you have a fever, ask how to take the medicine, and ask what to do if you're not better tomorrow.",
+    "prompt_zh": "你在藥局。請跟藥師說你哪裡不舒服、從什麼時候開始的、有沒有發燒，然後問藥怎麼吃，還有如果明天還是不舒服，怎麼辦。",
+    "checklist_en": [
+      "said what's wrong (我肚子不太舒服 / 一直拉肚子)",
+      "said since when with 從……開始",
+      "asked how often and how much (一天吃幾次？一次幾顆？)",
+      "asked 如果……，怎麼辦？",
+      "kept unaspirated ㄉ (肚子) and aspirated ㄊ (一天) apart"
+    ]
+  },
+  "writing": {
+    "prompt_en": "You went to a pharmacy today. Write a short LINE message (3–5 sentences) to a friend: what was wrong, what the pharmacist said, and how you take the medicine. Try 了……就…… and 小心一點.",
+    "prompt_zh": "你今天去了藥局。請寫一個短短的LINE訊息給朋友：你怎麼了、藥師說了什麼、藥要怎麼吃。",
+    "model_zh": "我昨天晚上在夜市吃了很多辣的，今天一直拉肚子。下午我去藥局買藥，藥師說我應該是吃壞肚子了。這個藥一天吃三次，吃了飯就吃一顆。藥師還說這兩天吃東西要小心一點。如果明天還是不舒服，我就去看醫生。",
+    "model_zhuyin": "ㄨㄛˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄗㄞˋ ㄧㄝˋ ㄕˋ ㄔ ˙ㄌㄜ ㄏㄣˇ ㄉㄨㄛ ㄌㄚˋ ˙ㄉㄜ ㄐㄧㄣ ㄊㄧㄢ ㄧ ㄓˊ ㄌㄚ ㄉㄨˋ ˙ㄗ ㄒㄧㄚˋ ㄨˇ ㄨㄛˇ ㄑㄩˋ ㄧㄠˋ ㄐㄩˊ ㄇㄞˇ ㄧㄠˋ ㄧㄠˋ ㄕ ㄕㄨㄛ ㄨㄛˇ ㄧㄥ ㄍㄞ ㄕˋ ㄔ ㄏㄨㄞˋ ㄉㄨˋ ˙ㄗ ˙ㄌㄜ ㄓㄜˋ ˙ㄍㄜ ㄧㄠˋ ㄧ ㄊㄧㄢ ㄔ ㄙㄢ ㄘˋ ㄔ ˙ㄌㄜ ㄈㄢˋ ㄐㄧㄡˋ ㄔ ㄧ ㄎㄜ ㄧㄠˋ ㄕ ㄏㄞˊ ㄕㄨㄛ ㄓㄜˋ ㄌㄧㄤˇ ㄊㄧㄢ ㄔ ㄉㄨㄥ ˙ㄒㄧ ㄧㄠˋ ㄒㄧㄠˇ ㄒㄧㄣ ㄧ ㄉㄧㄢˇ ㄖㄨˊ ㄍㄨㄛˇ ㄇㄧㄥˊ ㄊㄧㄢ ㄏㄞˊ ㄕˋ ㄅㄨˋ ㄕㄨ ˙ㄈㄨ ㄨㄛˇ ㄐㄧㄡˋ ㄑㄩˋ ㄎㄢˋ ㄧ ㄕㄥ"
+  },
+  "culture_en": "Neighbourhood pharmacies (社區藥局) in Taiwan are run by licensed pharmacists (藥師), and for a small problem like an upset stomach or mosquito bites you can describe it at the counter and buy medicine there without seeing a doctor. Taiwan sorts medicines into three groups: prescription drugs (處方藥), which need a doctor's prescription (處方箋); pharmacist-advised drugs (指示藥); and over-the-counter drugs (成藥). If a clinic gives you a prescription instead of the medicine itself, take it with your 健保卡 to a pharmacy with a 健保特約藥局 sign. When you're ill, pharmacists and family will often tell you to drink 溫開水 and avoid 冰的."
+}

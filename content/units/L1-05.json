@@ -1,0 +1,76 @@
+{
+ "id": "L1-05", "level": "第1級", "order": 5,
+ "topic": "數字、時間、日期 (asking time, days)", "title_zh": "禮拜六見！", "title_en": "See you on Saturday!",
+ "can_do_en": "I can ask and tell the time, say the day and the date, and agree on when and where to meet.",
+ "dialogue": [
+  {"speaker": "安娜", "zh": "阿芳，現在幾點？", "zhuyin": "ㄚ ㄈㄤ ㄒㄧㄢˋ ㄗㄞˋ ㄐㄧˇ ㄉㄧㄢˇ", "en": "Afang, what time is it now?"},
+  {"speaker": "阿芳", "zh": "十點四十分。你要去哪裡？", "zhuyin": "ㄕˊ ㄉㄧㄢˇ ㄙˋ ㄕˊ ㄈㄣ ㄋㄧˇ ㄧㄠˋ ㄑㄩˋ ㄋㄚˇ ㄌㄧˇ", "en": "Ten forty. Where are you off to?"},
+  {"speaker": "安娜", "zh": "我要去上課，我十一點有中文課。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄑㄩˋ ㄕㄤˋ ㄎㄜˋ ㄨㄛˇ ㄕˊ ㄧ ㄉㄧㄢˇ ㄧㄡˇ ㄓㄨㄥ ㄨㄣˊ ㄎㄜˋ", "en": "I'm going to class. I have Chinese class at eleven."},
+  {"speaker": "阿芳", "zh": "今天禮拜四，你也有課喔？", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄌㄧˇ ㄅㄞˋ ㄙˋ ㄋㄧˇ ㄧㄝˇ ㄧㄡˇ ㄎㄜˋ ㄛ", "en": "Today's Thursday. You have class on Thursdays too?"},
+  {"speaker": "安娜", "zh": "對啊，我星期一到星期四都有課，十一點到十二點半。", "zhuyin": "ㄉㄨㄟˋ ˙ㄚ ㄨㄛˇ ㄒㄧㄥ ㄑㄧˊ ㄧ ㄉㄠˋ ㄒㄧㄥ ㄑㄧˊ ㄙˋ ㄉㄡ ㄧㄡˇ ㄎㄜˋ ㄕˊ ㄧ ㄉㄧㄢˇ ㄉㄠˋ ㄕˊ ㄦˋ ㄉㄧㄢˇ ㄅㄢˋ", "en": "Yes, I have class Monday to Thursday, from eleven to twelve thirty."},
+  {"speaker": "阿芳", "zh": "那你禮拜六有空嗎？", "zhuyin": "ㄋㄚˋ ㄋㄧˇ ㄌㄧˇ ㄅㄞˋ ㄌㄧㄡˋ ㄧㄡˇ ㄎㄨㄥˋ ˙ㄇㄚ", "en": "Then are you free on Saturday?"},
+  {"speaker": "安娜", "zh": "有啊，怎麼了？", "zhuyin": "ㄧㄡˇ ˙ㄚ ㄗㄣˇ ˙ㄇㄜ ˙ㄌㄜ", "en": "Yes, why?"},
+  {"speaker": "阿芳", "zh": "禮拜六是我生日啦！我們一起去吃飯，好不好？", "zhuyin": "ㄌㄧˇ ㄅㄞˋ ㄌㄧㄡˋ ㄕˋ ㄨㄛˇ ㄕㄥ ㄖˋ ˙ㄌㄚ ㄨㄛˇ ˙ㄇㄣ ㄧ ㄑㄧˇ ㄑㄩˋ ㄔ ㄈㄢˋ ㄏㄠˇ ㄅㄨˋ ㄏㄠˇ", "en": "Saturday's my birthday! Let's go out to eat together, OK?"},
+  {"speaker": "安娜", "zh": "好啊！禮拜六是幾號？", "zhuyin": "ㄏㄠˇ ˙ㄚ ㄌㄧˇ ㄅㄞˋ ㄌㄧㄡˋ ㄕˋ ㄐㄧˇ ㄏㄠˋ", "en": "Sure! What's the date on Saturday?"},
+  {"speaker": "阿芳", "zh": "今天十二號，禮拜六是十四號。", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄕˊ ㄦˋ ㄏㄠˋ ㄌㄧˇ ㄅㄞˋ ㄌㄧㄡˋ ㄕˋ ㄕˊ ㄙˋ ㄏㄠˋ", "en": "Today's the 12th, so Saturday is the 14th."},
+  {"speaker": "安娜", "zh": "幾點？在哪裡見？", "zhuyin": "ㄐㄧˇ ㄉㄧㄢˇ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ ㄐㄧㄢˋ", "en": "What time? Where shall we meet?"},
+  {"speaker": "阿芳", "zh": "晚上六點半，在屏東火車站。", "zhuyin": "ㄨㄢˇ ㄕㄤˋ ㄌㄧㄡˋ ㄉㄧㄢˇ ㄅㄢˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄏㄨㄛˇ ㄔㄜ ㄓㄢˋ", "en": "Six thirty in the evening, at Pingtung train station."},
+  {"speaker": "安娜", "zh": "好，禮拜六晚上六點半，火車站見！", "zhuyin": "ㄏㄠˇ ㄌㄧˇ ㄅㄞˋ ㄌㄧㄡˋ ㄨㄢˇ ㄕㄤˋ ㄌㄧㄡˋ ㄉㄧㄢˇ ㄅㄢˋ ㄏㄨㄛˇ ㄔㄜ ㄓㄢˋ ㄐㄧㄢˋ", "en": "OK, Saturday at six thirty in the evening, see you at the station!"},
+  {"speaker": "阿芳", "zh": "好，你快去上課吧，再見！", "zhuyin": "ㄏㄠˇ ㄋㄧˇ ㄎㄨㄞˋ ㄑㄩˋ ㄕㄤˋ ㄎㄜˋ ˙ㄅㄚ ㄗㄞˋ ㄐㄧㄢˋ", "en": "OK, hurry off to class. Bye!"}
+ ],
+ "vocab": [
+  {"zh": "現在", "zhuyin": "ㄒㄧㄢˋ ㄗㄞˋ", "en": "now", "pos": "n", "level": "第1級"},
+  {"zh": "幾", "zhuyin": "ㄐㄧˇ", "en": "how many; what (number): 幾點 what time, 幾號 what date", "pos": "q", "level": "第1級"},
+  {"zh": "點", "zhuyin": "ㄉㄧㄢˇ", "en": "o'clock (hour of the day)", "pos": "m", "level": "第1級"},
+  {"zh": "分", "zhuyin": "ㄈㄣ", "en": "minute (of the hour)", "pos": "m", "level": "第1級"},
+  {"zh": "半", "zhuyin": "ㄅㄢˋ", "en": "half; half past (六點半 6:30)", "pos": "num", "level": "第1級"},
+  {"zh": "今天", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ", "en": "today", "pos": "n", "level": "第1級"},
+  {"zh": "號", "zhuyin": "ㄏㄠˋ", "en": "day of the month, in speech (十四號 the 14th)", "pos": "m", "level": "第1級"},
+  {"zh": "星期", "zhuyin": "ㄒㄧㄥ ㄑㄧˊ", "en": "week; 星期 + number = day of the week (星期四 Thursday)", "pos": "n", "measure": "個", "level": "第1*級"},
+  {"zh": "禮拜", "zhuyin": "ㄌㄧˇ ㄅㄞˋ", "en": "week, in everyday speech (禮拜六 Saturday)", "pos": "n", "measure": "個", "level": "第2*級"},
+  {"zh": "晚上", "zhuyin": "ㄨㄢˇ ㄕㄤˋ", "en": "evening; at night", "pos": "n", "level": "第1級"},
+  {"zh": "上午", "zhuyin": "ㄕㄤˋ ㄨˇ", "en": "morning (before noon)", "pos": "n", "level": "第1級"},
+  {"zh": "上課", "zhuyin": "ㄕㄤˋ ㄎㄜˋ", "en": "to go to class; to have class", "pos": "v", "level": "第1*級"},
+  {"zh": "課", "zhuyin": "ㄎㄜˋ", "en": "class; lesson (中文課 Chinese class)", "pos": "n", "level": "第1*級"},
+  {"zh": "到", "zhuyin": "ㄉㄠˋ", "en": "to; until (A 到 B from A to B)", "pos": "prep", "level": "第1級"},
+  {"zh": "有空", "zhuyin": "ㄧㄡˇ ㄎㄨㄥˋ", "en": "to be free, to have time", "pos": "v", "level": "第2*級"},
+  {"zh": "生日", "zhuyin": "ㄕㄥ ㄖˋ", "en": "birthday", "pos": "n", "measure": "個", "level": "第1*級"},
+  {"zh": "見", "zhuyin": "ㄐㄧㄢˋ", "en": "to see; to meet (禮拜六見 see you on Saturday)", "pos": "v", "level": "第1*級"},
+  {"zh": "火車", "zhuyin": "ㄏㄨㄛˇ ㄔㄜ", "en": "train (火車站 train station)", "pos": "n", "measure": "班", "level": "第1*級"},
+  {"zh": "啦", "zhuyin": "˙ㄌㄚ", "en": "sentence-final particle: lively, stresses what you say", "pos": "particle", "level": "第2級"},
+  {"zh": "喔", "zhuyin": "ㄛ", "en": "sentence-final particle: friendly, checks or softens ('oh, really?')", "pos": "particle", "level": "第4級"}
+ ],
+ "grammar": [
+  {"id": "G010", "note_en": "Time phrases go from big to small and sit before the verb: 我十一點有中文課, 禮拜六晚上六點半，火車站見. In speech the date is 號 (十四號), and 半 means half past (十二點半)."},
+  {"id": "G011", "note_en": "Clock times and dates are built place by place, so the order changes the number: 十四 'ten four' is 14 (十四號) but 四十 'four ten' is 40 (十點四十分). 十一 and 十二 work the same way."}
+ ],
+ "pronunciation": {"contrast": "x-sh-s", "tone_pair": "33", "note_en": "Keep 十 ㄕˊ and 四 ㄙˋ apart: for ㄕ the tongue tip is up just behind the gum ridge, ㄙ is a plain s, and neither has an 'ee' sound (the empty rhyme). The tones differ too, so 十四 ㄕˊ ㄙˋ (14) and 四十 ㄙˋ ㄕˊ (40) sound clearly different. 星 ㄒㄧㄥ in 星期 is the third sound: tongue tip down, lips spread. 幾點 is a 3+3 pair, so 幾 is said rising (like ㄐㄧˊ ㄉㄧㄢˇ) though it is written ㄐㄧˇ."},
+ "shadowing": [
+  {"zh": "現在幾點？", "zhuyin": "ㄒㄧㄢˋ ㄗㄞˋ ㄐㄧˇ ㄉㄧㄢˇ", "en": "What time is it now?"},
+  {"zh": "現在十點四十分。", "zhuyin": "ㄒㄧㄢˋ ㄗㄞˋ ㄕˊ ㄉㄧㄢˇ ㄙˋ ㄕˊ ㄈㄣ", "en": "It's ten forty now."},
+  {"zh": "我十一點有中文課。", "zhuyin": "ㄨㄛˇ ㄕˊ ㄧ ㄉㄧㄢˇ ㄧㄡˇ ㄓㄨㄥ ㄨㄣˊ ㄎㄜˋ", "en": "I have Chinese class at eleven."},
+  {"zh": "我星期一到星期四都有課。", "zhuyin": "ㄨㄛˇ ㄒㄧㄥ ㄑㄧˊ ㄧ ㄉㄠˋ ㄒㄧㄥ ㄑㄧˊ ㄙˋ ㄉㄡ ㄧㄡˇ ㄎㄜˋ", "en": "I have class Monday to Thursday."},
+  {"zh": "你禮拜六有空嗎？", "zhuyin": "ㄋㄧˇ ㄌㄧˇ ㄅㄞˋ ㄌㄧㄡˋ ㄧㄡˇ ㄎㄨㄥˋ ˙ㄇㄚ", "en": "Are you free on Saturday?"},
+  {"zh": "今天十二號，禮拜六是十四號。", "zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄕˊ ㄦˋ ㄏㄠˋ ㄌㄧˇ ㄅㄞˋ ㄌㄧㄡˋ ㄕˋ ㄕˊ ㄙˋ ㄏㄠˋ", "en": "Today's the 12th, so Saturday is the 14th."},
+  {"zh": "禮拜六晚上六點半，火車站見！", "zhuyin": "ㄌㄧˇ ㄅㄞˋ ㄌㄧㄡˋ ㄨㄢˇ ㄕㄤˋ ㄌㄧㄡˋ ㄉㄧㄢˇ ㄅㄢˋ ㄏㄨㄛˇ ㄔㄜ ㄓㄢˋ ㄐㄧㄢˋ", "en": "Saturday at six thirty in the evening, see you at the station!"}
+ ],
+ "comprehension": [
+  {"question_en": "What time is it when Anna asks?", "options_en": ["4:10", "10:40", "10:14"], "answer": 1},
+  {"question_en": "What day of the week is it today?", "options_en": ["Thursday", "Saturday", "Monday"], "answer": 0},
+  {"question_en": "When does Anna have Chinese class?", "options_en": ["Monday to Friday, 10:40 to 12:00", "Only on Saturdays, at 6:30", "Monday to Thursday, 11:00 to 12:30"], "answer": 2},
+  {"question_en": "Why does Afang ask if Anna is free on Saturday?", "options_en": ["It is her birthday and she wants to eat out together.", "She needs help at the train station.", "She wants to go to Anna's Chinese class."], "answer": 0},
+  {"question_en": "When and where will they meet?", "options_en": ["Saturday the 12th, 6:30 pm, at Anna's school", "Saturday the 14th, 6:30 pm, at Pingtung train station", "Thursday the 14th, 11:00 am, at Pingtung train station"], "answer": 1}
+ ],
+ "speaking": {
+  "prompt_en": "Invite a friend to eat out this weekend. Ask what time it is, say which days you have class or work, then agree on the day, the date, the time and the place to meet.",
+  "prompt_zh": "你想跟朋友一起去吃飯。請說：禮拜幾、幾號、幾點、在哪裡見。",
+  "checklist_en": ["asked with 幾點 or 幾號", "put the time before the verb (晚上六點半…見)", "named a day with 星期 or 禮拜 (禮拜六)", "used 半 for half past", "kept 十 ㄕˊ and 四 ㄙˋ apart in 十四 and 四十"]
+ },
+ "writing": {
+  "prompt_en": "Write 3 or 4 sentences about your week: which days you have class or work and from what time to what time, and one plan with a day, a date, a time and a place.",
+  "prompt_zh": "請寫三、四句：你星期幾有課或上班？幾點到幾點？這個禮拜六你要做什麼？",
+  "model_zh": "我星期一到星期四都有中文課，上午十一點上課，中午十二點半下課。這個禮拜六是十四號，是我朋友的生日。我們晚上六點半在屏東火車站見，一起去吃飯。",
+  "model_zhuyin": "ㄨㄛˇ ㄒㄧㄥ ㄑㄧˊ ㄧ ㄉㄠˋ ㄒㄧㄥ ㄑㄧˊ ㄙˋ ㄉㄡ ㄧㄡˇ ㄓㄨㄥ ㄨㄣˊ ㄎㄜˋ ㄕㄤˋ ㄨˇ ㄕˊ ㄧ ㄉㄧㄢˇ ㄕㄤˋ ㄎㄜˋ ㄓㄨㄥ ㄨˇ ㄕˊ ㄦˋ ㄉㄧㄢˇ ㄅㄢˋ ㄒㄧㄚˋ ㄎㄜˋ ㄓㄜˋ ˙ㄍㄜ ㄌㄧˇ ㄅㄞˋ ㄌㄧㄡˋ ㄕˋ ㄕˊ ㄙˋ ㄏㄠˋ ㄕˋ ㄨㄛˇ ㄆㄥˊ ㄧㄡˇ ˙ㄉㄜ ㄕㄥ ㄖˋ ㄨㄛˇ ˙ㄇㄣ ㄨㄢˇ ㄕㄤˋ ㄌㄧㄡˋ ㄉㄧㄢˇ ㄅㄢˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄏㄨㄛˇ ㄔㄜ ㄓㄢˋ ㄐㄧㄢˋ ㄧ ㄑㄧˇ ㄑㄩˋ ㄔ ㄈㄢˋ"
+ },
+ "culture_en": "星期 and 禮拜 both name the days of the week (星期六 = 禮拜六 = Saturday). In everyday Taiwan speech you will hear 禮拜 a lot, while written schedules and opening hours often use 星期 or the short form 週 (週六). People tell the time on a 12-hour clock with 早上, 下午 or 晚上 in front (晚上六點半), but train timetables, like the ones at Pingtung station, use the 24-hour clock: 晚上六點半 is 18:30."
+}

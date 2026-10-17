@@ -1,0 +1,87 @@
+{
+  "id": "L2-03", "level": "第2級", "order": 3,
+  "topic": "看醫生 & 健保卡", "title_zh": "看醫生", "title_en": "Seeing a doctor",
+  "can_do_en": "I can check in at a clinic with my health insurance card, tell the doctor what's wrong and for how long, and understand how to take my medicine.",
+  "dialogue": [
+    {"speaker": "馬克", "zh": "不好意思，我要看病。這是我的健保卡。", "zhuyin": "ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄨㄛˇ ㄧㄠˋ ㄎㄢˋ ㄅㄧㄥˋ ㄓㄜˋ ㄕˋ ㄨㄛˇ ˙ㄉㄜ ㄐㄧㄢˋ ㄅㄠˇ ㄎㄚˇ", "en": "Excuse me, I'd like to see the doctor. Here's my health insurance card."},
+    {"speaker": "護士", "zh": "好，你是第一次來嗎？", "zhuyin": "ㄏㄠˇ ㄋㄧˇ ㄕˋ ㄉㄧˋ ㄧ ㄘˋ ㄌㄞˊ ˙ㄇㄚ", "en": "OK. Is this your first time here?"},
+    {"speaker": "馬克", "zh": "對，第一次。", "zhuyin": "ㄉㄨㄟˋ ㄉㄧˋ ㄧ ㄘˋ", "en": "Yes, the first time."},
+    {"speaker": "護士", "zh": "好，你是十五號。請在那邊坐一下，等一下會叫你的名字。", "zhuyin": "ㄏㄠˇ ㄋㄧˇ ㄕˋ ㄕˊ ㄨˇ ㄏㄠˋ ㄑㄧㄥˇ ㄗㄞˋ ㄋㄚˋ ㄅㄧㄢ ㄗㄨㄛˋ ㄧ ㄒㄧㄚˋ ㄉㄥˇ ㄧ ㄒㄧㄚˋ ㄏㄨㄟˋ ㄐㄧㄠˋ ㄋㄧˇ ˙ㄉㄜ ㄇㄧㄥˊ ˙ㄗ", "en": "OK, you're number 15. Please have a seat over there; we'll call your name in a moment."},
+    {"speaker": "醫生", "zh": "你好，怎麼了？哪裡不舒服？", "zhuyin": "ㄋㄧˇ ㄏㄠˇ ㄗㄣˇ ˙ㄇㄜ ˙ㄌㄜ ㄋㄚˇ ㄌㄧˇ ㄅㄨˋ ㄕㄨ ˙ㄈㄨ", "en": "Hello. What's wrong? Where don't you feel well?"},
+    {"speaker": "馬克", "zh": "我喉嚨很痛，還一直咳嗽。", "zhuyin": "ㄨㄛˇ ㄏㄡˊ ㄌㄨㄥˊ ㄏㄣˇ ㄊㄨㄥˋ ㄏㄞˊ ㄧ ㄓˊ ㄎㄜˊ ㄙㄡˋ", "en": "My throat really hurts, and I keep coughing."},
+    {"speaker": "醫生", "zh": "痛多久了？有發燒嗎？", "zhuyin": "ㄊㄨㄥˋ ㄉㄨㄛ ㄐㄧㄡˇ ˙ㄌㄜ ㄧㄡˇ ㄈㄚ ㄕㄠ ˙ㄇㄚ", "en": "How long has it hurt? Do you have a fever?"},
+    {"speaker": "馬克", "zh": "已經痛了兩天了。昨天晚上好像有一點發燒。", "zhuyin": "ㄧˇ ㄐㄧㄥ ㄊㄨㄥˋ ˙ㄌㄜ ㄌㄧㄤˇ ㄊㄧㄢ ˙ㄌㄜ ㄗㄨㄛˊ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄏㄠˇ ㄒㄧㄤˋ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄈㄚ ㄕㄠ", "en": "It's been hurting for two days now. Last night I think I had a bit of a fever."},
+    {"speaker": "醫生", "zh": "我看一下你的喉嚨……有點紅，是感冒喔。", "zhuyin": "ㄨㄛˇ ㄎㄢˋ ㄧ ㄒㄧㄚˋ ㄋㄧˇ ˙ㄉㄜ ㄏㄡˊ ㄌㄨㄥˊ ㄧㄡˇ ㄉㄧㄢˇ ㄏㄨㄥˊ ㄕˋ ㄍㄢˇ ㄇㄠˋ ㄛ", "en": "Let me take a look at your throat… It's a bit red. It's a cold."},
+    {"speaker": "馬克", "zh": "嚴重嗎？", "zhuyin": "ㄧㄢˊ ㄓㄨㄥˋ ˙ㄇㄚ", "en": "Is it serious?"},
+    {"speaker": "醫生", "zh": "不嚴重啦。我開三天的藥給你，一天吃三次，飯後吃。", "zhuyin": "ㄅㄨˋ ㄧㄢˊ ㄓㄨㄥˋ ˙ㄌㄚ ㄨㄛˇ ㄎㄞ ㄙㄢ ㄊㄧㄢ ˙ㄉㄜ ㄧㄠˋ ㄍㄟˇ ㄋㄧˇ ㄧ ㄊㄧㄢ ㄔ ㄙㄢ ㄘˋ ㄈㄢˋ ㄏㄡˋ ㄔ", "en": "It's not serious. I'll give you three days of medicine: three times a day, after meals."},
+    {"speaker": "醫生", "zh": "這幾天要多喝水、多休息，不要喝冰的喔。", "zhuyin": "ㄓㄜˋ ㄐㄧˇ ㄊㄧㄢ ㄧㄠˋ ㄉㄨㄛ ㄏㄜ ㄕㄨㄟˇ ㄉㄨㄛ ㄒㄧㄡ ㄒㄧˊ ㄅㄨˋ ㄧㄠˋ ㄏㄜ ㄅㄧㄥ ˙ㄉㄜ ㄛ", "en": "For the next few days, drink plenty of water and get lots of rest. And no cold drinks, OK?"},
+    {"speaker": "護士", "zh": "馬克先生，這是你的藥和健保卡。一共一百五十塊。", "zhuyin": "ㄇㄚˇ ㄎㄜˋ ㄒㄧㄢ ㄕㄥ ㄓㄜˋ ㄕˋ ㄋㄧˇ ˙ㄉㄜ ㄧㄠˋ ㄏㄜˊ ㄐㄧㄢˋ ㄅㄠˇ ㄎㄚˇ ㄧ ㄍㄨㄥˋ ㄧ ㄅㄞˇ ㄨˇ ㄕˊ ㄎㄨㄞˋ", "en": "Mr. Mark, here are your medicine and your health insurance card. That's 150 dollars altogether."},
+    {"speaker": "馬克", "zh": "好，謝謝。", "zhuyin": "ㄏㄠˇ ㄒㄧㄝˋ ˙ㄒㄧㄝ", "en": "OK, thank you."}
+  ],
+  "vocab": [
+    {"zh": "不好意思", "zhuyin": "ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ", "en": "excuse me; sorry (to bother you)", "pos": "phrase", "level": "第2*級"},
+    {"zh": "看病", "zhuyin": "ㄎㄢˋ ㄅㄧㄥˋ", "en": "to see a doctor; (of a doctor) to see patients", "pos": "v", "level": "第1*級"},
+    {"zh": "健保卡", "zhuyin": "ㄐㄧㄢˋ ㄅㄠˇ ㄎㄚˇ", "en": "National Health Insurance card", "pos": "n", "measure": "張", "level": null},
+    {"zh": "護士", "zhuyin": "ㄏㄨˋ ㄕˋ", "en": "nurse", "pos": "n", "measure": "位", "level": "第2*級"},
+    {"zh": "號", "zhuyin": "ㄏㄠˋ", "en": "number (your place in the queue)", "pos": "n", "level": "第1級"},
+    {"zh": "舒服", "zhuyin": "ㄕㄨ ˙ㄈㄨ", "en": "comfortable; 不舒服 unwell", "pos": "adj", "level": "第1*級"},
+    {"zh": "喉嚨", "zhuyin": "ㄏㄡˊ ㄌㄨㄥˊ", "en": "throat", "pos": "n", "level": "第4級"},
+    {"zh": "痛", "zhuyin": "ㄊㄨㄥˋ", "en": "to hurt; painful", "pos": "adj", "level": "第1*級"},
+    {"zh": "一直", "zhuyin": "ㄧ ㄓˊ", "en": "keep (doing); all the time", "pos": "adv", "level": "第2級"},
+    {"zh": "咳嗽", "zhuyin": "ㄎㄜˊ ㄙㄡˋ", "en": "to cough", "pos": "v", "level": "第3*級"},
+    {"zh": "發燒", "zhuyin": "ㄈㄚ ㄕㄠ", "en": "to have a fever", "pos": "v", "level": "第3*級"},
+    {"zh": "已經", "zhuyin": "ㄧˇ ㄐㄧㄥ", "en": "already", "pos": "adv", "level": "第2級"},
+    {"zh": "好像", "zhuyin": "ㄏㄠˇ ㄒㄧㄤˋ", "en": "to seem; I think, it looks like", "pos": "adv", "level": "第2級"},
+    {"zh": "感冒", "zhuyin": "ㄍㄢˇ ㄇㄠˋ", "en": "a cold; to catch a cold", "pos": "n/v", "level": "第1*級"},
+    {"zh": "嚴重", "zhuyin": "ㄧㄢˊ ㄓㄨㄥˋ", "en": "serious", "pos": "adj", "level": "第3*級"},
+    {"zh": "藥", "zhuyin": "ㄧㄠˋ", "en": "medicine", "pos": "n", "measure": "包", "level": "第1*級"},
+    {"zh": "次", "zhuyin": "ㄘˋ", "en": "time(s), occurrence(s)", "pos": "m", "level": "第2級"},
+    {"zh": "休息", "zhuyin": "ㄒㄧㄡ ㄒㄧˊ", "en": "to rest", "pos": "v", "level": "第1*級"},
+    {"zh": "冰", "zhuyin": "ㄅㄧㄥ", "en": "iced, cold; 冰的 cold drinks", "pos": "adj", "level": "第1*級"},
+    {"zh": "上班", "zhuyin": "ㄕㄤˋ ㄅㄢ", "en": "to go to work; to be at work", "pos": "v", "level": "第2*級"}
+  ],
+  "grammar": [
+    {"id": "G071", "note_en": "The doctor opens with 怎麼了？哪裡不舒服？, the everyday way to ask what's wrong. A friend who sees you looking ill would say 你怎麼了？"},
+    {"id": "G027", "note_en": "痛了兩天了: the length of time goes after the verb, and the final 了 says it is still going on. It answers the doctor's 痛多久了？"},
+    {"id": "G083", "note_en": "The doctor says the throat is 有點紅, and Mark softens his symptom with 有一點發燒: 'a bit', for something unwelcome."}
+  ],
+  "pronunciation": {
+    "contrast": "x-sh-s",
+    "tone_pair": "24",
+    "note_en": "Keep three sounds apart: ㄒ in 休息 ㄒㄧㄡ ㄒㄧˊ (tongue tip down, lips spread), ㄕ in 發燒 ㄈㄚ ㄕㄠ and 舒服 ㄕㄨ ˙ㄈㄨ (tongue tip up behind the gum ridge), and ㄙ in 咳嗽 ㄎㄜˊ ㄙㄡˋ and 三次 ㄙㄢ ㄘˋ (a plain s). Many Taiwan speakers say ㄕ close to ㄙ; understand it, but produce ㄕ. Tone pair 2+4 (rise, then a high fall): 咳嗽, 嚴重. 一共 is written ㄧ ㄍㄨㄥˋ but said ㄧˊ ㄍㄨㄥˋ, the same 2+4 shape, and 不要 is said ㄅㄨˊ ㄧㄠˋ."
+  },
+  "shadowing": [
+    {"zh": "不好意思，我要看病。", "zhuyin": "ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄨㄛˇ ㄧㄠˋ ㄎㄢˋ ㄅㄧㄥˋ", "en": "Excuse me, I'd like to see the doctor."},
+    {"zh": "你怎麼了？哪裡不舒服？", "zhuyin": "ㄋㄧˇ ㄗㄣˇ ˙ㄇㄜ ˙ㄌㄜ ㄋㄚˇ ㄌㄧˇ ㄅㄨˋ ㄕㄨ ˙ㄈㄨ", "en": "What's wrong? Where don't you feel well?"},
+    {"zh": "我喉嚨很痛，還一直咳嗽。", "zhuyin": "ㄨㄛˇ ㄏㄡˊ ㄌㄨㄥˊ ㄏㄣˇ ㄊㄨㄥˋ ㄏㄞˊ ㄧ ㄓˊ ㄎㄜˊ ㄙㄡˋ", "en": "My throat really hurts, and I keep coughing."},
+    {"zh": "已經痛了兩天了。", "zhuyin": "ㄧˇ ㄐㄧㄥ ㄊㄨㄥˋ ˙ㄌㄜ ㄌㄧㄤˇ ㄊㄧㄢ ˙ㄌㄜ", "en": "It's been hurting for two days now."},
+    {"zh": "昨天晚上好像有一點發燒。", "zhuyin": "ㄗㄨㄛˊ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄏㄠˇ ㄒㄧㄤˋ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄈㄚ ㄕㄠ", "en": "Last night I think I had a bit of a fever."},
+    {"zh": "一天吃三次，飯後吃。", "zhuyin": "ㄧ ㄊㄧㄢ ㄔ ㄙㄢ ㄘˋ ㄈㄢˋ ㄏㄡˋ ㄔ", "en": "Three times a day, after meals."},
+    {"zh": "這幾天要多喝水、多休息，不要喝冰的喔。", "zhuyin": "ㄓㄜˋ ㄐㄧˇ ㄊㄧㄢ ㄧㄠˋ ㄉㄨㄛ ㄏㄜ ㄕㄨㄟˇ ㄉㄨㄛ ㄒㄧㄡ ㄒㄧˊ ㄅㄨˋ ㄧㄠˋ ㄏㄜ ㄅㄧㄥ ˙ㄉㄜ ㄛ", "en": "For the next few days, drink plenty of water and get lots of rest. And no cold drinks, OK?"}
+  ],
+  "comprehension": [
+    {"question_en": "Why does Mark go to the clinic?", "options_en": ["He has a sore throat and a cough.", "He has a stomach ache.", "He needs a new health insurance card."], "answer": 0},
+    {"question_en": "How long has his throat been hurting?", "options_en": ["Since this morning", "Two days", "A week"], "answer": 1},
+    {"question_en": "How should he take the medicine?", "options_en": ["Once a day, before bed", "Twice a day, before meals", "Three times a day, after meals"], "answer": 2},
+    {"question_en": "What does the doctor tell him to avoid?", "options_en": ["Cold drinks", "Drinking water", "Resting at home"], "answer": 0},
+    {"question_en": "How much does Mark pay at the counter?", "options_en": ["NT$105", "NT$150", "NT$500"], "answer": 1}
+  ],
+  "speaking": {
+    "prompt_en": "You're at a clinic in Pingtung. Tell the doctor where you don't feel well, how long it has lasted, and whether you have a fever. Then ask if it's serious.",
+    "prompt_zh": "你去看醫生。請跟醫生說你哪裡不舒服、不舒服多久了、有沒有發燒，然後問醫生嚴不嚴重。",
+    "checklist_en": [
+      "said what hurts or where you feel unwell (我……很痛 / 不舒服)",
+      "put the length of time after the verb (痛了兩天了)",
+      "used 有一點 or 有點 for a mild symptom",
+      "asked 嚴重嗎？",
+      "kept ㄒ (休息), ㄕ (發燒) and ㄙ (咳嗽) apart"
+    ]
+  },
+  "writing": {
+    "prompt_en": "You're sick today. Write a short LINE message (3–5 sentences) to your boss: what's wrong, how long it has lasted, that you saw a doctor, and that you can't come to work.",
+    "prompt_zh": "你今天生病了。請寫一個短短的LINE訊息跟老闆說：你怎麼了、多久了、有沒有去看醫生，還有今天不能去上班。",
+    "model_zh": "老闆，不好意思，我感冒了，今天不能去上班。我喉嚨很痛，已經咳了兩天了，昨天晚上還有一點發燒。早上我去看醫生了，醫生說要多休息。明天再跟您說，謝謝！",
+    "model_zhuyin": "ㄌㄠˇ ㄅㄢˇ ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄨㄛˇ ㄍㄢˇ ㄇㄠˋ ˙ㄌㄜ ㄐㄧㄣ ㄊㄧㄢ ㄅㄨˋ ㄋㄥˊ ㄑㄩˋ ㄕㄤˋ ㄅㄢ ㄨㄛˇ ㄏㄡˊ ㄌㄨㄥˊ ㄏㄣˇ ㄊㄨㄥˋ ㄧˇ ㄐㄧㄥ ㄎㄜˊ ˙ㄌㄜ ㄌㄧㄤˇ ㄊㄧㄢ ˙ㄌㄜ ㄗㄨㄛˊ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄏㄞˊ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄈㄚ ㄕㄠ ㄗㄠˇ ㄕㄤˋ ㄨㄛˇ ㄑㄩˋ ㄎㄢˋ ㄧ ㄕㄥ ˙ㄌㄜ ㄧ ㄕㄥ ㄕㄨㄛ ㄧㄠˋ ㄉㄨㄛ ㄒㄧㄡ ㄒㄧˊ ㄇㄧㄥˊ ㄊㄧㄢ ㄗㄞˋ ㄍㄣ ㄋㄧㄣˊ ㄕㄨㄛ ㄒㄧㄝˋ ˙ㄒㄧㄝ"
+  },
+  "culture_en": "Taiwan's National Health Insurance (全民健保) covers almost everyone who lives here, and each insured person has an IC card with a photo, the 健保卡. Hand it in at the counter every time you see a doctor: the clinic registers you (掛號), and you pay a registration fee (掛號費) set by the clinic plus a fixed copayment (部分負擔). Many neighbourhood clinics give you a number and show the number now being seen on a display, and they often hand you the medicine right there, in a bag that tells you how many times a day to take it and whether before or after meals (飯前 / 飯後). Foreign residents with a residence permit (ARC) can join after six months in Taiwan; people employed in Taiwan join from their first day of work."
+}

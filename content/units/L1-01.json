@@ -1,0 +1,85 @@
+{
+ "id": "L1-01", "level": "第1級", "order": 1,
+ "topic": "打招呼/自我介紹 (greetings, introducing yourself, family)", "title_zh": "你好，我叫大衛", "title_en": "Hello, I'm David",
+ "can_do_en": "I can greet a new neighbour, say my name, where I am from and what I do, talk about my family, and say goodbye.",
+ "dialogue": [
+  {"speaker": "林太太", "zh": "你好！我家在你家旁邊。你是新來的嗎？", "zhuyin": "ㄋㄧˇ ㄏㄠˇ ㄨㄛˇ ㄐㄧㄚ ㄗㄞˋ ㄋㄧˇ ㄐㄧㄚ ㄆㄤˊ ㄅㄧㄢ ㄋㄧˇ ㄕˋ ㄒㄧㄣ ㄌㄞˊ ˙ㄉㄜ ˙ㄇㄚ", "en": "Hello! I live next door to you. Are you new here?"},
+  {"speaker": "大衛", "zh": "您好！對，我叫大衛，我是美國人。", "zhuyin": "ㄋㄧㄣˊ ㄏㄠˇ ㄉㄨㄟˋ ㄨㄛˇ ㄐㄧㄠˋ ㄉㄚˋ ㄨㄟˋ ㄨㄛˇ ㄕˋ ㄇㄟˇ ㄍㄨㄛˊ ㄖㄣˊ", "en": "Hello! Yes, my name is David. I'm American."},
+  {"speaker": "林太太", "zh": "大衛你好！我先生姓林，你可以叫我林太太。", "zhuyin": "ㄉㄚˋ ㄨㄟˋ ㄋㄧˇ ㄏㄠˇ ㄨㄛˇ ㄒㄧㄢ ㄕㄥ ㄒㄧㄥˋ ㄌㄧㄣˊ ㄋㄧˇ ㄎㄜˇ ㄧˇ ㄐㄧㄠˋ ㄨㄛˇ ㄌㄧㄣˊ ㄊㄞˋ ˙ㄊㄞ", "en": "Hi, David! My husband's surname is Lin, so you can call me Mrs Lin."},
+  {"speaker": "大衛", "zh": "林太太好！很高興認識您。", "zhuyin": "ㄌㄧㄣˊ ㄊㄞˋ ˙ㄊㄞ ㄏㄠˇ ㄏㄣˇ ㄍㄠ ㄒㄧㄥˋ ㄖㄣˋ ˙ㄕ ㄋㄧㄣˊ", "en": "Hello, Mrs Lin! Very nice to meet you."},
+  {"speaker": "林太太", "zh": "我也很高興認識你。你來屏東工作嗎？", "zhuyin": "ㄨㄛˇ ㄧㄝˇ ㄏㄣˇ ㄍㄠ ㄒㄧㄥˋ ㄖㄣˋ ˙ㄕ ㄋㄧˇ ㄋㄧˇ ㄌㄞˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄍㄨㄥ ㄗㄨㄛˋ ˙ㄇㄚ", "en": "Nice to meet you too. Did you come to Pingtung to work?"},
+  {"speaker": "大衛", "zh": "對，我是英文老師。", "zhuyin": "ㄉㄨㄟˋ ㄨㄛˇ ㄕˋ ㄧㄥ ㄨㄣˊ ㄌㄠˇ ㄕ", "en": "Yes, I'm an English teacher."},
+  {"speaker": "林太太", "zh": "英文老師喔！這是我兒子，他叫小明。", "zhuyin": "ㄧㄥ ㄨㄣˊ ㄌㄠˇ ㄕ ㄛ ㄓㄜˋ ㄕˋ ㄨㄛˇ ㄦˊ ˙ㄗ ㄊㄚ ㄐㄧㄠˋ ㄒㄧㄠˇ ㄇㄧㄥˊ", "en": "An English teacher! This is my son. His name is Xiaoming."},
+  {"speaker": "小明", "zh": "老師好！", "zhuyin": "ㄌㄠˇ ㄕ ㄏㄠˇ", "en": "Hello, teacher!"},
+  {"speaker": "大衛", "zh": "小明你好！你今年幾歲？", "zhuyin": "ㄒㄧㄠˇ ㄇㄧㄥˊ ㄋㄧˇ ㄏㄠˇ ㄋㄧˇ ㄐㄧㄣ ㄋㄧㄢˊ ㄐㄧˇ ㄙㄨㄟˋ", "en": "Hi, Xiaoming! How old are you?"},
+  {"speaker": "小明", "zh": "我九歲。老師，你有哥哥姊姊嗎？", "zhuyin": "ㄨㄛˇ ㄐㄧㄡˇ ㄙㄨㄟˋ ㄌㄠˇ ㄕ ㄋㄧˇ ㄧㄡˇ ㄍㄜ ˙ㄍㄜ ㄐㄧㄝˇ ˙ㄐㄧㄝ ˙ㄇㄚ", "en": "I'm nine. Teacher, do you have any older brothers or sisters?"},
+  {"speaker": "大衛", "zh": "我有一個哥哥。我爸爸、媽媽和哥哥都在美國。", "zhuyin": "ㄨㄛˇ ㄧㄡˇ ㄧ ˙ㄍㄜ ㄍㄜ ˙ㄍㄜ ㄨㄛˇ ㄅㄚˋ ˙ㄅㄚ ㄇㄚ ˙ㄇㄚ ㄏㄜˊ ㄍㄜ ˙ㄍㄜ ㄉㄡ ㄗㄞˋ ㄇㄟˇ ㄍㄨㄛˊ", "en": "I have one older brother. My dad, my mom and my brother are all in the US."},
+  {"speaker": "林太太", "zh": "你一個人在臺灣喔？有空來我家吃飯啦！", "zhuyin": "ㄋㄧˇ ㄧ ˙ㄍㄜ ㄖㄣˊ ㄗㄞˋ ㄊㄞˊ ㄨㄢ ㄛ ㄧㄡˇ ㄎㄨㄥˋ ㄌㄞˊ ㄨㄛˇ ㄐㄧㄚ ㄔ ㄈㄢˋ ˙ㄌㄚ", "en": "You're in Taiwan on your own? Come and eat at our place when you're free!"},
+  {"speaker": "大衛", "zh": "好，謝謝！林太太再見，小明再見！", "zhuyin": "ㄏㄠˇ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄧㄣˊ ㄊㄞˋ ˙ㄊㄞ ㄗㄞˋ ㄐㄧㄢˋ ㄒㄧㄠˇ ㄇㄧㄥˊ ㄗㄞˋ ㄐㄧㄢˋ", "en": "OK, thank you! Goodbye, Mrs Lin. Bye, Xiaoming!"},
+  {"speaker": "小明", "zh": "老師再見！", "zhuyin": "ㄌㄠˇ ㄕ ㄗㄞˋ ㄐㄧㄢˋ", "en": "Bye, teacher!"}
+ ],
+ "vocab": [
+  {"zh": "您", "zhuyin": "ㄋㄧㄣˊ", "en": "you (polite: to an older person or someone you have just met)", "pos": "pron", "measure": null, "level": "第1級"},
+  {"zh": "叫", "zhuyin": "ㄐㄧㄠˋ", "en": "to be called (a name); to call someone", "pos": "v", "measure": null, "level": "第1級"},
+  {"zh": "姓", "zhuyin": "ㄒㄧㄥˋ", "en": "to have the surname; surname", "pos": "v", "measure": null, "level": "第1*級"},
+  {"zh": "先生", "zhuyin": "ㄒㄧㄢ ㄕㄥ", "en": "husband; Mr, sir", "pos": "n", "measure": "位", "level": "第1級"},
+  {"zh": "太太", "zhuyin": "ㄊㄞˋ ˙ㄊㄞ", "en": "wife; Mrs (after the husband's surname)", "pos": "n", "measure": "位", "level": "第1級"},
+  {"zh": "高興", "zhuyin": "ㄍㄠ ㄒㄧㄥˋ", "en": "glad, happy", "pos": "adj", "measure": null, "level": "第2級"},
+  {"zh": "認識", "zhuyin": "ㄖㄣˋ ˙ㄕ", "en": "to meet, get to know; to know (a person)", "pos": "v", "measure": null, "level": "第2級"},
+  {"zh": "工作", "zhuyin": "ㄍㄨㄥ ㄗㄨㄛˋ", "en": "to work; job", "pos": "v", "measure": "份", "level": "第1級"},
+  {"zh": "英文", "zhuyin": "ㄧㄥ ㄨㄣˊ", "en": "English (the language)", "pos": "n", "measure": null, "level": "第1級"},
+  {"zh": "老師", "zhuyin": "ㄌㄠˇ ㄕ", "en": "teacher", "pos": "n", "measure": "位", "level": "第1級"},
+  {"zh": "兒子", "zhuyin": "ㄦˊ ˙ㄗ", "en": "son", "pos": "n", "measure": "個", "level": "第1級"},
+  {"zh": "歲", "zhuyin": "ㄙㄨㄟˋ", "en": "years old (for age)", "pos": "m", "measure": null, "level": "第1級"},
+  {"zh": "哥哥", "zhuyin": "ㄍㄜ ˙ㄍㄜ", "en": "older brother", "pos": "n", "measure": "個", "level": "第1級"},
+  {"zh": "姊姊", "zhuyin": "ㄐㄧㄝˇ ˙ㄐㄧㄝ", "en": "older sister", "pos": "n", "measure": "個", "level": "第1級"},
+  {"zh": "爸爸", "zhuyin": "ㄅㄚˋ ˙ㄅㄚ", "en": "dad, father", "pos": "n", "measure": null, "level": "第1級"},
+  {"zh": "媽媽", "zhuyin": "ㄇㄚ ˙ㄇㄚ", "en": "mom, mother", "pos": "n", "measure": null, "level": "第1級"},
+  {"zh": "再見", "zhuyin": "ㄗㄞˋ ㄐㄧㄢˋ", "en": "goodbye", "pos": "phrase", "measure": null, "level": "第1級"},
+  {"zh": "有空", "zhuyin": "ㄧㄡˇ ㄎㄨㄥˋ", "en": "to be free, to have time", "pos": "phrase", "measure": null, "level": "第2*級"},
+  {"zh": "喔", "zhuyin": "ㄛ", "en": "sentence particle: friendly surprise or a soft check (英文老師喔！)", "pos": "particle", "measure": null, "level": "第4級"},
+  {"zh": "啦", "zhuyin": "˙ㄌㄚ", "en": "sentence particle: a warm, casual push (來我家吃飯啦！)", "pos": "particle", "measure": null, "level": "第2級"}
+ ],
+ "grammar": [
+  {"id": "G001", "note_en": "是 links a person to a nationality, a job or a relation: 我是美國人, 我是英文老師, 這是我兒子. Its negative is 不是, and it never changes for person or tense."},
+  {"id": "G003", "note_en": "Family members and your own home take no 的 after the pronoun: 我先生, 我兒子, 我爸爸、媽媽, 我家, 你家. Keep 的 for ordinary things you own (我的手機)."},
+  {"id": "G007", "note_en": "林太太 and 小明 turn statements into yes/no questions with 嗎 at the end: 你是新來的嗎？ 你來屏東工作嗎？ 你有哥哥姊姊嗎？ The word order does not change. 大衛 answers the first two with 對 'right'."}
+ ],
+ "pronunciation": {"contrast": "en-eng", "tone_pair": "33", "note_en": "ㄣ vs ㄥ: 林 ㄌㄧㄣˊ, 您 ㄋㄧㄣˊ, 認識 ㄖㄣˋ and 人 ㄖㄣˊ close with the tongue tip on the ridge behind the teeth; 姓 ㄒㄧㄥˋ, 英文 ㄧㄥ, 高興 ㄒㄧㄥˋ, 屏東 ㄆㄧㄥˊ and 小明 ㄇㄧㄥˊ close with the back of the tongue. 姓林 puts the two side by side. Many people in Taiwan merge ㄧㄥ into ㄧㄣ in casual speech: understand it, but keep them apart yourself. Tone pair 3+3: 你好 is said ㄋㄧˊ ㄏㄠˇ, and 可以 and 我有 change the same way; the Zhuyin keeps the base tones."},
+ "shadowing": [
+  {"zh": "您好！我叫大衛，我是美國人。", "zhuyin": "ㄋㄧㄣˊ ㄏㄠˇ ㄨㄛˇ ㄐㄧㄠˋ ㄉㄚˋ ㄨㄟˋ ㄨㄛˇ ㄕˋ ㄇㄟˇ ㄍㄨㄛˊ ㄖㄣˊ", "en": "Hello! My name is David. I'm American."},
+  {"zh": "我先生姓林。", "zhuyin": "ㄨㄛˇ ㄒㄧㄢ ㄕㄥ ㄒㄧㄥˋ ㄌㄧㄣˊ", "en": "My husband's surname is Lin."},
+  {"zh": "很高興認識您。", "zhuyin": "ㄏㄣˇ ㄍㄠ ㄒㄧㄥˋ ㄖㄣˋ ˙ㄕ ㄋㄧㄣˊ", "en": "Very nice to meet you."},
+  {"zh": "我也很高興認識你。", "zhuyin": "ㄨㄛˇ ㄧㄝˇ ㄏㄣˇ ㄍㄠ ㄒㄧㄥˋ ㄖㄣˋ ˙ㄕ ㄋㄧˇ", "en": "Nice to meet you too."},
+  {"zh": "這是我兒子，他叫小明。", "zhuyin": "ㄓㄜˋ ㄕˋ ㄨㄛˇ ㄦˊ ˙ㄗ ㄊㄚ ㄐㄧㄠˋ ㄒㄧㄠˇ ㄇㄧㄥˊ", "en": "This is my son. His name is Xiaoming."},
+  {"zh": "你今年幾歲？", "zhuyin": "ㄋㄧˇ ㄐㄧㄣ ㄋㄧㄢˊ ㄐㄧˇ ㄙㄨㄟˋ", "en": "How old are you?"},
+  {"zh": "我有一個哥哥。", "zhuyin": "ㄨㄛˇ ㄧㄡˇ ㄧ ˙ㄍㄜ ㄍㄜ ˙ㄍㄜ", "en": "I have one older brother."},
+  {"zh": "有空來我家吃飯啦！", "zhuyin": "ㄧㄡˇ ㄎㄨㄥˋ ㄌㄞˊ ㄨㄛˇ ㄐㄧㄚ ㄔ ㄈㄢˋ ˙ㄌㄚ", "en": "Come and eat at our place when you're free!"}
+ ],
+ "comprehension": [
+  {"question_en": "Where does 林太太 live?", "options_en": ["Next door to 大衛", "In the United States", "At 大衛's school"], "answer": 0},
+  {"question_en": "What is 大衛's job?", "options_en": ["Student", "English teacher", "Cook"], "answer": 1},
+  {"question_en": "How old is 小明?", "options_en": ["Seven", "Eight", "Nine"], "answer": 2},
+  {"question_en": "Where is 大衛's family?", "options_en": ["In Pingtung", "In the United States", "In Taipei"], "answer": 1},
+  {"question_en": "What does 林太太 invite 大衛 to do?", "options_en": ["Teach 小明 English", "Come to her home for a meal when he is free", "Meet her husband at work"], "answer": 1}
+ ],
+ "speaking": {
+  "prompt_en": "You meet a new neighbour in Pingtung. Greet them, say your name and where you are from, say what you do, and tell them about your family. Ask them one question with 嗎, then say goodbye.",
+  "prompt_zh": "你在屏東認識了一位新鄰居。請你說你叫什麼名字、是哪國人、做什麼工作，也說一說你的家人。用「嗎」問一個問題，再說再見。",
+  "checklist_en": [
+   "greeted with 你好 or 您好 and ended with 再見",
+   "gave my name with 我叫… (or my surname with 我姓…)",
+   "used 是 for where I am from or my job (我是美國人, 我是…)",
+   "named family members without 的 (我爸爸, 我哥哥)",
+   "asked a yes/no question ending in 嗎",
+   "said 你好 as ㄋㄧˊ ㄏㄠˇ and kept ㄧㄥ in 姓 / 英文 apart from ㄧㄣ in 林 / 您"
+  ]
+ },
+ "writing": {
+  "prompt_en": "Write a short self-introduction for a new neighbour (4 to 6 sentences): your name, where you are from, your job and your family.",
+  "prompt_zh": "請寫一段自我介紹：你叫什麼名字、是哪國人、做什麼工作，還有你的家人。",
+  "model_zh": "你好！我叫大衛，我是美國人。我是英文老師，在屏東工作。我家有四個人：爸爸、媽媽、哥哥和我。他們都在美國。很高興認識你！",
+  "model_zhuyin": "ㄋㄧˇ ㄏㄠˇ ㄨㄛˇ ㄐㄧㄠˋ ㄉㄚˋ ㄨㄟˋ ㄨㄛˇ ㄕˋ ㄇㄟˇ ㄍㄨㄛˊ ㄖㄣˊ ㄨㄛˇ ㄕˋ ㄧㄥ ㄨㄣˊ ㄌㄠˇ ㄕ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄍㄨㄥ ㄗㄨㄛˋ ㄨㄛˇ ㄐㄧㄚ ㄧㄡˇ ㄙˋ ㄍㄜˋ ㄖㄣˊ ㄅㄚˋ ˙ㄅㄚ ㄇㄚ ˙ㄇㄚ ㄍㄜ ˙ㄍㄜ ㄏㄜˊ ㄨㄛˇ ㄊㄚ ˙ㄇㄣ ㄉㄡ ㄗㄞˋ ㄇㄟˇ ㄍㄨㄛˊ ㄏㄣˇ ㄍㄠ ㄒㄧㄥˋ ㄖㄣˋ ˙ㄕ ㄋㄧˇ"
+ },
+ "culture_en": "林太太 says 我先生姓林 'my husband's surname is Lin': 太太 'Mrs' goes after the husband's surname, while women in Taiwan normally keep their own surname after marriage, so she may well have a different surname herself. Children address adults they know as 叔叔 'uncle' or 阿姨 'auntie', and a teacher as 老師, not by name; that is why 小明 greets 大衛 with 老師好！ In everyday Taiwan speech 和 'and' is often said ㄏㄢˋ, which MOE lists as a colloquial reading (語音); the app teaches ㄏㄜˊ."
+}

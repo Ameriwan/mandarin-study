@@ -1,0 +1,1574 @@
+{
+ "band": "L4",
+ "tbcl_levels": [
+  "第4級",
+  "第4*級"
+ ],
+ "note": "Original graded texts for the Advanced reading ladder. Zhuyin stores base tones (MASTER_PROMPT §9.2).",
+ "texts": [
+  {
+   "id": "R4-01",
+   "level": "第4級",
+   "vocab_max": "第4*級",
+   "chars": 337,
+   "topic_en": "A day trip to Donggang",
+   "title": {
+    "zh": "去東港吃海鮮",
+    "zhuyin": "ㄑㄩˋ ㄉㄨㄥ ㄍㄤˇ ㄔ ㄏㄞˇ ㄒㄧㄢ",
+    "en": "Seafood in Donggang"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "東港在屏東的海邊，從屏東市開車去，大概要四十分鐘。",
+      "zhuyin": "ㄉㄨㄥ ㄍㄤˇ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄏㄞˇ ㄅㄧㄢ ㄘㄨㄥˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄕˋ ㄎㄞ ㄔㄜ ㄑㄩˋ ㄉㄚˋ ㄍㄞˋ ㄧㄠˋ ㄙˋ ㄕˊ ㄈㄣ ㄓㄨㄥ",
+      "en": "Donggang is on the Pingtung coast, about forty minutes' drive from Pingtung City.",
+      "words": [
+       "東港",
+       "在",
+       "屏東",
+       "的",
+       "海",
+       "邊",
+       "從",
+       "屏東",
+       "市",
+       "開車",
+       "去",
+       "大概",
+       "要",
+       "四",
+       "十",
+       "分鐘"
+      ]
+     },
+     {
+      "zh": "東港離海很近，很多人的工作都跟海有關係。",
+      "zhuyin": "ㄉㄨㄥ ㄍㄤˇ ㄌㄧˊ ㄏㄞˇ ㄏㄣˇ ㄐㄧㄣˋ ㄏㄣˇ ㄉㄨㄛ ㄖㄣˊ ˙ㄉㄜ ㄍㄨㄥ ㄗㄨㄛˋ ㄉㄡ ㄍㄣ ㄏㄞˇ ㄧㄡˇ ㄍㄨㄢ ㄒㄧˋ",
+      "en": "Donggang is right by the sea, and many people's work has to do with the sea.",
+      "words": [
+       "東港",
+       "離",
+       "海",
+       "很",
+       "近",
+       "很",
+       "多",
+       "人",
+       "的",
+       "工作",
+       "都",
+       "跟",
+       "海",
+       "有",
+       "關係"
+      ]
+     },
+     {
+      "zh": "這裡的海鮮非常有名，週末的時候，很多人從高雄和臺南開車來這裡吃海鮮。",
+      "zhuyin": "ㄓㄜˋ ㄌㄧˇ ˙ㄉㄜ ㄏㄞˇ ㄒㄧㄢ ㄈㄟ ㄔㄤˊ ㄧㄡˇ ㄇㄧㄥˊ ㄓㄡ ㄇㄛˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄏㄣˇ ㄉㄨㄛ ㄖㄣˊ ㄘㄨㄥˊ ㄍㄠ ㄒㄩㄥˊ ㄏㄜˊ ㄊㄞˊ ㄋㄢˊ ㄎㄞ ㄔㄜ ㄌㄞˊ ㄓㄜˋ ㄌㄧˇ ㄔ ㄏㄞˇ ㄒㄧㄢ",
+      "en": "Its seafood is famous, and at weekends lots of people drive here from Kaohsiung and Tainan to eat it.",
+      "words": [
+       "這裡",
+       "的",
+       "海鮮",
+       "非常",
+       "有名",
+       "週末",
+       "的",
+       "時候",
+       "很",
+       "多",
+       "人",
+       "從",
+       "高雄",
+       "和",
+       "臺南",
+       "開車",
+       "來",
+       "這裡",
+       "吃",
+       "海鮮"
+      ]
+     },
+     {
+      "zh": "上個星期六，我和兩個同事也一起去了。",
+      "zhuyin": "ㄕㄤˋ ㄍㄜˋ ㄒㄧㄥ ㄑㄧˊ ㄌㄧㄡˋ ㄨㄛˇ ㄏㄜˊ ㄌㄧㄤˇ ㄍㄜˋ ㄊㄨㄥˊ ㄕˋ ㄧㄝˇ ㄧ ㄑㄧˇ ㄑㄩˋ ˙ㄌㄜ",
+      "en": "Last Saturday two colleagues and I went too.",
+      "words": [
+       "上",
+       "個",
+       "星期",
+       "六",
+       "我",
+       "和",
+       "兩",
+       "個",
+       "同事",
+       "也",
+       "一起",
+       "去",
+       "了"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "我們先去海鮮市場。",
+      "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄒㄧㄢ ㄑㄩˋ ㄏㄞˇ ㄒㄧㄢ ㄕˋ ㄔㄤˇ",
+      "en": "First we went to the seafood market.",
+      "words": [
+       "我們",
+       "先",
+       "去",
+       "海鮮",
+       "市場"
+      ]
+     },
+     {
+      "zh": "市場裡有各種魚和蝦，還有很多我叫不出名字的海鮮。",
+      "zhuyin": "ㄕˋ ㄔㄤˇ ㄌㄧˇ ㄧㄡˇ ㄍㄜˋ ㄓㄨㄥˇ ㄩˊ ㄏㄜˊ ㄒㄧㄚ ㄏㄞˊ ㄧㄡˇ ㄏㄣˇ ㄉㄨㄛ ㄨㄛˇ ㄐㄧㄠˋ ㄅㄨˋ ㄔㄨ ㄇㄧㄥˊ ˙ㄗ ˙ㄉㄜ ㄏㄞˇ ㄒㄧㄢ",
+      "en": "The market had all kinds of fish and prawns, and lots of seafood I couldn't even name.",
+      "words": [
+       "市場",
+       "裡",
+       "有",
+       "各種",
+       "魚",
+       "和",
+       "蝦",
+       "還有",
+       "很",
+       "多",
+       "我",
+       "叫",
+       "不出",
+       "名字",
+       "的",
+       "海鮮"
+      ]
+     },
+     {
+      "zh": "老闆們都很熱情，一直請我們試吃。",
+      "zhuyin": "ㄌㄠˇ ㄅㄢˇ ˙ㄇㄣ ㄉㄡ ㄏㄣˇ ㄖㄜˋ ㄑㄧㄥˊ ㄧ ㄓˊ ㄑㄧㄥˇ ㄨㄛˇ ˙ㄇㄣ ㄕˋ ㄔ",
+      "en": "The stallholders were very friendly and kept offering us samples.",
+      "words": [
+       "老闆",
+       "們",
+       "都",
+       "很",
+       "熱情",
+       "一直",
+       "請",
+       "我們",
+       "試",
+       "吃"
+      ]
+     },
+     {
+      "zh": "同事告訴我，在這裡可以先買海鮮，再請旁邊的餐廳幫忙煮，這樣又新鮮又便宜。",
+      "zhuyin": "ㄊㄨㄥˊ ㄕˋ ㄍㄠˋ ㄙㄨˋ ㄨㄛˇ ㄗㄞˋ ㄓㄜˋ ㄌㄧˇ ㄎㄜˇ ㄧˇ ㄒㄧㄢ ㄇㄞˇ ㄏㄞˇ ㄒㄧㄢ ㄗㄞˋ ㄑㄧㄥˇ ㄆㄤˊ ㄅㄧㄢ ˙ㄉㄜ ㄘㄢ ㄊㄧㄥ ㄅㄤ ㄇㄤˊ ㄓㄨˇ ㄓㄜˋ ㄧㄤˋ ㄧㄡˋ ㄒㄧㄣ ㄒㄧㄢ ㄧㄡˋ ㄆㄧㄢˊ ㄧˊ",
+      "en": "My colleague told me that here you can buy seafood first and then ask a restaurant next door to cook it, which is both fresh and cheap.",
+      "words": [
+       "同事",
+       "告訴",
+       "我",
+       "在",
+       "這裡",
+       "可以",
+       "先",
+       "買",
+       "海鮮",
+       "再",
+       "請",
+       "旁邊",
+       "的",
+       "餐廳",
+       "幫忙",
+       "煮",
+       "這樣",
+       "又",
+       "新鮮",
+       "又",
+       "便宜"
+      ]
+     },
+     {
+      "zh": "我們買了一些蝦和一條大魚，請餐廳做成三道菜。",
+      "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄇㄞˇ ˙ㄌㄜ ㄧ ㄒㄧㄝ ㄒㄧㄚ ㄏㄜˊ ㄧ ㄊㄧㄠˊ ㄉㄚˋ ㄩˊ ㄑㄧㄥˇ ㄘㄢ ㄊㄧㄥ ㄗㄨㄛˋ ㄔㄥˊ ㄙㄢ ㄉㄠˋ ㄘㄞˋ",
+      "en": "We bought some prawns and a big fish and asked the restaurant to make three dishes from them.",
+      "words": [
+       "我們",
+       "買",
+       "了",
+       "一些",
+       "蝦",
+       "和",
+       "一",
+       "條",
+       "大",
+       "魚",
+       "請",
+       "餐廳",
+       "做",
+       "成",
+       "三",
+       "道",
+       "菜"
+      ]
+     },
+     {
+      "zh": "那條魚是我在臺灣吃過最好吃的魚。",
+      "zhuyin": "ㄋㄚˋ ㄊㄧㄠˊ ㄩˊ ㄕˋ ㄨㄛˇ ㄗㄞˋ ㄊㄞˊ ㄨㄢ ㄔ ㄍㄨㄛˋ ㄗㄨㄟˋ ㄏㄠˇ ㄔ ˙ㄉㄜ ㄩˊ",
+      "en": "That fish was the best fish I've eaten in Taiwan.",
+      "words": [
+       "那",
+       "條",
+       "魚",
+       "是",
+       "我",
+       "在",
+       "臺灣",
+       "吃",
+       "過",
+       "最",
+       "好吃",
+       "的",
+       "魚"
+      ]
+     },
+     {
+      "zh": "吃了一口，我就知道為什麼大家要開那麼遠的車來這裡了。",
+      "zhuyin": "ㄔ ˙ㄌㄜ ㄧ ㄎㄡˇ ㄨㄛˇ ㄐㄧㄡˋ ㄓ ㄉㄠˋ ㄨㄟˋ ㄕㄣˊ ˙ㄇㄜ ㄉㄚˋ ㄐㄧㄚ ㄧㄠˋ ㄎㄞ ㄋㄚˋ ˙ㄇㄜ ㄩㄢˇ ˙ㄉㄜ ㄔㄜ ㄌㄞˊ ㄓㄜˋ ㄌㄧˇ ˙ㄌㄜ",
+      "en": "One bite, and I understood why people drive so far to come here.",
+      "words": [
+       "吃",
+       "了",
+       "一口",
+       "我",
+       "就",
+       "知道",
+       "為什麼",
+       "大家",
+       "要",
+       "開",
+       "那麼",
+       "遠",
+       "的",
+       "車",
+       "來",
+       "這裡",
+       "了"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "吃完午飯，我們坐船去小琉球。",
+      "zhuyin": "ㄔ ㄨㄢˊ ㄨˇ ㄈㄢˋ ㄨㄛˇ ˙ㄇㄣ ㄗㄨㄛˋ ㄔㄨㄢˊ ㄑㄩˋ ㄒㄧㄠˇ ㄌㄧㄡˊ ㄑㄧㄡˊ",
+      "en": "After lunch we took the boat to Xiaoliuqiu.",
+      "words": [
+       "吃",
+       "完",
+       "午飯",
+       "我們",
+       "坐",
+       "船",
+       "去",
+       "小琉球"
+      ]
+     },
+     {
+      "zh": "小琉球是一個小島，坐船大概二、三十分鐘就到了。",
+      "zhuyin": "ㄒㄧㄠˇ ㄌㄧㄡˊ ㄑㄧㄡˊ ㄕˋ ㄧ ˙ㄍㄜ ㄒㄧㄠˇ ㄉㄠˇ ㄗㄨㄛˋ ㄔㄨㄢˊ ㄉㄚˋ ㄍㄞˋ ㄦˋ ㄙㄢ ㄕˊ ㄈㄣ ㄓㄨㄥ ㄐㄧㄡˋ ㄉㄠˋ ˙ㄌㄜ",
+      "en": "Xiaoliuqiu is a small island, about twenty or thirty minutes away by boat.",
+      "words": [
+       "小琉球",
+       "是",
+       "一個",
+       "小",
+       "島",
+       "坐",
+       "船",
+       "大概",
+       "二",
+       "三",
+       "十",
+       "分鐘",
+       "就",
+       "到",
+       "了"
+      ]
+     },
+     {
+      "zh": "我們在島上租了機車，把整個島都看了一遍。",
+      "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄗㄞˋ ㄉㄠˇ ㄕㄤˋ ㄗㄨ ˙ㄌㄜ ㄐㄧ ㄔㄜ ㄅㄚˇ ㄓㄥˇ ˙ㄍㄜ ㄉㄠˇ ㄉㄡ ㄎㄢˋ ˙ㄌㄜ ㄧ ㄅㄧㄢˋ",
+      "en": "We rented scooters on the island and went all the way round it.",
+      "words": [
+       "我們",
+       "在",
+       "島",
+       "上",
+       "租",
+       "了",
+       "機車",
+       "把",
+       "整個",
+       "島",
+       "都",
+       "看",
+       "了",
+       "一",
+       "遍"
+      ]
+     },
+     {
+      "zh": "島不大，騎機車一個小時左右就能看完。",
+      "zhuyin": "ㄉㄠˇ ㄅㄨˋ ㄉㄚˋ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄧ ˙ㄍㄜ ㄒㄧㄠˇ ㄕˊ ㄗㄨㄛˇ ㄧㄡˋ ㄐㄧㄡˋ ㄋㄥˊ ㄎㄢˋ ㄨㄢˊ",
+      "en": "The island isn't big; you can see all of it in about an hour by scooter.",
+      "words": [
+       "島",
+       "不",
+       "大",
+       "騎",
+       "機車",
+       "一個",
+       "小時",
+       "左右",
+       "就",
+       "能",
+       "看",
+       "完"
+      ]
+     },
+     {
+      "zh": "這裡的海水非常乾淨，我們在海邊散步、拍照，玩得很開心。",
+      "zhuyin": "ㄓㄜˋ ㄌㄧˇ ˙ㄉㄜ ㄏㄞˇ ㄕㄨㄟˇ ㄈㄟ ㄔㄤˊ ㄍㄢ ㄐㄧㄥˋ ㄨㄛˇ ˙ㄇㄣ ㄗㄞˋ ㄏㄞˇ ㄅㄧㄢ ㄙㄢˋ ㄅㄨˋ ㄆㄞ ㄓㄠˋ ㄨㄢˊ ˙ㄉㄜ ㄏㄣˇ ㄎㄞ ㄒㄧㄣ",
+      "en": "The sea there is very clean; we walked along the shore, took photos and had a great time.",
+      "words": [
+       "這裡",
+       "的",
+       "海",
+       "水",
+       "非常",
+       "乾淨",
+       "我們",
+       "在",
+       "海",
+       "邊",
+       "散步",
+       "拍照",
+       "玩",
+       "得",
+       "很",
+       "開心"
+      ]
+     },
+     {
+      "zh": "回家的時候大家都很累，可是我已經在想下次什麼時候再去了。",
+      "zhuyin": "ㄏㄨㄟˊ ㄐㄧㄚ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄉㄚˋ ㄐㄧㄚ ㄉㄡ ㄏㄣˇ ㄌㄟˋ ㄎㄜˇ ㄕˋ ㄨㄛˇ ㄧˇ ㄐㄧㄥ ㄗㄞˋ ㄒㄧㄤˇ ㄒㄧㄚˋ ㄘˋ ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ ㄗㄞˋ ㄑㄩˋ ˙ㄌㄜ",
+      "en": "We were all tired on the way home, but I'm already thinking about when to go again.",
+      "words": [
+       "回家",
+       "的",
+       "時候",
+       "大家",
+       "都",
+       "很",
+       "累",
+       "可是",
+       "我",
+       "已經",
+       "在",
+       "想",
+       "下次",
+       "什麼",
+       "時候",
+       "再",
+       "去",
+       "了"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "How long does it take to drive from Pingtung City to Donggang?",
+     "options_en": [
+      "About forty minutes",
+      "About two hours",
+      "About ten minutes"
+     ],
+     "answer": 0
+    },
+    {
+     "question_en": "What did the writer's colleague say you can do at the market?",
+     "options_en": [
+      "Catch your own fish",
+      "Buy seafood and have a restaurant next door cook it",
+      "Eat as much as you like for one price"
+     ],
+     "answer": 1
+    },
+    {
+     "question_en": "How did they get around Xiaoliuqiu?",
+     "options_en": [
+      "On foot",
+      "By bus",
+      "On rented scooters"
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "id": "R4-02",
+   "level": "第4級",
+   "vocab_max": "第4*級",
+   "chars": 327,
+   "topic_en": "Lunar New Year",
+   "title": {
+    "zh": "第一次在臺灣過年",
+    "zhuyin": "ㄉㄧˋ ㄧ ㄘˋ ㄗㄞˋ ㄊㄞˊ ㄨㄢ ㄍㄨㄛˋ ㄋㄧㄢˊ",
+    "en": "My First New Year in Taiwan"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "今年過年，我沒有回國，房東阿姨就請我去她家一起過除夕。",
+      "zhuyin": "ㄐㄧㄣ ㄋㄧㄢˊ ㄍㄨㄛˋ ㄋㄧㄢˊ ㄨㄛˇ ㄇㄟˊ ㄧㄡˇ ㄏㄨㄟˊ ㄍㄨㄛˊ ㄈㄤˊ ㄉㄨㄥ ㄚ ㄧˊ ㄐㄧㄡˋ ㄑㄧㄥˇ ㄨㄛˇ ㄑㄩˋ ㄊㄚ ㄐㄧㄚ ㄧ ㄑㄧˇ ㄍㄨㄛˋ ㄔㄨˊ ㄒㄧˋ",
+      "en": "This New Year I didn't go home, so my landlady invited me to spend New Year's Eve with her family.",
+      "words": [
+       "今年",
+       "過年",
+       "我",
+       "沒有",
+       "回國",
+       "房東",
+       "阿姨",
+       "就",
+       "請",
+       "我",
+       "去",
+       "她",
+       "家",
+       "一起",
+       "過",
+       "除夕"
+      ]
+     },
+     {
+      "zh": "臺灣人很重視過年，很多在外面工作的人，過年的時候一定會回家。",
+      "zhuyin": "ㄊㄞˊ ㄨㄢ ㄖㄣˊ ㄏㄣˇ ㄓㄨㄥˋ ㄕˋ ㄍㄨㄛˋ ㄋㄧㄢˊ ㄏㄣˇ ㄉㄨㄛ ㄗㄞˋ ㄨㄞˋ ㄇㄧㄢˋ ㄍㄨㄥ ㄗㄨㄛˋ ˙ㄉㄜ ㄖㄣˊ ㄍㄨㄛˋ ㄋㄧㄢˊ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄧ ㄉㄧㄥˋ ㄏㄨㄟˋ ㄏㄨㄟˊ ㄐㄧㄚ",
+      "en": "People in Taiwan take New Year very seriously, and many who work away from home always go back for it.",
+      "words": [
+       "臺灣人",
+       "很",
+       "重視",
+       "過年",
+       "很",
+       "多",
+       "在",
+       "外面",
+       "工作",
+       "的",
+       "人",
+       "過年",
+       "的",
+       "時候",
+       "一定",
+       "會",
+       "回家"
+      ]
+     },
+     {
+      "zh": "她說：「過年就是要跟家人在一起，你一個人在這裡，就來我們家吧！」",
+      "zhuyin": "ㄊㄚ ㄕㄨㄛ ㄍㄨㄛˋ ㄋㄧㄢˊ ㄐㄧㄡˋ ㄕˋ ㄧㄠˋ ㄍㄣ ㄐㄧㄚ ㄖㄣˊ ㄗㄞˋ ㄧ ㄑㄧˇ ㄋㄧˇ ㄧ ˙ㄍㄜ ㄖㄣˊ ㄗㄞˋ ㄓㄜˋ ㄌㄧˇ ㄐㄧㄡˋ ㄌㄞˊ ㄨㄛˇ ˙ㄇㄣ ㄐㄧㄚ ˙ㄅㄚ",
+      "en": "She said, \"New Year is about being with family. You're here on your own, so come to our place!\"",
+      "words": [
+       "她",
+       "說",
+       "過年",
+       "就",
+       "是",
+       "要",
+       "跟",
+       "家人",
+       "在",
+       "一起",
+       "你",
+       "一個",
+       "人",
+       "在",
+       "這裡",
+       "就",
+       "來",
+       "我們",
+       "家",
+       "吧"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "除夕那天下午，阿姨的兒子和女兒都從臺北回來了，還帶著孫子和孫女。",
+      "zhuyin": "ㄔㄨˊ ㄒㄧˋ ㄋㄚˋ ㄊㄧㄢ ㄒㄧㄚˋ ㄨˇ ㄚ ㄧˊ ˙ㄉㄜ ㄦˊ ˙ㄗ ㄏㄜˊ ㄋㄩˇ ㄦˊ ㄉㄡ ㄘㄨㄥˊ ㄊㄞˊ ㄅㄟˇ ㄏㄨㄟˊ ㄌㄞˊ ˙ㄌㄜ ㄏㄞˊ ㄉㄞˋ ˙ㄓㄜ ㄙㄨㄣ ˙ㄗ ㄏㄜˊ ㄙㄨㄣ ㄋㄩˇ",
+      "en": "On the afternoon of New Year's Eve, her son and daughter came back from Taipei, bringing her grandchildren.",
+      "words": [
+       "除夕",
+       "那天",
+       "下午",
+       "阿姨",
+       "的",
+       "兒子",
+       "和",
+       "女兒",
+       "都",
+       "從",
+       "臺北",
+       "回來",
+       "了",
+       "還",
+       "帶",
+       "著",
+       "孫子",
+       "和",
+       "孫女"
+      ]
+     },
+     {
+      "zh": "家裡一下子就熱鬧起來了。",
+      "zhuyin": "ㄐㄧㄚ ˙ㄌㄧ ㄧ ㄒㄧㄚˋ ˙ㄗ ㄐㄧㄡˋ ㄖㄜˋ ㄋㄠˋ ㄑㄧˇ ㄌㄞˊ ˙ㄌㄜ",
+      "en": "All at once the house was full of life.",
+      "words": [
+       "家裡",
+       "一下子",
+       "就",
+       "熱鬧",
+       "起來",
+       "了"
+      ]
+     },
+     {
+      "zh": "阿姨從早上就開始忙，我也到廚房幫忙洗菜、切菜。",
+      "zhuyin": "ㄚ ㄧˊ ㄘㄨㄥˊ ㄗㄠˇ ㄕㄤˋ ㄐㄧㄡˋ ㄎㄞ ㄕˇ ㄇㄤˊ ㄨㄛˇ ㄧㄝˇ ㄉㄠˋ ㄔㄨˊ ㄈㄤˊ ㄅㄤ ㄇㄤˊ ㄒㄧˇ ㄘㄞˋ ㄑㄧㄝ ㄘㄞˋ",
+      "en": "My landlady had been busy since the morning, and I went into the kitchen to help wash and chop vegetables.",
+      "words": [
+       "阿姨",
+       "從",
+       "早上",
+       "就",
+       "開始",
+       "忙",
+       "我",
+       "也",
+       "到",
+       "廚房",
+       "幫忙",
+       "洗",
+       "菜",
+       "切",
+       "菜"
+      ]
+     },
+     {
+      "zh": "晚上，桌上放滿了菜，有雞、有魚，還有很多我沒吃過的菜。",
+      "zhuyin": "ㄨㄢˇ ㄕㄤˋ ㄓㄨㄛ ㄕㄤˋ ㄈㄤˋ ㄇㄢˇ ˙ㄌㄜ ㄘㄞˋ ㄧㄡˇ ㄐㄧ ㄧㄡˇ ㄩˊ ㄏㄞˊ ㄧㄡˇ ㄏㄣˇ ㄉㄨㄛ ㄨㄛˇ ㄇㄟˊ ㄔ ㄍㄨㄛˋ ˙ㄉㄜ ㄘㄞˋ",
+      "en": "In the evening the table was covered with dishes: chicken, fish, and lots of things I had never eaten.",
+      "words": [
+       "晚上",
+       "桌",
+       "上",
+       "放",
+       "滿",
+       "了",
+       "菜",
+       "有",
+       "雞",
+       "有",
+       "魚",
+       "還有",
+       "很",
+       "多",
+       "我",
+       "沒",
+       "吃",
+       "過",
+       "的",
+       "菜"
+      ]
+     },
+     {
+      "zh": "阿姨說，過年一定要吃魚，代表明年也會有用不完的錢和吃不完的東西。",
+      "zhuyin": "ㄚ ㄧˊ ㄕㄨㄛ ㄍㄨㄛˋ ㄋㄧㄢˊ ㄧ ㄉㄧㄥˋ ㄧㄠˋ ㄔ ㄩˊ ㄉㄞˋ ㄅㄧㄠˇ ㄇㄧㄥˊ ㄋㄧㄢˊ ㄧㄝˇ ㄏㄨㄟˋ ㄧㄡˇ ㄩㄥˋ ㄅㄨˋ ㄨㄢˊ ˙ㄉㄜ ㄑㄧㄢˊ ㄏㄜˊ ㄔ ㄅㄨˋ ㄨㄢˊ ˙ㄉㄜ ㄉㄨㄥ ˙ㄒㄧ",
+      "en": "My landlady said you must eat fish at New Year; it stands for having more money and food than you can use in the coming year.",
+      "words": [
+       "阿姨",
+       "說",
+       "過年",
+       "一定",
+       "要",
+       "吃",
+       "魚",
+       "代表",
+       "明年",
+       "也",
+       "會",
+       "有",
+       "用",
+       "不",
+       "完",
+       "的",
+       "錢",
+       "和",
+       "吃",
+       "不",
+       "完",
+       "的",
+       "東西"
+      ]
+     },
+     {
+      "zh": "吃完飯以後，大人給小孩紅包，小孩要說「新年快樂」。",
+      "zhuyin": "ㄔ ㄨㄢˊ ㄈㄢˋ ㄧˇ ㄏㄡˋ ㄉㄚˋ ㄖㄣˊ ㄍㄟˇ ㄒㄧㄠˇ ㄏㄞˊ ㄏㄨㄥˊ ㄅㄠ ㄒㄧㄠˇ ㄏㄞˊ ㄧㄠˋ ㄕㄨㄛ ㄒㄧㄣ ㄋㄧㄢˊ ㄎㄨㄞˋ ㄌㄜˋ",
+      "en": "After dinner the adults gave the children red envelopes, and the children had to say \"Happy New Year\".",
+      "words": [
+       "吃",
+       "完",
+       "飯",
+       "以後",
+       "大人",
+       "給",
+       "小孩",
+       "紅包",
+       "小孩",
+       "要",
+       "說",
+       "新年",
+       "快樂"
+      ]
+     },
+     {
+      "zh": "阿姨也給了我一個紅包，她說：「祝你明年中文越來越好！」",
+      "zhuyin": "ㄚ ㄧˊ ㄧㄝˇ ㄍㄟˇ ˙ㄌㄜ ㄨㄛˇ ㄧ ˙ㄍㄜ ㄏㄨㄥˊ ㄅㄠ ㄊㄚ ㄕㄨㄛ ㄓㄨˋ ㄋㄧˇ ㄇㄧㄥˊ ㄋㄧㄢˊ ㄓㄨㄥ ㄨㄣˊ ㄩㄝˋ ㄌㄞˊ ㄩㄝˋ ㄏㄠˇ",
+      "en": "She gave me a red envelope too and said, \"May your Chinese get better and better next year!\"",
+      "words": [
+       "阿姨",
+       "也",
+       "給",
+       "了",
+       "我",
+       "一個",
+       "紅包",
+       "她",
+       "說",
+       "祝",
+       "你",
+       "明年",
+       "中文",
+       "越",
+       "來",
+       "越",
+       "好"
+      ]
+     },
+     {
+      "zh": "我很不好意思，可是心裡非常感動。",
+      "zhuyin": "ㄨㄛˇ ㄏㄣˇ ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄎㄜˇ ㄕˋ ㄒㄧㄣ ˙ㄌㄧ ㄈㄟ ㄔㄤˊ ㄍㄢˇ ㄉㄨㄥˋ",
+      "en": "I was embarrassed, but deeply touched.",
+      "words": [
+       "我",
+       "很",
+       "不好意思",
+       "可是",
+       "心裡",
+       "非常",
+       "感動"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "那天晚上，大家一起看電視、聊天，一直到半夜才去睡覺。",
+      "zhuyin": "ㄋㄚˋ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄉㄚˋ ㄐㄧㄚ ㄧ ㄑㄧˇ ㄎㄢˋ ㄉㄧㄢˋ ㄕˋ ㄌㄧㄠˊ ㄊㄧㄢ ㄧ ㄓˊ ㄉㄠˋ ㄅㄢˋ ㄧㄝˋ ㄘㄞˊ ㄑㄩˋ ㄕㄨㄟˋ ㄐㄧㄠˋ",
+      "en": "That night everyone watched TV and chatted together until midnight before going to bed.",
+      "words": [
+       "那天",
+       "晚上",
+       "大家",
+       "一起",
+       "看",
+       "電視",
+       "聊天",
+       "一直",
+       "到",
+       "半夜",
+       "才",
+       "去",
+       "睡覺"
+      ]
+     },
+     {
+      "zh": "雖然我離家很遠，可是那個除夕，我一點也不覺得自己是一個人。",
+      "zhuyin": "ㄙㄨㄟ ㄖㄢˊ ㄨㄛˇ ㄌㄧˊ ㄐㄧㄚ ㄏㄣˇ ㄩㄢˇ ㄎㄜˇ ㄕˋ ㄋㄚˋ ˙ㄍㄜ ㄔㄨˊ ㄒㄧˋ ㄨㄛˇ ㄧ ㄉㄧㄢˇ ㄧㄝˇ ㄅㄨˋ ㄐㄩㄝˊ ˙ㄉㄜ ㄗˋ ㄐㄧˇ ㄕˋ ㄧ ˙ㄍㄜ ㄖㄣˊ",
+      "en": "Even though I'm far from home, that New Year's Eve I didn't feel alone at all.",
+      "words": [
+       "雖然",
+       "我",
+       "離家",
+       "很",
+       "遠",
+       "可是",
+       "那個",
+       "除夕",
+       "我",
+       "一點",
+       "也",
+       "不",
+       "覺得",
+       "自己",
+       "是",
+       "一個",
+       "人"
+      ]
+     },
+     {
+      "zh": "第二天早上，我們一起去拜拜，祝大家新的一年平安、健康。",
+      "zhuyin": "ㄉㄧˋ ㄦˋ ㄊㄧㄢ ㄗㄠˇ ㄕㄤˋ ㄨㄛˇ ˙ㄇㄣ ㄧ ㄑㄧˇ ㄑㄩˋ ㄅㄞˋ ㄅㄞˋ ㄓㄨˋ ㄉㄚˋ ㄐㄧㄚ ㄒㄧㄣ ˙ㄉㄜ ㄧ ㄋㄧㄢˊ ㄆㄧㄥˊ ㄢ ㄐㄧㄢˋ ㄎㄤ",
+      "en": "The next morning we went to pray at the temple together, wishing everyone a safe and healthy new year.",
+      "words": [
+       "第",
+       "二",
+       "天",
+       "早上",
+       "我們",
+       "一起",
+       "去",
+       "拜拜",
+       "祝",
+       "大家",
+       "新",
+       "的",
+       "一",
+       "年",
+       "平安",
+       "健康"
+      ]
+     },
+     {
+      "zh": "在臺灣，我好像也有了一個家。",
+      "zhuyin": "ㄗㄞˋ ㄊㄞˊ ㄨㄢ ㄨㄛˇ ㄏㄠˇ ㄒㄧㄤˋ ㄧㄝˇ ㄧㄡˇ ˙ㄌㄜ ㄧ ˙ㄍㄜ ㄐㄧㄚ",
+      "en": "In Taiwan, it feels as if I have a family too.",
+      "words": [
+       "在",
+       "臺灣",
+       "我",
+       "好像",
+       "也",
+       "有",
+       "了",
+       "一個",
+       "家"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "Why did the landlady invite the writer?",
+     "options_en": [
+      "She needed help cooking",
+      "The writer was on their own in Taiwan at New Year",
+      "Her children could not come home"
+     ],
+     "answer": 1
+    },
+    {
+     "question_en": "What does eating fish at New Year stand for, according to the landlady?",
+     "options_en": [
+      "Having more money and food than you need in the coming year",
+      "Good health for the elderly",
+      "Success at school"
+     ],
+     "answer": 0
+    },
+    {
+     "question_en": "How did the writer feel at the end of the evening?",
+     "options_en": [
+      "Homesick and lonely",
+      "Tired and bored",
+      "Not alone at all, as if they had a family in Taiwan"
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "id": "R4-03",
+   "level": "第4級",
+   "vocab_max": "第4*級",
+   "chars": 323,
+   "topic_en": "Learning Mandarin in Pingtung",
+   "title": {
+    "zh": "我學中文的方法",
+    "zhuyin": "ㄨㄛˇ ㄒㄩㄝˊ ㄓㄨㄥ ㄨㄣˊ ˙ㄉㄜ ㄈㄤ ㄈㄚˇ",
+    "en": "How I Learn Chinese"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "我來屏東學中文已經一年多了。",
+      "zhuyin": "ㄨㄛˇ ㄌㄞˊ ㄆㄧㄥˊ ㄉㄨㄥ ㄒㄩㄝˊ ㄓㄨㄥ ㄨㄣˊ ㄧˇ ㄐㄧㄥ ㄧ ㄋㄧㄢˊ ㄉㄨㄛ ˙ㄌㄜ",
+      "en": "I came to Pingtung to learn Chinese more than a year ago.",
+      "words": [
+       "我",
+       "來",
+       "屏東",
+       "學",
+       "中文",
+       "已經",
+       "一",
+       "年",
+       "多",
+       "了"
+      ]
+     },
+     {
+      "zh": "剛來的時候，我只會說「你好」和「謝謝」，連點菜都有問題。",
+      "zhuyin": "ㄍㄤ ㄌㄞˊ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄨㄛˇ ㄓˇ ㄏㄨㄟˋ ㄕㄨㄛ ㄋㄧˇ ㄏㄠˇ ㄏㄜˊ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄧㄢˊ ㄉㄧㄢˇ ㄘㄞˋ ㄉㄡ ㄧㄡˇ ㄨㄣˋ ㄊㄧˊ",
+      "en": "When I first arrived I could only say \"hello\" and \"thank you\", and even ordering food was a problem.",
+      "words": [
+       "剛",
+       "來",
+       "的",
+       "時候",
+       "我",
+       "只會",
+       "說",
+       "你",
+       "好",
+       "和",
+       "謝謝",
+       "連",
+       "點菜",
+       "都",
+       "有",
+       "問題"
+      ]
+     },
+     {
+      "zh": "在學校，老師先教我們ㄅㄆㄇ，再教我們寫漢字。",
+      "zhuyin": "ㄗㄞˋ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄌㄠˇ ㄕ ㄒㄧㄢ ㄐㄧㄠ ㄨㄛˇ ˙ㄇㄣ ㄗㄞˋ ㄐㄧㄠ ㄨㄛˇ ˙ㄇㄣ ㄒㄧㄝˇ ㄏㄢˋ ㄗˋ",
+      "en": "At school the teacher first taught us Zhuyin (ㄅㄆㄇ), then how to write characters.",
+      "words": [
+       "在",
+       "學校",
+       "老師",
+       "先",
+       "教",
+       "我們",
+       "再",
+       "教",
+       "我們",
+       "寫",
+       "漢字"
+      ]
+     },
+     {
+      "zh": "上課的時候，老師只說中文，一開始我覺得很累。",
+      "zhuyin": "ㄕㄤˋ ㄎㄜˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄌㄠˇ ㄕ ㄓˇ ㄕㄨㄛ ㄓㄨㄥ ㄨㄣˊ ㄧ ㄎㄞ ㄕˇ ㄨㄛˇ ㄐㄩㄝˊ ˙ㄉㄜ ㄏㄣˇ ㄌㄟˋ",
+      "en": "In class the teacher spoke only Chinese, which I found tiring at first.",
+      "words": [
+       "上課",
+       "的",
+       "時候",
+       "老師",
+       "只",
+       "說",
+       "中文",
+       "一",
+       "開始",
+       "我",
+       "覺得",
+       "很",
+       "累"
+      ]
+     },
+     {
+      "zh": "我覺得聲調最難。有一次我想說「買」，可是大家都聽成了「賣」。",
+      "zhuyin": "ㄨㄛˇ ㄐㄩㄝˊ ˙ㄉㄜ ㄕㄥ ㄉㄧㄠˋ ㄗㄨㄟˋ ㄋㄢˊ ㄧㄡˇ ㄧ ㄘˋ ㄨㄛˇ ㄒㄧㄤˇ ㄕㄨㄛ ㄇㄞˇ ㄎㄜˇ ㄕˋ ㄉㄚˋ ㄐㄧㄚ ㄉㄡ ㄊㄧㄥ ㄔㄥˊ ˙ㄌㄜ ㄇㄞˋ",
+      "en": "I found the tones hardest. Once I meant to say \"buy\", but everyone heard \"sell\".",
+      "words": [
+       "我",
+       "覺得",
+       "聲調",
+       "最",
+       "難",
+       "有",
+       "一",
+       "次",
+       "我",
+       "想",
+       "說",
+       "買",
+       "可是",
+       "大家",
+       "都",
+       "聽",
+       "成",
+       "了",
+       "賣"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "後來我發現，課本上的中文和街上聽到的中文不太一樣。",
+      "zhuyin": "ㄏㄡˋ ㄌㄞˊ ㄨㄛˇ ㄈㄚ ㄒㄧㄢˋ ㄎㄜˋ ㄅㄣˇ ㄕㄤˋ ˙ㄉㄜ ㄓㄨㄥ ㄨㄣˊ ㄏㄜˊ ㄐㄧㄝ ˙ㄕㄤ ㄊㄧㄥ ㄉㄠˋ ˙ㄉㄜ ㄓㄨㄥ ㄨㄣˊ ㄅㄨˋ ㄊㄞˋ ㄧ ㄧㄤˋ",
+      "en": "Later I found that the Chinese in my textbook and the Chinese I heard in the street were not quite the same.",
+      "words": [
+       "後來",
+       "我",
+       "發現",
+       "課本",
+       "上",
+       "的",
+       "中文",
+       "和",
+       "街上",
+       "聽到",
+       "的",
+       "中文",
+       "不",
+       "太",
+       "一樣"
+      ]
+     },
+     {
+      "zh": "在屏東，很多人在家說臺語，市場的阿姨跟我說話的時候，常常中文和臺語一起說。",
+      "zhuyin": "ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄏㄣˇ ㄉㄨㄛ ㄖㄣˊ ㄗㄞˋ ㄐㄧㄚ ㄕㄨㄛ ㄊㄞˊ ㄩˇ ㄕˋ ㄔㄤˇ ˙ㄉㄜ ㄚ ㄧˊ ㄍㄣ ㄨㄛˇ ㄕㄨㄛ ㄏㄨㄚˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄔㄤˊ ㄔㄤˊ ㄓㄨㄥ ㄨㄣˊ ㄏㄜˊ ㄊㄞˊ ㄩˇ ㄧ ㄑㄧˇ ㄕㄨㄛ",
+      "en": "In Pingtung many people speak Taiwanese at home, and the women at the market often mix Mandarin and Taiwanese when they talk to me.",
+      "words": [
+       "在",
+       "屏東",
+       "很",
+       "多",
+       "人",
+       "在家",
+       "說",
+       "臺語",
+       "市場",
+       "的",
+       "阿姨",
+       "跟",
+       "我",
+       "說話",
+       "的",
+       "時候",
+       "常常",
+       "中文",
+       "和",
+       "臺語",
+       "一起",
+       "說"
+      ]
+     },
+     {
+      "zh": "有的人說「是」的時候，聽起來很像「四」。",
+      "zhuyin": "ㄧㄡˇ ˙ㄉㄜ ㄖㄣˊ ㄕㄨㄛ ㄕˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄊㄧㄥ ㄑㄧˇ ㄌㄞˊ ㄏㄣˇ ㄒㄧㄤˋ ㄙˋ",
+      "en": "When some people say 是 (\"yes, to be\"), it sounds a lot like 四 (\"four\").",
+      "words": [
+       "有的",
+       "人",
+       "說",
+       "是",
+       "的",
+       "時候",
+       "聽",
+       "起來",
+       "很",
+       "像",
+       "四"
+      ]
+     },
+     {
+      "zh": "還有人說話的時候，最後常常加一個「啦」或「喔」。",
+      "zhuyin": "ㄏㄞˊ ㄧㄡˇ ㄖㄣˊ ㄕㄨㄛ ㄏㄨㄚˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄗㄨㄟˋ ㄏㄡˋ ㄔㄤˊ ㄔㄤˊ ㄐㄧㄚ ㄧ ˙ㄍㄜ ˙ㄌㄚ ㄏㄨㄛˋ ㄛ",
+      "en": "And some people often add 啦 or 喔 at the end of what they say.",
+      "words": [
+       "還有",
+       "人",
+       "說話",
+       "的",
+       "時候",
+       "最後",
+       "常常",
+       "加",
+       "一個",
+       "啦",
+       "或",
+       "喔"
+      ]
+     },
+     {
+      "zh": "一開始我常常聽不懂，可是慢慢地就習慣了。",
+      "zhuyin": "ㄧ ㄎㄞ ㄕˇ ㄨㄛˇ ㄔㄤˊ ㄔㄤˊ ㄊㄧㄥ ㄅㄨˋ ㄉㄨㄥˇ ㄎㄜˇ ㄕˋ ㄇㄢˋ ㄇㄢˋ ˙ㄉㄜ ㄐㄧㄡˋ ㄒㄧˊ ㄍㄨㄢˋ ˙ㄌㄜ",
+      "en": "At first I often didn't understand, but gradually I got used to it.",
+      "words": [
+       "一",
+       "開始",
+       "我",
+       "常常",
+       "聽",
+       "不懂",
+       "可是",
+       "慢慢",
+       "地",
+       "就",
+       "習慣",
+       "了"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "我的方法很簡單：每天跟鄰居聊天，看電視的時候打開中文字幕，有不懂的字就查字典。",
+      "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄈㄤ ㄈㄚˇ ㄏㄣˇ ㄐㄧㄢˇ ㄉㄢ ㄇㄟˇ ㄊㄧㄢ ㄍㄣ ㄌㄧㄣˊ ㄐㄩ ㄌㄧㄠˊ ㄊㄧㄢ ㄎㄢˋ ㄉㄧㄢˋ ㄕˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄉㄚˇ ㄎㄞ ㄓㄨㄥ ㄨㄣˊ ㄗˋ ㄇㄨˋ ㄧㄡˇ ㄅㄨˋ ㄉㄨㄥˇ ˙ㄉㄜ ㄗˋ ㄐㄧㄡˋ ㄔㄚˊ ㄗˋ ㄉㄧㄢˇ",
+      "en": "My method is simple: chat with my neighbours every day, watch TV with Chinese subtitles, and look up any character I don't know.",
+      "words": [
+       "我",
+       "的",
+       "方法",
+       "很",
+       "簡單",
+       "每天",
+       "跟",
+       "鄰居",
+       "聊天",
+       "看",
+       "電視",
+       "的",
+       "時候",
+       "打開",
+       "中文",
+       "字幕",
+       "有",
+       "不懂",
+       "的",
+       "字",
+       "就",
+       "查",
+       "字典"
+      ]
+     },
+     {
+      "zh": "我也常常跟著電視，一句一句地說。",
+      "zhuyin": "ㄨㄛˇ ㄧㄝˇ ㄔㄤˊ ㄔㄤˊ ㄍㄣ ˙ㄓㄜ ㄉㄧㄢˋ ㄕˋ ㄧ ㄐㄩˋ ㄧ ㄐㄩˋ ˙ㄉㄜ ㄕㄨㄛ",
+      "en": "I also often repeat after the TV, sentence by sentence.",
+      "words": [
+       "我",
+       "也",
+       "常常",
+       "跟",
+       "著",
+       "電視",
+       "一",
+       "句",
+       "一",
+       "句",
+       "地",
+       "說"
+      ]
+     },
+     {
+      "zh": "我還有一本筆記本，聽到新的說法，就馬上寫下來。",
+      "zhuyin": "ㄨㄛˇ ㄏㄞˊ ㄧㄡˇ ㄧ ㄅㄣˇ ㄅㄧˇ ㄐㄧˋ ㄅㄣˇ ㄊㄧㄥ ㄉㄠˋ ㄒㄧㄣ ˙ㄉㄜ ㄕㄨㄛ ㄈㄚˇ ㄐㄧㄡˋ ㄇㄚˇ ㄕㄤˋ ㄒㄧㄝˇ ㄒㄧㄚˋ ㄌㄞˊ",
+      "en": "I also keep a notebook, and when I hear a new expression I write it down straight away.",
+      "words": [
+       "我",
+       "還有",
+       "一",
+       "本",
+       "筆記本",
+       "聽到",
+       "新",
+       "的",
+       "說法",
+       "就",
+       "馬上",
+       "寫",
+       "下來"
+      ]
+     },
+     {
+      "zh": "現在我可以自己去看醫生，也可以跟房東討論房子的問題。",
+      "zhuyin": "ㄒㄧㄢˋ ㄗㄞˋ ㄨㄛˇ ㄎㄜˇ ㄧˇ ㄗˋ ㄐㄧˇ ㄑㄩˋ ㄎㄢˋ ㄧ ㄕㄥ ㄧㄝˇ ㄎㄜˇ ㄧˇ ㄍㄣ ㄈㄤˊ ㄉㄨㄥ ㄊㄠˇ ㄌㄨㄣˋ ㄈㄤˊ ˙ㄗ ˙ㄉㄜ ㄨㄣˋ ㄊㄧˊ",
+      "en": "Now I can see a doctor on my own and discuss problems with the flat with my landlady.",
+      "words": [
+       "現在",
+       "我",
+       "可以",
+       "自己",
+       "去",
+       "看",
+       "醫生",
+       "也",
+       "可以",
+       "跟",
+       "房東",
+       "討論",
+       "房子",
+       "的",
+       "問題"
+      ]
+     },
+     {
+      "zh": "雖然我說得還不夠好，可是大家都很有耐心。",
+      "zhuyin": "ㄙㄨㄟ ㄖㄢˊ ㄨㄛˇ ㄕㄨㄛ ˙ㄉㄜ ㄏㄞˊ ㄅㄨˋ ㄍㄡˋ ㄏㄠˇ ㄎㄜˇ ㄕˋ ㄉㄚˋ ㄐㄧㄚ ㄉㄡ ㄏㄣˇ ㄧㄡˇ ㄋㄞˋ ㄒㄧㄣ",
+      "en": "Although my Chinese still isn't good enough, everyone is very patient.",
+      "words": [
+       "雖然",
+       "我",
+       "說",
+       "得",
+       "還",
+       "不夠",
+       "好",
+       "可是",
+       "大家",
+       "都",
+       "很",
+       "有",
+       "耐心"
+      ]
+     },
+     {
+      "zh": "我的目標是明年可以用中文工作。",
+      "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄇㄨˋ ㄅㄧㄠ ㄕˋ ㄇㄧㄥˊ ㄋㄧㄢˊ ㄎㄜˇ ㄧˇ ㄩㄥˋ ㄓㄨㄥ ㄨㄣˊ ㄍㄨㄥ ㄗㄨㄛˋ",
+      "en": "My goal is to be able to work in Chinese next year.",
+      "words": [
+       "我",
+       "的",
+       "目標",
+       "是",
+       "明年",
+       "可以",
+       "用",
+       "中文",
+       "工作"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "What happened when the writer tried to say \"buy\"?",
+     "options_en": [
+      "Everyone heard \"sell\"",
+      "Everyone heard \"eat\"",
+      "Nobody answered"
+     ],
+     "answer": 0
+    },
+    {
+     "question_en": "What does the writer say about how some people say 是?",
+     "options_en": [
+      "It sounds like the word for \"ten\"",
+      "It sounds like the word for \"seven\"",
+      "It sounds like the word for \"four\""
+     ],
+     "answer": 2
+    },
+    {
+     "question_en": "What is the writer's goal?",
+     "options_en": [
+      "To pass an exam this year",
+      "To be able to work in Chinese next year",
+      "To learn Taiwanese"
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "id": "R4-04",
+   "level": "第4級",
+   "vocab_max": "第4*級",
+   "chars": 323,
+   "topic_en": "A building notice",
+   "title": {
+    "zh": "停水通知",
+    "zhuyin": "ㄊㄧㄥˊ ㄕㄨㄟˇ ㄊㄨㄥ ㄓ",
+    "en": "Notice: Water Cut"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "各位住戶大家好：",
+      "zhuyin": "ㄍㄜˋ ㄨㄟˋ ㄓㄨˋ ㄏㄨˋ ㄉㄚˋ ㄐㄧㄚ ㄏㄠˇ",
+      "en": "Dear residents,",
+      "words": [
+       "各位",
+       "住戶",
+       "大家",
+       "好"
+      ]
+     },
+     {
+      "zh": "因為自來水公司要修理附近的設備，本社區十月二十日早上九點到下午五點要停水。",
+      "zhuyin": "ㄧㄣ ㄨㄟˋ ㄗˋ ㄌㄞˊ ㄕㄨㄟˇ ㄍㄨㄥ ㄙ ㄧㄠˋ ㄒㄧㄡ ㄌㄧˇ ㄈㄨˋ ㄐㄧㄣˋ ˙ㄉㄜ ㄕㄜˋ ㄅㄟˋ ㄅㄣˇ ㄕㄜˋ ㄑㄩ ㄕˊ ㄩㄝˋ ㄦˋ ㄕˊ ㄖˋ ㄗㄠˇ ㄕㄤˋ ㄐㄧㄡˇ ㄉㄧㄢˇ ㄉㄠˋ ㄒㄧㄚˋ ㄨˇ ㄨˇ ㄉㄧㄢˇ ㄧㄠˋ ㄊㄧㄥˊ ㄕㄨㄟˇ",
+      "en": "Because the water company is repairing equipment nearby, our community's water will be cut off on October 20 from 9 a.m. to 5 p.m.",
+      "words": [
+       "因為",
+       "自來水",
+       "公司",
+       "要",
+       "修理",
+       "附近",
+       "的",
+       "設備",
+       "本",
+       "社區",
+       "十",
+       "月",
+       "二",
+       "十",
+       "日",
+       "早上",
+       "九",
+       "點",
+       "到",
+       "下午",
+       "五",
+       "點",
+       "要",
+       "停水"
+      ]
+     },
+     {
+      "zh": "請大家在停水以前，先準備好煮飯、洗澡和上廁所要用的水。",
+      "zhuyin": "ㄑㄧㄥˇ ㄉㄚˋ ㄐㄧㄚ ㄗㄞˋ ㄊㄧㄥˊ ㄕㄨㄟˇ ㄧˇ ㄑㄧㄢˊ ㄒㄧㄢ ㄓㄨㄣˇ ㄅㄟˋ ㄏㄠˇ ㄓㄨˇ ㄈㄢˋ ㄒㄧˇ ㄗㄠˇ ㄏㄜˊ ㄕㄤˋ ㄘㄜˋ ㄙㄨㄛˇ ㄧㄠˋ ㄩㄥˋ ˙ㄉㄜ ㄕㄨㄟˇ",
+      "en": "Before the water is cut off, please store the water you will need for cooking, showering and the toilet.",
+      "words": [
+       "請",
+       "大家",
+       "在",
+       "停水",
+       "以前",
+       "先",
+       "準備",
+       "好",
+       "煮飯",
+       "洗澡",
+       "和",
+       "上",
+       "廁所",
+       "要",
+       "用",
+       "的",
+       "水"
+      ]
+     },
+     {
+      "zh": "停水期間，請不要使用洗衣機。",
+      "zhuyin": "ㄊㄧㄥˊ ㄕㄨㄟˇ ㄑㄧˊ ㄐㄧㄢ ㄑㄧㄥˇ ㄅㄨˋ ㄧㄠˋ ㄕˇ ㄩㄥˋ ㄒㄧˇ ㄧ ㄐㄧ",
+      "en": "While the water is off, please do not use your washing machine.",
+      "words": [
+       "停水",
+       "期間",
+       "請",
+       "不要",
+       "使用",
+       "洗衣機"
+      ]
+     },
+     {
+      "zh": "恢復以後，水可能會有一點黃，請先把水打開，等幾分鐘，顏色正常了再用。",
+      "zhuyin": "ㄏㄨㄟ ㄈㄨˋ ㄧˇ ㄏㄡˋ ㄕㄨㄟˇ ㄎㄜˇ ㄋㄥˊ ㄏㄨㄟˋ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄏㄨㄤˊ ㄑㄧㄥˇ ㄒㄧㄢ ㄅㄚˇ ㄕㄨㄟˇ ㄉㄚˇ ㄎㄞ ㄉㄥˇ ㄐㄧˇ ㄈㄣ ㄓㄨㄥ ㄧㄢˊ ㄙㄜˋ ㄓㄥˋ ㄔㄤˊ ˙ㄌㄜ ㄗㄞˋ ㄩㄥˋ",
+      "en": "When it comes back, the water may be a little yellow; please turn it on, wait a few minutes, and use it once the colour is normal.",
+      "words": [
+       "恢復",
+       "以後",
+       "水",
+       "可能",
+       "會",
+       "有一點",
+       "黃",
+       "請",
+       "先",
+       "把",
+       "水",
+       "打開",
+       "等",
+       "幾",
+       "分鐘",
+       "顏色",
+       "正常",
+       "了",
+       "再",
+       "用"
+      ]
+     },
+     {
+      "zh": "如果有任何問題，請到一樓的辦公室問。",
+      "zhuyin": "ㄖㄨˊ ㄍㄨㄛˇ ㄧㄡˇ ㄖㄣˋ ㄏㄜˊ ㄨㄣˋ ㄊㄧˊ ㄑㄧㄥˇ ㄉㄠˋ ㄧ ㄌㄡˊ ˙ㄉㄜ ㄅㄢˋ ㄍㄨㄥ ㄕˋ ㄨㄣˋ",
+      "en": "If you have any questions, please ask at the office on the ground floor.",
+      "words": [
+       "如果",
+       "有",
+       "任何",
+       "問題",
+       "請",
+       "到",
+       "一",
+       "樓",
+       "的",
+       "辦公室",
+       "問"
+      ]
+     },
+     {
+      "zh": "謝謝大家的合作！",
+      "zhuyin": "ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄉㄚˋ ㄐㄧㄚ ˙ㄉㄜ ㄏㄜˊ ㄗㄨㄛˋ",
+      "en": "Thank you for your cooperation!",
+      "words": [
+       "謝謝",
+       "大家",
+       "的",
+       "合作"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "這是我在電梯裡看到的通知。",
+      "zhuyin": "ㄓㄜˋ ㄕˋ ㄨㄛˇ ㄗㄞˋ ㄉㄧㄢˋ ㄊㄧ ㄌㄧˇ ㄎㄢˋ ㄉㄠˋ ˙ㄉㄜ ㄊㄨㄥ ㄓ",
+      "en": "This is a notice I saw in the lift.",
+      "words": [
+       "這",
+       "是",
+       "我",
+       "在",
+       "電梯",
+       "裡",
+       "看到",
+       "的",
+       "通知"
+      ]
+     },
+     {
+      "zh": "我第一次看到「停水」這兩個字的時候，還不太懂是什麼意思。",
+      "zhuyin": "ㄨㄛˇ ㄉㄧˋ ㄧ ㄘˋ ㄎㄢˋ ㄉㄠˋ ㄊㄧㄥˊ ㄕㄨㄟˇ ㄓㄜˋ ㄌㄧㄤˇ ㄍㄜˋ ㄗˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄏㄞˊ ㄅㄨˋ ㄊㄞˋ ㄉㄨㄥˇ ㄕˋ ㄕㄣˊ ˙ㄇㄜ ㄧˋ ˙ㄙ",
+      "en": "The first time I saw the word 停水, I didn't really understand what it meant.",
+      "words": [
+       "我",
+       "第一",
+       "次",
+       "看到",
+       "停水",
+       "這",
+       "兩",
+       "個",
+       "字",
+       "的",
+       "時候",
+       "還",
+       "不",
+       "太",
+       "懂",
+       "是",
+       "什麼",
+       "意思"
+      ]
+     },
+     {
+      "zh": "我先用手機查了一下，原來就是沒有水的意思。",
+      "zhuyin": "ㄨㄛˇ ㄒㄧㄢ ㄩㄥˋ ㄕㄡˇ ㄐㄧ ㄔㄚˊ ˙ㄌㄜ ㄧ ㄒㄧㄚˋ ㄩㄢˊ ㄌㄞˊ ㄐㄧㄡˋ ㄕˋ ㄇㄟˊ ㄧㄡˇ ㄕㄨㄟˇ ˙ㄉㄜ ㄧˋ ˙ㄙ",
+      "en": "I looked it up on my phone and found it simply means \"no water\".",
+      "words": [
+       "我",
+       "先",
+       "用",
+       "手機",
+       "查",
+       "了",
+       "一下",
+       "原來",
+       "就",
+       "是",
+       "沒有",
+       "水",
+       "的",
+       "意思"
+      ]
+     },
+     {
+      "zh": "鄰居告訴我，在臺灣，停水和停電以前，大樓裡一定會先貼通知。",
+      "zhuyin": "ㄌㄧㄣˊ ㄐㄩ ㄍㄠˋ ㄙㄨˋ ㄨㄛˇ ㄗㄞˋ ㄊㄞˊ ㄨㄢ ㄊㄧㄥˊ ㄕㄨㄟˇ ㄏㄜˊ ㄊㄧㄥˊ ㄉㄧㄢˋ ㄧˇ ㄑㄧㄢˊ ㄉㄚˋ ㄌㄡˊ ㄌㄧˇ ㄧ ㄉㄧㄥˋ ㄏㄨㄟˋ ㄒㄧㄢ ㄊㄧㄝ ㄊㄨㄥ ㄓ",
+      "en": "My neighbour told me that in Taiwan, before the water or electricity is cut off, a notice is put up in the building first.",
+      "words": [
+       "鄰居",
+       "告訴",
+       "我",
+       "在",
+       "臺灣",
+       "停水",
+       "和",
+       "停電",
+       "以前",
+       "大樓",
+       "裡",
+       "一定",
+       "會",
+       "先",
+       "貼",
+       "通知"
+      ]
+     },
+     {
+      "zh": "那天早上，我裝了好幾瓶水，連洗澡用的水也準備好了。",
+      "zhuyin": "ㄋㄚˋ ㄊㄧㄢ ㄗㄠˇ ㄕㄤˋ ㄨㄛˇ ㄓㄨㄤ ˙ㄌㄜ ㄏㄠˇ ㄐㄧˇ ㄆㄧㄥˊ ㄕㄨㄟˇ ㄌㄧㄢˊ ㄒㄧˇ ㄗㄠˇ ㄩㄥˋ ˙ㄉㄜ ㄕㄨㄟˇ ㄧㄝˇ ㄓㄨㄣˇ ㄅㄟˋ ㄏㄠˇ ˙ㄌㄜ",
+      "en": "That morning I filled several bottles with water, and even got water ready for washing.",
+      "words": [
+       "那天",
+       "早上",
+       "我",
+       "裝",
+       "了",
+       "好",
+       "幾",
+       "瓶",
+       "水",
+       "連",
+       "洗澡",
+       "用",
+       "的",
+       "水",
+       "也",
+       "準備",
+       "好",
+       "了"
+      ]
+     },
+     {
+      "zh": "停水那天，我中午不能在家煮飯，只好去外面吃便當。",
+      "zhuyin": "ㄊㄧㄥˊ ㄕㄨㄟˇ ㄋㄚˋ ㄊㄧㄢ ㄨㄛˇ ㄓㄨㄥ ㄨˇ ㄅㄨˋ ㄋㄥˊ ㄗㄞˋ ㄐㄧㄚ ㄓㄨˇ ㄈㄢˋ ㄓˇ ㄏㄠˇ ㄑㄩˋ ㄨㄞˋ ㄇㄧㄢˋ ㄔ ㄅㄧㄢˋ ㄉㄤ",
+      "en": "On the day of the cut I couldn't cook at home at lunchtime, so I had to go out and buy a lunch box.",
+      "words": [
+       "停水",
+       "那天",
+       "我",
+       "中午",
+       "不能",
+       "在家",
+       "煮飯",
+       "只好",
+       "去",
+       "外面",
+       "吃",
+       "便當"
+      ]
+     },
+     {
+      "zh": "到了下午五點，水真的來了，一開始有一點黃，過了幾分鐘就正常了。",
+      "zhuyin": "ㄉㄠˋ ˙ㄌㄜ ㄒㄧㄚˋ ㄨˇ ㄨˇ ㄉㄧㄢˇ ㄕㄨㄟˇ ㄓㄣ ˙ㄉㄜ ㄌㄞˊ ˙ㄌㄜ ㄧ ㄎㄞ ㄕˇ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄏㄨㄤˊ ㄍㄨㄛˋ ˙ㄌㄜ ㄐㄧˇ ㄈㄣ ㄓㄨㄥ ㄐㄧㄡˋ ㄓㄥˋ ㄔㄤˊ ˙ㄌㄜ",
+      "en": "At five in the afternoon the water really did come back; it was a little yellow at first, but after a few minutes it was normal.",
+      "words": [
+       "到",
+       "了",
+       "下午",
+       "五",
+       "點",
+       "水",
+       "真的",
+       "來",
+       "了",
+       "一",
+       "開始",
+       "有一點",
+       "黃",
+       "過",
+       "了",
+       "幾",
+       "分鐘",
+       "就",
+       "正常",
+       "了"
+      ]
+     },
+     {
+      "zh": "那天晚上洗澡的時候，我覺得熱水特別舒服。",
+      "zhuyin": "ㄋㄚˋ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄒㄧˇ ㄗㄠˇ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄨㄛˇ ㄐㄩㄝˊ ˙ㄉㄜ ㄖㄜˋ ㄕㄨㄟˇ ㄊㄜˋ ㄅㄧㄝˊ ㄕㄨ ˙ㄈㄨ",
+      "en": "When I showered that evening, the hot water felt especially good.",
+      "words": [
+       "那天",
+       "晚上",
+       "洗澡",
+       "的",
+       "時候",
+       "我",
+       "覺得",
+       "熱水",
+       "特別",
+       "舒服"
+      ]
+     },
+     {
+      "zh": "雖然只停了一天，可是我才發現，平常有水用是多麼方便的事。",
+      "zhuyin": "ㄙㄨㄟ ㄖㄢˊ ㄓˇ ㄊㄧㄥˊ ˙ㄌㄜ ㄧ ㄊㄧㄢ ㄎㄜˇ ㄕˋ ㄨㄛˇ ㄘㄞˊ ㄈㄚ ㄒㄧㄢˋ ㄆㄧㄥˊ ㄔㄤˊ ㄧㄡˇ ㄕㄨㄟˇ ㄩㄥˋ ㄕˋ ㄉㄨㄛˊ ˙ㄇㄜ ㄈㄤ ㄅㄧㄢˋ ˙ㄉㄜ ㄕˋ",
+      "en": "It was only one day, but it made me realise how convenient it is to have running water every day.",
+      "words": [
+       "雖然",
+       "只",
+       "停",
+       "了",
+       "一天",
+       "可是",
+       "我",
+       "才",
+       "發現",
+       "平常",
+       "有",
+       "水",
+       "用",
+       "是",
+       "多麼",
+       "方便",
+       "的",
+       "事"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "Why is the water being cut off?",
+     "options_en": [
+      "The building is being painted",
+      "There is a typhoon coming",
+      "The water company is repairing equipment nearby"
+     ],
+     "answer": 2
+    },
+    {
+     "question_en": "What should residents do when the water comes back?",
+     "options_en": [
+      "Turn it on and wait a few minutes until the colour is normal",
+      "Boil it before washing",
+      "Call the water company"
+     ],
+     "answer": 0
+    },
+    {
+     "question_en": "Where did the writer see the notice?",
+     "options_en": [
+      "On the front door",
+      "In the lift",
+      "In a LINE message"
+     ],
+     "answer": 1
+    }
+   ]
+  }
+ ]
+}

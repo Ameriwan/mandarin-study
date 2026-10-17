@@ -1,0 +1,79 @@
+{
+ "id": "L1-06", "level": "第1*級", "order": 6,
+ "topic": "夜市 and prices", "title_zh": "在夜市", "title_en": "At the night market",
+ "can_do_en": "I can order snacks at a night-market stall, ask what things cost and the total, and understand the change I get.",
+ "dialogue": [
+  {"speaker": "阿芳", "zh": "馬克，這就是我們屏東的夜市。人好多喔！", "zhuyin": "ㄇㄚˇ ㄎㄜˋ ㄓㄜˋ ㄐㄧㄡˋ ㄕˋ ㄨㄛˇ ˙ㄇㄣ ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄧㄝˋ ㄕˋ ㄖㄣˊ ㄏㄠˇ ㄉㄨㄛ ㄛ", "en": "Mark, this is our Pingtung night market. So many people!"},
+  {"speaker": "馬克", "zh": "哇，東西好多！我好餓喔。", "zhuyin": "ㄨㄚ ㄉㄨㄥ ˙ㄒㄧ ㄏㄠˇ ㄉㄨㄛ ㄨㄛˇ ㄏㄠˇ ㄜˋ ㄛ", "en": "Wow, there's so much food! I'm really hungry."},
+  {"speaker": "阿芳", "zh": "你要不要吃臭豆腐？這家很好吃喔。", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄔ ㄔㄡˋ ㄉㄡˋ ㄈㄨˇ ㄓㄜˋ ㄐㄧㄚ ㄏㄣˇ ㄏㄠˇ ㄔ ㄛ", "en": "Do you want some stinky tofu? This stall's is really good."},
+  {"speaker": "馬克", "zh": "好啊！老闆，臭豆腐一份多少錢？", "zhuyin": "ㄏㄠˇ ˙ㄚ ㄌㄠˇ ㄅㄢˇ ㄔㄡˋ ㄉㄡˋ ㄈㄨˇ ㄧ ㄈㄣˋ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ", "en": "Sure! Excuse me, how much is one order of stinky tofu?"},
+  {"speaker": "老闆", "zh": "一份六十塊。要不要辣？", "zhuyin": "ㄧ ㄈㄣˋ ㄌㄧㄡˋ ㄕˊ ㄎㄨㄞˋ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄌㄚˋ", "en": "Sixty dollars an order. Do you want it spicy?"},
+  {"speaker": "馬克", "zh": "我們要兩份，一份辣，一份不辣。", "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄧㄠˋ ㄌㄧㄤˇ ㄈㄣˋ ㄧ ㄈㄣˋ ㄌㄚˋ ㄧ ㄈㄣˋ ㄅㄨˋ ㄌㄚˋ", "en": "We'll have two orders: one spicy, one not spicy."},
+  {"speaker": "阿芳", "zh": "老闆，你們有沒有賣喝的？", "zhuyin": "ㄌㄠˇ ㄅㄢˇ ㄋㄧˇ ˙ㄇㄣ ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄇㄞˋ ㄏㄜ ˙ㄉㄜ", "en": "Excuse me, do you sell anything to drink?"},
+  {"speaker": "老闆", "zh": "有啊，紅茶一杯二十五塊。", "zhuyin": "ㄧㄡˇ ˙ㄚ ㄏㄨㄥˊ ㄔㄚˊ ㄧ ㄅㄟ ㄦˋ ㄕˊ ㄨˇ ㄎㄨㄞˋ", "en": "Yes, black tea is twenty-five a cup."},
+  {"speaker": "馬克", "zh": "那也要兩杯紅茶。一共多少錢？", "zhuyin": "ㄋㄚˋ ㄧㄝˇ ㄧㄠˋ ㄌㄧㄤˇ ㄅㄟ ㄏㄨㄥˊ ㄔㄚˊ ㄧ ㄍㄨㄥˋ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ", "en": "Then two cups of black tea too. How much is that altogether?"},
+  {"speaker": "老闆", "zh": "一百七十塊。", "zhuyin": "ㄧ ㄅㄞˇ ㄑㄧ ㄕˊ ㄎㄨㄞˋ", "en": "A hundred and seventy."},
+  {"speaker": "馬克", "zh": "我只有一千塊，可以嗎？", "zhuyin": "ㄨㄛˇ ㄓˇ ㄧㄡˇ ㄧ ㄑㄧㄢ ㄎㄨㄞˋ ㄎㄜˇ ㄧˇ ˙ㄇㄚ", "en": "I only have a thousand-dollar bill. Is that OK?"},
+  {"speaker": "老闆", "zh": "沒問題，找你八百三十塊。來，誰要辣的？", "zhuyin": "ㄇㄟˊ ㄨㄣˋ ㄊㄧˊ ㄓㄠˇ ㄋㄧˇ ㄅㄚ ㄅㄞˇ ㄙㄢ ㄕˊ ㄎㄨㄞˋ ㄌㄞˊ ㄕㄟˊ ㄧㄠˋ ㄌㄚˋ ˙ㄉㄜ", "en": "No problem. Here's eight hundred and thirty in change. Here you go: who's having the spicy one?"},
+  {"speaker": "阿芳", "zh": "我要辣的。謝謝老闆！", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄌㄚˋ ˙ㄉㄜ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄌㄠˇ ㄅㄢˇ", "en": "I'm having the spicy one. Thank you!"},
+  {"speaker": "馬克", "zh": "哇，這個臭豆腐不錯吃欸！", "zhuyin": "ㄨㄚ ㄓㄜˋ ˙ㄍㄜ ㄔㄡˋ ㄉㄡˋ ㄈㄨˇ ㄅㄨˋ ㄘㄨㄛˋ ㄔ ㄟˋ", "en": "Wow, this stinky tofu is pretty good!"}
+ ],
+ "vocab": [
+  {"zh": "夜市", "zhuyin": "ㄧㄝˋ ㄕˋ", "en": "night market", "pos": "n", "measure": "個", "level": "第2*級"},
+  {"zh": "東西", "zhuyin": "ㄉㄨㄥ ˙ㄒㄧ", "en": "thing, stuff (here: food)", "pos": "n", "measure": "個", "level": "第1級"},
+  {"zh": "餓", "zhuyin": "ㄜˋ", "en": "hungry", "pos": "adj", "measure": "", "level": "第1*級"},
+  {"zh": "臭豆腐", "zhuyin": "ㄔㄡˋ ㄉㄡˋ ㄈㄨˇ", "en": "stinky tofu (fermented tofu, usually deep-fried)", "pos": "n", "measure": "份", "level": ""},
+  {"zh": "老闆", "zhuyin": "ㄌㄠˇ ㄅㄢˇ", "en": "boss, owner; what you call a stall owner", "pos": "n", "measure": "位", "level": "第2級"},
+  {"zh": "份", "zhuyin": "ㄈㄣˋ", "en": "order, portion (measure word for a serving of food)", "pos": "m", "measure": "", "level": "第2級"},
+  {"zh": "多少", "zhuyin": "ㄉㄨㄛ ㄕㄠˇ", "en": "how much, how many", "pos": "pron", "measure": "", "level": "第1級"},
+  {"zh": "錢", "zhuyin": "ㄑㄧㄢˊ", "en": "money", "pos": "n", "measure": "", "level": "第1級"},
+  {"zh": "塊", "zhuyin": "ㄎㄨㄞˋ", "en": "dollar (spoken; written 元)", "pos": "m", "measure": "", "level": "第1級"},
+  {"zh": "辣", "zhuyin": "ㄌㄚˋ", "en": "spicy, hot", "pos": "adj", "measure": "", "level": "第2*級"},
+  {"zh": "賣", "zhuyin": "ㄇㄞˋ", "en": "to sell", "pos": "v", "measure": "", "level": "第2級"},
+  {"zh": "紅茶", "zhuyin": "ㄏㄨㄥˊ ㄔㄚˊ", "en": "black tea", "pos": "n", "measure": "杯", "level": "第2*級"},
+  {"zh": "杯", "zhuyin": "ㄅㄟ", "en": "cup, glass (measure word for drinks)", "pos": "m", "measure": "", "level": "第1*級"},
+  {"zh": "一共", "zhuyin": "ㄧ ㄍㄨㄥˋ", "en": "altogether, in total", "pos": "adv", "measure": "", "level": "第1*級"},
+  {"zh": "百", "zhuyin": "ㄅㄞˇ", "en": "hundred", "pos": "num", "measure": "", "level": "第1級"},
+  {"zh": "千", "zhuyin": "ㄑㄧㄢ", "en": "thousand", "pos": "num", "measure": "", "level": "第1級"},
+  {"zh": "只", "zhuyin": "ㄓˇ", "en": "only", "pos": "adv", "measure": "", "level": "第1*級"},
+  {"zh": "找", "zhuyin": "ㄓㄠˇ", "en": "to give (change); also: to look for", "pos": "v", "measure": "", "level": "第1級"},
+  {"zh": "誰", "zhuyin": "ㄕㄟˊ", "en": "who", "pos": "pron", "measure": "", "level": "第1級"},
+  {"zh": "不錯", "zhuyin": "ㄅㄨˋ ㄘㄨㄛˋ", "en": "pretty good, not bad", "pos": "adj", "measure": "", "level": "第1*級"}
+ ],
+ "grammar": [
+  {"id": "G011", "note_en": "Prices use the full number system with 塊 after the number: 六十塊, 二十五塊, 一百七十塊, 八百三十塊, 一千塊. Say the 一 in 一百 and 一千."},
+  {"id": "G012", "note_en": "Every order is number + measure word + noun: 一份臭豆腐, 兩份, 兩杯紅茶. Use 兩 (not 二) before a measure word; 份 counts servings of food and 杯 counts drinks."},
+  {"id": "G013", "note_en": "When the food comes out, the owner asks 誰要辣的？ 'Who is having the spicy one?' 誰 sits where the answer goes, so 阿芳 just puts 我 in its place: 我要辣的。"}
+ ],
+ "pronunciation": {"contrast": "q-ch-c", "tone_pair": "33", "note_en": "Prices and food mix all three: ㄑ in 錢, 千 and 七 (tongue tip down, lips spread), ㄔ in 吃, 臭 and 茶 (tongue tip up), ㄘ in 不錯 (a flat 'ts' with a puff). 老闆, 可以, 只有 and 找你 are written 3+3 but said 2+3 (老闆 sounds like ㄌㄠˊ ㄅㄢˇ)."},
+ "shadowing": [
+  {"zh": "臭豆腐一份多少錢？", "zhuyin": "ㄔㄡˋ ㄉㄡˋ ㄈㄨˇ ㄧ ㄈㄣˋ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ", "en": "How much is one order of stinky tofu?"},
+  {"zh": "一份六十塊。要不要辣？", "zhuyin": "ㄧ ㄈㄣˋ ㄌㄧㄡˋ ㄕˊ ㄎㄨㄞˋ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄌㄚˋ", "en": "Sixty dollars an order. Do you want it spicy?"},
+  {"zh": "我們要兩份，一份辣，一份不辣。", "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄧㄠˋ ㄌㄧㄤˇ ㄈㄣˋ ㄧ ㄈㄣˋ ㄌㄚˋ ㄧ ㄈㄣˋ ㄅㄨˋ ㄌㄚˋ", "en": "We'll have two orders: one spicy, one not spicy."},
+  {"zh": "老闆，你們有沒有賣喝的？", "zhuyin": "ㄌㄠˇ ㄅㄢˇ ㄋㄧˇ ˙ㄇㄣ ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄇㄞˋ ㄏㄜ ˙ㄉㄜ", "en": "Excuse me, do you sell anything to drink?"},
+  {"zh": "那也要兩杯紅茶。一共多少錢？", "zhuyin": "ㄋㄚˋ ㄧㄝˇ ㄧㄠˋ ㄌㄧㄤˇ ㄅㄟ ㄏㄨㄥˊ ㄔㄚˊ ㄧ ㄍㄨㄥˋ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ", "en": "Then two cups of black tea too. How much is that altogether?"},
+  {"zh": "我只有一千塊，可以嗎？", "zhuyin": "ㄨㄛˇ ㄓˇ ㄧㄡˇ ㄧ ㄑㄧㄢ ㄎㄨㄞˋ ㄎㄜˇ ㄧˇ ˙ㄇㄚ", "en": "I only have a thousand-dollar bill. Is that OK?"},
+  {"zh": "找你八百三十塊。誰要辣的？", "zhuyin": "ㄓㄠˇ ㄋㄧˇ ㄅㄚ ㄅㄞˇ ㄙㄢ ㄕˊ ㄎㄨㄞˋ ㄕㄟˊ ㄧㄠˋ ㄌㄚˋ ˙ㄉㄜ", "en": "Here's eight hundred and thirty in change. Who's having the spicy one?"},
+  {"zh": "這個臭豆腐不錯吃欸！", "zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄔㄡˋ ㄉㄡˋ ㄈㄨˇ ㄅㄨˋ ㄘㄨㄛˋ ㄔ ㄟˋ", "en": "This stinky tofu is pretty good!"}
+ ],
+ "comprehension": [
+  {"question_en": "How much is one order of stinky tofu?", "options_en": ["NT$25", "NT$60", "NT$170"], "answer": 1},
+  {"question_en": "How do they want their two orders?", "options_en": ["Both spicy", "One spicy, one not spicy", "Neither spicy"], "answer": 1},
+  {"question_en": "What do they order to drink?", "options_en": ["Two cups of black tea", "One cup of milk tea", "Two cups of papaya milk"], "answer": 0},
+  {"question_en": "Mark pays with a NT$1,000 bill. How much change does he get?", "options_en": ["NT$170", "NT$830", "NT$930"], "answer": 1},
+  {"question_en": "Who gets the spicy stinky tofu?", "options_en": ["Mark", "A-Fang", "The stall owner"], "answer": 1}
+ ],
+ "speaking": {
+  "prompt_en": "Role-play at a night-market stall with a friend: ask the price of a snack and a drink, order with a number + measure word, say how spicy each order should be, ask for the total, say what bill you are paying with, and sort out whose order is whose when the food comes.",
+  "prompt_zh": "你和朋友在夜市買吃的。問老闆一份多少錢、一杯多少錢，說你們要幾份、要不要辣，再問一共多少錢。",
+  "checklist_en": ["asked a price with a measure word (一份／一杯…多少錢？)", "ordered with number + measure word, using 兩 before the measure word (兩份, 兩杯)", "said a price over 100 correctly (一百七十塊, 八百三十塊)", "asked 一共多少錢？ and understood the change (找你…塊)", "asked or answered a 誰 question (誰要辣的？ 我要辣的。)"]
+ },
+ "writing": {
+  "prompt_en": "You're going to the night market tonight. Write 3–4 sentences: what you will buy, how many (number + measure word), what each costs and the total.",
+  "prompt_zh": "今天晚上你要去夜市。你要買什麼？要幾份、幾杯？一份多少錢？一共多少錢？",
+  "model_zh": "今天晚上我要去夜市。我想買兩份臭豆腐，一份六十塊。我也想喝一杯紅茶，二十五塊。一共一百四十五塊，不貴！",
+  "model_zhuyin": "ㄐㄧㄣ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄨㄛˇ ㄧㄠˋ ㄑㄩˋ ㄧㄝˋ ㄕˋ ㄨㄛˇ ㄒㄧㄤˇ ㄇㄞˇ ㄌㄧㄤˇ ㄈㄣˋ ㄔㄡˋ ㄉㄡˋ ㄈㄨˇ ㄧ ㄈㄣˋ ㄌㄧㄡˋ ㄕˊ ㄎㄨㄞˋ ㄨㄛˇ ㄧㄝˇ ㄒㄧㄤˇ ㄏㄜ ㄧ ㄅㄟ ㄏㄨㄥˊ ㄔㄚˊ ㄦˋ ㄕˊ ㄨˇ ㄎㄨㄞˋ ㄧ ㄍㄨㄥˋ ㄧ ㄅㄞˇ ㄙˋ ㄕˊ ㄨˇ ㄎㄨㄞˋ ㄅㄨˋ ㄍㄨㄟˋ",
+  "model_en": "Tonight I'm going to the night market. I'd like to buy two orders of stinky tofu, sixty dollars each. I'd also like a cup of black tea, twenty-five dollars. That's a hundred and forty-five altogether. Not expensive!"
+ },
+ "culture_en": "Prices on signs are written with 元 or a $ sign (New Taiwan dollars), but people say 塊 out loud: 六十元 on the sign is 六十塊. Food prices at night-market stalls are fixed, so you don't bargain for food. You call out 老闆 to get a stall owner's attention (老闆娘 if a woman runs the stall). Many stalls still take mainly cash, so coins and NT$100 bills are handy; if you pay with a NT$1,000 bill, the owner gives you change (找錢). Fried 臭豆腐 is usually served with 台式泡菜, a sweet-and-sour pickled cabbage."
+}

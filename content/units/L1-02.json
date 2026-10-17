@@ -1,0 +1,83 @@
+{
+ "id": "L1-02", "level": "第1級", "order": 2,
+ "topic": "便利商店", "title_zh": "在便利商店", "title_en": "At the convenience store",
+ "can_do_en": "I can buy a drink and a snack at a convenience store, point to what I want, answer the cashier's usual questions (hot or iced, a bag) and pay.",
+ "dialogue": [
+  {"speaker": "店員", "zh": "歡迎光臨！", "zhuyin": "ㄏㄨㄢ ㄧㄥˊ ㄍㄨㄤ ㄌㄧㄣˊ", "en": "Welcome!"},
+  {"speaker": "怡君", "zh": "馬克，你要喝什麼？", "zhuyin": "ㄇㄚˇ ㄎㄜˋ ㄋㄧˇ ㄧㄠˋ ㄏㄜ ㄕㄣˊ ˙ㄇㄜ", "en": "Mark, what do you want to drink?"},
+  {"speaker": "馬克", "zh": "我要一瓶水。你呢？", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄧ ㄆㄧㄥˊ ㄕㄨㄟˇ ㄋㄧˇ ˙ㄋㄜ", "en": "I'll have a bottle of water. And you?"},
+  {"speaker": "怡君", "zh": "我想喝咖啡。這個麵包很好吃喔！", "zhuyin": "ㄨㄛˇ ㄒㄧㄤˇ ㄏㄜ ㄎㄚ ㄈㄟ ㄓㄜˋ ˙ㄍㄜ ㄇㄧㄢˋ ㄅㄠ ㄏㄣˇ ㄏㄠˇ ㄔ ㄛ", "en": "I feel like a coffee. This bun is really good!"},
+  {"speaker": "馬克", "zh": "這個嗎？好，我買兩個。", "zhuyin": "ㄓㄜˋ ˙ㄍㄜ ˙ㄇㄚ ㄏㄠˇ ㄨㄛˇ ㄇㄞˇ ㄌㄧㄤˇ ˙ㄍㄜ", "en": "This one? OK, I'll buy two."},
+  {"speaker": "怡君", "zh": "你好，我還要一杯咖啡。", "zhuyin": "ㄋㄧˇ ㄏㄠˇ ㄨㄛˇ ㄏㄞˊ ㄧㄠˋ ㄧ ㄅㄟ ㄎㄚ ㄈㄟ", "en": "Hi, I'd also like a cup of coffee."},
+  {"speaker": "店員", "zh": "熱的還是冰的？", "zhuyin": "ㄖㄜˋ ˙ㄉㄜ ㄏㄞˊ ㄕˋ ㄅㄧㄥ ˙ㄉㄜ", "en": "Hot or iced?"},
+  {"speaker": "怡君", "zh": "熱的，大杯。", "zhuyin": "ㄖㄜˋ ˙ㄉㄜ ㄉㄚˋ ㄅㄟ", "en": "Hot, large."},
+  {"speaker": "店員", "zh": "好。要不要袋子？", "zhuyin": "ㄏㄠˇ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄉㄞˋ ˙ㄗ", "en": "OK. Do you want a bag?"},
+  {"speaker": "馬克", "zh": "不要，謝謝。我有袋子。", "zhuyin": "ㄅㄨˋ ㄧㄠˋ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄨㄛˇ ㄧㄡˇ ㄉㄞˋ ˙ㄗ", "en": "No, thanks. I have a bag."},
+  {"speaker": "店員", "zh": "一共一百四十五塊。", "zhuyin": "ㄧ ㄍㄨㄥˋ ㄧ ㄅㄞˇ ㄙˋ ㄕˊ ㄨˇ ㄎㄨㄞˋ", "en": "That's 145 dollars altogether."},
+  {"speaker": "馬克", "zh": "給你兩百塊。", "zhuyin": "ㄍㄟˇ ㄋㄧˇ ㄌㄧㄤˇ ㄅㄞˇ ㄎㄨㄞˋ", "en": "Here's 200."},
+  {"speaker": "店員", "zh": "找你五十五塊，這是你的發票。謝謝光臨！", "zhuyin": "ㄓㄠˇ ㄋㄧˇ ㄨˇ ㄕˊ ㄨˇ ㄎㄨㄞˋ ㄓㄜˋ ㄕˋ ㄋㄧˇ ˙ㄉㄜ ㄈㄚ ㄆㄧㄠˋ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄍㄨㄤ ㄌㄧㄣˊ", "en": "Here's 55 dollars change, and this is your receipt. Thanks for coming!"}
+ ],
+ "vocab": [
+  {"zh": "便利商店", "zhuyin": "ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ", "en": "convenience store (also called 超商)", "pos": "n", "measure": "家", "level": "第2*級"},
+  {"zh": "歡迎光臨", "zhuyin": "ㄏㄨㄢ ㄧㄥˊ ㄍㄨㄤ ㄌㄧㄣˊ", "en": "Welcome! (what shop staff say when you walk in; 謝謝光臨 when you leave)", "pos": "phrase", "measure": "", "level": ""},
+  {"zh": "要", "zhuyin": "ㄧㄠˋ", "en": "to want; would like (when ordering or buying)", "pos": "v", "measure": "", "level": "第1級"},
+  {"zh": "水", "zhuyin": "ㄕㄨㄟˇ", "en": "water", "pos": "n", "measure": "瓶", "level": "第1級"},
+  {"zh": "瓶", "zhuyin": "ㄆㄧㄥˊ", "en": "bottle (measure word for bottled drinks)", "pos": "m", "measure": "", "level": "第2*級"},
+  {"zh": "杯", "zhuyin": "ㄅㄟ", "en": "cup, glass (measure word for drinks; 大杯 'a large one')", "pos": "m", "measure": "", "level": "第1*級"},
+  {"zh": "咖啡", "zhuyin": "ㄎㄚ ㄈㄟ", "en": "coffee", "pos": "n", "measure": "杯", "level": "第1級"},
+  {"zh": "麵包", "zhuyin": "ㄇㄧㄢˋ ㄅㄠ", "en": "bread; bun", "pos": "n", "measure": "個", "level": "第1*級"},
+  {"zh": "這", "zhuyin": "ㄓㄜˋ", "en": "this (這個 'this one')", "pos": "pron", "measure": "", "level": "第1級"},
+  {"zh": "個", "zhuyin": "ㄍㄜˋ", "en": "general measure word (often said lightly: 這個, 兩個)", "pos": "m", "measure": "", "level": "第1級"},
+  {"zh": "買", "zhuyin": "ㄇㄞˇ", "en": "to buy", "pos": "v", "measure": "", "level": "第1級"},
+  {"zh": "熱", "zhuyin": "ㄖㄜˋ", "en": "hot (熱的 'a hot one')", "pos": "adj", "measure": "", "level": "第1級"},
+  {"zh": "冰", "zhuyin": "ㄅㄧㄥ", "en": "ice; iced, cold (冰的 'an iced one')", "pos": "adj", "measure": "", "level": "第1*級"},
+  {"zh": "還是", "zhuyin": "ㄏㄞˊ ㄕˋ", "en": "or (in a question that offers a choice)", "pos": "conj", "measure": "", "level": "第1*級"},
+  {"zh": "袋子", "zhuyin": "ㄉㄞˋ ˙ㄗ", "en": "bag", "pos": "n", "measure": "個", "level": "第2*級"},
+  {"zh": "一共", "zhuyin": "ㄧ ㄍㄨㄥˋ", "en": "altogether, in total", "pos": "adv", "measure": "", "level": "第1*級"},
+  {"zh": "塊", "zhuyin": "ㄎㄨㄞˋ", "en": "dollar (spoken; prices are written with 元)", "pos": "m", "measure": "", "level": "第1級"},
+  {"zh": "找", "zhuyin": "ㄓㄠˇ", "en": "to give change (找你五十五塊 'here's 55 change'); to look for", "pos": "v", "measure": "", "level": "第1級"},
+  {"zh": "發票", "zhuyin": "ㄈㄚ ㄆㄧㄠˋ", "en": "receipt (the official 統一發票)", "pos": "n", "measure": "張", "level": ""},
+  {"zh": "喔", "zhuyin": "ㄛ", "en": "friendly sentence-final particle that makes a remark warmer (很好吃喔！)", "pos": "particle", "measure": "", "level": "第4級"}
+ ],
+ "grammar": [
+  {"id": "G005", "note_en": "Pointing at things on the shelf: 這個麵包 'this bun' needs the measure word 個 between 這 and the noun, and 這個嗎？ 'this one?' uses 這個 alone. 這是你的發票 shows 這 on its own as the subject."},
+  {"id": "G012", "note_en": "Every item you buy is counted with a number and a measure word: 一瓶水, 一杯咖啡, 兩個 (麵包). 'Two' before a measure word is 兩, never 二."}
+ ],
+ "pronunciation": {"contrast": "aspiration", "tone_pair": "14", "note_en": "Puff or no puff: 杯 ㄅㄟ, 包 ㄅㄠ and 個 ㄍㄜˋ have no burst of air; 瓶 ㄆㄧㄥˊ, 票 ㄆㄧㄠˋ, 咖 ㄎㄚ and 塊 ㄎㄨㄞˋ have a strong one. Tone pair 1+4 in 發票 and 商店: hold the first syllable high and level, then fall from the top. Listen for sandhi too: 一瓶, 一杯 and 一百 are said ㄧˋ, 一共 is said ㄧˊ, 不要 is said ㄅㄨˊ ㄧㄠˋ, and 你好 and 我買 start with a rising ㄋㄧˊ / ㄨㄛˊ."},
+ "shadowing": [
+  {"zh": "歡迎光臨！", "zhuyin": "ㄏㄨㄢ ㄧㄥˊ ㄍㄨㄤ ㄌㄧㄣˊ", "en": "Welcome!"},
+  {"zh": "我要一瓶水。", "zhuyin": "ㄨㄛˇ ㄧㄠˋ ㄧ ㄆㄧㄥˊ ㄕㄨㄟˇ", "en": "I'll have a bottle of water."},
+  {"zh": "這個麵包很好吃喔！", "zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄇㄧㄢˋ ㄅㄠ ㄏㄣˇ ㄏㄠˇ ㄔ ㄛ", "en": "This bun is really good!"},
+  {"zh": "你好，我還要一杯咖啡。", "zhuyin": "ㄋㄧˇ ㄏㄠˇ ㄨㄛˇ ㄏㄞˊ ㄧㄠˋ ㄧ ㄅㄟ ㄎㄚ ㄈㄟ", "en": "Hi, I'd also like a cup of coffee."},
+  {"zh": "熱的還是冰的？", "zhuyin": "ㄖㄜˋ ˙ㄉㄜ ㄏㄞˊ ㄕˋ ㄅㄧㄥ ˙ㄉㄜ", "en": "Hot or iced?"},
+  {"zh": "不要，謝謝。我有袋子。", "zhuyin": "ㄅㄨˋ ㄧㄠˋ ㄒㄧㄝˋ ˙ㄒㄧㄝ ㄨㄛˇ ㄧㄡˇ ㄉㄞˋ ˙ㄗ", "en": "No, thanks. I have a bag."},
+  {"zh": "一共一百四十五塊。", "zhuyin": "ㄧ ㄍㄨㄥˋ ㄧ ㄅㄞˇ ㄙˋ ㄕˊ ㄨˇ ㄎㄨㄞˋ", "en": "That's 145 dollars altogether."},
+  {"zh": "找你五十五塊，這是你的發票。", "zhuyin": "ㄓㄠˇ ㄋㄧˇ ㄨˇ ㄕˊ ㄨˇ ㄎㄨㄞˋ ㄓㄜˋ ㄕˋ ㄋㄧˇ ˙ㄉㄜ ㄈㄚ ㄆㄧㄠˋ", "en": "Here's 55 dollars change, and this is your receipt."}
+ ],
+ "comprehension": [
+  {"question_en": "What does Mark want to drink?", "options_en": ["A bottle of water", "A cup of coffee", "A bottle of tea"], "answer": 0},
+  {"question_en": "How many buns does Mark buy?", "options_en": ["One", "Two", "Three"], "answer": 1},
+  {"question_en": "What coffee does Yijun order?", "options_en": ["Iced, large", "Hot, small", "Hot, large"], "answer": 2},
+  {"question_en": "Why doesn't Mark take a bag?", "options_en": ["He already has a bag", "The bags are too expensive", "He is only buying one thing"], "answer": 0},
+  {"question_en": "Mark pays with 200 dollars. How much change does he get?", "options_en": ["45 dollars", "55 dollars", "145 dollars"], "answer": 1}
+ ],
+ "speaking": {
+  "prompt_en": "You are at the counter of a convenience store in Pingtung. Ask for one drink and one snack, answer the cashier's questions (hot or iced? a bag?), then pay and take your change.",
+  "prompt_zh": "你在便利商店買東西。說你要什麼，回答店員的問題，然後付錢。",
+  "checklist_en": [
+   "used 要 + number + measure word + noun (一瓶水, 一個麵包)",
+   "used 兩, not 二, for 'two' before a measure word",
+   "pointed at something with 這個 or 那個",
+   "answered 熱的還是冰的？ with 熱的 or 冰的",
+   "answered 要不要袋子？ with 要 or 不要, plus 謝謝",
+   "said the price with 塊 (一百四十五塊)"
+  ]
+ },
+ "writing": {
+  "prompt_en": "Write three short sentences: what you buy at the convenience store (with measure words), whether you want a bag, and how much it costs altogether.",
+  "prompt_zh": "寫三個句子：你在便利商店買什麼？要不要袋子？一共多少錢？",
+  "model_zh": "我去便利商店，買一瓶水和兩個麵包。我不要袋子。一共九十五塊。",
+  "model_zhuyin": "ㄨㄛˇ ㄑㄩˋ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄇㄞˇ ㄧ ㄆㄧㄥˊ ㄕㄨㄟˇ ㄏㄜˊ ㄌㄧㄤˇ ˙ㄍㄜ ㄇㄧㄢˋ ㄅㄠ ㄨㄛˇ ㄅㄨˋ ㄧㄠˋ ㄉㄞˋ ˙ㄗ ㄧ ㄍㄨㄥˋ ㄐㄧㄡˇ ㄕˊ ㄨˇ ㄎㄨㄞˋ"
+ },
+ "culture_en": "Staff greet you with 歡迎光臨 when you come in and say 謝謝光臨 when you leave; you don't need to answer. Convenience stores in Taiwan may not give out free plastic shopping bags, so the cashier asks whether you want one and charges a small fee; many people bring their own. The receipt (統一發票) is also a lottery ticket, with winning numbers drawn every two months, so people keep it; the cashier may instead ask about a 載具, a phone barcode that saves the receipt electronically."
+}

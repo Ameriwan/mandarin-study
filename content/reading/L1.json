@@ -1,0 +1,817 @@
+{
+ "band": "L1",
+ "tbcl_levels": [
+  "第1級",
+  "第1*級"
+ ],
+ "note": "Original graded texts for the Advanced reading ladder. Zhuyin stores base tones (MASTER_PROMPT §9.2).",
+ "texts": [
+  {
+   "id": "R1-01",
+   "level": "第1級",
+   "vocab_max": "第1*級",
+   "chars": 126,
+   "topic_en": "Daily life in Pingtung",
+   "title": {
+    "zh": "我住在屏東",
+    "zhuyin": "ㄨㄛˇ ㄓㄨˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ",
+    "en": "I Live in Pingtung"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "我是美國人，現在住在屏東。",
+      "zhuyin": "ㄨㄛˇ ㄕˋ ㄇㄟˇ ㄍㄨㄛˊ ㄖㄣˊ ㄒㄧㄢˋ ㄗㄞˋ ㄓㄨˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ",
+      "en": "I'm American, and now I live in Pingtung.",
+      "words": [
+       "我",
+       "是",
+       "美國",
+       "人",
+       "現在",
+       "住",
+       "在",
+       "屏東"
+      ]
+     },
+     {
+      "zh": "屏東的天氣很熱。",
+      "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄊㄧㄢ ㄑㄧˋ ㄏㄣˇ ㄖㄜˋ",
+      "en": "The weather in Pingtung is hot.",
+      "words": [
+       "屏東",
+       "的",
+       "天氣",
+       "很",
+       "熱"
+      ]
+     },
+     {
+      "zh": "我家附近有一個公園，還有一家小吃店。",
+      "zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄈㄨˋ ㄐㄧㄣˋ ㄧㄡˇ ㄧ ˙ㄍㄜ ㄍㄨㄥ ㄩㄢˊ ㄏㄞˊ ㄧㄡˇ ㄧ ㄐㄧㄚ ㄒㄧㄠˇ ㄔ ㄉㄧㄢˋ",
+      "en": "Near my home there is a park and a small food shop.",
+      "words": [
+       "我",
+       "家",
+       "附近",
+       "有",
+       "一個",
+       "公園",
+       "還有",
+       "一",
+       "家",
+       "小吃",
+       "店"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "我每天早上七點起床，先去公園走路。",
+      "zhuyin": "ㄨㄛˇ ㄇㄟˇ ㄊㄧㄢ ㄗㄠˇ ㄕㄤˋ ㄑㄧ ㄉㄧㄢˇ ㄑㄧˇ ㄔㄨㄤˊ ㄒㄧㄢ ㄑㄩˋ ㄍㄨㄥ ㄩㄢˊ ㄗㄡˇ ㄌㄨˋ",
+      "en": "Every morning I get up at seven and first go for a walk in the park.",
+      "words": [
+       "我",
+       "每天",
+       "早上",
+       "七",
+       "點",
+       "起床",
+       "先",
+       "去",
+       "公園",
+       "走路"
+      ]
+     },
+     {
+      "zh": "然後我去小吃店吃早餐。",
+      "zhuyin": "ㄖㄢˊ ㄏㄡˋ ㄨㄛˇ ㄑㄩˋ ㄒㄧㄠˇ ㄔ ㄉㄧㄢˋ ㄔ ㄗㄠˇ ㄘㄢ",
+      "en": "Then I go to the food shop for breakfast.",
+      "words": [
+       "然後",
+       "我",
+       "去",
+       "小吃",
+       "店",
+       "吃",
+       "早餐"
+      ]
+     },
+     {
+      "zh": "我喜歡吃包子，喝一杯熱茶。",
+      "zhuyin": "ㄨㄛˇ ㄒㄧˇ ㄏㄨㄢ ㄔ ㄅㄠ ˙ㄗ ㄏㄜ ㄧ ㄅㄟ ㄖㄜˋ ㄔㄚˊ",
+      "en": "I like to eat steamed buns and drink a cup of hot tea.",
+      "words": [
+       "我",
+       "喜歡",
+       "吃",
+       "包子",
+       "喝",
+       "一",
+       "杯",
+       "熱",
+       "茶"
+      ]
+     },
+     {
+      "zh": "包子很便宜，也很好吃。",
+      "zhuyin": "ㄅㄠ ˙ㄗ ㄏㄣˇ ㄆㄧㄢˊ ㄧˊ ㄧㄝˇ ㄏㄣˇ ㄏㄠˇ ㄔ",
+      "en": "The buns are cheap and tasty too.",
+      "words": [
+       "包子",
+       "很",
+       "便宜",
+       "也",
+       "很",
+       "好吃"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "下午我去學校上中文課。",
+      "zhuyin": "ㄒㄧㄚˋ ㄨˇ ㄨㄛˇ ㄑㄩˋ ㄒㄩㄝˊ ㄒㄧㄠˋ ㄕㄤˋ ㄓㄨㄥ ㄨㄣˊ ㄎㄜˋ",
+      "en": "In the afternoon I go to school for my Chinese class.",
+      "words": [
+       "下午",
+       "我",
+       "去",
+       "學校",
+       "上",
+       "中文",
+       "課"
+      ]
+     },
+     {
+      "zh": "我們的老師是臺灣人，她說話很慢，所以我都聽得懂。",
+      "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ˙ㄉㄜ ㄌㄠˇ ㄕ ㄕˋ ㄊㄞˊ ㄨㄢ ㄖㄣˊ ㄊㄚ ㄕㄨㄛ ㄏㄨㄚˋ ㄏㄣˇ ㄇㄢˋ ㄙㄨㄛˇ ㄧˇ ㄨㄛˇ ㄉㄡ ㄊㄧㄥ ˙ㄉㄜ ㄉㄨㄥˇ",
+      "en": "Our teacher is Taiwanese. She speaks slowly, so I understand everything.",
+      "words": [
+       "我們",
+       "的",
+       "老師",
+       "是",
+       "臺灣人",
+       "她",
+       "說話",
+       "很",
+       "慢",
+       "所以",
+       "我",
+       "都",
+       "聽",
+       "得",
+       "懂"
+      ]
+     },
+     {
+      "zh": "晚上我在家寫字、看電視。",
+      "zhuyin": "ㄨㄢˇ ㄕㄤˋ ㄨㄛˇ ㄗㄞˋ ㄐㄧㄚ ㄒㄧㄝˇ ㄗˋ ㄎㄢˋ ㄉㄧㄢˋ ㄕˋ",
+      "en": "In the evening I write characters and watch TV at home.",
+      "words": [
+       "晚上",
+       "我",
+       "在家",
+       "寫字",
+       "看",
+       "電視"
+      ]
+     },
+     {
+      "zh": "我很喜歡屏東！",
+      "zhuyin": "ㄨㄛˇ ㄏㄣˇ ㄒㄧˇ ㄏㄨㄢ ㄆㄧㄥˊ ㄉㄨㄥ",
+      "en": "I really like Pingtung!",
+      "words": [
+       "我",
+       "很",
+       "喜歡",
+       "屏東"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "Where does the writer go first every morning?",
+     "options_en": [
+      "To the park",
+      "To school",
+      "To the night market"
+     ],
+     "answer": 0
+    },
+    {
+     "question_en": "What does the writer like to have for breakfast?",
+     "options_en": [
+      "Bread and milk",
+      "Steamed buns and hot tea",
+      "Noodles and coffee"
+     ],
+     "answer": 1
+    },
+    {
+     "question_en": "Why can the writer understand the teacher?",
+     "options_en": [
+      "She speaks English",
+      "She writes everything down",
+      "She speaks slowly"
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "id": "R1-02",
+   "level": "第1級",
+   "vocab_max": "第1*級",
+   "chars": 139,
+   "topic_en": "A weekend with family",
+   "title": {
+    "zh": "小美的週末",
+    "zhuyin": "ㄒㄧㄠˇ ㄇㄟˇ ˙ㄉㄜ ㄓㄡ ㄇㄛˋ",
+    "en": "Xiaomei's Weekend"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "我叫小美，我在高雄念大學。",
+      "zhuyin": "ㄨㄛˇ ㄐㄧㄠˋ ㄒㄧㄠˇ ㄇㄟˇ ㄨㄛˇ ㄗㄞˋ ㄍㄠ ㄒㄩㄥˊ ㄋㄧㄢˋ ㄉㄚˋ ㄒㄩㄝˊ",
+      "en": "My name is Xiaomei. I go to university in Kaohsiung.",
+      "words": [
+       "我",
+       "叫",
+       "小美",
+       "我",
+       "在",
+       "高雄",
+       "念",
+       "大學"
+      ]
+     },
+     {
+      "zh": "我家在屏東，週末我常常坐火車去看爸爸媽媽。",
+      "zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄓㄡ ㄇㄛˋ ㄨㄛˇ ㄔㄤˊ ㄔㄤˊ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄑㄩˋ ㄎㄢˋ ㄅㄚˋ ˙ㄅㄚ ㄇㄚ ˙ㄇㄚ",
+      "en": "My family lives in Pingtung, and at weekends I often take the train to see my mum and dad.",
+      "words": [
+       "我",
+       "家",
+       "在",
+       "屏東",
+       "週末",
+       "我",
+       "常常",
+       "坐",
+       "火車",
+       "去",
+       "看",
+       "爸爸",
+       "媽媽"
+      ]
+     },
+     {
+      "zh": "坐火車不到一個小時就到。",
+      "zhuyin": "ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄅㄨˋ ㄉㄠˋ ㄧ ˙ㄍㄜ ㄒㄧㄠˇ ㄕˊ ㄐㄧㄡˋ ㄉㄠˋ",
+      "en": "By train it takes less than an hour.",
+      "words": [
+       "坐",
+       "火車",
+       "不到",
+       "一個",
+       "小時",
+       "就",
+       "到"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "星期六早上，我和媽媽一起去買菜。",
+      "zhuyin": "ㄒㄧㄥ ㄑㄧˊ ㄌㄧㄡˋ ㄗㄠˇ ㄕㄤˋ ㄨㄛˇ ㄏㄜˊ ㄇㄚ ˙ㄇㄚ ㄧ ㄑㄧˇ ㄑㄩˋ ㄇㄞˇ ㄘㄞˋ",
+      "en": "On Saturday morning, Mum and I go food shopping together.",
+      "words": [
+       "星期",
+       "六",
+       "早上",
+       "我",
+       "和",
+       "媽媽",
+       "一起",
+       "去",
+       "買菜"
+      ]
+     },
+     {
+      "zh": "我們買魚、雞肉和很多水果。",
+      "zhuyin": "ㄨㄛˇ ˙ㄇㄣ ㄇㄞˇ ㄩˊ ㄐㄧ ㄖㄡˋ ㄏㄜˊ ㄏㄣˇ ㄉㄨㄛ ㄕㄨㄟˇ ㄍㄨㄛˇ",
+      "en": "We buy fish, chicken and lots of fruit.",
+      "words": [
+       "我們",
+       "買",
+       "魚",
+       "雞",
+       "肉",
+       "和",
+       "很",
+       "多",
+       "水果"
+      ]
+     },
+     {
+      "zh": "屏東的水果又便宜又好吃。",
+      "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄕㄨㄟˇ ㄍㄨㄛˇ ㄧㄡˋ ㄆㄧㄢˊ ㄧˊ ㄧㄡˋ ㄏㄠˇ ㄔ",
+      "en": "Fruit in Pingtung is cheap and delicious.",
+      "words": [
+       "屏東",
+       "的",
+       "水果",
+       "又",
+       "便宜",
+       "又",
+       "好吃"
+      ]
+     },
+     {
+      "zh": "中午爸爸做飯，我們一家人一起吃飯。",
+      "zhuyin": "ㄓㄨㄥ ㄨˇ ㄅㄚˋ ˙ㄅㄚ ㄗㄨㄛˋ ㄈㄢˋ ㄨㄛˇ ˙ㄇㄣ ㄧ ㄐㄧㄚ ㄖㄣˊ ㄧ ㄑㄧˇ ㄔ ㄈㄢˋ",
+      "en": "At noon Dad cooks, and the whole family eats together.",
+      "words": [
+       "中午",
+       "爸爸",
+       "做飯",
+       "我們",
+       "一",
+       "家人",
+       "一起",
+       "吃飯"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "下午我們去公園走走，晚上我和哥哥看電影。",
+      "zhuyin": "ㄒㄧㄚˋ ㄨˇ ㄨㄛˇ ˙ㄇㄣ ㄑㄩˋ ㄍㄨㄥ ㄩㄢˊ ㄗㄡˇ ㄗㄡˇ ㄨㄢˇ ㄕㄤˋ ㄨㄛˇ ㄏㄜˊ ㄍㄜ ˙ㄍㄜ ㄎㄢˋ ㄉㄧㄢˋ ㄧㄥˇ",
+      "en": "In the afternoon we take a walk in the park, and in the evening my brother and I watch a film.",
+      "words": [
+       "下午",
+       "我們",
+       "去",
+       "公園",
+       "走走",
+       "晚上",
+       "我",
+       "和",
+       "哥哥",
+       "看",
+       "電影"
+      ]
+     },
+     {
+      "zh": "星期天晚上，我再坐火車去高雄。",
+      "zhuyin": "ㄒㄧㄥ ㄑㄧˊ ㄊㄧㄢ ㄨㄢˇ ㄕㄤˋ ㄨㄛˇ ㄗㄞˋ ㄗㄨㄛˋ ㄏㄨㄛˇ ㄔㄜ ㄑㄩˋ ㄍㄠ ㄒㄩㄥˊ",
+      "en": "On Sunday evening I take the train back to Kaohsiung.",
+      "words": [
+       "星期天",
+       "晚上",
+       "我",
+       "再",
+       "坐",
+       "火車",
+       "去",
+       "高雄"
+      ]
+     },
+     {
+      "zh": "我很喜歡週末，因為可以和家人在一起。",
+      "zhuyin": "ㄨㄛˇ ㄏㄣˇ ㄒㄧˇ ㄏㄨㄢ ㄓㄡ ㄇㄛˋ ㄧㄣ ㄨㄟˋ ㄎㄜˇ ㄧˇ ㄏㄜˊ ㄐㄧㄚ ㄖㄣˊ ㄗㄞˋ ㄧ ㄑㄧˇ",
+      "en": "I love weekends, because I can be with my family.",
+      "words": [
+       "我",
+       "很",
+       "喜歡",
+       "週末",
+       "因為",
+       "可以",
+       "和",
+       "家人",
+       "在",
+       "一起"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "How does Xiaomei travel to Pingtung?",
+     "options_en": [
+      "By bus",
+      "By train",
+      "By taxi"
+     ],
+     "answer": 1
+    },
+    {
+     "question_en": "Who cooks lunch on Saturday?",
+     "options_en": [
+      "Her mother",
+      "Her brother",
+      "Her father"
+     ],
+     "answer": 2
+    },
+    {
+     "question_en": "Why does Xiaomei love weekends?",
+     "options_en": [
+      "She can be with her family",
+      "She can sleep late",
+      "She can watch films with friends"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "id": "R1-03",
+   "level": "第1級",
+   "vocab_max": "第1*級",
+   "chars": 116,
+   "topic_en": "A Taiwanese breakfast shop",
+   "title": {
+    "zh": "早餐店",
+    "zhuyin": "ㄗㄠˇ ㄘㄢ ㄉㄧㄢˋ",
+    "en": "The Breakfast Shop"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "我家旁邊有一家早餐店，早上六點就開。",
+      "zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄆㄤˊ ㄅㄧㄢ ㄧㄡˇ ㄧ ㄐㄧㄚ ㄗㄠˇ ㄘㄢ ㄉㄧㄢˋ ㄗㄠˇ ㄕㄤˋ ㄌㄧㄡˋ ㄉㄧㄢˇ ㄐㄧㄡˋ ㄎㄞ",
+      "en": "There is a breakfast shop next to my home. It opens at six in the morning.",
+      "words": [
+       "我",
+       "家",
+       "旁邊",
+       "有",
+       "一",
+       "家",
+       "早餐",
+       "店",
+       "早上",
+       "六",
+       "點",
+       "就",
+       "開"
+      ]
+     },
+     {
+      "zh": "店裡的人很多，有學生，也有帶孩子的爸爸媽媽。",
+      "zhuyin": "ㄉㄧㄢˋ ㄌㄧˇ ˙ㄉㄜ ㄖㄣˊ ㄏㄣˇ ㄉㄨㄛ ㄧㄡˇ ㄒㄩㄝˊ ㄕㄥ ㄧㄝˇ ㄧㄡˇ ㄉㄞˋ ㄏㄞˊ ˙ㄗ ˙ㄉㄜ ㄅㄚˋ ˙ㄅㄚ ㄇㄚ ˙ㄇㄚ",
+      "en": "There are lots of people in the shop: students, and also mums and dads with their children.",
+      "words": [
+       "店",
+       "裡",
+       "的",
+       "人",
+       "很",
+       "多",
+       "有",
+       "學生",
+       "也",
+       "有",
+       "帶",
+       "孩子",
+       "的",
+       "爸爸",
+       "媽媽"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "這家店的東西很多，有麵包、包子、蛋，還有麵。",
+      "zhuyin": "ㄓㄜˋ ㄐㄧㄚ ㄉㄧㄢˋ ˙ㄉㄜ ㄉㄨㄥ ˙ㄒㄧ ㄏㄣˇ ㄉㄨㄛ ㄧㄡˇ ㄇㄧㄢˋ ㄅㄠ ㄅㄠ ˙ㄗ ㄉㄢˋ ㄏㄞˊ ㄧㄡˇ ㄇㄧㄢˋ",
+      "en": "This shop has lots of food: bread, steamed buns, eggs and noodles.",
+      "words": [
+       "這",
+       "家",
+       "店",
+       "的",
+       "東西",
+       "很",
+       "多",
+       "有",
+       "麵包",
+       "包子",
+       "蛋",
+       "還有",
+       "麵"
+      ]
+     },
+     {
+      "zh": "喝的有茶、咖啡和牛奶。",
+      "zhuyin": "ㄏㄜ ˙ㄉㄜ ㄧㄡˇ ㄔㄚˊ ㄎㄚ ㄈㄟ ㄏㄜˊ ㄋㄧㄡˊ ㄋㄞˇ",
+      "en": "To drink there is tea, coffee and milk.",
+      "words": [
+       "喝",
+       "的",
+       "有",
+       "茶",
+       "咖啡",
+       "和",
+       "牛奶"
+      ]
+     },
+     {
+      "zh": "我最喜歡這裡的蛋和熱咖啡。",
+      "zhuyin": "ㄨㄛˇ ㄗㄨㄟˋ ㄒㄧˇ ㄏㄨㄢ ㄓㄜˋ ㄌㄧˇ ˙ㄉㄜ ㄉㄢˋ ㄏㄜˊ ㄖㄜˋ ㄎㄚ ㄈㄟ",
+      "en": "What I like best here is the eggs and the hot coffee.",
+      "words": [
+       "我",
+       "最",
+       "喜歡",
+       "這裡",
+       "的",
+       "蛋",
+       "和",
+       "熱",
+       "咖啡"
+      ]
+     },
+     {
+      "zh": "我的早餐一共六十塊，很便宜。",
+      "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄗㄠˇ ㄘㄢ ㄧ ㄍㄨㄥˋ ㄌㄧㄡˋ ㄕˊ ㄎㄨㄞˋ ㄏㄣˇ ㄆㄧㄢˊ ㄧˊ",
+      "en": "My breakfast comes to sixty dollars altogether. It's cheap.",
+      "words": [
+       "我",
+       "的",
+       "早餐",
+       "一共",
+       "六",
+       "十",
+       "塊",
+       "很",
+       "便宜"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "店裡的小姐每天都說：「早安！」",
+      "zhuyin": "ㄉㄧㄢˋ ㄌㄧˇ ˙ㄉㄜ ㄒㄧㄠˇ ㄐㄧㄝˇ ㄇㄟˇ ㄊㄧㄢ ㄉㄡ ㄕㄨㄛ ㄗㄠˇ ㄢ",
+      "en": "The young woman in the shop says \"Good morning!\" every day.",
+      "words": [
+       "店",
+       "裡",
+       "的",
+       "小姐",
+       "每天",
+       "都",
+       "說",
+       "早安"
+      ]
+     },
+     {
+      "zh": "她知道我喜歡吃什麼。",
+      "zhuyin": "ㄊㄚ ㄓ ㄉㄠˋ ㄨㄛˇ ㄒㄧˇ ㄏㄨㄢ ㄔ ㄕㄣˊ ˙ㄇㄜ",
+      "en": "She knows what I like to eat.",
+      "words": [
+       "她",
+       "知道",
+       "我",
+       "喜歡",
+       "吃",
+       "什麼"
+      ]
+     },
+     {
+      "zh": "吃早餐以後，我走路去學校。",
+      "zhuyin": "ㄔ ㄗㄠˇ ㄘㄢ ㄧˇ ㄏㄡˋ ㄨㄛˇ ㄗㄡˇ ㄌㄨˋ ㄑㄩˋ ㄒㄩㄝˊ ㄒㄧㄠˋ",
+      "en": "After breakfast I walk to school.",
+      "words": [
+       "吃",
+       "早餐",
+       "以後",
+       "我",
+       "走路",
+       "去",
+       "學校"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "What time does the breakfast shop open?",
+     "options_en": [
+      "At five",
+      "At six",
+      "At seven"
+     ],
+     "answer": 1
+    },
+    {
+     "question_en": "How much does the writer's breakfast cost?",
+     "options_en": [
+      "50 dollars",
+      "100 dollars",
+      "60 dollars"
+     ],
+     "answer": 2
+    },
+    {
+     "question_en": "What does the young woman in the shop know?",
+     "options_en": [
+      "What the writer likes to eat",
+      "Where the writer's school is",
+      "The writer's name"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "id": "R1-04",
+   "level": "第1級",
+   "vocab_max": "第1*級",
+   "chars": 109,
+   "topic_en": "Pingtung weather",
+   "title": {
+    "zh": "屏東的天氣",
+    "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄊㄧㄢ ㄑㄧˋ",
+    "en": "The Weather in Pingtung"
+   },
+   "paragraphs": [
+    [
+     {
+      "zh": "屏東的天氣很熱。",
+      "zhuyin": "ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄊㄧㄢ ㄑㄧˋ ㄏㄣˇ ㄖㄜˋ",
+      "en": "The weather in Pingtung is hot.",
+      "words": [
+       "屏東",
+       "的",
+       "天氣",
+       "很",
+       "熱"
+      ]
+     },
+     {
+      "zh": "早上的天氣常常很好，有時候下午會下雨。",
+      "zhuyin": "ㄗㄠˇ ㄕㄤˋ ˙ㄉㄜ ㄊㄧㄢ ㄑㄧˋ ㄔㄤˊ ㄔㄤˊ ㄏㄣˇ ㄏㄠˇ ㄧㄡˇ ㄕˊ ˙ㄏㄡ ㄒㄧㄚˋ ㄨˇ ㄏㄨㄟˋ ㄒㄧㄚˋ ㄩˇ",
+      "en": "The mornings are often fine, and sometimes it rains in the afternoon.",
+      "words": [
+       "早上",
+       "的",
+       "天氣",
+       "常常",
+       "很",
+       "好",
+       "有時候",
+       "下午",
+       "會",
+       "下雨"
+      ]
+     },
+     {
+      "zh": "下雨的時候，我不出去，在家喝茶、看書。",
+      "zhuyin": "ㄒㄧㄚˋ ㄩˇ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄨㄛˇ ㄅㄨˋ ㄔㄨ ㄑㄩˋ ㄗㄞˋ ㄐㄧㄚ ㄏㄜ ㄔㄚˊ ㄎㄢˋ ㄕㄨ",
+      "en": "When it rains I don't go out; I stay home, drink tea and read.",
+      "words": [
+       "下雨",
+       "的",
+       "時候",
+       "我",
+       "不",
+       "出去",
+       "在家",
+       "喝",
+       "茶",
+       "看",
+       "書"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "天氣很熱的時候，我喜歡吃冰。",
+      "zhuyin": "ㄊㄧㄢ ㄑㄧˋ ㄏㄣˇ ㄖㄜˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄨㄛˇ ㄒㄧˇ ㄏㄨㄢ ㄔ ㄅㄧㄥ",
+      "en": "When it's very hot, I like to eat shaved ice.",
+      "words": [
+       "天氣",
+       "很",
+       "熱",
+       "的",
+       "時候",
+       "我",
+       "喜歡",
+       "吃",
+       "冰"
+      ]
+     },
+     {
+      "zh": "我家附近有一家冰店，我最喜歡吃那裡的水果冰。",
+      "zhuyin": "ㄨㄛˇ ㄐㄧㄚ ㄈㄨˋ ㄐㄧㄣˋ ㄧㄡˇ ㄧ ㄐㄧㄚ ㄅㄧㄥ ㄉㄧㄢˋ ㄨㄛˇ ㄗㄨㄟˋ ㄒㄧˇ ㄏㄨㄢ ㄔ ㄋㄚˋ ㄌㄧˇ ˙ㄉㄜ ㄕㄨㄟˇ ㄍㄨㄛˇ ㄅㄧㄥ",
+      "en": "There is an ice shop near my home, and I like its fruit ice best.",
+      "words": [
+       "我",
+       "家",
+       "附近",
+       "有",
+       "一",
+       "家",
+       "冰",
+       "店",
+       "我",
+       "最",
+       "喜歡",
+       "吃",
+       "那裡",
+       "的",
+       "水果",
+       "冰"
+      ]
+     },
+     {
+      "zh": "走路的時候，也要多喝水。",
+      "zhuyin": "ㄗㄡˇ ㄌㄨˋ ˙ㄉㄜ ㄕˊ ㄏㄡˋ ㄧㄝˇ ㄧㄠˋ ㄉㄨㄛ ㄏㄜ ㄕㄨㄟˇ",
+      "en": "When you walk around, you should also drink plenty of water.",
+      "words": [
+       "走路",
+       "的",
+       "時候",
+       "也",
+       "要",
+       "多",
+       "喝",
+       "水"
+      ]
+     }
+    ],
+    [
+     {
+      "zh": "十二月和一月不太熱，早上和晚上有一點冷。",
+      "zhuyin": "ㄕˊ ㄦˋ ㄩㄝˋ ㄏㄜˊ ㄧ ㄩㄝˋ ㄅㄨˋ ㄊㄞˋ ㄖㄜˋ ㄗㄠˇ ㄕㄤˋ ㄏㄜˊ ㄨㄢˇ ㄕㄤˋ ㄧㄡˇ ㄧ ㄉㄧㄢˇ ㄌㄥˇ",
+      "en": "December and January are not too hot; mornings and evenings are a little cold.",
+      "words": [
+       "十",
+       "二",
+       "月",
+       "和",
+       "一月",
+       "不",
+       "太",
+       "熱",
+       "早上",
+       "和",
+       "晚上",
+       "有一點",
+       "冷"
+      ]
+     },
+     {
+      "zh": "我覺得那兩個月最舒服。",
+      "zhuyin": "ㄨㄛˇ ㄐㄩㄝˊ ˙ㄉㄜ ㄋㄚˋ ㄌㄧㄤˇ ㄍㄜˋ ㄩㄝˋ ㄗㄨㄟˋ ㄕㄨ ˙ㄈㄨ",
+      "en": "I think those two months are the most comfortable.",
+      "words": [
+       "我",
+       "覺得",
+       "那",
+       "兩",
+       "個",
+       "月",
+       "最",
+       "舒服"
+      ]
+     }
+    ]
+   ],
+   "questions": [
+    {
+     "question_en": "What sometimes happens in the afternoon?",
+     "options_en": [
+      "It gets cold",
+      "It rains",
+      "It gets windy"
+     ],
+     "answer": 1
+    },
+    {
+     "question_en": "What does the writer do when it rains?",
+     "options_en": [
+      "Goes to the ice shop",
+      "Walks in the park",
+      "Stays home, drinks tea and reads"
+     ],
+     "answer": 2
+    },
+    {
+     "question_en": "Which months does the writer find most comfortable?",
+     "options_en": [
+      "December and January",
+      "June and July",
+      "August and September"
+     ],
+     "answer": 0
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": "L2-05", "level": "第2*級", "order": 5,
+  "topic": "郵局 and 銀行/ATM", "title_zh": "在郵局", "title_en": "At the post office",
+  "can_do_en": "I can send a parcel abroad, choose between air and sea mail after asking how long and how much, and ask where the ATM is and whether my card costs a fee.",
+  "dialogue": [
+    {"speaker": "郵局人員", "zh": "下一位，請過來。", "zhuyin": "ㄒㄧㄚˋ ㄧ ㄨㄟˋ ㄑㄧㄥˇ ㄍㄨㄛˋ ㄌㄞˊ", "en": "Next, please come over."},
+    {"speaker": "馬克", "zh": "你好，這個包裹我要寄到美國。", "zhuyin": "ㄋㄧˇ ㄏㄠˇ ㄓㄜˋ ˙ㄍㄜ ㄅㄠ ㄍㄨㄛˇ ㄨㄛˇ ㄧㄠˋ ㄐㄧˋ ㄉㄠˋ ㄇㄟˇ ㄍㄨㄛˊ", "en": "Hi, I'd like to send this parcel to the US."},
+    {"speaker": "郵局人員", "zh": "好，請放上來。兩公斤……你要寄空運還是海運？", "zhuyin": "ㄏㄠˇ ㄑㄧㄥˇ ㄈㄤˋ ㄕㄤˋ ㄌㄞˊ ㄌㄧㄤˇ ㄍㄨㄥ ㄐㄧㄣ ㄋㄧˇ ㄧㄠˋ ㄐㄧˋ ㄎㄨㄥ ㄩㄣˋ ㄏㄞˊ ㄕˋ ㄏㄞˇ ㄩㄣˋ", "en": "OK, put it up here, please. Two kilos… Do you want to send it by air or by sea?"},
+    {"speaker": "馬克", "zh": "空運需要多久？多少錢？", "zhuyin": "ㄎㄨㄥ ㄩㄣˋ ㄒㄩ ㄧㄠˋ ㄉㄨㄛ ㄐㄧㄡˇ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ", "en": "How long does airmail take? How much is it?"},
+    {"speaker": "郵局人員", "zh": "空運差不多一個星期就會到，一千多塊。海運比較便宜，可是要兩、三個月。", "zhuyin": "ㄎㄨㄥ ㄩㄣˋ ㄔㄚ ㄅㄨˋ ㄉㄨㄛ ㄧ ˙ㄍㄜ ㄒㄧㄥ ㄑㄧˊ ㄐㄧㄡˋ ㄏㄨㄟˋ ㄉㄠˋ ㄧ ㄑㄧㄢ ㄉㄨㄛ ㄎㄨㄞˋ ㄏㄞˇ ㄩㄣˋ ㄅㄧˇ ㄐㄧㄠˋ ㄆㄧㄢˊ ㄧˊ ㄎㄜˇ ㄕˋ ㄧㄠˋ ㄌㄧㄤˇ ㄙㄢ ˙ㄍㄜ ㄩㄝˋ", "en": "Airmail gets there in about a week, for a little over a thousand dollars. Sea mail is cheaper, but it takes two or three months."},
+    {"speaker": "馬克", "zh": "那我寄空運好了。我媽媽下個月生日。", "zhuyin": "ㄋㄚˋ ㄨㄛˇ ㄐㄧˋ ㄎㄨㄥ ㄩㄣˋ ㄏㄠˇ ˙ㄌㄜ ㄨㄛˇ ㄇㄚ ˙ㄇㄚ ㄒㄧㄚˋ ˙ㄍㄜ ㄩㄝˋ ㄕㄥ ㄖˋ", "en": "Then I'll go with airmail. My mom's birthday is next month."},
+    {"speaker": "郵局人員", "zh": "好，請先填這張單子，地址跟電話要寫清楚喔。", "zhuyin": "ㄏㄠˇ ㄑㄧㄥˇ ㄒㄧㄢ ㄊㄧㄢˊ ㄓㄜˋ ㄓㄤ ㄉㄢ ˙ㄗ ㄉㄧˋ ㄓˇ ㄍㄣ ㄉㄧㄢˋ ㄏㄨㄚˋ ㄧㄠˋ ㄒㄧㄝˇ ㄑㄧㄥ ㄔㄨˇ ㄛ", "en": "OK, please fill in this form first. Write the address and phone number clearly, OK?"},
+    {"speaker": "馬克", "zh": "好……填好了。", "zhuyin": "ㄏㄠˇ ㄊㄧㄢˊ ㄏㄠˇ ˙ㄌㄜ", "en": "OK… done."},
+    {"speaker": "郵局人員", "zh": "裡面是什麼東西，你有寫嗎？", "zhuyin": "ㄌㄧˇ ㄇㄧㄢˋ ㄕˋ ㄕㄣˊ ˙ㄇㄜ ㄉㄨㄥ ˙ㄒㄧ ㄋㄧˇ ㄧㄡˇ ㄒㄧㄝˇ ˙ㄇㄚ", "en": "Did you write down what's inside?"},
+    {"speaker": "馬克", "zh": "有，衣服跟茶葉。對了，你們這裡有提款機嗎？我想領錢。", "zhuyin": "ㄧㄡˇ ㄧ ˙ㄈㄨ ㄍㄣ ㄔㄚˊ ㄧㄝˋ ㄉㄨㄟˋ ˙ㄌㄜ ㄋㄧˇ ˙ㄇㄣ ㄓㄜˋ ㄌㄧˇ ㄧㄡˇ ㄊㄧˊ ㄎㄨㄢˇ ㄐㄧ ˙ㄇㄚ ㄨㄛˇ ㄒㄧㄤˇ ㄌㄧㄥˇ ㄑㄧㄢˊ", "en": "Yes: clothes and tea. Oh, by the way, do you have an ATM here? I'd like to take out some money."},
+    {"speaker": "郵局人員", "zh": "有，在門口旁邊。你的卡是郵局的嗎？別家銀行的卡也可以用，可是要手續費喔。", "zhuyin": "ㄧㄡˇ ㄗㄞˋ ㄇㄣˊ ㄎㄡˇ ㄆㄤˊ ㄅㄧㄢ ㄋㄧˇ ˙ㄉㄜ ㄎㄚˇ ㄕˋ ㄧㄡˊ ㄐㄩˊ ˙ㄉㄜ ˙ㄇㄚ ㄅㄧㄝˊ ㄐㄧㄚ ㄧㄣˊ ㄏㄤˊ ˙ㄉㄜ ㄎㄚˇ ㄧㄝˇ ㄎㄜˇ ㄧˇ ㄩㄥˋ ㄎㄜˇ ㄕˋ ㄧㄠˋ ㄕㄡˇ ㄒㄩˋ ㄈㄟˋ ㄛ", "en": "Yes, next to the entrance. Is your card a post office card? Other banks' cards work too, but there's a fee."},
+    {"speaker": "馬克", "zh": "是郵局的。我的帳戶是上個月在這裡開的。", "zhuyin": "ㄕˋ ㄧㄡˊ ㄐㄩˊ ˙ㄉㄜ ㄨㄛˇ ˙ㄉㄜ ㄓㄤˋ ㄏㄨˋ ㄕˋ ㄕㄤˋ ˙ㄍㄜ ㄩㄝˋ ㄗㄞˋ ㄓㄜˋ ㄌㄧˇ ㄎㄞ ˙ㄉㄜ", "en": "It's a post office card. I opened my account here last month."},
+    {"speaker": "郵局人員", "zh": "那就不用手續費。一共一千一百八十塊。這張給你，用上面的號碼，可以在網路上查包裹到哪裡了。", "zhuyin": "ㄋㄚˋ ㄐㄧㄡˋ ㄅㄨˋ ㄩㄥˋ ㄕㄡˇ ㄒㄩˋ ㄈㄟˋ ㄧ ㄍㄨㄥˋ ㄧ ㄑㄧㄢ ㄧ ㄅㄞˇ ㄅㄚ ㄕˊ ㄎㄨㄞˋ ㄓㄜˋ ㄓㄤ ㄍㄟˇ ㄋㄧˇ ㄩㄥˋ ㄕㄤˋ ㄇㄧㄢˋ ˙ㄉㄜ ㄏㄠˋ ㄇㄚˇ ㄎㄜˇ ㄧˇ ㄗㄞˋ ㄨㄤˇ ㄌㄨˋ ㄕㄤˋ ㄔㄚˊ ㄅㄠ ㄍㄨㄛˇ ㄉㄠˋ ㄋㄚˇ ㄌㄧˇ ˙ㄌㄜ", "en": "Then there's no fee. That's 1,180 dollars altogether. This slip is for you: with the number on it, you can check online where your parcel is."},
+    {"speaker": "馬克", "zh": "好，給你。謝謝！", "zhuyin": "ㄏㄠˇ ㄍㄟˇ ㄋㄧˇ ㄒㄧㄝˋ ˙ㄒㄧㄝ", "en": "OK, here you go. Thanks!"}
+  ],
+  "vocab": [
+    {"zh": "郵局", "zhuyin": "ㄧㄡˊ ㄐㄩˊ", "en": "post office", "pos": "n", "measure": "家", "level": "第2*級"},
+    {"zh": "寄", "zhuyin": "ㄐㄧˋ", "en": "to send (by mail); 寄到 + place: send to", "pos": "v", "level": "第2*級"},
+    {"zh": "包裹", "zhuyin": "ㄅㄠ ㄍㄨㄛˇ", "en": "parcel, package", "pos": "n", "measure": "個", "level": "第4*級"},
+    {"zh": "公斤", "zhuyin": "ㄍㄨㄥ ㄐㄧㄣ", "en": "kilogram", "pos": "m", "level": "第4級"},
+    {"zh": "空運", "zhuyin": "ㄎㄨㄥ ㄩㄣˋ", "en": "airmail, air freight", "pos": "n", "level": "第5級"},
+    {"zh": "海運", "zhuyin": "ㄏㄞˇ ㄩㄣˋ", "en": "sea mail, sea freight", "pos": "n", "level": "第5級"},
+    {"zh": "需要", "zhuyin": "ㄒㄩ ㄧㄠˋ", "en": "to need; to take (time)", "pos": "v", "level": "第2級"},
+    {"zh": "差不多", "zhuyin": "ㄔㄚ ㄅㄨˋ ㄉㄨㄛ", "en": "about, roughly; almost", "pos": "adv", "level": "第2級"},
+    {"zh": "填", "zhuyin": "ㄊㄧㄢˊ", "en": "to fill in (a form)", "pos": "v", "level": "第4級"},
+    {"zh": "單子", "zhuyin": "ㄉㄢ ˙ㄗ", "en": "form, slip", "pos": "n", "measure": "張", "level": null},
+    {"zh": "地址", "zhuyin": "ㄉㄧˋ ㄓˇ", "en": "address", "pos": "n", "measure": "個", "level": "第2*級"},
+    {"zh": "清楚", "zhuyin": "ㄑㄧㄥ ㄔㄨˇ", "en": "clear; clearly", "pos": "adj", "level": "第2級"},
+    {"zh": "提款機", "zhuyin": "ㄊㄧˊ ㄎㄨㄢˇ ㄐㄧ", "en": "ATM, cash machine", "pos": "n", "measure": "台", "level": null},
+    {"zh": "領錢", "zhuyin": "ㄌㄧㄥˇ ㄑㄧㄢˊ", "en": "to withdraw money, take out cash", "pos": "v", "level": null},
+    {"zh": "銀行", "zhuyin": "ㄧㄣˊ ㄏㄤˊ", "en": "bank", "pos": "n", "measure": "家", "level": "第2級"},
+    {"zh": "手續費", "zhuyin": "ㄕㄡˇ ㄒㄩˋ ㄈㄟˋ", "en": "fee, service charge", "pos": "n", "level": null},
+    {"zh": "帳戶", "zhuyin": "ㄓㄤˋ ㄏㄨˋ", "en": "(bank) account; 開帳戶 open an account", "pos": "n", "measure": "個", "level": "第5級"},
+    {"zh": "號碼", "zhuyin": "ㄏㄠˋ ㄇㄚˇ", "en": "number (phone, tracking)", "pos": "n", "measure": "個", "level": "第2*級"},
+    {"zh": "網路", "zhuyin": "ㄨㄤˇ ㄌㄨˋ", "en": "the internet; 在網路上 online", "pos": "n", "level": "第2級"},
+    {"zh": "查", "zhuyin": "ㄔㄚˊ", "en": "to check, look up", "pos": "v", "level": "第3級"}
+  ],
+  "grammar": [
+    {"id": "G072", "note_en": "這個包裹我要寄到美國: 到 + place right after the verb says where the parcel will end up. Nothing goes between 寄 and 到. You'll say it at every post office counter: 寄到台北, 寄到日本."},
+    {"id": "G081", "note_en": "The clerk asks 你要寄空運還是海運？: 還是 offers two choices, so the question needs no 嗎. Answer with the one you pick: 寄空運."},
+    {"id": "G097", "note_en": "Opening the account is already known; 是上個月在這裡開的 puts the focus on when and where it happened. 是 goes before the detail, 的 at the end, and there is no 了."}
+  ],
+  "pronunciation": {
+    "contrast": "an-ang",
+    "tone_pair": "22",
+    "note_en": "Keep ㄢ and ㄤ apart: 單子 ㄉㄢ ˙ㄗ and 便宜 ㄆㄧㄢˊ ㄧˊ end with the tongue tip on the ridge behind the teeth; 帳戶 ㄓㄤˋ ㄏㄨˋ, 銀行 ㄧㄣˊ ㄏㄤˊ and 這張 ㄓㄜˋ ㄓㄤ end open, with the back of the tongue raised (\"ahng\"). Tone pair 2+2 (two rises): 郵局 ㄧㄡˊ ㄐㄩˊ and 銀行 ㄧㄣˊ ㄏㄤˊ. Let both syllables rise; don't let the second one fall. In 郵局 the ㄐㄩˊ needs rounded lips with the tongue held for ㄧ. 一共 is written ㄧ ㄍㄨㄥˋ but said ㄧˊ ㄍㄨㄥˋ, and 不用 is said ㄅㄨˊ ㄩㄥˋ."
+  },
+  "shadowing": [
+    {"zh": "這個包裹我要寄到美國。", "zhuyin": "ㄓㄜˋ ˙ㄍㄜ ㄅㄠ ㄍㄨㄛˇ ㄨㄛˇ ㄧㄠˋ ㄐㄧˋ ㄉㄠˋ ㄇㄟˇ ㄍㄨㄛˊ", "en": "I'd like to send this parcel to the US."},
+    {"zh": "你要寄空運還是海運？", "zhuyin": "ㄋㄧˇ ㄧㄠˋ ㄐㄧˋ ㄎㄨㄥ ㄩㄣˋ ㄏㄞˊ ㄕˋ ㄏㄞˇ ㄩㄣˋ", "en": "Do you want to send it by air or by sea?"},
+    {"zh": "空運需要多久？多少錢？", "zhuyin": "ㄎㄨㄥ ㄩㄣˋ ㄒㄩ ㄧㄠˋ ㄉㄨㄛ ㄐㄧㄡˇ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ", "en": "How long does airmail take? How much is it?"},
+    {"zh": "那我寄空運好了。", "zhuyin": "ㄋㄚˋ ㄨㄛˇ ㄐㄧˋ ㄎㄨㄥ ㄩㄣˋ ㄏㄠˇ ˙ㄌㄜ", "en": "Then I'll go with airmail."},
+    {"zh": "你們這裡有提款機嗎？我想領錢。", "zhuyin": "ㄋㄧˇ ˙ㄇㄣ ㄓㄜˋ ㄌㄧˇ ㄧㄡˇ ㄊㄧˊ ㄎㄨㄢˇ ㄐㄧ ˙ㄇㄚ ㄨㄛˇ ㄒㄧㄤˇ ㄌㄧㄥˇ ㄑㄧㄢˊ", "en": "Do you have an ATM here? I'd like to take out some money."},
+    {"zh": "別家銀行的卡也可以用，可是要手續費喔。", "zhuyin": "ㄅㄧㄝˊ ㄐㄧㄚ ㄧㄣˊ ㄏㄤˊ ˙ㄉㄜ ㄎㄚˇ ㄧㄝˇ ㄎㄜˇ ㄧˇ ㄩㄥˋ ㄎㄜˇ ㄕˋ ㄧㄠˋ ㄕㄡˇ ㄒㄩˋ ㄈㄟˋ ㄛ", "en": "Other banks' cards work too, but there's a fee."},
+    {"zh": "我的帳戶是上個月在這裡開的。", "zhuyin": "ㄨㄛˇ ˙ㄉㄜ ㄓㄤˋ ㄏㄨˋ ㄕˋ ㄕㄤˋ ˙ㄍㄜ ㄩㄝˋ ㄗㄞˋ ㄓㄜˋ ㄌㄧˇ ㄎㄞ ˙ㄉㄜ", "en": "I opened my account here last month."}
+  ],
+  "comprehension": [
+    {"question_en": "Where is Mark sending his parcel?", "options_en": ["To Japan", "To the US", "To Taipei"], "answer": 1},
+    {"question_en": "Why does he choose airmail?", "options_en": ["His mother's birthday is next month.", "Sea mail is more expensive.", "The clerk says sea mail is not possible."], "answer": 0},
+    {"question_en": "How long does sea mail take?", "options_en": ["About a week", "About two weeks", "Two or three months"], "answer": 2},
+    {"question_en": "What else does Mark want to do at the post office?", "options_en": ["Buy stamps", "Open an account", "Take out money from the ATM"], "answer": 2},
+    {"question_en": "Why won't Mark pay an ATM fee?", "options_en": ["His card is from the post office.", "He pays the fee at the counter.", "ATMs are free in Pingtung."], "answer": 0}
+  ],
+  "speaking": {
+    "prompt_en": "You're at a post office in Pingtung, sending a parcel home. Say where it's going, ask how long air and sea mail take and what they cost, pick one, say what's inside, and then ask whether there's an ATM.",
+    "prompt_zh": "你在屏東的郵局寄包裹回你的國家。請說要寄到哪裡，問空運跟海運要多久、多少錢，選一個，說裡面是什麼東西，再問郵局有沒有提款機。",
+    "checklist_en": [
+      "said where the parcel goes with 寄到 + place",
+      "asked or answered an either/or question with 還是 (空運還是海運)",
+      "asked 需要多久？ and 多少錢？",
+      "asked 有提款機嗎？ or said 我想領錢",
+      "kept ㄢ (單子) and ㄤ (帳戶, 銀行) apart, and let both syllables of 郵局 rise"
+    ]
+  },
+  "writing": {
+    "prompt_en": "Write a short LINE message (3–5 sentences) to a friend: you went to the post office today, what you sent and where to, whether you chose air or sea mail and why, and what you did afterwards.",
+    "prompt_zh": "請寫一個短短的LINE訊息給朋友：你今天去郵局寄了什麼、寄到哪裡、寄空運還是海運、為什麼，還有寄好了以後做了什麼。",
+    "model_zh": "我今天去郵局寄包裹到美國了，裡面是要送我媽媽的衣服跟茶葉。海運要兩、三個月，太慢了，所以我寄空運。空運比較貴，一千多塊，可是差不多一個星期就會到。寄好了，我就去提款機領錢。",
+    "model_zhuyin": "ㄨㄛˇ ㄐㄧㄣ ㄊㄧㄢ ㄑㄩˋ ㄧㄡˊ ㄐㄩˊ ㄐㄧˋ ㄅㄠ ㄍㄨㄛˇ ㄉㄠˋ ㄇㄟˇ ㄍㄨㄛˊ ˙ㄌㄜ ㄌㄧˇ ㄇㄧㄢˋ ㄕˋ ㄧㄠˋ ㄙㄨㄥˋ ㄨㄛˇ ㄇㄚ ˙ㄇㄚ ˙ㄉㄜ ㄧ ˙ㄈㄨ ㄍㄣ ㄔㄚˊ ㄧㄝˋ ㄏㄞˇ ㄩㄣˋ ㄧㄠˋ ㄌㄧㄤˇ ㄙㄢ ˙ㄍㄜ ㄩㄝˋ ㄊㄞˋ ㄇㄢˋ ˙ㄌㄜ ㄙㄨㄛˇ ㄧˇ ㄨㄛˇ ㄐㄧˋ ㄎㄨㄥ ㄩㄣˋ ㄎㄨㄥ ㄩㄣˋ ㄅㄧˇ ㄐㄧㄠˋ ㄍㄨㄟˋ ㄧ ㄑㄧㄢ ㄉㄨㄛ ㄎㄨㄞˋ ㄎㄜˇ ㄕˋ ㄔㄚ ㄅㄨˋ ㄉㄨㄛ ㄧ ˙ㄍㄜ ㄒㄧㄥ ㄑㄧˊ ㄐㄧㄡˋ ㄏㄨㄟˋ ㄉㄠˋ ㄐㄧˋ ㄏㄠˇ ˙ㄌㄜ ㄨㄛˇ ㄐㄧㄡˋ ㄑㄩˋ ㄊㄧˊ ㄎㄨㄢˇ ㄐㄧ ㄌㄧㄥˇ ㄑㄧㄢˊ"
+  },
+  "culture_en": "Taiwan's post office, Chunghwa Post (中華郵政), also runs a savings bank: at the same counters you can mail a parcel or open an account (帳戶), and post offices, even in small towns, have ATMs (提款機). Taking cash out with another bank's card (跨行提款) costs a small fee (手續費). Outside a post office you'll see two mailboxes: the green one is for ordinary mail within Taiwan, and the red one is for prompt delivery (限時) and airmail."
+}
