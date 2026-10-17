@@ -36,18 +36,26 @@ self.addEventListener("fetch", e => {
     return;
   }
   if (url.pathname.includes("/data/")) {
-    e.respondWith(caches.open(DATA).then(async c => {
-      try { const res = await fetch(e.request, { cache: "no-cache" }); if (res.ok) c.put(e.request, res.clone()); return res; }
-      catch { return (await c.match(e.request)) || Response.error(); }
-    }));
+    e.respondWith(caches.open(DATA).then(c => networkFirst(c, e.request)));
     return;
   }
   // app shell: network first (so updates arrive immediately), cache fallback when offline
-  e.respondWith(caches.open(SHELL).then(async c => {
-    try { const res = await fetch(e.request, { cache: "no-cache" }); if (res.ok) c.put(e.request, res.clone()); return res; }
-    catch { return (await c.match(e.request, { ignoreSearch: true })) || Response.error(); }
-  }));
+  e.respondWith(caches.open(SHELL).then(c => networkFirst(c, e.request, { ignoreSearch: true })));
 });
+
+// Network first, but a connection that stalls (weak signal) falls back to the cached copy after 4 s; the network
+// answer still refreshes the cache when it arrives. With nothing cached it keeps waiting for the network.
+async function networkFirst(c, req, matchOpts) {
+  const net = fetch(req, { cache: "no-cache" }).then(res => { if (res.ok) c.put(req, res.clone()).catch(() => {}); return res; });
+  net.catch(() => {});
+  try {
+    const res = await Promise.race([net, new Promise(r => setTimeout(r, 4000))]);
+    if (res) return res;
+    return (await c.match(req, matchOpts)) || await net;
+  } catch {
+    return (await c.match(req, matchOpts)) || Response.error();
+  }
+}
 
 // Pinned library files: cache first, keyed by URL. Only a complete 200 is stored (the module import is a CORS
 // request, so its response is readable); an error, or a miss while offline, goes back to the page as it is.

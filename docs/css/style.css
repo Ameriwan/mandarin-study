@@ -75,6 +75,8 @@ p { margin: 0 0 .9em; max-width: 66ch; }
 .tabbar .ico { font-size: 20px; line-height: 1; }
 .tabbar a.active, .tabbar button.active { color: var(--accent); font-weight: 500; }
 @media (min-width: 900px) { .tabbar { display: none; } }
+/* keyboard focus scrolled into view must clear the fixed tab bar */
+@media (max-width: 899px) { html { scroll-padding-bottom: calc(72px + env(safe-area-inset-bottom)); } }
 .more-sheet { position: fixed; left: 0; right: 0; bottom: 0; background: var(--surface); border-top: 1px solid var(--line); border-radius: 16px 16px 0 0;
   padding: 12px var(--gutter) calc(80px + env(safe-area-inset-bottom)); z-index: 30; box-shadow: 0 -8px 30px rgba(0,0,0,.15); }
 .more-sheet a { display: block; padding: 12px 4px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line); font-size: 17px; }

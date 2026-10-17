@@ -3,7 +3,7 @@
 A free static web app for self-study of Taiwan Mandarin (國語): Traditional characters, Zhuyin first, MOE (教育部)
 readings and Taiwan vocabulary. It works offline on a phone and a laptop once visited (PWA).
 
-**Live site:** GitHub Pages serves the `docs/` folder (not published yet).
+**Live site:** https://ameriwan.github.io/mandarin-study/ (GitHub Pages serves the `docs/` folder).
 
 ## What is in it
 
@@ -46,7 +46,7 @@ Every Zhuyin string in `content/` is checked against TBCL and the MOE dictionari
 `build-report.md` lists warnings, audio coverage and size. Preview locally with
 `python -m http.server 8782 --directory docs` and open http://localhost:8782.
 
-`update-site.cmd` builds, commits and pushes in one step (once the GitHub repo exists).
+`update-site.cmd` builds, commits and pushes in one step.
 
 ## Audio honesty
 

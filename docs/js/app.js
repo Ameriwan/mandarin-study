@@ -381,16 +381,22 @@ export function audioContext() {
 const probe = document.createElement("audio");
 const canOgg = !!probe.canPlayType && probe.canPlayType('audio/ogg; codecs="vorbis"') !== "";
 export const moeUrl = id => `audio/moe/${id}.${canOgg ? "ogg" : "mp3"}`;
+// Decoded clips, most recently used last. A decoded clip is several MB, so only the last few are kept.
 const buffers = new Map();
+const MAX_BUFFERS = 6;
 async function decode(url) {
-  if (!buffers.has(url)) {
-    buffers.set(url, fetch(url).then(r => { if (!r.ok) throw new Error(url); return r.arrayBuffer(); }).then(b => audioContext().decodeAudioData(b))
-      .catch(err => { buffers.delete(url); throw err; })); // a failed load (offline, 404) is retried next time
-  }
-  return buffers.get(url);
+  let p = buffers.get(url);
+  if (p) { buffers.delete(url); buffers.set(url, p); return p; }
+  p = fetch(url).then(r => { if (!r.ok) throw new Error(url); return r.arrayBuffer(); }).then(b => audioContext().decodeAudioData(b))
+    .catch(err => { if (buffers.get(url) === p) buffers.delete(url); throw err; }); // a failed load (offline, 404) is retried next time
+  buffers.set(url, p);
+  while (buffers.size > MAX_BUFFERS) buffers.delete(buffers.keys().next().value);
+  return p;
 }
 let current = null; // {stop()}
+let playToken = 0; // bumped by every stop, so a clip still decoding when stopped never starts
 function stopPlayback() {
+  playToken++;
   if (current) { try { current.stop(); } catch { /* ignore */ } current = null; }
   if ("speechSynthesis" in window) speechSynthesis.cancel();
 }
@@ -408,7 +414,9 @@ export async function playMoe(id, { rate = defaultRate(), span = true } = {}) {
   if (!info) throw new Error("no clip " + id);
   stopPlayback();
   if (Math.abs(rate - 1) > 0.001) return playSlowMoe(moeUrl(id), info, rate, span);
+  const token = playToken;
   const buf = await decode(moeUrl(id));
+  if (token !== playToken) return; // stopped (or another clip started) while decoding
   const c = audioContext();
   const src = c.createBufferSource();
   src.buffer = buf;
@@ -549,6 +557,7 @@ export class Recorder {
     this.chunks = [];
     this.rec = new MediaRecorder(this.stream);
     this.rec.ondataavailable = e => e.data.size && this.chunks.push(e.data);
+    this.rec.onstop = () => this.finish(); // also when the recording ends by itself (mic unplugged, call, iOS interruption)
     this.rec.start();
     this.t0 = performance.now();
     if (onFrame) {
@@ -568,17 +577,21 @@ export class Recorder {
     liveRecorders.delete(this);
     if (!this.rec) return Promise.resolve(null);
     return this.stopping ||= new Promise(resolve => {
+      this.resolveStop = resolve;
       cancelAnimationFrame(this.raf);
-      this.rec.onstop = () => {
-        this.stream.getTracks().forEach(t => t.stop());
-        try { this.src && this.src.disconnect(); } catch { /* ignore */ }
-        const blob = new Blob(this.chunks, { type: this.rec.mimeType || "audio/webm" });
-        this.rec = null; this.stopping = null;
-        if (this.onstopped) this.onstopped(blob);
-        resolve(blob);
-      };
-      this.rec.stop();
+      if (this.rec.state !== "inactive") this.rec.stop(); // else its onstop is already on the way
     });
+  }
+  finish() {
+    liveRecorders.delete(this);
+    cancelAnimationFrame(this.raf);
+    this.stream.getTracks().forEach(t => t.stop());
+    try { this.src && this.src.disconnect(); } catch { /* ignore */ }
+    const blob = new Blob(this.chunks, { type: this.rec.mimeType || "audio/webm" });
+    const resolve = this.resolveStop;
+    this.rec = null; this.stopping = null; this.resolveStop = null;
+    if (this.onstopped) this.onstopped(blob);
+    if (resolve) resolve(blob);
   }
 }
 

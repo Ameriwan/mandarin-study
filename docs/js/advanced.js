@@ -1086,13 +1086,16 @@ function monologue(topics) {
   const clock = h("span", { class: "adv-clock", role: "timer", "aria-live": "off" }, "1:00");
   const takes = h("div", { class: "adv-mono-takes" });
   const rec = canRecord ? new Recorder() : null;
-  let tick = 0, t0 = 0;
+  let tick = 0, t0 = 0, starting = false;
   const fmt = s => { s = Math.max(0, Math.ceil(s)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
   const btn = h("button", { type: "button", class: "btn primary", "aria-pressed": "false", disabled: !canRecord, onclick: async () => {
     if (rec.recording) { rec.stop(); return; }
+    if (starting) return; // permission prompt still open
+    starting = true;
     try {
       if (!(await rec.start())) return;
     } catch { toast("需要麥克風權限 Microphone permission needed"); return; }
+    finally { starting = false; }
     t0 = performance.now();
     setRec(true);
     status.replaceChildren("錄音中，一分鐘後自動停。", enText(" Recording: it stops by itself after one minute."));

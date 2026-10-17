@@ -106,3 +106,5 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 ### 2026-10-17 · PUBLISH
 - Amadeus approved creating the public repo. Created github.com/Ameriwan/mandarin-study (public), pushed main, GitHub Pages from /docs. Live: https://ameriwan.github.io/mandarin-study/ (all pages, data and audio return 200).
 - M7 polish done: proper ㄅ app icons (192, 512, maskable, Apple touch icon), README rewritten. The final §10 QA workflow was stopped before it reported; run `CHECK` to finish it (offline test in headless Edge, axe audit, code review).
+
+- M7 QA fixes (2026-10-17): decoded-clip cache capped at 6 (memory), stopped clips no longer start after decoding, a recording that ends by itself is kept and resets its button, monologue Record ignores double taps, service worker falls back to cache after 4 s on a stalled connection, focused controls clear the mobile tab bar. Remaining QA findings are listed for CHECK.
