@@ -8,7 +8,8 @@
 // Audio (ground rule 5, every source labelled): dialogue and shadowing lines play their build TTS file through
 // player.js (slowed playback keeps its pitch) or, without one, the browser voice; a vocabulary word plays its MOE clip,
 // self-hosted when audio.json has it, else streamed from the moedict CDN with its headword span as the Library does
-// (library.js), else the browser voice. Listening (dialogue, comprehension, the contrast drill) and speaking
+// (library.js), else nothing: a disabled button marked 無錄音 (a lone word or a neutral tone never goes to the browser
+// voice, §7.6, §7.1). Listening (dialogue, comprehension, the contrast drill) and speaking
 // (shadowing, the speaking task) are separate sections (§6.7).
 //
 // Store keys (app.js store, prefix "gy."):
@@ -51,6 +52,7 @@ const UNSPANNED_MAX = 1.2; // s: a streamed clip whose headword span is not meas
 const MOE_NAME = "MOE human voice · 教育部真人發音";
 const TTS_NAME = "TTS (Google zh-TW)";
 const VOICE_NAME = "Browser voice (no recording built) · 瀏覽器語音";
+const NO_CLIP = "無錄音 No MOE recording";
 // [id, 中文, English]: the unit page's sections, in the spec's order (§5.5)
 export const SECTIONS = [["goal", "目標", "Can-do"], ["dialogue", "對話", "Dialogue"], ["vocab", "生詞", "Vocabulary"], ["grammar", "語法", "Grammar"],
   ["pron", "發音", "Pronunciation"], ["shadow", "跟讀", "Shadowing"], ["check", "理解", "Comprehension"], ["speak", "說", "Speaking"],
@@ -437,12 +439,15 @@ function playStream(id, span) {
     a.play().catch(err => { if (stream === me) { stream = null; reject(err); } });
   });
 }
-// A vocabulary word's play button: self-hosted MOE clip, streamed MOE clip, or the browser voice (each labelled).
+// A vocabulary word's play button: self-hosted MOE clip or streamed MOE clip (each labelled). A word with no MOE clip
+// gets a disabled button and a 無錄音 note: the browser voice misreads lone words and cannot say the neutral tone (§7.6).
 function vocabAudio(v) {
   const id = v.id != null && v.id !== "" ? String(v.id) : null;
   const local = id && audioInfo(id);
   if (local && local.src === "moe") return playButton({ id, zh: v.zh });
-  if (!id) return playButton({ zh: v.zh });
+  if (!id) return h("span", { class: "row", style: "gap:6px" },
+    h("button", { class: "btn icon", type: "button", disabled: true, title: NO_CLIP, "aria-label": `播放 Play ${v.zh} — ${NO_CLIP}` }, "🔊"),
+    h("span", { class: "badge none un-noclip", "aria-hidden": "true" }, ...bi("無錄音", "no MOE recording")));
   const span = spanOf(v.s);
   const name = span ? `${MOE_NAME} (streamed from moedict.tw)` : `${MOE_NAME} (streamed; first ${UNSPANNED_MAX} s, the word's exact span is not measured yet)`;
   const btn = h("button", { class: "btn icon un-stream", type: "button", title: name, "aria-label": `播放 Play ${v.zh} — ${name}`,

@@ -65,14 +65,25 @@ export function mountShell(active) {
 }
 function openMore(items, active, btn) {
   const esc = e => { if (e.key === "Escape") close(); };
-  const close = () => { sheet.remove(); back.remove(); document.removeEventListener("keydown", esc); btn.setAttribute("aria-expanded", "false"); btn.focus(); };
-  const back = h("div", { class: "backdrop", onclick: close });
+  // Focus landing anywhere outside the sheet (Tab / Shift+Tab out of it, or back in from the browser's own UI after
+  // Tab past the last link) closes it, so focus never sits on a control the sheet covers. A window blur or a click on
+  // the backdrop moves focus nowhere and is left to the handlers here.
+  const away = e => { if (!sheet.contains(e.target)) close(false); };
+  // refocus: back to the 更多 button (Escape, backdrop), not when focus already went elsewhere
+  const close = (refocus = true) => {
+    if (!sheet.isConnected) return;
+    sheet.remove(); back.remove(); document.removeEventListener("keydown", esc); document.removeEventListener("focusin", away);
+    btn.setAttribute("aria-expanded", "false");
+    if (refocus) btn.focus();
+  };
+  const back = h("div", { class: "backdrop", onclick: () => close() });
   const sheet = h("div", { class: "more-sheet", role: "dialog", "aria-label": "更多 More pages", tabindex: "-1" },
     items.map(n => navLink(n, active, [h("span", { lang: "zh-Hant-TW" }, n.zh), " ", h("span", { lang: "en" }, n.en)], soonNote())));
   document.body.append(back, sheet);
   btn.setAttribute("aria-expanded", "true");
   (sheet.querySelector("a[href]") || sheet).focus(); // unbuilt entries are not focusable
   document.addEventListener("keydown", esc);
+  document.addEventListener("focusin", away);
 }
 
 export function toast(msg, ms = 2400) {
@@ -142,8 +153,9 @@ const NAMED = "button, a, label, summary, legend, caption, th, dt, h1, h2, h3, h
   + "[role=checkbox], [role=radio], [role=menuitem], [role=option], [role=columnheader], [role=rowheader]";
 // English that immersion leaves alone: kept names, and learning-content English (class "lc-en": translations, glosses,
 // quiz questions and answer options, lesson explanations; older page classes below), which follows only the English
-// switch. Keep this list in step with the immersion rule in style.css.
-export const IMM_SHOWN = ".imm-keep, .lc-en, .adv-name, .gloss, .tr, .lib-gloss, .lib-row-en, .lib-ex-en, .tc-gloss, .tg-word-en, .sd-en, "
+// switch; and screen-reader-only text (.sr-only), which is often a control's or a header's only accessible name.
+// Keep this list in step with the immersion rule in style.css.
+export const IMM_SHOWN = ".imm-keep, .sr-only, .lc-en, .adv-name, .gloss, .tr, .lib-gloss, .lib-row-en, .lib-ex-en, .tc-gloss, .tg-word-en, .sd-en, "
   + ".drill-gloss, .example > .en, .choice > .en, .un-line-en, .un-v-en, .un-g-en, .un-sh-en, .un-task-en, .sh-en, .sh-row-en";
 const LETTER = /[\p{L}\p{N}]/u;
 function hiddenInImmersion(node, stop) {
@@ -226,31 +238,40 @@ export function startDate() {
   return d;
 }
 export function daysSinceStart() {
-  const [y, m, d] = startDate().split("-").map(Number);
-  const now = new Date();
-  return Math.floor((new Date(now.getFullYear(), now.getMonth(), now.getDate()) - new Date(y, m - 1, d)) / 86400000);
+  const [y, m, d] = String(startDate()).split("-").map(Number);
+  return dayDiff(new Date(y, m - 1, d), new Date()) || 0;
 }
 
-export function today() {
-  const d = new Date();
+// ---------- calendar days (local dates; never elapsed ms / 86400000, which is an hour off across a DST change)
+// "YYYY-MM-DD" of a local date
+export function dateKey(d = new Date()) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
+// Calendar days from date a to date b (b later: positive), whatever the time of day or a DST change between them
+export function dayDiff(a, b) {
+  return Math.round((Date.UTC(b.getFullYear(), b.getMonth(), b.getDate()) - Date.UTC(a.getFullYear(), a.getMonth(), a.getDate())) / 86400000);
+}
+// The Monday that starts the week of `d` (weeks run Monday to Sunday, as on the Plan and Shadowing pages), at local midnight
+export function weekStart(d = new Date()) {
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate() - ((d.getDay() + 6) % 7));
+}
+export function today() { return dateKey(); }
 // minutes studied per day per block, for the streak and weekly export
 export function logMinutes(block, minutes) {
-  const days = store.get("days", {});
+  const days = store.get("days", {}) || {};
   const day = days[today()] || {};
   day[block] = Math.round(((day[block] || 0) + minutes) * 10) / 10;
   days[today()] = day;
   store.set("days", days);
 }
 export function streak() {
-  const days = store.get("days", {});
+  const days = store.get("days", {}) || {};
   const active = key => days[key] && Object.values(days[key]).some(v => v > 0);
   const d = new Date();
-  const key = x => `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, "0")}-${String(x.getDate()).padStart(2, "0")}`;
-  if (!active(key(d))) d.setDate(d.getDate() - 1);
+  d.setHours(12, 0, 0, 0); // stepping back a day at noon never lands on a skipped or repeated hour
+  if (!active(dateKey(d))) d.setDate(d.getDate() - 1);
   let n = 0;
-  while (active(key(d))) { n++; d.setDate(d.getDate() - 1); }
+  while (active(dateKey(d))) { n++; d.setDate(d.getDate() - 1); }
   return n;
 }
 
@@ -456,9 +477,14 @@ export async function playFile(path, { rate = /^(blob|data):/.test(String(path))
   stopPlayback();
   const a = new Audio(path);
   a.playbackRate = rate; a.preservesPitch = true;
-  const me = { stop: () => a.pause() };
-  current = me;
-  return new Promise(resolve => { a.onended = a.onerror = () => { if (current === me) current = null; resolve(); }; a.play().catch(() => resolve()); });
+  // resolves however it ends: played out, failed, or stopped (a paused <audio> fires no "ended")
+  return new Promise(resolve => {
+    const done = () => { a.pause(); if (current === me) current = null; resolve(); };
+    const me = { stop: done };
+    current = me;
+    a.onended = a.onerror = done;
+    a.play().catch(done);
+  });
 }
 // The Taiwan voice for TTS: Settings › Browser voice (a voice name) when this device has it, else the best guess.
 function pickVoice() {
@@ -635,17 +661,27 @@ export function recordWidget({ key, label = "錄音 Record", onDone } = {}) {
   return wrap;
 }
 
-// ---------- time on page (minutes studied): only spans during which the tab was visible count
+// ---------- time on page (minutes studied, §8.2): visible time counts while the learner is active: input (pointer,
+// key, wheel, scroll) in the last 3 minutes, or sound playing, or a recording running. An open tab left alone stops
+// counting and starts again at the next input.
+const IDLE_MS = 180000;
+const sounding = new Set();
+// Sound played outside app.js (player.js, a page's own <audio>) can report itself here while it plays (on) and when it
+// stops, so listening along to a long loop without a tap still counts.
+export function soundActive(who, on) { if (on) sounding.add(who); else sounding.delete(who); }
+const soundOn = () => !!current || liveRecorders.size > 0 || sounding.size > 0 || ("speechSynthesis" in window && speechSynthesis.speaking);
 export function trackTime(block) {
-  let last = performance.now(), wasVisible = document.visibilityState === "visible";
+  let last = performance.now(), lastInput = last, active = document.visibilityState === "visible";
   const flush = () => {
     const now = performance.now();
-    // A tick is 30 s; a longer visible span means the machine slept without a visibilitychange, so cap it.
-    if (wasVisible) logMinutes(block, Math.min(now - last, 60000) / 60000);
+    // A tick is 30 s; a longer span means the machine slept without a visibilitychange, so cap it.
+    if (active) logMinutes(block, Math.min(now - last, 60000) / 60000);
     last = now;
-    wasVisible = document.visibilityState === "visible";
+    active = document.visibilityState === "visible" && (now - lastInput < IDLE_MS || soundOn());
   };
+  const input = () => { lastInput = performance.now(); if (!active) flush(); }; // back from idle: count from now, not the next tick
+  for (const t of ["pointerdown", "keydown", "wheel", "scroll"]) document.addEventListener(t, input, { capture: true, passive: true });
   setInterval(flush, 30000);
-  document.addEventListener("visibilitychange", flush);
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") lastInput = performance.now(); flush(); });
   window.addEventListener("pagehide", flush);
 }

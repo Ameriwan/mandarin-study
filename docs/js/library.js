@@ -1,11 +1,12 @@
 // 資料庫 Library (MASTER_PROMPT §5.6, M4 design §3): one search over every collection (characters, Zhuyin with or
 // without tones, pinyin with or without tones, English), browsing by collection with level / topic / type / status
 // filters, and the entry view (ruby, audio, examples, grammar notes, my note, status, a "say it" recorder, dictionary
-// links). Lists render in pages of 50, so ~3,500 words stay fast.
+// links). Lists render in pages of 50, and search results the best 100 first, so ~3,500 words stay fast.
 //
 // Audio: a word plays its MOE clip: the self-hosted one when docs/data/audio.json has it, else STREAMED from the moedict
 // CDN with a media fragment for the headword span (`#t=s,e`), or, before the span is measured, the file's first 1.2 s
-// (cut by the page). Sentences play their TTS file (labelled TTS) or the browser voice (labelled). Nothing else.
+// (cut by the page); a word with no MOE clip plays nothing (never the browser voice, §7.6). Sentences play their TTS
+// file (labelled TTS) or the browser voice (labelled). Nothing else.
 //
 // The data files are optional: a missing one shows a clear notice for its collection, and when search.json is missing
 // the page builds the same index from the collections itself (pinyin then only for words).
@@ -41,11 +42,16 @@ const NOTES_KEY = "lib.notes";   // {"<type>:<key>": "text"}
 // Unit words the Library's collections don't have (units.js stub entries): {"word:<key>": {zh, zhuyin, spoken, en, p, id,
 // s, unit}}, saved with their status so the word is a Library entry everywhere (Today's Review, the status filter).
 const EXTRA_KEY = "lib.extra";
+const TROUBLE_KEY = "lib.trouble"; // what Today shows of the "trouble" items (troubleKept)
 const PAGE = 50;
+// Search draws the best SEARCH_FIRST hits first (each group at least its best SEARCH_MIN), so a one-letter query doesn't
+// draw hundreds of ruby rows at once; each group's "show more" adds a PAGE.
+const SEARCH_FIRST = 100, SEARCH_MIN = 3;
 const MOE_STREAM = "https://r2-assets.moedict.tw/audio/a/";
 const UNSPANNED_MAX = 1.2; // s: a streamed clip whose headword span is not measured yet plays at most this long
 const SEARCH_DELAY = 140;  // ms debounce
 const MOE_NAME = "MOE human voice · 教育部真人發音";
+const NO_CLIP = "無錄音 No MOE recording";
 
 // search.json types, whatever the build calls them
 const TYPE_ALIASES = {
@@ -377,6 +383,28 @@ export function setStatus(e, s) {
   if (!s || s === "new") delete m[statusKey(e)]; else m[statusKey(e)] = s;
   store.set(STATUS_KEY, m);
   if (e && e.extra && typeof e.extra === "object") keepExtra(e, s && s !== "new");
+  const t = troubleKept(), k = statusKey(e);
+  if (s === "trouble" || k in t) { const n = { ...t }; if (s === "trouble") n[k] = troubleItem(e); else delete n[k]; store.set(TROUBLE_KEY, n); }
+}
+// What Today's Review shows of each item marked "trouble" ({"<type>:<key>": {type, key, zh, zhuyin, en, href} | null for a
+// key known nowhere}), kept with the mark and refreshed whenever the Library loads: Today needn't load it for a few words.
+const troubleKept = () => { const m = store.get(TROUBLE_KEY, {}); return m && typeof m === "object" && !Array.isArray(m) ? m : {}; };
+const troubleItem = e => ({ type: e.type, key: e.key, zh: str(e.zh), zhuyin: str(e.zhuyin), en: str(e.en), href: e.href || entryHref(e) });
+const troubleOk = x => x === null || (!!x && typeof x === "object" && typeof x.zh === "string" && !!x.zh && !!x.type && x.key != null && !!x.href);
+function troubleFrom(L) {
+  const m = statusMap(), old = troubleKept(), out = {};
+  for (const k of Object.keys(m)) {
+    if (m[k] !== "trouble") continue;
+    const i = k.indexOf(":");
+    const type = k.slice(0, i), key = k.slice(i + 1);
+    const e = resolve(L.lookup, type, key);
+    const zh = key.split("|")[0];
+    // not found (a collection missing offline, say): what was kept stays rather than the bare characters
+    out[k] = e ? troubleItem(e) : old[k] && troubleOk(old[k]) ? old[k]
+      : i > 0 && HAN.test(zh) ? { type, key, zh, zhuyin: "", en: "", href: `library.html?q=${encodeURIComponent(zh)}` } : null;
+  }
+  if (JSON.stringify(out) !== JSON.stringify(old)) store.set(TROUBLE_KEY, out);
+  return out;
 }
 // A unit word outside the collections (e.extra: what units.js knows of it) is kept while it has a status or a note.
 const extraMap = () => { const m = store.get(EXTRA_KEY, {}); return m && typeof m === "object" ? m : {}; };
@@ -436,25 +464,27 @@ export function loadLibrary() {
         chengyu, radical: chars ? listOf(chars.radicals) : null }, search, mistakes);
       // what the 成語 and 部首 entries must credit (CC BY-ND unmodified; CC-CEDICT meanings BY-SA)
       L.meta = { chengyu: chengyu && typeof chengyu === "object" && !Array.isArray(chengyu) ? chengyu : {}, chars: chars && typeof chars === "object" ? chars.license || {} : {} };
-      return addExtras(L);
+      addExtras(L);
+      troubleFrom(L); // the kept "trouble" items, from this data
+      return L;
     });
   }
   return libPromise;
 }
 export async function findEntry(type, key) { const lib = await loadLibrary(); return resolve(lib.lookup, type, key); }
-// Library items marked "trouble" (Today's Review block): [{type, key, zh, zhuyin, en, href, extra?}]. A unit word the
-// Library doesn't have comes from what units.js kept (lib.extra); a key known nowhere still comes back with its characters.
+// Library items marked "trouble" (Today's Review block): [{type, key, zh, zhuyin, en, href, extra?}], from what was kept
+// with each mark (troubleKept); the Library loads only for a mark with nothing kept (made before, or imported). A unit
+// word the Library doesn't have comes from what units.js kept (lib.extra); a key known nowhere still comes back with its
+// characters.
 export async function troubleEntries() {
-  const lib = addExtras(await loadLibrary());
-  const m = statusMap();
-  return Object.keys(m).filter(k => m[k] === "trouble").map(k => {
-    const i = k.indexOf(":");
-    const type = k.slice(0, i), key = k.slice(i + 1);
-    const e = resolve(lib.lookup, type, key);
-    if (e) return { type: e.type, key: e.key, zh: e.zh, zhuyin: e.zhuyin, en: e.en, href: entryHref(e), ...(e.extra ? { extra: e.extra } : {}) };
-    const zh = key.split("|")[0];
-    return i > 0 && HAN.test(zh) ? { type, key, zh, zhuyin: "", en: "", href: `library.html?q=${encodeURIComponent(zh)}` } : null;
-  }).filter(Boolean);
+  const m = statusMap(), ex = extraMap();
+  const keys = Object.keys(m).filter(k => m[k] === "trouble");
+  let kept = troubleKept();
+  if (!keys.every(k => k in kept && troubleOk(kept[k]))) kept = troubleFrom(addExtras(await loadLibrary()));
+  return keys.map(k => kept[k]).filter(Boolean).map(x => {
+    const xk = `${x.type}:${x.key}`;
+    return ex[xk] && typeof ex[xk] === "object" ? { ...x, extra: ex[xk] } : { ...x };
+  });
 }
 
 // ------------------------------------------------------------------ page state
@@ -526,13 +556,16 @@ function clipFor(e) {
   }
   return { id: id ? String(id) : null, span };
 }
-// Play button for a word-like headword: self-hosted MOE, streamed MOE, or the browser voice (each labelled; voice: false
-// gives no button instead of the browser voice, for a radical the voice would only spell out).
-function wordAudio(e, { voice = true } = {}) {
+// Play button for a word-like headword: self-hosted MOE or streamed MOE (each labelled). With no MOE clip, never the
+// browser voice (§7.1, §7.6: it misreads lone characters and can't say the neutral tone; TTS is for sentences): a
+// disabled button marked 無錄音, as on the Units page (note: false, for a radical, gives nothing).
+function wordAudio(e, { note = true } = {}) {
   const { id, span } = clipFor(e);
   const local = id && audioInfo(id);
   if (local && local.src === "moe") return playButton({ id, zh: e.zh });
-  if (!id) return voice ? playButton({ zh: e.zh }) : null;
+  if (!id) return note ? h("span", { class: "row", style: "gap:6px" },
+    h("button", { class: "btn icon", type: "button", disabled: true, title: NO_CLIP, "aria-label": `播放 Play ${e.zh} — ${NO_CLIP}` }, "🔊"),
+    h("span", { class: "badge none", "aria-hidden": "true" }, ...bi("無錄音", "no MOE recording"))) : null;
   const name = span ? `${MOE_NAME} (streamed from moedict.tw)` : `${MOE_NAME} (streamed; first ${UNSPANNED_MAX} s, the word's exact span is not measured yet)`;
   const btn = h("button", { class: "btn icon lib-stream", type: "button", title: name, "aria-label": `播放 Play ${e.zh} — ${name}`,
     onclick: async ev => {
@@ -767,18 +800,19 @@ function row(e, sm) {
         : e.band ? h("span", { class: "lib-lv", title: `CEFR ${e.band}` }, e.band) : null,
       st !== "new" ? h("span", { class: `lib-st st-${st}`, title: STATUS_NAME[st] }, h("span", { class: "sr-only" }, ` ${STATUS_NAME[st]}`)) : null)));
 }
-// Renders items in pages of 50 into box, with "show more"; state.shown[key] keeps the count across redraws.
-function pagedList(box, items, key, sm) {
+// Renders items in pages of 50 (the first page: `first`) into box, with "show more"; state.shown[key] keeps the count
+// across redraws.
+function pagedList(box, items, key, sm, first = PAGE) {
   const ul = h("ul", { class: "lib-list" });
   const more = h("div", { class: "lib-more" });
   const draw = (focusFrom = -1) => {
-    const n = Math.min(items.length, state.shown[key] || PAGE);
+    const n = Math.min(items.length, state.shown[key] || first);
     for (let i = ul.children.length; i < n; i++) ul.append(row(items[i], sm));
     clear(more);
     if (n < items.length) {
       more.append(h("button", { type: "button", class: "btn", onclick: () => {
         const from = ul.children.length;
-        state.shown[key] = (state.shown[key] || PAGE) + PAGE;
+        state.shown[key] = (state.shown[key] || first) + PAGE;
         draw(from);
       } }, ...bi(`再顯示 ${Math.min(PAGE, items.length - n)} 筆`, "Show more")), h("span", { class: "small muted" }, `${n} / ${items.length}`));
     }
@@ -837,8 +871,9 @@ function drawResults() {
     if (!lib.hasSearch && q.kind === "latin") box.append(h("p", { class: "small muted" }, enText("(The search index docs/data/search.json isn't built yet, so only words have pinyin.)")));
     return;
   }
-  const groups = new Map();
+  const groups = new Map(), best = new Map();
   for (const e of hits) { if (!groups.has(e.type)) groups.set(e.type, []); groups.get(e.type).push(e); }
+  for (const e of hits.slice(0, SEARCH_FIRST)) best.set(e.type, (best.get(e.type) || 0) + 1);
   const order = [...TYPES, ...[...groups.keys()].filter(t => !TYPES.includes(t))];
   for (const t of order) {
     const list = groups.get(t);
@@ -846,7 +881,8 @@ function drawResults() {
     const id = `res-${t}`;
     const sec = h("section", { class: "lib-group", "aria-labelledby": id },
       h("h2", { id, class: "lib-group-h" }, h("span", { lang: "zh-Hant-TW" }, info(t).zh), " ", h("span", { lang: "en", class: "muted" }, info(t).en), h("span", { class: "lib-group-n" }, ` ${list.length}`)));
-    pagedList(sec, list, `search:${t}`, sm);
+    // a group's first page: its share of the best SEARCH_FIRST hits overall, and at least its best SEARCH_MIN
+    pagedList(sec, list, `search:${t}`, sm, Math.max(best.get(t) || 0, Math.min(list.length, SEARCH_MIN)));
     box.append(sec);
   }
 }
@@ -957,7 +993,7 @@ function renderEntry(box, e) {
         : h("span", { class: "lib-chip" }, "量詞 ", h("span", { lang: "en" }, "MW"), " ", h("span", { lang: "zh-Hant-TW" }, c)));
     }
   }
-  const audio = wordLike ? wordAudio(e, { voice: e.type !== "radical" }) : e.type === "phrase" ? sentenceAudio(e.zh, r.audio) : null;
+  const audio = wordLike ? wordAudio(e, { note: e.type !== "radical" }) : e.type === "phrase" ? sentenceAudio(e.zh, r.audio) : null;
   const live = h("p", { class: "sr-only", "aria-live": "polite" });
   const cur = statusOf(e);
   const seg = h("div", { class: "lib-status", role: "group", "aria-label": "狀態 Status" }, STATUSES.map(([id, zh, en]) => h("button", { type: "button", "data-s": id, "aria-pressed": String(cur === id),
@@ -1045,7 +1081,7 @@ function renderEntry(box, e) {
   box.append(section("sec-note-h", "我的筆記", "My note", ta, h("div", { class: "row lib-note-row" }, saved, h("span", { class: "small muted" }, "只存在這台裝置 ", h("span", { lang: "en" }, "Stays on this device")))));
 
   // say it: the model, then my take (kept in IndexedDB on this device)
-  const model = wordLike ? wordAudio(e, { voice: e.type !== "radical" }) : e.type === "phrase" ? sentenceAudio(e.zh, r.audio) : examples[0] ? sentenceAudio(examples[0].zh, examples[0].audio) : null;
+  const model = wordLike ? wordAudio(e, { note: e.type !== "radical" }) : e.type === "phrase" ? sentenceAudio(e.zh, r.audio) : examples[0] ? sentenceAudio(examples[0].zh, examples[0].audio) : null;
   const sayWhat = !wordLike && e.type !== "phrase" && examples[0] ? h("p", { class: "lib-say-what" }, ruby(examples[0].zh, examples[0].zhuyin, { cls: "", spoken: examples[0].spoken })) : null;
   box.append(section("sec-say", "說說看", "Say it",
     h("p", { class: "small muted" }, "先聽示範，再錄自己的聲音比一比。", enText(" Hear the model, then record yourself and compare.")),

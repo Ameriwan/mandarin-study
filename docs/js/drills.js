@@ -14,7 +14,8 @@
 //
 // `focus`: true makes the first trial focus its first control (Play again, or the mirror's Model). Without it the
 // first trial takes focus only when nothing has it (the button that started the drill was removed); later trials
-// always focus it, and the end card focuses its heading, so keyboard focus never falls to <body>.
+// always focus it, and the end card focuses its heading, so keyboard focus never falls to <body>. A trial that moves
+// focus plays its clip a moment later (firstPlay), so a screen reader does not read the button over it.
 //
 // Audio: tone and syllable drills use MOE human audio only (ground rule 5); TTS appears only for whole sentences in
 // shadowLine, always labelled. QA §10 item 5: toneIdDrill, pairIdDrill and mirrorDrill assertMoeOnly() their input
@@ -87,6 +88,14 @@ function whenAudio(s, stage, start) {
   });
 }
 const focusLost = () => { const a = document.activeElement; return !a || a === document.body || a.isConnected === false; };
+// A trial's first play. A trial that has just moved focus (to its Play again or Model button, whose name is only the
+// visible words) waits SETTLE_MS, so a screen reader reads that name before the clip, not over it. `still()` says
+// whether the play is still wanted then (not pressed meanwhile, the trial still on screen).
+const SETTLE_MS = 900;
+function firstPlay(s, moved, still, play) {
+  if (!moved) { play(); return; }
+  s.sleep(SETTLE_MS).then(ok => { if (ok && still()) play(); });
+}
 
 // ------------------------------------------------------------------ shared plumbing
 function session(container, kind, opts = {}) {
@@ -377,8 +386,10 @@ export function contrastDrill(container, contrast, opts = {}) {
     const set = pick(sets);
     const target = pick(set);
     const options = shuffle(set);
-    let answered = false;
-    const play = h("button", { type: "button", class: "btn primary drill-play", "aria-label": `再聽一次 Play again: the test word — ${MOE_NAME}`, onclick: () => playTone(target.id) }, "🔊 ", ...bi("再聽一次", "Play again"));
+    let answered = false, played = false;
+    const playTarget = () => { played = true; return playTone(target.id); };
+    // the name is the visible words only: focus lands here as the trial starts (the source is the MOE badge beside it)
+    const play = h("button", { type: "button", class: "btn primary drill-play", "aria-label": "再聽一次 Play again", onclick: playTarget }, "🔊 ", ...bi("再聽一次", "Play again"));
     const fb = h("p", { class: "feedback", "aria-live": "polite" });
     const choices = h("div", { class: "choices" });
     const next = h("button", { type: "button", class: "btn", disabled: true, onclick: () => { if (s.n >= n || s.timeUp()) finish(); else trial(); } }, ...bi("下一題", "Next →"));
@@ -406,10 +417,12 @@ export function contrastDrill(container, contrast, opts = {}) {
       b._w = w; b._name = name;
       choices.append(b);
     }
-    stage.append(h("p", { class: "muted small" }, `第 ${s.n + 1} / ${n} 題 · 聽到哪一個？`, enText("Which one did you hear?")), play, choices, fb, h("div", { class: "row" }, next));
-    if (!first || opts.focus || focusLost()) play.focus({ preventScroll: true }); // never leave focus on <body>
+    stage.append(h("p", { class: "muted small" }, `第 ${s.n + 1} / ${n} 題 · 聽到哪一個？`, enText("Which one did you hear?")),
+      h("div", { class: "drill-top" }, play, moeBadge()), choices, fb, h("div", { class: "row" }, next));
+    const moved = !first || opts.focus || focusLost();
+    if (moved) play.focus({ preventScroll: true }); // never leave focus on <body>
     first = false;
-    playTone(target.id);
+    firstPlay(s, moved, () => !played && !answered && play.isConnected, playTarget);
   }
 }
 
@@ -497,9 +510,9 @@ export function toneIdDrill(container, pool, opts = {}) {
     setProgress(prog, s.n / n);
     const item = nextItem();
     const base = baseOf(item.zhuyin);
-    let answered = false;
-    const playTarget = () => playTone(item.id);
-    const play = h("button", { type: "button", class: "btn primary drill-play", "aria-label": `再聽一次 Play again: the test syllable — ${MOE_NAME}`, onclick: playTarget }, "🔊 ", ...bi("再聽一次", "Play again"));
+    let answered = false, played = false;
+    const playTarget = () => { played = true; return playTone(item.id); };
+    const play = h("button", { type: "button", class: "btn primary drill-play", "aria-label": "再聽一次 Play again", onclick: playTarget }, "🔊 ", ...bi("再聽一次", "Play again"));
     const fb = h("p", { class: "feedback", "aria-live": "polite" });
     const reveal = h("div", { class: "drill-reveal" });
     const choices = h("div", { class: "tone-choices", role: "group", "aria-label": "選聲調 Choose the tone" });
@@ -550,9 +563,10 @@ export function toneIdDrill(container, pool, opts = {}) {
     cur = { press: d => (answered ? compare(d) : answer(d)) };
     stage.append(h("p", { class: "muted small drill-meta" }, `第 ${s.n + 1} / ${n} 題 · 聽到第幾聲？`, enText("Which tone did you hear?")),
       h("div", { class: "drill-top" }, play, moeBadge()), choices, fb, reveal, h("div", { class: "row" }, next));
-    if (!first || opts.focus || focusLost()) play.focus({ preventScroll: true }); // never leave focus on <body>
+    const moved = !first || opts.focus || focusLost();
+    if (moved) play.focus({ preventScroll: true }); // never leave focus on <body>
     first = false;
-    playTarget();
+    firstPlay(s, moved, () => !played && !answered && play.isConnected, playTarget);
   }
 }
 
@@ -617,9 +631,9 @@ export function pairIdDrill(container, pairs, opts = {}) {
     const item = nextItem(), w = item.p;
     const cell = patKey(item.written);
     const options = patternOptions(item.written, item.heard);
-    let answered = false;
-    const playTarget = () => playTone(w.id);
-    const play = h("button", { type: "button", class: "btn primary drill-play", "aria-label": `再聽一次 Play again: the test word — ${MOE_NAME}`, onclick: playTarget }, "🔊 ", ...bi("再聽一次", "Play again"));
+    let answered = false, played = false;
+    const playTarget = () => { played = true; return playTone(w.id); };
+    const play = h("button", { type: "button", class: "btn primary drill-play", "aria-label": "再聽一次 Play again", onclick: playTarget }, "🔊 ", ...bi("再聽一次", "Play again"));
     const fb = h("p", { class: "feedback", "aria-live": "polite" });
     const reveal = h("div", { class: "drill-reveal" });
     const choices = h("div", { class: "pattern-choices", role: "group", "aria-label": "選聲調組合 Choose the tone pattern" });
@@ -676,9 +690,10 @@ export function pairIdDrill(container, pairs, opts = {}) {
     cur = { press: d => { const b = choices.children[d - 1]; if (!b) return false; if (answered) compare(b._p); else answer(b._p, b); return true; } };
     stage.append(h("p", { class: "muted small drill-meta" }, `第 ${s.n + 1} / ${n} 題 · 聽到哪個聲調組合？`, enText("Which tone pattern did you hear?")),
       h("div", { class: "drill-top" }, play, moeBadge()), choices, fb, reveal, h("div", { class: "row" }, next));
-    if (!first || opts.focus || focusLost()) play.focus({ preventScroll: true }); // never leave focus on <body>
+    const moved = !first || opts.focus || focusLost();
+    if (moved) play.focus({ preventScroll: true }); // never leave focus on <body>
     first = false;
-    playTarget();
+    firstPlay(s, moved, () => !played && !answered && play.isConnected, playTarget);
   }
 }
 
@@ -858,8 +873,14 @@ export function mirrorDrill(container, items, opts = {}) {
     const isLast = () => k + 1 >= list.length || s.timeUp();
     const box = h("div", { class: "overlay-box" });
     const scoreBox = h("div", { class: "mirror-score", "aria-live": "polite" });
+    // shown in scoreBox's place while recording, and not live: words spoken now would land in the take (the screen
+    // reader hears the result once the take ends)
+    const recNote = h("div", { class: "mirror-score", style: "display:none" },
+      h("span", { class: "muted" }, "錄音中…說完會自動停止。", enText(" Recording… it stops by itself when you finish.")));
     const shapeLine = h("p", { class: "muted small mirror-shape" });
-    const modelBtn = h("button", { type: "button", class: "btn", "aria-label": `示範 Model: ${it.zh} — ${MOE_NAME}`, onclick: () => playModel() }, "▶ ", ...bi("示範", "Model"));
+    // the name is the visible words only: focus lands here as the word starts (the source is the MOE badge in the row)
+    let modelPlayed = false;
+    const modelBtn = h("button", { type: "button", class: "btn", "aria-label": "示範 Model", onclick: () => playModel() }, "▶ ", ...bi("示範", "Model"));
     // Record turns into Stop while recording: the label carries the state (no aria-pressed on a button whose label changes)
     const recBtn = h("button", { type: "button", class: "btn primary rec-btn", onclick: () => (tr.busy ? tr.stop() : tr.start()) });
     const mineBtn = h("button", { type: "button", class: "btn", disabled: true, "aria-label": `我的 Mine: ${it.zh} — my recording`, onclick: () => { if (take) playBlob(take.blob); } }, "▶ ", ...bi("我的", "Mine"));
@@ -867,19 +888,18 @@ export function mirrorDrill(container, items, opts = {}) {
       "aria-label": `最佳 My best: ${it.zh} — my best recording`, onclick: () => playBest() }, "▶ ", ...bi("最佳", "My best"));
     const next = h("button", { type: "button", class: "btn", onclick: () => { tr.cancel(); advance(); } });
     const setNext = () => next.replaceChildren(...(isLast() ? bi("完成", "Finish") : bi("下一題", "Next →"))); // the same words in every drill
-    let shown = null; // the score line from before the take, put back if the take never arrives
     const setRec = on => {
       recBtn.classList.toggle("recording", on);
       recBtn.replaceChildren(...(on ? [h("span", { class: "rec-dot", "aria-hidden": "true" }), " ", ...bi("停止", "Stop")]
         : hadTake ? ["↻ ", ...bi("再試", "Try again")] : ["● ", ...bi("錄音", "Record")]));
       modelBtn.disabled = on;
-      if (on) { shown = [...scoreBox.childNodes]; scoreBox.replaceChildren(h("span", { class: "muted" }, "錄音中…說完會自動停止。", enText(" Recording… it stops by itself when you finish."))); }
-      else if (shown) { scoreBox.replaceChildren(...shown); shown = null; }
+      scoreBox.classList.toggle("sr-only", on); // out of sight, but kept in the accessibility tree: a live region
+      recNote.style.display = on ? "" : "none"; // that leaves it (display:none) may not speak when it comes back
     };
     const tr = takeRecorder(s, { limitSec, silence: 0.8, onState: setRec,
       onLive: frames => { let u = null; try { u = pitch.normalize(frames); } catch { /* not enough yet */ } if (u) drawOverlay(box, { model, user: u, syllables: syls }); },
       onTake: t => onTake(t), onError: err => micFailed(err) });
-    function playModel() { if (tr.busy) return; playTone(it.id); }
+    function playModel() { if (tr.busy) return; modelPlayed = true; playTone(it.id); }
     async function playBest() {
       try {
         const r = await loadRecording(`mirror:${it.id}`);
@@ -943,13 +963,14 @@ export function mirrorDrill(container, items, opts = {}) {
         it.en ? enText(it.en, { class: "muted lc-en" }) : null),
       said !== it.zhuyin ? h("p", { class: "small mirror-sandhi" }, `變調：寫作 ${it.zhuyin}，說成 ${said}。`, enText(` Tone sandhi: written ${it.zhuyin}, said ${said}.`)) : "",
       box, shapeLine,
-      noMic ? micMessage(noMic) : scoreBox,
+      ...(noMic ? [micMessage(noMic)] : [scoreBox, recNote]),
       h("div", { class: "mirror-controls" }, modelBtn, noMic ? null : [recBtn, mineBtn, bestBtn], moeBadge()),
       h("div", { class: "row drill-actions" }, next));
     drawOverlay(box, { model, syllables: syls });
     shapeLine.replaceChildren(model && describe(model) ? enText(`Model ${describe(model)}.`) : "");
-    if (k > 0 || opts.focus || focusLost()) modelBtn.focus({ preventScroll: true }); // never leave focus on <body>
-    playModel();
+    const moved = k > 0 || opts.focus || focusLost();
+    if (moved) modelBtn.focus({ preventScroll: true }); // never leave focus on <body>
+    firstPlay(s, moved, () => !modelPlayed && !hadTake && modelBtn.isConnected, playModel);
   }
   return s.ctl;
 }

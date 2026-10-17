@@ -251,9 +251,12 @@
 .sh-col { display: flex; flex-direction: column; align-items: stretch; border-radius: 6px; outline-offset: 2px; }
 .sh-col-plot { position: relative; height: 150px; border-bottom: 1px solid var(--line); }
 .sh-col-bar { position: absolute; bottom: 0; left: 50%; width: 24px; transform: translateX(-50%); background: var(--accent); border-radius: 4px 4px 0 0; }
-.sh-col-val { position: absolute; left: 50%; transform: translate(-50%, -4px); font-size: 13px; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1; }
-.sh-col-target { position: absolute; left: 0; right: 0; height: 0; border-top: 1px solid var(--muted); opacity: .7; }
-.sh-col-target > span { position: absolute; left: 2px; bottom: 2px; font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+.sh-col-val { position: absolute; z-index: 2; left: 50%; transform: translate(-50%, -4px); font-size: 13px; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1; }
+/* only the line is faded (opacity here would fade the 目標 label to about 3:1); the label stays full --muted (5.8:1 / 7:1).
+   color: a browser without color-mix() drops that border colour to currentColor, so currentColor is --muted too.
+   z-index + surface chip: the label stays readable where the first week's bar is taller than the target */
+.sh-col-target { position: absolute; left: 0; right: 0; height: 0; z-index: 1; color: var(--muted); border-top: 1px solid var(--muted); border-top-color: color-mix(in srgb, var(--muted) 70%, var(--surface)); }
+.sh-col-target > span { position: absolute; left: 2px; bottom: 2px; padding: 0 2px; border-radius: 3px; background: var(--surface); font-size: 11.5px; color: var(--muted); white-space: nowrap; }
 .sh-col-lbl { text-align: center; font-size: 13px; color: var(--muted); margin-top: 4px; }
 .sh-col.now .sh-col-lbl { color: var(--ink); font-weight: 500; }
 .sh-col-n { text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }

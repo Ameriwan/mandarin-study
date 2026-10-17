@@ -11,7 +11,7 @@ if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catc
 const TABS = [["chart", "符號表", "Symbols"], ["grid", "音節表", "Syllables"], ["contrasts", "對比練習", "Contrasts"], ["dictation", "聽寫", "Dictation"], ["mouth", "口型", "Mouth"]];
 const app = $("#app");
 let data = {};
-let teardown = null; // undoes the current view's document-level listeners
+let teardown = null; // undoes the current view's own listeners (the dictation keys)
 
 // Call before a view's panel is cleared: drops its listeners and stops audio and recording.
 function leaveView() {
@@ -277,23 +277,26 @@ function renderDictation(panel) {
   const mode = store.get("lab.dictMode", "syl");
   const pool = mode === "word" ? wordItems : sylItems;
   const stats = store.get(DICT_KEY, { n: 0, correct: 0, parts: {} });
-  const setMode = m => { store.set("lab.dictMode", m); leaveView(); renderDictation(clear(panel)); };
+  const setMode = m => { // the pressed button goes with the old view: focus its successor, not <body>
+    store.set("lab.dictMode", m); leaveView(); renderDictation(clear(panel));
+    panel.querySelector(".seg [aria-pressed='true']")?.focus({ preventScroll: true });
+  };
   const seg = h("div", { class: "seg" },
     h("button", { type: "button", "aria-pressed": String(mode !== "word"), onclick: () => setMode("syl") }, "單音節 Syllables"),
     h("button", { type: "button", "aria-pressed": String(mode === "word"), onclick: () => setMode("word") }, "詞 Words"));
   panel.append(h("div", { class: "row", style: "justify-content:space-between" }, h("p", { class: "muted small", style: "margin:0;max-width:56ch" }, "聽，然後用標準注音鍵盤打出注音和聲調（空白鍵＝一聲，6 ˊ 3 ˇ 4 ˋ 7 ˙）。", h("span", { lang: "en" }, "Hear it, type the Zhuyin and tone. Physical keys follow the standard layout.")), seg),
     h("p", { class: "stat-row" }, h("span", {}, "累計 ", h("b", {}, stats.n), " 題"), h("span", {}, "正確 ", h("b", {}, stats.n ? Math.round(100 * stats.correct / stats.n) : 0, "%")),
       Object.keys(stats.parts).length ? h("span", {}, "常錯 weak: ", h("b", {}, Object.entries(stats.parts).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([k, v]) => `${k} ×${v}`).join("、"))) : null));
-  // The stage is the typing area: physical keys type while it (or the page body) has focus.
-  // After a mouse/touch click on one of its buttons (detail > 0; keyboard clicks have 0) focus returns
-  // to the stage, so Space and Enter keep typing instead of re-pressing that button.
-  const stage = h("div", { tabindex: "0", role: "group", "aria-label": "聽寫作答 Dictation: type the Zhuyin, Enter to check",
-    onclick: e => { if (e.detail && e.target.closest("button")) stage.focus({ preventScroll: true }); } });
+  // The answer field (`target`, a textbox, so a screen reader switches to focus mode there and passes the keys on)
+  // takes the physical keys. After a mouse/touch click on a stage button (detail > 0; keyboard clicks have 0) focus
+  // returns to the field, so Space and Enter keep typing instead of re-pressing that button.
+  const target = h("div", { class: "dict-target", lang: "zh-Hant-TW", tabindex: "0", role: "textbox", "aria-label": "聽寫作答 Dictation answer: type the Zhuyin, Enter to check" });
+  const stage = h("div", { role: "group", "aria-label": "聽寫 Dictation",
+    onclick: e => { if (e.detail && e.target.closest("button")) target.focus({ preventScroll: true }); } });
   panel.append(stage);
   if (!pool.length) { stage.append(h("p", {}, ...bi("還沒有可用的音檔。", "No clips built yet."))); return; }
 
   let item, typed = [], buf = "", answered = false;
-  const target = h("div", { class: "dict-target", lang: "zh-Hant-TW" });
   const fb = h("p", { class: "feedback", "aria-live": "polite", "aria-atomic": "true" }); // verdict and Show answer are announced; keystrokes are not
   const playBtn = h("button", { type: "button", class: "btn primary", onclick: () => playMoe(item.id).catch(() => toast("音檔尚未建置 clip not built yet")) }, "🔊 ", ...bi("播放", "Play"));
   const nextBtn = h("button", { type: "button", class: "btn", onclick: newItem }, ...bi("下一題", "Next →"));
@@ -316,6 +319,7 @@ function renderDictation(panel) {
     if (answered) return;
     if (buf) { typed.push(buf); buf = ""; }
     answered = true;
+    target.setAttribute("aria-readonly", "true"); // it shows the marked answer until Next
     const want = syllables(item.zhuyin);
     const got = typed.slice();
     let ok = true;
@@ -349,6 +353,7 @@ function renderDictation(panel) {
   function newItem() {
     item = pick(pool);
     typed = []; buf = ""; answered = false; fb.textContent = ""; fb.className = "feedback"; nextBtn.classList.remove("primary");
+    target.removeAttribute("aria-readonly");
     draw();
     playMoe(item.id).catch(() => toast("音檔尚未建置 clip not built yet"));
   }
@@ -357,16 +362,16 @@ function renderDictation(panel) {
   kbd.append(h("div", { class: "kbd-bottom" }, h("button", { type: "button", class: "key", onclick: backspace, "aria-label": "刪除 Backspace" }, "⌫"),
     h("button", { type: "button", class: "key tone", onclick: () => input(" ") }, "一聲 ␣ Tone 1 / next syllable"), h("button", { type: "button", class: "key", onclick: check }, "檢查 ↵")));
   stage.append(h("div", { class: "row" }, playBtn, showBtn, nextBtn), target, fb, kbd);
-  // Physical keys. Enter/Space act only when the stage, the panel or the page body has focus, so a focused button keeps
-  // its own Enter/Space. Zhuyin keys and Backspace typed on another lab control move focus to the stage first.
-  // Nav bars, dialogs and text fields are never touched.
+  // Physical keys, only while the dictation has focus: the answer field, a stage or Syllables/Words button, or the
+  // panel itself (Tab from the tabs lands there). Enter/Space act only in the field, so a focused button keeps its own Enter/Space; Zhuyin
+  // keys and Backspace typed elsewhere in the dictation move focus to the field first. A key with a modifier (Shift
+  // too: the standard Zhuyin IME leaves Shift+key to English) and keys anywhere else on the page are never touched.
   const onKey = e => {
-    if (e.defaultPrevented || e.isComposing || e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.defaultPrevented || e.isComposing || e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
     const el = e.target;
-    const free = el === stage || el === panel || el === document.body || el === document.documentElement;
-    if (!free && (!app.contains(el) || el.closest("input, textarea, select, [contenteditable]"))) return;
+    if (el !== panel && !stage.contains(el) && !seg.contains(el)) return;
     if (e.key === "Enter" || e.key === " ") {
-      if (!free) return;
+      if (el !== target) return;
       e.preventDefault();
       if (e.key === " ") input(" "); else if (answered) newItem(); else check();
       return;
@@ -374,12 +379,12 @@ function renderDictation(panel) {
     const z = e.key === "Backspace" ? e.key : KEYMAP[e.key?.toLowerCase()];
     if (!z) return;
     e.preventDefault();
-    if (!free) stage.focus({ preventScroll: true });
+    if (el !== target) target.focus({ preventScroll: true });
     if (z === "Backspace") backspace(); else input(z);
   };
   teardown?.();
-  document.addEventListener("keydown", onKey);
-  teardown = () => document.removeEventListener("keydown", onKey);
+  panel.addEventListener("keydown", onKey);
+  teardown = () => panel.removeEventListener("keydown", onKey);
   newItem();
 }
 function splitBase(b) {

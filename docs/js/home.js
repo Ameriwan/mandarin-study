@@ -91,18 +91,21 @@ function saveDay(patch) {
   for (const k of keys.slice(0, Math.max(0, keys.length - 120))) delete all[k]; // keep about four months
   store.set(ROUTINE_KEY, all);
 }
-// Minutes in the last 7 days: in the app, and logged outside it.
+// Minutes this week, Monday to today (the week of plan.js weekly() and drills.js shadowDose): in the app, and logged
+// outside it.
 function weekStats() {
   const days = store.get("days", {}) || {};
-  const d = new Date();
+  const now = new Date();
+  const d = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
   let app = 0, outside = 0;
-  for (let i = 0; i < 7; i++) {
+  for (; d <= now; d.setDate(d.getDate() + 1)) {
+    let a = 0, o = 0; // each day floored at 0, as plan.js dayMinutes does
     for (const [k, v] of Object.entries(days[dateKey(d)] || {})) {
-      if (k.startsWith("outside:")) outside += Number(v) || 0; else app += Number(v) || 0;
+      if (k.startsWith("outside:")) o += Number(v) || 0; else a += Number(v) || 0;
     }
-    d.setDate(d.getDate() - 1);
+    app += Math.max(0, a); outside += Math.max(0, o);
   }
-  app = Math.max(0, app); outside = Math.max(0, outside);
   return { app: Math.round(app), outside: Math.round(outside), total: Math.round(app + outside) };
 }
 // Take back one outside-time entry (the Undo after logging), on the day it was logged.
@@ -132,7 +135,8 @@ function routinePlan() {
 }
 
 // The Current-unit and Review blocks' data: units.js (current unit, the level's units), the Library's "trouble"
-// items (library.js is loaded only when the store has any). Every part is optional.
+// items (library.js is loaded only when the store has any; troubleEntries reads what was kept with each mark, so the
+// Library's data loads only for a mark with nothing kept). Every part is optional.
 async function loadStudy(ls) {
   const s = { U: null, L: null, unit: null, full: null, levelUnits: [], unitsMissing: true, trouble: [] };
   try { s.U = await import("./units.js"); } catch (err) { console.error("units.js:", err); }

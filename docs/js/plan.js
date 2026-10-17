@@ -496,6 +496,13 @@ let CONTRASTS = [], contrastsP = null;
 const loadContrasts = () => (contrastsP ||= loadJSON("contrasts").then(arr, () => []).then(c => (CONTRASTS = c)));
 const contrastName = id => { const c = CONTRASTS.find(x => x && x.id === id); return c ? [h("span", { lang: "zh-Hant-TW" }, c.zh), " ", enText(c.en)] : [id]; };
 const notice = (zh, en, role = "note") => h("p", { class: "pl-notice", role }, zh, " ", enText(en));
+// A table in its sideways-scrolling wrap: a focusable region (so the keyboard can scroll it), named by the table's caption.
+let tableN = 0;
+const tableWrap = (zh, en, table) => {
+  const id = `pl-tbl-${++tableN}`;
+  table.prepend(h("caption", { id, class: "sr-only" }, zh, " ", enText(en)));
+  return h("div", { class: "pl-table-wrap", role: "region", tabindex: "0", "aria-labelledby": id }, table);
+};
 const fmtH = x => (x >= 100 ? String(Math.round(x)) : x >= 10 ? x.toFixed(0) : x.toFixed(1));
 const monthEn = d => d.toLocaleDateString("en", { month: "short", year: "numeric" });
 const monthZh = d => `${d.getFullYear()} 年 ${d.getMonth() + 1} 月`;
@@ -684,7 +691,7 @@ function renderHours(panel) {
     plot, axis, readout,
     h("p", { class: "pl-legend small muted" }, h("span", { class: "pl-legend-line", "aria-hidden": "true" }), "目標 ", enText(`target ${fmtH(target)} h a week`),
       h("span", { class: "pl-legend-part", "aria-hidden": "true" }), "本週還沒過完 ", enText("this week, so far")),
-    h("details", { class: "pl-details" }, h("summary", {}, "表格 ", enText("Table")), h("div", { class: "pl-table-wrap" }, table))));
+    h("details", { class: "pl-details" }, h("summary", {}, "表格 ", enText("Table")), tableWrap("每週時數表", "Hours per week, table", table))));
 
   // against the §8.2 estimates: from the next band up to the goal band (B1)
   const nb = nextBand(L ? L.level : 1);
@@ -702,7 +709,7 @@ function renderHours(panel) {
       ? bi(`以近 4 週平均每週 ${fmtH(perWeek)} 小時計算，日期是 TOCFL 時數範圍的兩端。`, `At your last-4-weeks average of ${fmtH(perWeek)} h a week; the dates are the two ends of the TOCFL hour range.`)
       : t.hours > 0 ? bi("近 4 週沒有記錄到學習時間，所以算不出速度。", "No study time logged in the last 4 weeks, so there is no pace to project.")
       : bi("還沒有記錄到學習時間，所以算不出速度。", "No study time logged yet, so there is no pace to project."))),
-    h("div", { class: "pl-table-wrap" }, h("table", { class: "pl-table" },
+    tableWrap("照目前的速度", "At this pace, table", h("table", { class: "pl-table" },
       h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "等級 ", enText("Band")), h("th", { scope: "col" }, "時數 ", enText("Hours")), h("th", { scope: "col" }, "還差 ", enText("To go")), h("th", { scope: "col" }, "大約 ", enText("Around")))),
       h("tbody", {}, rows.map(b => { const o = bandOutlook(t.hours, perWeek, b, now); return h("tr", {},
         h("th", { scope: "row" }, b.id, b.label !== b.id ? h("span", { class: "pl-sub" }, enText(b.label.replace(/ · .*$/, ""))) : null),
@@ -749,6 +756,8 @@ function renderHours(panel) {
 
 // ------------------------------------------------------------------ 3. 程度測驗 Placement and 4. 等級檢查 Level checks
 const RUN_KEY = kind => `plan.run.${kind}`;
+const TAP_GUARD = 350; // ms after a step is drawn during which its answer buttons ignore clicks (runView ctx.act)
+const DBL_GUARD = 1000; // ms after it during which they ignore a double click's later clicks (OS limits are under 1 s)
 async function withData(panel) {
   const tok = viewToken;
   const wait = h("p", { class: "muted" }, "載入中… ", enText("Loading…"));
@@ -849,10 +858,15 @@ function runView(panel, run) {
   teardown.push(leaveStep);
   if (!lastAct || Date.now() - lastAct > 120000) lastAct = Date.now();
   const save = () => { if (run.stage !== "done") store.set(RUN_KEY(run.kind), run); };
+  // The next step is drawn in the same place at once, so a double click's (or double tap's) second click would answer
+  // it unseen: a click (e) within TAP_GUARD ms of the step being drawn, or a second click within DBL_GUARD ms of it, is
+  // dropped (only then: a quick second click on a word toggle well after the draw is a real "unmark").
+  let drawnAt = 0;
   const ctx = {
     save,
     onDown: f => stepDown.push(f),
-    act(fn) { logActive(); fn(); redraw(); },
+    early: e => !!e && performance.now() - drawnAt < (e.detail > 1 ? DBL_GUARD : TAP_GUARD),
+    act(fn, e = null) { if (ctx.early(e)) return; logActive(); fn(); redraw(); },
     pause() { save(); showTab(run.kind === "check" ? "checks" : "placement", "[data-resume]"); },  // focus: its Resume button
   };
   function redraw() {
@@ -862,11 +876,12 @@ function runView(panel, run) {
     leaveStep();
     stopAll();
     clear(box);
+    drawnAt = performance.now();
     if (run.stage === "done") {
       box.append(h("h2", { class: "pl-done-h", tabindex: "-1" }, run.kind === "check" ? `第 ${run.level} 級檢查完成 ` : "程度測驗完成 ",
         enText(run.kind === "check" ? `Level ${run.level} check done` : "Placement check done")), resultView(run.result, { fresh: true }),
-      h("div", { class: "row pl-actions" }, h("button", { type: "button", class: "btn primary", onclick: () => showTab("roadmap", true) }, "看路線圖 ", enText("See the roadmap")),
-        h("button", { type: "button", class: "btn", onclick: () => showTab(run.kind === "check" ? "checks" : "placement", true) }, "返回 ", enText("Back"))));
+      h("div", { class: "row pl-actions" }, h("button", { type: "button", class: "btn primary", onclick: e => ctx.early(e) || showTab("roadmap", true) }, "看路線圖 ", enText("See the roadmap")),
+        h("button", { type: "button", class: "btn", onclick: e => ctx.early(e) || showTab(run.kind === "check" ? "checks" : "placement", true) }, "返回 ", enText("Back"))));
       box.querySelector(".pl-done-h").focus();
       return;
     }
@@ -900,8 +915,8 @@ function zhuyinToggle(run, target, ctx) {
 }
 const optionButtons = (options, onPick, { dontKnow = true, skip = null } = {}) => h("div", { class: "pl-opts", role: "group", "aria-label": "選項 Options" },
   // the options are learning content (lc-en): immersion never hides them
-  options.map((o, j) => h("button", { type: "button", class: "pl-opt", onclick: () => onPick(j) }, h("span", { class: "pl-opt-k", "aria-hidden": "true" }, "ABCDEFG"[j]), enText(o, { class: "lc-en" }))),
-  dontKnow ? h("button", { type: "button", class: "pl-opt pl-opt-dk", onclick: () => onPick(-1) }, "不知道 ", enText("I don't know")) : null,
+  options.map((o, j) => h("button", { type: "button", class: "pl-opt", onclick: e => onPick(j, e) }, h("span", { class: "pl-opt-k", "aria-hidden": "true" }, "ABCDEFG"[j]), enText(o, { class: "lc-en" }))),
+  dontKnow ? h("button", { type: "button", class: "pl-opt pl-opt-dk", onclick: e => onPick(-1, e) }, "不知道 ", enText("I don't know")) : null,
   skip ? h("button", { type: "button", class: "pl-opt pl-opt-dk", onclick: skip }, "播不出來，跳過 ", enText("Can't play it: skip (not counted)")) : null);
 
 function drawVocab(stage, run, ctx) {
@@ -912,14 +927,15 @@ function drawVocab(stage, run, ctx) {
     stage.append(h("p", { class: "muted small pl-meta" }, `第 ${n} 級 · 意思確認 ${row.ci + 1} / ${row.checks.length} `, enText(`Level ${n} · meaning check ${row.ci + 1} of ${row.checks.length}`)),
       h("h3", { class: "pl-q", tabindex: "-1", "data-focus": "" }, "這個詞是什麼意思？ ", enText("What does it mean?")),
       h("div", { class: "row pl-word-row" }, word, zhuyinToggle(run, word, ctx)),
-      optionButtons(c.options, j => ctx.act(() => answerMeaning(run, j))));
+      optionButtons(c.options, (j, e) => ctx.act(() => answerMeaning(run, j), e)));
     return;
   }
   const grid = h("div", { class: "pl-words" });
   const count = h("span", { class: "muted small", "aria-live": "polite" });
   const setCount = () => count.replaceChildren(`${row.known.filter(Boolean).length} / ${row.words.length} `, enText("marked"));
   row.words.forEach((w, i) => {
-    const b = h("button", { type: "button", class: "pl-word", "aria-pressed": String(!!row.known[i]), onclick: () => {
+    const b = h("button", { type: "button", class: "pl-word", "aria-pressed": String(!!row.known[i]), onclick: e => {
+      if (ctx.early(e)) return; // nor may it mark a word of a level just drawn
       row.known[i] = !row.known[i]; b.setAttribute("aria-pressed", String(row.known[i])); setCount(); ctx.save();
     } }, ruby(w.zh, w.zhuyin, { cls: "pl-word-zh" }), h("span", { class: "pl-word-mark", "aria-hidden": "true" }, "✓"));
     grid.append(b);
@@ -930,7 +946,7 @@ function drawVocab(stage, run, ctx) {
     h("p", { class: "small" }, ...bi("點你認識的詞：看到就說得出意思的。不確定就不要點。", "Tap each word you know: you could say what it means. If unsure, leave it.")),
     h("div", { class: "row pl-tools" }, zhuyinToggle(run, grid, ctx), count),
     grid,
-    h("div", { class: "row pl-actions" }, h("button", { type: "button", class: "btn primary", onclick: () => ctx.act(() => submitClaims(run, D)) }, "下一步 ", enText("Next"))));
+    h("div", { class: "row pl-actions" }, h("button", { type: "button", class: "btn primary", onclick: e => ctx.act(() => submitClaims(run, D), e) }, "下一步 ", enText("Next"))));
 }
 
 function drawSkill(stage, run, ctx) {
@@ -941,7 +957,10 @@ function drawSkill(stage, run, ctx) {
   let play = null;
   if (listening) {
     const item = { id: q.id, zh: q.zh, audio: q.audio };
-    play = playButton(item, { label: ["▶ ", "播放 ", enText("Play")], cls: "btn primary pl-play" });
+    play = playButton(item, { label: [h("span", { "aria-hidden": "true" }, "▶ "), "播放 ", enText("Play")], cls: "btn primary pl-play" });
+    // named by its visible words: playButton's label names the text, which would give the answer away; the voice's
+    // source stays in the title (its description)
+    (play.querySelector("button") || play).removeAttribute("aria-label");
     stage.append(h("div", { class: "row pl-listen" }, play));
     const voiceOnly = !q.id && !q.audio;
     if (voiceOnly && !hasTwVoice()) stage.append(notice("這個瀏覽器沒有臺灣華語語音。", "This browser has no Taiwan Mandarin voice for this item: if you can't hear it, skip it (not counted)."));
@@ -950,13 +969,16 @@ function drawSkill(stage, run, ctx) {
     stage.append(h("div", { class: "pl-reading-box" }, text, h("div", { class: "row" }, zhuyinToggle(run, text, ctx))));
   }
   stage.append(h("h3", { class: "pl-q", tabindex: "-1", "data-focus": listening ? null : "" }, enText(q.question || (listening ? "What did you hear?" : "What does it say?"), { class: "lc-en" })),
-    optionButtons(q.options, j => ctx.act(() => answerSkill(run, skill, j)), { skip: listening ? () => ctx.act(() => answerSkill(run, skill, null)) : null }),
-    h("div", { class: "row pl-actions" }, h("button", { type: "button", class: "btn small pl-giveup", onclick: () => ctx.act(() => giveUpSkill(run, skill)) },
+    optionButtons(q.options, (j, e) => ctx.act(() => answerSkill(run, skill, j), e), { skip: listening ? e => ctx.act(() => answerSkill(run, skill, null), e) : null }),
+    h("div", { class: "row pl-actions" }, h("button", { type: "button", class: "btn small pl-giveup", onclick: e => ctx.act(() => giveUpSkill(run, skill), e) },
       listening ? "太難了，結束聽力 " : "太難了，結束閱讀 ", enText(listening ? "Too hard: end the listening part" : "Too hard: end the reading part"))));
   if (listening && play) {
     const btn = play.querySelector("button") || play;
     btn.setAttribute("data-focus", "");
-    setTimeout(() => { if (btn.isConnected) btn.click(); }, 250); // play once on arrival; Play again any time
+    // play once on arrival (unless played already), after the screen reader has said the focused button; Play again any time
+    let played = false;
+    btn.addEventListener("click", () => { played = true; }, { once: true });
+    setTimeout(() => { if (btn.isConnected && !played) btn.click(); }, 900);
   }
 }
 
@@ -1053,7 +1075,8 @@ function drawDiag(stage, run, ctx) {
     recBtn.replaceChildren(...(on ? [h("span", { class: "rec-dot", "aria-hidden": "true" }), " ", ...bi("停止", "Stop")]
       : hadTake ? ["↻ ", ...bi("再錄", "Record again")] : ["● ", ...bi("錄音", "Record")]));
     modelBtn.disabled = on;
-    if (on) { shown = [...scoreBox.childNodes]; scoreBox.replaceChildren(h("span", { class: "muted" }, "錄音中…說完會自動停止。", enText(" Recording… it stops by itself when you finish."))); }
+    // visual only (aria-hidden in the live region): a screen reader saying it now would land in the take
+    if (on) { shown = [...scoreBox.childNodes]; scoreBox.replaceChildren(h("span", { class: "muted", "aria-hidden": "true" }, "錄音中…說完會自動停止。", enText(" Recording… it stops by itself when you finish."))); }
     else if (shown) { scoreBox.replaceChildren(...shown); shown = null; }
   };
   const tr = d.noMic ? null : makeTake({ limitSec: Math.max(2.5, 2.5 * spanLen + 1), onState: setRec,
@@ -1090,7 +1113,7 @@ function drawDiag(stage, run, ctx) {
     shapeLine.replaceChildren(m || u ? enText(`${m ? `Model ${m}` : ""}${m && u ? "; " : ""}${u ? `you ${u}` : ""}.`) : "");
   }
   // self-check: sound and tone, ✓ or ✗ each
-  const next = h("button", { type: "button", class: "btn primary", onclick: () => ctx.act(() => { d.i++; }) }, ...(last ? bi("完成", "Finish") : bi("下一個", "Next →")));
+  const next = h("button", { type: "button", class: "btn primary", onclick: e => ctx.act(() => { d.i++; }, e) }, ...(last ? bi("完成", "Finish") : bi("下一個", "Next →")));
   const sync = () => { next.disabled = mark.sound == null || mark.tone == null; };
   const judge = (key, zh, en) => {
     const btns = [true, false].map(v => h("button", { type: "button", "aria-pressed": String(mark[key] === v), onclick: () => {
@@ -1109,7 +1132,7 @@ function drawDiag(stage, run, ctx) {
     h("div", { class: "mirror-controls" }, modelBtn, tr ? [recBtn, mineBtn] : null, h("span", { class: "badge human", title: MOE_NAME }, "MOE")),
     h("div", { class: "pl-judges" }, judge("sound", "聲母韻母", "Sounds (initial and final)"), judge("tone", "聲調", "Tone")),
     h("div", { class: "row pl-actions" }, next,
-      h("button", { type: "button", class: "btn small", onclick: () => ctx.act(() => { d.marks[d.i] = { skipped: true }; d.i++; }) }, "略過 ", enText("Skip (not counted)"))),
+      h("button", { type: "button", class: "btn small", onclick: e => ctx.act(() => { d.marks[d.i] = { skipped: true }; d.i++; }, e) }, "略過 ", enText("Skip (not counted)"))),
     h("p", { class: "small muted" }, ...bi("你的錄音存在這台裝置上；之後可以在「跟讀」的母語者檢查請朋友聽。", "Your take stays on this device; later a Taiwanese friend can rate it in Shadowing → Native check."),
       " ", h("a", { href: "shadow.html#native" }, enText("Native check")))].filter(x => x != null));
   if (tr) setRec(false);
@@ -1168,8 +1191,7 @@ function resultView(r, { fresh = false } = {}) {
         : bi(`第 ${r.level} 級的課程還沒寫好：先從這一級的詞和語法開始（在資料庫裡）。`, `Level ${r.level}'s units aren't written yet: start with its words and grammar in the Library.`),
         r.startUnit ? null : [" ", h("a", { href: "library.html" }, enText("Library"))]));
   }
-  out.append(h("div", { class: "pl-table-wrap" }, h("table", { class: "pl-table pl-result-table" },
-    h("caption", { class: "sr-only" }, "每一級的結果 Results per level"),
+  out.append(tableWrap("每一級的結果", "Results per level", h("table", { class: "pl-table pl-result-table" },
     h("thead", {}, h("tr", {}, h("th", { scope: "col" }, "等級 ", enText("Level")), h("th", { scope: "col" }, "詞彙 ", enText("Vocab")),
       h("th", { scope: "col" }, "聽力 ", enText("Listening")), h("th", { scope: "col" }, "閱讀 ", enText("Reading")))),
     h("tbody", {}, rows.length ? rows : h("tr", {}, h("td", { colspan: "4", class: "muted" }, enText("No answers recorded.")))))),

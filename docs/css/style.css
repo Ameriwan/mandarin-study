@@ -178,10 +178,11 @@ html.set-tone-colours ruby.t4 > rt { color: var(--tone-4); }
 html.set-tone-colours rt.sandhi { text-decoration: underline dotted; text-underline-offset: 2px; }
 /* immersion: a Chinese-only interface. Interface English ([lang="en"] runs) is hidden; learning-content English (.lc-en,
    and the older translation classes) stays (it follows the English switch), and so do names kept by app.js (.imm-keep: a control or label whose visible
-   name would otherwise be English only) and proper names (.adv-name). Keep the list in step with app.js IMM_SHOWN. */
+   name would otherwise be English only), proper names (.adv-name) and screen-reader-only text (.sr-only: never visible,
+   and often the only accessible name of a header or control). Keep the list in step with app.js IMM_SHOWN. */
 html.immersion [lang="en"]:not(option, input, textarea, select,
-  :is(.imm-keep, .lc-en, .adv-name, .gloss, .tr, .lib-gloss, .lib-row-en, .lib-ex-en, .tc-gloss, .tg-word-en, .sd-en, .drill-gloss, .example > .en, .choice > .en, .un-line-en, .un-v-en, .un-g-en, .un-sh-en, .un-task-en, .sh-en, .sh-row-en),
-  :is(.imm-keep, .lc-en, .adv-name, .gloss, .tr, .lib-gloss, .lib-row-en, .lib-ex-en, .tc-gloss, .tg-word-en, .sd-en, .drill-gloss, .example > .en, .choice > .en, .un-line-en, .un-v-en, .un-g-en, .un-sh-en, .un-task-en, .sh-en, .sh-row-en) *) { display: none; }
+  :is(.imm-keep, .sr-only, .lc-en, .adv-name, .gloss, .tr, .lib-gloss, .lib-row-en, .lib-ex-en, .tc-gloss, .tg-word-en, .sd-en, .drill-gloss, .example > .en, .choice > .en, .un-line-en, .un-v-en, .un-g-en, .un-sh-en, .un-task-en, .sh-en, .sh-row-en),
+  :is(.imm-keep, .sr-only, .lc-en, .adv-name, .gloss, .tr, .lib-gloss, .lib-row-en, .lib-ex-en, .tc-gloss, .tg-word-en, .sd-en, .drill-gloss, .example > .en, .choice > .en, .un-line-en, .un-v-en, .un-g-en, .un-sh-en, .un-task-en, .sh-en, .sh-row-en) *) { display: none; }
 
 /* ---------- Lab: symbol chart (the hero) */
 .chart-group { margin: 0 0 18px; }
