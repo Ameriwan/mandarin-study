@@ -7,7 +7,7 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 | M0 | **SETUP** (folders, venv, git, data cache, tool checks) | ✅ 2026-10-13 | Data cached, tools probed, settings filled in |
 | M1 | SETUP + audio pipeline + Zhuyin Lab (symbols, syllable grid, contrasts, dictation) | ✅ built and QA'd 2026-10-13 (waiting on Amadeus's spot-listen and phone test) | Tap any syllable → correct MOE audio in all tones; contrast drills work |
 | M2 | Tone Gym (ID, tone pairs, pitch mirror, sandhi, Taiwan readings) + Today (pronunciation block) | ✅ built and QA'd 2026-10-13 (waiting on the iPhone + laptop mic test) | Pitch overlay works on phone and laptop |
-| M3 | Shadowing (player, protocol, MOE dictionary readings, native-check hand-off) | ⬜ | A full 10-minute session runs |
+| M3 | Shadowing (player, protocol, MOE dictionary readings, native-check hand-off) | ✅ built and QA'd 2026-10-16 (waiting on a real-mic session) | A full 10-minute session runs |
 | M4 | Plan + placement check + Library (TBCL L1–3, grammar, Taiwan vocab) | ⬜ | Placement gives a level and a starting unit |
 | M5 | Units for my level and the next (subagents, verified) | ⬜ | Units released per the plan |
 | M6 | Advanced tracks + resources + immersion mode | ⬜ | Links checked; reading ladder works |
@@ -89,3 +89,9 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 - **Only one human voice exists** (the MOE announcer), so §6.7's adaptive variability cannot switch voices yet; the Today and Lab contrast drills say so.
 - **Known limits:** creaky low T3s score lower in both trackers (水果 ~62 for a perfect copy); 弟弟's model curve is wrong (self-test 15); the browser pane cannot use the microphone or register the service worker, so the mic path was tested with a fake stream of MOE clips.
 - **Still needs Amadeus:** the pitch mirror on the iPhone and the laptop (M2's done-when), and the §10.4 spot-listen.
+
+### 2026-10-16 · M3 Shadowing (workflow build, review, two fix rounds)
+- **Built:** `docs/shadow.html` + `js/shadow.js` (guided protocol: listen ×3 → mumble ×2 → shadow with script ×2 → blind ×2 → record and compare → self-rate; timed 5/10/15-min sessions; sentence bank; MOE dictionary readings with segment chips and A–B loop; native-check hand-off; weekly dose), `js/player.js` (pitch-preserving `<audio>` player, exact range ends, loops with a 1.2× pause, A–B), `tools/entries.py` (簡編本 entry text), segment detection and segment contours. Today's Shadowing block is live. Content: 102 original sentences (`content/shadowing/sentences.csv`, gTTS, labelled TTS) and 111 MOE dictionary readings (`moe-readings.csv`, whole-entry recordings, text shown unmodified with the attribution). The MOE 使用說明 travels with the data (`docs/data/moe-license-concised.txt`, §7.5).
+- **Measured:** range ends within 22 ms, slowed playback keeps pitch, a full 10-minute session runs at 375 px and desktop.
+- **Review fixes:** native check follows the newest take; 便當 (lunch box) is ㄅㄧㄢˋ ㄉㄤ everywhere (˙ㄉㄤ is the "convenient" sense); 6 readings whose recordings do not read their displayed example were replaced; weekly dose = sessions of ≥ 10 min WITH self-recording on both pages; screen readers hear each step once, not every play; one set of step names; 44 px controls; a segment pitch curve is published only if it passes a sanity gate (36 of 422 dropped).
+- **Still needs Amadeus:** one real-microphone shadowing session on the iPhone.

@@ -1,0 +1,103 @@
+id,level,zh,zhuyin,en,focus,source
+s001,第1級,我住在屏東，你呢？,ㄨㄛˇ ㄓㄨˋ ㄗㄞˋ ㄆㄧㄥˊ ㄉㄨㄥ ㄋㄧˇ ˙ㄋㄜ,I live in Pingtung. How about you?,j-zh-z,original
+s002,第1級,今天好熱喔！,ㄐㄧㄣ ㄊㄧㄢ ㄏㄠˇ ㄖㄜˋ ㄛ,It's so hot today!,r-l,original
+s003,第1級,明天會下雨嗎？,ㄇㄧㄥˊ ㄊㄧㄢ ㄏㄨㄟˋ ㄒㄧㄚˋ ㄩˇ ˙ㄇㄚ,Will it rain tomorrow?,half3,original
+s004,第1級,明天一起吃早餐吧！,ㄇㄧㄥˊ ㄊㄧㄢ ㄧ ㄑㄧˇ ㄔ ㄗㄠˇ ㄘㄢ ˙ㄅㄚ,Let's have breakfast together tomorrow!,yi,original
+s005,第1級,一個多少錢？,ㄧ ˙ㄍㄜ ㄉㄨㄛ ㄕㄠˇ ㄑㄧㄢˊ,How much for one?,yi,original
+s006,第1級,我弟弟在讀大學。,ㄨㄛˇ ㄉㄧˋ ˙ㄉㄧ ㄗㄞˋ ㄉㄨˊ ㄉㄚˋ ㄒㄩㄝˊ,My younger brother is at university.,aspiration,original
+s007,第1級,請問火車站怎麼走？,ㄑㄧㄥˇ ㄨㄣˋ ㄏㄨㄛˇ ㄔㄜ ㄓㄢˋ ㄗㄣˇ ˙ㄇㄜ ㄗㄡˇ,"Excuse me, how do I get to the train station?",j-zh-z,original
+s008,第1級,今天比昨天冷。,ㄐㄧㄣ ㄊㄧㄢ ㄅㄧˇ ㄗㄨㄛˊ ㄊㄧㄢ ㄌㄥˇ,Today is colder than yesterday.,en-eng,original
+s009,第1級,可以說慢一點嗎？,ㄎㄜˇ ㄧˇ ㄕㄨㄛ ㄇㄢˋ ㄧ ㄉㄧㄢˇ ˙ㄇㄚ,Could you speak a little slower?,3+3,original
+s010,第1級,我很喜歡屏東的天氣。,ㄨㄛˇ ㄏㄣˇ ㄒㄧˇ ㄏㄨㄢ ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄉㄜ ㄊㄧㄢ ㄑㄧˋ,I really like the weather in Pingtung.,en-eng,original
+s011,第1級,這個星期六我們去墾丁。,ㄓㄜˋ ˙ㄍㄜ ㄒㄧㄥ ㄑㄧˊ ㄌㄧㄡˋ ㄨㄛˇ ˙ㄇㄣ ㄑㄩˋ ㄎㄣˇ ㄉㄧㄥ,This Saturday we're going to Kenting.,en-eng,original
+s012,第1級,我不太會說中文。,ㄨㄛˇ ㄅㄨˋ ㄊㄞˋ ㄏㄨㄟˋ ㄕㄨㄛ ㄓㄨㄥ ㄨㄣˊ,I can't speak Chinese very well.,bu,original
+s013,第1級,週末要不要一起去看電影？,ㄓㄡ ㄇㄛˋ ㄧㄠˋ ㄅㄨˋ ㄧㄠˋ ㄧ ㄑㄧˇ ㄑㄩˋ ㄎㄢˋ ㄉㄧㄢˋ ㄧㄥˇ,Do you want to see a movie together this weekend?,bu,original
+s014,第1級,你哥哥今天會來嗎？,ㄋㄧˇ ㄍㄜ ˙ㄍㄜ ㄐㄧㄣ ㄊㄧㄢ ㄏㄨㄟˋ ㄌㄞˊ ˙ㄇㄚ,Is your brother coming today?,e-uo-a,original
+s015,第1級,這件衣服好漂亮。,ㄓㄜˋ ㄐㄧㄢˋ ㄧ ˙ㄈㄨ ㄏㄠˇ ㄆㄧㄠˋ ˙ㄌㄧㄤ,This top is so pretty.,neutral,original
+s016,第1級,我們走路去就好。,ㄨㄛˇ ˙ㄇㄣ ㄗㄡˇ ㄌㄨˋ ㄑㄩˋ ㄐㄧㄡˋ ㄏㄠˇ,We can just walk there.,r-l,original
+s017,第1級,我們晚上吃什麼？,ㄨㄛˇ ˙ㄇㄣ ㄨㄢˇ ㄕㄤˋ ㄔ ㄕㄣˊ ˙ㄇㄜ,What are we having for dinner?,half3,original
+s018,第1級,你的中文說得很好！,ㄋㄧˇ ˙ㄉㄜ ㄓㄨㄥ ㄨㄣˊ ㄕㄨㄛ ˙ㄉㄜ ㄏㄣˇ ㄏㄠˇ,Your Chinese is really good!,e-uo-a,original
+s019,第1級,我家附近有一家早餐店。,ㄨㄛˇ ㄐㄧㄚ ㄈㄨˋ ㄐㄧㄣˋ ㄧㄡˇ ㄧ ㄐㄧㄚ ㄗㄠˇ ㄘㄢ ㄉㄧㄢˋ,There's a breakfast shop near my place.,yi,original
+s020,第1級,我每天早上喝咖啡。,ㄨㄛˇ ㄇㄟˇ ㄊㄧㄢ ㄗㄠˇ ㄕㄤˋ ㄏㄜ ㄎㄚ ㄈㄟ,I drink coffee every morning.,half3,original
+s021,第1級,你喜歡吃什麼？,ㄋㄧˇ ㄒㄧˇ ㄏㄨㄢ ㄔ ㄕㄣˊ ˙ㄇㄜ,What do you like to eat?,3+3,original
+s022,第1級,你家有幾個人？,ㄋㄧˇ ㄐㄧㄚ ㄧㄡˇ ㄐㄧˇ ˙ㄍㄜ ㄖㄣˊ,How many people are in your family?,3+3,original
+s023,第1級,我中午在家吃飯。,ㄨㄛˇ ㄓㄨㄥ ㄨˇ ㄗㄞˋ ㄐㄧㄚ ㄔ ㄈㄢˋ,I have lunch at home.,half3,original
+s024,第1級,我想喝熱的。,ㄨㄛˇ ㄒㄧㄤˇ ㄏㄜ ㄖㄜˋ ˙ㄉㄜ,I'd like a hot one.,r-l,original
+s025,第1級,你在哪裡？我在火車站。,ㄋㄧˇ ㄗㄞˋ ㄋㄚˇ ㄌㄧˇ ㄨㄛˇ ㄗㄞˋ ㄏㄨㄛˇ ㄔㄜ ㄓㄢˋ,Where are you? I'm at the train station.,j-zh-z,original
+s026,第1級,下午三點見。,ㄒㄧㄚˋ ㄨˇ ㄙㄢ ㄉㄧㄢˇ ㄐㄧㄢˋ,See you at three this afternoon.,x-sh-s,original
+s027,第1級,我們去吃晚餐吧。,ㄨㄛˇ ˙ㄇㄣ ㄑㄩˋ ㄔ ㄨㄢˇ ㄘㄢ ˙ㄅㄚ,Let's go have dinner.,q-ch-c,original
+s028,第1級,我晚上常常看電視。,ㄨㄛˇ ㄨㄢˇ ㄕㄤˋ ㄔㄤˊ ㄔㄤˊ ㄎㄢˋ ㄉㄧㄢˋ ㄕˋ,I often watch TV in the evening.,an-ang,original
+s029,第2級,阿姨早安！,ㄚ ㄧˊ ㄗㄠˇ ㄢ,"Good morning, auntie!",half3,original
+s030,第2級,你吃飽了嗎？,ㄋㄧˇ ㄔ ㄅㄠˇ ˙ㄌㄜ ˙ㄇㄚ,Have you eaten?,q-ch-c,original
+s031,第2級,好渴喔，我想喝可樂。,ㄏㄠˇ ㄎㄜˇ ㄛ ㄨㄛˇ ㄒㄧㄤˇ ㄏㄜ ㄎㄜˇ ㄌㄜˋ,I'm so thirsty. I want a Coke.,e-uo-a,original
+s032,第2級,請問這個怎麼賣？,ㄑㄧㄥˇ ㄨㄣˋ ㄓㄜˋ ˙ㄍㄜ ㄗㄣˇ ˙ㄇㄜ ㄇㄞˋ,"Excuse me, how much is this?",tones,original
+s033,第2級,老闆，算便宜一點啦！,ㄌㄠˇ ㄅㄢˇ ㄙㄨㄢˋ ㄆㄧㄢˊ ㄧˊ ㄧ ㄉㄧㄢˇ ˙ㄌㄚ,"Boss, give me a better price!",aspiration,original
+s034,第2級,我奶奶今年八十歲了。,ㄨㄛˇ ㄋㄞˇ ˙ㄋㄞ ㄐㄧㄣ ㄋㄧㄢˊ ㄅㄚ ㄕˊ ㄙㄨㄟˋ ˙ㄌㄜ,My grandma turned eighty this year.,x-sh-s,original
+s035,第2級,我女兒今年上小學。,ㄨㄛˇ ㄋㄩˇ ㄦˊ ㄐㄧㄣ ㄋㄧㄢˊ ㄕㄤˋ ㄒㄧㄠˇ ㄒㄩㄝˊ,My daughter starts elementary school this year.,yu-i-u,original
+s036,第2級,下午我要去郵局寄信。,ㄒㄧㄚˋ ㄨˇ ㄨㄛˇ ㄧㄠˋ ㄑㄩˋ ㄧㄡˊ ㄐㄩˊ ㄐㄧˋ ㄒㄧㄣˋ,This afternoon I'm going to the post office to mail a letter.,yu-i-u,original
+s037,第2級,寄到美國要幾天？,ㄐㄧˋ ㄉㄠˋ ㄇㄟˇ ㄍㄨㄛˊ ㄧㄠˋ ㄐㄧˇ ㄊㄧㄢ,How many days does it take to send it to the US?,half3,original
+s038,第2級,郵局開到幾點？,ㄧㄡˊ ㄐㄩˊ ㄎㄞ ㄉㄠˋ ㄐㄧˇ ㄉㄧㄢˇ,How late is the post office open?,3+3,original
+s039,第2級,這個可以幫我熱一下嗎？,ㄓㄜˋ ˙ㄍㄜ ㄎㄜˇ ㄧˇ ㄅㄤ ㄨㄛˇ ㄖㄜˋ ㄧ ㄒㄧㄚˋ ˙ㄇㄚ,Could you heat this up for me?,r-l,original
+s040,第2級,半糖少冰，謝謝。,ㄅㄢˋ ㄊㄤˊ ㄕㄠˇ ㄅㄧㄥ ㄒㄧㄝˋ ˙ㄒㄧㄝ,"Half sugar, light ice, thanks.",an-ang,original
+s041,第2級,老闆，再來一碗。,ㄌㄠˇ ㄅㄢˇ ㄗㄞˋ ㄌㄞˊ ㄧ ㄨㄢˇ,"Boss, another bowl, please.",yi,original
+s042,第2級,我們去夜市吃東西吧！,ㄨㄛˇ ˙ㄇㄣ ㄑㄩˋ ㄧㄝˋ ㄕˋ ㄔ ㄉㄨㄥ ˙ㄒㄧ ˙ㄅㄚ,Let's go eat at the night market!,neutral,original
+s043,第2級,前面左轉就到了。,ㄑㄧㄢˊ ㄇㄧㄢˋ ㄗㄨㄛˇ ㄓㄨㄢˇ ㄐㄧㄡˋ ㄉㄠˋ ˙ㄌㄜ,Turn left up ahead and you're there.,j-zh-z,original
+s044,第2級,下一班火車幾點到？,ㄒㄧㄚˋ ㄧ ㄅㄢ ㄏㄨㄛˇ ㄔㄜ ㄐㄧˇ ㄉㄧㄢˇ ㄉㄠˋ,When does the next train get in?,yi,original
+s045,第2級,火車晚了十分鐘。,ㄏㄨㄛˇ ㄔㄜ ㄨㄢˇ ˙ㄌㄜ ㄕˊ ㄈㄣ ㄓㄨㄥ,The train was ten minutes late.,en-eng,original
+s046,第2級,這班車有到屏東嗎？,ㄓㄜˋ ㄅㄢ ㄔㄜ ㄧㄡˇ ㄉㄠˋ ㄆㄧㄥˊ ㄉㄨㄥ ˙ㄇㄚ,Does this bus go to Pingtung?,aspiration,original
+s047,第2級,醫生說我感冒了。,ㄧ ㄕㄥ ㄕㄨㄛ ㄨㄛˇ ㄍㄢˇ ㄇㄠˋ ˙ㄌㄜ,The doctor says I have a cold.,3+3,original
+s048,第2級,一天三次，飯後吃。,ㄧ ㄊㄧㄢ ㄙㄢ ㄘˋ ㄈㄢˋ ㄏㄡˋ ㄔ,"Three times a day, after meals.",yi,original
+s049,第2級,你認識樓下的陳先生嗎？,ㄋㄧˇ ㄖㄣˋ ˙ㄕ ㄌㄡˊ ㄒㄧㄚˋ ˙ㄉㄜ ㄔㄣˊ ㄒㄧㄢ ㄕㄥ ˙ㄇㄚ,Do you know Mr. Chen downstairs?,en-eng,original
+s050,第2級,不客氣，有空來坐喔。,ㄅㄨˋ ㄎㄜˋ ㄑㄧˋ ㄧㄡˇ ㄎㄨㄥˋ ㄌㄞˊ ㄗㄨㄛˋ ㄛ,You're welcome. Drop by when you're free.,bu,original
+s051,第2級,晚上會變冷，多穿一件外套。,ㄨㄢˇ ㄕㄤˋ ㄏㄨㄟˋ ㄅㄧㄢˋ ㄌㄥˇ ㄉㄨㄛ ㄔㄨㄢ ㄧ ㄐㄧㄢˋ ㄨㄞˋ ㄊㄠˋ,It'll get cold tonight. Put on an extra jacket.,yi,original
+s052,第2級,讓我想一下。,ㄖㄤˋ ㄨㄛˇ ㄒㄧㄤˇ ㄧ ㄒㄧㄚˋ,Let me think for a moment.,r-l,original
+s053,第2級,我聽不懂，請再說一次。,ㄨㄛˇ ㄊㄧㄥ ㄅㄨˋ ㄉㄨㄥˇ ㄑㄧㄥˇ ㄗㄞˋ ㄕㄨㄛ ㄧ ㄘˋ,I don't understand. Please say it again.,yi,original
+s054,第2級,肚子好餓，我們去吃飯吧。,ㄉㄨˋ ˙ㄗ ㄏㄠˇ ㄜˋ ㄨㄛˇ ˙ㄇㄣ ㄑㄩˋ ㄔ ㄈㄢˋ ˙ㄅㄚ,I'm starving. Let's go eat.,aspiration,original
+s055,第2級,走這麼久，你會不會累？,ㄗㄡˇ ㄓㄜˋ ˙ㄇㄜ ㄐㄧㄡˇ ㄋㄧˇ ㄏㄨㄟˋ ㄅㄨˋ ㄏㄨㄟˋ ㄌㄟˋ,We've walked so long. Are you tired?,bu,original
+s056,第2級,我不是本地人。,ㄨㄛˇ ㄅㄨˋ ㄕˋ ㄅㄣˇ ㄉㄧˋ ㄖㄣˊ,I'm not from around here.,bu,original
+s057,第2級,我要一個漢堡跟一杯奶茶。,ㄨㄛˇ ㄧㄠˋ ㄧ ˙ㄍㄜ ㄏㄢˋ ㄅㄠˇ ㄍㄣ ㄧ ㄅㄟ ㄋㄞˇ ㄔㄚˊ,I'll have a hamburger and a milk tea.,yi,original
+s058,第2級,我的手機沒電了。,ㄨㄛˇ ˙ㄉㄜ ㄕㄡˇ ㄐㄧ ㄇㄟˊ ㄉㄧㄢˋ ˙ㄌㄜ,My phone's battery is dead.,neutral,original
+s059,第2級,欸，你的錢包掉了！,ㄟˋ ㄋㄧˇ ˙ㄉㄜ ㄑㄧㄢˊ ㄅㄠ ㄉㄧㄠˋ ˙ㄌㄜ,"Hey, you dropped your wallet!",aspiration,original
+s060,第2級,早餐店的阿姨人很好。,ㄗㄠˇ ㄘㄢ ㄉㄧㄢˋ ˙ㄉㄜ ㄚ ㄧˊ ㄖㄣˊ ㄏㄣˇ ㄏㄠˇ,The lady at the breakfast shop is really nice.,3+3,original
+s061,第2級,我常常在便利商店買早餐。,ㄨㄛˇ ㄔㄤˊ ㄔㄤˊ ㄗㄞˋ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄇㄞˇ ㄗㄠˇ ㄘㄢ,I often buy breakfast at the convenience store.,an-ang,original
+s062,第2級,沒關係，我也剛到。,ㄇㄟˊ ㄍㄨㄢ ㄒㄧˋ ㄨㄛˇ ㄧㄝˇ ㄍㄤ ㄉㄠˋ,"No problem, I just got here too.",3+3,original
+s063,第2級,先洗手再吃飯。,ㄒㄧㄢ ㄒㄧˇ ㄕㄡˇ ㄗㄞˋ ㄔ ㄈㄢˋ,Wash your hands before you eat.,x-sh-s,original
+s064,第2級,小朋友，你今年幾歲？,ㄒㄧㄠˇ ㄆㄥˊ ㄧㄡˇ ㄋㄧˇ ㄐㄧㄣ ㄋㄧㄢˊ ㄐㄧˇ ㄙㄨㄟˋ,"How old are you this year, little one?",x-sh-s,original
+s065,第2級,這裡離火車站很近。,ㄓㄜˋ ㄌㄧˇ ㄌㄧˊ ㄏㄨㄛˇ ㄔㄜ ㄓㄢˋ ㄏㄣˇ ㄐㄧㄣˋ,It's very close to the train station from here.,j-zh-z,original
+s066,第2級,你什麼時候回來？,ㄋㄧˇ ㄕㄣˊ ˙ㄇㄜ ㄕˊ ㄏㄡˋ ㄏㄨㄟˊ ㄌㄞˊ,When are you coming back?,neutral,original
+s067,第3級,爸爸騎機車去上班。,ㄅㄚˋ ˙ㄅㄚ ㄑㄧˊ ㄐㄧ ㄔㄜ ㄑㄩˋ ㄕㄤˋ ㄅㄢ,Dad rides his scooter to work.,q-ch-c,original
+s068,第3級,媽媽在廚房準備晚餐。,ㄇㄚ ˙ㄇㄚ ㄗㄞˋ ㄔㄨˊ ㄈㄤˊ ㄓㄨㄣˇ ㄅㄟˋ ㄨㄢˇ ㄘㄢ,Mom is making dinner in the kitchen.,an-ang,original
+s069,第3級,不用袋子，謝謝。,ㄅㄨˋ ㄩㄥˋ ㄉㄞˋ ˙ㄗ ㄒㄧㄝˋ ˙ㄒㄧㄝ,"No bag, thanks.",bu,original
+s070,第3級,你要內用還是外帶？,ㄋㄧˇ ㄧㄠˋ ㄋㄟˋ ㄩㄥˋ ㄏㄞˊ ㄕˋ ㄨㄞˋ ㄉㄞˋ,For here or to go?,tones,original
+s071,第3級,甜度冰塊呢？,ㄊㄧㄢˊ ㄉㄨˋ ㄅㄧㄥ ㄎㄨㄞˋ ˙ㄋㄜ,"How sweet, and how much ice?",aspiration,original
+s072,第3級,我要大杯的，微糖去冰。,ㄨㄛˇ ㄧㄠˋ ㄉㄚˋ ㄅㄟ ˙ㄉㄜ ㄨㄟˊ ㄊㄤˊ ㄑㄩˋ ㄅㄧㄥ,"A large one, please, low sugar and no ice.",tones,original
+s073,第3級,這家的肉圓很好吃。,ㄓㄜˋ ㄐㄧㄚ ˙ㄉㄜ ㄖㄡˋ ㄩㄢˊ ㄏㄣˇ ㄏㄠˇ ㄔ,The bawan at this shop are really good.,r-l,original
+s074,第3級,雞腿便當一個，外帶。,ㄐㄧ ㄊㄨㄟˇ ㄅㄧㄢˋ ㄉㄤ ㄧ ˙ㄍㄜ ㄨㄞˋ ㄉㄞˋ,"One chicken-leg bento, to go.",j-zh-z,original
+s075,第3級,這裡可以刷卡嗎？,ㄓㄜˋ ㄌㄧˇ ㄎㄜˇ ㄧˇ ㄕㄨㄚ ㄎㄚˇ ˙ㄇㄚ,Can I pay by card here?,3+3,original
+s076,第3級,不好意思，我沒有零錢。,ㄅㄨˋ ㄏㄠˇ ㄧˋ ˙ㄙ ㄨㄛˇ ㄇㄟˊ ㄧㄡˇ ㄌㄧㄥˊ ㄑㄧㄢˊ,"Sorry, I don't have any change.",neutral,original
+s077,第3級,我坐客運去高雄。,ㄨㄛˇ ㄗㄨㄛˋ ㄎㄜˋ ㄩㄣˋ ㄑㄩˋ ㄍㄠ ㄒㄩㄥˊ,I take the intercity bus to Kaohsiung.,yu-i-u,original
+s078,第3級,騎車要戴安全帽喔。,ㄑㄧˊ ㄔㄜ ㄧㄠˋ ㄉㄞˋ ㄢ ㄑㄩㄢˊ ㄇㄠˋ ㄛ,Wear a helmet when you ride.,q-ch-c,original
+s079,第3級,你有帶健保卡嗎？,ㄋㄧˇ ㄧㄡˇ ㄉㄞˋ ㄐㄧㄢˋ ㄅㄠˇ ㄎㄚˇ ˙ㄇㄚ,Did you bring your health insurance card?,3+3,original
+s080,第3級,我頭痛，想去看醫生。,ㄨㄛˇ ㄊㄡˊ ㄊㄨㄥˋ ㄒㄧㄤˇ ㄑㄩˋ ㄎㄢˋ ㄧ ㄕㄥ,I have a headache. I want to see a doctor.,aspiration,original
+s081,第3級,藥局在便利商店旁邊。,ㄧㄠˋ ㄐㄩˊ ㄗㄞˋ ㄅㄧㄢˋ ㄌㄧˋ ㄕㄤ ㄉㄧㄢˋ ㄆㄤˊ ㄅㄧㄢ,The pharmacy is next to the convenience store.,an-ang,original
+s082,第3級,我今天不舒服，不想出門。,ㄨㄛˇ ㄐㄧㄣ ㄊㄧㄢ ㄅㄨˋ ㄕㄨ ˙ㄈㄨ ㄅㄨˋ ㄒㄧㄤˇ ㄔㄨ ㄇㄣˊ,I don't feel well today. I don't want to go out.,neutral,original
+s083,第3級,鄰居送我們一些芒果。,ㄌㄧㄣˊ ㄐㄩ ㄙㄨㄥˋ ㄨㄛˇ ˙ㄇㄣ ㄧ ㄒㄧㄝ ㄇㄤˊ ㄍㄨㄛˇ,The neighbors gave us some mangoes.,x-sh-s,original
+s084,第3級,下雨了，快把衣服收進來！,ㄒㄧㄚˋ ㄩˇ ˙ㄌㄜ ㄎㄨㄞˋ ㄅㄚˇ ㄧ ˙ㄈㄨ ㄕㄡ ㄐㄧㄣˋ ㄌㄞˊ,"It's raining. Quick, bring the laundry in!",yu-i-u,original
+s085,第3級,颱風天很危險，不要出門。,ㄊㄞˊ ㄈㄥ ㄊㄧㄢ ㄏㄣˇ ㄨㄟˊ ㄒㄧㄢˇ ㄅㄨˋ ㄧㄠˋ ㄔㄨ ㄇㄣˊ,It's dangerous out in a typhoon. Don't go out.,tones,original
+s086,第3級,明天有沒有放颱風假？,ㄇㄧㄥˊ ㄊㄧㄢ ㄧㄡˇ ㄇㄟˊ ㄧㄡˇ ㄈㄤˋ ㄊㄞˊ ㄈㄥ ㄐㄧㄚˋ,Do we get a typhoon day off tomorrow?,tones,original
+s087,第3級,垃圾車來了，快把垃圾拿出去！,ㄌㄜˋ ㄙㄜˋ ㄔㄜ ㄌㄞˊ ˙ㄌㄜ ㄎㄨㄞˋ ㄅㄚˇ ㄌㄜˋ ㄙㄜˋ ㄋㄚˊ ㄔㄨ ㄑㄩˋ,"The garbage truck is here. Quick, take the trash out!",e-uo-a,original
+s088,第3級,東港的魚很新鮮。,ㄉㄨㄥ ㄍㄤˇ ˙ㄉㄜ ㄩˊ ㄏㄣˇ ㄒㄧㄣ ㄒㄧㄢ,The fish in Donggang is very fresh.,yu-i-u,original
+s089,第3級,那家早餐店的蛋餅不錯吃。,ㄋㄚˋ ㄐㄧㄚ ㄗㄠˇ ㄘㄢ ㄉㄧㄢˋ ˙ㄉㄜ ㄉㄢˋ ㄅㄧㄥˇ ㄅㄨˋ ㄘㄨㄛˋ ㄔ,The egg crepes at that breakfast shop are pretty good.,bu,original
+s090,第3級,傳統市場的菜比較便宜。,ㄔㄨㄢˊ ㄊㄨㄥˇ ㄕˋ ㄔㄤˇ ˙ㄉㄜ ㄘㄞˋ ㄅㄧˇ ㄐㄧㄠˋ ㄆㄧㄢˊ ㄧˊ,Vegetables are cheaper at the traditional market.,aspiration,original
+s091,第3級,多喝水，早點休息。,ㄉㄨㄛ ㄏㄜ ㄕㄨㄟˇ ㄗㄠˇ ㄉㄧㄢˇ ㄒㄧㄡ ㄒㄧˊ,Drink plenty of water and get to bed early.,e-uo-a,original
+s092,第3級,爺爺每天早上去散步。,ㄧㄝˊ ˙ㄧㄝ ㄇㄟˇ ㄊㄧㄢ ㄗㄠˇ ㄕㄤˋ ㄑㄩˋ ㄙㄢˋ ㄅㄨˋ,Grandpa goes for a walk every morning.,half3,original
+s093,第3級,樓上好吵，我睡不好。,ㄌㄡˊ ㄕㄤˋ ㄏㄠˇ ㄔㄠˇ ㄨㄛˇ ㄕㄨㄟˋ ㄅㄨˋ ㄏㄠˇ,The upstairs neighbors are so loud I can't sleep well.,q-ch-c,original
+s094,第3級,外面好熱，我一直流汗。,ㄨㄞˋ ㄇㄧㄢˋ ㄏㄠˇ ㄖㄜˋ ㄨㄛˇ ㄧ ㄓˊ ㄌㄧㄡˊ ㄏㄢˋ,It's so hot out. I can't stop sweating.,r-l,original
+s095,第3級,下雨騎車要穿雨衣。,ㄒㄧㄚˋ ㄩˇ ㄑㄧˊ ㄔㄜ ㄧㄠˋ ㄔㄨㄢ ㄩˇ ㄧ,"When it rains, wear a raincoat on the scooter.",yu-i-u,original
+s096,第3級,晚上去逛夜市好不好？,ㄨㄢˇ ㄕㄤˋ ㄑㄩˋ ㄍㄨㄤˋ ㄧㄝˋ ㄕˋ ㄏㄠˇ ㄅㄨˋ ㄏㄠˇ,How about going to the night market tonight?,an-ang,original
+s097,第3級,我有點發燒，也一直咳嗽。,ㄨㄛˇ ㄧㄡˇ ㄉㄧㄢˇ ㄈㄚ ㄕㄠ ㄧㄝˇ ㄧ ㄓˊ ㄎㄜˊ ㄙㄡˋ,"I have a slight fever, and I keep coughing.",3+3,original
+s098,第3級,今天出太陽，可以洗衣服。,ㄐㄧㄣ ㄊㄧㄢ ㄔㄨ ㄊㄞˋ ㄧㄤˊ ㄎㄜˇ ㄧˇ ㄒㄧˇ ㄧ ˙ㄈㄨ,The sun's out today. We can do the laundry.,3+3,original
+s099,第3級,可以幫我們拍照嗎？,ㄎㄜˇ ㄧˇ ㄅㄤ ㄨㄛˇ ˙ㄇㄣ ㄆㄞ ㄓㄠˋ ˙ㄇㄚ,Could you take a picture of us?,aspiration,original
+s100,第3級,等一下把照片傳給你。,ㄉㄥˇ ㄧ ㄒㄧㄚˋ ㄅㄚˇ ㄓㄠˋ ㄆㄧㄢˋ ㄔㄨㄢˊ ㄍㄟˇ ㄋㄧˇ,I'll send you the photos in a bit.,q-ch-c,original
+s101,第3級,出門前記得帶鑰匙。,ㄔㄨ ㄇㄣˊ ㄑㄧㄢˊ ㄐㄧˋ ˙ㄉㄜ ㄉㄞˋ ㄧㄠˋ ˙ㄕ,Remember your keys before you go out.,neutral,original
+s102,第3級,我要一杯烏龍茶，不要冰的。,ㄨㄛˇ ㄧㄠˋ ㄧ ㄅㄟ ㄨ ㄌㄨㄥˊ ㄔㄚˊ ㄅㄨˋ ㄧㄠˋ ㄅㄧㄥ ˙ㄉㄜ,"An oolong tea, please, not iced.",bu,original

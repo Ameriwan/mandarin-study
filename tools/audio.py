@@ -132,6 +132,91 @@ def detect_span(path, nsyl=1, min_pause=None, pad=0.05):
     return fallback
 
 
+SEGMENTS_FILE = MOE_CACHE / "segments-v1.json"
+MIN_CHUNK = 0.12      # shorter "speech" between two pauses is a click or a breath, not a chunk
+SEGMENT_PAD = 0.05    # seconds added before and after each chunk (never past the middle of a pause)
+MIN_SPEECH_SHARE = 0.4
+
+
+def load_segments():
+    return json.load(open(SEGMENTS_FILE, encoding="utf-8")) if SEGMENTS_FILE.exists() else {}
+
+
+def save_segments(segs):
+    MOE_CACHE.mkdir(parents=True, exist_ok=True)
+    json.dump(segs, open(SEGMENTS_FILE, "w", encoding="utf-8"), indent=0, sort_keys=True)
+
+
+def _chunks(dur, sil):
+    """Speech chunks between the silences: [(start, end)], blips under MIN_CHUNK dropped."""
+    raw, t = [], 0.0
+    for s0, s1 in sil:
+        if s0 - t >= MIN_CHUNK:
+            raw.append((t, s0))
+        t = max(t, s1)
+    if dur - t >= MIN_CHUNK:
+        raw.append((t, dur))
+    return raw
+
+
+def _padded(raw, dur, pad=SEGMENT_PAD):
+    """[[start, end]] (2 decimals): each chunk padded by `pad`, never past the middle of the pause on either side
+    or the ends of the file."""
+    out = []
+    for i, (a, b) in enumerate(raw):
+        lo = (raw[i - 1][1] + a) / 2 if i else 0.0
+        hi = (b + raw[i + 1][0]) / 2 if i + 1 < len(raw) else dur
+        out.append([round(max(lo, a - pad), 2), round(min(hi, b + pad), 2)])
+    return out
+
+
+def segment_info(path, min_pause=WORD_PAUSE, nsyl=None, cache=None):
+    """detect_segments with its details: {"segments": [[start, end], ...], "dur": seconds, "db"?: threshold when
+    not the first, "check"?: True when no threshold gave a plausible result}. Cached in SEGMENTS_FILE by file
+    stem (the MOE audio id), min_pause and nsyl. Pass `cache` (load_segments()) to batch many files and save
+    it yourself with save_segments; without it the cache file is read and written on each call."""
+    own = cache is None
+    if own:
+        cache = load_segments()
+    key = f"{Path(path).stem}:{min_pause}:{nsyl or 0}"
+    if key not in cache:
+        n = nsyl or 0
+        lo, hi = (0.15 * n, 0.85 * n + 0.3) if n else (0.15, 3.0)
+        fallback = None
+        for db in THRESHOLDS:
+            dur, sil = _silences(path, db, min_pause)
+            raw = _chunks(dur, sil)
+            out = {"segments": _padded(raw, dur), "dur": round(dur, 2)}
+            speech = sum(e - s for s, e in raw)
+            if (len(raw) >= 2 and lo <= raw[0][1] - raw[0][0] <= hi
+                    and dur and speech / dur >= MIN_SPEECH_SHARE):
+                if db != THRESHOLDS[0]:
+                    out["db"] = db
+                break
+            if fallback is None:
+                fallback = out
+        else:
+            out = {**fallback, "check": True}
+        cache[key] = out
+        if own:
+            save_segments(cache)
+    return cache[key]
+
+
+def detect_segments(path, min_pause=WORD_PAUSE, nsyl=None, cache=None):
+    """Speech chunks of a whole-entry MOE reading (§7.3: headword, definition(s), 「例如」, example sentence,
+    about 1 s apart): [[start, end], ...] in seconds of the file, for numbered loopable segments (the file is
+    never cut; the player plays a range). A chunk ends at a pause of >= min_pause s.
+
+    Multi-threshold like detect_span: silencedetect at -35 dB first, then -30 / -25 / -40 / -45 / -50 dB, until the
+    result is plausible: at least two chunks, the first one (the headword) 0.15-0.85 s per syllable + 0.3 s when
+    `nsyl` is given, and speech in at least 40 % of the file. On 203 cached word clips -35 dB passes for all but a
+    few quiet ones (餃子: its neutral 子 sits under -35 dB, so -40 dB is used). A short chunk can be real: the
+    announcer reads a sense number (一、二、) with a ~0.5 s pause after it. Blips under MIN_CHUNK are dropped and each
+    chunk gets SEGMENT_PAD s on both sides so a quiet initial (ㄒ, ㄕ) is not clipped. Cached (segment_info)."""
+    return segment_info(path, min_pause, nsyl, cache)["segments"]
+
+
 def publish_moe(aid, spans, nsyl=1):
     """Cache -> docs/audio/moe/<id>.ogg + .mp3, and compute the span once. Returns the audio.json entry or None."""
     src = fetch_moe(aid)

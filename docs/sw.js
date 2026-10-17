@@ -1,14 +1,15 @@
 // Service worker: app shell cached on install, data network-first, audio cached on first play (cache-first),
 // the pinned pitch library cached on install or first use (cache-first).
-const VERSION = "v5";
+const VERSION = "v6";
 const SHELL = `shell-${VERSION}`, DATA = `data-${VERSION}`;
 const AUDIO = "audio-v1"; // not tied to VERSION: clip URLs never change content (§7.2), so played clips survive app updates
 const LIB = "lib-v1";     // not tied to VERSION either: the URLs below are pinned to exact versions and never change
 // pitchy 4.1.0 (js/pitch.js imports its +esm build) and the fft.js 4.0.4 build that module imports in turn
 const LIB_PREFIXES = ["https://cdn.jsdelivr.net/npm/pitchy@4.1.0/", "https://cdn.jsdelivr.net/npm/fft.js@4.0.4/"];
 const LIB_WARM = ["https://cdn.jsdelivr.net/npm/pitchy@4.1.0/+esm", "https://cdn.jsdelivr.net/npm/fft.js@4.0.4/+esm"];
-const SHELL_FILES = ["./", "./index.html", "./lab.html", "./tones.html", "./css/style.css", "./css/drills.css", "./css/tones.css",
-  "./css/today.css", "./js/app.js", "./js/lab.js", "./js/home.js", "./js/tones.js", "./js/pitch.js", "./js/drills.js",
+const SHELL_FILES = ["./", "./index.html", "./lab.html", "./tones.html", "./shadow.html", "./css/style.css", "./css/drills.css", "./css/tones.css",
+  "./css/today.css", "./css/shadow.css", "./js/app.js", "./js/lab.js", "./js/home.js", "./js/tones.js", "./js/pitch.js", "./js/drills.js",
+  "./js/player.js", "./js/shadow.js",
   "./manifest.webmanifest", "./icon.svg"];
 
 self.addEventListener("install", e => {

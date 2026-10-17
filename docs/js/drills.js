@@ -3,9 +3,10 @@
 // Every drill renders into `container` and returns a controller { stop(), done }. `done` resolves with a result
 // { drill, n, correct, accuracy, seconds, stopped, timeUp, ... } when the drill ends: n trials done, `timeLimit`
 // seconds elapsed at the end of a trial (checked when the learner moves on, never in the middle of a trial), or
-// stop(). Ending calls stopAudio(). A drill whose view is cleared without stop() notices within half a second and
-// ends quietly (no stopAudio then: the next view may already be playing or recording). A tone drill given an item
-// without an MOE clip fails instead: the call throws, or `done` rejects (see checkMoe), and onDone is not called.
+// stop(). Ending calls stopAll() (stopAudio() and the players). A drill whose view is cleared without stop() notices
+// within half a second and ends quietly (no stopAll() then: the next view may already be playing or recording; its
+// own players stop as their owner leaves the page). A tone drill given an item without an MOE clip fails instead:
+// the call throws, or `done` rejects (see checkMoe), and onDone is not called.
 // Options every drill takes: { timeLimit = null, onDone, again, actions, focus }. onDone(result) runs when a run ends.
 // `again`: the end card offers "Another round" (a fresh run in the same place with the same options, so onDone
 // fires again); it defaults to true for untimed drills and false for timed ones (a session runner moves on).
@@ -20,11 +21,17 @@
 // (callers pass only items with an MOE clip in audio.json; the Tone Gym and Today filter on it), and a failed check
 // makes the drill fail (see checkMoe). contrastDrill keeps only the words with an MOE clip (the Lab passes the raw
 // contrasts.json). Every tone or syllable clip a drill plays goes through playTone, which refuses anything not MOE.
+// shadowLine plays through player.js (an <audio> element, so slowed playback keeps its pitch, M3); app.js
+// stopAudio() cannot reach those players, so "stop everything" here is stopAll(): stopAudio() plus stopPlayers().
 // Listening drills never ask to speak; the speaking drills (mirrorDrill, shadowLine) are separate blocks (§6.7,
 // Baese-Berk & Samuel 2016). Stats live in localStorage via `store` (app.js).
 import { h, clear, store, loadJSON, shuffle, pick, ruby, playButton, playMoe, playFile, stopAudio, toast, today, audioContext, settings,
   Recorder, canRecord, saveRecording, loadRecording, syllables, toneOf, baseOf, withTone, TONE_NAMES, enText, bi } from "./app.js";
 import * as pitch from "./pitch.js";
+import { ShadowPlayer, stopPlayers, RATES } from "./player.js";
+
+// Stops everything audible: app.js playback and recordings, and every player.js player.
+export function stopAll() { stopAudio(); stopPlayers(); }
 
 const KEYS = { contrasts: "lab.contrasts", focus: "focus.contrasts", confusion: "tones.confusion", pairs: "tones.pairs", mirror: "tones.mirror" };
 const MOE_NAME = "MOE human voice · 教育部真人發音";
@@ -120,7 +127,7 @@ function session(container, kind, opts = {}) {
       clearInterval(watch);
       for (const fn of [...hooks]) { try { fn(); } catch (e) { console.error(e); } }
       hooks.clear();
-      stopAudio();
+      stopAll();
       rejectDone(err);
     },
   };
@@ -130,7 +137,7 @@ function session(container, kind, opts = {}) {
     clearInterval(watch);
     for (const fn of [...hooks]) { try { fn(); } catch (err) { console.error(err); } }
     hooks.clear();
-    if (!quiet) stopAudio();
+    if (!quiet) stopAll();
     const result = { drill: kind, n: s.n, correct: s.correct, accuracy: s.n ? Math.round(100 * s.correct / s.n) : null,
       seconds: Math.round(elapsed()), stopped: false, timeUp: s.timeUp(), ...s.extra, ...extra };
     resolveDone(result);
@@ -145,7 +152,7 @@ function session(container, kind, opts = {}) {
 function endCard(s, target, opts, restart, title, lines = []) {
   const again = opts.again ?? opts.timeLimit == null;
   const extra = typeof opts.actions === "function" ? opts.actions() : opts.actions || [];
-  const first = again ? h("button", { type: "button", class: "btn primary", onclick: () => { stopAudio(); restart(); } }, ...bi("再一輪", "Another round")) : null;
+  const first = again ? h("button", { type: "button", class: "btn primary", onclick: () => { stopAll(); restart(); } }, ...bi("再一輪", "Another round")) : null;
   const head = h("h3", { tabindex: "-1" }, title);
   const card = h("div", { class: "card drill-summary" }, head, lines, h("div", { class: "row drill-actions" }, first, extra));
   const had = target.contains(document.activeElement);
@@ -709,7 +716,7 @@ function takeRecorder(s, { limitSec = 4, silence = 0.8, onState = () => {}, onLi
       if (rec || starting) return;
       starting = true; cancelled = false;
       onState(true);
-      stopAudio(); // the model must not play into the take, and only one recorder holds the microphone
+      stopAll(); // the model must not play into the take, and only one recorder holds the microphone
       const ok = await withTimeout(pitchReady(), 3000, false);
       if (cancelled || !s.alive()) { starting = false; onState(false); return; } // Stop pressed while pitchy loaded
       let live = null;
@@ -936,17 +943,38 @@ export function mirrorDrill(container, items, opts = {}) {
 }
 
 // ------------------------------------------------------------------ 5. shadowing one line (speaking block)
-// item: {zh, zhuyin, spoken?, en?, id? (MOE clip), audio? (audio.json key of a TTS file, or its path)}.
-// Listen x3 with a pause of 1.2x the line's length to repeat it, say it with the audio x2, record once and listen back.
-// No score for sentences; the pitch overlay appears only for an MOE clip with a model contour.
+// item: {zh, zhuyin, spoken?, en?, id? (MOE clip), audio? (audio.json key of a TTS file, or its path), dur? (its
+// length in seconds), start?, end? (a range of the MOE file instead of its headword span, e.g. a dictionary-reading
+// segment), model? (that range's contour; else contours.json[id]), label? (the source label, e.g. "MOE dictionary
+// reading"), key? (the line key for saved takes and ratings)}.
+// Playback goes through player.js (an <audio> element), so slowed playback keeps its pitch; the speed control
+// 0.75 / 0.9 / 1.0 applies at once, also in the middle of a play. Playing never ends a take (keepMic).
+// opts.protocol:
+//   "short" (default; Today's pronunciation step, as in M2): listen ×3 with a pause of 1.2× the line's length to
+//     repeat it, say it with the audio ×2, record once and listen back.
+//   "full" (the guided protocol of §5.4; Today's Shadowing block): listen ×3 → mumble along ×2 → shadow with the
+//     script ×2 → shadow blind (text hidden) ×2 → record and compare (my take, then the original) → self-rate
+//     (清楚 clear / 還好 OK / 再練 again).
+// opts.saveKey (default item.key): the take is saved as "shadow:<key>" with {zh, zhuyin, spoken, line, title, src,
+//   model, rating} (the Shadowing page's fields), saved again once rated; the rating goes to "shadow.lines"
+//   (rateShadowLine). Without a key nothing is stored. opts.rate: the starting speed (one of RATES; default 1.0).
+// No score for sentences; the pitch overlay appears only for an MOE clip with a model contour, and a line without
+// one says why (a TTS voice's intonation is not a model, §6.3). "Skip this part" skips the rest of the current part.
+// A timed run (timeLimit) with time left offers another round or Finish after each run, and ends by itself when the
+// time is up between runs. The result adds {runs, recorded, rating, rate}.
+const RATINGS = [["clear", "清楚", "clear"], ["ok", "還好", "OK"], ["again", "再練", "again"]];
 export function shadowLine(container, item, opts = {}) {
   const s = session(container, "shadow", opts);
   const restart = () => shadowLine(container, item, { ...opts, __replace: s.root });
   const it = item || {};
-  let rate = 1, runs = 0, recorded = false, running = false, skip = false, take = null, noMic = canRecord ? "" : "unsupported";
+  const full = opts.protocol === "full";
+  const key = opts.saveKey ?? it.key ?? null;
+  let rate = RATES.includes(Number(opts.rate)) ? Number(opts.rate) : 1;
+  let runs = 0, recorded = false, rating = null, running = false, skip = false, take = null, recBusy = false;
+  let noMic = canRecord ? "" : "unsupported";
   const waiters = new Set();
   s.root.append(h("p", { class: "muted small" }, "載入中… ", enText("Loading…")));
-  Promise.all([loadJSON("audio").catch(() => ({})), it.id ? loadJSON("contours").catch(() => ({})) : Promise.resolve({})]).then(([audio, contours]) => {
+  Promise.all([loadJSON("audio").catch(() => ({})), it.id && !it.model ? loadJSON("contours").catch(() => ({})) : Promise.resolve({})]).then(([audio, contours]) => {
     if (!s.alive()) return;
     clear(s.root);
     build(audio || {}, contours || {});
@@ -967,20 +995,51 @@ export function shadowLine(container, item, opts = {}) {
   function build(audio, contours) {
     const src = lineSource(it, audio);
     if (!src) { s.root.append(h("p", {}, ...bi("這一句還沒有音檔。", "No audio built for this line yet."))); s.endSoon({ runs: 0, recorded: false }); return; }
-    const model = src.kind === "moe" ? contours[it.id] || null : null;
+    const model = src.kind === "moe" ? it.model || contours[it.id] || null : null;
     const { list: syls } = sylsOf(it.zhuyin || "", it.spoken);
-    const speedBtns = [0.9, 1].map(r => h("button", { type: "button", "aria-pressed": String(r === rate), "data-rate": String(r),
-      onclick: () => { rate = r; for (const b of speedBtns) b.setAttribute("aria-pressed", String(Number(b.dataset.rate) === rate)); } }, `${r === 1 ? "1.0" : r}×`));
-    const steps = [["聽三次，停頓時跟著說", "Listen ×3, repeat in the pause"], ["跟著聲音一起說兩次", "Say it with the audio ×2"], ["錄一次，聽自己的", "Record once, listen back"]]
-      .map(([zh, en]) => h("li", {}, h("span", {}, zh, " ", enText(en, { class: "muted" }))));
-    const status = h("p", { class: "drill-status", "aria-live": "polite" });
+    const player = src.player(rate).bind(s.root); // stops by itself when this drill's view leaves the page
+    let mine = null, compareBtns = [], lastErr = null, focusAgain = false;
+    s.extra.rate = rate;
+    // full: the Shadowing page's six steps under the same names (shadow.js STEPS titles, home.js PROTOCOL)
+    const PARTS = full ? [
+      { zh: "聽三次", en: "Listen ×3", n: 3, gap: () => 0.8, play: i => [`聽 ${i + 1}/3：只要聽。`, `Listen ${i + 1}/3: just listen.`] },
+      { zh: "小聲跟著哼兩次", en: "Mumble along ×2", n: 2, gap: () => 0.8,
+        play: i => [`小聲跟著哼 ${i + 1}/2：跟上節奏和音高，字不必清楚。`, `Mumble along ${i + 1}/2: follow the rhythm and the melody; the words can be blurry.`] },
+      { zh: "看著稿子跟讀兩次", en: "Shadow with the script ×2", n: 2, gap: () => 0.8,
+        play: i => [`看著稿子跟讀 ${i + 1}/2：和聲音同時說出來。`, `Shadow with the script ${i + 1}/2: say it out loud with the audio.`] },
+      { zh: "不看稿跟讀兩次", en: "Shadow blind ×2", n: 2, gap: () => 0.8, blind: true,
+        play: i => [`不看稿跟讀 ${i + 1}/2：文字先藏起來。`, `Shadow blind ${i + 1}/2: the text is hidden.`] },
+      { zh: "錄音，和原音比較", en: "Record and compare", record: true },
+      { zh: "自己評分", en: "Rate yourself", rate: true },
+    ] : [
+      { zh: "聽三次，停頓時跟著說", en: "Listen ×3, repeat in the pause", n: 3, gap: d => 1.2 * d, bar: true,
+        play: i => [`聽 ${i + 1}/3`, `Listen ${i + 1}/3`], pause: ["換你：在停頓時跟著說。", "Your turn: say it in the pause."] },
+      { zh: "跟著聲音一起說兩次", en: "Say it with the audio ×2", n: 2, gap: () => 0.7,
+        play: i => [`一起說 ${i + 1}/2：跟著聲音同時說。`, `Say it with the audio ${i + 1}/2.`] },
+      { zh: "錄一次，聽自己的", en: "Record once, listen back", record: true },
+    ];
+    const speedBtns = RATES.map(r => h("button", { type: "button", "aria-pressed": String(r === rate), "data-rate": String(r),
+      onclick: () => setRate(r) }, `${r === 1 ? "1.0" : r}×`));
+    const steps = PARTS.map(p => h("li", {}, h("span", {}, p.zh, " ", enText(p.en, { class: "muted" }))));
+    // what the drill is doing, visible only: a counter per play and a cue per pause would talk over the audio. The
+    // screen reader hears `live` (say() below) once per part, and only while nothing plays or records.
+    const status = h("p", { class: "drill-status" });
+    const live = h("p", { class: "sr-only", "aria-live": "polite" });
     const bar = h("div", { class: "pause-bar", "aria-hidden": "true" });
     const controls = h("div", { class: "row shadow-controls" });
     // skips the rest of the current part only ("Next step" is the Today session's own button)
-    const skipBtn = h("button", { type: "button", class: "btn small", onclick: () => { skip = true; stopAudio(); for (const f of [...waiters]) f(SKIP); } }, "⏭ ", ...bi("跳過這段", "Skip this part"));
+    const skipBtn = h("button", { type: "button", class: "btn small", onclick: () => { skip = true; stopAll(); for (const f of [...waiters]) f(SKIP); } }, "⏭ ", ...bi("跳過這段", "Skip this part"));
     const againBox = h("span", { class: "row" }); // "Another round" / "Finish" when a timed run has time left
     const box = h("div", { class: "overlay-box", hidden: true });
+    const noOverlay = h("p", { class: "muted small shadow-nooverlay", hidden: true }, ...(src.kind === "tts"
+      ? bi("TTS 句子不畫音高曲線：合成語音的語調不能當示範，用耳朵比較。", "No pitch overlay for a TTS line: a synthetic voice's intonation is not a model (§6.3), so compare by ear.")
+      : bi("這一句沒有示範曲線，用耳朵比較。", "No model contour for this line: compare by ear.")));
     const endBox = h("div");
+    const lineEl = h("p", { class: "shadow-line" }, ruby(it.zh || "", it.zhuyin || "", { cls: "", spoken: it.spoken, sandhi: true }));
+    const enEl = it.en ? h("p", { class: "muted small" }, enText(it.en)) : null;
+    // the blind part hides the line; this keeps its place so nothing below jumps
+    const hiddenEl = h("p", { class: "muted shadow-hidden", hidden: true, style: "min-height:56px;margin:4px 0 2px" },
+      "（文字藏起來了：只靠耳朵跟讀）", enText(" Text hidden: shadow by ear."));
     // Shows exactly `nodes` in the controls row. A control that stays keeps its place and its focus; when the focused
     // one goes, focus moves to the first new control instead of falling to <body>.
     function setControls(...nodes) {
@@ -992,27 +1051,69 @@ export function shadowLine(container, item, opts = {}) {
     s.root.append(
       h("div", { class: "shadow-src" }, h("span", { class: `badge ${src.kind === "moe" ? "human" : "tts"}` }, src.badge), h("span", { class: "muted small", lang: "en" }, src.label),
         h("span", { class: "seg", role: "group", "aria-label": "速度 Speed", style: "margin-left:auto" }, speedBtns)),
-      h("p", { class: "shadow-line" }, ruby(it.zh || "", it.zhuyin || "", { cls: "", spoken: it.spoken, sandhi: true })),
-      it.en ? h("p", { class: "muted small" }, enText(it.en)) : "",
-      h("ol", { class: "shadow-steps" }, steps), status, bar, controls, box, endBox);
-    const say = (zh, en) => status.replaceChildren(zh, " ", enText(en));
-    const markStep = i => steps.forEach((li, j) => { li.className = j < i ? "done" : j === i ? "current" : ""; });
-    const guardMs = () => Math.round(1000 * ((src.len ? src.len / rate : 20) + 3)); // a play that never reports its end
+      lineEl, hiddenEl, enEl || "",
+      h("ol", { class: "shadow-steps" }, steps), status, bar, controls, box, noOverlay, endBox, live);
+    // show(): the status line only. say(): the status line, and the screen reader once nothing plays or records (the
+    // words wait in `held`; what is said in one go, e.g. a part's end and the next part's start, is read together).
+    const show = (zh, en) => status.replaceChildren(zh, " ", enText(en));
+    const held = [];
+    const busy = () => player.state !== "idle" || !!(mine && mine.state !== "idle") || recBusy;
+    function say(zh, en) {
+      show(zh, en);
+      held.push(...(held.length ? [" "] : []), zh, " ", enText(en));
+      setTimeout(sayHeld, 0);
+    }
+    function sayHeld() {
+      if (!live.isConnected || busy() || !held.length) return; // (an ended drill's last words still count)
+      live.replaceChildren(...held.splice(0));
+    }
+    const releaseOnIdle = p => p.addEventListener("state", () => { if (p.state === "idle") setTimeout(sayHeld, 0); });
+    releaseOnIdle(player);
+    const markStep = i => steps.forEach((li, j) => {
+      li.className = j < i ? "done" : j === i ? "current" : "";
+      if (j === i) li.setAttribute("aria-current", "step"); else li.removeAttribute("aria-current");
+    });
+    const showText = on => {
+      if (!on) { // the note takes the hidden text's height, so nothing below moves
+        const px = (lineEl.offsetHeight || 0) + ((enEl && enEl.offsetHeight) || 0);
+        if (px > 0) hiddenEl.style.minHeight = `${px}px`;
+      }
+      lineEl.hidden = !on; if (enEl) enEl.hidden = !on; hiddenEl.hidden = on;
+    };
+    function setRate(r) {
+      rate = player.setRate(r);
+      s.extra.rate = rate;
+      for (const b of speedBtns) b.setAttribute("aria-pressed", String(Number(b.dataset.rate) === rate));
+    }
+    // The line's length in media seconds (known once the file has loaded; before that the build's dur or span).
+    const lineLen = () => { const L = player.length; return Number.isFinite(L) && L > 0 ? L : src.len; };
+    const guardMs = () => Math.round(1000 * ((lineLen() || 20) / rate + 3)); // a play that never reports its end
+    // a play's promise -> "ended" | "stopped" | the error (NotAllowedError: autoplay held back; NetworkError, MediaError)
+    const outcome = p => Promise.resolve(p).then(ok => (ok ? "ended" : "stopped"), err => err || new Error("play failed"));
+    const quietOthers = () => { if (!recBusy) stopAudio(); }; // app.js playback elsewhere stops; never a take in progress
 
-    // One play: resolves with its length in seconds (0 when skipped), or null when the drill ended or it failed.
+    // One play of the line. Resolves with its length at this speed in seconds (a pause is sized on it), 0 when
+    // skipped, or null when the drill ended or the audio failed (lastErr says why).
     async function playOnce() {
+      quietOthers();
       const t = performance.now();
-      const v = await race(Promise.race([src.play(rate), s.sleep(guardMs())]));
-      if (v === END) return null;
-      if (v === SKIP) return 0;
-      const d = (performance.now() - t) / 1000;
-      return d >= 0.25 ? d : tapToPlay(); // under 0.25 s: autoplay was blocked (iOS) or the file failed
+      const v = await race(Promise.race([outcome(player.play()), s.sleep(guardMs()).then(() => "guard")]));
+      if (v === END) { player.stop(); return null; }
+      if (v === SKIP) { player.stop(); return 0; }
+      if (v === "guard") player.stop();
+      if (v instanceof Error) {
+        if (v.name === "NotAllowedError") return tapToPlay(); // autoplay held back (iOS): the next play needs a tap
+        lastErr = v;
+        return null;
+      }
+      const L = lineLen();
+      return L ? L / rate : (performance.now() - t) / 1000;
     }
     async function tapToPlay() {
       say("點一下播放。", "Tap to play (the browser held back autoplay).");
       let tapped, played = null;
       const tap = new Promise(r => { tapped = r; });
-      const btn = h("button", { type: "button", class: "btn primary", "aria-label": `播放 Play: ${it.zh} — ${src.label}`, onclick: () => { played = src.play(rate); tapped(true); } }, "▶ ", ...bi("播放", "Play"));
+      const btn = h("button", { type: "button", class: "btn primary", "aria-label": `播放 Play: ${it.zh} — ${src.label}`, onclick: () => { played = outcome(player.play()); tapped(true); } }, "▶ ", ...bi("播放", "Play"));
       controls.prepend(btn);
       btn.focus({ preventScroll: true });
       const v = await race(tap);
@@ -1022,11 +1123,13 @@ export function shadowLine(container, item, opts = {}) {
       if (v === END) return null;
       if (v === SKIP) return 0;
       const t = performance.now();
-      const w = await race(Promise.race([played, s.sleep(guardMs())]));
-      if (w === END) return null;
-      if (w === SKIP) return 0;
-      const d = (performance.now() - t) / 1000;
-      return d >= 0.25 ? d : null;
+      const w = await race(Promise.race([played, s.sleep(guardMs()).then(() => "guard")]));
+      if (w === END) { player.stop(); return null; }
+      if (w === SKIP) { player.stop(); return 0; }
+      if (w === "guard") player.stop();
+      if (w instanceof Error) { lastErr = w; return null; } // even a tap could not play it
+      const L = lineLen();
+      return L ? L / rate : (performance.now() - t) / 1000;
     }
     async function pauseFor(sec) {
       const fill = h("i", { style: `transition:width ${sec.toFixed(2)}s linear;width:0%` });
@@ -1039,23 +1142,83 @@ export function shadowLine(container, item, opts = {}) {
     function failed() {
       if (!s.alive()) return;
       running = false;
+      if (lastErr) console.warn(lastErr);
+      showText(true);
       say("無法播放這一句（離線或沒有音檔）。", "Could not play this line (offline, or the audio is missing).");
       setControls();
       endCard(s, endBox, opts, restart, ["跟讀 ", enText("Shadowing")], []);
       s.end({ runs, recorded, error: "audio" });
     }
+    // The file loads before the first play, so the plays (and their guard) time the line itself. False when the
+    // drill ended or the file could not load (failed() has run).
+    async function loadLine() {
+      show("載入中…", "Loading…");
+      const v = await race(player.load().then(() => "ok", err => err || new Error("load failed")));
+      if (v === END) return false;
+      if (v instanceof Error) { lastErr = v; failed(); return false; }
+      return true; // loaded, or a skip while loading (that skips the first part)
+    }
+    // A part (PARTS[k]) that plays the line p.n times, each followed by a pause of p.gap(seconds of the play). The
+    // counter per play and the cue per pause are visual only; the part is announced once, at its end, with the part
+    // that follows (as on the Shadowing page). Before a next looping part there is a short breath, so those words
+    // are not read over its first play.
+    async function playPart(p, k) {
+      setControls(skipBtn); // the same button stays (and keeps its focus) from part to part
+      if (p.blind) showText(false);
+      try {
+        for (let i = 0; i < p.n; i++) {
+          show(...p.play(i));
+          const d = await playOnce();
+          if (d == null) { failed(); return false; }
+          if (skip) break;
+          if (p.pause) show(...p.pause);
+          const sec = p.gap(d);
+          if (p.bar) await pauseFor(sec); else await race(s.sleep(Math.round(sec * 1000)));
+          if (!s.alive()) return false;
+          if (skip) break;
+        }
+      } finally { if (p.blind) showText(true); }
+      const nx = PARTS[k + 1], loopNext = !!(nx && nx.n);
+      say(`${skip ? `步驟 ${k + 1}「${p.zh}」跳過了。` : `✓ 步驟 ${k + 1}「${p.zh}」完成。`}${loopNext ? `下一步：${nx.zh}。` : ""}`,
+        `Step ${k + 1}, ${p.en}, ${skip ? "skipped" : "done"}.${loopNext ? ` Next: ${nx.en}.` : ""}`);
+      skip = false;
+      if (loopNext) { await race(s.sleep(2000)); if (!s.alive()) return false; }
+      skip = false;
+      return true;
+    }
 
-    async function recordStep() {
-      if (noMic) { controls.append(micMessage(noMic)); await race(s.sleep(1500)); return; }
-      say("錄一次：按「錄音」，說完按「停止」。", "Record once: tap Record, say the line, then Stop.");
+    // My take, saved under the line key (again once it is rated), with the fields the Shadowing page's native check
+    // reads (shadow.js saveTake): the text, the line key, the source and the model to play next to it.
+    function saveTake() {
+      if (!key || !take) return;
+      const meta = { zh: it.zh || "", zhuyin: it.zhuyin || "", spoken: it.spoken || null, line: key, title: it.title || it.zh || "",
+        src: src.kind, model: src.kind === "moe" ? { src: "moe", id: it.id, start: src.start, end: src.end } : { src: "tts", path: src.path }, rating };
+      saveRecording(`shadow:${key}`, take.blob, meta).catch(err => console.warn("take not saved", err));
+    }
+    function playMine() { if (!mine || recBusy) return; quietOthers(); mine.play().catch(() => toast("無法播放 Could not play")); }
+    function playOriginal() { if (recBusy) return; quietOthers(); player.play().catch(() => toast("無法播放 Could not play")); }
+    // A quiet part: named as it starts (the looping part before it did not name it). The instruction is the Shadowing
+    // page's record step (shadow.js STEPS): on your own, no audio; the take stops by itself after the line.
+    async function recordStep(k) {
+      take = null; compareBtns = [];
+      const p = PARTS[k];
+      if (noMic) {
+        compareBtns = [micMessage(noMic)]; controls.append(...compareBtns);
+        say(`步驟 ${k + 1}「${p.zh}」：這裡沒辦法錄音。`, `Step ${k + 1}, ${p.en}: no recording here.`);
+        await race(s.sleep(1500)); return;
+      }
+      say(`步驟 ${k + 1}：${p.zh}。按「錄音」，自己說一次（不放原音），說完會自動停止，也可以按「停止」。`,
+        `Step ${k + 1}: ${p.en}. Tap Record and say the line on your own (no audio); it stops when you finish, or tap Stop.`);
       let gotTake;
       const takeP = new Promise(r => { gotTake = r; });
-      const len = src.len || 3;
+      const len = lineLen() || 3;
       const tr = takeRecorder(s, { limitSec: Math.max(4, 2 * len / rate + 2), silence: 1.2,
         onState: on => { // Record turns into Stop while recording: the label carries the state (no aria-pressed)
+          recBusy = on;
           recBtn.classList.toggle("recording", on);
           recBtn.replaceChildren(...(on ? [h("span", { class: "rec-dot", "aria-hidden": "true" }), " ", ...bi("停止", "Stop")] : ["● ", ...bi("錄音", "Record")]));
-          if (on) say("錄音中…", "Recording…");
+          if (on) show("錄音中…", "Recording…"); // visual: words now would land in the take
+          else setTimeout(sayHeld, 0);
         },
         onTake: t => gotTake(t),
         onError: err => { noMic = err && (err.name === "NotAllowedError" || err.name === "SecurityError") ? "denied" : "error"; toast("需要麥克風權限 Microphone permission needed"); gotTake(null); } });
@@ -1065,62 +1228,83 @@ export function shadowLine(container, item, opts = {}) {
       recBtn.focus({ preventScroll: true });
       const t = await race(takeP);
       if (t === END || !s.alive()) return;
-      if (!t || t === SKIP) { setControls(...(noMic ? [micMessage(noMic)] : [])); return; }
+      if (!t || t === SKIP) { compareBtns = noMic ? [micMessage(noMic)] : []; setControls(...compareBtns); return; }
       recorded = true; s.extra.recorded = true; // s.extra: a stop() (the session's "Next step") reports it too
       take = { blob: t.blob };
-      say("聽聽自己的，再和原音比較。", "Listen to yourself, then compare with the original.");
-      // Mine plays the take through a fresh URL each time, so it still works after the drill has finished.
-      setControls(
-        h("button", { type: "button", class: "btn", "aria-label": `我的 Mine: ${it.zh} — my recording`, onclick: () => playBlob(take.blob) }, "▶ ", ...bi("我的", "Mine")),
-        h("button", { type: "button", class: "btn", "aria-label": `原音 Original: ${it.zh} — ${src.label}`, onclick: () => src.play(rate) }, "▶ ", ...bi("原音", "Original")));
-      await race(Promise.race([playBlob(take.blob), s.sleep(Math.round(1000 * (t.seconds + 0.5)))]));
+      saveTake();
+      if (mine) mine.dispose();
+      mine = new ShadowPlayer({ src: t.blob, keepMic: true }).bind(s.root); // Mine still plays after the drill has finished
+      releaseOnIdle(mine);
+      // visual while the take (and in full, the original) plays; the screen reader hears it once they are done
+      const cmp = full ? ["先聽自己的，再聽原音，比較一下。", "Your take first, then the original: compare them."]
+        : ["聽聽自己的，再和原音比較。", "Listen to yourself, then compare with the original."];
+      show(...cmp);
+      compareBtns = [
+        h("button", { type: "button", class: "btn", "aria-label": `我的 Mine: ${it.zh} — my recording`, onclick: () => playMine() }, "▶ ", ...bi("我的", "Mine")),
+        h("button", { type: "button", class: "btn", "aria-label": `原音 Original: ${it.zh} — ${src.label}`, onclick: () => playOriginal() }, "▶ ", ...bi("原音", "Original"))];
+      setControls(...compareBtns);
+      const userP = model ? userContour(t) : null; // analysed while my take plays
+      await race(Promise.race([outcome(mine.play()), s.sleep(Math.round(1000 * (t.seconds + 1.5)))]));
       if (!s.alive()) return;
-      if (model) {
-        box.hidden = false;
-        drawOverlay(box, { model, user: await userContour(t), syllables: syls });
-      }
+      if (model) { box.hidden = false; drawOverlay(box, { model, user: await userP, syllables: syls }); }
+      else noOverlay.hidden = false;
+      if (!s.alive()) return;
+      if (!full) { say(...cmp); return; } // (full: the rate step that follows says it)
+      await race(Promise.race([outcome(player.play()), s.sleep(guardMs())])); // then the original, to compare
+      if (!s.alive()) return;
+      player.stop();
+    }
+    async function rateStep(k) {
+      const cmp = compareBtns.length > 1; // a take: Mine and Original are there
+      say(`步驟 ${k + 1}：${PARTS[k].zh}。這一輪跟讀得怎麼樣？${cmp ? "可以再按「我的」和「原音」比較。" : ""}`,
+        `Step ${k + 1}: ${PARTS[k].en}. How did this run go?${cmp ? " Mine and Original play them again to compare." : ""}`);
+      let chosen;
+      const choice = new Promise(r => { chosen = r; });
+      const btns = RATINGS.map(([v, zh, e]) => h("button", { type: "button", class: "btn", "data-rating": v, onclick: () => chosen(v) }, zh, " ", enText(e)));
+      const group = h("span", { class: "row shadow-rate", role: "group", "aria-label": "自評 Rate yourself" }, btns);
+      setControls(...compareBtns, group, skipBtn);
+      if (!compareBtns.some(b => b === document.activeElement)) btns[0].focus({ preventScroll: true });
+      const v = await race(choice);
+      if (v === END || !s.alive()) return;
+      focusAgain = group.contains(document.activeElement);
+      setControls(...compareBtns);
+      if (typeof v !== "string") return; // skipped
+      rating = v; s.extra.rating = v;
+      if (key) rateShadowLine(key, v, it.zh || "");
+      saveTake();
+      const [, zh, e] = RATINGS.find(x => x[0] === v);
+      say(`記下了：${zh}。`, `Noted: ${e}.`);
     }
 
     async function protocol() {
       if (running || !s.alive()) return;
-      running = true; skip = false;
+      running = true; skip = false; focusAgain = false;
       clear(endBox); clear(againBox); setControls(skipBtn);
-      markStep(0);
-      for (let i = 0; i < 3; i++) {
-        say(`聽 ${i + 1}/3`, `Listen ${i + 1}/3`);
-        const d = await playOnce();
-        if (d == null) return failed();
-        if (skip) break;
-        say("換你：在停頓時跟著說。", "Your turn: say it in the pause.");
-        await pauseFor(1.2 * d);
+      box.hidden = true; noOverlay.hidden = true; // the last run's comparison goes with its take
+      // the first part is named as the run starts (later ones at the end of the part before), with a breath (spent
+      // loading the file) so the words come before its first play
+      const loaded = loadLine();
+      say(`步驟 1：${PARTS[0].zh}。`, `Step 1: ${PARTS[0].en}.`);
+      const [ok] = await Promise.all([loaded, race(s.sleep(1500))]);
+      if (!ok) return;
+      for (let k = 0; k < PARTS.length; k++) {
+        const p = PARTS[k];
+        markStep(k);
+        if (p.record) await recordStep(k);
+        else if (p.rate) await rateStep(k);
+        else if (!(await playPart(p, k))) return;
         if (!s.alive()) return;
-        if (skip) break;
+        skip = false;
       }
-      skip = false;
-      setControls(skipBtn); // the same button stays (and keeps its focus) into the next part
-      markStep(1);
-      for (let i = 0; i < 2; i++) {
-        say(`一起說 ${i + 1}/2：跟著聲音同時說。`, `Say it with the audio ${i + 1}/2.`);
-        const d = await playOnce();
-        if (d == null) return failed();
-        if (skip) break;
-        await race(s.sleep(700));
-        if (!s.alive()) return;
-        if (skip) break;
-      }
-      skip = false;
-      markStep(2);
-      await recordStep();
-      if (!s.alive()) return;
-      markStep(3);
+      markStep(PARTS.length);
       runs++; s.extra.runs = runs;
       running = false;
       // Timed (a session step) with time left: offer another run; it ends by itself when the time is up.
       if (s.timeLimit != null && !s.timeUp()) {
-        say("還有時間：再一輪，或完成。", "Time left: another round, or finish.");
+        if (!rating || !full) say("還有時間：再一輪，或完成。", "Time left: another round, or finish.");
         const again = h("button", { type: "button", class: "btn primary", onclick: () => protocol() }, ...bi("再一輪", "Another round"));
         againBox.replaceChildren(again, h("button", { type: "button", class: "btn", onclick: () => finish() }, ...bi("完成", "Finish")));
-        const lost = focusLost();
+        const lost = focusLost() || focusAgain;
         controls.append(againBox);
         if (lost) again.focus({ preventScroll: true });
         s.sleep(Math.max(0, s.timeLimit - s.elapsed()) * 1000).then(ok => { if (ok && s.alive() && !running) finish(); });
@@ -1132,24 +1316,94 @@ export function shadowLine(container, item, opts = {}) {
       if (!s.alive()) return;
       againBox.remove(); // its two buttons do nothing once the drill is over; Mine and Original stay
       say("完成。", "Finished.");
-      endCard(s, endBox, opts, restart, ["跟讀完成 ", enText("Shadowing done")],
-        [h("p", { class: "muted small" }, ...bi(recorded ? "可以再聽自己的錄音。" : "下次試著錄一次。", recorded ? "You can replay your take above." : "Next time, try recording once."))]);
-      s.end({ runs, recorded }, { quiet: true }); // quiet: the learner may still be listening to the take
+      const rated = rating ? RATINGS.find(x => x[0] === rating) : null;
+      endCard(s, endBox, opts, restart, ["跟讀完成 ", enText("Shadowing done")], [
+        rated ? h("p", { class: "small" }, `自評：${rated[1]} `, enText(`You rated it: ${rated[2]}.`)) : null,
+        h("p", { class: "muted small" }, ...bi(recorded ? "可以再聽自己的錄音。" : "下次試著錄一次。", recorded ? "You can replay your take above." : "Next time, try recording once."))]);
+      s.end({ runs, recorded, rating, rate }, { quiet: true }); // quiet: the learner may still be listening to the take
     }
     protocol();
   }
 }
 
-// Where a shadowing line's audio comes from: its MOE clip (span), else its TTS file, labelled.
+// Where a shadowing line's audio comes from: its MOE clip (the headword span in audio.json, or item.start–item.end of
+// the file), else its TTS file, labelled. player(rate) makes the line's ShadowPlayer; keepMic: playing never ends a
+// take (a take stops the players itself, takeRecorder).
 function lineSource(item, audio) {
   if (item.id && audio[item.id]) {
     const info = audio[item.id];
-    return { kind: "moe", badge: "MOE", label: "MOE human voice", len: info.end > info.start ? info.end - info.start : null,
-      play: r => playMoe(item.id, { rate: r }) };
+    const range = item.start != null || item.end != null;
+    const start = range ? Math.max(0, Number(item.start) || 0) : Number(info.start) || 0;
+    const end = range ? (item.end == null ? null : Number(item.end)) : info.end > info.start ? Number(info.end) : null;
+    const dur = Number(info.dur) > 0 ? Number(info.dur) : null;
+    const len = end != null ? end - start : dur ? dur - start : null;
+    return { kind: "moe", badge: "MOE", label: item.label || "MOE human voice", len, start, end, path: null,
+      player: rate => new ShadowPlayer({ id: item.id, start, end, rate, dur, keepMic: true }) };
   }
   const key = item.audio;
   const e = key && audio[key];
   const path = (e && e.path) || (typeof key === "string" && key.startsWith("audio/") ? key : null);
   if (!path) return null;
-  return { kind: "tts", badge: "TTS", label: (e && e.label) || "TTS (Google zh-TW)", len: null, play: r => playFile(path, { rate: r }) };
+  return { kind: "tts", badge: "TTS", label: (e && e.label) || "TTS (Google zh-TW)", len: Number(item.dur) > 0 ? Number(item.dur) : null, path,
+    player: rate => new ShadowPlayer({ src: path, rate, keepMic: true }) };
+}
+
+// ------------------------------------------------------------------ shadowing: self-ratings and the weekly dose
+// The same records as the Shadowing page (js/shadow.js), so both pages read one history:
+// "shadow.lines": {"<line key>": {n, last (ms), rating: "clear" | "ok" | "again" | null, zh}}: each line's last
+//   self-rating (the guided protocol's last step). Today brings a line rated 再練 again back first.
+// "shadow.sessions": [{ts, date, minutes, planned, lines, takes, ratings: {clear, ok, again}, kind, dose, fast?}]:
+//   one entry per session (kind "timed" / "line" from the Shadowing page, "today" from Today's block); dose is true
+//   for a session of at least 10 minutes with a take (countsForDose below, the same rule as shadow.js). Shadowing
+//   minutes themselves are app.js logMinutes("shadow", m) in "days".
+// Line keys: a sentence id ("s001"), "moe:<audio id>:<segment>", … (shadow.js); Today's fallback "sandhi:<zh>".
+// The weekly dose (§6.7, Foote & McDonough 2017): at least 4 sessions of 10 minutes a week, with self-recording;
+// weeks start on Monday, as on the Shadowing page.
+export const SHADOW_DOSE = { sessions: 4, minutes: 10 };
+const SHADOW_KEYS = { lines: "shadow.lines", sessions: "shadow.sessions" };
+const dayKey = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+export const shadowRatings = () => store.get(SHADOW_KEYS.lines, {}) || {};
+// The day (YYYY-MM-DD) of a line's last rating, or "".
+export const ratedOn = e => (e && Number(e.last) > 0 ? dayKey(new Date(Number(e.last))) : (e && e.date) || "");
+export function rateShadowLine(key, rating, zh = "") {
+  if (!key || !RATINGS.some(r => r[0] === rating)) return null;
+  const all = shadowRatings();
+  const e = { n: ((all[key] && all[key].n) || 0) + 1, last: Date.now(), rating, zh: zh || (all[key] && all[key].zh) || "" };
+  all[key] = e;
+  store.set(SHADOW_KEYS.lines, all);
+  return e;
+}
+export const shadowSessions = () => { const v = store.get(SHADOW_KEYS.sessions, []); return Array.isArray(v) ? v.filter(x => x && typeof x === "object") : []; };
+// One session of `minutes` (visible time, rounded to 0.1) today. extra: {kind ("today"), planned, lines, takes,
+// rating (one self-rating) or ratings ({clear, ok, again}), key, fast}. Keeps the last 300 entries, as shadow.js does.
+export function logShadowSession(minutes, extra = {}) {
+  const m = Math.round((Number(minutes) || 0) * 10) / 10;
+  if (!(m > 0)) return null;
+  const { rating, ...rest } = extra;
+  const ratings = { clear: 0, ok: 0, again: 0, ...(extra.ratings || {}) };
+  if (rating && rating in ratings) ratings[rating]++;
+  const e = { kind: "today", planned: null, lines: 1, takes: 0, ...rest, ratings, ts: Date.now(), date: today(), minutes: m };
+  e.dose = m >= SHADOW_DOSE.minutes && Number(e.takes) > 0; // §6.7: 10 minutes with self-recording, as shadow.js saveRecord
+  const all = [...shadowSessions(), e].sort((a, b) => (Number(a.ts) || 0) - (Number(b.ts) || 0));
+  store.set(SHADOW_KEYS.sessions, all.slice(-300));
+  return e;
+}
+// A session counts toward the weekly dose when it ran 10 minutes or more with self-recording (a take): its dose flag
+// (an entry without one: 10+ minutes) and takes > 0. The same rule as shadow.js countsForDose, so an older record
+// {dose: true, takes: 0} counts on neither page.
+export const countsForDose = x => !!x && (typeof x.dose === "boolean" ? x.dose : Number(x.minutes) >= SHADOW_DOSE.minutes) && Number(x.takes) > 0;
+// This week (Monday to today): shadowing minutes and the sessions that count toward the dose (countsForDose), against
+// 4 × 10 min.
+export function shadowDose(now = new Date()) {
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  start.setDate(start.getDate() - ((start.getDay() + 6) % 7));
+  const keys = [];
+  for (const d = new Date(start); d <= now; d.setDate(d.getDate() + 1)) keys.push(dayKey(d));
+  const log = store.get("days", {}) || {};
+  const minutes = keys.reduce((a, k) => a + Math.max(0, Number((log[k] || {}).shadow) || 0), 0);
+  const inWeek = new Set(keys);
+  const list = shadowSessions().filter(x => inWeek.has(x.date));
+  const counted = list.filter(countsForDose).length;
+  return { minutes: Math.round(minutes * 10) / 10, sessions: counted, all: list.length, days: keys.length,
+    goalSessions: SHADOW_DOSE.sessions, goalMinutes: SHADOW_DOSE.sessions * SHADOW_DOSE.minutes, met: counted >= SHADOW_DOSE.sessions };
 }

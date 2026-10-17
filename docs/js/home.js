@@ -14,16 +14,25 @@
 // Audio: tone and syllable drills play MOE human recordings only (ground rule 5, §10 item 5). loadData keeps only
 // items with an MOE clip in audio.json, and drills.js asserts the same rule on its input (assertMoeOnly); if that
 // assertion throws, the step shows the error and the session moves on.
+// M3: the Shadowing block (§5.4, §8.3: 5 min at 30 min/day) runs the guided protocol (drills.js shadowLine,
+// protocol "full", played through player.js) on today's line from shadowing.json for its time box. It logs its
+// visible time as block "shadow" and one entry in "shadow.sessions" (drills.js logShadowSession, kind "today", the
+// Shadowing page's record shape); its own "done for today" needs a full run and 80% of the box in visible time. The
+// routine card shows the weekly dose next to it (drills.js shadowDose: shadowing minutes this week, Monday to today
+// as on the Shadowing page, and sessions of 10+ min against 4 × 10 min, §6.7).
+// ?fast=1 (testing only, M3 design §6) divides every time box on this page by 20.
 import { h, $, clear, mountShell, store, streak, loadJSON, BUILT, settings, daysSinceStart, today, logMinutes,
-  stopAudio, audioContext, enText, bi, syllables, baseOf, withTone, canRecord } from "./app.js";
+  audioContext, enText, bi, ruby, syllables, baseOf, withTone, canRecord } from "./app.js";
 import { contrastDrill, pairIdDrill, mirrorDrill, shadowLine, weakestContrast, weightedPairs, contrastStats,
-  recentAccuracy } from "./drills.js";
+  recentAccuracy, stopAll, shadowRatings, ratedOn, shadowDose, logShadowSession } from "./drills.js";
 
 mountShell("home");
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
 
 const en = (text, attrs) => enText(text, attrs); // English runs inside the zh-Hant-TW page
-const ROUTINE_KEY = "today.routine"; // {"YYYY-MM-DD": {anki: bool, pron: {done, minutes, at, steps: [...]}}}
+// {"YYYY-MM-DD": {anki: bool, pron: {done, minutes, at, steps: [...]}, shadow: {done, minutes, at, runs, key, ...}}}
+const ROUTINE_KEY = "today.routine";
+const FAST = (() => { try { return new URLSearchParams(location.search).get("fast") === "1" ? 20 : 1; } catch { return 1; } })();
 const PHASE0_DAYS = 28;              // Phase 0 "sound reset": the first 4 weeks (§8.1, §8.3)
 const STEPS = [                      // §6.7, in this order: the listening steps never ask to speak
   { key: "listen", zh: "聽辨", en: "Listening ID", short: "Listen", speak: false },
@@ -33,6 +42,11 @@ const STEPS = [                      // §6.7, in this order: the listening step
 ];
 const STEP_MIN = { phase0: [4, 3, 5, 3], after: [3, 2, 3, 2] }; // minutes at 30 min/day: 15 in Phase 0, 10 after
 const DONE_SHARE = 0.8;              // share of the planned minutes that makes the block done for today
+// The guided shadowing protocol (§5.4) that drills.js shadowLine runs with protocol "full". The step names are the
+// Shadowing page's (shadow.js STEPS, each step's title), so the same step reads the same on both pages.
+const PROTOCOL = [["聽三次", "Listen ×3"], ["小聲跟著哼兩次", "Mumble along ×2"], ["看著稿子跟讀兩次", "Shadow with the script ×2"],
+  ["不看稿跟讀兩次", "Shadow blind ×2"], ["錄音，和原音比較", "Record and compare"], ["自己評分", "Rate yourself"]];
+const RATING_NAMES = { clear: ["清楚", "clear"], ok: ["還好", "OK"], again: ["再練", "again"] };
 const OUTSIDE = [["anki", "Anki", "Anki"], ["conversation", "對話", "conversation"], ["tv", "電視／影片", "TV/video"],
   ["podcast", "Podcast", "Podcast"], ["reading", "閱讀", "reading"], ["other", "其他", "other"]];
 const PAGES = [
@@ -110,9 +124,9 @@ function routinePlan() {
 }
 
 async function loadData() {
-  const [contrasts, tones, meta, audio] = await Promise.all([
+  const [contrasts, tones, meta, audio, shadowing] = await Promise.all([
     loadJSON("contrasts").catch(() => []), loadJSON("tones").catch(() => null), loadJSON("meta").catch(() => null),
-    loadJSON("audio").catch(() => ({}))]);
+    loadJSON("audio").catch(() => ({})), loadJSON("shadowing").catch(() => null)]);
   // MOE only (ground rule 5): a word counts when audio.json has an MOE clip for its id. A clip that failed to
   // download, or was deferred by --max-new, leaves the id in tones.json with no audio.json entry.
   const moe = id => !!(id && audio && audio[id] && audio[id].src === "moe");
@@ -129,6 +143,9 @@ async function loadData() {
       rules: Array.isArray(sandhi.rules) ? sandhi.rules : [],
       items: (Array.isArray(sandhi.items) ? sandhi.items : []).filter(it => it && (it.kind === "sentence" ? playable(it) : moe(it.id))),
     },
+    // shadowing.json (M3): sentences with their TTS file (`audio` is a docs path, null when TTS failed)
+    sentences: (shadowing && Array.isArray(shadowing.sentences) ? shadowing.sentences : [])
+      .filter(s => s && s.id && s.zh && s.zhuyin && typeof s.audio === "string" && s.audio),
     meta,
   };
 }
@@ -156,6 +173,46 @@ function todaysLine(sandhi, pairs) {
   const syl = syllables(p.zhuyin);
   const spoken = p.spoken || (syl.length === 2 ? `${withTone(baseOf(syl[0]), 2)} ${syl[1]}` : null); // 3+3 -> 2+3 (§6.4)
   return { item: { ...p, spoken }, rule: { id: "3+3", zh: "三聲連讀", en: "3+3 -> 2+3" }, sentence: false };
+}
+// Today's line for the Shadowing block (§5.1: from the plan and my weak spots): a sentence of the shadowing bank.
+// The line practised today stays today; else a line I rated 再練 again on an earlier day comes back (the oldest
+// rating first); else a day-of-year rotation through the lines not rated 清楚 clear in the last two weeks. Before
+// the M3 build (no shadowing.json): a sandhi sentence with audio, keyed by its text. The rotation skips the line the
+// pronunciation session shadows today (`avoid`, its text) when there is another.
+function todaysShadow(sentences, sandhi, avoid = null) {
+  const asItem = x => ({ zh: x.zh, zhuyin: x.zhuyin, spoken: x.spoken || null, en: x.en || "", audio: x.audio,
+    dur: Number(x.dur) > 0 ? Number(x.dur) : null, key: x.id, focus: x.focus || "", level: x.level || "" });
+  if (sentences.length) {
+    const kept = (todayEntry().shadow || {}).key;
+    const same = kept && sentences.find(x => x.id === kept);
+    if (same) return { item: asItem(same), again: false };
+    const rated = shadowRatings(), t = today(); // "shadow.lines", shared with the Shadowing page
+    const r = x => rated[x.id] || null;
+    const on = x => ratedOn(r(x));
+    const again = sentences.filter(x => r(x) && r(x).rating === "again" && on(x) && on(x) < t)
+      .sort((a, b) => on(a).localeCompare(on(b)));
+    if (again.length) return { item: asItem(again[0]), again: true };
+    const since = dateKey(new Date(Date.now() - 14 * 86400000));
+    const fresh = sentences.filter(x => !(r(x) && r(x).rating === "clear" && on(x) >= since));
+    const pool = fresh.length ? fresh : sentences;
+    const other = pool.filter(x => x.zh !== avoid);
+    const use = other.length ? other : pool;
+    return { item: asItem(use[dayOfYear() % use.length]), again: false };
+  }
+  const all = sandhi.items.filter(x => x && x.kind === "sentence" && x.zh && x.zhuyin && x.audio);
+  const lines = all.filter(x => x.zh !== avoid).length ? all.filter(x => x.zh !== avoid) : all;
+  if (!lines.length) return null;
+  const x = lines[dayOfYear() % lines.length];
+  return { item: { zh: x.zh, zhuyin: x.zhuyin, spoken: x.spoken || null, en: x.en || "", audio: x.audio, dur: null,
+    key: `sandhi:${x.zh}`, focus: x.rule || "", level: "" }, again: false };
+}
+// A shadowing line's focus (sentences.csv `focus`): a sandhi rule or a contrast, by name; null when unknown.
+function focusName(id) {
+  if (!id || !ui.data) return null;
+  const rule = ui.data.sandhi.rules.find(r => r && r.id === id);
+  if (rule) return ruleName(rule);
+  const c = ui.data.contrasts.find(x => x && x.id === id);
+  return c ? [h("span", { lang: "zh-Hant-TW" }, c.zh)] : null;
 }
 // A sandhi rule's name: its zh name plus English (sandhi.json gives only "一"/"不" as the en of those two rules).
 const RULE_EN = { "3+3": "3+3 → 2+3", half3: "half-third", yi: "tone change of 一", bu: "tone change of 不" };
@@ -196,7 +253,8 @@ async function render() {
   const data = await loadData();
   ui.data = data;
   ui.plan = routinePlan();
-  ui.picks = { contrast: todaysContrast(data.contrasts), line: todaysLine(data.sandhi, data.pairs) };
+  const line = todaysLine(data.sandhi, data.pairs);
+  ui.picks = { contrast: todaysContrast(data.contrasts), line, shadow: todaysShadow(data.sentences, data.sandhi, line && line.item.zh) };
   const { plan } = ui;
   const weekDots = h("span", { class: "week-dots", "aria-hidden": "true" }, [1, 2, 3, 4].map(w => h("i", { class: w <= plan.week ? "on" : "" })));
   const phase = plan.phase0
@@ -204,6 +262,7 @@ async function render() {
     : [h("span", {}, "第 1 階段 "), en("Phase 1")];
   ui.els.stats = h("div", { class: "card" });
   ui.els.session = h("section", { class: "card session", id: "session", "aria-labelledby": "session-title" });
+  ui.els.shadow = h("section", { class: "card session shadow-block", id: "shadowing", "aria-labelledby": "shadow-title" });
   ui.els.routine = h("section", { class: "card routine-card", "aria-labelledby": "routine-title" });
   ui.els.outside = h("section", { class: "card outside-card", "aria-labelledby": "outside-title" });
   const pages = h("section", { class: "today-pages", "aria-labelledby": "pages-title" },
@@ -218,13 +277,15 @@ async function render() {
   const meta = data.meta && data.meta.counts
     ? h("p", { class: "muted small", style: "margin-top:16px" }, "資料建置 ", en(`data built ${data.meta.built} · ${data.meta.counts.moe_clips} MOE human clips · ${data.meta.counts.syllables} syllables`))
     : null;
-  ui.rest = [ui.els.routine, ui.els.outside, pages, meta].filter(Boolean);
+  ui.rest = [ui.els.shadow, ui.els.routine, ui.els.outside, pages, meta].filter(Boolean);
   clear(app).append(
     h("div", { class: "page-head" }, h("h1", {}, h("span", { lang: "zh-Hant-TW" }, "今天"), h("span", { class: "en", lang: "en" }, "Today")),
-      h("p", { class: "today-phase" }, phase)),
+      h("p", { class: "today-phase" }, phase),
+      FAST > 1 ? h("p", { class: "muted small", role: "note" }, "測試模式：計時 ÷20 ", en("Test mode (?fast=1): every time box ÷20")) : ""),
     ui.els.stats, ui.els.session, ...ui.rest);
   paintStats();
   startCard();
+  shadowCard();
   paintRoutine();
   outsideCard();
 }
@@ -344,7 +405,7 @@ function runSession() {
   card.classList.add("running");
   // spent: visible seconds while the step was running (before its result); goal: its planned work (trials or mirror
   // words, set by launch); credit: seconds toward the plan (judge). All three are for "done for today".
-  const steps = STEPS.map((d, i) => ({ ...d, sec: plan.steps[i] * 60, t0: 0, spent: 0, goal: 0, credit: 0, result: null, state: "todo" }));
+  const steps = STEPS.map((d, i) => ({ ...d, sec: plan.steps[i] * 60 / FAST, t0: 0, spent: 0, goal: 0, credit: 0, result: null, state: "todo" }));
   const total = steps.reduce((a, s) => a + s.sec, 0);
   const t0 = performance.now();
   let cur = -1, ctl = null, ended = false, timeUpSaid = false;
@@ -570,7 +631,7 @@ function runSession() {
     clearInterval(timerId);
     document.removeEventListener("visibilitychange", onVis);
     window.removeEventListener("pagehide", flushAll);
-    stopAudio();
+    stopAll(); // app.js audio and recordings, and the shadowing step's player (player.js)
     // a step still running whose drill never reported (it had not finished loading) ends with nothing in it
     for (const st of steps) if (st.state === "now" && !st.result) { st.result = { stopped: true }; judge(st); }
     // Done for today depends on the work (see the top of the file), not on the button that ended the run.
@@ -585,9 +646,13 @@ function runSession() {
     for (const el of ui.rest) el.hidden = false;
     clear(card);
     card.classList.remove("running");
+    // the blocks in order (§5.1): the Shadowing block comes next while it is not done today
+    const nextShadow = ui.picks.shadow && !(todayEntry().shadow || {}).done
+      ? h("button", { type: "button", class: "btn primary", onclick: runShadow }, ...bi("接著跟讀", "Next: Shadowing"), ` ${fmtMin(plan.shadow)} 分 `, en("min"), " →") : null;
     card.append(summaryView(summary, { compact: false }),
-      h("div", { class: "row" }, h("button", { type: "button", class: "btn", onclick: runSession }, "↻ ", ...bi("再練一次", "Practise again"))));
+      h("div", { class: "row" }, nextShadow, h("button", { type: "button", class: "btn", onclick: runSession }, "↻ ", ...bi("再練一次", "Practise again"))));
     paintStats();
+    shadowCard();
     paintRoutine();
     card.scrollIntoView({ block: "start", behavior: smooth() });
     $("#session-title").focus({ preventScroll: true });
@@ -657,22 +722,261 @@ function summaryView(sum, { compact }) {
     rule, list);
 }
 
+// ------------------------------------------------------------------ the Shadowing block (§5.4, §8.3; M3)
+// Today's line with its source, Zhuyin (the sandhi overlay follows the setting) and English.
+function linePreview(line) {
+  const it = line.item;
+  const focus = focusName(it.focus);
+  return h("div", { class: "shadow-today" },
+    h("p", { class: "k" }, "今天的句子 ", en("Today's line"),
+      line.again ? h("span", { class: "again-tag" }, "再練 ", en("again")) : null),
+    h("p", { class: "shadow-today-line" }, ruby(it.zh, it.zhuyin, { cls: "", spoken: it.spoken })),
+    h("p", { class: "shadow-today-meta" },
+      h("span", { class: "badge tts", title: "TTS (Google zh-TW)" }, "TTS"), " ", en("Google zh-TW", { class: "muted small" }),
+      it.en ? [" · ", en(it.en)] : null,
+      focus ? [" · 重點 ", en("focus"), "：", focus] : null));
+}
+function protocolList() {
+  return [h("span", { id: "shadow-plan-label", class: "sr-only" }, "步驟 ", en("Steps")),
+    h("ol", { class: "shadow-plan", "aria-labelledby": "shadow-plan-label" },
+      PROTOCOL.map(([zh, e]) => h("li", {}, h("span", {}, zh), " ", en(e, { class: "muted" }))))];
+}
+// The block's card when it is not running: today's line, Start (the next thing to do once the pronunciation block is
+// done, so it is the primary button then) and the protocol, or today's result and "Practise again".
+function shadowCard() {
+  const { plan } = ui;
+  const card = clear(ui.els.shadow);
+  card.classList.remove("running");
+  const line = ui.picks.shadow;
+  const entry = todayEntry();
+  card.append(h("div", { class: "session-head" },
+    h("h2", { id: "shadow-title", tabindex: "-1" }, "跟讀 ", en("Shadowing")),
+    h("span", { class: "session-mins" }, `${fmtMin(plan.shadow)} 分鐘 `, en("min"))));
+  if (!line) {
+    card.append(h("p", { class: "muted" }, "還沒有跟讀句子。", en(" No shadowing lines built yet.")));
+    return;
+  }
+  card.append(linePreview(line));
+  if (entry.shadow && entry.shadow.done) {
+    card.append(shadowSummary(entry.shadow, { compact: true }),
+      h("button", { type: "button", class: "btn shadow-start", onclick: runShadow }, "↻ ", ...bi("再練一次", "Practise again")));
+  } else {
+    const next = !!(entry.pron && entry.pron.done);
+    card.append(h("button", { type: "button", class: `btn shadow-start${next ? " primary" : ""}`, onclick: runShadow }, "▶ ", ...bi("開始跟讀", "Start shadowing")),
+      ...protocolList());
+  }
+  card.append(h("p", { class: "muted small session-note" }, "同一句練 " + fmtMin(plan.shadow) + " 分鐘：先聽，再跟著說，最後錄音和自評。錄音只存在這台裝置。",
+    en(` One line for ${fmtMin(plan.shadow)} min: listen, shadow, then record and rate yourself. Recordings stay on this device.`)));
+}
+
+// Runs the block: the guided protocol on today's line (drills.js shadowLine, protocol "full") for the block's time
+// box, with a countdown. Visible time only is logged ("shadow"), in pieces of at least 30 s and the rest at the end,
+// like the pronunciation session. Done for today: a full run (or a take) and 80% of the box in visible time.
+function runShadow() {
+  if (ui.running) return;
+  const line = ui.picks.shadow;
+  if (!line) return;
+  try { audioContext(); } catch { /* no Web Audio */ } // unlock audio inside the tap (iOS)
+  ui.running = true;
+  const sec = ui.plan.shadow * 60 / FAST;
+  const others = [ui.els.session, ...ui.rest.filter(el => el !== ui.els.shadow)];
+  for (const el of others) el.hidden = true;
+  const card = clear(ui.els.shadow);
+  card.classList.add("running");
+  const t0 = performance.now();
+  let ctl = null, ended = false, result = null, spent = 0, timeUpSaid = false;
+  const time = { last: t0, visible: document.visibilityState === "visible", pending: 0, total: 0 };
+  const tick = () => {
+    const now = performance.now(), dt = now - time.last;
+    time.last = now;
+    if (time.visible && dt < 15000) { time.pending += dt; time.total += dt; if (!result && !ended) spent += dt / 1000; }
+    time.visible = document.visibilityState === "visible";
+  };
+  const flush = (final = false) => {
+    tick();
+    if (time.pending >= (final ? 1000 : 30000)) { logMinutes("shadow", time.pending / 60000); time.pending = 0; }
+  };
+  const flushAll = () => flush(true);
+  const onVis = () => { if (document.visibilityState === "hidden") flushAll(); else tick(); };
+  document.addEventListener("visibilitychange", onVis);
+  window.addEventListener("pagehide", flushAll);
+
+  const focus = focusName(line.item.focus);
+  const title = h("h2", { id: "shadow-title", tabindex: "-1" }, "跟讀 ", en("Shadowing", { class: "muted small" }));
+  const timeLeft = h("b");
+  const timer = h("span", { class: "drill-timer", role: "timer" }, h("span", { class: "sr-only" }, "剩下 ", en("time left"), " "), timeLeft);
+  const sub = h("p", { class: "step-sub" }, "同一句，照步驟做。", en(" One line, step by step."), focus ? ["　重點 ", en("focus"), "：", focus] : null);
+  const timeupNote = h("p", { class: "timeup-note", hidden: true }, "時間到：做完這一輪就結束。", en(" Time's up: the block ends after this run."));
+  const overallText = h("span");
+  const overallBar = h("div", { class: "progress", "aria-hidden": "true" }, h("i", { style: "width:0%" }));
+  const live = h("p", { class: "sr-only", "aria-live": "polite" });
+  const host = h("div");
+  const endBtn = h("button", { type: "button", class: "btn", onclick: () => finish() });
+  card.append(h("div", { class: "step-head" }, title, timer), sub, timeupNote,
+    h("div", { class: "session-overall" }, overallText, overallBar), live, h("div", { class: "session-stage" }, host),
+    h("div", { class: "session-foot" }, endBtn));
+
+  // End early while the box is running; Finish once the time is up or the drill is over.
+  function setEnd() {
+    const over = !!result || (performance.now() - t0) / 1000 >= sec;
+    endBtn.className = result ? "btn primary" : "btn";
+    endBtn.replaceChildren(...(over ? ["✓ ", ...bi("完成跟讀", "Finish shadowing")] : ["■ ", ...bi("提早結束", "End early")]));
+  }
+  function paint() {
+    if (ended) return;
+    flush();
+    const el = (performance.now() - t0) / 1000;
+    overallText.replaceChildren("總計 ", en("total"), ` ${mmss(el)} / ${mmss(sec)}`);
+    overallBar.firstChild.style.width = pct(el / sec);
+    const left = sec - el;
+    timer.hidden = !!result;
+    timer.classList.toggle("low", left <= 30);
+    timeLeft.textContent = mmss(left);
+    if (left <= 0 && !timeUpSaid && !result) {
+      timeUpSaid = true;
+      timeupNote.hidden = false;
+      live.replaceChildren("時間到：做完這一輪就結束。", en(" Time's up: the block ends after this run."));
+    }
+    if (result) timeupNote.hidden = true;
+    setEnd();
+  }
+  // The drill's result. A drill that ended by itself (time up after a run, or audio that could not play) stays on
+  // screen with Finish ready; a stop goes straight on.
+  function drillDone(res) {
+    if (result) return;
+    tick();
+    result = res || {};
+    ctl = null;
+    if (ended || result.stopped) return;
+    paint();
+    live.replaceChildren(...(result.error === "audio" ? ["無法播放這一句。", en(" The line could not play.")] : ["跟讀結束。", en(" Shadowing over.")]));
+    endBtn.focus({ preventScroll: true });
+  }
+  function finish() {
+    if (ended) return;
+    if (ctl && !result) ctl.stop(); // -> drillDone({stopped: true, ...the work so far}) right away
+    ctl = null;
+    flush(true);
+    ended = true;
+    clearInterval(timerId);
+    document.removeEventListener("visibilitychange", onVis);
+    window.removeEventListener("pagehide", flushAll);
+    stopAll();
+    const r = result || { stopped: true };
+    const worked = (r.runs || 0) > 0 || !!r.recorded;
+    const credit = worked ? Math.min(sec, spent) : 0;
+    const done = worked && credit >= DONE_SHARE * sec - 1; // 1 s: the drill's clock and this one tick apart
+    const minutes = Math.round(time.total / 6000) / 10;
+    const summary = { done, early: !done && spent < sec - 1, minutes, at: Date.now(), runs: r.runs || 0, recorded: !!r.recorded,
+      rating: r.rating || null, error: r.error === "audio" ? "audio" : null, key: line.item.key, line: line.item.zh,
+      credit: tenths(credit / 60, Math.floor), planned: tenths(sec / 60) };
+    const prev = todayEntry().shadow;
+    if (done || !(prev && prev.done)) saveDay({ shadow: summary }); // a later run that falls short keeps today's "done"
+    if (minutes > 0) {
+      logShadowSession(minutes, { kind: "today", key: line.item.key, planned: tenths(sec / 60), lines: 1, takes: r.recorded ? 1 : 0,
+        rating: r.rating || null, ...(FAST > 1 ? { fast: true } : {}) });
+    }
+    ui.running = false;
+    for (const el of others) el.hidden = false;
+    clear(card);
+    card.classList.remove("running");
+    card.append(shadowSummary(summary, { compact: false }), doseLine(),
+      h("div", { class: "row" }, h("button", { type: "button", class: "btn shadow-start", onclick: runShadow }, "↻ ", ...bi("再練一次", "Practise again"))));
+    paintStats();
+    startCard();
+    paintRoutine();
+    card.scrollIntoView({ block: "start", behavior: smooth() });
+    $("#shadow-title").focus({ preventScroll: true });
+  }
+
+  const timerId = setInterval(paint, 250);
+  try {
+    ctl = shadowLine(host, line.item, { protocol: "full", timeLimit: sec, again: false, saveKey: line.item.key, onDone: drillDone });
+  } catch (err) { // not expected: shadowLine reports a missing file in its own view
+    console.error(err);
+    result = { error: "error" };
+    host.append(h("p", { class: "session-error", role: "alert" }, "跟讀沒有開始。", en(` Shadowing did not start: ${String((err && err.message) || err)}`)));
+  }
+  paint();
+  card.scrollIntoView({ block: "start", behavior: smooth() });
+  title.focus({ preventScroll: true });
+}
+
+// The block's result: the line, runs, the take, the self-rating; why it is not done yet when it is not.
+function shadowSummary(sum, { compact }) {
+  const none = (zh, e) => h("span", { class: "summary-val none" }, zh, " ", en(e));
+  const val = (...kids) => h("span", { class: "summary-val" }, ...kids);
+  const rated = RATING_NAMES[sum.rating];
+  const rows = [
+    ["輪數", "runs", sum.error === "audio" ? none("無法播放", "audio could not play")
+      : sum.runs ? val(`${sum.runs} 輪 `, en(sum.runs === 1 ? "1 run" : `${sum.runs} runs`)) : none("沒做完一輪", "no full run")],
+    ["錄音", "take", sum.recorded ? val("錄了 ", en("recorded")) : none("沒有錄音", "no take")],
+    ["自評", "self-rating", rated ? val(rated[0], " ", en(rated[1])) : none("沒有", "none")],
+  ];
+  const list = h("ul", { class: "summary-list shadow-sum" }, rows.map(([zh, e, v]) => h("li", {}, h("span", {}, zh, " ", en(e, { class: "muted small" })), v)));
+  if (compact) {
+    return h("div", {}, h("p", { class: "session-done" }, "✓ 今天已完成 ", en(sum.minutes > 0 ? `Done today · ${sum.minutes} min` : "Done today")), list);
+  }
+  const head = sum.done ? ["✓ ", "今天的跟讀完成 ", en("Shadowing done for today")]
+    : sum.early ? ["跟讀提早結束 ", en("Shadowing ended early")] : ["跟讀結束 ", en("Shadowing over")];
+  const got = String(sum.credit || 0), planned = String(sum.planned), need = String(tenths(DONE_SHARE * sum.planned, Math.ceil));
+  const rule = sum.done ? null : h("p", { class: "summary-rule" },
+    `這次做到 ${planned} 分鐘裡的 ${got} 分鐘。至少做完一輪、做到 ${need} 分鐘（八成），今天才算完成。`,
+    en(` Covered ${got} of ${planned} min. The block counts as done with at least one full run and ${need} min (80%).`));
+  return h("div", { class: "session-summary" },
+    h("h2", { id: "shadow-title", tabindex: "-1" }, head),
+    sum.line ? h("p", { class: "summary-what shadow-sum-line", lang: "zh-Hant-TW" }, sum.line) : null,
+    h("p", { class: "summary-meta" }, ...(sum.minutes > 0 ? [`${sum.minutes} 分鐘，已記入今天的時間。`, en(` ${sum.minutes} min, added to today's minutes.`)]
+      : ["不到 0.1 分鐘，沒有記入時間。", en(" Under 0.1 min, so no time was logged.")])),
+    rule, list);
+}
+
+// The weekly shadowing dose (§6.7: at least 4 × 10 min a week, with self-recording), next to the routine.
+// Minutes as logged (0.1 min) below 10, whole minutes from 10.
+const fmtDose = m => String(m < 10 ? Math.round(m * 10) / 10 : Math.round(m));
+function doseLine() {
+  const d = shadowDose();
+  return h("p", { class: "muted small dose-inline" }, `本週跟讀 ${fmtDose(d.minutes)} / ${d.goalMinutes} 分鐘・10 分鐘以上 ${d.sessions} / ${d.goalSessions} 次。`,
+    en(` This week: ${fmtDose(d.minutes)} of ${d.goalMinutes} min, ${d.sessions} of ${d.goalSessions} sessions of 10+ min.`));
+}
+function doseBox() {
+  const { plan } = ui;
+  const d = shadowDose();
+  const dots = Array.from({ length: d.goalSessions }, (_, i) => h("i", { class: i < d.sessions ? "on" : "" }));
+  const note = d.met ? ["✓ 這週的量做到了。", en(" This week's dose is done.")]
+    : ["每週至少 4 次、每次 10 分鐘，並且錄音。", en(" The dose: at least 4 × 10 min a week, with self-recording (Foote & McDonough 2017)."),
+      plan.shadow < 10 ? [` 今天的 ${fmtMin(plan.shadow)} 分鐘算進分鐘；完整的 10 分鐘練習在跟讀頁。`,
+        en(` Today's ${fmtMin(plan.shadow)}-min block adds minutes; a full 10-min session is on the Shadowing page.`)] : null];
+  return h("div", { class: "dose", role: "group", "aria-labelledby": "dose-title" },
+    h("div", { class: "dose-head" },
+      h("h3", { id: "dose-title" }, "本週跟讀 ", en("Shadowing this week")),
+      BUILT.includes("shadow") ? h("a", { href: "shadow.html", class: "btn small dose-link" }, "跟讀頁 ", en("Shadowing page"), " →") : null),
+    h("div", { class: "dose-row" }, h("span", { class: "k" }, "分鐘 ", en("minutes")),
+      h("span", { class: "dose-bar", "aria-hidden": "true" }, h("i", { style: `width:${pct(d.minutes / d.goalMinutes)}` })),
+      h("span", { class: "v" }, `${fmtDose(d.minutes)} / ${d.goalMinutes}`)),
+    h("div", { class: "dose-row" }, h("span", { class: "k" }, "10 分鐘以上 ", en("sessions of 10+ min")),
+      h("span", { class: "dose-dots", "aria-hidden": "true" }, dots),
+      h("span", { class: "v" }, `${d.sessions} / ${d.goalSessions}`)),
+    h("p", { class: "muted small dose-note" }, note));
+}
+
 // ------------------------------------------------------------------ the routine (§8.3)
 function paintRoutine() {
   const { plan } = ui;
   const entry = todayEntry();
-  const pronDone = !!(entry.pron && entry.pron.done);
-  const blocks = [
-    { key: "pron", min: plan.pron, zh: "發音", en: "Pronunciation" },
-    { key: "unit", min: plan.unit, zh: "單元", en: "Current unit", soon: true },
-    { key: "shadow", min: plan.shadow, zh: "跟讀", en: "Shadowing", soon: true },
-    { key: "review", min: plan.review, zh: "複習", en: "Review", soon: true },
-  ].filter(b => b.min > 0);
-  const toSession = () => {
-    const b = ui.els.session.querySelector(".session-start");
-    ui.els.session.scrollIntoView({ block: "start", behavior: smooth() });
+  // A block's Start goes up to its card and focuses that card's start button.
+  const toCard = (card, sel) => () => {
+    const b = card.querySelector(sel);
+    card.scrollIntoView({ block: "start", behavior: smooth() });
     if (b) b.focus({ preventScroll: true });
   };
+  const blocks = [
+    { key: "pron", min: plan.pron, zh: "發音", en: "Pronunciation", done: !!(entry.pron && entry.pron.done), go: toCard(ui.els.session, ".session-start") },
+    { key: "unit", min: plan.unit, zh: "單元", en: "Current unit", soon: true },
+    { key: "shadow", min: plan.shadow, zh: "跟讀", en: "Shadowing", done: !!(entry.shadow && entry.shadow.done), go: toCard(ui.els.shadow, ".shadow-start"),
+      none: !ui.picks.shadow },
+    { key: "review", min: plan.review, zh: "複習", en: "Review", soon: true },
+  ].filter(b => b.min > 0);
   const anki = h("input", { type: "checkbox", checked: !!entry.anki, onchange: e => saveDay({ anki: e.target.checked }) });
   // Rows without a control on the right let their name span both columns; a row's own control sits under its name.
   const rows = blocks.map(b => h("li", { class: b.soon ? "soon wide" : "" },
@@ -680,8 +984,9 @@ function paintRoutine() {
     h("span", { class: "rt-name" }, b.zh, " ", en(b.en, { class: "muted" }),
       b.soon ? h("span", { class: "rt-soon" }, "尚未建置 ", en("coming soon")) : null),
     b.soon ? null
-      : pronDone ? h("span", { class: "rt-status ok" }, "✓ 完成 ", en("done"))
-        : h("button", { type: "button", class: "btn small", onclick: toSession }, ...bi("開始", "Start"), " ↑")));
+      : b.done ? h("span", { class: "rt-status ok" }, "✓ 完成 ", en("done"))
+        : b.none ? h("span", { class: "rt-status" }, "沒有資料 ", en("no data"))
+          : h("button", { type: "button", class: "btn small", "aria-label": `開始 Start ↑ ${b.zh} ${b.en}`, onclick: b.go }, ...bi("開始", "Start"), " ↑")));
   rows.push(
     h("li", { class: "wide" }, h("span", { class: "rt-min" }, "課外"),
       h("label", { class: "check rt-name" }, anki, h("span", {}, en("Anki"), "（我的牌組）", en("my decks", { class: "muted" }))),
@@ -692,9 +997,10 @@ function paintRoutine() {
   clear(ui.els.routine).append(
     h("div", { class: "session-head" }, h("h2", { id: "routine-title", style: "margin:0;font-size:19px" }, "今天的計畫 ", en("Today's routine")),
       h("span", { class: "session-mins" }, `${fmtMin(plan.daily)} 分鐘 `, en("min"))),
-    h("div", { class: "timebar", "aria-hidden": "true" }, blocks.map(b => h("i", { class: `${b.key === "pron" ? "pron" : "soon"}${b.key === "pron" && pronDone ? " done" : ""}`, style: `flex:${b.min}` }))),
+    h("div", { class: "timebar", "aria-hidden": "true" }, blocks.map(b => h("i", { class: `${b.soon ? "soon" : b.key}${b.done ? " done" : ""}`, style: `flex:${b.min}` }))),
     h("ul", { class: "routine" }, rows),
-    plan.phase0 ? h("p", { class: "muted small", style: "margin:8px 0 0" }, "聲音重置期間發音多 5 分鐘，從單元時間撥出。", en(" During the sound reset, pronunciation gets 5 more minutes, taken from the unit box.")) : ""); // "" not null: append() would print "null"
+    plan.phase0 ? h("p", { class: "muted small", style: "margin:8px 0 0" }, "聲音重置期間發音多 5 分鐘，從單元時間撥出。", en(" During the sound reset, pronunciation gets 5 more minutes, taken from the unit box.")) : "", // "" not null: append() would print "null"
+    doseBox());
 }
 
 // ------------------------------------------------------------------ outside time (§8.2)

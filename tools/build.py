@@ -3,17 +3,21 @@
     .venv\\Scripts\\python.exe tools\\build.py                 full build (verifies, downloads new MOE audio, contours)
     .venv\\Scripts\\python.exe tools\\build.py --no-audio      skip downloads and TTS (offline); missing clips are reported
     .venv\\Scripts\\python.exe tools\\build.py --no-contours   compute no new model contours: reuse the ones computed
-                                                         before (contour cache, else the old contours.json)
+                                                         before (contour cache, else the old contours.json /
+                                                         shadowing.json)
 
-Writes docs/data/*.json (tones.json: the Tone Gym, M2), docs/audio/**, and build-report.md. The build FAILS on
-any verifier failure, and on a content/tones/sandhi.json item whose spoken form (moe.spoken, §6.4) does not
-show its rule, changes when marked no_change, or (half-third) changes at all.
+Writes docs/data/*.json (tones.json: the Tone Gym, M2; shadowing.json: the Shadowing page, M3), the MOE 使用說明
+docs/data/moe-license-concised.txt (§7.5; both files' `license` field points to it), docs/audio/**, and
+build-report.md. The build FAILS on any verifier failure, on a missing 使用說明, and on a content/tones/sandhi.json
+item whose spoken form (moe.spoken, §6.4) does not show its rule, changes when marked no_change, or (half-third)
+changes at all.
 """
 import argparse
 import datetime as dt
 import json
+import re
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from functools import lru_cache
 from pathlib import Path
 
@@ -22,6 +26,7 @@ import moe  # noqa: E402
 import verify  # noqa: E402
 import audio  # noqa: E402
 import contours  # noqa: E402
+import entries  # noqa: E402
 
 DATA = moe.DOCS / "data"
 SIZE_BUDGET_MB = 600
@@ -463,6 +468,278 @@ def reuse_contours(index, ids, old=None):
     return out, n_old
 
 
+# ---------------------------------------------------------------- Shadowing data (docs/data/shadowing.json, M3)
+
+SHADOW_DIR = moe.CONTENT / "shadowing"
+READING_MAX_S = 25            # M3-DESIGN §1 (c): a longer whole-entry recording is reported (kept)
+SEGMENT_CONTOUR_MAX_S = 3.5   # model contours only for reading segments up to this long (M3-DESIGN §2)
+SENTENCE_CHARS = (4, 14)      # M3-DESIGN §1: Chinese characters per sentence (outside: reported)
+
+
+def media_duration(path):
+    """Length in seconds of an audio file (2 decimals), decoded in full with the bundled ffmpeg (an mp3 header's
+    duration is only an estimate from the bitrate), or None if ffmpeg cannot read it."""
+    r = audio.run_ffmpeg(["-i", str(path), "-f", "null", "-"])
+    t = re.findall(r"time=(\d+):(\d+):(\d+(?:\.\d+)?)", r.stderr)
+    if not t:
+        t = re.findall(r"Duration: (\d+):(\d+):(\d+(?:\.\d+)?)", r.stderr)
+    if not t:
+        return None
+    h, m, s = t[-1]
+    return round(int(h) * 3600 + int(m) * 60 + float(s), 2)
+
+
+def build_sentences(bank, rows=None):
+    """content/shadowing/sentences.csv (id,level,zh,zhuyin,en,focus,source) -> (sentence entries, notes).
+
+    Each entry: id, level, zh, zhuyin (normalized base tones), spoken (moe.spoken, §6.4), en, focus, source, and
+    `audio` = the gTTS key (every sentence is TTS, labelled "TTS (Google zh-TW)", §7.6), swapped for its docs path
+    with `dur` by finish_shadowing. No model contours: TTS intonation is not a model (§6.3). Notes (logged, not
+    fatal): rows without zh / zhuyin (dropped), repeated ids (renumbered), lengths outside SENTENCE_CHARS."""
+    notes = []
+    if rows is None:
+        p = SHADOW_DIR / "sentences.csv"
+        if not p.exists():
+            log("  content/shadowing/sentences.csv not found: the shadowing sentence bank will be empty")
+            return [], notes
+        rows = moe.read_csv(p)
+    out, seen = [], set()
+    for n, r in enumerate(rows, 1):
+        zh, z = r.get("zh", ""), moe.norm(r.get("zhuyin", ""))
+        if not zh or not z:
+            notes.append(f"sentences.csv row {n + 1}: no zh or zhuyin, left out")
+            continue
+        sid = r.get("id") or f"s{n:03d}"
+        if sid in seen:
+            notes.append(f"sentences.csv: id {sid} repeats ({zh}), renumbered s{n:03d}x")
+            sid = f"s{n:03d}x"
+        seen.add(sid)
+        k = sum(1 for c in zh if moe._is_cjk(c))
+        if not SENTENCE_CHARS[0] <= k <= SENTENCE_CHARS[1]:
+            notes.append(f"sentences.csv {sid} {zh}: {k} characters (design: {SENTENCE_CHARS[0]}-{SENTENCE_CHARS[1]})")
+        out.append({"id": sid, "level": r.get("level", ""), "zh": zh, "zhuyin": z, "spoken": moe.spoken(zh, z),
+                    "en": r.get("en", ""), "focus": r.get("focus", ""), "audio": bank.want_tts(zh),
+                    "source": r.get("source") or "original", "dur": None})
+    return out, notes
+
+
+def build_moe_readings(bank, rows=None):
+    """content/shadowing/moe-readings.csv (zh,zhuyin,level,topic) -> (reading entries, notes).
+
+    A reading is a whole-entry MOE recording (headword, definition, 「例如」, example; §7.3) of the exact reading,
+    played whole and labelled "MOE dictionary reading", with the 簡編本 entry text shown unmodified apart from
+    format conversion (entries.clean_text, §7.5). Each entry: zh, zhuyin, spoken, level (the row's, else TBCL),
+    topic, id (the reading's MOE audio id, which is its 簡編本 字詞號), text; dur, segments and contours are added
+    by finish_shadowing once the clip is published. Dropped and noted: single characters (their files read the
+    radical and stroke count), rows without an exact-reading audio id or without a 簡編本 row. Noted but kept: an
+    entry without a [例] example."""
+    notes = []
+    if rows is None:
+        p = SHADOW_DIR / "moe-readings.csv"
+        if not p.exists():
+            log("  content/shadowing/moe-readings.csv not found: there will be no MOE dictionary readings")
+            return [], notes
+        rows = moe.read_csv(p)
+    out, seen = [], set()
+    for r in rows:
+        zh, z = r.get("zh", ""), moe.norm(r.get("zhuyin", ""))
+        if not zh or not z:
+            continue
+        where = f"moe-readings.csv {zh} {z}"
+        aid = moe.audio_id(zh, z)
+        e = entries.entry_for(zh, z)
+        if len(zh) < 2:
+            notes.append(f"{where}: a single character (its file reads the radical and stroke count), left out")
+        elif not aid:
+            notes.append(f"{where}: no MOE recording of this exact reading, left out")
+        elif not e or e["id"] != str(aid):
+            notes.append(f"{where}: no 簡編本 row for audio id {aid}, left out")
+        elif str(aid) in seen:
+            notes.append(f"{where}: listed twice, kept once")
+        else:
+            seen.add(str(aid))
+            if not entries.has_example(e):
+                notes.append(f"{where}: the entry has no [例] example sentence")
+            t = moe.tbcl_words().get(zh)
+            out.append({"zh": zh, "zhuyin": z, "spoken": moe.spoken(zh, z),
+                        "level": r.get("level") or (t["level"] if t else ""), "topic": r.get("topic", ""),
+                        "id": bank.want_moe(aid, priority=0, nsyl=len(moe.syllables(z))), "text": e["text"],
+                        "dur": None, "segments": [], "contours": {}})
+    return out, notes
+
+
+def segment_syllables(k, seg, nsyl):
+    """Syllable count passed to the contour tracker for segment k: the headword's own for the first segment, else
+    an estimate from its length (any count > 1 runs the word rules; the count is part of the cache key)."""
+    return nsyl if k == 0 else max(2, round(4 * (seg[1] - seg[0])))
+
+
+def reading_spans(readings):
+    """{(reading index, segment index): (aid, start, end, syllables, span)} for every segment of at most
+    SEGMENT_CONTOUR_MAX_S seconds (the ones that get a model contour). span: the connected-speech rules of
+    contours.SPAN_PARAMS, for every segment but the first (the headword: word rules, the same contour as the
+    headword span that the M2 sweep validated)."""
+    spans = {}
+    for i, r in enumerate(readings):
+        nsyl = len(moe.syllables(r["zhuyin"]))
+        for k, seg in enumerate(r["segments"]):
+            if seg[1] - seg[0] <= SEGMENT_CONTOUR_MAX_S:
+                spans[(i, k)] = (r["id"], seg[0], seg[1], segment_syllables(k, seg, nsyl), k > 0)
+    return spans
+
+
+def previous_span_contours(path=None):
+    """{(reading id, segment start, segment end): contour} of the previous docs/data/shadowing.json (read before
+    this build writes the new one)."""
+    old = moe.read_json(path or DATA / "shadowing.json", default={}) or {}
+    out = {}
+    for r in old.get("readings") or []:
+        segs = r.get("segments") or []
+        for k, c in (r.get("contours") or {}).items():
+            if c and str(k).isdigit() and int(k) < len(segs):
+                out[(r.get("id"), segs[int(k)][0], segs[int(k)][1])] = c
+    return out
+
+
+def reuse_span_contours(spans, old=None):
+    """--no-contours: the segment contours computed before, without computing any (as reuse_contours does for the
+    headword ones). Per segment: the contour cache entry under the key contours.compute_spans uses (a cached null
+    means no usable pitch), else the contour of the previous shadowing.json for the same reading id, segment start
+    and end and point count. Either must pass contours.span_flags, as computed ones do. Returns (contours,
+    n_from_old, n_held_back)."""
+    cache = contours.load_cache()
+    if old is None:
+        old = previous_span_contours()
+    out, n_old, held = {}, 0, 0
+    for key, (aid, s, e, syl, span) in spans.items():
+        n = contours.points_for(s, e)
+        ck = contours.span_key(aid, s, e, n, syl, span)
+        c, from_old = cache.get(ck), False
+        if ck not in cache:
+            c = old.get((aid, s, e))
+            c, from_old = (c, True) if c and len(c.get("st") or ()) == n else (None, False)
+        if not c:
+            continue
+        if contours.span_flags(c, s, e):
+            held += 1
+            continue
+        out[key] = c
+        n_old += from_old
+    return out, n_old, held
+
+
+def gate_span_contours(cont, spans):
+    """Publish a connected-speech segment contour (span True: every segment but the headword) only if it passes
+    contours.span_gate; headword segments are left as they are. Returns (kept contours, {reason: [keys]}): a key
+    is listed under each reason it fails."""
+    kept, failed = {}, {}
+    for key, c in cont.items():
+        why = contours.span_gate(c) if spans[key][4] else []
+        for f in why:
+            failed.setdefault(f, []).append(key)
+        if not why:
+            kept[key] = c
+    return kept, failed
+
+
+def finish_shadowing(shadow, index, no_contours=False):
+    """After the audio is published: each sentence's gTTS key -> its docs path + measured `dur` (None when TTS
+    failed: the page falls back to a labelled browser voice); each reading gets dur, segments
+    (audio.detect_segments) and model contours of its segments of <= SEGMENT_CONTOUR_MAX_S s, keyed by segment
+    index (contours.points_for: ~25 points per second, at least 40); a segment after the headword gets one only if
+    it passes contours.span_gate (gate_span_contours). Readings whose clip is not published are dropped. Returns
+    notes (logged)."""
+    notes = []
+    for s in shadow["sentences"]:
+        e = index.get(s["audio"]) or {}
+        s["audio"] = e.get("path")
+        s["dur"] = media_duration(moe.DOCS / s["audio"]) if s["audio"] else None
+        if s["audio"] and s["dur"] is None:
+            notes.append(f"sentence {s['id']} {s['zh']}: ffmpeg could not measure {s['audio']}")
+    kept, segcache = [], audio.load_segments()
+    for r in shadow["readings"]:
+        if (index.get(r["id"]) or {}).get("src") != "moe":
+            notes.append(f"reading {r['zh']} {r['id']}: clip not published (not downloaded yet?), left out")
+            continue
+        info = audio.segment_info(audio.MOE_CACHE / f"{r['id']}.ogg", nsyl=len(moe.syllables(r["zhuyin"])),
+                                  cache=segcache)
+        r["dur"], r["segments"] = info["dur"], info["segments"]
+        if info.get("check"):
+            notes.append(f"reading {r['zh']} {r['id']}: no threshold gave plausible segments; kept the -35 dB ones "
+                         f"({len(r['segments'])}), listen to it")
+        if r["dur"] > READING_MAX_S:
+            notes.append(f"reading {r['zh']} {r['id']}: {r['dur']} s, over {READING_MAX_S} s (design §1 c)")
+        kept.append(r)
+    audio.save_segments(segcache)
+    shadow["readings"] = kept
+    spans = reading_spans(kept)
+    old = previous_span_contours()
+    if no_contours:
+        cont, n_old, held = reuse_span_contours(spans, old)
+        how = (f" (--no-contours: none computed; {n_old} from the previous shadowing.json"
+               + (f", {held} held back by contours.span_flags" if held else "") + ")")
+    else:
+        cont, how = contours.compute_spans(spans, log=log), ""
+    n_conn = sum(1 for key in cont if spans[key][4])
+    cont, failed = gate_span_contours(cont, spans)
+    if failed:
+        n_drop = n_conn - sum(1 for key in cont if spans[key][4])
+        eg = sorted({key for ks in failed.values() for key in ks})[:8]
+        msg = (f"{n_drop} of {n_conn} connected-speech segment contours failed the sanity gate (contours.span_gate: "
+               + ", ".join(f"{f} {len(ks)}" for f, ks in sorted(failed.items()))
+               + "), not published (no overlay on those lines)")
+        log(f"  {msg}; e.g. " + " ".join(f"{kept[i]['zh']}:{k}" for i, k in eg))
+        notes.append(msg)
+    for (i, k), c in sorted(cont.items()):
+        kept[i]["contours"][str(k)] = c
+    log(f"  shadowing: {len(shadow['sentences'])} sentences ({sum(1 for s in shadow['sentences'] if s['audio'])} "
+        f"with TTS), {len(kept)} MOE readings, {sum(len(r['segments']) for r in kept)} segments, "
+        f"{len(cont)}/{len(spans)} segment contours{how}")
+    if len(old) >= 20 and len(cont) < 0.8 * len(old):
+        notes.append(f"only {len(cont)} segment contours, the previous shadowing.json had {len(old)} "
+                     f"(the MOE lines of a timed session need one){': run once without --no-contours' if no_contours else ''}")
+    return notes
+
+
+def shadowing_size_mb(shadow):
+    """docs/ megabytes of the shadowing audio (reading clips ogg + mp3, TTS sentences)."""
+    files = [moe.DOCS / "audio" / "moe" / f"{r['id']}.{x}" for r in shadow["readings"] for x in ("ogg", "mp3")]
+    files += [moe.DOCS / s["audio"] for s in shadow["sentences"] if s["audio"]]
+    return sum(f.stat().st_size for f in files if f.exists()) / 1e6
+
+
+def shadowing_summary(shadow, size_mb, notes):
+    """Report lines for build-report.md."""
+    sents, rds = shadow["sentences"], shadow["readings"]
+    durs = sorted(r["dur"] for r in rds if r["dur"])
+    no_tts = [s["zh"] for s in sents if not s["audio"]]
+    return [f"sentences: {len(sents)} (by level: {dict(sorted(Counter(s['level'] for s in sents).items()))}); "
+            f"without TTS audio: {len(no_tts)}" + (" - " + " ".join(no_tts[:10]) if no_tts else ""),
+            f"sentence focus values: {dict(Counter(s['focus'] for s in sents).most_common())}",
+            f"MOE dictionary readings: {len(rds)}" + (f", {durs[0]}-{durs[-1]} s (median {durs[len(durs) // 2]} s)"
+                                                       if durs else ""),
+            f"reading segments: {sum(len(r['segments']) for r in rds)}, with a model contour: "
+            f"{sum(len(r['contours']) for r in rds)} (segments <= {SEGMENT_CONTOUR_MAX_S} s)",
+            f"shadowing audio in docs/: {size_mb:.1f} MB",
+            f"notes: {len(notes)}"] + [f"  - {n}" for n in notes]
+
+
+def publish_license():
+    """Copy the MOE 使用說明 of the 簡編本 (content/moe-license-concised.txt, kept unmodified) byte for byte to
+    docs/data/, where the `license.path` of shadowing.json and tones.json points (§7.5: it travels with any
+    redistributed 簡編本 text or audio). Returns why it could not, or None. The 修訂本's 使用說明 is not published:
+    its data is used only to verify readings and derive spoken tones, none of its text or audio is redistributed."""
+    src = entries.LICENSE_SRC
+    body = src.read_bytes() if src.exists() else b""
+    if "公眾授權使用說明".encode("utf-8") not in body:
+        where = src.relative_to(moe.ROOT).as_posix() if src.is_relative_to(moe.ROOT) else str(src)
+        return f"{where} is missing or is not the MOE 使用說明"
+    dst = moe.DOCS / entries.LICENSE_PATH
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    dst.write_bytes(body)
+    return None
+
+
 MOE_VOICE = "moe-announcer"   # the one human voice so far (the MOE dictionary's announcer)
 
 
@@ -528,6 +805,20 @@ def main():
         write_report(res, None, None, None, status="FAILED (sandhi)", tone_notes=sandhi_fail + tone_notes)
         sys.exit(1)
 
+    why = publish_license()
+    if why:
+        log(f"BUILD FAILED: {why} (§7.5: the MOE 使用說明 must travel with the redistributed 簡編本 text and audio).")
+        write_report(res, None, None, None, status="FAILED (license)", tone_notes=tone_notes)
+        sys.exit(1)
+
+    log("Shadowing content (M3) ...")
+    sentences, shadow_notes = build_sentences(bank)
+    moe_readings, notes = build_moe_readings(bank)
+    shadow_notes += notes
+    shadow = {"sentences": sentences, "readings": moe_readings, "attribution": entries.attribution(),
+              "license": entries.license_info()}
+    log(f"  sentences {len(sentences)}, MOE readings {len(moe_readings)}")
+
     symbols = build_symbols(bank)
     contr = build_contrasts(bank)
     grid = build_syllable_grid(bank)
@@ -537,7 +828,11 @@ def main():
     log("Audio ...")
     index = tag_voices(bank.render(download=not args.no_audio, max_new=args.max_new, log=log))
     finish_sandhi_audio(sandhi, index)
-    tones = {"id_pool": [], "pairs": pairs, "sandhi": sandhi, "readings": readings, "tone_examples": tone_examples}
+    shadow_notes += finish_shadowing(shadow, index, no_contours=args.no_contours)
+    for line in shadow_notes:
+        log(f"  ⚑ {line}")
+    tones = {"id_pool": [], "pairs": pairs, "sandhi": sandhi, "readings": readings, "tone_examples": tone_examples,
+             "license": entries.license_info()}   # its MOE clips are 簡編本 audio (§7.5)
 
     model_ids = {c["id"] for cell in grid["cells"].values() for c in cell.values()}
     model_ids |= {w["id"] for c in contr for s in c["sets"] for w in s if w.get("id")}
@@ -567,13 +862,15 @@ def main():
     write_json("syllables", grid)
     write_json("audio", index)
     write_json("contours", cont)
+    write_json("shadowing", shadow)
     write_json("meta", {"built": TODAY, "moe_version": "簡編本 2026-09-29 export / 修訂本 2026-09-29 export",
                         "counts": {"symbols": len(symbols["symbols"]),
                                    "contrast_words": len({(w["zh"], w["zhuyin"]) for c in contr for s in c["sets"] for w in s}),
                                    "pairs": len(pairs), "syllables": grid["counts"]["toned"],
                                    "moe_clips": sum(1 for e in index.values() if e["src"] == "moe"),
                                    "contours": len(cont), "id_pool": len(tones["id_pool"]),
-                                   "sandhi_items": len(sandhi["items"]), "readings": len(readings)}})
+                                   "sandhi_items": len(sandhi["items"]), "readings": len(readings),
+                                   "sentences": len(shadow["sentences"]), "moe_readings": len(shadow["readings"])}})
 
     words = ([w for c in contr for s in c["sets"] for w in s] + pairs + [e for s in symbols["symbols"] for e in s["examples"]]
              + [e for e in sandhi["items"] if e.get("kind") != "sentence"] + readings)
@@ -584,7 +881,8 @@ def main():
     no_contour = sorted(i for i in tones_ids(tones) if i not in cont)
     size_mb = dir_size(moe.DOCS) / 1e6
     over = size_mb > SIZE_BUDGET_MB
-    log(f"docs/ size: {size_mb:.1f} MB (budget {SIZE_BUDGET_MB} MB)")
+    shadow_mb = shadowing_size_mb(shadow)
+    log(f"docs/ size: {size_mb:.1f} MB (budget {SIZE_BUDGET_MB} MB; shadowing audio {shadow_mb:.1f} MB)")
     if bank.missing:
         log(f"  ! {len(bank.missing)} wanted clips are missing: {', '.join(bank.missing[:10])}")
     log("BUILD FAILED: docs/ is over the size budget" if over else "Done.")
@@ -593,7 +891,8 @@ def main():
                                     "tones": {"id_pool": len(tones["id_pool"]), "pairs": len(pairs),
                                               "core": sum(p["core"] for p in pairs), "sandhi_items": len(sandhi["items"]),
                                               "sentences_no_tts": no_tts, "readings": len(readings),
-                                              "no_contour": no_contour}},
+                                              "no_contour": no_contour},
+                                    "shadowing": shadowing_summary(shadow, shadow_mb, shadow_notes)},
                  status="FAILED (size budget)" if over else "built", tone_notes=tone_notes)
     if over:
         sys.exit(1)
@@ -631,6 +930,8 @@ def write_report(res, index, bank, extra, status="built", tone_notes=()):
                   f"- sandhi sentences without TTS audio: {len(t['sentences_no_tts'])}"
                   + (" - " + " ".join(t["sentences_no_tts"][:10]) if t["sentences_no_tts"] else ""),
                   f"- docs/ size: {extra['size_mb']:.1f} MB (budget {SIZE_BUDGET_MB} MB)"]
+    if extra and extra.get("shadowing"):
+        lines += ["", "## Shadowing (shadowing.json, M3)", ""] + [f"- {x}" for x in extra["shadowing"]]
     lines += ["", "## Log", "", "```", *log_lines, "```", ""]
     (moe.ROOT / "build-report.md").write_text("\n".join(lines), encoding="utf-8")
 

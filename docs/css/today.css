@@ -1,7 +1,8 @@
 /* 今天 Today (js/home.js): the phase line, the stat strip, the pronunciation session (the centre of the page: the
-   start card, the runner with its step indicator and countdowns, the end summary), the routine list, outside-time
-   logging and a smaller page map. Tokens (colours, radius, tap size) come from style.css and drill styles from
-   drills.css; nothing is redefined here. */
+   start card, the runner with its step indicator and countdowns, the end summary), the Shadowing block (M3: today's
+   line, the guided protocol, its result), the routine list with the weekly shadowing dose, outside-time logging and a
+   smaller page map. Tokens (colours, radius, tap size) come from style.css and drill styles from drills.css; nothing
+   is redefined here. */
 
 /* ---------- head: phase line */
 .today-phase { display: flex; align-items: center; gap: 6px 10px; flex-wrap: wrap; margin: 0; color: var(--muted); font-size: 15px; }
@@ -85,11 +86,36 @@
 .summary-rule { margin: -4px 0 12px; font-size: 14px; color: var(--muted); }
 .summary-what { display: block; font-size: 14px; color: var(--muted); }
 
+/* ---------- the Shadowing block (M3): the same card parts as the session above (.session); quieter until it runs */
+.shadow-block:not(.running) { border-color: var(--line); }
+.shadow-today { margin: 10px 0 2px; }
+.shadow-today p { margin: 0; max-width: none; }
+.shadow-today .k { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.again-tag { font-size: 12px; line-height: 1; padding: 3px 7px; border-radius: 6px; border: 1px solid var(--warn); color: var(--ink); background: color-mix(in srgb, var(--warn) 14%, var(--surface)); }
+.shadow-today-line { font-size: 24px; line-height: 2.05; overflow-wrap: anywhere; }
+.shadow-today-line rt { font-size: 12px; }
+.shadow-today-meta { font-size: 14px; color: var(--muted); }
+.shadow-today-meta .badge { margin-right: 2px; }
+.shadow-start { width: 100%; min-height: 52px; margin: 12px 0 4px; font-size: 18px; }
+@media (min-width: 640px) { .shadow-start { width: auto; min-width: 240px; } }
+.shadow-plan { list-style: none; counter-reset: p; display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 2px; padding: 0; }
+.shadow-plan li { counter-increment: p; display: inline-flex; align-items: baseline; gap: 4px; padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface-2); font-size: 13.5px; }
+.shadow-plan li::before { content: counter(p); font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.shadow-plan li .muted { font-size: 12.5px; }
+.shadow-sum li { grid-template-columns: minmax(0, 1fr) auto; }
+.shadow-sum-line { font-size: 18px; color: var(--ink); margin: 0 0 6px; }
+.dose-inline { margin: 0 0 12px; }
+/* inside the running block: the hidden-text note and the self-rating buttons from drills.js shadowLine */
+.shadow-block .shadow-hidden { font-size: 15px; padding-top: 12px; }
+.shadow-block .shadow-rate { gap: 8px; }
+.shadow-block .shadow-rate .btn { min-width: 96px; }
+.shadow-block .shadow-nooverlay { margin: 6px 0; }
+
 /* ---------- the routine (time boxes that add up to the daily minutes) */
 .timebar { display: flex; gap: 3px; height: 8px; margin: 6px 0 4px; }
 .timebar i { display: block; min-width: 6px; border-radius: 3px; background: var(--line); }
-.timebar i.pron { background: color-mix(in srgb, var(--accent) 40%, var(--line)); }
-.timebar i.pron.done { background: var(--accent); }
+.timebar i.pron, .timebar i.shadow { background: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+.timebar i.pron.done, .timebar i.shadow.done { background: var(--accent); }
 .timebar i.soon { background: repeating-linear-gradient(45deg, var(--line) 0 3px, transparent 3px 6px); box-shadow: inset 0 0 0 1px var(--line); }
 .routine { list-style: none; margin: 8px 0 0; padding: 0; }
 .routine li { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 2px 10px; align-items: center; min-height: 52px; padding: 6px 0; border-top: 1px solid var(--line); }
@@ -105,6 +131,19 @@
 .rt-soon { display: block; font-size: 12.5px; color: var(--muted); }
 .check { display: inline-flex; align-items: center; gap: 10px; min-height: var(--tap); cursor: pointer; }
 .check input { width: 22px; height: 22px; margin: 0; accent-color: var(--accent); flex: none; }
+/* the weekly shadowing dose (§6.7: at least 4 × 10 min a week), under the routine */
+.dose { margin: 10px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line); }
+.dose-head { display: flex; align-items: center; justify-content: space-between; gap: 6px 12px; flex-wrap: wrap; margin: 0 0 8px; }
+.dose-head h3 { margin: 0; font-size: 16px; }
+.dose-row { display: grid; grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr) auto; align-items: center; gap: 4px 10px; min-height: 30px; font-size: 14px; }
+.dose-row .k { color: var(--muted); }
+.dose-row .v { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
+.dose-bar { display: block; height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.dose-bar > i { display: block; height: 100%; background: var(--accent); }
+.dose-dots { display: flex; gap: 6px; }
+.dose-dots i { display: block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--accent); }
+.dose-dots i.on { background: var(--accent); }
+.dose-note { margin: 6px 0 0; }
 
 /* ---------- outside time (§8.2) */
 .outside-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
@@ -136,3 +175,4 @@
 
 /* every target on this page is at least 44 px (style.css's .btn.small is 36 px) */
 .routine-card .btn.small, .outside-card .btn.small, .session .btn.small { min-height: var(--tap); min-width: var(--tap); }
+.dose-link { text-decoration: none; }
