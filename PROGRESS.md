@@ -11,7 +11,7 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 | M4 | Plan + placement check + Library (TBCL L1–3, grammar, Taiwan vocab) | ✅ built and QA'd 2026-10-17 (Library seeded with TBCL L1–4 words for the Band B goal) | Placement gives a level and a starting unit |
 | M5 | Units for my level and the next (subagents, verified) | ✅ 16 units for TBCL L1–L2 (placement not taken yet; LEVEL-UP adds the next level) | Units released per the plan |
 | M6 | Advanced tracks + resources + immersion mode | ✅ built and QA'd 2026-10-17 (+ Settings and Credits) | Links checked; reading ladder works |
-| M7 | Polish + accessibility + PUBLISH (ask first) | ⬜ | Live site works on my phone |
+| M7 | Polish + accessibility + PUBLISH (ask first) | 🟡 published 2026-10-17 (https://ameriwan.github.io/mandarin-study/); the final QA review was stopped early to save session credits: run CHECK next | Live site works on my phone |
 
 ## Settings
 
@@ -102,3 +102,7 @@ Build plan: `MASTER_PROMPT.md` §11. One row per milestone; the log below record
 - **Verifier:** walks every zh/zhuyin field shape; particle readings in sentences are ok; sentence segmentation prefers TBCL words over rare MOE-only ones (每天都, 我要買 pass; 銀行 ㄒㄧㄥˊ still fails). 過 ˙ㄍㄨㄛ stays a failure (no source lists it; nothing uses it).
 - **Review:** 29 findings confirmed (two skeptics each), all fixed: wrong readings from mis-split words, 便當 again, 累 ㄌㄟˋ, near-copies of TBCL example sentences rewritten (24 → 0), immersion no longer hides learning content (class `lc-en`), voice / speed / study-days settings applied, license notices and a build-time license check for every published file, unplayable MOE ids published as null (labelled browser voice).
 - **Known:** 6 MOE clips and 9 streamed clips are not on the moedict CDN; their entries use the labelled browser voice.
+
+### 2026-10-17 · PUBLISH
+- Amadeus approved creating the public repo. Created github.com/Ameriwan/mandarin-study (public), pushed main, GitHub Pages from /docs. Live: https://ameriwan.github.io/mandarin-study/ (all pages, data and audio return 200).
+- M7 polish done: proper ㄅ app icons (192, 512, maskable, Apple touch icon), README rewritten. The final §10 QA workflow was stopped before it reported; run `CHECK` to finish it (offline test in headless Edge, axe audit, code review).
